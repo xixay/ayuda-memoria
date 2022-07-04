@@ -75,12 +75,16 @@ $>sudo nano /etc/mongod.conf
 ```console
 $>sudo systemctl restart mongod
 ```
-
-## Crear BD y usuario administrador en MongoDB
-- Entrar a mongo
+## iniciar mongo
+- ver estado mongo
+```console
+$>systemctl status mongod
+```
+- entrar a mongo
 ```console
 $>mongo
 ```
+## Comandos a ejecutar dentro de MongoDB
 - Crear bd
 ```console
 $>use admin
