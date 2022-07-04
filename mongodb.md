@@ -44,7 +44,7 @@ $>mongo --eval 'db.runCommand({ connectionStatus: 1 })'
 ```console
 $>systemctl status mongod
 ```
-## Estados de mongodb----
+## Estados de mongodb
 - iniciar MongoDB
 ```console
 $>sudo systemctl start mongod
