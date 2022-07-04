@@ -27,7 +27,7 @@ $>wget -O- https://www.rabbitmq.com/rabbitmq-release-signing-key.asc | sudo apt-
 ```console
 $>sudo apt-get update -y
 ```
-## Instalar el servidor RabbitMQ----
+## Instalar el servidor RabbitMQ
 - instalar el servidor RabbitMQ
 ```console
 $>sudo apt-get install rabbitmq-server -y
