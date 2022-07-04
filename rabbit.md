@@ -5,7 +5,7 @@ $>sudo apt-get install gnupg2 curl wget apt-transport-https software-properties-
 - descarga e instala el paquete del repositorio Erlang
 $>wget https://packages.erlang-solutions.com/erlang/debian/pool/esl-erlang_23.1.5-1~debian~stretch_amd64.deb
 $>sudo dpkg -i esl-erlang_23.1.5-1~debian~stretch_amd64.deb
-- Si existen errores de dependencia---
+- Si existen errores de dependencia
 --------------------------------------
 1. Instalar con correccion
 ```console
