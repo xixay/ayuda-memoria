@@ -82,4 +82,6 @@ Username=admin
 Password=password
 ```
 ## Para el servicio
+```console
  systemctl stop rabbitmq-server
+ ```
