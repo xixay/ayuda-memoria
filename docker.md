@@ -69,7 +69,7 @@ docker ps -a
 ## Comandos docker
 - renombrar contenedor
 ```console
-docker chasqui nuevoNombre
+docker rename chasqui nuevoNombre
 ```
 - borrar un contenedor
 ```console
