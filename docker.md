@@ -78,7 +78,7 @@ docker rm chasqui
 # Contenedor Postgres
 1. Crear contenedor
 ```console
-sudo docker --name chasqui -e POSTGRES_PASSWORD=postgres -d postgres:13.5
+sudo docker run --name chasqui -e POSTGRES_PASSWORD=postgres -d postgres:13.5
 ```
 2. iniciar contenedor
 ```console
