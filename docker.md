@@ -221,6 +221,11 @@ db.contenido.save({ type: 'tipoContenido1', required: true})
 db.estado.save({ type: 'tipoEstado1', enum: 'PROCESADO', default: 'EN_PROCESO'})
 db.timestamps.save({ createdAt: 'fecha_creacion', updatedAt: 'fecha_modificacion'})
 ```
+
+- ver las colecciones de la tabla
+```console
+show collections
+```
 - muestra un elemento de la base
 ```console
 db.para.find()
