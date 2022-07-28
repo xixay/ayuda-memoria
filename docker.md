@@ -278,3 +278,78 @@ exit
 Username:guest
 Password:guest
 ```
+# Contenedor Kong
+## Crear una red acoplable
+```console
+docker network create kong-net
+```
+##  Vincule Kong a un contenedor PostgreSQL
+1. Crear contenedor postgres
+```console
+sudo docker run --name kong-database --network=kong-net -e "POSTGRES_USER=kong" -e POSTGRES_PASSWORD=kong -d postgres:13.5
+```
+2. iniciar contenedor
+```console
+docker start kong-database
+```
+3. obtener la dirección <IP>, por donde corre el contenedor
+```console
+docker inspect kong-database// out:172.19.0.2
+```
+4. entrar a los comandos de postgres y editar
+```console
+psql -h 172.19.0.2 -U kong -W
+contraseña:kong
+```
+5. crear la base de datos
+```text
+No es necesario ya esta creado
+
+                          Listado de base de datos
+  Nombre   | Dueño | Codificación |  Collate   |   Ctype    |  Privilegios  
+-----------+-------+--------------+------------+------------+---------------
+ kong      | kong  | UTF8         | en_US.utf8 | en_US.utf8 | 
+ postgres  | kong  | UTF8         | en_US.utf8 | en_US.utf8 | 
+ template0 | kong  | UTF8         | en_US.utf8 | en_US.utf8 | =c/kong      +
+           |       |              |            |            | kong=CTc/kong
+ template1 | kong  | UTF8         | en_US.utf8 | en_US.utf8 | =c/kong      +
+           |       |              |            |            | kong=CTc/kong
+
+```
+6. salir
+```console
+\q
+```
+## Prepara tu base de datos
+1. Ejecute las migraciones de la base de datos con un contenedor Kong
+```console
+docker run --rm \
+--network=kong-net \
+-e "KONG_DATABASE=postgres" \
+-e "KONG_PG_HOST=kong-database" \
+-e "KONG_PG_PASSWORD=kong" \
+kong:2.0.3 kong migrations bootstrap
+```
+2. Como confirmacion la ultima linea
+```console
+Database is up-to-date
+```
+## Comenzar Kong
+```console
+docker run -d --name kong \
+--network=kong-net \
+--link kong-database:kong-database \
+-e "KONG_DATABASE=postgres" \
+-e "KONG_PG_HOST=kong-database" \
+-e "KONG_PG_PASSWORD=kong" \
+-e "KONG_PROXY_ACCESS_LOG=/dev/stdout" \
+-e "KONG_ADMIN_ACCESS_LOG=/dev/stdout" \
+-e "KONG_PROXY_ERROR_LOG=/dev/stderr" \
+-e "KONG_ADMIN_ERROR_LOG=/dev/stderr" \
+-e "KONG_ADMIN_LISTEN=0.0.0.0:8001, 0.0.0.0:8444 ssl" \
+-p 8000:8000 \
+-p 8443:8443 \
+-p 8001:8001 \
+-p 8444:8444 \
+kong
+```
