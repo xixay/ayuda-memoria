@@ -1,6 +1,27 @@
-# Docker
-***
-## instalar dependencias
+- [1. Docker](#1-docker)
+  - [1.1. instalar dependencias](#11-instalar-dependencias)
+  - [1.2. Añadir el repositorio docker](#12-añadir-el-repositorio-docker)
+  - [1.3. Instalación de Docker en Debian 11](#13-instalación-de-docker-en-debian-11)
+    - [1.3.1. Permitir el acceso a Docker a usuarios no root](#131-permitir-el-acceso-a-docker-a-usuarios-no-root)
+  - [1.4. Comandos docker](#14-comandos-docker)
+  - [1.5. Contenedor Postgres](#15-contenedor-postgres)
+    - [1.5.1. Comandos de postgres](#151-comandos-de-postgres)
+  - [1.6. Contenedor mongodb](#16-contenedor-mongodb)
+    - [1.6.1. Comandos de mongodb](#161-comandos-de-mongodb)
+  - [1.7. Contenedor rabbit](#17-contenedor-rabbit)
+    - [1.7.1. localhost de rabbit](#171-localhost-de-rabbit)
+  - [1.8. Contenedor Kong](#18-contenedor-kong)
+    - [1.8.1. Crear una red acoplable](#181-crear-una-red-acoplable)
+    - [1.8.2. Vincule Kong a un contenedor PostgreSQL](#182-vincule-kong-a-un-contenedor-postgresql)
+    - [1.8.3. Prepara tu base de datos](#183-prepara-tu-base-de-datos)
+    - [1.8.4. Comenzar Kong](#184-comenzar-kong)
+  - [1.9. Referencia](#19-referencia)
+
+# 1. Docker
+```text
+Docker es un proyecto de código abierto que automatiza el despliegue de aplicaciones dentro de contenedores de software
+```
+## 1.1. instalar dependencias
 1. Ejecuta el siguiente comando apt para instalar nuevas dependencias de paquetes.
 ```console
 apt install \
@@ -10,7 +31,7 @@ apt install \
     gnupg \
     lsb-release
 ```
-## Añadir el repositorio docker
+## 1.2. Añadir el repositorio docker
 1. Ejecuta el siguiente comando para añadir la clave GPG para Docker.
 ```console
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
@@ -25,7 +46,7 @@ echo \
 ```console
 apt update
 ```
-## Instalación de Docker en Debian 11
+## 1.3. Instalación de Docker en Debian 11
 1. Si tu sistema tiene Docker instalado desde el repositorio de Debian anteriormente, debes eliminarlo utilizando el comando que aparece a continuación.
 ```console
 sudo apt remove docker docker-engine docker.io containerd runc
@@ -44,7 +65,7 @@ systemctl is-enabled containerd
 ```console
 systemctl status docker containerd
 ```
-### Permitir el acceso a Docker a usuarios no root
+### 1.3.1. Permitir el acceso a Docker a usuarios no root
 - Crea el nuevo usuario ‘johndoe’ en tu sistema Debian
 ```console
 useradd -m -s /bin/bash johndoe
@@ -66,7 +87,7 @@ docker ps
 ```console
 docker ps -a
 ```
-## Comandos docker
+## 1.4. Comandos docker
 - renombrar contenedor
 ```console
 docker rename chasqui nuevoNombre
@@ -75,7 +96,7 @@ docker rename chasqui nuevoNombre
 ```console
 docker rm chasqui
 ```
-# Contenedor Postgres
+## 1.5. Contenedor Postgres
 1. Crear contenedor
 ```console
 sudo docker run --name chasqui -e POSTGRES_PASSWORD=postgres -d postgres:13.5
@@ -101,7 +122,7 @@ CREATE DATABASE chasqui_db;
 ```console
 \q
 ```
-## Comandos de postgres
+### 1.5.1. Comandos de postgres
 1. entrar a los comandos de postgres y editar
 ```console
 psql -h IP -U postgres -W
@@ -122,7 +143,7 @@ DROP DATABASE chasqui_db;
 ```console
 ALTER DATABASE viejoNombre RENAME TO nuevoNombre;
 ```
-# Contenedor mongodb
+## 1.6. Contenedor mongodb
 1. Crear contenedor
 ```console
 docker run --name mensajeria -d mongo:5.0.9
@@ -164,7 +185,7 @@ db.timestamps.save({ createdAt: 'fecha_creacion', updatedAt: 'fecha_modificacion
 ```console
 exit
 ```
-## Comandos de mongodb
+### 1.6.1. Comandos de mongodb
 1. entrar a los comandos de mongodb y editar
 ```console
 docker exec -it mensajeria mongo
@@ -248,7 +269,7 @@ exit
 ```console
 docker exec -it mensajeria mongo notificaciones_db -u "miusuario" -p "micontrasena"
 ```
-# Contenedor rabbit
+## 1.7. Contenedor rabbit
 1. Crear contenedor
 ```console
 docker run -d -p 5672:5672 -p 15672:15672 \--name rabbitmq-server rabbitmq:management
@@ -271,22 +292,28 @@ root@5c6f76366ffc:/# rabbitmq-plugins list
 ```console
 exit
 ```
-## localhost de rabbit
+### 1.7.1. localhost de rabbit
 1. Portal de administración http://localhost:15672/
 2. usuario y password
 ```text
 Username:guest
 Password:guest
 ```
-# Contenedor Kong
-## Crear una red acoplable
+## 1.8. Contenedor Kong
+### 1.8.1. Crear una red acoplable
 ```console
 docker network create kong-net
 ```
-##  Vincule Kong a un contenedor PostgreSQL
+###  1.8.2. Vincule Kong a un contenedor PostgreSQL
 1. Crear contenedor postgres
 ```console
-sudo docker run --name kong-database --network=kong-net -e "POSTGRES_USER=kong" -e POSTGRES_PASSWORD=kong -d postgres:13.5
+sudo docker run --name kong-database \
+--network=kong-net \
+-p 5555:5432 \
+-e "POSTGRES_USER=kong" \
+-e "POSTGRES_DB=kong" \
+-e POSTGRES_PASSWORD=kongpass \
+-d postgres:13.5
 ```
 2. iniciar contenedor
 ```console
@@ -305,7 +332,7 @@ contraseña:kong
 ```text
 No es necesario ya esta creado
 
-                          Listado de base de datos
+                         Listado de base de datos
   Nombre   | Dueño | Codificación |  Collate   |   Ctype    |  Privilegios  
 -----------+-------+--------------+------------+------------+---------------
  kong      | kong  | UTF8         | en_US.utf8 | en_US.utf8 | 
@@ -314,42 +341,54 @@ No es necesario ya esta creado
            |       |              |            |            | kong=CTc/kong
  template1 | kong  | UTF8         | en_US.utf8 | en_US.utf8 | =c/kong      +
            |       |              |            |            | kong=CTc/kong
+(4 filas)
 
 ```
 6. salir
 ```console
 \q
 ```
-## Prepara tu base de datos
+### 1.8.3. Prepara tu base de datos
 1. Ejecute las migraciones de la base de datos con un contenedor Kong
 ```console
 docker run --rm \
 --network=kong-net \
 -e "KONG_DATABASE=postgres" \
 -e "KONG_PG_HOST=kong-database" \
--e "KONG_PG_PASSWORD=kong" \
-kong:2.0.3 kong migrations bootstrap
+-e "KONG_PG_PASSWORD=kongpass" \
+-e "KONG_PASSWORD=test" \
+kong/kong-gateway:2.8.1.2-alpine kong migrations bootstrap
 ```
 2. Como confirmacion la ultima linea
 ```console
+87 migrations processed
+87 executed
 Database is up-to-date
 ```
-## Comenzar Kong
+### 1.8.4. Comenzar Kong
 ```console
-docker run -d --name kong \
---network=kong-net \
---link kong-database:kong-database \
--e "KONG_DATABASE=postgres" \
--e "KONG_PG_HOST=kong-database" \
--e "KONG_PG_PASSWORD=kong" \
--e "KONG_PROXY_ACCESS_LOG=/dev/stdout" \
--e "KONG_ADMIN_ACCESS_LOG=/dev/stdout" \
--e "KONG_PROXY_ERROR_LOG=/dev/stderr" \
--e "KONG_ADMIN_ERROR_LOG=/dev/stderr" \
--e "KONG_ADMIN_LISTEN=0.0.0.0:8001, 0.0.0.0:8444 ssl" \
--p 8000:8000 \
--p 8443:8443 \
--p 8001:8001 \
--p 8444:8444 \
-kong
+docker run -d --name kong-gateway \
+  --network=kong-net \
+  -e "KONG_DATABASE=postgres" \
+  -e "KONG_PG_HOST=kong-database" \
+  -e "KONG_PG_USER=kong" \
+  -e "KONG_PG_PASSWORD=kongpass" \
+  -e "KONG_PROXY_ACCESS_LOG=/dev/stdout" \
+  -e "KONG_ADMIN_ACCESS_LOG=/dev/stdout" \
+  -e "KONG_PROXY_ERROR_LOG=/dev/stderr" \
+  -e "KONG_ADMIN_ERROR_LOG=/dev/stderr" \
+  -e "KONG_ADMIN_LISTEN=0.0.0.0:8001" \
+  -e "KONG_ADMIN_GUI_URL=http://localhost:8002" \
+  -e KONG_LICENSE_DATA \
+  -p 8000:8000 \
+  -p 8443:8443 \
+  -p 8001:8001 \
+  -p 8444:8444 \
+  -p 8002:8002 \
+  -p 8445:8445 \
+  -p 8003:8003 \
+  -p 8004:8004 \
+  kong/kong-gateway:2.8.1.2-alpine
 ```
+## 1.9. Referencia
+- [Kong-docker](https://docs.konghq.com/gateway/latest/install-and-run/docker/)
