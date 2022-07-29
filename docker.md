@@ -15,6 +15,7 @@
     - [1.8.2. Vincule Kong a un contenedor PostgreSQL](#182-vincule-kong-a-un-contenedor-postgresql)
     - [1.8.3. Prepara tu base de datos](#183-prepara-tu-base-de-datos)
     - [1.8.4. Comenzar Kong](#184-comenzar-kong)
+    - [1.8.5. Verificar su instalación](#185-verificar-su-instalación)
   - [1.9. Referencia](#19-referencia)
 
 # 1. Docker
@@ -389,6 +390,12 @@ docker run -d --name kong-gateway \
   -p 8003:8003 \
   -p 8004:8004 \
   kong/kong-gateway:2.8.1.2-alpine
+```
+### 1.8.5. Verificar su instalación
+```console
+curl -i http://localhost:8001/
+//o mejor
+curl -i -X GET --url http://localhost:8001/services
 ```
 ## 1.9. Referencia
 - [Kong-docker](https://docs.konghq.com/gateway/latest/install-and-run/docker/)
