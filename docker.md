@@ -16,6 +16,7 @@
     - [1.8.3. Prepara tu base de datos](#183-prepara-tu-base-de-datos)
     - [1.8.4. Comenzar Kong](#184-comenzar-kong)
     - [1.8.5. Verificar su instalación](#185-verificar-su-instalación)
+    - [1.8.6 Verificar Kong Manager](#186-verificar-kong-manager)
   - [1.9. Referencia](#19-referencia)
 
 # 1. Docker
@@ -396,6 +397,11 @@ docker run -d --name kong-gateway \
 curl -i http://localhost:8001/
 //o mejor
 curl -i -X GET --url http://localhost:8001/services
+```
+### 1.8.6. Verificar Kong Manager
+- (No disponible en OSS) Verifique que Kong Manager se esté ejecutando accediendo a él usando la URL especificada en KONG_ADMIN_GUI_URL:
+```text
+http://localhost:8002
 ```
 ## 1.9. Referencia
 - [Kong-docker](https://docs.konghq.com/gateway/latest/install-and-run/docker/)
