@@ -328,7 +328,7 @@ docker inspect kong-database// out:172.19.0.2
 4. entrar a los comandos de postgres y editar
 ```console
 psql -h 172.19.0.2 -U kong -W
-contraseña:kong
+contraseña:kongpass
 ```
 5. crear la base de datos
 ```text
