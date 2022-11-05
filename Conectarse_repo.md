@@ -20,6 +20,7 @@ En este caso, como no le he especificado a ssh-keygen ningún nombre adicional, 
 ```console
 dev@dev:~/Documentos/Richard$ git clone git@gitlab.agetic.gob.bo:message/agetic-sms-backend.git
 ```
+- Una ves clonado el repositorio, instalar el repositorio como se indica, y colocar el archivo .env(de configuracion)
 # Referencia
 - [Creando las claves asimétricas](https://juncotic.com/ssh-conectarnos-sin-usar-contrasena/)
 - [Conectarse a repositorios git con SSH](https://juncotic.com/repositorios-git-ssh/)
