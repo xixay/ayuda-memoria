@@ -1,5 +1,5 @@
-# Istalar node
-- Instala cualquier version en linux
+# Instalar node
+- Para cualquier version en linux
 ```console
 nvm install 17.9.1.
 ```
