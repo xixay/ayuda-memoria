@@ -1,4 +1,5 @@
-- Sale
+# Errores
+- Sale en terminal
 ```console
 [09/11/2022 14:49:16] ERROR (HttpExceptionFilter): {
   errorResponse: {
