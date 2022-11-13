@@ -145,6 +145,10 @@ DROP DATABASE chasqui_db;
 ```console
 ALTER DATABASE viejoNombre RENAME TO nuevoNombre;
 ```
+- crear en wsl2 docker
+```console
+docker run --name postgres-example -d -p 2022:5432 -e POSTGRES_PASSWORD=postgres postgres
+```
 ## 1.6. Contenedor mongodb
 1. Crear contenedor
 ```console
