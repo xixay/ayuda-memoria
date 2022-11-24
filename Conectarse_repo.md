@@ -14,7 +14,7 @@ id_rsa  id_rsa.pub  known_hosts
 ssh-rsa AAAAB3NzaC1y.............................../ agetic@dagetic315
 ```
 # Subir clave GitHub
-- Para subir la clave pública a GitHub iniciamos sesión, asemos click en el avatar de nosotros,ingresamos a  Claves SSH (SSh and GPG keys).
+- Para subir la clave pública a GitHub iniciamos sesión, hacemos click en el avatar de nosotros,ingresamos a  Claves SSH (SSh and GPG keys).
 - Esto nos mostrará una lista de las claves subidas con sus correspondientes nombres y datos de uso. En esta sección es posible eliminar las claves públicas ya subidas.
 - Para subir una nueva clave ingresamos en New SSH Key
 - En este formulario tendremos que pegar el contenido completo del archivo de nuestra clave pública [id_rsa.pub(que se encuentra en dev@dev:~/.ssh$ ) a menos que hayamos especificado otro nombre]. También es requerido un nombre para identificar esa clave de otras que puedan estar subidas al servidor. Este nombre puede indicar, por ejemplo, a que dispositivo((defecto dev@dev)) corresponde esta clave, de esta manera una vez que el dispositivo no esté más en uso sabremos cual clave pública ya no es necesaria.
