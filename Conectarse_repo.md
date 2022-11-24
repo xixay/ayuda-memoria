@@ -19,7 +19,13 @@ ssh-rsa AAAAB3NzaC1y.............................../ agetic@dagetic315
 - Para subir una nueva clave ingresamos en New SSH Key
 - En este formulario tendremos que pegar el contenido completo del archivo de nuestra clave pública [id_rsa.pub(que se encuentra en dev@dev:~/.ssh$ ) a menos que hayamos especificado otro nombre]. También es requerido un nombre para identificar esa clave de otras que puedan estar subidas al servidor. Este nombre puede indicar, por ejemplo, a que dispositivo((defecto dev@dev)) corresponde esta clave, de esta manera una vez que el dispositivo no esté más en uso sabremos cual clave pública ya no es necesaria.
 # Obtener dirección SSH del repositorio
-- En GitHub vamos a code dentro del proyecto ingresando en Clone y copiando la dirección correspondiente a SSH(git@github.com:xixay/react-frontend-repositorio.git).
+- En GitHub vamos a code dentro del proyecto ingresando en Clone, luego a SSH
+- Puede que nos diga lo sgte
+```txt
+No tienes ninguna clave SSH pública en tu cuenta de GitHub. Puede agregar una nueva clave pública o intentar clonar este repositorio a través de HTTPS.
+Hacemos click en add a new public key y pegamos el contenido completo del archivo de nuestra clave pública (id_rsa.pub)
+```
+-  Si nos pide crear un public key copiamos la dirección correspondiente a SSH(git@github.com:xixay/react-frontend-repositorio.git).
 ```console
 dev@dev:~/Documentos/Richard$ git clone git@github.com:xixay/react-frontend-repositorio.git
 ```
