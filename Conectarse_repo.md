@@ -3,14 +3,27 @@
 ```console
 dev@dev:~$ ssh-keygen -t rsa
 ```
-- En el directorio de nuestro usuario, /home/dev en mi caso, dispondremos de las claves en un subdirectorio llamado .ssh:
+- En el directorio de nuestro usuario, /home/dev(o carpeta personal) en mi caso, dispondremos de las claves en un subdirectorio llamado .ssh (si no se visualiza en linux, apretar ctrl+h)
 ```console
 dev@dev:~$ ls .ssh/
 id_rsa  id_rsa.pub  known_hosts
 ```
-```text
-En este caso, como no le he especificado a ssh-keygen ningún nombre adicional, por defecto creó las claves con los nombres de id_rsa (privada) e id_rsa.pub (pública).
+- En este caso, como no le he especificado a ssh-keygen ningún nombre adicional, por defecto creó las claves con los nombres de id_rsa (privada) e id_rsa.pub (pública).
+- Copiar el contenido del archivo id_rsa.pub
+```txt
+ssh-rsa AAAAB3NzaC1y.............................../ agetic@dagetic315
 ```
+# Subir clave GitHub
+- Para subir la clave pública a GitHub iniciamos sesión, asemos click en el avatar de nosotros,ingresamos a  Claves SSH (SSh and GPG keys).
+- Esto nos mostrará una lista de las claves subidas con sus correspondientes nombres y datos de uso. En esta sección es posible eliminar las claves públicas ya subidas.
+- Para subir una nueva clave ingresamos en New SSH Key
+- En este formulario tendremos que pegar el contenido completo del archivo de nuestra clave pública [id_rsa.pub(que se encuentra en dev@dev:~/.ssh$ ) a menos que hayamos especificado otro nombre]. También es requerido un nombre para identificar esa clave de otras que puedan estar subidas al servidor. Este nombre puede indicar, por ejemplo, a que dispositivo((defecto dev@dev)) corresponde esta clave, de esta manera una vez que el dispositivo no esté más en uso sabremos cual clave pública ya no es necesaria.
+# Obtener dirección SSH del repositorio
+- En GitHub vamos a code dentro del proyecto ingresando en Clone y copiando la dirección correspondiente a SSH(git@github.com:xixay/react-frontend-repositorio.git).
+```console
+dev@dev:~/Documentos/Richard$ git clone git@github.com:xixay/react-frontend-repositorio.git
+```
+- Una ves clonado el repositorio, instalar el repositorio como se indica, y colocar el archivo .env(de configuracion)
 # Subir clave GitLab
 - Para subir la clave pública a GitLab iniciamos sesión e ingresamos a la sección Preferencias en el menú superior derecho. Una vez adentro en el menú izquierdo ingresamos a  Claves SSH.
 - Esta sección nos mostrará un formulario donde tendremos que pegar el contenido completo del archivo de nuestra clave pública (id_rsa.pub que se encuentra en dev@dev:~/.ssh$ ). También es requerido un nombre para identificar esa clave de otras que puedan estar subidas al servidor. Este nombre puede indicar, por ejemplo, a que dispositivo((defecto dev@dev)) corresponde esta clave, de esta manera una vez que el dispositivo no esté más en uso sabremos cual clave pública ya no es necesaria.
