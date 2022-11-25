@@ -1,5 +1,12 @@
-# Rabbit
-## Añadir el repositorio de RabbitMQ
+- [1. Rabbit](#1-rabbit)
+  - [1.1. Añadir el repositorio de RabbitMQ](#11-añadir-el-repositorio-de-rabbitmq)
+  - [1.2. Instalar el servidor RabbitMQ](#12-instalar-el-servidor-rabbitmq)
+  - [1.3. Iniciar](#13-iniciar)
+  - [1.4. Acceder al panel de control de RabbitMQ](#14-acceder-al-panel-de-control-de-rabbitmq)
+  - [1.5. Para el servicio](#15-para-el-servicio)
+
+# 1. Rabbit
+## 1.1. Añadir el repositorio de RabbitMQ
 - instala todas las dependencias
 $>sudo apt-get install gnupg2 curl wget apt-transport-https software-properties-common -y
 - descarga e instala el paquete del repositorio Erlang
@@ -27,7 +34,7 @@ $>wget -O- https://www.rabbitmq.com/rabbitmq-release-signing-key.asc | sudo apt-
 ```console
 $>sudo apt-get update -y
 ```
-## Instalar el servidor RabbitMQ
+## 1.2. Instalar el servidor RabbitMQ
 - instalar el servidor RabbitMQ
 ```console
 $>sudo apt-get install rabbitmq-server -y
@@ -52,7 +59,7 @@ $>systemctl status rabbitmq-server
 ```console
 $>q
 ```
-## Iniciar
+## 1.3. Iniciar
 - crear usuario "admin"
 ```console
 $>sudo rabbitmqctl add_user admin password
@@ -69,7 +76,7 @@ $>sudo rabbitmqctl set_permissions -p / admin ".*" ".*" ".*"
 ```console
 $>sudo rabbitmq-plugins enable rabbitmq_management
 ```
-## Acceder al panel de control de RabbitMQ
+## 1.4. Acceder al panel de control de RabbitMQ
 - la consola web de RabbitMQ escucha en el puerto 15672
 ```console
 $>ss -antpl | grep 15672
@@ -81,7 +88,7 @@ http://localhost:15672/
 Username=admin
 Password=password
 ```
-## Para el servicio
+## 1.5. Para el servicio
 ```console
  systemctl stop rabbitmq-server
  ```

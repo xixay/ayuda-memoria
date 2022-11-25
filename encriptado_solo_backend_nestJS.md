@@ -1,4 +1,7 @@
-# Crypto
+- [1. Crypto](#1-crypto)
+- [2. Referencia](#2-referencia)
+
+# 1. Crypto
 - Instalar
 ```console
 npm install crypto-js
@@ -17,5 +20,5 @@ const codificado = CryptoJS.AES.encrypt(contrasena, key).toString()
 const bytes = CryptoJS.AES.decrypt(contrasenaCodificada, key)
 const decodificado = bytes.toString(CryptoJS.enc.Utf8)
 ```
-# Referencia
+# 2. Referencia
 - Para mas detalles visitar [crypto-js](https://www.npmjs.com/package/crypto-js)

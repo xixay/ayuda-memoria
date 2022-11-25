@@ -1,4 +1,6 @@
-# Crear componente
+- [1. Crear componente en proyecto base react mui IMANOL](#1-crear-componente-en-proyecto-base-react-mui-imanol)
+
+# 1. Crear componente en proyecto base react mui IMANOL
 - Usar el codigo base de abajo, llamarlo ejm(FormCheckbox.tsx), ubicado common/components/ui/form
 ```tsx
 import TextField from '@mui/material/TextField'

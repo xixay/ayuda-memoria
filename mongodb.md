@@ -1,6 +1,14 @@
-# Mongo db
+- [1. Mongo db](#1-mongo-db)
+  - [1.1. Instalar](#11-instalar)
+  - [1.2. Estados de mongodb](#12-estados-de-mongodb)
+  - [1.3. Configurar la seguridad de MongoDB](#13-configurar-la-seguridad-de-mongodb)
+  - [1.4. iniciar mongo](#14-iniciar-mongo)
+  - [1.5. Comandos a ejecutar dentro de MongoDB](#15-comandos-a-ejecutar-dentro-de-mongodb)
+  - [1.6. Actualizacion y desinstalacion](#16-actualizacion-y-desinstalacion)
+
+# 1. Mongo db
 ***
-## Instalar
+## 1.1. Instalar
 - Actualizar
 ```console
 $>sudo apt update && sudo apt upgrade -y
@@ -44,7 +52,7 @@ $>mongo --eval 'db.runCommand({ connectionStatus: 1 })'
 ```console
 $>systemctl status mongod
 ```
-## Estados de mongodb
+## 1.2. Estados de mongodb
 - iniciar MongoDB
 ```console
 $>sudo systemctl start mongod
@@ -65,7 +73,7 @@ $>sudo systemctl disable mongod
 ```console
 $>sudo systemctl restart mongod
 ```
-## Configurar la seguridad de MongoDB
+## 1.3. Configurar la seguridad de MongoDB
 - entrar a config
 ```console
 $>sudo nano /etc/mongod.conf
@@ -75,7 +83,7 @@ $>sudo nano /etc/mongod.conf
 ```console
 $>sudo systemctl restart mongod
 ```
-## iniciar mongo
+## 1.4. iniciar mongo
 - ver estado mongo
 ```console
 $>systemctl status mongod
@@ -84,7 +92,7 @@ $>systemctl status mongod
 ```console
 $>mongo
 ```
-## Comandos a ejecutar dentro de MongoDB
+## 1.5. Comandos a ejecutar dentro de MongoDB
 - Crear bd
 ```console
 $>use admin
@@ -112,7 +120,7 @@ $>quit()
 ```console
 $>quit()
 ```
-## Actualizacion y desinstalacion
+## 1.6. Actualizacion y desinstalacion
 - actualizar MongoDB
 ```console
 $>sudo apt update && sudo apt upgrade
