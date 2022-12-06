@@ -16,9 +16,8 @@
     - [1.8.3. Prepara tu base de datos](#183-prepara-tu-base-de-datos)
     - [1.8.4. Comenzar Kong](#184-comenzar-kong)
     - [1.8.5. Verificar su instalación](#185-verificar-su-instalación)
-    - [1.8.6 Verificar Kong Manager](#186-verificar-kong-manager)
+    - [1.8.6. Verificar Kong Manager](#186-verificar-kong-manager)
   - [1.9. Referencia](#19-referencia)
-
 # 1. Docker
 ```text
 Docker es un proyecto de código abierto que automatiza el despliegue de aplicaciones dentro de contenedores de software
@@ -99,35 +98,91 @@ docker rename chasqui nuevoNombre
 docker rm chasqui
 ```
 ## 1.5. Contenedor Postgres
-1. Crear contenedor
+1. Ver los puertos
 ```console
-sudo docker run --name chasqui -e POSTGRES_PASSWORD=postgres -d postgres:13.5
+sudo apt install net-tools
+sudo netstat -tpln
 ```
-2. iniciar contenedor
+2. Elimina versiones anteriores postgres
+```console
+  dpkg -l | grep postgres
+  sudo apt-get --purge remove \
+  postgresql \
+  pgdg-keyring \
+  postgresql-13 \
+  postgresql-14 \
+  postgresql-15 \
+  postgresql-client-13 \
+  postgresql-client-14 \
+  postgresql-client-15 \
+  postgresql-client-common \
+  postgresql-common
+```
+3. Ver si siguen instalados los postgres
+  ```console
+  sudo service postgresql status
+  ```
+4. Crear contenedor
+```console
+sudo docker run   --name chasqui   -e POSTGRES_PASSWORD=postgres   -d   -p 7777:5432   postgres:14.6
+```
+5. Comprobar los puertos
+```console
+sudo netstat -tpln
+```
+6. iniciar contenedor
 ```console
 docker start chasqui
 ```
-3. obtener la dirección <IP>, por donde corre el contenedor
+7. obtener la dirección <IP>, por donde corre el contenedor(linux)
 ```console
 docker inspect chasqui
 ```
-4. entrar a los comandos de postgres y editar
+8. ingresar como root
 ```console
-psql -h IP -U postgres -W
-contraseña:postgres
+sudo docker exec -it chasqui bash
 ```
-5. crear la base de datos
+9.  entrar a los comandos de postgres y editar
 ```console
+root@39d084e50e74:/# psql -U postgres(luego se ejecuta postgres)
+```
+10. crear la base de datos
+```psql
 CREATE DATABASE chasqui_db;
 ```
-6. salir
-```console
+11. Conectarse BD
+```psql
+\c chasqui_db;
+```
+12. Crear esquemas si es que necesita(opcional)
+```psql
+create schema usuarios;
+```
+13. Salir postgres
+```psql
 \q
+```
+14. Salir root
+```console
+ctrl+d
+```
+15. Conectarse DBeaver
+```txt
+- Ver la IP y puerto (linux)
+docker inspect chasqui(172.17.0.2) tanbien colocar en .env
+Host=172.17.0.2
+port=5432
+Database=chasqui_db
+- Ver la IP y puerto (windows wsl2) tambien colocar en el .env
+Host=localhost
+port=7777
+Database=chasqui_db
 ```
 ### 1.5.1. Comandos de postgres
 1. entrar a los comandos de postgres y editar
 ```console
-psql -h IP -U postgres -W
+sudo docker exec -it chasqui bash
+root@39d084e50e74:/# psql -U postgres
 ```
 - ver las bases de datos en este contenedor
 ```console
@@ -410,3 +465,4 @@ http://localhost:8002
 ## 1.9. Referencia
 - [docker](https://howtoforge.es/como-instalar-docker-en-debian-11/)
 - [Kong-docker](https://docs.konghq.com/gateway/latest/install-and-run/docker/)
+- [instaladores buen tutorial](https://elartedelcodigo.com/tutorials/docker/instalacion-de-docker)
