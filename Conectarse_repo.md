@@ -171,3 +171,4 @@ git remote -v
 - [Cambiar el remoto](https://unipython.com/cambiar-url-remota-en-git/)
 - [Cambiar el remoto pag Github](https://docs.github.com/es/get-started/getting-started-with-git/managing-remote-repositories#changing-a-remote-repositorys-url)
 - [Crear claves asimetricas en windows](https://www.youtube.com/watch?v=g0ZV-neSM7E)
+- [Crear claves asimetricas en wsl2 de windows](https://m.youtube.com/watch?v=Xi_2Cu8z2d0)
