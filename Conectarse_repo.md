@@ -4,13 +4,14 @@
 - [4. Subir clave ssh creada en windows a GitHub](#4-subir-clave-ssh-creada-en-windows-a-github)
 - [5. Creando Claves asimetricas ssh en wsl2 de windows](#5-creando-claves-asimetricas-ssh-en-wsl2-de-windows)
 - [6. Subir clave ssh creada en wsl2 de windows a GitHub](#6-subir-clave-ssh-creada-en-wsl2-de-windows-a-github)
-- [7. Obtener dirección SSH del repositorio en GitHub](#7-obtener-dirección-ssh-del-repositorio-en-github)
-- [8. Subir clave GitLab](#8-subir-clave-gitlab)
-- [9. Obtener dirección SSH del repositorio](#9-obtener-dirección-ssh-del-repositorio)
-- [10. Cambiar el remoto( https a ssh, o viceversa)](#10-cambiar-el-remoto-https-a-ssh-o-viceversa)
-  - [10.1. Ver si esta en https o ssh](#101-ver-si-esta-en-https-o-ssh)
-  - [10.2. Cambiar a ssh](#102-cambiar-a-ssh)
-- [11. Referencia](#11-referencia)
+- [7. Subir clave ssh creada en wsl2 de windows a GitLab](#7-subir-clave-ssh-creada-en-wsl2-de-windows-a-gitlab)
+- [8. Obtener dirección SSH del repositorio en GitHub](#8-obtener-dirección-ssh-del-repositorio-en-github)
+- [9. Subir clave GitLab](#9-subir-clave-gitlab)
+- [10. Obtener dirección SSH del repositorio](#10-obtener-dirección-ssh-del-repositorio)
+- [11. Cambiar el remoto( https a ssh, o viceversa)](#11-cambiar-el-remoto-https-a-ssh-o-viceversa)
+  - [11.1. Ver si esta en https o ssh](#111-ver-si-esta-en-https-o-ssh)
+  - [11.2. Cambiar a ssh](#112-cambiar-a-ssh)
+- [12. Referencia](#12-referencia)
 
 # 1. Creando Claves asimetricas ssh linux
 - Crear nuestra clave
@@ -123,7 +124,11 @@ git config --global user.email "xixay2013@gmail.com"
 - Esto nos mostrará una lista de las claves subidas con sus correspondientes nombres y datos de uso. En esta sección es posible eliminar las claves públicas ya subidas.
 - Para subir una nueva clave ingresamos en New SSH Key
 - En este formulario tendremos que pegar el contenido completo del archivo de nuestra clave pública id_ed25519.pub(que se encuentra en .ssh). También es requerido un nombre para identificar esa clave de otras que puedan estar subidas al servidor. Este nombre puede indicar, por ejemplo, a que dispositivo(compuXixayWsl2) corresponde esta clave, de esta manera una vez que el dispositivo no esté más en uso sabremos cual clave pública ya no es necesaria.
-# 7. Obtener dirección SSH del repositorio en GitHub
+# 7. Subir clave ssh creada en wsl2 de windows a GitLab
+- Para subir la clave pública a GitHub iniciamos sesión en https://gitlab.com/users/sign_in, hacemos click en el avatar de nosotros, despues en preferencias ingresamos a  Claves SSH.
+- Esto nos mostrará una lista de las claves subidas con sus correspondientes nombres y datos de uso. En esta sección es posible eliminar las claves públicas ya subidas.
+- Para subir una nueva clave pegamos el contenido completo del archivo de nuestra clave pública id_ed25519.pub(que se encuentra en .ssh). También es requerido un Title para identificar esa clave de otras que puedan estar subidas al servidor. Este nombre puede indicar, por ejemplo, a que dispositivo(compuXixayWsl2) corresponde esta clave, de esta manera una vez que el dispositivo no esté más en uso sabremos cual clave pública ya no es necesaria.
+# 8. Obtener dirección SSH del repositorio en GitHub
 - En GitHub vamos a code dentro del proyecto ingresando en Clone, luego a SSH
 - Puede que nos diga lo sgte
 ```txt
@@ -135,18 +140,18 @@ Hacemos click en add a new public key y pegamos el contenido completo del archiv
 dev@dev:~/Documentos/Richard$ git clone git@github.com:xixay/react-frontend-repositorio.git
 ```
 - Una ves clonado el repositorio, instalar el repositorio como se indica, y colocar el archivo .env(de configuracion)
-# 8. Subir clave GitLab
+# 9. Subir clave GitLab
 - Para subir la clave pública a GitLab iniciamos sesión e ingresamos a la sección Preferencias en el menú superior derecho. Una vez adentro en el menú izquierdo ingresamos a  Claves SSH.
 - Esta sección nos mostrará un formulario donde tendremos que pegar el contenido completo del archivo de nuestra clave pública (id_rsa.pub que se encuentra en dev@dev:~/.ssh$ ). También es requerido un nombre para identificar esa clave de otras que puedan estar subidas al servidor. Este nombre puede indicar, por ejemplo, a que dispositivo((defecto dev@dev)) corresponde esta clave, de esta manera una vez que el dispositivo no esté más en uso sabremos cual clave pública ya no es necesaria.
 - Una opción extra que ofrece GitLab con respecto a Github es la de seleccionar una fecha de expiración para cada clave de manera que se vuelvan automáticamente invalidas después de esta fecha.
-# 9. Obtener dirección SSH del repositorio
+# 10. Obtener dirección SSH del repositorio
 - En GitLab seguimos un proceso similar dentro del proyecto ingresando en Clone y copiando la dirección correspondiente a SSH(git@gitlab.agetic.gob.bo:message/agetic-sms-backend.git).
 ```console
 dev@dev:~/Documentos/Richard$ git clone git@gitlab.agetic.gob.bo:message/agetic-sms-backend.git
 ```
 - Una ves clonado el repositorio, instalar el repositorio como se indica, y colocar el archivo .env(de configuracion)
-# 10. Cambiar el remoto( https a ssh, o viceversa)
-## 10.1. Ver si esta en https o ssh
+# 11. Cambiar el remoto( https a ssh, o viceversa)
+## 11.1. Ver si esta en https o ssh
 - Ejecutar
 ```console
 git remote -v
@@ -156,7 +161,7 @@ git remote -v
 origin	https://github.com/xixay/json_server_repositorio.git (fetch)
 origin	https://github.com/xixay/json_server_repositorio.git (push)
 ```
-## 10.2. Cambiar a ssh
+## 11.2. Cambiar a ssh
 - Ejecutar, colocando la nueva url en ssh(estas empiezan por git@github.com:)
 ```console
 git remote set-url origin git@github.com:xixay/json_server_repositorio.git
@@ -165,7 +170,7 @@ git remote set-url origin git@github.com:xixay/json_server_repositorio.git
 ```console
 git remote -v
 ```
-# 11. Referencia
+# 12. Referencia
 - [Creando las claves asimétricas](https://juncotic.com/ssh-conectarnos-sin-usar-contrasena/)
 - [Conectarse a repositorios git con SSH](https://juncotic.com/repositorios-git-ssh/)
 - [Cambiar el remoto](https://unipython.com/cambiar-url-remota-en-git/)
