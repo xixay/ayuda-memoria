@@ -1,28 +1,108 @@
-- [1. Docker](#1-docker)
-  - [1.1. instalar dependencias](#11-instalar-dependencias)
-  - [1.2. Añadir el repositorio docker](#12-añadir-el-repositorio-docker)
-  - [1.3. Instalación de Docker en Debian 11](#13-instalación-de-docker-en-debian-11)
-    - [1.3.1. Permitir el acceso a Docker a usuarios no root](#131-permitir-el-acceso-a-docker-a-usuarios-no-root)
-  - [1.4. Comandos docker](#14-comandos-docker)
-  - [1.5. Contenedor Postgres](#15-contenedor-postgres)
-    - [1.5.1. Comandos de postgres](#151-comandos-de-postgres)
-  - [1.6. Contenedor mongodb](#16-contenedor-mongodb)
-    - [1.6.1. Comandos de mongodb](#161-comandos-de-mongodb)
-  - [1.7. Contenedor rabbit](#17-contenedor-rabbit)
-    - [1.7.1. localhost de rabbit](#171-localhost-de-rabbit)
-  - [1.8. Contenedor Kong](#18-contenedor-kong)
-    - [1.8.1. Crear una red acoplable](#181-crear-una-red-acoplable)
-    - [1.8.2. Vincule Kong a un contenedor PostgreSQL](#182-vincule-kong-a-un-contenedor-postgresql)
-    - [1.8.3. Prepara tu base de datos](#183-prepara-tu-base-de-datos)
-    - [1.8.4. Comenzar Kong](#184-comenzar-kong)
-    - [1.8.5. Verificar su instalación](#185-verificar-su-instalación)
-    - [1.8.6. Verificar Kong Manager](#186-verificar-kong-manager)
-  - [1.9. Referencia](#19-referencia)
-# 1. Docker
+- [1. Definición](#1-definición)
+- [2. Instalar Docker 1ra](#2-instalar-docker-1ra)
+  - [2.1. Instalar Docker con el Repositorio apt](#21-instalar-docker-con-el-repositorio-apt)
+  - [2.2. Probar si funciona](#22-probar-si-funciona)
+  - [2.3. Ejecutar el comando Docker sin sudo (opcional)](#23-ejecutar-el-comando-docker-sin-sudo-opcional)
+- [3. Instalar Docker 2da Forma](#3-instalar-docker-2da-forma)
+  - [3.1. instalar dependencias](#31-instalar-dependencias)
+  - [3.2. Añadir el repositorio docker](#32-añadir-el-repositorio-docker)
+  - [3.3. Instalación de Docker en Debian 11](#33-instalación-de-docker-en-debian-11)
+    - [3.3.1. Permitir el acceso a Docker a usuarios no root](#331-permitir-el-acceso-a-docker-a-usuarios-no-root)
+- [4. Comandos docker](#4-comandos-docker)
+- [5. Contenedor Postgres](#5-contenedor-postgres)
+  - [5.1. Comandos de postgres](#51-comandos-de-postgres)
+- [6. Contenedor mongodb](#6-contenedor-mongodb)
+  - [6.1. Comandos de mongodb](#61-comandos-de-mongodb)
+- [7. Contenedor rabbit](#7-contenedor-rabbit)
+  - [7.1. localhost de rabbit](#71-localhost-de-rabbit)
+- [8. Contenedor Kong](#8-contenedor-kong)
+  - [8.1. Crear una red acoplable](#81-crear-una-red-acoplable)
+  - [8.2. Vincule Kong a un contenedor PostgreSQL](#82-vincule-kong-a-un-contenedor-postgresql)
+  - [8.3. Prepara tu base de datos](#83-prepara-tu-base-de-datos)
+  - [8.4. Comenzar Kong](#84-comenzar-kong)
+  - [8.5. Verificar su instalación](#85-verificar-su-instalación)
+  - [8.6. Verificar Kong Manager](#86-verificar-kong-manager)
+- [9. Referencia](#9-referencia)
+# 1. Definición
 ```text
 Docker es un proyecto de código abierto que automatiza el despliegue de aplicaciones dentro de contenedores de software
 ```
-## 1.1. instalar dependencias
+# 2. Instalar Docker 1ra
+## 2.1. Instalar Docker con el Repositorio apt
+- Actualizar la lista de paquetes
+```console
+sudo apt update
+sudo apt install ca-certificates curl gnupg lsb-release
+```
+- Registrar el llavero GPG de Docker con apt
+```console
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+```
+- Añadir la fuente del paquete Docker a tu sistema
+```console
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
+- Actualizar la lista de paquetes
+```console
+sudo apt update
+```
+- Añadir los componentes de dockler a tu sistema
+```console
+sudo apt install docker-ce docker-ce-cli containerd.io
+```
+## 2.2. Probar si funciona
+```console
+sudo docker run hello-world
+```
+- Vera al go parecido
+```txt
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+```
+## 2.3. Ejecutar el comando Docker sin sudo (opcional)
+- Esto para evitar colocar sudo cada ves
+- Asegúrate de que el grupo de usuarios docker existe:
+```console
+sudo groupadd docker
+```
+- Después, añádate a ti mismo:
+```console
+sudo usermod -aG docker ${USER}
+```
+- Para aplicar la nueva membresía de grupo, cierre la sesión del servidor y vuelva a iniciarla o escriba lo siguiente
+```console
+su - ${USER}
+```
+- Si debe agregar al grupo docker un usuario con el que no inició sesión, declare dicho nombre de usuario de forma explícita usando lo siguiente
+```console
+sudo usermod -aG docker username
+```
+- Probar sin sudo
+```console
+docker run hello-world
+```
+# 3. Instalar Docker 2da Forma
+## 3.1. instalar dependencias
 1. Ejecuta el siguiente comando apt para instalar nuevas dependencias de paquetes.
 ```console
 apt install \
@@ -32,7 +112,7 @@ apt install \
     gnupg \
     lsb-release
 ```
-## 1.2. Añadir el repositorio docker
+## 3.2. Añadir el repositorio docker
 1. Ejecuta el siguiente comando para añadir la clave GPG para Docker.
 ```console
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
@@ -47,7 +127,7 @@ echo \
 ```console
 apt update
 ```
-## 1.3. Instalación de Docker en Debian 11
+## 3.3. Instalación de Docker en Debian 11
 1. Si tu sistema tiene Docker instalado desde el repositorio de Debian anteriormente, debes eliminarlo utilizando el comando que aparece a continuación.
 ```console
 sudo apt remove docker docker-engine docker.io containerd runc
@@ -66,7 +146,7 @@ systemctl is-enabled containerd
 ```console
 systemctl status docker containerd
 ```
-### 1.3.1. Permitir el acceso a Docker a usuarios no root
+### 3.3.1. Permitir el acceso a Docker a usuarios no root
 - Crea el nuevo usuario ‘johndoe’ en tu sistema Debian
 ```console
 useradd -m -s /bin/bash johndoe
@@ -88,7 +168,7 @@ docker ps
 ```console
 docker ps -a
 ```
-## 1.4. Comandos docker
+# 4. Comandos docker
 - renombrar contenedor
 ```console
 docker rename chasqui nuevoNombre
@@ -97,7 +177,7 @@ docker rename chasqui nuevoNombre
 ```console
 docker rm chasqui
 ```
-## 1.5. Contenedor Postgres
+# 5. Contenedor Postgres
 1. Ver los puertos
 ```console
 sudo apt install net-tools
@@ -178,7 +258,7 @@ Host=localhost
 port=7777
 Database=chasqui_db
 ```
-### 1.5.1. Comandos de postgres
+## 5.1. Comandos de postgres
 1. entrar a los comandos de postgres y editar
 ```console
 sudo docker exec -it chasqui bash
@@ -204,7 +284,7 @@ ALTER DATABASE viejoNombre RENAME TO nuevoNombre;
 ```console
 docker run --name postgres-example -d -p 2022:5432 -e POSTGRES_PASSWORD=postgres postgres
 ```
-## 1.6. Contenedor mongodb
+# 6. Contenedor mongodb
 1. Crear contenedor
 ```console
 docker run --name mensajeria -d mongo:5.0.9
@@ -246,7 +326,7 @@ db.timestamps.save({ createdAt: 'fecha_creacion', updatedAt: 'fecha_modificacion
 ```console
 exit
 ```
-### 1.6.1. Comandos de mongodb
+## 6.1. Comandos de mongodb
 1. entrar a los comandos de mongodb y editar
 ```console
 docker exec -it mensajeria mongo
@@ -330,7 +410,7 @@ exit
 ```console
 docker exec -it mensajeria mongo notificaciones_db -u "miusuario" -p "micontrasena"
 ```
-## 1.7. Contenedor rabbit
+# 7. Contenedor rabbit
 1. Crear contenedor
 ```console
 docker run -d -p 5672:5672 -p 15672:15672 \--name rabbitmq-server rabbitmq:management
@@ -353,19 +433,19 @@ root@5c6f76366ffc:/# rabbitmq-plugins list
 ```console
 exit
 ```
-### 1.7.1. localhost de rabbit
+## 7.1. localhost de rabbit
 1. Portal de administración http://localhost:15672/
 2. usuario y password
 ```text
 Username:guest
 Password:guest
 ```
-## 1.8. Contenedor Kong
-### 1.8.1. Crear una red acoplable
+# 8. Contenedor Kong
+## 8.1. Crear una red acoplable
 ```console
 docker network create kong-net
 ```
-###  1.8.2. Vincule Kong a un contenedor PostgreSQL
+##  8.2. Vincule Kong a un contenedor PostgreSQL
 1. Crear contenedor postgres
 ```console
 sudo docker run --name kong-database \
@@ -409,7 +489,7 @@ No es necesario ya esta creado
 ```console
 \q
 ```
-### 1.8.3. Prepara tu base de datos
+## 8.3. Prepara tu base de datos
 1. Ejecute las migraciones de la base de datos con un contenedor Kong
 ```console
 docker run --rm \
@@ -426,7 +506,7 @@ kong/kong-gateway:2.8.1.2-alpine kong migrations bootstrap
 87 executed
 Database is up-to-date
 ```
-### 1.8.4. Comenzar Kong
+## 8.4. Comenzar Kong
 ```console
 docker run -d --name kong-gateway \
   --network=kong-net \
@@ -451,18 +531,20 @@ docker run -d --name kong-gateway \
   -p 8004:8004 \
   kong/kong-gateway:2.8.1.2-alpine
 ```
-### 1.8.5. Verificar su instalación
+## 8.5. Verificar su instalación
 ```console
 curl -i http://localhost:8001/
 //o mejor
 curl -i -X GET --url http://localhost:8001/services
 ```
-### 1.8.6. Verificar Kong Manager
+## 8.6. Verificar Kong Manager
 - (No disponible en OSS) Verifique que Kong Manager se esté ejecutando accediendo a él usando la URL especificada en KONG_ADMIN_GUI_URL:
 ```text
 http://localhost:8002
 ```
-## 1.9. Referencia
+# 9. Referencia
 - [docker](https://howtoforge.es/como-instalar-docker-en-debian-11/)
+- [Cómo instalar y usar Docker en Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-es)
+- [Instalar Docker Engine en Ubuntu](https://kinsta.com/es/blog/instalar-docker-ubuntu/)
 - [Kong-docker](https://docs.konghq.com/gateway/latest/install-and-run/docker/)
 - [instaladores buen tutorial](https://elartedelcodigo.com/tutorials/docker/instalacion-de-docker)
