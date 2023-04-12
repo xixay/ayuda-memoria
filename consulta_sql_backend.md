@@ -1,5 +1,5 @@
 ## BACKEND
-- Metodo
+- Metodo para obtener la lista por aun_codigo_supervisor
 ```ts
   @LoggerMethod
   async findAll(query: GetAllAutoridadesFuncionalesDto, manager: EntityManager) {
@@ -26,11 +26,11 @@
     }
   }
 ```
-- Url
+- Url que envia el get por aun_codigo_supervisado=64
 ```txt
 http://localhost:7000/autoridades-funcionales?aun_codigo_supervisado=(64)
 ```
-- obtiene
+- La respuesta que se obtiene en el backend
 ```json
 {
   "codigo": 0,
@@ -78,7 +78,8 @@ http://localhost:7000/autoridades-funcionales?aun_codigo_supervisado=(64)
   ]
 }
 ```
-- DBEAVER
+## DBEAVER
+- El codigo del metodo findAll(), es equivalente hacer:
 ```sql
 SELECT 
 	t.afu_codigo, 
