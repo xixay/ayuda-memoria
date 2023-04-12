@@ -16,8 +16,6 @@
       FROM estructura_organizacional.autoridades_funcionales t
       LEFT JOIN parametricas.estados e ON e.est_codigo = t.afu_estado
       WHERE TRUE
-      ${query.afu_codigo ? `AND t.afu_codigo IN ${query.afu_codigo}` : ''}
-      ${query.aun_codigo_supervisado ? `AND t.aun_codigo_supervisado IN ${query.aun_codigo_supervisado}` : ''}
       ${query.aun_codigo_supervisor ? `AND t.aun_codigo_supervisor IN ${query.aun_codigo_supervisor}` : ''}
       ${query.afu_estado ? `AND t.afu_estado IN ${query.afu_estado}` : ''};`;
 
