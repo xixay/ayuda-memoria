@@ -177,9 +177,9 @@ where ci.ite_codigo IN (134) AND ci.aun_codigo IN (181,182) and ci.cit_estado in
         getAllAreasUnidadesDto.org_codigo = `(${this.orgCodigo})`// Debe existir este org_codigo=42 se trae de otro lado
         const resultAreas = await this.areasUnidadesService.findAll(getAllAreasUnidadesDto, manager)//obtiene todas las areas unidades en ese organigrama
         const getAllCargosItemsDtoU = new GetAllCargosItemsDto()
-        getAllCargosItemsDtoU.aun_codigo = (${resultAreas.map(m => m.aun_codigo)});asigna a aun_codigo con [181,182]
-        getAllCargosItemsDtoU.ite_codigo = (${updateCargosItemsDto.ite_codigo})//busca tb por ite_codigo=135
-        getAllCargosItemsDtoU.cit_estado = (1,2,3,4,5);//busca tb con todos los estados
+        getAllCargosItemsDtoU.aun_codigo = `(${resultAreas.map(m => m.aun_codigo)})`;asigna a aun_codigo con [181,182]
+        getAllCargosItemsDtoU.ite_codigo = `(${updateCargosItemsDto.ite_codigo})`//busca tb por ite_codigo=135
+        getAllCargosItemsDtoU.cit_estado = `(1,2,3,4,5)`;//busca tb con todos los estados
         resultCargosItem = await this.findAll(getAllCargosItemsDtoU, manager)
       } catch (error) { }
       //encuentra 1 con el cit_codigo=186
