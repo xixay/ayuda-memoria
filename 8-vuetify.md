@@ -99,9 +99,10 @@ articulos: [],//el array que viene del metodo GET
 </script>
 <style></style>
 ```
-# Select
+### Select
+- En template
 ```vue
-<v-col v-if="banderaMuestraFormMover" cols="12" sm="12" md="6" xs="6">
+<v-col cols="12" sm="12" md="6" xs="6">
   <v-select 
     :readonly="banderaDirectivo && !formReadonly" 
     label="Nivel*" 
@@ -115,11 +116,68 @@ articulos: [],//el array que viene del metodo GET
   </v-select>
 </v-col>
 ```
-# Usando dentro de estilos variables
+- En script, instanciando
+```vue
+data() {
+  return {
+    ...
+    datosNau: [],
+    ...
+  }
+},
+```
+- Funcion que trae el array de objetos
+```vue
+getAllNivelesAreasUnidadesConOSinDirectiva() {
+  this.$service.get('SISPOA',`areas-unidades/areas-con-sin-directiva?org_codigo=(${this.orgCodigo})`).then(response =>{
+    if (response) {
+      this.datosNau = response
+    }
+  }).catch(error => {
+    // this.$toast.info(error.error_mensaje)
+    this.items = []
+  })
+},
+```
+### Usando dentro de estilos variables
 ```vue
     <v-row v-if="compruebaEstadoOrg" class="mt-2" style="text-align: center;">
       <v-col>
         <b class="text-h6" :style="{color:(compruebaEstadoOrg.org_estado==2 || compruebaEstadoOrg.org_estado==8?'#078f20':compruebaEstadoOrg.org_estado==5?'red':'')}">{{ compruebaEstadoOrg.org_estado==2 || compruebaEstadoOrg.org_estado==8? 'Áreas unidades y cargos ya estan verificadas ' : compruebaEstadoOrg.org_estado==5?'Las áreas/unidades y cargos corresponden a información historica, no se pueden realizar cambios':'' }}</b>
       </v-col>
     </v-row>
+```
+### TextField
+```vue
+ <v-col v-if="banderaMuestraFormMover" cols="12" sm="12" md="12" xs="12">
+   <v-text-field 
+     outlined rows="2" 
+     :value="registro.aun_nombre" 
+     @change="(v) => (registro.aun_nombre = v)"
+     :rules="[$rules.obligatoria()]" 
+     label="Nombre*">
+   </v-text-field>
+ </v-col>
+```
+### Checkbox
+- En template
+```vue
+ <v-col v-if="banderaMuestraFormMover" cols="12" sm="4" md="4" xs="4">
+   <div v-if="banderaMuestraFormMover">
+     <v-checkbox
+       v-model="banderaOrganizacional"//esta es la variable que cambiara de true a false
+       label="¿Es área organizacional?">
+     </v-checkbox>
+   </div>
+ </v-col>
+```
+- En el script
+```vue
+data() {
+  return {
+    ...
+    banderaOrganizacional:false,
+    ...
+  }
+},
 ```
