@@ -115,3 +115,11 @@ articulos: [],//el array que viene del metodo GET
   </v-select>
 </v-col>
 ```
+# Usando dentro de estilos variables
+```vue
+    <v-row v-if="compruebaEstadoOrg" class="mt-2" style="text-align: center;">
+      <v-col>
+        <b class="text-h6" :style="{color:(compruebaEstadoOrg.org_estado==2 || compruebaEstadoOrg.org_estado==8?'#078f20':compruebaEstadoOrg.org_estado==5?'red':'')}">{{ compruebaEstadoOrg.org_estado==2 || compruebaEstadoOrg.org_estado==8? 'Áreas unidades y cargos ya estan verificadas ' : compruebaEstadoOrg.org_estado==5?'Las áreas/unidades y cargos corresponden a información historica, no se pueden realizar cambios':'' }}</b>
+      </v-col>
+    </v-row>
+```
