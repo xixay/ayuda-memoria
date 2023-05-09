@@ -99,3 +99,19 @@ articulos: [],//el array que viene del metodo GET
 </script>
 <style></style>
 ```
+# Select
+```vue
+<v-col v-if="banderaMuestraFormMover" cols="12" sm="12" md="6" xs="6">
+  <v-select 
+    :readonly="banderaDirectivo && !formReadonly" 
+    label="Nivel*" 
+    :items="datosNau"//array de objetos
+    item-text="nau_nombre" //objeto.nombre
+    item-value="nau_codigo"//objeto.codigo
+    :rules="[$rules.obligatoria()]" 
+    :value="registro.nau_codigo" 
+    @change="(v) => (registro.nau_codigo = v)"// hace el cambio
+    outlined>
+  </v-select>
+</v-col>
+```
