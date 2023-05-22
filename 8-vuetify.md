@@ -147,6 +147,12 @@ getAllNivelesAreasUnidadesConOSinDirectiva() {
       </v-col>
     </v-row>
 ```
+#### cambiando el color de text
+```vue
+<td>
+ <span :class="`${(item.aun_estado==0)?'red--text':''}`">{{ item.aun_sigla }} - {{ item.aun_nombre }}</span>
+</td>
+```
 ### TextField
 ```vue
  <v-col v-if="banderaMuestraFormMover" cols="12" sm="12" md="12" xs="12">
