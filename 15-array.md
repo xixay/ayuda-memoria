@@ -11,3 +11,12 @@ console.log(nombresCompletos);
 
 // ["superman", "spiderman", "antman", "ironman"]
 ```
+## No repetidos
+- Se obtiene un array de codigos, pero alguien registro duplicado [1,3,6,7,1]
+```js
+let arrayHijo = resultAreaDep.map(m => m.aun_codigo_hijo)//devuelve [1,3,6,7,1]
+``` 
+- Para evitar que se dupliquen
+```js
+arrayHijo = [new Set(...arrayHijo)]//devuelve [1,3,6,7]
+```
