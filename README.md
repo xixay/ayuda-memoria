@@ -15,3 +15,4 @@
 ## 14. [Instalar programas .deb](/14-instalarTipoDeb.md)
 ## 15. [Array](/15-array.md)
 ## 16. [Generar Crud SISPOA backend](/16-generarCrudsoloSispoa.md)
+## 17. [Entidades](/17-entidad.md)
