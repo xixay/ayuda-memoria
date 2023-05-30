@@ -219,4 +219,12 @@ data() {
   }
 </script>
 ```
-- 
+- con emit envia la información
+```vue
+<script>
+    sendCode(item) {
+      this.$nuxt.$emit('clickedSeleccionGestion', item)//item es un objeto
+    },
+</script>
+```
+
