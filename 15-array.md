@@ -11,6 +11,14 @@ console.log(nombresCompletos);
 
 // ["superman", "spiderman", "antman", "ironman"]
 ```
+## Devolver un array de objetos con map
+```js
+this.datos = response//array
+this.arrayAreas = this.datos.map(f => {
+  let rObj ={nombre:f.aun_nombre,value:false}
+  return rObj
+})
+```
 ## No repetidos
 - Se obtiene un array de codigos, pero alguien registro duplicado [1,3,6,7,1]
 ```js
