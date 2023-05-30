@@ -187,3 +187,36 @@ data() {
   }
 },
 ```
+### emit y on
+- Con on, este recibe la información, pero debe estar en el mountend(), no en created
+```vue
+<script>
+  mounted() {
+    //recibe un objeto item
+    this.$nuxt.$on('clickedSeleccionGestion', (item) => {
+      this.getAllGestionesOrganigramas(item)
+    })
+    this.getAllGestionesOrganigramas(null)
+  },
+  created() {
+  },
+  methods: {
+    getAllGestionesOrganigramas(item) {
+      const gestionStorage = this.$storage.get('gestionSeleccion')//es una variable que guuarda afuera  
+      this.defaultSelectedGest = item ? item : gestionStorage
+      this.listaOrganigramaGestion(this.defaultSelectedGest.ges_anio)//aqui entra el objeto item
+    },
+    listaOrganigramaGestion(gesAnio){
+      this.$service.get('SISPOA', `gestiones-organigramas?ges_anio=(${gesAnio})&gor_estado=(2,3,8)`).then(response => {
+          if (response) {
+            this.datos = response
+          }
+        }).catch(error => {
+          // this.$toast.info(error.error_mensaje)
+          this.datos = []
+        })
+    },
+  }
+</script>
+```
+- 
