@@ -17,3 +17,4 @@
 ## 16. [Generar Crud SISPOA backend](/16-generarCrudsoloSispoa.md)
 ## 17. [Entidades](/17-entidad.md)
 ## 18. [Comandos de Git](https://github.com/xixay/Git_repositorio)
+## 19. [Configuación de Usuario y Correo Global](/19-agregarConfigUsserEmail.md)
