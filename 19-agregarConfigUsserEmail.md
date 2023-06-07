@@ -3,7 +3,7 @@
 ```console
 git config --list
 ```
-### Agregar usuario global
+### Agregar usuario global 
 ```console
 git config --global user.name "rteran"
 ```
