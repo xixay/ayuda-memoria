@@ -1,4 +1,5 @@
 ## Configuraciones De usuario y email
+- Solo si esta en https no en gitg@github
 ### Lista de configuraciones
 ```console
 git config --list
@@ -11,8 +12,4 @@ git config --global user.name "rteran"
 - Para Contraloria
 ```console
 git config --global user.email richard_teran@contraloria.gob.bo
-```
-- Para Github
-```console
-git config --global user.email 52841270+xixay@users.noreply.github.com
 ```
