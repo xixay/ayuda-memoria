@@ -6,7 +6,7 @@
 ## 5. [RabbitMq (BD)](/5-rabbit.md)
 ## 6. [MongoDB (BD)](/6-mongodb.md)
 ## 7. [Abrir y editar archivos (linux)](/7-abrirYEditarArchivosSistema.md)
-## 8. [Vuetify (Frontend)](/8-vuetify.md)
+## 8. [Vuetify y Nuxt(Frontend)](/8-vuetify.md)
 ## 9. [ReactMui (Frontend)](/9-reactMui.md)
 ## 10. [Encriptación (Backend)](/10-encriptadoBackendNestJS.md)
 ## 11. [Actualización terminal (linux)](/11-actualizarSistema.md)
