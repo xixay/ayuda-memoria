@@ -1,9 +1,9 @@
-- Cambiar BASH por ZSH e instalar Powerlevel10k
-- Instalar zsh
+# Cambiar BASH por ZSH e instalar Powerlevel10k
+## Instalar zsh
 ```console
 sudo apt install zsh
 ```
-- Ver si lña terminal esta en BASH
+- Ver si la terminal esta en BASH
 ```console
 echo $SHELL
 /bin/bash  //respuesta
@@ -76,7 +76,8 @@ su xixay
 pwd
 /home/xixay  //respuesta
 ```
-- Instalar Powerlevel10k, descargar el repositorio
+## Instalar Powerlevel10k
+- Descargar el repositorio
 ```console
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
