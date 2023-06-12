@@ -1,5 +1,5 @@
 - [1. Definición](#1-definición)
-- [2. Instalar Docker 1ra](#2-instalar-docker-1ra)
+- [2. Instalar Docker Engine en Ubuntu](#2-instalar-docker-engine-en-ubuntu)
   - [2.1. Instalar Docker con el Repositorio apt](#21-instalar-docker-con-el-repositorio-apt)
   - [2.2. Probar si funciona](#22-probar-si-funciona)
   - [2.3. Ejecutar el comando Docker sin sudo (opcional)](#23-ejecutar-el-comando-docker-sin-sudo-opcional)
@@ -27,7 +27,7 @@
 ```text
 Docker es un proyecto de código abierto que automatiza el despliegue de aplicaciones dentro de contenedores de software
 ```
-# 2. Instalar Docker 1ra
+# 2. Instalar Docker Engine en Ubuntu
 ## 2.1. Instalar Docker con el Repositorio apt
 - Actualizar la lista de paquetes
 ```console
