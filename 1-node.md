@@ -2,6 +2,26 @@
 - [2. Referencia](#2-referencia)
 
 # 1. Instalar node usando nvm(node  version manager)
+- Instalar NVM en Ubuntu 20.04
+```console
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+```
+- Ahora vamos a activar la variable de entorno para NVM con el siguiente comando:
+```console
+source ~/.bashrc
+```
+- Ahora vamos a verificar que tengamos instalado NVM y funcionando.
+```console
+nvm --version
+```
+- Instalar Node.js en su última versión
+```console
+nvm install node
+```
+- Ahora comprobamos que tengamos Node.js y npm instalados.
+```console
+node --version | npm --version
+```
 - Con el siguiente comando instalas la versión que quieras de Node JS:
 ```console
 nvm install 17.9.1.
@@ -22,9 +42,9 @@ nvm alias default v12.22.0
 ```console
 node -v
 ```
-- Listar las versiones instaladas en tu computador:
+- Eliminar una versión de Node.js
 ```console
-nvm use v13.0.0
+nvm uninstall 14.18.1
 ```
 # 2. Referencia
 - [Versiones de node](https://nodejs.org/es/download/releases/)
