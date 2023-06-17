@@ -49,3 +49,4 @@ nvm uninstall 14.18.1
 # 2. Referencia
 - [Versiones de node](https://nodejs.org/es/download/releases/)
 - [Comandos nvm node](https://franyerverjel.com/blog/como-establecer-la-version-predeterminada-de-node-con-nvm)
+- [Instalar NVM en Ubuntu 20.04](https://gndx.dev/blog/instalar-nvm-en-ubuntu-20-04/)
