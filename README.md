@@ -4,10 +4,11 @@
 ## 1.3. [Configuración de vista en terminal en ubuntu](/inicio/3-ZSHeInstalarPowerlevel10k.md)
 ## 1.4. [Instalar Node (linux)](/inicio/4-node.md)
 ## 1.5. [Comandos de Git](/inicio/5-git.md)
-## 1.6. [Crear claves ssh (Github, Gitlab)](/inicio/6-clavesSshLinuxWindowsWsl2.md)
-## 1.7. [Abrir y editar archivos (linux)](/inicio/7-abrirYEditarArchivosSistema.md)
-## 1.8. [Configuación de Usuario y Correo Global](/inicio/8-agregarConfigUsserEmail.md)
-## 1.9. [Crear contenedores Docker(Windows, Linux, Wsl2)](/inicio/9-docker.md)
+## 1.6. [Crear repositorio (Github)](/inicio/6-repositorio.md)
+## 1.7. [Crear claves ssh (Github, Gitlab)](/inicio/7-clavesSshLinuxWindowsWsl2.md)
+## 1.8. [Abrir y editar archivos (linux)](/inicio/8-abrirYEditarArchivosSistema.md)
+## 1.9. [Configuación de Usuario y Correo Global](/inicio/9-agregarConfigUsserEmail.md)
+## 1.10. [Crear contenedores Docker(Windows, Linux, Wsl2)](/inicio/10-docker.md)
 # 2. Backend
 ## 2.1. [Express (Backend)](/backend/express/1-Express.md)
 ## 2.2. [TypeOrm (Backend)](/backend/typeorm/1-TypeOrm.md)
@@ -29,3 +30,4 @@
 ## 3.2. [ReactMui (Frontend)](/frontend/reactMui/1-reactMui.md)
 # 4. Extras
 ## 4.1. [Array](/utilitarios/1-array.md)
+## 4.2. [Formulario (Html)](/utilitarios/2-formularioHtml.md)
