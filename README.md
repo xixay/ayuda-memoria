@@ -13,6 +13,8 @@
 ## 2.1. [Express (Backend)](/backend/express/1-Express.md)
 ## 2.2. [TypeOrm (Backend)](/backend/typeorm/1-TypeOrm.md)
 ### 2.2.1. [Rutas](/backend/typeorm/1.1-rutas.md)
+### 2.2.2. [Guia Inicio rapido](/backend/typeorm/1.2-InicioRapido.md)
+### 2.2.3. [Guia Paso a paso](/backend/typeorm/1.3-PasoAPaso.md)
 ## 2.3. [NestJs (Backend)](/backend/nestJs/1-Nestjs.md)
 ### 2.3.1. [Variables de entorno](/backend/nestJs/1.1-Env.md)
 ### 2.3.2. [Relacion 1 a 1](/backend/nestJs/1.2-relacion_1_a_1.md)
@@ -27,6 +29,9 @@
 ## 2.5. [Rabbitmq (Backend)](/backend/rabbitmq/1-rabbit.md)
 # 3. Frontend
 ## 3.1. [Vuetify y Nuxt(Frontend)](/frontend/vuetify/1-vuetify.md)
+### 3.1.1. [extra(Instalando vue)](/frontend/vuetify/2-instalando.md)
+#### 3.1.1.1. [extra(Iniciando vue)](/frontend/vuetify/2.1.-iniciando.md)
+#### 3.1.1.2. [extra(Lienzo vue)](/frontend/vuetify/2.2.-lienzo.md)
 ## 3.2. [ReactMui (Frontend)](/frontend/reactMui/1-reactMui.md)
 # 4. Extras
 ## 4.1. [Array](/utilitarios/1-array.md)
