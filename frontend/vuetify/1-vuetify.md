@@ -32,6 +32,7 @@ npm run serve
 ## Inicio
 - Instalar en un proyecto vue inicial
 ```console
+vue add vuetify-cli  //para instalar vuetify globalmente
 vue add vuetify
 > Still proceed? (y/N) Y
 ❯ Default (recommended)
