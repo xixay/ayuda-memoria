@@ -1,3 +1,4 @@
+
 - [1. Creación de ramas](#1-creación-de-ramas)
   - [1.1. Mostrar ramas](#11-mostrar-ramas)
   - [1.2. Cambiar de rama](#12-cambiar-de-rama)
@@ -28,7 +29,8 @@
 - [7. Adicionar cambios al último commit](#7-adicionar-cambios-al-último-commit)
 - [8. Volver a una versión anterior de commit](#8-volver-a-una-versión-anterior-de-commit)
 - [9. Crear una rama con una versión anterior de commit](#9-crear-una-rama-con-una-versión-anterior-de-commit)
-- [10. Referencia](#10-referencia)
+- [10. Como Deshacer Un Git Pull en Git De Manera Eficiente](#10-como-deshacer-un-git-pull-en-git-de-manera-eficiente)
+- [11. Referencia](#11-referencia)
 
 # 1. Creación de ramas
 ## 1.1. Mostrar ramas
@@ -304,5 +306,26 @@ git log --oneline
 ```console
 git checkout -b falta-ruta-rama 436aba7
 ```
-# 10. Referencia
+# 10. Como Deshacer Un Git Pull en Git De Manera Eficiente
+- Una vez que hayas realizado esta copia de seguridad, obtener una lista de todo tu historial de confirmaciones o Commits
+```console
+git reflog
+```
+```txt
+git reflog 
+ 
+468e304 (HEAD -> master, origin/master) HEAD@{0}: commit: Primer Cambio
+b116d4e HEAD@{1}: commit: Corrección en el CSS
+456a37f HEAD@{2}: commit: Se Agrego una Función de JavaScript En el Footer
+b234b7a HEAD@{3}: commit: Agregado Dark Mode
+a356e87 HEAD@{4}: commit: Se elimino código JavaScript Excesivo
+cd98t4e HEAD@{5}: commit: Se añadio Redes Sociales
+bt63gf5 HEAD@{6}: commit: Se agrego el campo email al formulario de contacto
+```
+- Si quisieras volver a ‘Se elimino código JavaScript Excesivo’, selecciona el ID a356e87
+```console
+git reset --hard a356e87
+```
+# 11. Referencia
 - [Tablas de markdown](https://www.tablesgenerator.com/markdown_tables#)
+- [Como Deshacer Un Git Pull en Git De Manera Eficiente](https://blog.nubecolectiva.com/como-deshacer-un-git-pull-en-git-de-manera-eficiente/)
