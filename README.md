@@ -37,7 +37,7 @@
 ### 3.1.6. [(TextField vuetify)](/frontend/vuetify/1.6-textField.md)
 ### 3.1.7. [(Checkbox vuetify)](/frontend/vuetify/1.7-checkBox.md)
 ### 3.1.8. [(Emit y On vuetify)](/frontend/vuetify/1.8-emitYOn.md)
-## 3.2. [Vuetify y Nuxt(Frontend)](/frontend/vuetify/1-vuetify.md)
+## 3.2. [Nuxt(Frontend)](/frontend/vuetify/2-nuxt.md)
 ## 3.3. [ReactMui (Frontend)](/frontend/reactMui/1-reactMui.md)
 # 4. Extras
 ## 4.1. [Array](/utilitarios/1-array.md)
