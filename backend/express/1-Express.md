@@ -35,7 +35,7 @@ author: Xixay
 license: (ISC)
 ```
 ## 3. Instalando las dependecias
-- para que reconozca type script y node y express de manera local
+- Para que reconozca type script y node y express de manera local
 ```console
 $>npm i -D express @types/express @types/node nodemon ts-node typescript cors --save-dev @types/cors
 ```
@@ -63,6 +63,7 @@ tsc --init
 ```ts
 // lib/app.ts
 import express from "express"
+//importar cors para cabecera
 import cors from 'cors'
 
 // Crear una nueva instancia de aplicación express
@@ -115,9 +116,9 @@ CREATE DATABASE articulos_db;
 ```console
 \c articulos_db;
 ```
-- Crear la tabla articulos
+- Crear la tabla articulo
 ```console
-CREATE TABLE articulos (
+CREATE TABLE articulo (
   id SERIAL PRIMARY KEY,
   descripcion VARCHAR(30),
   precio float,
@@ -175,17 +176,17 @@ import { pool } from '../data-source'
 export const getArticulos = async (solicitud: Request, respuesta: Response): Promise<Response> => {
     try {
         //hacer la consulta
-        const response: QueryResult = await pool.query('SELECT * FROM articulos ORDER BY id ASC')
+        const response: QueryResult = await pool.query('SELECT * FROM articulo ORDER BY id ASC')
         //ver por consola los datos y en formato json
         return respuesta.status(200).json(response.rows);
     } catch (error) {
         console.log(error);
-        return respuesta.status(500).json('Internal Server error');
+        return respuesta.status(500).json('Error Interno del Servidor');
     }
 }
 export const getArticuloById = async (solicitud: Request, respuesta: Response): Promise<Response> => {
     const id = parseInt(solicitud.params.id);
-    const response: QueryResult = await pool.query('SELECT * FROM articulos WHERE id = $1', [id]);
+    const response: QueryResult = await pool.query('SELECT * FROM articulo WHERE id = $1', [id]);
     //ver por consola los datos y en formato json
     return respuesta.json(response.rows);
 };
@@ -193,11 +194,13 @@ export const getArticuloById = async (solicitud: Request, respuesta: Response): 
 export const createArticulo = async (solicitud: Request, respuesta: Response) => {
     // dto con el body
     const { descripcion, precio, stock } = solicitud.body;
-    const response = await pool.query('INSERT INTO articulos (descripcion, precio, stock) VALUES ($1, $2, $3)', [descripcion, precio, stock]);
+    const response = await pool.query('INSERT INTO articulo (descripcion, precio, stock) VALUES ($1, $2, $3)', [descripcion, precio, stock]);
     respuesta.json({
-        message: 'Articulo Added successfully',
-        body: {
-            user: { descripcion, precio, stock }
+        mensaje: 'Articulo Agregado con exito',
+        datos: {
+            descripcion,
+            precio,
+            stock 
         }
     })
 };
@@ -206,21 +209,21 @@ export const updateArticulo = async (solicitud: Request, respuesta: Response) =>
     const id = parseInt(solicitud.params.id);
     // dto con el body
     const { descripcion, precio, stock } = solicitud.body;
-    const response = await pool.query('UPDATE articulos SET descripcion = $1, precio = $2, stock = $3 WHERE id = $4', [
+    const response = await pool.query('UPDATE articulo SET descripcion = $1, precio = $2, stock = $3 WHERE id = $4', [
         descripcion,
         precio,
         stock,
         id
     ]);
-    respuesta.json('Articulo Updated Successfully');
+    respuesta.json('Artículo actualizado con éxito');
 };
 
 export const deleteArticulo = async (solicitud: Request, respuesta: Response) => {
     const id = parseInt(solicitud.params.id);
-    await pool.query('DELETE FROM articulos where id = $1', [
+    await pool.query('DELETE FROM articulo where id = $1', [
         id
     ]);
-    respuesta.json(`Articulo ${id} deleted Successfully`);
+    respuesta.json(`Artículo ${id} eliminado con éxito`);
 };
 ```
 - crear la carpeta routes dentro de la carpeta src, con el archivo index.ts, donde estaran las rutas
@@ -251,6 +254,8 @@ export default router
 import express from "express"
 // importando las rutas
 import route from './routes'
+//importar cors para cabecera
+import cors from 'cors'
 // Crear una nueva instancia de aplicación express
 const app = express()
 // convertir los datos que llegan a formato json
@@ -259,6 +264,8 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 //puerto
 const port = 3000
+//credenciales(permisos de GET,POST,PUT,etc)
+app.use(cors())
 //metodo get defecto
 app.get("/", (solicitud: express.Request, respuesta: express.Response) => {
     //status
@@ -316,3 +323,4 @@ npm run start
 - [¿Cómo configurar NodeJS y Express con Typescript? ¡Configuración inicial!](https://www.youtube.com/watch?v=HONRQUFqFkA)
 - [Solicitudes HTTP con Axios](https://styde.net/solicitudes-http-con-axios/)
 - [Nodejs, PostgreSQL & Typescript, REST API CRUD](https://github.com/FaztWeb/postgresql-node-restapi-ts/tree/master)
+- [Nodejs, PostgreSQL & Typescript, REST API CRUD video](https://www.youtube.com/watch?v=z4BNZfZ1Wq8)

@@ -1,6 +1,32 @@
-# Guia paso a paso
+- [1. Crear la entidad Foto](#1-crear-la-entidad-foto)
+  - [1.1. Modelo de Foto](#11-modelo-de-foto)
+  - [1.2. Volver nuestro modelo una entidad](#12-volver-nuestro-modelo-una-entidad)
+  - [1.3. Agregando columnas de tablas](#13-agregando-columnas-de-tablas)
+  - [1.4. Creando una columna principal](#14-creando-una-columna-principal)
+  - [1.5. Creando una columna generada automáticamente](#15-creando-una-columna-generada-automáticamente)
+  - [1.6. Tipos de datos de columna](#16-tipos-de-datos-de-columna)
+- [2. Creando un nuevoDataSource](#2-creando-un-nuevodatasource)
+  - [2.1. Configurar  DataSource en index.ts](#21-configurar--datasource-en-indexts)
+- [3. Crear e insertar una foto en la base de datos](#3-crear-e-insertar-una-foto-en-la-base-de-datos)
+- [4. Cargar la entidad guardada con el administrador de entidades](#4-cargar-la-entidad-guardada-con-el-administrador-de-entidades)
+- [5. Uso de repositorios](#5-uso-de-repositorios)
+- [6. Cargando desde la base de datos](#6-cargando-desde-la-base-de-datos)
+- [7. Actualizando en la base de datos](#7-actualizando-en-la-base-de-datos)
+- [8. Eliminando de la base de datos](#8-eliminando-de-la-base-de-datos)
+- [9. Creando una relación uno a uno](#9-creando-una-relación-uno-a-uno)
+  - [9.1. Guardar una relación uno a uno](#91-guardar-una-relación-uno-a-uno)
+  - [9.2. Lado inverso de la relación](#92-lado-inverso-de-la-relación)
+  - [9.3. Relaciones en proyectos ESM](#93-relaciones-en-proyectos-esm)
+- [10. Cargando objetos con sus relaciones](#10-cargando-objetos-con-sus-relaciones)
+  - [10.1. Metodos find\*](#101-metodos-find)
+  - [10.2. funcionalidad QueryBuilder](#102-funcionalidad-querybuilder)
+- [11. Usar cascadas para guardar automáticamente objetos relacionados](#11-usar-cascadas-para-guardar-automáticamente-objetos-relacionados)
+- [12. Creando una relación muchos a uno / uno a muchos](#12-creando-una-relación-muchos-a-uno--uno-a-muchos)
+  - [12.1. Creando una relación de muchos a muchos](#121-creando-una-relación-de-muchos-a-muchos)
+- [13. Referencias](#13-referencias)
+## 1. Crear la entidad Foto
 - Crear el archivo Foto.ts, dentro de la carpeta entity
-1. Modelo de Foto
+### 1.1. Modelo de Foto
 ```ts
 export class Foto {
     id: number
@@ -11,7 +37,7 @@ export class Foto {
     estaPublicado: boolean
 }
 ```
-2. Volver nuestro model una entidad
+### 1.2. Volver nuestro modelo una entidad
 ```ts
 import { Entity } from "typeorm"
 
@@ -25,7 +51,7 @@ export class Foto {
     estaPublicado: boolean
 }   
 ```
-3. Agregando columnas de tablas
+### 1.3. Agregando columnas de tablas
 ```ts
 import { Entity, Column } from "typeorm"
 
@@ -50,7 +76,7 @@ export class Foto {
     estaPublicado: boolean
 }   
 ```
-4. Creando una columna principal
+### 1.4. Creando una columna principal
 ```ts
 import { Entity, Column, PrimaryColumn} from "typeorm"
 
@@ -75,7 +101,7 @@ export class Foto {
     estaPublicado: boolean
 }   
 ```
-5. Creando una columna generada automáticamente
+### 1.5. Creando una columna generada automáticamente
 ```ts
 import { Entity, Column, PrimaryGeneratedColumn} from "typeorm"
 
@@ -100,7 +126,7 @@ export class Foto {
     estaPublicado: boolean
 }   
 ```
-6. Tipos de datos de columna
+### 1.6. Tipos de datos de columna
 ```ts
 import { Entity, Column, PrimaryGeneratedColumn} from "typeorm"
 
@@ -127,9 +153,9 @@ export class Foto {
     estaPublicado: boolean
 }   
 ```
-## Creando un nuevoDataSource
-1. Ir a index.ts, comentar o borrar lo que se encuentre ahi
-2. Configurar  DataSource en index.ts
+## 2. Creando un nuevoDataSource
+- Ir a index.ts, comentar o borrar lo que se encuentre ahi
+### 2.1. Configurar  DataSource en index.ts
 ```ts
 import "reflect-metadata"
 import { DataSource } from "typeorm"
@@ -156,14 +182,14 @@ AppDataSource.initialize()
     })
     .catch((error) => console.log(error))
 ```
-6. Al ejecutar la aplicación dentro de project.
+- Al ejecutar la aplicación dentro de project.
 ```console
 npm start
 ```
 - Queda
 ```text
 +--------------+--------------+----------------------------+
-|                         photo                            |
+|                         foto                             |
 +--------------+--------------+----------------------------+
 | id           | int(11)      | PRIMARY KEY AUTO_INCREMENT |
 | nombre       | varchar(100) |                            |
@@ -173,8 +199,8 @@ npm start
 | estaPublicado| boolean      |                            |
 +------------- +--------------+----------------------------+
 ```
-# Crear e insertar una foto en la base de datos
-1. Ahora vamos a crear una nueva foto para guardarla en la base de datos, en index.ts:
+## 3. Crear e insertar una foto en la base de datos
+- Ahora vamos a crear una nueva foto para guardarla en la base de datos, en index.ts:
 ```ts
 import "reflect-metadata"
 import { DataSource } from "typeorm"
@@ -196,11 +222,11 @@ AppDataSource.initialize()
     })
     .catch((error) => console.log(error))
 ```
-2. Ejecutar para insertar, estando en la carpeta project
+- Ejecutar para insertar, estando en la carpeta project
 ```console
 npm start
 ```
-## Cargar la entidad guardada con el administrador de entidades
+## 4. Cargar la entidad guardada con el administrador de entidades
 ```ts
 import "reflect-metadata"
 import { DataSource } from "typeorm"
@@ -216,7 +242,7 @@ AppDataSource.initialize()
     })
     .catch((error) => console.log(error))
 ```
-## Uso de repositorios
+## 5. Uso de repositorios
 - Repositorios son más convenientes de usar que los EntityManagers:
 - Cuando trata mucho con entidades, los Repositorios son más convenientes de usar que los EntityManagers:
 ```ts
@@ -245,7 +271,7 @@ AppDataSource.initialize()
     })
     .catch((error) => console.log(error))
 ```
-## Cargando desde la base de datos
+## 6. Cargando desde la base de datos
 - Probemos más operaciones de carga usando el Repositorio:
 ```ts
 import "reflect-metadata"
@@ -286,7 +312,7 @@ AppDataSource.initialize()
     })
     .catch((error) => console.log(error))
 ```
-## Actualizando en la base de datos
+## 7. Actualizando en la base de datos
 - Ahora vamos a cargar una sola foto de la base de datos, actualizarla y guardarla:
 ```ts
 import "reflect-metadata"
@@ -308,7 +334,7 @@ AppDataSource.initialize()
         })
     .catch((error) => console.log(error))
 ```
-# Eliminando de la base de datos
+## 8. Eliminando de la base de datos
 - Ahora eliminemos nuestra foto de la base de datos:
 ```ts
 import "reflect-metadata"
@@ -329,8 +355,8 @@ AppDataSource.initialize()
         })
     .catch((error) => console.log(error))
 ```
-## Creando una relación uno a uno
-1. Crear el archivo FotoMetadata.ts dentro de la carpeta entity. Se supone que esta clase PhotoMetadata contiene la metainformación adicional de nuestra foto
+## 9. Creando una relación uno a uno
+- Crear el archivo FotoMetadata.ts dentro de la carpeta entity. Se supone que esta clase PhotoMetadata contiene la metainformación adicional de nuestra foto
 ```ts
 import {
     Entity,
@@ -371,7 +397,7 @@ export class FotoMetadata {
 - Si ejecuta la aplicación, verá una tabla recién generada y contendrá una columna con una clave externa para la relación de la foto:
 ```text
 +-------------+--------------+----------------------------+
-|                     photo_metadata                      |
+|                     FotoMetadata                        |
 +-------------+--------------+----------------------------+
 | id          | int(11)      | PRIMARY KEY AUTO_INCREMENT |
 | alto        | int(11)      |                            |
@@ -382,8 +408,8 @@ export class FotoMetadata {
 | fotoId      | int(11)      | FOREIGN KEY                |
 +-------------+--------------+----------------------------+
 ```
-## Guardar una relación uno a uno
-1. Ahora guardemos una foto, sus metadatos y adjúntelos entre sí.
+### 9.1. Guardar una relación uno a uno
+- Ahora guardemos una foto, sus metadatos y adjúntelos entre sí.
 ```ts
 import "reflect-metadata";
 import { DataSource } from "typeorm";
@@ -439,7 +465,7 @@ AppDataSource.initialize()
 ```sql
 select *from foto f , foto_metadata fm where f.id =fm."fotoId"
 ```
-## Lado inverso de la relación
+### 9.2. Lado inverso de la relación
 ```text
 Las relaciones pueden ser unidireccionales o bidireccionales. Actualmente, nuestra relación entre FotoMetadata y Foto es unidireccional. El propietario de la relación es FotoMetadata, y Foto no sabe nada sobre FotoMetadata. Esto hace que sea complicado acceder a FotoMetadata desde el lado de la foto. Para solucionar este problema, debemos agregar una relación inversa y hacer que las relaciones entre FotoMetadata y Foto sean bidireccionales. Modifiquemos nuestras entidades:
 ```
@@ -481,7 +507,7 @@ export class Foto {
     metadata: FotoMetadata
 } 
 ```
-## Relaciones en proyectos ESM
+### 9.3. Relaciones en proyectos ESM
 ```text
 Si usa ESM en su proyecto de TypeScript, debe usar el Relation tipo contenedor en las propiedades de relación para evitar problemas de dependencia circular. Modifiquemos nuestras entidades:
 ```
@@ -519,13 +545,13 @@ export class Foto {
     metadata: Relation<FotoMetadata>
 } 
 ```
-## Cargando objetos con sus relaciones
+## 10. Cargando objetos con sus relaciones
 - Ahora carguemos nuestra foto y sus metadatos de foto en una sola consulta. Hay dos formas de hacerlo:
 ```text
 1. metodos find*
 2. funcionalidad QueryBuilder
 ``` 
-### Metodos find*
+### 10.1. Metodos find*
 - Permiten especificar un objeto con la interfaz FindOneOptions/ .FindManyOptions
 ```ts
 import "reflect-metadata";
@@ -553,8 +579,8 @@ AppDataSource.initialize()
   .catch((error) => console.log(error));
 
 ```
-### funcionalidad QueryBuilder
-1. Si necesita una consulta más compleja, debe usar en lugar de find, QueryBuilder. QueryBuilder permite utilizar consultas más complejas de forma elegante:
+### 10.2. funcionalidad QueryBuilder
+- Si necesita una consulta más compleja, debe usar en lugar de find, QueryBuilder. QueryBuilder permite utilizar consultas más complejas de forma elegante:
 ```ts
 import "reflect-metadata";
 import { DataSource } from "typeorm";
@@ -580,9 +606,9 @@ AppDataSource.initialize()
   .catch((error) => console.log(error));
 
 ```
-2. Lo bueno de este metodo es que devolvio solo las fotos con datos en metadata
-## Usar cascadas para guardar automáticamente objetos relacionados
-1. Podemos configurar opciones en cascada en nuestras relaciones, en los casos en que queramos que nuestro objeto relacionado se guarde cada vez que se guarde el otro objeto. Cambiemos un poco el decorador @OneToOne de nuestra foto:
+- Lo bueno de este metodo es que devolvio solo las fotos con datos en metadata
+## 11. Usar cascadas para guardar automáticamente objetos relacionados
+- Podemos configurar opciones en cascada en nuestras relaciones, en los casos en que queramos que nuestro objeto relacionado se guarde cada vez que se guarde el otro objeto. Cambiemos un poco el decorador @OneToOne de nuestra foto:
 ```ts
 import { Entity, Column, PrimaryGeneratedColumn, OneToOne } from "typeorm"
 import { FotoMetadata } from "./FotoMetadata"
@@ -597,7 +623,7 @@ export class Foto {
     metadata: FotoMetadata
 } 
 ```
-2. El uso cascade nos permite, no guardar fotos por separado y guardar objetos de metadatos por separado. Ahora podemos simplemente guardar un objeto de foto, y el objeto de metadatos se guardará automáticamente debido a las opciones en cascada.
+- El uso cascade nos permite, no guardar fotos por separado y guardar objetos de metadatos por separado. Ahora podemos simplemente guardar un objeto de foto, y el objeto de metadatos se guardará automáticamente debido a las opciones en cascada.
 ```ts
 import "reflect-metadata";
 import { DataSource } from "typeorm";
@@ -641,8 +667,8 @@ AppDataSource.initialize()
 
 ```
 - Observe que ahora establecemos la metadata propiedad de la foto, en lugar de la propiedad de los metadatos foto como antes. La función cascade solo funciona si conecta la foto a sus metadatos desde el lado de la foto. Si configura el lado de los metadatos, los metadatos no se guardarán automáticamente.
-## Creando una relación muchos a uno / uno a muchos
-1. Vamos a crear una relación de muchos a uno/uno a muchos. Digamos que una foto tiene un autor y cada autor puede tener muchas fotos. Primero, vamos a crear la entidad Autor, en la carpeta entity Autor.ts:
+## 12. Creando una relación muchos a uno / uno a muchos
+- Vamos a crear una relación de muchos a uno/uno a muchos. Digamos que una foto tiene un autor y cada autor puede tener muchas fotos. Primero, vamos a crear la entidad Autor, en la carpeta entity Autor.ts:
 ```ts
 import {
     Entity,
@@ -855,7 +881,7 @@ AppDataSource.initialize()
   .catch((error) => console.log(error));
 
 ```
-## Creando una relación de muchos a muchos
+### 12.1. Creando una relación de muchos a muchos
 - Vamos a crear una relación de muchos a muchos. Digamos que una foto puede estar en muchos álbumes y cada álbum puede contener muchas fotos. Vamos a crear una clase Album:
 ```ts
 import {
@@ -904,7 +930,7 @@ export class Foto {
 | foto_id     | int(11)      | PRIMARY KEY FOREIGN KEY    |
 +-------------+--------------+----------------------------+
 ```
-- Colocando cascade a album y foto
+- Colocando cascade a album
 ```ts
 import {
     Entity,
@@ -926,6 +952,7 @@ export class Album {
     fotos: Foto[]
 }
 ```
+- Colocando cascade en foto
 ```ts
 import { Entity, Column, PrimaryGeneratedColumn, OneToOne, } from "typeorm"
 import { FotoMetadata } from "./FotoMetadata"
@@ -1015,6 +1042,6 @@ AppDataSource.initialize()
   .catch((error) => console.log(error));
 
 ```
-## Referencias
+## 13. Referencias
 - https://typeorm.io/
 - https://typeorm.io/update-query-builder
