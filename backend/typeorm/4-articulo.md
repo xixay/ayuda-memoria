@@ -5,6 +5,10 @@
 - [5. Modficando el servidor](#5-modficando-el-servidor)
 - [6. En la aplicacion principal](#6-en-la-aplicacion-principal)
 - [7. Ejecutar la aplicacion principal](#7-ejecutar-la-aplicacion-principal)
+  - [7.1. Creando los comando de ejecución](#71-creando-los-comando-de-ejecución)
+    - [7.1.1. Ejecutar en modo desarrollo](#711-ejecutar-en-modo-desarrollo)
+    - [7.1.2. Para llevar a producción](#712-para-llevar-a-producción)
+    - [7.1.3. Ejecutar el producto final main.js](#713-ejecutar-el-producto-final-mainjs)
 - [8. Referencia](#8-referencia)
 
 ## 1. Iniciando el proyecto
@@ -79,18 +83,18 @@ CREATE DATABASE articulos_db;
 ```console
 \c articulos_db;
 ```
-- Salir postgres
-```console
-\q
-```
 - Crear la tabla articulo(opcional)
-```console
+```sql
 CREATE TABLE articulo (
   id SERIAL PRIMARY KEY,
   descripcion VARCHAR(30),
   precio float,
   stock integer
 );
+```
+- Salir postgres
+```console
+\q
 ```
 - Salir de root
 ```console
@@ -206,10 +210,38 @@ AppDataSource.initialize().then(async () => {
 }).catch(error => console.log(error))
 ```
 ## 7. Ejecutar la aplicacion principal
-- Ejecutar main.ts, al hacerlo se creara el articulo en la base de datos directamente
+### 7.1. Creando los comando de ejecución
+- Dentro de nuestro package.json introduciremos los script para ejecutar las tareas desde consola
+```json
+  "scripts": {
+    "start": "node dist/main.js",// Iniciara el archivo compilado
+    "dev": "ts-node src/main.ts",// Iniciara en el modo desarrollo
+    "build": "tsc -p ."//Lo llevara para produccion, osea lo compilara
+  },
+```
+| Tipo | Función |
+|----------|----------|
+| ts-node   | Ejecuta archivos typeScript   |
+| tsc    | Transforma typeScript a javaScript   |
+| node    | Ejecuta archivos javaScript   |
+
+#### 7.1.1. Ejecutar en modo desarrollo
+```console
+npm run dev
+```
+>Ir a localhost:3000
+#### 7.1.2. Para llevar a producción
+```console
+npm run build
+```
+```text
+De esta manera se crea el archivo main.js
+```
+#### 7.1.3. Ejecutar el producto final main.js
 ```console
 npm run start
 ```
+>Ir a localhost:3000
 ## 8. Referencia
 - [Example using TypeORM with Express](https://orkhan.gitbook.io/typeorm/docs/example-with-express)
 - [typeorm-repositorio](https://github.com/xixay/typeorm-repositorio)
