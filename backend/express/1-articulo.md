@@ -19,19 +19,20 @@
 node_modules
 ```
 ### 1.1. Creando el package.json
-- Inicializa el proyecto
-```console
-$>npm init
+- Inicializa el proyecto npm init
+```json
+{
+  "name": "articulo-repositorio-express-backend",
+  "version": "1.0.0",
+  "description": "backend usando express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Xixay",
+  "license": "ISC"
+}
 
-package name: (ts1-repositorio)
-version: (1.0.0)
-description: 1er tutorial de type script
-entry point: (index.js)
-test command:
-git repository: (https://github.com/xixay/ts1-repositorio.git)
-keywords:
-author: Xixay
-license: (ISC)
 ```
 ## 2. Instalando las dependecias
 - Para que reconozca type script y node y express de manera local
