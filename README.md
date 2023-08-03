@@ -9,6 +9,7 @@
 ## 1.8. [Abrir y editar archivos (linux)](/inicio/8-abrirYEditarArchivosSistema.md)
 ## 1.9. [Configuación de Usuario y Correo Global](/inicio/9-agregarConfigUsserEmail.md)
 ## 1.10. [Crear contenedores Docker(Windows, Linux, Wsl2)](/inicio/10-docker.md)
+## 1.11. [Tmux terminal)](/inicio/11-tmux.md)
 # 2. Backend
 ## 2.1. [Express (Backend)](/backend/express/1-articulo.md)
 ### 2.1..1 [Rutas api rest](/backend/express/1.1-articuloRutas.md)
