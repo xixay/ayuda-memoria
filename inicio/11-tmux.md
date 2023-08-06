@@ -1,15 +1,56 @@
-## Instalar tmux
+- [1. Instalar tmux](#1-instalar-tmux)
+- [2. Instalaciones necesarias](#2-instalaciones-necesarias)
+  - [2.1. Instalar Vmin](#21-instalar-vmin)
+    - [2.1.1. Utilizar vim para editar un archivo](#211-utilizar-vim-para-editar-un-archivo)
+  - [2.2. Instalar tmux resurrection(Recuperar la sesión despues del reinicio)](#22-instalar-tmux-resurrectionrecuperar-la-sesión-despues-del-reinicio)
+    - [2.2.1. Clonar el repositorio](#221-clonar-el-repositorio)
+    - [2.2.2. Obtener la dirección path](#222-obtener-la-dirección-path)
+    - [2.2.3. Crear o modificar el archivo de modificación](#223-crear-o-modificar-el-archivo-de-modificación)
+  - [2.3. Instalar Tmux plugings](#23-instalar-tmux-plugings)
+    - [2.3.1. Comandos de Tmux plugings](#231-comandos-de-tmux-plugings)
+- [3. Instalando complementos](#3-instalando-complementos)
+  - [3.1. Agregar complemento para copiar desde terminal](#31-agregar-complemento-para-copiar-desde-terminal)
+    - [3.1.1. Usar Tmux plugings manager para instalar](#311-usar-tmux-plugings-manager-para-instalar)
+  - [3.2. Agregar complemento para agregar temas](#32-agregar-complemento-para-agregar-temas)
+    - [3.2.1. Usar Tmux plugings manager para instalar](#321-usar-tmux-plugings-manager-para-instalar)
+  - [3.3. Agregar complemento para que al apretar ctrl + B, identifique](#33-agregar-complemento-para-que-al-apretar-ctrl--b-identifique)
+    - [3.3.1. Usar Tmux plugings manager para instalar](#331-usar-tmux-plugings-manager-para-instalar)
+  - [3.4. Agregar complemento para que le brinde una barra de estado de línea eléctrica hábil y pirateable que consta de segmento](#34-agregar-complemento-para-que-le-brinde-una-barra-de-estado-de-línea-eléctrica-hábil-y-pirateable-que-consta-de-segmento)
+    - [3.4.1. Usar Tmux plugings manager para instalar](#341-usar-tmux-plugings-manager-para-instalar)
+- [4. Iniciar tmux (Sesión por defecto)](#4-iniciar-tmux-sesión-por-defecto)
+- [5. Ventana](#5-ventana)
+  - [5.1. Crear nueva ventana](#51-crear-nueva-ventana)
+  - [5.2. Cambiar el nombre de la ventana](#52-cambiar-el-nombre-de-la-ventana)
+  - [5.3. Cambiar de ventana](#53-cambiar-de-ventana)
+  - [5.4. Listar sesiones y Ventanas](#54-listar-sesiones-y-ventanas)
+  - [5.5. Cerrar](#55-cerrar)
+  - [5.6. Saltar a la ventana z](#56-saltar-a-la-ventana-z)
+- [6. Paneles](#6-paneles)
+- [7. Comandos de Tmux](#7-comandos-de-tmux)
+  - [7.1. Para habilitar el mouse](#71-para-habilitar-el-mouse)
+  - [7.2. Para paneles](#72-para-paneles)
+    - [7.2.1. Dividir verticalmente](#721-dividir-verticalmente)
+    - [7.2.2. Redimensionar los paneles](#722-redimensionar-los-paneles)
+- [8. Sesiones](#8-sesiones)
+  - [8.1. Inicia nueva sesion](#81-inicia-nueva-sesion)
+  - [8.2. lista las sesiones](#82-lista-las-sesiones)
+  - [8.3. elimina la sesion z](#83-elimina-la-sesion-z)
+  - [8.4. Ir a esa sesion](#84-ir-a-esa-sesion)
+  - [8.5. Comandos en Tmux](#85-comandos-en-tmux)
+- [9. Referencia](#9-referencia)
+
+## 1. Instalar tmux
 - Instalar tmux
 ```console
 sudo apt-get install tmux
 ```
-## Instalaciones necesarias
-### Instalar Vmin
+## 2. Instalaciones necesarias
+### 2.1. Instalar Vmin
 - Editor de archivos
 ```console
 sudo apt install vim
 ```
-#### Utilizar vim para editar un archivo
+#### 2.1.1. Utilizar vim para editar un archivo
 - Usar vim
 ```console
 vi .tmux.conf 
@@ -30,8 +71,8 @@ esc | :q | enter
 ```console
 esc | :wq | enter
 ```
-### Instalar tmux resurrection(Recuperar la sesión despues del reinicio)
-#### Clonar el repositorio
+### 2.2. Instalar tmux resurrection(Recuperar la sesión despues del reinicio)
+#### 2.2.1. Clonar el repositorio
 - Clonar en la carpeta personal
 ```console
 git clone https://github.com/tmux-plugins/tmux-resurrect
@@ -40,7 +81,7 @@ git clone https://github.com/tmux-plugins/tmux-resurrect
 ```console
 la tmux-resurrect
 ```
-#### Obtener la dirección path
+#### 2.2.2. Obtener la dirección path
 - Ingresar a tmux-resurrect
 ```console
 cd tmux-resurrect
@@ -54,7 +95,7 @@ pwd
 ```console
 cd
 ```
-#### Crear o modificar el archivo de modificación
+#### 2.2.3. Crear o modificar el archivo de modificación
 - crear el archivo .tmux.conf con Vim
 ```console
 vi .tmux.conf
@@ -71,7 +112,7 @@ esc | :wq
 ```console
 tmux source-file ~/.tmux.conf
 ```
-### Instalar Tmux plugings
+### 2.3. Instalar Tmux plugings
 - Descargar el repositorio
 ```console
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -90,7 +131,7 @@ run '~/.tmux/plugins/tpm/tpm'
 ```console
 tmux source-file ~/.tmux.conf
 ```
-#### Comandos de Tmux plugings
+#### 2.3.1. Comandos de Tmux plugings
 - Instala nuevos complementos de GitHub o cualquier otro repositorio de git. Actualiza el entorno TMUX
 ```console
 ctrl+B | I
@@ -103,8 +144,8 @@ ctrl+B | U
 ```console
 ctrl+B | alt+u
 ```
-## Instalando complementos
-### Agregar complemento para copiar desde terminal
+## 3. Instalando complementos
+### 3.1. Agregar complemento para copiar desde terminal
 - Editar el archivo de configuracion tmux
 ```console
 vi .tmux.conf
@@ -113,7 +154,7 @@ vi .tmux.conf
 ```txt
 set -g @plugin 'tmux-plugins/tmux-yank'
 ```
-#### Usar Tmux plugings manager para instalar
+#### 3.1.1. Usar Tmux plugings manager para instalar
 - Ingresar a una sesion en Tmux
 ```console
 Tmux
@@ -123,7 +164,7 @@ Tmux
 ctrl+B | I
 ```
 - Luego apretar esc, para instalar
-### Agregar complemento para agregar temas
+### 3.2. Agregar complemento para agregar temas
 - Editar el archivo de configuracion tmux
 ```console
 vi .tmux.conf
@@ -133,7 +174,7 @@ vi .tmux.conf
 set -g @plugin 'seebi/tmux-colors-solarized'
 set -g @colors-solarized 'base16'
 ```
-#### Usar Tmux plugings manager para instalar
+#### 3.2.1. Usar Tmux plugings manager para instalar
 - Ingresar a una sesion en Tmux
 ```console
 Tmux
@@ -143,7 +184,7 @@ Tmux
 ctrl+B | I
 ```
 - Luego apretar esc, para instalar
-### Agregar complemento para que al apretar ctrl + B, identifique
+### 3.3. Agregar complemento para que al apretar ctrl + B, identifique
 - Editar el archivo de configuracion tmux
 ```console
 vi .tmux.conf
@@ -152,7 +193,7 @@ vi .tmux.conf
 ```txt
 set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
 ```
-#### Usar Tmux plugings manager para instalar
+#### 3.3.1. Usar Tmux plugings manager para instalar
 - Ingresar a una sesion en Tmux
 ```console
 Tmux
@@ -162,7 +203,7 @@ Tmux
 ctrl+B | I
 ```
 - Luego apretar esc, para instalar
-### Agregar complemento para que le brinde una barra de estado de línea eléctrica hábil y pirateable que consta de segmento
+### 3.4. Agregar complemento para que le brinde una barra de estado de línea eléctrica hábil y pirateable que consta de segmento
 - Editar el archivo de configuracion tmux
 ```console
 vi .tmux.conf
@@ -171,7 +212,7 @@ vi .tmux.conf
 ```txt
 set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
 ```
-#### Usar Tmux plugings manager para instalar
+#### 3.4.1. Usar Tmux plugings manager para instalar
 - Ingresar a una sesion en Tmux
 ```console
 Tmux
@@ -182,13 +223,13 @@ ctrl+B | I
 ```
 - Luego apretar esc, para instalar
  tpm que 
-## Iniciar tmux (Sesión por defecto)
+## 4. Iniciar tmux (Sesión por defecto)
 ```console
 tmux
 ```
-## Ventana
+## 5. Ventana
 - Estando en Tmux
-### Crear nueva ventana
+### 5.1. Crear nueva ventana
 ```txt
 ctrl+B | C
 ```
@@ -198,12 +239,12 @@ ctrl+B | C
 0:zsh- 1:zsh*         ventana 2
 0:zsh- 1:zsh- 2:zsh*  ventana 3
 ```
-### Cambiar el nombre de la ventana
+### 5.2. Cambiar el nombre de la ventana
 - Cambiar el nombre y luego enter
 ```txt
 ctrl+B | , 
 ```
-### Cambiar de ventana
+### 5.3. Cambiar de ventana
 - Ventana anterior
 ```txt
 ctrl+B | p 
@@ -212,21 +253,21 @@ ctrl+B | p
 ```txt
 ctrl+B | n 
 ```
-### Listar sesiones y Ventanas
+### 5.4. Listar sesiones y Ventanas
 - Enumera las ventanas abiertas
 ```
 ctrl+B | w
 ```
-### Cerrar
+### 5.5. Cerrar
 - Cerrar la ventana actual ventanas la (confirmar con y)
 ```
 ctrl+B | &
 ```
-### Saltar a la ventana z
+### 5.6. Saltar a la ventana z
 ```
 ctrl+B | 1, 2, 3, (...)
 ```
-## Paneles
+## 6. Paneles
 - Dividir en 2 partes verticales
 ```txt
 ctrl+B | % 
@@ -280,21 +321,21 @@ ctrl+B | Barra espaciadora
 ```txt
 ctrl+B | !
 ```
-## Comandos de Tmux
+## 7. Comandos de Tmux
 - Para entrar a comandos de Tmux
 ```txt
 ctrl+B | :
 ```
-### Para habilitar el mouse
+### 7.1. Para habilitar el mouse
 ```console
     set-option -g mouse on
 ```
-### Para paneles
-#### Dividir verticalmente
+### 7.2. Para paneles
+#### 7.2.1. Dividir verticalmente
 ```console
 split-window -h
 ```
-#### Redimensionar los paneles
+#### 7.2.2. Redimensionar los paneles
 - Mueve la línea divisoria entre paneles hacia abajo.
 ```console
 resize-pane -D
@@ -320,24 +361,24 @@ resize-pane -U 10
 ```console
 resize-pane -t 2 -R 5
 ```
-## Sesiones
-### Inicia nueva sesion
+## 8. Sesiones
+### 8.1. Inicia nueva sesion
 ```console
 tmux new -s nombreSesion
 ```
-### lista las sesiones
+### 8.2. lista las sesiones
 ```console
 tmux list-sessions
 ```
-### elimina la sesion z
+### 8.3. elimina la sesion z
 ```console
 tmux kill-session -t z
 ```
-### Ir a esa sesion
+### 8.4. Ir a esa sesion
 ```console
 tmux attach -t nombreSesion
 ```
-### Comandos en Tmux
+### 8.5. Comandos en Tmux
 - muestras todas las sesiones y cambia de una sesión a otra
 ```txt
 ctrl+B | S
@@ -354,6 +395,6 @@ ctrl+B | D
 ```txt
 ctrl+B | ?
 ```
-## Referencia
+## 9. Referencia
 - [Tmux](https://www.youtube.com/watch?v=BHhA_ZKjyxo)
 - [Otro Tmux](https://www.youtube.com/watch?v=Yl7NFenTgIo)
