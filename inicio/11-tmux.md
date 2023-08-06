@@ -1,7 +1,144 @@
-## Instalar
+## Instalar tmux
+- Instalar tmux
 ```console
 sudo apt-get install tmux
 ```
+## Instalar Vmin
+```console
+sudo apt install vim
+```
+## Instalar tmux resurrection
+- Clonar en la carpeta personal
+```console
+git clone https://github.com/tmux-plugins/tmux-resurrect
+```
+- Comprobar si esta la carpeta tmux-resurrect
+```console
+la tmux-resurrect
+```
+- Ingresar a tmux-resurrect
+```console
+cd tmux-resurrect
+```
+- obtener la direccion de la carpeta
+```console
+pwd
+/home/xixay/tmux-resurrect    // respuesta
+```
+- volver a la carpeta personal
+```console
+cd
+```
+- crear el archivo .tmux.conf con Vim
+```console
+vi .tmux.conf
+```
+- Copiar lo siguiente y guardar
+```txt
+run-shell /home/xixay/tmux-resurrect/resurrect.tmux
+```
+- para guardar en vim
+```
+esc | :wq
+```
+- Luego de guardar recargar, para que se pueda usar
+```console
+tmux source-file ~/.tmux.conf
+```
+## Instalar Tmux plugings
+- Descargar el repositorio
+```console
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+- Editar el archivo de configuracion tmux
+```console
+vi .tmux.conf
+```
+- Copiar lo siguiente y guardar
+```txt
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+run '~/.tmux/plugins/tpm/tpm'
+```
+- Luego de guardar recargar, para que se pueda usar
+```console
+tmux source-file ~/.tmux.conf
+```
+### Comandos
+- Instala nuevos complementos de GitHub o cualquier otro repositorio de git. Actualiza el entorno TMUX
+```console
+ctrl+B | I
+```
+- Actualiza los complementos
+```console
+ctrl+B | U
+```
+- Eliminar/desinstalar complementos que no están en la lista de complementos
+```console
+ctrl+B | alt+u
+```
+## Agregar complemento para copiar desde terminal
+- Editar el archivo de configuracion tmux
+```console
+vi .tmux.conf
+```
+- Copiar lo siguiente y guardar 
+```txt
+set -g @plugin 'tmux-plugins/tmux-yank'
+```
+### Usar Tmux plugings manager para instalar
+- Para instalar
+```
+ctrl+B | I
+```
+- Luego apretar esc, para instalar
+## Agregar complemento para agregar temas
+- Editar el archivo de configuracion tmux
+```console
+vi .tmux.conf
+```
+- Copiar lo siguiente y guardar 
+```txt
+set -g @plugin 'seebi/tmux-colors-solarized'
+set -g @colors-solarized 'base16'
+```
+### Usar Tmux plugings manager para instalar
+- Para instalar
+```
+ctrl+B | I
+```
+- Luego apretar esc, para instalar
+## Agregar complemento para que al apretar ctrl + B, identifique
+- Editar el archivo de configuracion tmux
+```console
+vi .tmux.conf
+```
+- Copiar lo siguiente y guardar 
+```txt
+set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
+```
+### Usar Tmux plugings manager para instalar
+- Para instalar
+```
+ctrl+B | I
+```
+- Luego apretar esc, para instalar
+## Agregar complemento para que le brinde una barra de estado de línea eléctrica hábil y pirateable que consta de segmento
+- Editar el archivo de configuracion tmux
+```console
+vi .tmux.conf
+```
+- Copiar lo siguiente y guardar 
+```txt
+set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
+```
+### Usar Tmux plugings manager para instalar
+- Para instalar
+```
+ctrl+B | I
+```
+- Luego apretar esc, para instalar
+ tpm que 
 ## Inicia tmux
 ```console
 tmux
@@ -65,6 +202,10 @@ tmux new -s nombreSesion
 ### lista las sesiones
 ```console
 tmux list-sessions
+```
+### elimina la sesion z
+```console
+tmux kill-session -t z
 ```
 ### Ir a esa sesion
 ```console
