@@ -210,7 +210,7 @@ vi .tmux.conf
 ```
 - Copiar lo siguiente y guardar 
 ```txt
-set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
+set -g @plugin 'erikw/tmux-powerline'
 ```
 #### 3.4.1. Usar Tmux plugings manager para instalar
 - Ingresar a una sesion en Tmux
