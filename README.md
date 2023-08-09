@@ -47,6 +47,7 @@
 ### 3.1.9. [(Centrar el contenido de una fila)](/frontend/vuetify/1.9-centrarFila.md)
 ## 3.2. [Nuxt(Frontend)](/frontend/vuetify/2-nuxt.md)
 ## 3.3. [ReactMui (Frontend)](/frontend/reactMui/1-reactMui.md)
+### 3.3.1. [Componente](/frontend/reactMui/1.1-componente.md)
 # 4. Extras
 ## 4.1. [Array](/utilitarios/1-array.md)
 ## 4.2. [Formulario (Html)](/utilitarios/2-formularioHtml.md)
