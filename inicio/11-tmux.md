@@ -17,6 +17,10 @@
     - [3.3.1. Usar Tmux plugings manager para instalar](#331-usar-tmux-plugings-manager-para-instalar)
   - [3.4. Agregar complemento para que le brinde una barra de estado de línea eléctrica hábil y pirateable que consta de segmento](#34-agregar-complemento-para-que-le-brinde-una-barra-de-estado-de-línea-eléctrica-hábil-y-pirateable-que-consta-de-segmento)
     - [3.4.1. Usar Tmux plugings manager para instalar](#341-usar-tmux-plugings-manager-para-instalar)
+  - [3.5. Agregar complemento para usar el mouse](#35-agregar-complemento-para-usar-el-mouse)
+    - [3.5.1. Usar Tmux plugings manager para instalar](#351-usar-tmux-plugings-manager-para-instalar)
+  - [3.6. Agregar complemento para scroll de mouse](#36-agregar-complemento-para-scroll-de-mouse)
+    - [3.6.1. Usar Tmux plugings manager para instalar](#361-usar-tmux-plugings-manager-para-instalar)
 - [4. Iniciar tmux (Sesión por defecto)](#4-iniciar-tmux-sesión-por-defecto)
 - [5. Ventana](#5-ventana)
   - [5.1. Crear nueva ventana](#51-crear-nueva-ventana)
@@ -222,7 +226,46 @@ Tmux
 ctrl+B | I
 ```
 - Luego apretar esc, para instalar
- tpm que 
+### 3.5. Agregar complemento para usar el mouse
+- Editar el archivo de configuracion tmux
+```console
+vi .tmux.conf
+```
+- Copiar lo siguiente y guardar 
+```txt
+set -g mouse on
+```
+#### 3.5.1. Usar Tmux plugings manager para instalar
+- Ingresar a una sesion en Tmux
+```console
+Tmux
+```
+- Para instalar
+```
+ctrl+B | I
+```
+- Luego apretar esc, para instalar
+
+### 3.6. Agregar complemento para scroll de mouse
+- Editar el archivo de configuracion tmux
+```console
+vi .tmux.conf
+```
+- Copiar lo siguiente y guardar 
+```txt
+set -g @plugin 'noscript/tmux-mighty-scroll'
+```
+#### 3.6.1. Usar Tmux plugings manager para instalar
+- Ingresar a una sesion en Tmux
+```console
+Tmux
+```
+- Para instalar
+```
+ctrl+B | I
+```
+- Luego apretar esc, para instalar
+
 ## 4. Iniciar tmux (Sesión por defecto)
 ```console
 tmux
