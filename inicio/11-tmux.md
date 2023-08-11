@@ -23,6 +23,10 @@
     - [3.6.1. Usar Tmux plugings manager para instalar](#361-usar-tmux-plugings-manager-para-instalar)
   - [3.7. Agregar complemento para redimensionar paneles con el mouse](#37-agregar-complemento-para-redimensionar-paneles-con-el-mouse)
     - [3.7.1. Usar Tmux plugings manager para instalar](#371-usar-tmux-plugings-manager-para-instalar)
+  - [3.8. Agregar complemento para guardado y restauración continua de Tmux](#38-agregar-complemento-para-guardado-y-restauración-continua-de-tmux)
+    - [3.8.1. Usar Tmux plugings manager para instalar](#381-usar-tmux-plugings-manager-para-instalar)
+  - [3.9. Agregar complemento para busqueda en Tmux](#39-agregar-complemento-para-busqueda-en-tmux)
+    - [3.9.1. Usar Tmux plugings manager para instalar](#391-usar-tmux-plugings-manager-para-instalar)
 - [4. Iniciar tmux (Sesión por defecto)](#4-iniciar-tmux-sesión-por-defecto)
 - [5. Ventana](#5-ventana)
   - [5.1. Crear nueva ventana](#51-crear-nueva-ventana)
@@ -286,7 +290,45 @@ Tmux
 ctrl+B | I
 ```
 - Luego apretar esc, para instalar
-
+### 3.8. Agregar complemento para guardado y restauración continua de Tmux
+- Editar el archivo de configuracion tmux
+```console
+vi .tmux.conf
+```
+- Copiar lo siguiente y guardar 
+```txt
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+```
+#### 3.8.1. Usar Tmux plugings manager para instalar
+- Ingresar a una sesion en Tmux
+```console
+Tmux
+```
+- Para instalar
+```
+ctrl+B | I
+```
+- Luego apretar esc, para instalar
+### 3.9. Agregar complemento para busqueda en Tmux
+- Editar el archivo de configuracion tmux
+```console
+vi .tmux.conf
+```
+- Copiar lo siguiente y guardar 
+```txt
+set -g @plugin 'tmux-plugins/tmux-copycat'
+```
+#### 3.9.1. Usar Tmux plugings manager para instalar
+- Ingresar a una sesion en Tmux
+```console
+Tmux
+```
+- Para instalar
+```
+ctrl+B | I
+```
+- Luego apretar esc, para instalar
 ## 4. Iniciar tmux (Sesión por defecto)
 ```console
 tmux
