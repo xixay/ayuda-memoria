@@ -21,6 +21,8 @@
     - [3.5.1. Usar Tmux plugings manager para instalar](#351-usar-tmux-plugings-manager-para-instalar)
   - [3.6. Agregar complemento para scroll de mouse](#36-agregar-complemento-para-scroll-de-mouse)
     - [3.6.1. Usar Tmux plugings manager para instalar](#361-usar-tmux-plugings-manager-para-instalar)
+  - [3.7. Agregar complemento para redimensionar paneles con el mouse](#37-agregar-complemento-para-redimensionar-paneles-con-el-mouse)
+    - [3.7.1. Usar Tmux plugings manager para instalar](#371-usar-tmux-plugings-manager-para-instalar)
 - [4. Iniciar tmux (Sesión por defecto)](#4-iniciar-tmux-sesión-por-defecto)
 - [5. Ventana](#5-ventana)
   - [5.1. Crear nueva ventana](#51-crear-nueva-ventana)
@@ -256,6 +258,25 @@ vi .tmux.conf
 set -g @plugin 'noscript/tmux-mighty-scroll'
 ```
 #### 3.6.1. Usar Tmux plugings manager para instalar
+- Ingresar a una sesion en Tmux
+```console
+Tmux
+```
+- Para instalar
+```
+ctrl+B | I
+```
+- Luego apretar esc, para instalar
+### 3.7. Agregar complemento para redimensionar paneles con el mouse
+- Editar el archivo de configuracion tmux
+```console
+vi .tmux.conf
+```
+- Copiar lo siguiente y guardar 
+```txt
+set -g mouse-resize-pane on
+```
+#### 3.7.1. Usar Tmux plugings manager para instalar
 - Ingresar a una sesion en Tmux
 ```console
 Tmux
