@@ -27,6 +27,9 @@
     - [3.8.1. Usar Tmux plugings manager para instalar](#381-usar-tmux-plugings-manager-para-instalar)
   - [3.9. Agregar complemento para busqueda en Tmux](#39-agregar-complemento-para-busqueda-en-tmux)
     - [3.9.1. Usar Tmux plugings manager para instalar](#391-usar-tmux-plugings-manager-para-instalar)
+  - [3.10. Agregar modo de copia Tmux](#310-agregar-modo-de-copia-de-tmux)
+    - [3.10.1. Usar Tmux plugings manager para instalar](#3101-usar-tmux-plugings-manager-para-instalar)
+  Agregar modo de copia de Tmux
 - [4. Iniciar tmux (Sesión por defecto)](#4-iniciar-tmux-sesión-por-defecto)
 - [5. Ventana](#5-ventana)
   - [5.1. Crear nueva ventana](#51-crear-nueva-ventana)
@@ -319,6 +322,15 @@ vi .tmux.conf
 ```txt
 set -g @plugin 'tmux-plugins/tmux-copycat'
 ```
+- Comandos
+```txt
+prefix + ctrl-f- búsqueda simple de archivos
+prefix + ctrl-g- saltar sobre los archivos de estado de g it (mejor usado después git statusdel comando)
+prefix + alt-h- saltando sobre hashes SHA-1/SHA-256 (mejor usado después git logdel comando)
+prefix + ctrl-u- Búsqueda de direcciones URL (URL http, ftp y git)
+prefix + ctrl-d- búsqueda de número (nemotécnico d, como dígito)
+prefix + alt-i- Búsqueda de direcciones IP
+```
 #### 3.9.1. Usar Tmux plugings manager para instalar
 - Ingresar a una sesion en Tmux
 ```console
@@ -329,6 +341,27 @@ Tmux
 ctrl+B | I
 ```
 - Luego apretar esc, para instalar
+### 3.10. Agregar modo de copia de Tmux
+- Editar el archivo de configuracion tmux
+```console
+vi .tmux.conf
+```
+- Copiar lo siguiente y guardar 
+```txt
+set -g mode-keys vi
+```
+#### 3.10.1. Usar Tmux plugings manager para instalar
+- Ingresar a una sesion en Tmux
+```console
+Tmux
+```
+- Para instalar
+```
+ctrl+B | I
+```
+- Luego apretar esc, para instalar
+- Para copiar desplaze el mouse, o aprete ctrl+B | [, para entrar en el modo de copia, luego mantenga presionado la tecla space, y mueva a la derecha o izquierda para seleccionar, y aprete enter para copiar
+- Para pegar aprete  ctrl+B | ]
 ## 4. Iniciar tmux (Sesión por defecto)
 ```console
 tmux
