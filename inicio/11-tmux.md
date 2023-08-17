@@ -29,7 +29,6 @@
     - [3.9.1. Usar Tmux plugings manager para instalar](#391-usar-tmux-plugings-manager-para-instalar)
   - [3.10. Agregar modo de copia Tmux](#310-agregar-modo-de-copia-de-tmux)
     - [3.10.1. Usar Tmux plugings manager para instalar](#3101-usar-tmux-plugings-manager-para-instalar)
-  Agregar modo de copia de Tmux
 - [4. Iniciar tmux (Sesión por defecto)](#4-iniciar-tmux-sesión-por-defecto)
 - [5. Ventana](#5-ventana)
   - [5.1. Crear nueva ventana](#51-crear-nueva-ventana)
