@@ -501,6 +501,14 @@ ctrl+B | D
 ```txt
 ctrl+B | ?
 ```
+- desplazarse en el modo copia con las teclas de arriba y abajo
+```txt
+ctrl+B | [   , luego usar las teclas arriba y abajo
+```
+- para ir a una linea determinada en el modo copia
+```txt
+ctrl+B | [   , luego apretar "g", luego ingresar el numero de linea, y apretar enter, y sera a esa linea
+```
 ## 9. Referencia
 - [Tmux](https://www.youtube.com/watch?v=BHhA_ZKjyxo)
 - [Otro Tmux](https://www.youtube.com/watch?v=Yl7NFenTgIo)
