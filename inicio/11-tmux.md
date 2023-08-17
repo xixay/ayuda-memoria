@@ -323,9 +323,9 @@ set -g @plugin 'tmux-plugins/tmux-copycat'
 ```
 - Comandos
 ```txt
-prefix + ctrl-f- búsqueda simple de archivos
-prefix + ctrl-g- saltar sobre los archivos de estado de g it (mejor usado después git statusdel comando)
-prefix + alt-h- saltando sobre hashes SHA-1/SHA-256 (mejor usado después git logdel comando)
+prefix + ctrl-/- búsqueda simple de archivos
+prefix + ctrl-g- saltar sobre los archivos de estado de g it (mejor usado después git status del comando)
+prefix + alt-h- saltando sobre hashes SHA-1/SHA-256 (mejor usado después git log del comando)
 prefix + ctrl-u- Búsqueda de direcciones URL (URL http, ftp y git)
 prefix + ctrl-d- búsqueda de número (nemotécnico d, como dígito)
 prefix + alt-i- Búsqueda de direcciones IP
