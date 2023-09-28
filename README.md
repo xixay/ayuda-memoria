@@ -48,6 +48,8 @@
 ## 3.2. [Nuxt(Frontend)](/3frontend/vuetify/2-nuxt.md)
 ## 3.3. [ReactMui (Frontend)](/3frontend/reactMui/1-reactMui.md)
 ### 3.3.1. [Componente](/3frontend/reactMui/1.1-componente.md)
+## 3.4. PrimeReact (Frontend)
+### 3.4.1. [Alineacion](/3frontend/primereact/1.1-alineaciones.md)
 # 4. Extras
 ## 4.1. [Array](/4utilitarios/1-array.md)
 ## 4.2. [Formulario (Html)](/4utilitarios/2-formularioHtml.md)
