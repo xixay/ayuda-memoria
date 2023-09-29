@@ -52,6 +52,7 @@
 ### 3.4.1. [Alineacion](/3frontend/primereact/1.1alineaciones.md)
 ### 3.4.2. [Responsividad](/3frontend/primereact/1.2responsivo.md)
 ### 3.4.3. [Estilos](/3frontend/primereact/1.3estilos.md)
+### 3.4.4. [Mostrar o ocultar](/3frontend/primereact/1.4-visibilidad.md)
 # 4. Extras
 ## 4.1. [Array](/4utilitarios/1-array.md)
 ## 4.2. [Formulario (Html)](/4utilitarios/2-formularioHtml.md)
