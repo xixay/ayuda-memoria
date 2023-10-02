@@ -30,7 +30,8 @@
 - [8. Volver a una versión anterior de commit](#8-volver-a-una-versión-anterior-de-commit)
 - [9. Crear una rama con una versión anterior de commit](#9-crear-una-rama-con-una-versión-anterior-de-commit)
 - [10. Como Deshacer Un Git Pull en Git De Manera Eficiente](#10-como-deshacer-un-git-pull-en-git-de-manera-eficiente)
-- [11. Referencia](#11-referencia)
+- [11. Como Deshacer Un Git Pull traido de otra rama](#11-como-deshacer-un-git-pull-traido-de-otra-rama)
+- [12. Referencia](#12-referencia)
 
 # 1. Creación de ramas
 ## 1.1. Mostrar ramas
@@ -326,6 +327,11 @@ bt63gf5 HEAD@{6}: commit: Se agrego el campo email al formulario de contacto
 ```console
 git reset --hard a356e87
 ```
-# 11. Referencia
+# 11. Como Deshacer Un Git Pull traido de otra rama
+- Una vez que hayas realizado esta copia de seguridad
+```console
+git merge --abort
+```
+# 12. Referencia
 - [Tablas de markdown](https://www.tablesgenerator.com/markdown_tables#)
 - [Como Deshacer Un Git Pull en Git De Manera Eficiente](https://blog.nubecolectiva.com/como-deshacer-un-git-pull-en-git-de-manera-eficiente/)
