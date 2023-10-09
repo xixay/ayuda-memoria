@@ -7,9 +7,11 @@
 ## 1.6. [Crear repositorio (Github)](/1inicio/6-repositorio.md)
 ## 1.7. [Crear claves ssh (Github, Gitlab)](/1inicio/7-clavesSshLinuxWindowsWsl2.md)
 ## 1.8. [Abrir y editar archivos (linux)](/1inicio/8-abrirYEditarArchivosSistema.md)
-## 1.9. [Configuación de Usuario y Correo Global](/1inicio/9-agregarConfigUsserEmail.md)
+## 1.9. [Configuración de Usuario y Correo Global](/1inicio/9-agregarConfigUsserEmail.md)
 ## 1.10. [Crear contenedores Docker(Windows, Linux, Wsl2)](/1inicio/10-docker.md)
 ## 1.11. [Tmux terminal)](/1inicio/11-tmux.md)
+## 1.12. [Notas Arbol)](/1inicio/12-todo-tree.md)
+## 1.13. [Color Vscode)](/1inicio/13-peacock.md)
 # 2. Backend
 ## 2.1. [Express (Backend)](/2backend/express/1-articulo.md)
 ### 2.1..1 [Rutas api rest](/2backend/express/1.1-articuloRutas.md)
