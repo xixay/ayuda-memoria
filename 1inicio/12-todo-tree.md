@@ -1,5 +1,5 @@
 ## Crear el archivo de configuracion
-- En la carpeta .vscode crear el archivo settings.json, donde estaran los tipos de notasS
+- En la carpeta .vscode crear el archivo settings.json, donde estaran los tipos de notas
 ```json
 {
     // otras configuraciones.....,
