@@ -12,6 +12,7 @@
 ## 1.11. [Tmux terminal](/1inicio/11-tmux.md)
 ## 1.12. [Notas Arbol](/1inicio/12-todo-tree.md)
 ## 1.13. [Color Vscode](/1inicio/13-peacock.md)
+## 1.14. [GitIgnore](/1inicio/14-gitignore.md)
 # 2. Backend
 ## 2.1. [Express (Backend)](/2backend/express/1-articulo.md)
 ### 2.1..1 [Rutas api rest](/2backend/express/1.1-articuloRutas.md)
