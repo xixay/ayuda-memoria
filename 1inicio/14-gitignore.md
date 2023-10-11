@@ -1,57 +1,149 @@
 ## Archivo ignore
 - Igorara los siguientes archivos 
 ```md
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# local env files
-.env
-.env*.local
-
+# Consulte https://help.github.com/articles/ignoring-files/ para obtener más información sobre cómo ignorar archivos.
 # vercel
 .vercel
 
-# typescript
+# varios
+.DS_Store
+*.pem
+
+# Registros y depuración
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Informes de diagnóstico (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Datos de tiempo de ejecución
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Directorio para bibliotecas instrumentadas generadas por jscoverage/JSCover
+lib-cov
+
+# Coverage Directorio de cobertura utilizado por herramientas como Estambul
+coverage
+/coverage
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Almacenamiento intermedio Grunt (https://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
+
+# Directorio de dependencias de Bower (https://bower.io/)
+bower_components
+
+# configuración de node-waf 
+.lock-wscript
+
+# Complementos binarios compilados (https://nodejs.org/api/addons.html)
+build/Release
+
+
+# Directorios de dependencia
+node_modules/
+jspm_packages/
+/.pnp
+.pnp.js
+
+# Directorio de dependencias de Snowpack (https://snowpack.dev/)
+web_modules/
+
+# TypeScript cache
 *.tsbuildinfo
 next-env.d.ts
 
-# vscode
-.vscode
+# Directorio de caché npm opcional
+.npm
 
-# dist
-/dist
+# Caché eslint opcional
+.eslintcache
 
-# logs
-logs
-*.log
+# Caché de estilo opcional
+.stylelintcache
 
-# nyc_output
-/.nyc_output
+# Caché de micropaquetes
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
 
-# models
-models
-service.generation.ts
+# Historial REPL opcional
+.node_repl_history
+
+# Salida de 'paquete npm'
+*.tgz
+
+# Archivo de integridad del hilo
+.yarn-integrity
+
+# archivos de variables de entorno dotenv
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# caché del paquete de paquetes (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# Salida de compilación de Next.js
+.next
+out
+
+# construye/genera salida Nuxt.js build 
+.nuxt
+dist
+
+# archivos Gatsby
+.cache/
+
+# Comenta en la línea pública si tu proyecto usa Gatsby y no Next.js
+# https://nextjs.org/blog/next-9-1#public-directory-support
+# público
+
+# salida de compilación de vuepress
+.vuepress/dist
+
+# vuepress v2.x directorio temporal y caché
+.temp
+.cache
+
+# Caché de Docusaurus y archivos generados
+.docusaurus
+
+# Directorios sin servidor
+.serverless/
+
+# Cache FuseBox
+.fusebox/
+
+# Archivos locales de DynamoDB
+.dynamodb/
+
+# # Archivo de puerto TernJS
+.tern-port
+
+# Almacena versiones de VSCode utilizadas para probar extensiones de VSCode
+.vscode-test
+
+# yarn v2
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
 ```
