@@ -4,7 +4,8 @@
 - [4. Para usar una version en especifica Node.js](#4-para-usar-una-version-en-especifica-nodejs)
 - [5. Para usar una version lts con largo mantenimiento en especifica Node.js](#5-para-usar-una-version-lts-con-largo-mantenimiento-en-especifica-nodejs)
 - [6. Eliminar una versión de Node.js](#6-eliminar-una-versión-de-nodejs)
-- [7. Referencia](#7-referencia)
+- [7. Instalar Nvm en WSL2](#7-instalar-nvm-en-wsl2)
+- [8. Referencia](#8-referencia)
 
 ## 1. Instalar node usando nvm(node  version manager)
 - Instalar NVM en Ubuntu 20.04
@@ -70,7 +71,16 @@ nvm use --lts   ()
 ```console
 nvm uninstall 14.18.1
 ```
-## 7. Referencia
+## 7. Instalar Nvm en WSL2
+- Instala cURL
+```console
+sudo apt-get install curl
+```
+- Instala nvm con
+```console
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+```
+## 8. Referencia
 - [Versiones de node](https://nodejs.org/es/download/releases/)
 - [Comandos nvm node](https://franyerverjel.com/blog/como-establecer-la-version-predeterminada-de-node-con-nvm)
 - [Instalar NVM en Ubuntu 20.04](https://gndx.dev/blog/instalar-nvm-en-ubuntu-20-04/)
