@@ -1,7 +1,7 @@
 # 1. Inicio
 ## 1.1. [Instalar programas .deb](/1inicio/1-instalarTipoDeb.md)
 ## 1.2. [Actualización terminal (linux)](/1inicio/2-actualizarSistema.md)
-## 1.3. [Configuración de vista en terminal en ubuntu](/1inicio/3-ZSHeInstalarPowerlevel10k.md)
+## 1.3. [Vista en terminal Oh My Zsh ubuntu](/1inicio/3-ZSHeInstalarPowerlevel10k.md)
 ## 1.4. [Instalar Node (linux)](/1inicio/4-node.md)
 ## 1.5. [Comandos de Git](/1inicio/5-git.md)
 ## 1.6. [Crear repositorio (Github)](/1inicio/6-repositorio.md)
