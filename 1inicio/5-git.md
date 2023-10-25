@@ -3,6 +3,8 @@
   - [1.1. Mostrar ramas](#11-mostrar-ramas)
   - [1.2. Cambiar de rama](#12-cambiar-de-rama)
   - [1.3. Crear nueva rama](#13-crear-nueva-rama)
+    - [1.3.1. Primera forma](#131-primera-forma)
+    - [1.3.2. Segunda forma](#132-segunda-forma)
   - [1.4. Elimina una rama](#14-elimina-una-rama)
 - [2. Guardar cambios](#2-guardar-cambios)
   - [2.1. Mostrar estado](#21-mostrar-estado)
@@ -48,13 +50,35 @@ git branch -a
 git checkout main
 ```
 ## 1.3. Crear nueva rama
-- Crea una nueva rama(por ejemplo develop), manteniendo la informacion de donde se creo, cambiando a la nueva rama(Esta rama no estara publicada en github).
+### 1.3.1. Primera forma
+- Ir a la rama que sera copiada(develop)
 ```console
-git checkout -b develop
+git checkout develop
 ```
-- Para tenerlo en github 
+- Crea una nueva rama(por ejemplo rama_nueva) y cambia a la rama nueva
 ```console
-git push origin develop
+git checkout -b rama_nueva
+```
+- Publicar la nueva rama en el repositorio remoto
+```console
+git push origin rama_nueva
+```
+### 1.3.2. Segunda forma
+- Ir a la rama que sera copiada(develop)
+```console
+git checkout develop
+```
+- Crea una nueva rama(por ejemplo rama_nueva)
+```console
+git branch rama_nueva
+```
+- Cambiar a la nueva rama
+```console
+git checkout rama_nueva
+```
+- Publicar la nueva rama en el repositorio remoto 
+```console
+git push -u origin rama_nueva
 ```
 ## 1.4. Elimina una rama
 - elimina la rama que se desea, pero se debe estar en otra rama, no en ella
