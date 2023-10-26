@@ -10,25 +10,18 @@
     - [2.3.1. Comandos de Tmux plugings](#231-comandos-de-tmux-plugings)
 - [3. Instalando complementos](#3-instalando-complementos)
   - [3.1. Agregar complemento para copiar desde terminal](#31-agregar-complemento-para-copiar-desde-terminal)
-    - [3.1.1. Usar Tmux plugings manager para instalar](#311-usar-tmux-plugings-manager-para-instalar)
   - [3.2. Agregar complemento para agregar temas](#32-agregar-complemento-para-agregar-temas)
-    - [3.2.1. Usar Tmux plugings manager para instalar](#321-usar-tmux-plugings-manager-para-instalar)
   - [3.3. Agregar complemento para que al apretar ctrl + B, identifique](#33-agregar-complemento-para-que-al-apretar-ctrl--b-identifique)
-    - [3.3.1. Usar Tmux plugings manager para instalar](#331-usar-tmux-plugings-manager-para-instalar)
   - [3.4. Agregar complemento para que le brinde una barra de estado de línea eléctrica hábil y pirateable que consta de segmento](#34-agregar-complemento-para-que-le-brinde-una-barra-de-estado-de-línea-eléctrica-hábil-y-pirateable-que-consta-de-segmento)
-    - [3.4.1. Usar Tmux plugings manager para instalar](#341-usar-tmux-plugings-manager-para-instalar)
   - [3.5. Agregar complemento para usar el mouse](#35-agregar-complemento-para-usar-el-mouse)
-    - [3.5.1. Usar Tmux plugings manager para instalar](#351-usar-tmux-plugings-manager-para-instalar)
   - [3.6. Agregar complemento para scroll de mouse](#36-agregar-complemento-para-scroll-de-mouse)
-    - [3.6.1. Usar Tmux plugings manager para instalar](#361-usar-tmux-plugings-manager-para-instalar)
   - [3.7. Agregar complemento para redimensionar paneles con el mouse](#37-agregar-complemento-para-redimensionar-paneles-con-el-mouse)
-    - [3.7.1. Usar Tmux plugings manager para instalar](#371-usar-tmux-plugings-manager-para-instalar)
   - [3.8. Agregar complemento para guardado y restauración continua de Tmux](#38-agregar-complemento-para-guardado-y-restauración-continua-de-tmux)
-    - [3.8.1. Usar Tmux plugings manager para instalar](#381-usar-tmux-plugings-manager-para-instalar)
   - [3.9. Agregar complemento para busqueda en Tmux](#39-agregar-complemento-para-busqueda-en-tmux)
-    - [3.9.1. Usar Tmux plugings manager para instalar](#391-usar-tmux-plugings-manager-para-instalar)
-  - [3.10. Agregar modo de copia Tmux](#310-agregar-modo-de-copia-de-tmux)
-    - [3.10.1. Usar Tmux plugings manager para instalar](#3101-usar-tmux-plugings-manager-para-instalar)
+    - [3.9.1. Comandos de busqueda](#391-comandos-de-busqueda)
+  - [3.10. Agregar modo de copia de Tmux](#310-agregar-modo-de-copia-de-tmux)
+    - [3.10.1. Para copiar y pegar](#3101-para-copiar-y-pegar)
+    - [3.10.2. Para copiar lo de tmux, para mandarlo a el portapapeles](#3102-para-copiar-lo-de-tmux-para-mandarlo-a-el-portapapeles)
 - [4. Iniciar tmux (Sesión por defecto)](#4-iniciar-tmux-sesión-por-defecto)
 - [5. Ventana](#5-ventana)
   - [5.1. Crear nueva ventana](#51-crear-nueva-ventana)
@@ -50,6 +43,7 @@
   - [8.4. Ir a esa sesion](#84-ir-a-esa-sesion)
   - [8.5. Comandos en Tmux](#85-comandos-en-tmux)
 - [9. Referencia](#9-referencia)
+
 
 ## 1. Instalar tmux
 - Instalar tmux
@@ -166,16 +160,7 @@ vi .tmux.conf
 ```txt
 set -g @plugin 'tmux-plugins/tmux-yank'
 ```
-#### 3.1.1. Usar Tmux plugings manager para instalar
-- Ingresar a una sesion en Tmux
-```console
-Tmux
-```
-- Para instalar
-```
-ctrl+B | I
-```
-- Luego apretar esc, para instalar
+- Usar Tmux plugings manager para instalar ctrl+B | I, apretar comando, para instalar
 ### 3.2. Agregar complemento para agregar temas
 - Editar el archivo de configuracion tmux
 ```console
@@ -186,16 +171,7 @@ vi .tmux.conf
 set -g @plugin 'seebi/tmux-colors-solarized'
 set -g @colors-solarized 'base16'
 ```
-#### 3.2.1. Usar Tmux plugings manager para instalar
-- Ingresar a una sesion en Tmux
-```console
-Tmux
-```
-- Para instalar
-```
-ctrl+B | I
-```
-- Luego apretar esc, para instalar
+- Usar Tmux plugings manager para instalar ctrl+B | I, apretar comando, para instalar
 ### 3.3. Agregar complemento para que al apretar ctrl + B, identifique
 - Editar el archivo de configuracion tmux
 ```console
@@ -205,16 +181,7 @@ vi .tmux.conf
 ```txt
 set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
 ```
-#### 3.3.1. Usar Tmux plugings manager para instalar
-- Ingresar a una sesion en Tmux
-```console
-Tmux
-```
-- Para instalar
-```
-ctrl+B | I
-```
-- Luego apretar esc, para instalar
+- Usar Tmux plugings manager para instalar ctrl+B | I, apretar comando, para instalar
 ### 3.4. Agregar complemento para que le brinde una barra de estado de línea eléctrica hábil y pirateable que consta de segmento
 - Editar el archivo de configuracion tmux
 ```console
@@ -224,16 +191,7 @@ vi .tmux.conf
 ```txt
 set -g @plugin 'erikw/tmux-powerline'
 ```
-#### 3.4.1. Usar Tmux plugings manager para instalar
-- Ingresar a una sesion en Tmux
-```console
-Tmux
-```
-- Para instalar
-```
-ctrl+B | I
-```
-- Luego apretar esc, para instalar
+- Usar Tmux plugings manager para instalar ctrl+B | I, apretar comando, para instalar
 ### 3.5. Agregar complemento para usar el mouse
 - Editar el archivo de configuracion tmux
 ```console
@@ -243,17 +201,7 @@ vi .tmux.conf
 ```txt
 set -g mouse on
 ```
-#### 3.5.1. Usar Tmux plugings manager para instalar
-- Ingresar a una sesion en Tmux
-```console
-Tmux
-```
-- Para instalar
-```
-ctrl+B | I
-```
-- Luego apretar esc, para instalar
-
+- Usar Tmux plugings manager para instalar ctrl+B | I, apretar comando, para instalar
 ### 3.6. Agregar complemento para scroll de mouse
 - Editar el archivo de configuracion tmux
 ```console
@@ -263,16 +211,7 @@ vi .tmux.conf
 ```txt
 set -g @plugin 'noscript/tmux-mighty-scroll'
 ```
-#### 3.6.1. Usar Tmux plugings manager para instalar
-- Ingresar a una sesion en Tmux
-```console
-Tmux
-```
-- Para instalar
-```
-ctrl+B | I
-```
-- Luego apretar esc, para instalar
+- Usar Tmux plugings manager para instalar ctrl+B | I, apretar comando, para instalar
 ### 3.7. Agregar complemento para redimensionar paneles con el mouse
 - Editar el archivo de configuracion tmux
 ```console
@@ -282,16 +221,8 @@ vi .tmux.conf
 ```txt
 set -g mouse-resize-pane on
 ```
-#### 3.7.1. Usar Tmux plugings manager para instalar
-- Ingresar a una sesion en Tmux
-```console
-Tmux
-```
-- Para instalar
-```
-ctrl+B | I
-```
-- Luego apretar esc, para instalar
+- Usar Tmux plugings manager para instalar ctrl+B | I, apretar comando, para instalar
+- apretar en las lineas para redimensionar
 ### 3.8. Agregar complemento para guardado y restauración continua de Tmux
 - Editar el archivo de configuracion tmux
 ```console
@@ -302,16 +233,7 @@ vi .tmux.conf
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
 ```
-#### 3.8.1. Usar Tmux plugings manager para instalar
-- Ingresar a una sesion en Tmux
-```console
-Tmux
-```
-- Para instalar
-```
-ctrl+B | I
-```
-- Luego apretar esc, para instalar
+- Usar Tmux plugings manager para instalar ctrl+B | I, apretar comando, para instalar
 ### 3.9. Agregar complemento para busqueda en Tmux
 - Editar el archivo de configuracion tmux
 ```console
@@ -321,7 +243,8 @@ vi .tmux.conf
 ```txt
 set -g @plugin 'tmux-plugins/tmux-copycat'
 ```
-- Comandos
+- Usar Tmux plugings manager para instalar ctrl+B | I, apretar comando, para instalar
+#### 3.9.1. Comandos de busqueda
 ```txt
 prefix + ctrl-/- búsqueda simple de archivos
 prefix + ctrl-g- saltar sobre los archivos de estado de g it (mejor usado después git status del comando)
@@ -330,16 +253,6 @@ prefix + ctrl-u- Búsqueda de direcciones URL (URL http, ftp y git)
 prefix + ctrl-d- búsqueda de número (nemotécnico d, como dígito)
 prefix + alt-i- Búsqueda de direcciones IP
 ```
-#### 3.9.1. Usar Tmux plugings manager para instalar
-- Ingresar a una sesion en Tmux
-```console
-Tmux
-```
-- Para instalar
-```
-ctrl+B | I
-```
-- Luego apretar esc, para instalar
 ### 3.10. Agregar modo de copia de Tmux
 - Editar el archivo de configuracion tmux
 ```console
@@ -349,18 +262,24 @@ vi .tmux.conf
 ```txt
 set -g mode-keys vi
 ```
-#### 3.10.1. Usar Tmux plugings manager para instalar
-- Ingresar a una sesion en Tmux
-```console
-Tmux
-```
-- Para instalar
-```
-ctrl+B | I
-```
-- Luego apretar esc, para instalar
+- Usar Tmux plugings manager para instalar ctrl+B | I, apretar comando, para instalar
+#### 3.10.1. Para copiar y pegar
 - Para copiar desplaze el mouse, o aprete ctrl+B | [, para entrar en el modo de copia, luego mantenga presionado la tecla space, y mueva a la derecha o izquierda para seleccionar, y aprete enter para copiar
 - Para pegar aprete  ctrl+B | ]
+#### 3.10.2. Para copiar lo de tmux, para mandarlo a el portapapeles
+- Instalar
+```console
+sudo apt-get install xclip
+```
+- Seleccionar lo que se desea copiar manteniendo la tecla space, copiar con enter
+- Para llevarlo al porta papeles del sistema
+```console
+tmux show-buffer | xclip -selection clipboard
+```
+- Para pegar en un bloc de notas
+```console
+ctrl + v
+```
 ## 4. Iniciar tmux (Sesión por defecto)
 ```console
 tmux
