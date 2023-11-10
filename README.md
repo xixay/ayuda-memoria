@@ -15,6 +15,7 @@
 ## 1.14. [Color Vscode](/1inicio/14-peacock.md)
 ## 1.15. [GitIgnore](/1inicio/15-gitignore.md)
 ## 1.16. [Postgres](/1inicio/16-postgres.md)
+## 1.17. [Tema vscode](/1inicio/17-temas.md)
 # 2. Backend
 ## 2.1. [Express (Backend)](/2backend/express/1-articulo.md)
 ### 2.1..1 [Rutas api rest](/2backend/express/1.1-articuloRutas.md)
