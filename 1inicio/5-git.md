@@ -109,11 +109,11 @@ git stash clear
 ```console
 git log --oneline
 ```
-| **Ir a la version**  | **commits**                                                             | **traer cambios** |
-|----------------------|-------------------------------------------------------------------------|-------------------|
-| git checkout 1802a7f | 1802a7f (HEAD -> rama2, origin/rama2) feat : commit de rama2            | git stash apply   |
-| git checkout 4ba9cc1 | 4ba9cc1 (origin/master, origin/develop, master, develop) doc: falta pm2 | git stash apply 1 |
-| git checkout 193378a | Inicializando NestJs                                                    | git stash apply 2 |
+| **Ir a la version**  | **commits**                                                             |
+|----------------------|-------------------------------------------------------------------------|
+| git checkout 1802a7f | 1802a7f (HEAD -> rama2, origin/rama2) feat : commit de rama2            |
+| git checkout 4ba9cc1 | 4ba9cc1 (origin/master, origin/develop, master, develop) doc: falta pm2 |
+| git checkout 193378a | Inicializando NestJs                                                    |
 # 8. Reemplazar el ultimo commit
 
 | **Comando**                  | **Accion**               |
