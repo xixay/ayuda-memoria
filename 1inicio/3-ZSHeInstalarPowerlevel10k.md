@@ -1,13 +1,28 @@
-# Cambiar BASH por ZSH e instalar Powerlevel10k
-## Instalar zsh
+- [1. Instalar zsh](#1-instalar-zsh)
+- [2. Comprobar tipo de terminal](#2-comprobar-tipo-de-terminal)
+- [3. Ver terminales instaladas](#3-ver-terminales-instaladas)
+- [4. Cambiar a la terminal zsh(root , usuarios)](#4-cambiar-a-la-terminal-zshroot--usuarios)
+- [5. Reiniciar](#5-reiniciar)
+- [6. Instalar oh my zsh (usuario)](#6-instalar-oh-my-zsh-usuario)
+- [7. Instalar oh my zsh (root)](#7-instalar-oh-my-zsh-root)
+- [8. Instalar Powerlevel10k](#8-instalar-powerlevel10k)
+  - [8.1. Descargar el repositorio](#81-descargar-el-repositorio)
+  - [8.2. Editar el archivo de configuración de zsh](#82-editar-el-archivo-de-configuración-de-zsh)
+  - [8.3. Descarga el tipo de fuente](#83-descarga-el-tipo-de-fuente)
+- [9. Configurar powerlevel10k](#9-configurar-powerlevel10k)
+- [10. Referencia](#10-referencia)
+
+## 1. Instalar zsh
 ```console
 sudo apt install zsh
 ```
+## 2. Comprobar tipo de terminal
 - Ver si la terminal esta en BASH
 ```console
 echo $SHELL
 /bin/bash  //respuesta
 ```
+## 3. Ver terminales instaladas
 - Ver en el directorio todas las instaladas
 ```console
 cat /etc/shells
@@ -24,6 +39,7 @@ cat /etc/shells
 /bin/zsh     //La que interesa poner
 /usr/bin/zsh
 ```
+## 4. Cambiar a la terminal zsh(root , usuarios) 
 - Asignar zsh a usuarios, en especial a root y otros
 ```console
 sudo -s  //entrar como root
@@ -31,8 +47,10 @@ sudo -s  //entrar como root
 #chsh -s /bin/zsh xixay
 exec zsh //salir
 ```
-- SAlir de la terminal y volver a entrar
+## 5. Reiniciar 
+- Salir de la terminal y volver a entrar
 - Descargar la herramienta para gestionar la zsh
+## 6. Instalar oh my zsh (usuario)
 ```console
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 yes // dar (Y) , aparecera un mensaje de instalado 
@@ -61,6 +79,7 @@ Before you scream Oh My Zsh! look over the `.zshrc` file to select plugins, them
 • Join our Discord community: Discord server
 • Get stickers, t-shirts, coffee mugs and more: Planet Argon Shop
 ```
+## 7. Instalar oh my zsh (root)
 - Entrar a root y hacer lo mismo en root
 ```console
 sudo -s  //entrar como root
@@ -76,19 +95,22 @@ su xixay
 pwd
 /home/xixay  //respuesta
 ```
-## Instalar Powerlevel10k
-- Descargar el repositorio
+## 8. Instalar Powerlevel10k
+### 8.1. Descargar el repositorio
 ```console
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
+### 8.2. Editar el archivo de configuración de zsh
 - Ir a al archivo zsh por terminal, para cambiar el tema
 ```console
 sudo nano .zshrc
 ```
-- Modificar el tema, y reiniciar la terminal
+- Modificar el tema
 ```console
 ZSH_THEME="powerlevel10k/powerlevel10k"
 ```
+- Guardar la nueva configuración y reiniciar la terminal
+### 8.3. Descarga el tipo de fuente
 - Ir a https://www.nerdfonts.com/font-downloads y descargar la fuente comprimida, descomprimir e instalar las fuentes de tipo ttf que se desee,  son ejecutables
 - Cambiar en la terminal de preferencia el tipo de fuente a usar la fuente descargada
 - Luego actualizar y limpiar
@@ -96,6 +118,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 sudo apt update
 sudo apt upgrade
 ```
+## 9. Configurar powerlevel10k
 - Abrir la terminal y sale las opciones de configuración, si no sale configurar colocar en terminal
 ```console
 p10k configure
@@ -127,6 +150,6 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 nano .zshrc
 ZSH_THEME="powerlevel10k/powerlevel10k"
 ```
-## Referencia
+## 10. Referencia
 - https://www.youtube.com/watch?v=EW2eDzBFONw
 - [oh-my-zsh](https://kapeli.com/cheat_sheets/Oh-My-Zsh_Git.docset/Contents/Resources/Documents/index)
