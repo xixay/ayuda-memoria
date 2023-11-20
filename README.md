@@ -1,4 +1,4 @@
-# 1. Inicio
+# 1. Temas
 ## 1.1. [Instalar programas .deb](/1inicio/1-instalarTipoDeb.md)
 ## 1.2. [Actualización terminal (linux)](/1inicio/2-actualizarSistema.md)
 ## 1.3. [Vista en terminal Oh My Zsh ubuntu](/1inicio/3-ZSHeInstalarPowerlevel10k.md)
@@ -17,6 +17,7 @@
 ## 1.16. [GitIgnore](/1inicio/16-gitignore.md)
 ## 1.17. [Postgres](/1inicio/17-postgres.md)
 ## 1.18. [Tema vscode](/1inicio/18-temas.md)
+## 1.19. [Diagrama Entidad Relacion](/1inicio/19-DER.md)
 # 2. Backend
 ## 2.1. [Express (Backend)](/2backend/express/1-articulo.md)
 ### 2.1..1 [Rutas api rest](/2backend/express/1.1-articuloRutas.md)
