@@ -1,17 +1,22 @@
 # Diagrama entidad relacion
 - Los diagramas ER se componen de entidades, relaciones y atributos. También representan la cardinalidad, que define las relaciones en términos de números.
 ## Entidad
+| **CONCRETA(tangible)** | **ABSTRACTO(intangible)** |
+|------------------------|---------------------------|
+| EMPLEADO               | CUENTA                    |
+| CASA                   | CURSO                     |
+| AUTO                   | MEMBRESIA                 |
 ### Entidad Fuerte
-- No depende de ninguna otra tabla, puede existir por si solo
+- Son independientes de otras entidades, tienen una clave primaria, que distinga a cada suceso de la entidad.
 
 **![Entidad Fuerte](/5imagenes/entidad-relacion/entidadFuerte.jpg)**
 ### Entidad Debil
-- Depende de otra tabla(Entidad Fuerte), no puede existir, por si solo
+- Dependen de algun otro tipo de entidad, No tienen claves primarias.
 
 **![Entidad Debil](/5imagenes/entidad-relacion/entidadDebil.jpg)**
 ## Atributos
 ### Normal o Simple
-- son aquellos que tienen un solo componente y que no se pueden dividir en partes más pequeñas con significado propio
+- Son las caracteristicas de una entidad, una relacion de muchos a muchos, o una relacion de uno a uno
 
 **![Atributo Normal](/5imagenes/entidad-relacion/atributoNormal.jpg)**
 
@@ -33,7 +38,10 @@
 - se denota más de un valor del atributo, como varios números de teléfono para una persona.
 
 **![Atributo Multivalor](/5imagenes/entidad-relacion/atributoMultivalor.jpg)**
+### Especialización y genealización
+- Herencia, la persona hereda sus atributos a : director, estudiante,etc.
 
+**![Atributo Generalizacion](/5imagenes/entidad-relacion/atributoGeneralizacion.jpg)**
 ## Relaciones
 ### Normal
 - son asociaciones entre dos o más entidades
