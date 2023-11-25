@@ -15,6 +15,8 @@
 
 **![Entidad Debil](/5imagenes/entidad-relacion/entidadDebil.jpg)**
 ## Atributos
+**![Atributo](/5imagenes/entidad-relacion/atributo.jpg)**
+
 ### Normal o Simple
 - Son las caracteristicas de una entidad, una relacion de muchos a muchos, o una relacion de uno a uno
 
@@ -43,6 +45,9 @@
 
 **![Atributo Generalizacion](/5imagenes/entidad-relacion/atributoGeneralizacion.jpg)**
 ## Relaciones
+- Las relaciones son asociaciones entre entidades, son vervos o acciones
+
+**![relacion](/5imagenes/entidad-relacion/ralacion.jpg)**
 ### Normal
 - son asociaciones entre dos o más entidades
 
@@ -50,7 +55,11 @@
 ### Debil
 - son conexiones entre una entidad débil y su propietario
 
-**![Normal](/5imagenes/entidad-relacion/relacionDebil.jpg)**
+**![Debil](/5imagenes/entidad-relacion/relacionDebil.jpg)**
+#### Tipos Entidad Debil
+- Las entidades débiles, tienen relaciones débiles, no llevan atributo identificador principal, en su lugar tiene un "atributo discriminador" y su cardinalidad siempre será (1:N)
+
+**![Tipos Debil](/5imagenes/entidad-relacion/tiposEntidadDebil.jpg)**
 
 
 
