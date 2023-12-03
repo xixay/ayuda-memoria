@@ -113,7 +113,7 @@
 ### ER varios a varios Debil(1:N)
 
 **![nAND](/5imagenes/entidad-relacion/er1aNDebil.jpg)**
-### ER varios a varios (N:N) con ER varios a varios DEbil(1:N)
+### ER varios a varios (N:N) con ER varios a varios Debil(1:N)
 
 **![com](/5imagenes/entidad-relacion/combinacion.jpg)**
 ## Cardinalidad y ordinalidad
@@ -165,3 +165,20 @@
 #### Ejemplo
 
 **![1FNE](/5imagenes/entidad-relacion/1FNE.jpg)**
+### Segunda forma normal (2FN)
+- Debe cumplir la 1FN.
+- No tiene dependencia parcial.Es decir, todos los atributos no claves son totalmente dependientes de la la clave primaria  
+
+**![2FN](/5imagenes/entidad-relacion/2FN.jpg)**
+
+### Tercera forma normal (3FN)
+- Se encuentra en 2FN.
+- No existe ninguna dependencia funcional transitiva en los atributos que no son clave.
+- Esta FN se traduce en que aquellos datos que no pertenecen a la entidad deben tener una independencia de las demás y debe tener un campo clave propio.
+- Aplicando 3FN separamos la tabla alumnos ya que contiene datos de los cursos en ella quedando de la siguiente manera.
+
+**![3FN](/5imagenes/entidad-relacion/3FN.jpg)**
+
+#### Ejemplo mas simplificado
+
+**![3FNS](/5imagenes/entidad-relacion/3FNS.jpg)**
