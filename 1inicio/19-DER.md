@@ -68,6 +68,14 @@
   - [3.13. Eliminar columnas en una tabla](#313-eliminar-columnas-en-una-tabla)
   - [3.14. Actualizar datos de una tabla](#314-actualizar-datos-de-una-tabla)
   - [3.15. Comandos más utilizados](#315-comandos-más-utilizados)
+  - [3.16. Ejm](#316-ejm)
+    - [3.17. Entidad: Usuarios](#317-entidad-usuarios)
+    - [3.18. Entidad: Experiencias](#318-entidad-experiencias)
+    - [3.19. Entidad: Redes Sociales](#319-entidad-redes-sociales)
+    - [3.20. Entidad: Habilidades](#320-entidad-habilidades)
+    - [3.21. Entidad: Tecnologías](#321-entidad-tecnologías)
+    - [3.22. Entidad: Proyectos](#322-entidad-proyectos)
+    - [Para crear las tablas](#para-crear-las-tablas)
 
 # 1. Diagrama entidad relacion (Diagrama lógico DER)
 - Los diagramas ER se componen de entidades, relaciones y atributos. También representan la cardinalidad, que define las relaciones en términos de números.
@@ -517,3 +525,186 @@ SELECT * FROM playground;
 - **`\i <nombre_archivo>`** Ejecutar los comandos desde un archivo
 - **`\e`** Permite abrir un editor de texto plano, escribir comandos y ejecutar en lote. **\e** abre el editor de texto, escribir allí todos los comandos, luego guardar los cambios y cerrar, al cerrar se ejecutarán todos los comandos guardados.
 - **`\ef`** Equivalente al comando anterior pero permite editar también funciones en PostgreSQL
+## 3.16. Ejm
+- Este modelo de base de datos representa información de usuarios y sus actividades. La entidad "Usuarios" contiene datos personales como nombre, teléfono, email, y detalles como ocupación y fecha de nacimiento. Además, se almacena la fecha de registro y una foto. Las entidades relacionadas incluyen "Experiencias" (con nombre y descripción), "Redes Sociales" (con nombre y foto), "Habilidades" (con icono, nombre y descripción), "Tecnologías" (con nombre y foto), y "Proyectos" (con nombre, foto, descripción y enlace). Estas entidades se conectan a la entidad "Usuarios" a través de claves foráneas, permitiendo organizar y acceder a información detallada sobre las experiencias, habilidades y proyectos asociados a cada usuario.
+```sql
+Entidad: Usuarios
+
+    id_usuario (PK, integer)
+    nombre (VARCHAR(2000))
+    telefono (integer)
+    email (varchar(100))
+    descripcion (TEXT)
+    ocupacion (VARCHAR(2000))
+    fecha_nac (DATE)
+    foto (VARCHAR(5000))
+    fecha_reg (TIMESTAMP)
+
+Entidad: Experiencias
+
+    id_experiencia (PK, integer)
+    nombre (VARCHAR)
+    descripcion (TEXT)
+    id_usuario (FK, integer)
+
+Entidad: Redes Sociales
+
+    id_redes_sociales (PK, integer)
+    nombre (VARCHAR)
+    foto (VARCHAR)
+    id_usuario (FK, integer)
+
+Entidad: Habilidades
+
+    id_habilidades (PK, integer)
+    icono (VARCHAR)
+    nombre (VARCHAR)
+    descripcion (TEXT)
+    id_usuario (FK, integer)
+
+Entidad: Tecnologías
+
+    id_tecnologia (PK, integer)
+    nombre (VARCHAR)
+    foto (VARCHAR)
+    id_usuario (FK, integer)
+
+Entidad: Proyectos
+
+    id_proyectos (PK, integer)
+    nombre (VARCHAR)
+    foto (VARCHAR)
+    descripcion (TEXT)
+    link (VARCHAR)
+    id_usuario (FK, integer)
+
+Cada entidad tiene sus respectivos atributos y las claves primarias (PK) están indicadas. Además, se mencionan las claves foráneas (FK) que establecen relaciones con otras entidades.
+```
+
+### 3.17. Entidad: Usuarios
+
+| Atributo        | Tipo        | Clave    | Descripción                                  |
+|-----------------|-------------|----------|----------------------------------------------|
+| id_usuario      | PK          |          | Identificador único del usuario.             |
+| nombre          |             |          | Nombre del usuario.                          |
+| telefono        |             |          | Número de teléfono del usuario.              |
+| email           |             |          | Dirección de correo electrónico del usuario.|
+| descripcion     |             |          | Descripción textual del usuario.             |
+| ocupacion       |             |          | Ocupación o profesión del usuario.           |
+| fecha_nac       |             |          | Fecha de nacimiento del usuario.             |
+| foto            |             |          | Ruta o enlace a la foto del usuario.        |
+| fecha_reg       |             |          | Fecha y hora de registro del usuario.       |
+
+### 3.18. Entidad: Experiencias
+
+| Atributo        | Tipo        | Clave    | Descripción                                  |
+|-----------------|-------------|----------|----------------------------------------------|
+| id_experiencia  | PK          |          | Identificador único de la experiencia.       |
+| nombre          |             |          | Nombre de la experiencia.                    |
+| descripcion     |             |          | Descripción textual de la experiencia.       |
+| id_usuario      | FK          |          | Clave foránea que establece relación con el usuario.|
+
+### 3.19. Entidad: Redes Sociales
+
+| Atributo             | Tipo        | Clave    | Descripción                                  |
+|----------------------|-------------|----------|----------------------------------------------|
+| id_redes_sociales    | PK          |          | Identificador único de la red social.        |
+| nombre               |             |          | Nombre de la red social.                     |
+| foto                 |             |          | Ruta o enlace a la foto de la red social.   |
+| id_usuario           | FK          |          | Clave foránea que establece relación con el usuario.|
+
+### 3.20. Entidad: Habilidades
+
+| Atributo          | Tipo        | Clave    | Descripción                                  |
+|-------------------|-------------|----------|----------------------------------------------|
+| id_habilidades    | PK          |          | Identificador único de la habilidad.        |
+| icono             |             |          | Ruta o enlace al ícono representativo.      |
+| nombre            |             |          | Nombre de la habilidad.                      |
+| descripcion       |             |          | Descripción textual de la habilidad.        |
+| id_usuario        | FK          |          | Clave foránea que establece relación con el usuario.|
+
+### 3.21. Entidad: Tecnologías
+
+| Atributo         | Tipo        | Clave    | Descripción                                  |
+|------------------|-------------|----------|----------------------------------------------|
+| id_tecnologia    | PK          |          | Identificador único de la tecnología.        |
+| nombre           |             |          | Nombre de la tecnología.                     |
+| foto             |             |          | Ruta o enlace a la foto representativa.     |
+| id_usuario       | FK          |          | Clave foránea que establece relación con el usuario.|
+
+### 3.22. Entidad: Proyectos
+
+| Atributo         | Tipo        | Clave    | Descripción                                  |
+|------------------|-------------|----------|----------------------------------------------|
+| id_proyectos     | PK          |          | Identificador único del proyecto.           |
+| nombre           |             |          | Nombre del proyecto.                         |
+| foto             |             |          | Ruta o enlace a la foto representativa.     |
+| descripcion      |             |          | Descripción textual del proyecto.           |
+| link             |             |          | Enlace relacionado con el proyecto.         |
+| id_usuario       | FK          |          | Clave foránea que establece relación con el usuario.|
+
+
+**![3FNS2](/5imagenes/entidad-relacion/ejm_postgres.jpg)**
+### Para crear las tablas
+```sql
+-- Esquema Core
+CREATE SCHEMA IF NOT EXISTS core;
+
+CREATE TABLE IF NOT EXISTS core.usuarios (
+    id_usuario SERIAL PRIMARY KEY,
+    nombre VARCHAR(2000),
+    telefono INTEGER,
+    email VARCHAR(100),
+    descripcion TEXT,
+    ocupacion VARCHAR(2000),
+    fecha_nac DATE,
+    foto VARCHAR(5000),
+    fecha_reg TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS core.proyectos (
+    id_proyecto SERIAL PRIMARY KEY,
+    nombre VARCHAR(2000),
+    foto VARCHAR(5000),
+    descripcion TEXT,
+    link VARCHAR(2000),
+    id_usuario INTEGER,
+    CONSTRAINT fk_usuario_proyecto FOREIGN KEY (id_usuario) REFERENCES core.usuarios(id_usuario)
+);
+
+CREATE TABLE IF NOT EXISTS core.redes_sociales (
+    id_red_social SERIAL PRIMARY KEY,
+    nombre VARCHAR(2000),
+    foto VARCHAR(5000),
+    id_usuario INTEGER,
+    CONSTRAINT fk_usuario_red_social FOREIGN KEY (id_usuario) REFERENCES core.usuarios(id_usuario)
+);
+
+-- Esquema Portafolio
+CREATE SCHEMA IF NOT EXISTS portafolio;
+
+CREATE TABLE IF NOT EXISTS portafolio.habilidades (
+    id_habilidad SERIAL PRIMARY KEY,
+    icono VARCHAR(2000),
+    nombre VARCHAR(2000),
+    descripcion TEXT,
+    id_usuario INTEGER,
+    CONSTRAINT fk_usuario_habilidad FOREIGN KEY (id_usuario) REFERENCES core.usuarios(id_usuario)
+);
+
+CREATE TABLE IF NOT EXISTS portafolio.tecnologias (
+    id_tecnologia SERIAL PRIMARY KEY,
+    nombre VARCHAR(2000),
+    foto VARCHAR(5000),
+    id_usuario INTEGER,
+    CONSTRAINT fk_usuario_tecnologia FOREIGN KEY (id_usuario) REFERENCES core.usuarios(id_usuario)
+);
+
+CREATE TABLE IF NOT EXISTS portafolio.experiencias (
+    id_experiencia SERIAL PRIMARY KEY,
+    nombre VARCHAR(2000),
+    descripcion TEXT,
+    id_usuario INTEGER,
+    CONSTRAINT fk_usuario_experiencia FOREIGN KEY (id_usuario) REFERENCES core.usuarios(id_usuario)
+);
+```
