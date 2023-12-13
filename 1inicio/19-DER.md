@@ -76,6 +76,10 @@
     - [3.21. Entidad: Tecnologías](#321-entidad-tecnologías)
     - [3.22. Entidad: Proyectos](#322-entidad-proyectos)
     - [Para crear las tablas](#para-crear-las-tablas)
+  - [Para Insertar datos](#para-insertar-datos)
+- [Tabla: core.usuarios](#tabla-coreusuarios)
+  - [Tabla de Proyectos](#tabla-de-proyectos)
+  - [Tabla de Experiencias](#tabla-de-experiencias)
 
 # 1. Diagrama entidad relacion (Diagrama lógico DER)
 - Los diagramas ER se componen de entidades, relaciones y atributos. También representan la cardinalidad, que define las relaciones en términos de números.
@@ -659,7 +663,7 @@ CREATE TABLE IF NOT EXISTS core.usuarios (
     ocupacion VARCHAR(2000),
     fecha_nac DATE,
     foto VARCHAR(5000),
-    fecha_reg TIMESTAMP
+    fecha_reg TIMESTAMP DEFAULT NOW() -- Ahora se define con el valor por defecto NOW()
 );
 
 CREATE TABLE IF NOT EXISTS core.proyectos (
@@ -707,4 +711,317 @@ CREATE TABLE IF NOT EXISTS portafolio.experiencias (
     id_usuario INTEGER,
     CONSTRAINT fk_usuario_experiencia FOREIGN KEY (id_usuario) REFERENCES core.usuarios(id_usuario)
 );
+
 ```
+## Para Insertar datos
+```sql
+-- Inserción de datos en la tabla core.usuarios
+INSERT INTO core.usuarios (nombre, telefono, email, descripcion, ocupacion, fecha_nac, foto) 
+VALUES 
+('Sakura Haruno', 123456789, 'sakura@example.com', 'Ninja médica de Konoha', 'Ninja', '1995-03-28', 'sakura.jpg'),
+('Asuka Langley Soryu', 987654321, 'asuka@example.com', 'Piloto del Evangelion Unidad-02', 'Piloto de Eva', '2001-12-04', 'asuka.jpg'),
+('Inuyasha', 555555555, 'inuyasha@example.com', 'Mitad humano, mitad demonio', 'Hanyo', '1988-07-29', 'inuyasha.jpg'),
+('Bulma Brief', 111111111, 'bulma@example.com', 'Científica e inventora', 'Inventora', '1980-08-18', 'bulma.jpg'),
+('Nami', 222222222, 'nami@example.com', 'Navegante de los Piratas del Sombrero de Paja', 'Navegante', '1990-07-03', 'nami.jpg'),
+('Mikasa Ackerman', 333333333, 'mikasa@example.com', 'Soldado de la Legión de reconocimiento', 'Soldado', '1995-02-10', 'mikasa.jpg'),
+('Erza Scarlet', 444444444, 'erza@example.com', 'Titania, la Reina de las Hadas', 'Maga', '1992-04-30', 'erza.jpg'),
+('Zero Two', 666666666, 'zero@example.com', 'Piloto de FranXX', 'Piloto', '2002-01-21', 'zero_two.jpg'),
+('Hinata Hyuga', 777777777, 'hinata@example.com', 'Ninja de la Aldea Oculta de la Hoja', 'Ninja', '1995-12-27', 'hinata.jpg'),
+('Kagome Higurashi', 888888888, 'kagome@example.com', 'Viajera en el tiempo', 'Estudiante', '1987-11-30', 'kagome.jpg'),
+('Lucy Heartfilia', 999999999, 'lucy@example.com', 'Maga celestial de Fairy Tail', 'Maga', '1998-07-01', 'lucy.jpg'),
+('Riza Hawkeye', 123123123, 'riza@example.com', 'Teniente y tiradora experta', 'Militar', '1989-01-10', 'riza.jpg'),
+('Rei Ayanami', 456456456, 'rei@example.com', 'Piloto del Evangelion Unidad-00', 'Piloto de Eva', '2001-03-30', 'rei.jpg'),
+('Winry Rockbell', 789789789, 'winry@example.com', 'Mecánica y ingeniera', 'Ingeniera', '1990-05-03', 'winry.jpg'),
+('Yoruichi Shihouin', 135135135, 'yoruichi@example.com', 'Ex-capitana del Gotei 13', 'Ex-capitana', '1971-01-01', 'yoruichi.jpg'),
+('Rukia Kuchiki', 246246246, 'rukia@example.com', 'Shinigami y ex-teniente', 'Shinigami', '1986-01-14', 'rukia.jpg'),
+('Tsunade Senju', 357357357, 'tsunade@example.com', 'Quinta Hokage de Konoha', 'Hokage', '1960-08-02', 'tsunade.jpg'),
+('Android 18', 468468468, 'android18@example.com', 'Androide y luchadora', 'Androide', '2010-02-18', 'android18.jpg'),
+('Yuno Gasai', 579579579, 'yuno@example.com', 'Portadora del Diario de Yuki', 'Estudiante', '1993-02-14', 'yuno.jpg'),
+('Homura Akemi', 681681681, 'homura@example.com', 'Magical Girl y viajera en el tiempo', 'Magical Girl', '1995-12-03', 'homura.jpg');
+
+-- Inserción de datos en la tabla core.proyectos
+INSERT INTO core.proyectos (nombre, foto, descripcion, link, id_usuario) 
+VALUES 
+('Proyecto de Sakura', 'proyecto_sakura.jpg', 'Desarrollo de técnicas médicas ninja', 'https://github.com/sakura/proyecto', 1),
+('Proyecto de Asuka', 'proyecto_asuka.jpg', 'Defensa contra los Ángeles', 'https://github.com/asuka/proyecto', 2),
+('Proyecto de Inuyasha', 'proyecto_inuyasha.jpg', 'Aventuras en la era feudal', 'https://github.com/inuyasha/proyecto', 3),
+('Proyecto de Bulma', 'proyecto_bulma.jpg', 'Inventos revolucionarios', '...', 4), -- Agrega el enlace correspondiente
+('Proyecto de Nami', 'proyecto_nami.jpg', 'Navegación en Grand Line', 'https://github.com/nami/proyecto', 5),
+('Proyecto de Mikasa', 'proyecto_mikasa.jpg', 'Desarrollo de estrategias de combate', '...', 6),
+('Proyecto de Erza', 'proyecto_erza.jpg', 'Aventuras mágicas', '...', 7),
+('Proyecto de Zero Two', 'proyecto_zero_two.jpg', 'Investigación sobre FranXX', '...', 8),
+('Proyecto de Hinata', 'proyecto_hinata.jpg', 'Desarrollo de técnicas de ninjutsu', '...', 9),
+('Proyecto de Kagome', 'proyecto_kagome.jpg', 'Estudio de viajes en el tiempo', '...', 10),
+('Proyecto de Lucy', 'proyecto_lucy.jpg', 'Investigación sobre magia celestial', '...', 11),
+('Proyecto de Riza', 'proyecto_riza.jpg', 'Mejora de habilidades de tirador', '...', 12),
+('Proyecto de Rei', 'proyecto_rei.jpg', 'Desarrollo del Evangelion Unidad-00', '...', 13),
+('Proyecto de Winry', 'proyecto_winry.jpg', 'Innovaciones en ingeniería mecánica', '...', 14),
+('Proyecto de Yoruichi', 'proyecto_yoruichi.jpg', 'Investigación sobre habilidades shinigami', '...', 15),
+('Proyecto de Rukia', 'proyecto_rukia.jpg', 'Estudio de técnicas de shinigami', '...', 16),
+('Proyecto de Tsunade', 'proyecto_tsunade.jpg', 'Mejora de técnicas médicas', '...', 17),
+('Proyecto de Android 18', 'proyecto_android18.jpg', 'Desarrollo de habilidades de combate', '...', 18),
+('Proyecto de Yuno', 'proyecto_yuno.jpg', 'Estudio del Diario de Yuki', '...', 19),
+('Proyecto de Homura', 'proyecto_homura.jpg', 'Investigación sobre viajes en el tiempo', '...', 20);
+-- ... Agrega más proyectos aquí ...
+
+-- Inserción de datos en la tabla core.redes_sociales
+INSERT INTO core.redes_sociales (nombre, foto, id_usuario) 
+VALUES 
+('Twitter', 'twitter_icon.jpg', 1),
+('Instagram', 'instagram_icon.jpg', 2),
+('Facebook', 'facebook_icon.jpg', 3),
+('LinkedIn', 'linkedin_icon.jpg', 4),
+('Pinterest', 'pinterest_icon.jpg', 5),
+('Tumblr', 'tumblr_icon.jpg', 6),
+('Snapchat', 'snapchat_icon.jpg', 7),
+('WhatsApp', 'whatsapp_icon.jpg', 8),
+('Telegram', 'telegram_icon.jpg', 9),
+('Discord', 'discord_icon.jpg', 10),
+('Reddit', 'reddit_icon.jpg', 11),
+('YouTube', 'youtube_icon.jpg', 12),
+('Twitch', 'twitch_icon.jpg', 13),
+('GitHub', 'github_icon.jpg', 14),
+('GitLab', 'gitlab_icon.jpg', 15),
+('Bitbucket', 'bitbucket_icon.jpg', 16),
+('Slack', 'slack_icon.jpg', 17),
+('Skype', 'skype_icon.jpg', 18),
+('Zoom', 'zoom_icon.jpg', 19),
+('Vkontakte', 'vkontakte_icon.jpg', 20);
+
+-- ... Agrega más redes sociales aquí ...
+-- Inserción de datos en la tabla portafolio.habilidades
+INSERT INTO portafolio.habilidades (icono, nombre, descripcion, id_usuario) 
+VALUES 
+('habilidad_icon_1.jpg', 'Jutsu Médico', 'Máxima habilidad en técnicas médicas ninja, especializada en jutsu de curación.', 1),
+('habilidad_icon_2.jpg', 'Piloto de Evangelion', 'Habilidad excepcional como piloto de la Unidad-02 en la lucha contra los Ángeles.', 2),
+('habilidad_icon_3.jpg', 'Control de Energía Youkai', 'Capacidad para controlar y utilizar la energía youkai de manera efectiva.', 3),
+('habilidad_icon_4.jpg', 'Inventora Genial', 'Habilidad para inventar dispositivos y tecnologías avanzadas.', 4),
+('habilidad_icon_5.jpg', 'Navegación en Grand Line', 'Experiencia en la navegación por los peligrosos mares de Grand Line.', 5),
+('habilidad_icon_6.jpg', 'Lanzamiento de Cuchillos', 'Habilidad sobresaliente en el lanzamiento preciso de cuchillos.', 6),
+('habilidad_icon_7.jpg', 'Transformación Youkai', 'Capacidad para transformarse en una forma más poderosa como youkai.', 7),
+('habilidad_icon_8.jpg', 'Tecnología Avanzada', 'Destreza en el desarrollo y uso de tecnología avanzada para diversos propósitos.', 8),
+('habilidad_icon_9.jpg', 'Magia Celestial', 'Maestría en el uso de la magia celestial para invocar espíritus celestiales.', 9),
+('habilidad_icon_10.jpg', 'Artes Marciales Ninja', 'Habilidad excepcional en las artes marciales ninja, incluyendo taijutsu y ninjutsu.', 10),
+('habilidad_icon_11.jpg', 'Control del Tiempo', 'Capacidad para manipular el tiempo en situaciones específicas.', 11),
+('habilidad_icon_12.jpg', 'Alquimia', 'Conocimiento profundo y habilidad en la práctica de la alquimia.', 12),
+('habilidad_icon_13.jpg', 'Poderes Psíquicos', 'Habilidad para utilizar poderes psíquicos como la telequinesis y la telepatía.', 13),
+('habilidad_icon_14.jpg', 'Transformación de Evangelion', 'Capacidad para transformarse en una forma más poderosa como piloto de Evangelion.', 14),
+('habilidad_icon_15.jpg', 'Ninja de Combate', 'Excelencia en las técnicas de combate ninja y el uso de armas tradicionales.', 15),
+('habilidad_icon_16.jpg', 'Canto Mágico', 'Poderosa voz utilizada en conjunción con la magia para efectos diversos.', 16),
+('habilidad_icon_17.jpg', 'Técnica de Sello', 'Dominio en el uso de sellos mágicos para diversas aplicaciones.', 17),
+('habilidad_icon_18.jpg', 'Control de Elementos', 'Capacidad para controlar y manipular diferentes elementos como fuego, agua y tierra.', 18),
+('habilidad_icon_19.jpg', 'Arte de la Espada', 'Maestría en el manejo de la espada y técnicas de esgrima.', 19),
+('habilidad_icon_20.jpg', 'Teletransportación', 'Habilidad para moverse instantáneamente de un lugar a otro.', 20);
+-- ... Agrega más habilidades aquí ...
+
+-- Inserción de datos en la tabla portafolio.tecnologias
+-- Inserción de datos en la tabla portafolio.tecnologias
+INSERT INTO portafolio.tecnologias (nombre, foto, id_usuario) 
+VALUES 
+('Jutsu Médico', 'tecnologia_jutsu_medico.jpg', 1),
+('Piloto de Evangelion', 'tecnologia_piloto_evangelion.jpg', 2),
+('Control de Energía Youkai', 'tecnologia_control_energia_youkai.jpg', 3),
+('Inventora Genial', 'tecnologia_inventora_genial.jpg', 4),
+('Navegación en Grand Line', 'tecnologia_navegacion_grand_line.jpg', 5),
+('Lanzamiento de Cuchillos', 'tecnologia_lanzamiento_cuchillos.jpg', 6),
+('Transformación Youkai', 'tecnologia_transformacion_youkai.jpg', 7),
+('Tecnología Avanzada', 'tecnologia_tecnologia_avanzada.jpg', 8),
+('Magia Celestial', 'tecnologia_magia_celestial.jpg', 9),
+('Artes Marciales Ninja', 'tecnologia_artes_marciales_ninja.jpg', 10),
+('Control del Tiempo', 'tecnologia_control_tiempo.jpg', 11),
+('Alquimia', 'tecnologia_alquimia.jpg', 12),
+('Poderes Psíquicos', 'tecnologia_poderes_psiquicos.jpg', 13),
+('Transformación de Evangelion', 'tecnologia_transformacion_evangelion.jpg', 14),
+('Ninja de Combate', 'tecnologia_ninja_combate.jpg', 15),
+('Canto Mágico', 'tecnologia_canto_magico.jpg', 16),
+('Técnica de Sello', 'tecnologia_tecnica_sello.jpg', 17),
+('Control de Elementos', 'tecnologia_control_elementos.jpg', 18),
+('Arte de la Espada', 'tecnologia_arte_espada.jpg', 19),
+('Teletransportación', 'tecnologia_teletransportacion.jpg', 20);
+
+-- ... Agrega más tecnologías aquí ...
+
+-- Inserción de datos en la tabla portafolio.experiencias
+INSERT INTO portafolio.experiencias (nombre, descripcion, id_usuario) 
+VALUES 
+('Misión de Protección en Konoha', 'Participación en misiones como ninja médica para proteger la aldea de Konoha.', 1),
+('Defensa contra los Ángeles', 'Piloto de la Unidad-02 en la lucha contra los Ángeles para proteger la humanidad.', 2),
+('Aventuras en la Era Feudal', 'Viajes y enfrentamientos en la era feudal como mitad humano, mitad demonio.', 3),
+('Inventora en la Patrulla del Tiempo', 'Contribuciones como inventora genial en la patrulla del tiempo.', 4),
+('Navegante en los Mares Peligrosos', 'Viajes como navegante en los peligrosos mares de Grand Line.', 5),
+('Combate en la Legión de reconocimiento', 'Participación en combates como soldado de la Legión de reconocimiento.', 6),
+('Aventuras como Titania', 'Aventuras mágicas y misiones como Titania, la Reina de las Hadas.', 7),
+('Piloto de FranXX', 'Participación en misiones como piloto de FranXX para proteger la humanidad.', 8),
+('Misiones Ninja de la Aldea Oculta de la Hoja', 'Participación en misiones como ninja de la Aldea Oculta de la Hoja.', 9),
+('Viajes en el Tiempo', 'Aventuras y descubrimientos en viajes en el tiempo.', 10),
+('Magia Celestial en Fairy Tail', 'Aventuras y misiones como maga celestial en el gremio Fairy Tail.', 11),
+('Teniente y Tiradora Experta', 'Servicio como teniente y tiradora experta en el ejército.', 12),
+('Piloto del Evangelion Unidad-00', 'Participación como piloto del Evangelion Unidad-00 en la defensa contra los Ángeles.', 13),
+('Innovaciones en Ingeniería Mecánica', 'Contribuciones como mecánica e ingeniera en innovaciones mecánicas.', 14),
+('Ex-Capitana del Gotei 13', 'Servicio como ex-capitana del Gotei 13 en el mundo de los shinigami.', 15),
+('Shinigami y Ex-Teniente', 'Experiencia como shinigami y ex-teniente en la Sociedad de Almas.', 16),
+('Quinta Hokage de Konoha', 'Servicio como Quinta Hokage para proteger y liderar la aldea de Konoha.', 17),
+('Luchadora y Androide', 'Participación en combates como androide y luchadora.', 18),
+('Portadora del Diario de Yuki', 'Aventuras y desafíos como portadora del Diario de Yuki.', 19),
+('Magical Girl y Viajera en el Tiempo', 'Aventuras como Magical Girl y viajera en el tiempo.', 20);
+-- ... Agrega más experiencias aquí ...
+
+```
+- La tabla usuarios
+
+# Tabla: core.usuarios
+
+| id_usuario | nombre               | telefono   | email                | descripcion                               | ocupacion          | fecha_nac  | foto          |
+|------------|----------------------|------------|----------------------|-------------------------------------------|--------------------|------------|---------------|
+| 1          | Sakura Haruno        | 123456789  | sakura@example.com   | Ninja médica de Konoha                    | Ninja              | 1995-03-28 | sakura.jpg    |
+| 2          | Asuka Langley Soryu  | 987654321  | asuka@example.com    | Piloto del Evangelion Unidad-02           | Piloto de Eva      | 2001-12-04 | asuka.jpg     |
+| 3          | Inuyasha             | 555555555  | inuyasha@example.com | Mitad humano, mitad demonio               | Hanyo              | 1988-07-29 | inuyasha.jpg  |
+| 4          | Bulma Brief          | 111111111  | bulma@example.com    | Científica e inventora                    | Inventora          | 1980-08-18 | bulma.jpg     |
+| 5          | Nami                 | 222222222  | nami@example.com     | Navegante de los Piratas del Sombrero de Paja | Navegante      | 1990-07-03 | nami.jpg      |
+| 6          | Mikasa Ackerman      | 333333333  | mikasa@example.com   | Soldado de la Legión de reconocimiento   | Soldado            | 1995-02-10 | mikasa.jpg    |
+| 7          | Erza Scarlet         | 444444444  | erza@example.com     | Titania, la Reina de las Hadas            | Maga               | 1992-04-30 | erza.jpg      |
+| 8          | Zero Two             | 666666666  | zero@example.com     | Piloto de FranXX                          | Piloto             | 2002-01-21 | zero_two.jpg  |
+| 9          | Hinata Hyuga         | 777777777  | hinata@example.com   | Ninja de la Aldea Oculta de la Hoja       | Ninja              | 1995-12-27 | hinata.jpg    |
+| 10         | Kagome Higurashi     | 888888888  | kagome@example.com   | Viajera en el tiempo                      | Estudiante         | 1987-11-30 | kagome.jpg    |
+| 11         | Lucy Heartfilia       | 999999999  | lucy@example.com     | Maga celestial de Fairy Tail               | Maga               | 1998-07-01 | lucy.jpg      |
+| 12         | Riza Hawkeye          | 123123123  | riza@example.com     | Teniente y tiradora experta                | Militar            | 1989-01-10 | riza.jpg      |
+| 13         | Rei Ayanami           | 456456456  | rei@example.com      | Piloto del Evangelion Unidad-00           | Piloto de Eva      | 2001-03-30 | rei.jpg       |
+| 14         | Winry Rockbell        | 789789789  | winry@example.com    | Mecánica y ingeniera                       | Ingeniera          | 1990-05-03 | winry.jpg     |
+| 15         | Yoruichi Shihouin     | 135135135  | yoruichi@example.com | Ex-capitana del Gotei 13                   | Ex-capitana        | 1971-01-01 | yoruichi.jpg  |
+| 16         | Rukia Kuchiki         | 246246246  | rukia@example.com    | Shinigami y ex-teniente                   | Shinigami          | 1986-01-14 | rukia.jpg     |
+| 17         | Tsunade Senju         | 357357357  | tsunade@example.com  | Quinta Hokage de Konoha                    | Hokage             | 1960-08-02 | tsunade.jpg   |
+| 18         | Android 18            | 468468468  | android18@example.com| Androide y luchadora                      | Androide           | 2010-02-18 | android18.jpg |
+| 19         | Yuno Gasai            | 579579579  | yuno@example.com     | Portadora del Diario de Yuki              | Estudiante         | 1993-02-14 | yuno.jpg      |
+| 20         | Homura Akemi          | 681681681  | homura@example.com   | Magical Girl y viajera en el tiempo       | Magical Girl       | 1995-12-03 | homura.jpg    |
+
+
+- La tabla proyectos
+
+## Tabla de Proyectos
+
+| ID | Nombre                   | Foto                    | Descripción                                      | Enlace                                            | ID Usuario |
+|----|--------------------------|-------------------------|--------------------------------------------------|---------------------------------------------------|------------|
+| 1  | Proyecto de Sakura       | proyecto_sakura.jpg     | Desarrollo de técnicas médicas ninja             | [Proyecto Sakura](https://github.com/sakura/proyecto) | 1          |
+| 2  | Proyecto de Asuka        | proyecto_asuka.jpg      | Defensa contra los Ángeles                       | [Proyecto Asuka](https://github.com/asuka/proyecto)  | 2          |
+| 3  | Proyecto de Inuyasha     | proyecto_inuyasha.jpg   | Aventuras en la era feudal                       | [Proyecto Inuyasha](https://github.com/inuyasha/proyecto) | 3          |
+| 4  | Proyecto de Bulma        | proyecto_bulma.jpg      | Inventos revolucionarios                          | ...                                               | 4          |
+| 5  | Proyecto de Nami         | proyecto_nami.jpg       | Navegación en Grand Line                         | [Proyecto Nami](https://github.com/nami/proyecto)    | 5          |
+| 6  | Proyecto de Mikasa       | proyecto_mikasa.jpg     | Desarrollo de estrategias de combate             | ...                                               | 6          |
+| 7  | Proyecto de Erza         | proyecto_erza.jpg       | Aventuras mágicas                                | ...                                               | 7          |
+| 8  | Proyecto de Zero Two     | proyecto_zero_two.jpg   | Investigación sobre FranXX                       | ...                                               | 8          |
+| 9  | Proyecto de Hinata       | proyecto_hinata.jpg     | Desarrollo de técnicas de ninjutsu               | ...                                               | 9          |
+| 10 | Proyecto de Kagome       | proyecto_kagome.jpg     | Estudio de viajes en el tiempo                   | ...                                               | 10         |
+| 11 | Proyecto de Lucy         | proyecto_lucy.jpg       | Investigación sobre magia celestial              | ...                                               | 11         |
+| 12 | Proyecto de Riza         | proyecto_riza.jpg       | Mejora de habilidades de tirador                 | ...                                               | 12         |
+| 13 | Proyecto de Rei          | proyecto_rei.jpg        | Desarrollo del Evangelion Unidad-00              | ...                                               | 13         |
+| 14 | Proyecto de Winry        | proyecto_winry.jpg       | Innovaciones en ingeniería mecánica              | ...                                               | 14         |
+| 15 | Proyecto de Yoruichi     | proyecto_yoruichi.jpg    | Investigación sobre habilidades shinigami        | ...                                               | 15         |
+| 16 | Proyecto de Rukia        | proyecto_rukia.jpg       | Estudio de técnicas de shinigami                 | ...                                               | 16         |
+| 17 | Proyecto de Tsunade      | proyecto_tsunade.jpg     | Mejora de técnicas médicas                       | ...                                               | 17         |
+| 18 | Proyecto de Android 18   | proyecto_android18.jpg   | Desarrollo de habilidades de combate             | ...                                               | 18         |
+| 19 | Proyecto de Yuno         | proyecto_yuno.jpg        | Estudio del Diario de Yuki                       | ...                                               | 19         |
+| 20 | Proyecto de Homura       | proyecto_homura.jpg      | Investigación sobre viajes en el tiempo          | ...                                               | 20         |
+
+<!-- ... Agrega más proyectos aquí ... -->
+
+- La tabla redes_sociales
+
+| nombre      | foto               | id_usuario |
+|-------------|--------------------|------------|
+| Twitter     | twitter_icon.jpg   | 1          |
+| Instagram   | instagram_icon.jpg | 2          |
+| Facebook    | facebook_icon.jpg  | 3          |
+| LinkedIn    | linkedin_icon.jpg  | 4          |
+| Pinterest   | pinterest_icon.jpg | 5          |
+| Tumblr      | tumblr_icon.jpg    | 6          |
+| Snapchat    | snapchat_icon.jpg  | 7          |
+| WhatsApp    | whatsapp_icon.jpg  | 8          |
+| Telegram    | telegram_icon.jpg  | 9          |
+| Discord     | discord_icon.jpg   | 10         |
+| Reddit      | reddit_icon.jpg    | 11         |
+| YouTube     | youtube_icon.jpg   | 12         |
+| Twitch      | twitch_icon.jpg    | 13         |
+| GitHub      | github_icon.jpg    | 14         |
+| GitLab      | gitlab_icon.jpg    | 15         |
+| Bitbucket   | bitbucket_icon.jpg | 16         |
+| Slack       | slack_icon.jpg     | 17         |
+| Skype       | skype_icon.jpg     | 18         |
+| Zoom        | zoom_icon.jpg      | 19         |
+| Vkontakte   | vkontakte_icon.jpg | 20         |
+
+- La tabla habilidades
+
+| icono                | nombre                      | descripcion                                                  | id_usuario |
+|----------------------|-----------------------------|--------------------------------------------------------------|------------|
+| habilidad_icon_1.jpg | Jutsu Médico                | Máxima habilidad en técnicas médicas ninja, especializada en jutsu de curación. | 1          |
+| habilidad_icon_2.jpg | Piloto de Evangelion        | Habilidad excepcional como piloto de la Unidad-02 en la lucha contra los Ángeles. | 2          |
+| habilidad_icon_3.jpg | Control de Energía Youkai   | Capacidad para controlar y utilizar la energía youkai de manera efectiva. | 3          |
+| habilidad_icon_4.jpg | Inventora Genial            | Habilidad para inventar dispositivos y tecnologías avanzadas.  | 4          |
+| habilidad_icon_5.jpg | Navegación en Grand Line    | Experiencia en la navegación por los peligrosos mares de Grand Line. | 5          |
+| habilidad_icon_6.jpg | Lanzamiento de Cuchillos    | Habilidad sobresaliente en el lanzamiento preciso de cuchillos. | 6          |
+| habilidad_icon_7.jpg | Transformación Youkai       | Capacidad para transformarse en una forma más poderosa como youkai. | 7          |
+| habilidad_icon_8.jpg | Tecnología Avanzada         | Destreza en el desarrollo y uso de tecnología avanzada para diversos propósitos. | 8          |
+| habilidad_icon_9.jpg | Magia Celestial              | Maestría en el uso de la magia celestial para invocar espíritus celestiales. | 9          |
+| habilidad_icon_10.jpg | Artes Marciales Ninja       | Habilidad excepcional en las artes marciales ninja, incluyendo taijutsu y ninjutsu. | 10         |
+| habilidad_icon_11.jpg | Control del Tiempo           | Capacidad para manipular el tiempo en situaciones específicas. | 11         |
+| habilidad_icon_12.jpg | Alquimia                     | Conocimiento profundo y habilidad en la práctica de la alquimia. | 12         |
+| habilidad_icon_13.jpg | Poderes Psíquicos            | Habilidad para utilizar poderes psíquicos como la telequinesis y la telepatía. | 13         |
+| habilidad_icon_14.jpg | Transformación de Evangelion | Capacidad para transformarse en una forma más poderosa como piloto de Evangelion. | 14         |
+| habilidad_icon_15.jpg | Ninja de Combate             | Excelencia en las técnicas de combate ninja y el uso de armas tradicionales. | 15         |
+| habilidad_icon_16.jpg | Canto Mágico                 | Poderosa voz utilizada en conjunción con la magia para efectos diversos. | 16         |
+| habilidad_icon_17.jpg | Técnica de Sello             | Dominio en el uso de sellos mágicos para diversas aplicaciones. | 17         |
+| habilidad_icon_18.jpg | Control de Elementos         | Capacidad para controlar y manipular diferentes elementos como fuego, agua y tierra. | 18         |
+| habilidad_icon_19.jpg | Arte de la Espada            | Maestría en el manejo de la espada y técnicas de esgrima. | 19         |
+| habilidad_icon_20.jpg | Teletransportación          | Habilidad para moverse instantáneamente de un lugar a otro. | 20         |
+
+- La tabla tecnologias
+
+| ID | Nombre                       | Foto                                      | ID Usuario |
+|----|------------------------------|-------------------------------------------|------------|
+| 1  | Jutsu Médico                 | ![Jutsu Médico](tecnologia_jutsu_medico.jpg)                  | 1          |
+| 2  | Piloto de Evangelion         | ![Piloto de Evangelion](tecnologia_piloto_evangelion.jpg)    | 2          |
+| 3  | Control de Energía Youkai    | ![Control de Energía Youkai](tecnologia_control_energia_youkai.jpg) | 3          |
+| 4  | Inventora Genial              | ![Inventora Genial](tecnologia_inventora_genial.jpg)        | 4          |
+| 5  | Navegación en Grand Line      | ![Navegación en Grand Line](tecnologia_navegacion_grand_line.jpg) | 5          |
+| 6  | Lanzamiento de Cuchillos      | ![Lanzamiento de Cuchillos](tecnologia_lanzamiento_cuchillos.jpg) | 6          |
+| 7  | Transformación Youkai         | ![Transformación Youkai](tecnologia_transformacion_youkai.jpg) | 7          |
+| 8  | Tecnología Avanzada           | ![Tecnología Avanzada](tecnologia_tecnologia_avanzada.jpg)  | 8          |
+| 9  | Magia Celestial               | ![Magia Celestial](tecnologia_magia_celestial.jpg)          | 9          |
+| 10 | Artes Marciales Ninja         | ![Artes Marciales Ninja](tecnologia_artes_marciales_ninja.jpg) | 10         |
+| 11 | Control del Tiempo             | ![Control del Tiempo](tecnologia_control_tiempo.jpg)      | 11         |
+| 12 | Alquimia                       | ![Alquimia](tecnologia_alquimia.jpg)                      | 12         |
+| 13 | Poderes Psíquicos              | ![Poderes Psíquicos](tecnologia_poderes_psiquicos.jpg)    | 13         |
+| 14 | Transformación de Evangelion   | ![Transformación de Evangelion](tecnologia_transformacion_evangelion.jpg) | 14         |
+| 15 | Ninja de Combate               | ![Ninja de Combate](tecnologia_ninja_combate.jpg)         | 15         |
+| 16 | Canto Mágico                   | ![Canto Mágico](tecnologia_canto_magico.jpg)             | 16         |
+| 17 | Técnica de Sello               | ![Técnica de Sello](tecnologia_tecnica_sello.jpg)        | 17         |
+| 18 | Control de Elementos           | ![Control de Elementos](tecnologia_control_elementos.jpg)| 18         |
+| 19 | Arte de la Espada               | ![Arte de la Espada](tecnologia_arte_espada.jpg)         | 19         |
+| 20 | Teletransportación              | ![Teletransportación](tecnologia_teletransportacion.jpg) | 20         |
+
+- La tabla experiencias
+
+## Tabla de Experiencias
+
+| ID | Nombre                                     | Descripción                                               | Usuario |
+|----|--------------------------------------------|-----------------------------------------------------------|---------|
+| 1  | Misión de Protección en Konoha             | Participación en misiones como ninja médica para proteger la aldea de Konoha. | 1       |
+| 2  | Defensa contra los Ángeles                | Piloto de la Unidad-02 en la lucha contra los Ángeles para proteger la humanidad. | 2       |
+| 3  | Aventuras en la Era Feudal                 | Viajes y enfrentamientos en la era feudal como mitad humano, mitad demonio. | 3       |
+| 4  | Inventora en la Patrulla del Tiempo        | Contribuciones como inventora genial en la patrulla del tiempo. | 4       |
+| 5  | Navegante en los Mares Peligrosos          | Viajes como navegante en los peligrosos mares de Grand Line. | 5       |
+| 6  | Combate en la Legión de reconocimiento     | Participación en combates como soldado de la Legión de reconocimiento. | 6       |
+| 7  | Aventuras como Titania                     | Aventuras mágicas y misiones como Titania, la Reina de las Hadas. | 7       |
+| 8  | Piloto de FranXX                           | Participación en misiones como piloto de FranXX para proteger la humanidad. | 8       |
+| 9  | Misiones Ninja de la Aldea Oculta de la Hoja | Participación en misiones como ninja de la Aldea Oculta de la Hoja. | 9       |
+| 10 | Viajes en el Tiempo                        | Aventuras y descubrimientos en viajes en el tiempo. | 10      |
+| 11 | Magia Celestial en Fairy Tail              | Aventuras y misiones como maga celestial en el gremio Fairy Tail. | 11      |
+| 12 | Teniente y Tiradora Experta                | Servicio como teniente y tiradora experta en el ejército. | 12      |
+| 13 | Piloto del Evangelion Unidad-00            | Participación como piloto del Evangelion Unidad-00 en la defensa contra los Ángeles. | 13      |
+| 14 | Innovaciones en Ingeniería Mecánica        | Contribuciones como mecánica e ingeniera en innovaciones mecánicas. | 14      |
+| 15 | Ex-Capitana del Gotei 13                   | Servicio como ex-capitana del Gotei 13 en el mundo de los shinigami. | 15      |
+| 16 | Shinigami y Ex-Teniente                    | Experiencia como shinigami y ex-teniente en la Sociedad de Almas. | 16      |
+| 17 | Quinta Hokage de Konoha                    | Servicio como Quinta Hokage para proteger y liderar la aldea de Konoha. | 17      |
+| 18 | Luchadora y Androide                      | Participación en combates como androide y luchadora. | 18      |
+| 19 | Portadora del Diario de Yuki              | Aventuras y desafíos como portadora del Diario de Yuki. | 19      |
+| 20 | Magical Girl y Viajera en el Tiempo        | Aventuras como Magical Girl y viajera en el tiempo. | 20      |
