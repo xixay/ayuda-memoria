@@ -400,7 +400,7 @@ createdb sammy
 ```
 - Si, como alternativa, prefiere utilizar sudo para cada comando sin dejar de emplear su cuenta normal, escribiría lo siguiente:
 ```console
-sudo -u postgres createdb sammy
+sudo -u postgres createdb nombre_de_tu_base_de_datos
 ```
 ## 3.8. Abrir la linea de comandos de Postgres con el nuevo rol
 - Para iniciar sesión con la autenticación basada en ident, necesitará un usuario de Linux con el mismo nombre de su rol y su base de datos de Postgres.
