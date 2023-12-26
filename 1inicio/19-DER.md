@@ -51,7 +51,7 @@
   - [3.1. Ventajas](#31-ventajas)
   - [3.2. Interacción con comandos](#32-interacción-con-comandos)
   - [3.3. Jerarquia de base de datos](#33-jerarquia-de-base-de-datos)
-  - [3.4. Instalar Ubuntu](#34-instalar-ubuntu)
+  - [3.4. Instalar PostgreSql Ubuntu](#34-instalar-postgresql-ubuntu)
   - [3.5. Utilizar roles y bases de datos de PostgreSQL](#35-utilizar-roles-y-bases-de-datos-de-postgresql)
     - [3.5.1. Cambiar cuenta de postgres](#351-cambiar-cuenta-de-postgres)
     - [3.5.2. Acceder a la linea de comandos sin cambiar de cuenta](#352-acceder-a-la-linea-de-comandos-sin-cambiar-de-cuenta)
@@ -61,6 +61,8 @@
   - [3.8. Abrir la linea de comandos de Postgres con el nuevo rol](#38-abrir-la-linea-de-comandos-de-postgres-con-el-nuevo-rol)
     - [3.8.1. De forma directa](#381-de-forma-directa)
     - [3.8.2. Conectarse a una base de datos diferente](#382-conectarse-a-una-base-de-datos-diferente)
+    - [3.8.3. Asignar privilegios a un usuario sobre una base de datos](#383-asignar-privilegios-a-un-usuario-sobre-una-base-de-datos)
+    - [3.8.4. Cambiar la contraseña de un usuario](#384-cambiar-la-contraseña-de-un-usuario)
   - [3.9. Crear tablas](#39-crear-tablas)
   - [3.10. Agregar datos en una tabla](#310-agregar-datos-en-una-tabla)
   - [3.11. Eliminar datos en una tabla](#311-eliminar-datos-en-una-tabla)
@@ -68,18 +70,14 @@
   - [3.13. Eliminar columnas en una tabla](#313-eliminar-columnas-en-una-tabla)
   - [3.14. Actualizar datos de una tabla](#314-actualizar-datos-de-una-tabla)
   - [3.15. Comandos más utilizados](#315-comandos-más-utilizados)
-  - [3.16. Ejm](#316-ejm)
-    - [3.17. Entidad: Usuarios](#317-entidad-usuarios)
-    - [3.18. Entidad: Experiencias](#318-entidad-experiencias)
-    - [3.19. Entidad: Redes Sociales](#319-entidad-redes-sociales)
-    - [3.20. Entidad: Habilidades](#320-entidad-habilidades)
-    - [3.21. Entidad: Tecnologías](#321-entidad-tecnologías)
-    - [3.22. Entidad: Proyectos](#322-entidad-proyectos)
-    - [Para crear las tablas](#para-crear-las-tablas)
-  - [Para Insertar datos](#para-insertar-datos)
-- [Tabla: core.usuarios](#tabla-coreusuarios)
-  - [Tabla de Proyectos](#tabla-de-proyectos)
-  - [Tabla de Experiencias](#tabla-de-experiencias)
+- [4. Ejemplo modelo de base de datos](#4-ejemplo-modelo-de-base-de-datos)
+  - [4.1. Diagrama Entidad Relación](#41-diagrama-entidad-relación)
+  - [4.2. Tablas y atributos](#42-tablas-y-atributos)
+  - [4.3. Para crear Tablas](#43-para-crear-tablas)
+  - [4.4. Para Insertar datos](#44-para-insertar-datos)
+  - [4.5. Tablas creadas](#45-tablas-creadas)
+
+
 
 # 1. Diagrama entidad relacion (Diagrama lógico DER)
 - Los diagramas ER se componen de entidades, relaciones y atributos. También representan la cardinalidad, que define las relaciones en términos de números.
@@ -353,7 +351,7 @@
 - Base de datos: Grupo de datos que pertenencen a un mismo contexto.
 - Esquemas de base de datos en PostgreSQL: Grupo de objetos de base de datos que guarda relación entre sí (tablas, funciones, relaciones, secuencias)
 - Tablas de base de datos: Estructura de datos: Estructura que organiza los datos en filas y columnas formando una matriz.
-## 3.4. Instalar Ubuntu
+## 3.4. Instalar PostgreSql Ubuntu
 - Actualizar primero:
 ```console
 sudo apt update
@@ -370,7 +368,7 @@ sudo -i -u postgres
 ```
 - Acceder de inmediato a una línea de comandos de PostgresSQL
 ```console
-psql
+sudo -i -u postgres psql
 ```
 - Salir
 ```console
@@ -385,44 +383,37 @@ sudo -u postgres psql
 ### 3.6.1. Crear un nuevo usuario
 - Normalmente
 ```console
-createuser --interactive
+CREATE USER nombre_de_tu_usuario WITH PASSWORD 'tu_contraseña';
 ```
-- Usando sudo
+- Crear un nuevo usuario con sudo:
 ```console
-createuser --interactive
+sudo -u postgres createuser --interactive
 ```
-
+- Otorgar privilegios al usuario (opcional):
+- Puedes asignar privilegios específicos al nuevo usuario. Por ejemplo, para otorgarle todos los privilegios en todas las bases de datos, puedes hacer lo siguiente:
+```console
+ALTER USER nombre_de_tu_usuario WITH SUPERUSER;
+```
+- Salir de la consola de PostgreSQL:
+```console
+\q
+```
 **![3FNS2](/5imagenes/entidad-relacion/usuario.png)**
 ## 3.7. Crear una nueva base datos
 - Iniciar sesion con la cuenta postgres y crear la base de datos
 ```console
-createdb sammy
-```
-- Si, como alternativa, prefiere utilizar sudo para cada comando sin dejar de emplear su cuenta normal, escribiría lo siguiente:
-```console
-sudo -u postgres createdb nombre_de_tu_base_de_datos
+CREATE DATABASE nombre_de_tu_base_de_datos;
 ```
 ## 3.8. Abrir la linea de comandos de Postgres con el nuevo rol
-- Para iniciar sesión con la autenticación basada en ident, necesitará un usuario de Linux con el mismo nombre de su rol y su base de datos de Postgres.
-
-- Si no tiene un usuario disponible de Linux que coincida, puede crear uno con el comando adduser. Deberá hacerlo desde su cuenta non-root con privilegios sudo (es decir, sin iniciar sesión como usuario de postgres):
-```console
-sudo adduser sammy
-```
-- Una vez que esté disponible esta cuenta nueva, podrá cambiar y conectarse a la base de datos escribiendo lo siguiente:
-```console
-sudo -i -u sammy
-psql
-```
 ### 3.8.1. De forma directa
 - También podrá hacerlo de forma directa:
 ```console
-sudo -u sammy psql
+sudo -u nombre_de_tu_usuario psql
 ```
 ### 3.8.2. Conectarse a una base de datos diferente
 - Si desea que su usuario se conecte a una base de datos diferente, puede lograrlo especificando la base de datos de esta manera:
 ```console
-psql -d postgres
+psql -d otra_base_de_datos -U tu_nuevo_usuario
 ```
 - Ya que inició sesión, puede verificar la información de su conexión actual escribiendo lo siguiente:
 ```console
@@ -431,6 +422,14 @@ psql -d postgres
 ```text
 Output
 You are connected to database "sammy" as user "sammy" via socket in "/var/run/postgresql" at port "5432".
+```
+### 3.8.3. Asignar privilegios a un usuario sobre una base de datos
+```console
+GRANT ALL PRIVILEGES ON DATABASE nombre_de_tu_base_de_datos TO nombre_de_usuario;
+```
+### 3.8.4. Cambiar la contraseña de un usuario
+```console
+ALTER USER nombre_de_usuario WITH PASSWORD 'nueva_contraseña';
 ```
 ## 3.9. Crear tablas
 - La sintaxis básica para la creación de tablas es la siguiente
@@ -448,13 +447,23 @@ CREATE TABLE playground (
 \d
 ```
 
-**![3FNS2](/5imagenes/entidad-relacion/tablas.png)**
+| equip_id | type          | color      | location   | install_date |
+|----------|---------------|------------|------------|--------------|
+| 1        | Swing         | Red        | North      | 2023-01-15   |
+| 2        | Slide         | Blue       | South      | 2023-02-20   |
+| 3        | Sandbox       | Yellow     | West       | 2023-03-10   |
+| 4        | Climbing Frame| Green      | Northeast  | 2023-04-05   |
+| 5        | Seesaw        | Purple     | Southeast  | 2023-05-12   |
 
-- Si desea ver solo la tabla sin la secuencia
+
+- Mostrar todas las tablas de la base de datos actual
 ```console
 \dt
 ```
-
+- Mostrar información sobre una tabla específica
+```console
+\d nombre_de_tu_tabla;
+```
 **![3FNS2](/5imagenes/entidad-relacion/tablas2.png)**
 ## 3.10. Agregar datos en una tabla
 - Como ejemplo, añada un tobogán y un columpio al invocar la tabla en la que los desea agregar, nombrar las columnas y, luego, proporcionar datos para cada una de ellas
@@ -466,7 +475,11 @@ INSERT INTO playground (type, color, location, install_date) VALUES ('swing', 'y
 ```console
 SELECT * FROM playground;
 ```
-**![3FNS2](/5imagenes/entidad-relacion/select.png)**
+| equip_id | type  | color  | location   | install_date |
+|----------|-------|--------|------------|--------------|
+| 1        | Slide | Blue   | South      | 2017-04-28   |
+| 2        | Swing | Yellow | Northwest  | 2018-08-16   |
+
 ## 3.11. Eliminar datos en una tabla
 - Eliminar la tabla
 ```console
@@ -477,7 +490,10 @@ DELETE FROM playground WHERE type = 'slide';
 SELECT * FROM playground;
 ```
 
-**![3FNS2](/5imagenes/entidad-relacion/eliminado.png)**
+| equip_id | type  | color  | location   | install_date |
+|----------|-------|--------|------------|--------------|
+| 2        | Swing | Yellow | Northwest  | 2018-08-16   |
+
 ## 3.12. Agregar columnas en una tabla
 - Agregue una columna para mostrar la última visita de mantenimiento por cada equipo escribiendo lo siguiente
 ```console
@@ -488,7 +504,10 @@ ALTER TABLE playground ADD last_maint date;
 SELECT * FROM playground;
 ```
 
-**![3FNS2](/5imagenes/entidad-relacion/addColumna.png)**
+| equip_id | type  | color  | location   | install_date | last_maint |
+|----------|-------|--------|------------|--------------|------------|
+| 2        | Swing | Yellow | Northwest  | 2018-08-16   |            |
+
 ## 3.13. Eliminar columnas en una tabla
 - Eliminar la columna
 ```console
@@ -504,7 +523,9 @@ UPDATE playground SET color = 'red' WHERE type = 'swing';
 SELECT * FROM playground;
 ```
 
-**![3FNS2](/5imagenes/entidad-relacion/update.png)**
+| equip_id | type  | color  | location   | install_date | last_maint |
+|----------|-------|--------|------------|--------------|------------|
+| 2        | Swing | Red    | Northwest  | 2018-08-16   |            |
 
 ## 3.15. Comandos más utilizados
 
@@ -529,63 +550,12 @@ SELECT * FROM playground;
 - **`\i <nombre_archivo>`** Ejecutar los comandos desde un archivo
 - **`\e`** Permite abrir un editor de texto plano, escribir comandos y ejecutar en lote. **\e** abre el editor de texto, escribir allí todos los comandos, luego guardar los cambios y cerrar, al cerrar se ejecutarán todos los comandos guardados.
 - **`\ef`** Equivalente al comando anterior pero permite editar también funciones en PostgreSQL
-## 3.16. Ejm
+# 4. Ejemplo modelo de base de datos
 - Este modelo de base de datos representa información de usuarios y sus actividades. La entidad "Usuarios" contiene datos personales como nombre, teléfono, email, y detalles como ocupación y fecha de nacimiento. Además, se almacena la fecha de registro y una foto. Las entidades relacionadas incluyen "Experiencias" (con nombre y descripción), "Redes Sociales" (con nombre y foto), "Habilidades" (con icono, nombre y descripción), "Tecnologías" (con nombre y foto), y "Proyectos" (con nombre, foto, descripción y enlace). Estas entidades se conectan a la entidad "Usuarios" a través de claves foráneas, permitiendo organizar y acceder a información detallada sobre las experiencias, habilidades y proyectos asociados a cada usuario.
-```sql
-Entidad: Usuarios
-
-    id_usuario (PK, integer)
-    nombre (VARCHAR(2000))
-    telefono (integer)
-    email (varchar(100))
-    descripcion (TEXT)
-    ocupacion (VARCHAR(2000))
-    fecha_nac (DATE)
-    foto (VARCHAR(5000))
-    fecha_reg (TIMESTAMP)
-
-Entidad: Experiencias
-
-    id_experiencia (PK, integer)
-    nombre (VARCHAR)
-    descripcion (TEXT)
-    id_usuario (FK, integer)
-
-Entidad: Redes Sociales
-
-    id_redes_sociales (PK, integer)
-    nombre (VARCHAR)
-    foto (VARCHAR)
-    id_usuario (FK, integer)
-
-Entidad: Habilidades
-
-    id_habilidades (PK, integer)
-    icono (VARCHAR)
-    nombre (VARCHAR)
-    descripcion (TEXT)
-    id_usuario (FK, integer)
-
-Entidad: Tecnologías
-
-    id_tecnologia (PK, integer)
-    nombre (VARCHAR)
-    foto (VARCHAR)
-    id_usuario (FK, integer)
-
-Entidad: Proyectos
-
-    id_proyectos (PK, integer)
-    nombre (VARCHAR)
-    foto (VARCHAR)
-    descripcion (TEXT)
-    link (VARCHAR)
-    id_usuario (FK, integer)
-
-Cada entidad tiene sus respectivos atributos y las claves primarias (PK) están indicadas. Además, se mencionan las claves foráneas (FK) que establecen relaciones con otras entidades.
-```
-
-### 3.17. Entidad: Usuarios
+## 4.1. Diagrama Entidad Relación
+**![3FNS2](/5imagenes/entidad-relacion/ejm_postgres.jpg)**
+## 4.2. Tablas y atributos
+- Entidad: Usuarios
 
 | Atributo        | Tipo        | Clave    | Descripción                                  |
 |-----------------|-------------|----------|----------------------------------------------|
@@ -599,7 +569,7 @@ Cada entidad tiene sus respectivos atributos y las claves primarias (PK) están 
 | foto            |             |          | Ruta o enlace a la foto del usuario.        |
 | fecha_reg       |             |          | Fecha y hora de registro del usuario.       |
 
-### 3.18. Entidad: Experiencias
+- Entidad: Experiencias
 
 | Atributo        | Tipo        | Clave    | Descripción                                  |
 |-----------------|-------------|----------|----------------------------------------------|
@@ -608,7 +578,7 @@ Cada entidad tiene sus respectivos atributos y las claves primarias (PK) están 
 | descripcion     |             |          | Descripción textual de la experiencia.       |
 | id_usuario      | FK          |          | Clave foránea que establece relación con el usuario.|
 
-### 3.19. Entidad: Redes Sociales
+- Entidad: Redes Sociales
 
 | Atributo             | Tipo        | Clave    | Descripción                                  |
 |----------------------|-------------|----------|----------------------------------------------|
@@ -617,7 +587,7 @@ Cada entidad tiene sus respectivos atributos y las claves primarias (PK) están 
 | foto                 |             |          | Ruta o enlace a la foto de la red social.   |
 | id_usuario           | FK          |          | Clave foránea que establece relación con el usuario.|
 
-### 3.20. Entidad: Habilidades
+- Entidad: Habilidades
 
 | Atributo          | Tipo        | Clave    | Descripción                                  |
 |-------------------|-------------|----------|----------------------------------------------|
@@ -627,7 +597,7 @@ Cada entidad tiene sus respectivos atributos y las claves primarias (PK) están 
 | descripcion       |             |          | Descripción textual de la habilidad.        |
 | id_usuario        | FK          |          | Clave foránea que establece relación con el usuario.|
 
-### 3.21. Entidad: Tecnologías
+- Entidad: Tecnologías
 
 | Atributo         | Tipo        | Clave    | Descripción                                  |
 |------------------|-------------|----------|----------------------------------------------|
@@ -636,7 +606,7 @@ Cada entidad tiene sus respectivos atributos y las claves primarias (PK) están 
 | foto             |             |          | Ruta o enlace a la foto representativa.     |
 | id_usuario       | FK          |          | Clave foránea que establece relación con el usuario.|
 
-### 3.22. Entidad: Proyectos
+- Entidad: Proyectos
 
 | Atributo         | Tipo        | Clave    | Descripción                                  |
 |------------------|-------------|----------|----------------------------------------------|
@@ -646,10 +616,7 @@ Cada entidad tiene sus respectivos atributos y las claves primarias (PK) están 
 | descripcion      |             |          | Descripción textual del proyecto.           |
 | link             |             |          | Enlace relacionado con el proyecto.         |
 | id_usuario       | FK          |          | Clave foránea que establece relación con el usuario.|
-
-
-**![3FNS2](/5imagenes/entidad-relacion/ejm_postgres.jpg)**
-### Para crear las tablas
+## 4.3. Para crear Tablas
 ```sql
 -- Esquema Core
 CREATE SCHEMA IF NOT EXISTS core;
@@ -713,7 +680,8 @@ CREATE TABLE IF NOT EXISTS portafolio.experiencias (
 );
 
 ```
-## Para Insertar datos
+- Cada entidad tiene sus respectivos atributos y las claves primarias (PK) están indicadas. Además, se mencionan las claves foráneas (FK) que establecen relaciones con otras entidades.
+## 4.4. Para Insertar datos
 ```sql
 -- Inserción de datos en la tabla core.usuarios
 INSERT INTO core.usuarios (nombre, telefono, email, descripcion, ocupacion, fecha_nac, foto) 
@@ -867,9 +835,8 @@ VALUES
 -- ... Agrega más experiencias aquí ...
 
 ```
+## 4.5. Tablas creadas
 - La tabla usuarios
-
-# Tabla: core.usuarios
 
 | id_usuario | nombre               | telefono   | email                | descripcion                               | ocupacion          | fecha_nac  | foto          |
 |------------|----------------------|------------|----------------------|-------------------------------------------|--------------------|------------|---------------|
@@ -896,8 +863,6 @@ VALUES
 
 
 - La tabla proyectos
-
-## Tabla de Proyectos
 
 | ID | Nombre                   | Foto                    | Descripción                                      | Enlace                                            | ID Usuario |
 |----|--------------------------|-------------------------|--------------------------------------------------|---------------------------------------------------|------------|
@@ -1000,8 +965,6 @@ VALUES
 | 20 | Teletransportación              | ![Teletransportación](tecnologia_teletransportacion.jpg) | 20         |
 
 - La tabla experiencias
-
-## Tabla de Experiencias
 
 | ID | Nombre                                     | Descripción                                               | Usuario |
 |----|--------------------------------------------|-----------------------------------------------------------|---------|
