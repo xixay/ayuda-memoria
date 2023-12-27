@@ -76,6 +76,8 @@
   - [4.3. Para crear Tablas](#43-para-crear-tablas)
   - [4.4. Para Insertar datos](#44-para-insertar-datos)
   - [4.5. Tablas creadas](#45-tablas-creadas)
+  - [por ver](#por-ver)
+  - [](#)
 
 
 
@@ -988,3 +990,184 @@ VALUES
 | 18 | Luchadora y Androide                      | Participación en combates como androide y luchadora. | 18      |
 | 19 | Portadora del Diario de Yuki              | Aventuras y desafíos como portadora del Diario de Yuki. | 19      |
 | 20 | Magical Girl y Viajera en el Tiempo        | Aventuras como Magical Girl y viajera en el tiempo. | 20      |
+
+
+
+## por ver
+```sql
+-- Crear Schema
+CREATE SCHEMA anime_schema;
+
+-- Cambiar al Schema creado
+SET search_path TO anime_schema;
+
+-- Crear tabla "anime_girl"
+CREATE TABLE anime_girl (
+    id SERIAL PRIMARY KEY,
+    nombre VARCHAR(100),
+    fecha_nacimiento DATE,
+    descripcion TEXT,
+    estatura DECIMAL(5, 2),
+    color_ojos VARCHAR(50),
+    color_cabello VARCHAR(50)
+);
+
+-- Insertar datos en la tabla
+INSERT INTO anime_girl (nombre, fecha_nacimiento, descripcion, estatura, color_ojos, color_cabello)
+VALUES 
+    ('Sakura', '2000-03-15', 'Magical girl with pink hair', 1.60, 'Green', 'Pink'),
+    ('Hinata', '1998-12-27', 'Shy ninja with blue hair', 1.65, 'White', 'Blue');
+
+-- Seleccionar datos
+SELECT * FROM anime_girl;
+
+-- Actualizar datos
+UPDATE anime_girl SET estatura = 1.70 WHERE nombre = 'Sakura';
+
+-- Agregar columna
+ALTER TABLE anime_girl ADD COLUMN personalidad VARCHAR(100);
+
+-- Actualizar datos en la nueva columna
+UPDATE anime_girl SET personalidad = 'Cheerful' WHERE nombre = 'Sakura';
+
+-- Eliminar columna
+ALTER TABLE anime_girl DROP COLUMN descripcion;
+
+-- Eliminar datos
+DELETE FROM anime_girl WHERE nombre = 'Hinata';
+
+-- Relación 1 a 1: Crear tabla relacionada "anime_girl_extra"
+CREATE TABLE anime_girl_extra (
+    anime_girl_id INT PRIMARY KEY,
+    hobby VARCHAR(100),
+    FOREIGN KEY (anime_girl_id) REFERENCES anime_girl(id)
+);
+
+-- Relación 1 a N: Agregar datos en la tabla relacionada
+INSERT INTO anime_girl_extra (anime_girl_id, hobby)
+VALUES 
+    (1, 'Magic cards'),
+    (1, 'Singing');
+
+-- Relación N a N: Crear tabla de relación
+CREATE TABLE anime_girl_ship (
+    anime_girl1_id INT,
+    anime_girl2_id INT,
+    relationship_type VARCHAR(50),
+    PRIMARY KEY (anime_girl1_id, anime_girl2_id),
+    FOREIGN KEY (anime_girl1_id) REFERENCES anime_girl(id),
+    FOREIGN KEY (anime_girl2_id) REFERENCES anime_girl(id)
+);
+
+-- Agregar relación N a N
+INSERT INTO anime_girl_ship (anime_girl1_id, anime_girl2_id, relationship_type)
+VALUES 
+    (1, 2, 'Best Friends'),
+    (2, 1, 'Best Friends');
+
+-- Inner Join
+SELECT * FROM anime_girl
+INNER JOIN anime_girl_extra ON anime_girl.id = anime_girl_extra.anime_girl_id;
+
+-- Left Join
+SELECT * FROM anime_girl
+LEFT JOIN anime_girl_extra ON anime_girl.id = anime_girl_extra.anime_girl_id;
+
+-- Right Join
+SELECT * FROM anime_girl
+RIGHT JOIN anime_girl_extra ON anime_girl.id = anime_girl_extra.anime_girl_id;
+
+-- View
+CREATE VIEW anime_girl_view AS
+SELECT id, nombre, fecha_nacimiento FROM anime_girl;
+
+-- Function
+CREATE OR REPLACE FUNCTION calcular_edad(fecha_nacimiento DATE) RETURNS INTEGER AS $$
+DECLARE
+    edad INTEGER;
+BEGIN
+    SELECT EXTRACT(YEAR FROM age(current_date, fecha_nacimiento)) INTO edad;
+    RETURN edad;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Llamada a la función
+SELECT nombre, fecha_nacimiento, calcular_edad(fecha_nacimiento) AS edad FROM anime_girl;
+
+-- Trigger
+CREATE OR REPLACE FUNCTION actualizar_fecha_modificacion()
+RETURNS TRIGGER AS $$
+BEGIN
+    NEW.fecha_modificacion := current_timestamp;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER anime_girl_before_update
+BEFORE UPDATE ON anime_girl
+FOR EACH ROW
+EXECUTE FUNCTION actualizar_fecha_modificacion();
+
+-- Partition
+CREATE TABLE anime_girl_partitioned (
+    id SERIAL PRIMARY KEY,
+    nombre VARCHAR(100),
+    fecha_nacimiento DATE,
+    descripcion TEXT,
+    estatura DECIMAL(5, 2),
+    color_ojos VARCHAR(50),
+    color_cabello VARCHAR(50)
+) PARTITION BY RANGE (EXTRACT(YEAR FROM fecha_nacimiento));
+
+-- Procedure
+CREATE OR REPLACE PROCEDURE obtener_anime_girl_por_edad(inicio INT, fin INT)
+LANGUAGE plpgsql AS $$
+DECLARE
+    resultado RECORD;
+BEGIN
+    FOR resultado IN
+        SELECT * FROM anime_girl WHERE EXTRACT(YEAR FROM fecha_nacimiento) BETWEEN inicio AND fin
+    LOOP
+        RAISE NOTICE 'Nombre: %, Fecha de Nacimiento: %', resultado.nombre, resultado.fecha_nacimiento;
+    END LOOP;
+END;
+$$;
+
+-- Llamada a la procedimiento
+CALL obtener_anime_girl_por_edad(1990, 2000);
+
+```
+##
+```sql
+-- Sum y Count
+-- Sum de estaturas de todas las anime girls
+SELECT SUM(estatura) AS suma_estaturas FROM anime_girl;
+
+-- Count de anime girls
+SELECT COUNT(*) AS cantidad_anime_girls FROM anime_girl;
+
+-- Inner Join con Sum y Count
+SELECT anime_girl.id, anime_girl.nombre, anime_girl.fecha_nacimiento, 
+       SUM(anime_girl_extra.hobby) AS total_hobbies,
+       COUNT(anime_girl_extra.hobby) AS cantidad_hobbies
+FROM anime_girl
+INNER JOIN anime_girl_extra ON anime_girl.id = anime_girl_extra.anime_girl_id
+GROUP BY anime_girl.id, anime_girl.nombre, anime_girl.fecha_nacimiento;
+
+-- Left Join con Sum y Count
+SELECT anime_girl.id, anime_girl.nombre, anime_girl.fecha_nacimiento, 
+       SUM(anime_girl_extra.hobby) AS total_hobbies,
+       COUNT(anime_girl_extra.hobby) AS cantidad_hobbies
+FROM anime_girl
+LEFT JOIN anime_girl_extra ON anime_girl.id = anime_girl_extra.anime_girl_id
+GROUP BY anime_girl.id, anime_girl.nombre, anime_girl.fecha_nacimiento;
+
+-- Right Join con Sum y Count
+SELECT anime_girl.id, anime_girl.nombre, anime_girl.fecha_nacimiento, 
+       SUM(anime_girl_extra.hobby) AS total_hobbies,
+       COUNT(anime_girl_extra.hobby) AS cantidad_hobbies
+FROM anime_girl
+RIGHT JOIN anime_girl_extra ON anime_girl.id = anime_girl_extra.anime_girl_id
+GROUP BY anime_girl.id, anime_girl.nombre, anime_girl.fecha_nacimiento;
+
+```
