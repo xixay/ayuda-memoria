@@ -63,23 +63,34 @@
     - [3.8.2. Conectarse a una base de datos diferente](#382-conectarse-a-una-base-de-datos-diferente)
     - [3.8.3. Asignar privilegios a un usuario sobre una base de datos](#383-asignar-privilegios-a-un-usuario-sobre-una-base-de-datos)
     - [3.8.4. Cambiar la contraseña de un usuario](#384-cambiar-la-contraseña-de-un-usuario)
-  - [3.9. Crear tablas](#39-crear-tablas)
-  - [3.10. Agregar datos en una tabla](#310-agregar-datos-en-una-tabla)
-  - [3.11. Eliminar datos en una tabla](#311-eliminar-datos-en-una-tabla)
-  - [3.12. Agregar columnas en una tabla](#312-agregar-columnas-en-una-tabla)
-  - [3.13. Eliminar columnas en una tabla](#313-eliminar-columnas-en-una-tabla)
-  - [3.14. Actualizar datos de una tabla](#314-actualizar-datos-de-una-tabla)
-  - [3.15. Comandos más utilizados](#315-comandos-más-utilizados)
+  - [3.9. Comandos más utilizados](#39-comandos-más-utilizados)
 - [4. Ejemplo modelo de base de datos](#4-ejemplo-modelo-de-base-de-datos)
   - [4.1. Diagrama Entidad Relación](#41-diagrama-entidad-relación)
-  - [4.2. Tablas y atributos](#42-tablas-y-atributos)
-  - [4.3. Para crear Tablas](#43-para-crear-tablas)
-  - [4.4. Para Insertar datos](#44-para-insertar-datos)
-  - [4.5. Tablas creadas](#45-tablas-creadas)
-  - [por ver](#por-ver)
-  - [](#)
-
-
+  - [4.2. Diagrama Entidad](#42-diagrama-entidad)
+  - [4.3. Crear esquemas](#43-crear-esquemas)
+    - [4.3.1. Cambiar al esquema creado](#431-cambiar-al-esquema-creado)
+  - [4.4. Crear tablas](#44-crear-tablas)
+  - [4.5. Mostrar información sobre una tabla específica](#45-mostrar-información-sobre-una-tabla-específica)
+  - [4.6. Agregar datos en una tabla](#46-agregar-datos-en-una-tabla)
+  - [4.7. Ver datos en una tabla](#47-ver-datos-en-una-tabla)
+  - [4.8. Eliminar datos en una tabla](#48-eliminar-datos-en-una-tabla)
+  - [4.9. Agregar columnas en una tabla](#49-agregar-columnas-en-una-tabla)
+  - [4.10. Eliminar columnas en una tabla](#410-eliminar-columnas-en-una-tabla)
+  - [4.11. Actualizar datos de una tabla](#411-actualizar-datos-de-una-tabla)
+  - [4.12. Relacion 1 a 1](#412-relacion-1-a-1)
+  - [4.13. Relacion 1 a N](#413-relacion-1-a-n)
+  - [4.14. Relacion N a N](#414-relacion-n-a-n)
+  - [4.15. INNER JOIN](#415-inner-join)
+  - [4.16. LEFT JOIN](#416-left-join)
+  - [4.17. Right Join](#417-right-join)
+  - [4.18. View](#418-view)
+  - [4.19. Temporal](#419-temporal)
+  - [4.20. Funcion](#420-funcion)
+  - [4.21. TRIGGER](#421-trigger)
+  - [4.22. PARTITION](#422-partition)
+  - [4.23. PROCEDURE](#423-procedure)
+  - [4.24. SUMA](#424-suma)
+  - [4.25. COUNT](#425-count)
 
 # 1. Diagrama entidad relacion (Diagrama lógico DER)
 - Los diagramas ER se componen de entidades, relaciones y atributos. También representan la cardinalidad, que define las relaciones en términos de números.
@@ -400,7 +411,6 @@ ALTER USER nombre_de_tu_usuario WITH SUPERUSER;
 ```console
 \q
 ```
-**![3FNS2](/5imagenes/entidad-relacion/usuario.png)**
 ## 3.7. Crear una nueva base datos
 - Iniciar sesion con la cuenta postgres y crear la base de datos
 ```console
@@ -423,7 +433,7 @@ psql -d otra_base_de_datos -U tu_nuevo_usuario
 ```
 ```text
 Output
-You are connected to database "sammy" as user "sammy" via socket in "/var/run/postgresql" at port "5432".
+You are connected to database "otra_base_de_datos" as user "tu_nuevo_usuario" via socket in "/var/run/postgresql" at port "5432".
 ```
 ### 3.8.3. Asignar privilegios a un usuario sobre una base de datos
 ```console
@@ -433,103 +443,7 @@ GRANT ALL PRIVILEGES ON DATABASE nombre_de_tu_base_de_datos TO nombre_de_usuario
 ```console
 ALTER USER nombre_de_usuario WITH PASSWORD 'nueva_contraseña';
 ```
-## 3.9. Crear tablas
-- La sintaxis básica para la creación de tablas es la siguiente
-```console
-CREATE TABLE playground (
-    equip_id serial PRIMARY KEY,
-    type varchar (50) NOT NULL,
-    color varchar (25) NOT NULL,
-    location varchar(25) check (location in ('north', 'south', 'west', 'east', 'northeast', 'southeast', 'southwest', 'northwest')),
-    install_date date
-);
-```
-- Puede ver su tabla nueva escribiendo lo siguiente:
-```console
-\d
-```
-
-| equip_id | type          | color      | location   | install_date |
-|----------|---------------|------------|------------|--------------|
-| 1        | Swing         | Red        | North      | 2023-01-15   |
-| 2        | Slide         | Blue       | South      | 2023-02-20   |
-| 3        | Sandbox       | Yellow     | West       | 2023-03-10   |
-| 4        | Climbing Frame| Green      | Northeast  | 2023-04-05   |
-| 5        | Seesaw        | Purple     | Southeast  | 2023-05-12   |
-
-
-- Mostrar todas las tablas de la base de datos actual
-```console
-\dt
-```
-- Mostrar información sobre una tabla específica
-```console
-\d nombre_de_tu_tabla;
-```
-**![3FNS2](/5imagenes/entidad-relacion/tablas2.png)**
-## 3.10. Agregar datos en una tabla
-- Como ejemplo, añada un tobogán y un columpio al invocar la tabla en la que los desea agregar, nombrar las columnas y, luego, proporcionar datos para cada una de ellas
-```console
-INSERT INTO playground (type, color, location, install_date) VALUES ('slide', 'blue', 'south', '2017-04-28');
-INSERT INTO playground (type, color, location, install_date) VALUES ('swing', 'yellow', 'northwest', '2018-08-16');
-```
-- Ver la tabla playground
-```console
-SELECT * FROM playground;
-```
-| equip_id | type  | color  | location   | install_date |
-|----------|-------|--------|------------|--------------|
-| 1        | Slide | Blue   | South      | 2017-04-28   |
-| 2        | Swing | Yellow | Northwest  | 2018-08-16   |
-
-## 3.11. Eliminar datos en una tabla
-- Eliminar la tabla
-```console
-DELETE FROM playground WHERE type = 'slide';
-```
-- Consultar la tabla de nuevo
-```console
-SELECT * FROM playground;
-```
-
-| equip_id | type  | color  | location   | install_date |
-|----------|-------|--------|------------|--------------|
-| 2        | Swing | Yellow | Northwest  | 2018-08-16   |
-
-## 3.12. Agregar columnas en una tabla
-- Agregue una columna para mostrar la última visita de mantenimiento por cada equipo escribiendo lo siguiente
-```console
-ALTER TABLE playground ADD last_maint date;
-```
-- Si vuelve a ver la información de su tabla, observará que se agregó la columna nueva, pero no se ingresaron datos
-```console
-SELECT * FROM playground;
-```
-
-| equip_id | type  | color  | location   | install_date | last_maint |
-|----------|-------|--------|------------|--------------|------------|
-| 2        | Swing | Yellow | Northwest  | 2018-08-16   |            |
-
-## 3.13. Eliminar columnas en una tabla
-- Eliminar la columna
-```console
-ALTER TABLE playground DROP last_maint;
-```
-## 3.14. Actualizar datos de una tabla
-- Puede actualizar los valores de una entrada existente buscando el registro que desee y fijando el valor que prefiera utilizar para la columna. Puede consultar el registro de swing (se incluirán todos los columpios de su tabla) y cambiar su color a red. Esto puede ser útil si asignó una tarea de pintura al columpio:
-```console
-UPDATE playground SET color = 'red' WHERE type = 'swing';
-```
-- Puede verificar la eficacia de la operación consultando los datos de nuevo:
-```console
-SELECT * FROM playground;
-```
-
-| equip_id | type  | color  | location   | install_date | last_maint |
-|----------|-------|--------|------------|--------------|------------|
-| 2        | Swing | Red    | Northwest  | 2018-08-16   |            |
-
-## 3.15. Comandos más utilizados
+## 3.9. Comandos más utilizados
 
 **`\?` listar todos los comandos** 
 
@@ -555,74 +469,24 @@ SELECT * FROM playground;
 # 4. Ejemplo modelo de base de datos
 - Este modelo de base de datos representa información de usuarios y sus actividades. La entidad "Usuarios" contiene datos personales como nombre, teléfono, email, y detalles como ocupación y fecha de nacimiento. Además, se almacena la fecha de registro y una foto. Las entidades relacionadas incluyen "Experiencias" (con nombre y descripción), "Redes Sociales" (con nombre y foto), "Habilidades" (con icono, nombre y descripción), "Tecnologías" (con nombre y foto), y "Proyectos" (con nombre, foto, descripción y enlace). Estas entidades se conectan a la entidad "Usuarios" a través de claves foráneas, permitiendo organizar y acceder a información detallada sobre las experiencias, habilidades y proyectos asociados a cada usuario.
 ## 4.1. Diagrama Entidad Relación
-**![3FNS2](/5imagenes/entidad-relacion/ejm_postgres.jpg)**
-## 4.2. Tablas y atributos
-- Entidad: Usuarios
-
-| Atributo        | Tipo        | Clave    | Descripción                                  |
-|-----------------|-------------|----------|----------------------------------------------|
-| id_usuario      | PK          |          | Identificador único del usuario.             |
-| nombre          |             |          | Nombre del usuario.                          |
-| telefono        |             |          | Número de teléfono del usuario.              |
-| email           |             |          | Dirección de correo electrónico del usuario.|
-| descripcion     |             |          | Descripción textual del usuario.             |
-| ocupacion       |             |          | Ocupación o profesión del usuario.           |
-| fecha_nac       |             |          | Fecha de nacimiento del usuario.             |
-| foto            |             |          | Ruta o enlace a la foto del usuario.        |
-| fecha_reg       |             |          | Fecha y hora de registro del usuario.       |
-
-- Entidad: Experiencias
-
-| Atributo        | Tipo        | Clave    | Descripción                                  |
-|-----------------|-------------|----------|----------------------------------------------|
-| id_experiencia  | PK          |          | Identificador único de la experiencia.       |
-| nombre          |             |          | Nombre de la experiencia.                    |
-| descripcion     |             |          | Descripción textual de la experiencia.       |
-| id_usuario      | FK          |          | Clave foránea que establece relación con el usuario.|
-
-- Entidad: Redes Sociales
-
-| Atributo             | Tipo        | Clave    | Descripción                                  |
-|----------------------|-------------|----------|----------------------------------------------|
-| id_redes_sociales    | PK          |          | Identificador único de la red social.        |
-| nombre               |             |          | Nombre de la red social.                     |
-| foto                 |             |          | Ruta o enlace a la foto de la red social.   |
-| id_usuario           | FK          |          | Clave foránea que establece relación con el usuario.|
-
-- Entidad: Habilidades
-
-| Atributo          | Tipo        | Clave    | Descripción                                  |
-|-------------------|-------------|----------|----------------------------------------------|
-| id_habilidades    | PK          |          | Identificador único de la habilidad.        |
-| icono             |             |          | Ruta o enlace al ícono representativo.      |
-| nombre            |             |          | Nombre de la habilidad.                      |
-| descripcion       |             |          | Descripción textual de la habilidad.        |
-| id_usuario        | FK          |          | Clave foránea que establece relación con el usuario.|
-
-- Entidad: Tecnologías
-
-| Atributo         | Tipo        | Clave    | Descripción                                  |
-|------------------|-------------|----------|----------------------------------------------|
-| id_tecnologia    | PK          |          | Identificador único de la tecnología.        |
-| nombre           |             |          | Nombre de la tecnología.                     |
-| foto             |             |          | Ruta o enlace a la foto representativa.     |
-| id_usuario       | FK          |          | Clave foránea que establece relación con el usuario.|
-
-- Entidad: Proyectos
-
-| Atributo         | Tipo        | Clave    | Descripción                                  |
-|------------------|-------------|----------|----------------------------------------------|
-| id_proyectos     | PK          |          | Identificador único del proyecto.           |
-| nombre           |             |          | Nombre del proyecto.                         |
-| foto             |             |          | Ruta o enlace a la foto representativa.     |
-| descripcion      |             |          | Descripción textual del proyecto.           |
-| link             |             |          | Enlace relacionado con el proyecto.         |
-| id_usuario       | FK          |          | Clave foránea que establece relación con el usuario.|
-## 4.3. Para crear Tablas
-```sql
--- Esquema Core
+**![eder](/5imagenes/entidad-relacion/ejmDER.jpg)**
+## 4.2. Diagrama Entidad
+**![ede](/5imagenes/entidad-relacion/ejmDE.jpg)**
+## 4.3. Crear esquemas
+- La sintaxis básica para la creación de esquemas es la siguiente
+```sql  
 CREATE SCHEMA IF NOT EXISTS core;
-
+CREATE SCHEMA IF NOT EXISTS portafolio;
+```
+### 4.3.1. Cambiar al esquema creado
+- La sintaxis básica para cambiar al esquema creado es la siguiente
+```sql  
+SET search_path TO core;
+```
+## 4.4. Crear tablas
+- La sintaxis básica para la creación de tablas es la siguiente
+```sql
+-- Creación de la tabla de usuarios
 CREATE TABLE IF NOT EXISTS core.usuarios (
     id_usuario SERIAL PRIMARY KEY,
     nombre VARCHAR(2000),
@@ -632,9 +496,25 @@ CREATE TABLE IF NOT EXISTS core.usuarios (
     ocupacion VARCHAR(2000),
     fecha_nac DATE,
     foto VARCHAR(5000),
-    fecha_reg TIMESTAMP DEFAULT NOW() -- Ahora se define con el valor por defecto NOW()
+    fecha_reg TIMESTAMP DEFAULT NOW()
 );
 
+-- Creación de la tabla de habilidades
+CREATE TABLE IF NOT EXISTS portafolio.habilidades (
+    id_habilidad SERIAL PRIMARY KEY,
+    icono VARCHAR(2000),
+    nombre VARCHAR(2000),
+    descripcion TEXT
+);
+-- Creación de la tabla intermedia para la relación n:n entre usuarios y habilidades
+CREATE TABLE IF NOT EXISTS core.usuarios_habilidades (
+    id_usuario_habilidad SERIAL PRIMARY KEY,
+    id_usuario INTEGER,
+    id_habilidad INTEGER,
+    CONSTRAINT fk_usuario_habilidad_usuario FOREIGN KEY (id_usuario) REFERENCES core.usuarios(id_usuario),
+    CONSTRAINT fk_usuario_habilidad_habilidad FOREIGN KEY (id_habilidad) REFERENCES portafolio.habilidades(id_habilidad)
+);
+-- Creación de la tabla de proyectos
 CREATE TABLE IF NOT EXISTS core.proyectos (
     id_proyecto SERIAL PRIMARY KEY,
     nombre VARCHAR(2000),
@@ -645,6 +525,7 @@ CREATE TABLE IF NOT EXISTS core.proyectos (
     CONSTRAINT fk_usuario_proyecto FOREIGN KEY (id_usuario) REFERENCES core.usuarios(id_usuario)
 );
 
+-- Creación de la tabla de redes sociales
 CREATE TABLE IF NOT EXISTS core.redes_sociales (
     id_red_social SERIAL PRIMARY KEY,
     nombre VARCHAR(2000),
@@ -653,18 +534,8 @@ CREATE TABLE IF NOT EXISTS core.redes_sociales (
     CONSTRAINT fk_usuario_red_social FOREIGN KEY (id_usuario) REFERENCES core.usuarios(id_usuario)
 );
 
--- Esquema Portafolio
-CREATE SCHEMA IF NOT EXISTS portafolio;
 
-CREATE TABLE IF NOT EXISTS portafolio.habilidades (
-    id_habilidad SERIAL PRIMARY KEY,
-    icono VARCHAR(2000),
-    nombre VARCHAR(2000),
-    descripcion TEXT,
-    id_usuario INTEGER,
-    CONSTRAINT fk_usuario_habilidad FOREIGN KEY (id_usuario) REFERENCES core.usuarios(id_usuario)
-);
-
+-- Creación de la tabla de tecnologías
 CREATE TABLE IF NOT EXISTS portafolio.tecnologias (
     id_tecnologia SERIAL PRIMARY KEY,
     nombre VARCHAR(2000),
@@ -673,41 +544,69 @@ CREATE TABLE IF NOT EXISTS portafolio.tecnologias (
     CONSTRAINT fk_usuario_tecnologia FOREIGN KEY (id_usuario) REFERENCES core.usuarios(id_usuario)
 );
 
+-- Creación de la tabla de experiencias
 CREATE TABLE IF NOT EXISTS portafolio.experiencias (
     id_experiencia SERIAL PRIMARY KEY,
     nombre VARCHAR(2000),
-    descripcion TEXT,
+    descripcion text,
     id_usuario INTEGER,
     CONSTRAINT fk_usuario_experiencia FOREIGN KEY (id_usuario) REFERENCES core.usuarios(id_usuario)
 );
 
 ```
-- Cada entidad tiene sus respectivos atributos y las claves primarias (PK) están indicadas. Además, se mencionan las claves foráneas (FK) que establecen relaciones con otras entidades.
-## 4.4. Para Insertar datos
+## 4.5. Mostrar información sobre una tabla específica
+- Linea de comandos de Postgres
+```console
+\d core.usuarios;
+```
+
+| Columna      | Tipo                        | Ordenamiento | Nulable  | Por omisión                                   |
+|-------------- |-----------------------------|--------------|----------|-----------------------------------------------|
+| id_usuario    | integer                     |              | not null | nextval('core.usuarios_id_usuario_seq'::regclass) |
+| nombre        | character varying(2000)     |              |          |                                               |
+| telefono      | integer                     |              |          |                                               |
+| email         | character varying(100)      |              |          |                                               |
+| descripcion   | text                        |              |          |                                               |
+| ocupacion     | character varying(2000)     |              |          |                                               |
+| fecha_nac     | date                        |              |          |                                               |
+| foto          | character varying(5000)     |              |          |                                               |
+| fecha_reg     | timestamp without time zone |              |          | now()                                         |
+
+Índices:
+- "usuarios_pkey" PRIMARY KEY, btree (id_usuario)
+
+Referenciada por:
+- TABLE "core.usuarios_habilidades" CONSTRAINT "fk_usuario_habilidad_usuario" FOREIGN KEY (id_usuario) REFERENCES core.usuarios(id_usuario)
+- TABLE "core.proyectos" CONSTRAINT "fk_usuario_proyecto" FOREIGN KEY (id_usuario) REFERENCES core.usuarios(id_usuario)
+- TABLE "core.redes_sociales" CONSTRAINT "fk_usuario_red_social" FOREIGN KEY (id_usuario) REFERENCES core.usuarios(id_usuario)
+
+
+## 4.6. Agregar datos en una tabla
+- Como ejemplo, añada datos en cada una de las tablas en la que desea agregar, nombrar las columnas y, luego, proporcionar datos para cada una de ellas:
 ```sql
 -- Inserción de datos en la tabla core.usuarios
-INSERT INTO core.usuarios (nombre, telefono, email, descripcion, ocupacion, fecha_nac, foto) 
+INSERT INTO core.usuarios (nombre, telefono, email, descripcion, ocupacion, fecha_nac, foto, fecha_reg) 
 VALUES 
-('Sakura Haruno', 123456789, 'sakura@example.com', 'Ninja médica de Konoha', 'Ninja', '1995-03-28', 'sakura.jpg'),
-('Asuka Langley Soryu', 987654321, 'asuka@example.com', 'Piloto del Evangelion Unidad-02', 'Piloto de Eva', '2001-12-04', 'asuka.jpg'),
-('Inuyasha', 555555555, 'inuyasha@example.com', 'Mitad humano, mitad demonio', 'Hanyo', '1988-07-29', 'inuyasha.jpg'),
-('Bulma Brief', 111111111, 'bulma@example.com', 'Científica e inventora', 'Inventora', '1980-08-18', 'bulma.jpg'),
-('Nami', 222222222, 'nami@example.com', 'Navegante de los Piratas del Sombrero de Paja', 'Navegante', '1990-07-03', 'nami.jpg'),
-('Mikasa Ackerman', 333333333, 'mikasa@example.com', 'Soldado de la Legión de reconocimiento', 'Soldado', '1995-02-10', 'mikasa.jpg'),
-('Erza Scarlet', 444444444, 'erza@example.com', 'Titania, la Reina de las Hadas', 'Maga', '1992-04-30', 'erza.jpg'),
-('Zero Two', 666666666, 'zero@example.com', 'Piloto de FranXX', 'Piloto', '2002-01-21', 'zero_two.jpg'),
-('Hinata Hyuga', 777777777, 'hinata@example.com', 'Ninja de la Aldea Oculta de la Hoja', 'Ninja', '1995-12-27', 'hinata.jpg'),
-('Kagome Higurashi', 888888888, 'kagome@example.com', 'Viajera en el tiempo', 'Estudiante', '1987-11-30', 'kagome.jpg'),
-('Lucy Heartfilia', 999999999, 'lucy@example.com', 'Maga celestial de Fairy Tail', 'Maga', '1998-07-01', 'lucy.jpg'),
-('Riza Hawkeye', 123123123, 'riza@example.com', 'Teniente y tiradora experta', 'Militar', '1989-01-10', 'riza.jpg'),
-('Rei Ayanami', 456456456, 'rei@example.com', 'Piloto del Evangelion Unidad-00', 'Piloto de Eva', '2001-03-30', 'rei.jpg'),
-('Winry Rockbell', 789789789, 'winry@example.com', 'Mecánica y ingeniera', 'Ingeniera', '1990-05-03', 'winry.jpg'),
-('Yoruichi Shihouin', 135135135, 'yoruichi@example.com', 'Ex-capitana del Gotei 13', 'Ex-capitana', '1971-01-01', 'yoruichi.jpg'),
-('Rukia Kuchiki', 246246246, 'rukia@example.com', 'Shinigami y ex-teniente', 'Shinigami', '1986-01-14', 'rukia.jpg'),
-('Tsunade Senju', 357357357, 'tsunade@example.com', 'Quinta Hokage de Konoha', 'Hokage', '1960-08-02', 'tsunade.jpg'),
-('Android 18', 468468468, 'android18@example.com', 'Androide y luchadora', 'Androide', '2010-02-18', 'android18.jpg'),
-('Yuno Gasai', 579579579, 'yuno@example.com', 'Portadora del Diario de Yuki', 'Estudiante', '1993-02-14', 'yuno.jpg'),
-('Homura Akemi', 681681681, 'homura@example.com', 'Magical Girl y viajera en el tiempo', 'Magical Girl', '1995-12-03', 'homura.jpg');
+('Sakura Haruno', 123456789, 'sakura@example.com', 'Ninja médica de Konoha', 'Ninja', '1995-03-28', 'sakura.jpg', NOW()),
+('Asuka Langley Soryu', 987654321, 'asuka@example.com', 'Piloto del Evangelion Unidad-02', 'Piloto de Eva', '2001-12-04', 'asuka.jpg', NOW()),
+('Inuyasha', 555555555, 'inuyasha@example.com', 'Mitad humano, mitad demonio', 'Hanyo', '1988-07-29', 'inuyasha.jpg', NOW()),
+('Bulma Brief', 111111111, 'bulma@example.com', 'Científica e inventora', 'Inventora', '1980-08-18', 'bulma.jpg', NOW()),
+('Nami', 222222222, 'nami@example.com', 'Navegante de los Piratas del Sombrero de Paja', 'Navegante', '1990-07-03', 'nami.jpg', NOW()),
+('Mikasa Ackerman', 333333333, 'mikasa@example.com', 'Soldado de la Legión de reconocimiento', 'Soldado', '1995-02-10', 'mikasa.jpg', NOW()),
+('Erza Scarlet', 444444444, 'erza@example.com', 'Titania, la Reina de las Hadas', 'Maga', '1992-04-30', 'erza.jpg', NOW()),
+('Zero Two', 666666666, 'zero@example.com', 'Piloto de FranXX', 'Piloto', '2002-01-21', 'zero_two.jpg', NOW()),
+('Hinata Hyuga', 777777777, 'hinata@example.com', 'Ninja de la Aldea Oculta de la Hoja', 'Ninja', '1995-12-27', 'hinata.jpg', NOW()),
+('Kagome Higurashi', 888888888, 'kagome@example.com', 'Viajera en el tiempo', 'Estudiante', '1987-11-30', 'kagome.jpg', NOW()),
+('Lucy Heartfilia', 999999999, 'lucy@example.com', 'Maga celestial de Fairy Tail', 'Maga', '1998-07-01', 'lucy.jpg', NOW()),
+('Riza Hawkeye', 123123123, 'riza@example.com', 'Teniente y tiradora experta', 'Militar', '1989-01-10', 'riza.jpg', NOW()),
+('Rei Ayanami', 456456456, 'rei@example.com', 'Piloto del Evangelion Unidad-00', 'Piloto de Eva', '2001-03-30', 'rei.jpg', NOW()),
+('Winry Rockbell', 789789789, 'winry@example.com', 'Mecánica y ingeniera', 'Ingeniera', '1990-05-03', 'winry.jpg', NOW()),
+('Yoruichi Shihouin', 135135135, 'yoruichi@example.com', 'Ex-capitana del Gotei 13', 'Ex-capitana', '1971-01-01', 'yoruichi.jpg', NOW()),
+('Rukia Kuchiki', 246246246, 'rukia@example.com', 'Shinigami y ex-teniente', 'Shinigami', '1986-01-14', 'rukia.jpg', NOW()),
+('Tsunade Senju', 357357357, 'tsunade@example.com', 'Quinta Hokage de Konoha', 'Hokage', '1960-08-02', 'tsunade.jpg', NOW()),
+('Android 18', 468468468, 'android18@example.com', 'Androide y luchadora', 'Androide', '2010-02-18', 'android18.jpg', NOW()),
+('Yuno Gasai', 579579579, 'yuno@example.com', 'Portadora del Diario de Yuki', 'Estudiante', '1993-02-14', 'yuno.jpg', NOW()),
+('Homura Akemi', 681681681, 'homura@example.com', 'Magical Girl y viajera en el tiempo', 'Magical Girl', '1995-12-03', 'homura.jpg', NOW());
 
 -- Inserción de datos en la tabla core.proyectos
 INSERT INTO core.proyectos (nombre, foto, descripcion, link, id_usuario) 
@@ -732,12 +631,12 @@ VALUES
 ('Proyecto de Android 18', 'proyecto_android18.jpg', 'Desarrollo de habilidades de combate', '...', 18),
 ('Proyecto de Yuno', 'proyecto_yuno.jpg', 'Estudio del Diario de Yuki', '...', 19),
 ('Proyecto de Homura', 'proyecto_homura.jpg', 'Investigación sobre viajes en el tiempo', '...', 20);
--- ... Agrega más proyectos aquí ...
 
 -- Inserción de datos en la tabla core.redes_sociales
 INSERT INTO core.redes_sociales (nombre, foto, id_usuario) 
 VALUES 
 ('Twitter', 'twitter_icon.jpg', 1),
+('Webex', 'webex_icon.jpg', 1),
 ('Instagram', 'instagram_icon.jpg', 2),
 ('Facebook', 'facebook_icon.jpg', 3),
 ('LinkedIn', 'linkedin_icon.jpg', 4),
@@ -758,33 +657,30 @@ VALUES
 ('Zoom', 'zoom_icon.jpg', 19),
 ('Vkontakte', 'vkontakte_icon.jpg', 20);
 
--- ... Agrega más redes sociales aquí ...
 -- Inserción de datos en la tabla portafolio.habilidades
-INSERT INTO portafolio.habilidades (icono, nombre, descripcion, id_usuario) 
+INSERT INTO portafolio.habilidades (icono, nombre, descripcion) 
 VALUES 
-('habilidad_icon_1.jpg', 'Jutsu Médico', 'Máxima habilidad en técnicas médicas ninja, especializada en jutsu de curación.', 1),
-('habilidad_icon_2.jpg', 'Piloto de Evangelion', 'Habilidad excepcional como piloto de la Unidad-02 en la lucha contra los Ángeles.', 2),
-('habilidad_icon_3.jpg', 'Control de Energía Youkai', 'Capacidad para controlar y utilizar la energía youkai de manera efectiva.', 3),
-('habilidad_icon_4.jpg', 'Inventora Genial', 'Habilidad para inventar dispositivos y tecnologías avanzadas.', 4),
-('habilidad_icon_5.jpg', 'Navegación en Grand Line', 'Experiencia en la navegación por los peligrosos mares de Grand Line.', 5),
-('habilidad_icon_6.jpg', 'Lanzamiento de Cuchillos', 'Habilidad sobresaliente en el lanzamiento preciso de cuchillos.', 6),
-('habilidad_icon_7.jpg', 'Transformación Youkai', 'Capacidad para transformarse en una forma más poderosa como youkai.', 7),
-('habilidad_icon_8.jpg', 'Tecnología Avanzada', 'Destreza en el desarrollo y uso de tecnología avanzada para diversos propósitos.', 8),
-('habilidad_icon_9.jpg', 'Magia Celestial', 'Maestría en el uso de la magia celestial para invocar espíritus celestiales.', 9),
-('habilidad_icon_10.jpg', 'Artes Marciales Ninja', 'Habilidad excepcional en las artes marciales ninja, incluyendo taijutsu y ninjutsu.', 10),
-('habilidad_icon_11.jpg', 'Control del Tiempo', 'Capacidad para manipular el tiempo en situaciones específicas.', 11),
-('habilidad_icon_12.jpg', 'Alquimia', 'Conocimiento profundo y habilidad en la práctica de la alquimia.', 12),
-('habilidad_icon_13.jpg', 'Poderes Psíquicos', 'Habilidad para utilizar poderes psíquicos como la telequinesis y la telepatía.', 13),
-('habilidad_icon_14.jpg', 'Transformación de Evangelion', 'Capacidad para transformarse en una forma más poderosa como piloto de Evangelion.', 14),
-('habilidad_icon_15.jpg', 'Ninja de Combate', 'Excelencia en las técnicas de combate ninja y el uso de armas tradicionales.', 15),
-('habilidad_icon_16.jpg', 'Canto Mágico', 'Poderosa voz utilizada en conjunción con la magia para efectos diversos.', 16),
-('habilidad_icon_17.jpg', 'Técnica de Sello', 'Dominio en el uso de sellos mágicos para diversas aplicaciones.', 17),
-('habilidad_icon_18.jpg', 'Control de Elementos', 'Capacidad para controlar y manipular diferentes elementos como fuego, agua y tierra.', 18),
-('habilidad_icon_19.jpg', 'Arte de la Espada', 'Maestría en el manejo de la espada y técnicas de esgrima.', 19),
-('habilidad_icon_20.jpg', 'Teletransportación', 'Habilidad para moverse instantáneamente de un lugar a otro.', 20);
--- ... Agrega más habilidades aquí ...
+('habilidad_icon_1.jpg', 'Jutsu Médico', 'Máxima habilidad en técnicas médicas ninja, especializada en jutsu de curación.'),
+('habilidad_icon_2.jpg', 'Piloto de Evangelion', 'Habilidad excepcional como piloto de la Unidad-02 en la lucha contra los Ángeles.'),
+('habilidad_icon_3.jpg', 'Control de Energía Youkai', 'Capacidad para controlar y utilizar la energía youkai de manera efectiva.'),
+('habilidad_icon_4.jpg', 'Inventora Genial', 'Habilidad para inventar dispositivos y tecnologías avanzadas.'),
+('habilidad_icon_5.jpg', 'Navegación en Grand Line', 'Experiencia en la navegación por los peligrosos mares de Grand Line.'),
+('habilidad_icon_6.jpg', 'Lanzamiento de Cuchillos', 'Habilidad sobresaliente en el lanzamiento preciso de cuchillos.'),
+('habilidad_icon_7.jpg', 'Transformación Youkai', 'Capacidad para transformarse en una forma más poderosa como youkai.'),
+('habilidad_icon_8.jpg', 'Tecnología Avanzada', 'Destreza en el desarrollo y uso de tecnología avanzada para diversos propósitos.'),
+('habilidad_icon_9.jpg', 'Magia Celestial', 'Maestría en el uso de la magia celestial para invocar espíritus celestiales.'),
+('habilidad_icon_10.jpg', 'Artes Marciales Ninja', 'Habilidad excepcional en las artes marciales ninja, incluyendo taijutsu y ninjutsu.'),
+('habilidad_icon_11.jpg', 'Control del Tiempo', 'Capacidad para manipular el tiempo en situaciones específicas.'),
+('habilidad_icon_12.jpg', 'Alquimia', 'Conocimiento profundo y habilidad en la práctica de la alquimia.'),
+('habilidad_icon_13.jpg', 'Poderes Psíquicos', 'Habilidad para utilizar poderes psíquicos como la telequinesis y la telepatía.'),
+('habilidad_icon_14.jpg', 'Transformación de Evangelion', 'Capacidad para transformarse en una forma más poderosa como piloto de Evangelion.'),
+('habilidad_icon_15.jpg', 'Ninja de Combate', 'Excelencia en las técnicas de combate ninja y el uso de armas tradicionales.'),
+('habilidad_icon_16.jpg', 'Canto Mágico', 'Poderosa voz utilizada en conjunción con la magia para efectos diversos.'),
+('habilidad_icon_17.jpg', 'Técnica de Sello', 'Dominio en el uso de sellos mágicos para diversas aplicaciones.'),
+('habilidad_icon_18.jpg', 'Control de Elementos', 'Capacidad para controlar y manipular diferentes elementos como fuego, agua y tierra.'),
+('habilidad_icon_19.jpg', 'Arte de la Espada', 'Maestría en el manejo de la espada y técnicas de esgrima.'),
+('habilidad_icon_20.jpg', 'Teletransportación', 'Habilidad para moverse instantáneamente de un lugar a otro.');
 
--- Inserción de datos en la tabla portafolio.tecnologias
 -- Inserción de datos en la tabla portafolio.tecnologias
 INSERT INTO portafolio.tecnologias (nombre, foto, id_usuario) 
 VALUES 
@@ -809,8 +705,6 @@ VALUES
 ('Arte de la Espada', 'tecnologia_arte_espada.jpg', 19),
 ('Teletransportación', 'tecnologia_teletransportacion.jpg', 20);
 
--- ... Agrega más tecnologías aquí ...
-
 -- Inserción de datos en la tabla portafolio.experiencias
 INSERT INTO portafolio.experiencias (nombre, descripcion, id_usuario) 
 VALUES 
@@ -834,340 +728,599 @@ VALUES
 ('Luchadora y Androide', 'Participación en combates como androide y luchadora.', 18),
 ('Portadora del Diario de Yuki', 'Aventuras y desafíos como portadora del Diario de Yuki.', 19),
 ('Magical Girl y Viajera en el Tiempo', 'Aventuras como Magical Girl y viajera en el tiempo.', 20);
--- ... Agrega más experiencias aquí ...
+
+-- Inserción de datos en la tabla core.usuarios_habilidades (relación n:n)
+INSERT INTO core.usuarios_habilidades (id_usuario, id_habilidad)
+VALUES (1, 1),(1, 2),(2, 1),(2, 2),(3, 3),(4, 4),(5, 5),(6, 6),(7, 7),(8, 8),(9, 9),(10, 10),(11, 11),(12, 12),(13, 13),(14, 14),(15, 15),(16, 16),(17, 17),(18, 18),(19, 19),(20, 20);
 
 ```
-## 4.5. Tablas creadas
-- La tabla usuarios
-
-| id_usuario | nombre               | telefono   | email                | descripcion                               | ocupacion          | fecha_nac  | foto          |
-|------------|----------------------|------------|----------------------|-------------------------------------------|--------------------|------------|---------------|
-| 1          | Sakura Haruno        | 123456789  | sakura@example.com   | Ninja médica de Konoha                    | Ninja              | 1995-03-28 | sakura.jpg    |
-| 2          | Asuka Langley Soryu  | 987654321  | asuka@example.com    | Piloto del Evangelion Unidad-02           | Piloto de Eva      | 2001-12-04 | asuka.jpg     |
-| 3          | Inuyasha             | 555555555  | inuyasha@example.com | Mitad humano, mitad demonio               | Hanyo              | 1988-07-29 | inuyasha.jpg  |
-| 4          | Bulma Brief          | 111111111  | bulma@example.com    | Científica e inventora                    | Inventora          | 1980-08-18 | bulma.jpg     |
-| 5          | Nami                 | 222222222  | nami@example.com     | Navegante de los Piratas del Sombrero de Paja | Navegante      | 1990-07-03 | nami.jpg      |
-| 6          | Mikasa Ackerman      | 333333333  | mikasa@example.com   | Soldado de la Legión de reconocimiento   | Soldado            | 1995-02-10 | mikasa.jpg    |
-| 7          | Erza Scarlet         | 444444444  | erza@example.com     | Titania, la Reina de las Hadas            | Maga               | 1992-04-30 | erza.jpg      |
-| 8          | Zero Two             | 666666666  | zero@example.com     | Piloto de FranXX                          | Piloto             | 2002-01-21 | zero_two.jpg  |
-| 9          | Hinata Hyuga         | 777777777  | hinata@example.com   | Ninja de la Aldea Oculta de la Hoja       | Ninja              | 1995-12-27 | hinata.jpg    |
-| 10         | Kagome Higurashi     | 888888888  | kagome@example.com   | Viajera en el tiempo                      | Estudiante         | 1987-11-30 | kagome.jpg    |
-| 11         | Lucy Heartfilia       | 999999999  | lucy@example.com     | Maga celestial de Fairy Tail               | Maga               | 1998-07-01 | lucy.jpg      |
-| 12         | Riza Hawkeye          | 123123123  | riza@example.com     | Teniente y tiradora experta                | Militar            | 1989-01-10 | riza.jpg      |
-| 13         | Rei Ayanami           | 456456456  | rei@example.com      | Piloto del Evangelion Unidad-00           | Piloto de Eva      | 2001-03-30 | rei.jpg       |
-| 14         | Winry Rockbell        | 789789789  | winry@example.com    | Mecánica y ingeniera                       | Ingeniera          | 1990-05-03 | winry.jpg     |
-| 15         | Yoruichi Shihouin     | 135135135  | yoruichi@example.com | Ex-capitana del Gotei 13                   | Ex-capitana        | 1971-01-01 | yoruichi.jpg  |
-| 16         | Rukia Kuchiki         | 246246246  | rukia@example.com    | Shinigami y ex-teniente                   | Shinigami          | 1986-01-14 | rukia.jpg     |
-| 17         | Tsunade Senju         | 357357357  | tsunade@example.com  | Quinta Hokage de Konoha                    | Hokage             | 1960-08-02 | tsunade.jpg   |
-| 18         | Android 18            | 468468468  | android18@example.com| Androide y luchadora                      | Androide           | 2010-02-18 | android18.jpg |
-| 19         | Yuno Gasai            | 579579579  | yuno@example.com     | Portadora del Diario de Yuki              | Estudiante         | 1993-02-14 | yuno.jpg      |
-| 20         | Homura Akemi          | 681681681  | homura@example.com   | Magical Girl y viajera en el tiempo       | Magical Girl       | 1995-12-03 | homura.jpg    |
-
-
-- La tabla proyectos
-
-| ID | Nombre                   | Foto                    | Descripción                                      | Enlace                                            | ID Usuario |
-|----|--------------------------|-------------------------|--------------------------------------------------|---------------------------------------------------|------------|
-| 1  | Proyecto de Sakura       | proyecto_sakura.jpg     | Desarrollo de técnicas médicas ninja             | [Proyecto Sakura](https://github.com/sakura/proyecto) | 1          |
-| 2  | Proyecto de Asuka        | proyecto_asuka.jpg      | Defensa contra los Ángeles                       | [Proyecto Asuka](https://github.com/asuka/proyecto)  | 2          |
-| 3  | Proyecto de Inuyasha     | proyecto_inuyasha.jpg   | Aventuras en la era feudal                       | [Proyecto Inuyasha](https://github.com/inuyasha/proyecto) | 3          |
-| 4  | Proyecto de Bulma        | proyecto_bulma.jpg      | Inventos revolucionarios                          | ...                                               | 4          |
-| 5  | Proyecto de Nami         | proyecto_nami.jpg       | Navegación en Grand Line                         | [Proyecto Nami](https://github.com/nami/proyecto)    | 5          |
-| 6  | Proyecto de Mikasa       | proyecto_mikasa.jpg     | Desarrollo de estrategias de combate             | ...                                               | 6          |
-| 7  | Proyecto de Erza         | proyecto_erza.jpg       | Aventuras mágicas                                | ...                                               | 7          |
-| 8  | Proyecto de Zero Two     | proyecto_zero_two.jpg   | Investigación sobre FranXX                       | ...                                               | 8          |
-| 9  | Proyecto de Hinata       | proyecto_hinata.jpg     | Desarrollo de técnicas de ninjutsu               | ...                                               | 9          |
-| 10 | Proyecto de Kagome       | proyecto_kagome.jpg     | Estudio de viajes en el tiempo                   | ...                                               | 10         |
-| 11 | Proyecto de Lucy         | proyecto_lucy.jpg       | Investigación sobre magia celestial              | ...                                               | 11         |
-| 12 | Proyecto de Riza         | proyecto_riza.jpg       | Mejora de habilidades de tirador                 | ...                                               | 12         |
-| 13 | Proyecto de Rei          | proyecto_rei.jpg        | Desarrollo del Evangelion Unidad-00              | ...                                               | 13         |
-| 14 | Proyecto de Winry        | proyecto_winry.jpg       | Innovaciones en ingeniería mecánica              | ...                                               | 14         |
-| 15 | Proyecto de Yoruichi     | proyecto_yoruichi.jpg    | Investigación sobre habilidades shinigami        | ...                                               | 15         |
-| 16 | Proyecto de Rukia        | proyecto_rukia.jpg       | Estudio de técnicas de shinigami                 | ...                                               | 16         |
-| 17 | Proyecto de Tsunade      | proyecto_tsunade.jpg     | Mejora de técnicas médicas                       | ...                                               | 17         |
-| 18 | Proyecto de Android 18   | proyecto_android18.jpg   | Desarrollo de habilidades de combate             | ...                                               | 18         |
-| 19 | Proyecto de Yuno         | proyecto_yuno.jpg        | Estudio del Diario de Yuki                       | ...                                               | 19         |
-| 20 | Proyecto de Homura       | proyecto_homura.jpg      | Investigación sobre viajes en el tiempo          | ...                                               | 20         |
-
-<!-- ... Agrega más proyectos aquí ... -->
-
-- La tabla redes_sociales
-
-| nombre      | foto               | id_usuario |
-|-------------|--------------------|------------|
-| Twitter     | twitter_icon.jpg   | 1          |
-| Instagram   | instagram_icon.jpg | 2          |
-| Facebook    | facebook_icon.jpg  | 3          |
-| LinkedIn    | linkedin_icon.jpg  | 4          |
-| Pinterest   | pinterest_icon.jpg | 5          |
-| Tumblr      | tumblr_icon.jpg    | 6          |
-| Snapchat    | snapchat_icon.jpg  | 7          |
-| WhatsApp    | whatsapp_icon.jpg  | 8          |
-| Telegram    | telegram_icon.jpg  | 9          |
-| Discord     | discord_icon.jpg   | 10         |
-| Reddit      | reddit_icon.jpg    | 11         |
-| YouTube     | youtube_icon.jpg   | 12         |
-| Twitch      | twitch_icon.jpg    | 13         |
-| GitHub      | github_icon.jpg    | 14         |
-| GitLab      | gitlab_icon.jpg    | 15         |
-| Bitbucket   | bitbucket_icon.jpg | 16         |
-| Slack       | slack_icon.jpg     | 17         |
-| Skype       | skype_icon.jpg     | 18         |
-| Zoom        | zoom_icon.jpg      | 19         |
-| Vkontakte   | vkontakte_icon.jpg | 20         |
-
-- La tabla habilidades
-
-| icono                | nombre                      | descripcion                                                  | id_usuario |
-|----------------------|-----------------------------|--------------------------------------------------------------|------------|
-| habilidad_icon_1.jpg | Jutsu Médico                | Máxima habilidad en técnicas médicas ninja, especializada en jutsu de curación. | 1          |
-| habilidad_icon_2.jpg | Piloto de Evangelion        | Habilidad excepcional como piloto de la Unidad-02 en la lucha contra los Ángeles. | 2          |
-| habilidad_icon_3.jpg | Control de Energía Youkai   | Capacidad para controlar y utilizar la energía youkai de manera efectiva. | 3          |
-| habilidad_icon_4.jpg | Inventora Genial            | Habilidad para inventar dispositivos y tecnologías avanzadas.  | 4          |
-| habilidad_icon_5.jpg | Navegación en Grand Line    | Experiencia en la navegación por los peligrosos mares de Grand Line. | 5          |
-| habilidad_icon_6.jpg | Lanzamiento de Cuchillos    | Habilidad sobresaliente en el lanzamiento preciso de cuchillos. | 6          |
-| habilidad_icon_7.jpg | Transformación Youkai       | Capacidad para transformarse en una forma más poderosa como youkai. | 7          |
-| habilidad_icon_8.jpg | Tecnología Avanzada         | Destreza en el desarrollo y uso de tecnología avanzada para diversos propósitos. | 8          |
-| habilidad_icon_9.jpg | Magia Celestial              | Maestría en el uso de la magia celestial para invocar espíritus celestiales. | 9          |
-| habilidad_icon_10.jpg | Artes Marciales Ninja       | Habilidad excepcional en las artes marciales ninja, incluyendo taijutsu y ninjutsu. | 10         |
-| habilidad_icon_11.jpg | Control del Tiempo           | Capacidad para manipular el tiempo en situaciones específicas. | 11         |
-| habilidad_icon_12.jpg | Alquimia                     | Conocimiento profundo y habilidad en la práctica de la alquimia. | 12         |
-| habilidad_icon_13.jpg | Poderes Psíquicos            | Habilidad para utilizar poderes psíquicos como la telequinesis y la telepatía. | 13         |
-| habilidad_icon_14.jpg | Transformación de Evangelion | Capacidad para transformarse en una forma más poderosa como piloto de Evangelion. | 14         |
-| habilidad_icon_15.jpg | Ninja de Combate             | Excelencia en las técnicas de combate ninja y el uso de armas tradicionales. | 15         |
-| habilidad_icon_16.jpg | Canto Mágico                 | Poderosa voz utilizada en conjunción con la magia para efectos diversos. | 16         |
-| habilidad_icon_17.jpg | Técnica de Sello             | Dominio en el uso de sellos mágicos para diversas aplicaciones. | 17         |
-| habilidad_icon_18.jpg | Control de Elementos         | Capacidad para controlar y manipular diferentes elementos como fuego, agua y tierra. | 18         |
-| habilidad_icon_19.jpg | Arte de la Espada            | Maestría en el manejo de la espada y técnicas de esgrima. | 19         |
-| habilidad_icon_20.jpg | Teletransportación          | Habilidad para moverse instantáneamente de un lugar a otro. | 20         |
-
-- La tabla tecnologias
-
-| ID | Nombre                       | Foto                                      | ID Usuario |
-|----|------------------------------|-------------------------------------------|------------|
-| 1  | Jutsu Médico                 | ![Jutsu Médico](tecnologia_jutsu_medico.jpg)                  | 1          |
-| 2  | Piloto de Evangelion         | ![Piloto de Evangelion](tecnologia_piloto_evangelion.jpg)    | 2          |
-| 3  | Control de Energía Youkai    | ![Control de Energía Youkai](tecnologia_control_energia_youkai.jpg) | 3          |
-| 4  | Inventora Genial              | ![Inventora Genial](tecnologia_inventora_genial.jpg)        | 4          |
-| 5  | Navegación en Grand Line      | ![Navegación en Grand Line](tecnologia_navegacion_grand_line.jpg) | 5          |
-| 6  | Lanzamiento de Cuchillos      | ![Lanzamiento de Cuchillos](tecnologia_lanzamiento_cuchillos.jpg) | 6          |
-| 7  | Transformación Youkai         | ![Transformación Youkai](tecnologia_transformacion_youkai.jpg) | 7          |
-| 8  | Tecnología Avanzada           | ![Tecnología Avanzada](tecnologia_tecnologia_avanzada.jpg)  | 8          |
-| 9  | Magia Celestial               | ![Magia Celestial](tecnologia_magia_celestial.jpg)          | 9          |
-| 10 | Artes Marciales Ninja         | ![Artes Marciales Ninja](tecnologia_artes_marciales_ninja.jpg) | 10         |
-| 11 | Control del Tiempo             | ![Control del Tiempo](tecnologia_control_tiempo.jpg)      | 11         |
-| 12 | Alquimia                       | ![Alquimia](tecnologia_alquimia.jpg)                      | 12         |
-| 13 | Poderes Psíquicos              | ![Poderes Psíquicos](tecnologia_poderes_psiquicos.jpg)    | 13         |
-| 14 | Transformación de Evangelion   | ![Transformación de Evangelion](tecnologia_transformacion_evangelion.jpg) | 14         |
-| 15 | Ninja de Combate               | ![Ninja de Combate](tecnologia_ninja_combate.jpg)         | 15         |
-| 16 | Canto Mágico                   | ![Canto Mágico](tecnologia_canto_magico.jpg)             | 16         |
-| 17 | Técnica de Sello               | ![Técnica de Sello](tecnologia_tecnica_sello.jpg)        | 17         |
-| 18 | Control de Elementos           | ![Control de Elementos](tecnologia_control_elementos.jpg)| 18         |
-| 19 | Arte de la Espada               | ![Arte de la Espada](tecnologia_arte_espada.jpg)         | 19         |
-| 20 | Teletransportación              | ![Teletransportación](tecnologia_teletransportacion.jpg) | 20         |
-
-- La tabla experiencias
-
-| ID | Nombre                                     | Descripción                                               | Usuario |
-|----|--------------------------------------------|-----------------------------------------------------------|---------|
-| 1  | Misión de Protección en Konoha             | Participación en misiones como ninja médica para proteger la aldea de Konoha. | 1       |
-| 2  | Defensa contra los Ángeles                | Piloto de la Unidad-02 en la lucha contra los Ángeles para proteger la humanidad. | 2       |
-| 3  | Aventuras en la Era Feudal                 | Viajes y enfrentamientos en la era feudal como mitad humano, mitad demonio. | 3       |
-| 4  | Inventora en la Patrulla del Tiempo        | Contribuciones como inventora genial en la patrulla del tiempo. | 4       |
-| 5  | Navegante en los Mares Peligrosos          | Viajes como navegante en los peligrosos mares de Grand Line. | 5       |
-| 6  | Combate en la Legión de reconocimiento     | Participación en combates como soldado de la Legión de reconocimiento. | 6       |
-| 7  | Aventuras como Titania                     | Aventuras mágicas y misiones como Titania, la Reina de las Hadas. | 7       |
-| 8  | Piloto de FranXX                           | Participación en misiones como piloto de FranXX para proteger la humanidad. | 8       |
-| 9  | Misiones Ninja de la Aldea Oculta de la Hoja | Participación en misiones como ninja de la Aldea Oculta de la Hoja. | 9       |
-| 10 | Viajes en el Tiempo                        | Aventuras y descubrimientos en viajes en el tiempo. | 10      |
-| 11 | Magia Celestial en Fairy Tail              | Aventuras y misiones como maga celestial en el gremio Fairy Tail. | 11      |
-| 12 | Teniente y Tiradora Experta                | Servicio como teniente y tiradora experta en el ejército. | 12      |
-| 13 | Piloto del Evangelion Unidad-00            | Participación como piloto del Evangelion Unidad-00 en la defensa contra los Ángeles. | 13      |
-| 14 | Innovaciones en Ingeniería Mecánica        | Contribuciones como mecánica e ingeniera en innovaciones mecánicas. | 14      |
-| 15 | Ex-Capitana del Gotei 13                   | Servicio como ex-capitana del Gotei 13 en el mundo de los shinigami. | 15      |
-| 16 | Shinigami y Ex-Teniente                    | Experiencia como shinigami y ex-teniente en la Sociedad de Almas. | 16      |
-| 17 | Quinta Hokage de Konoha                    | Servicio como Quinta Hokage para proteger y liderar la aldea de Konoha. | 17      |
-| 18 | Luchadora y Androide                      | Participación en combates como androide y luchadora. | 18      |
-| 19 | Portadora del Diario de Yuki              | Aventuras y desafíos como portadora del Diario de Yuki. | 19      |
-| 20 | Magical Girl y Viajera en el Tiempo        | Aventuras como Magical Girl y viajera en el tiempo. | 20      |
-
-
-
-## por ver
+## 4.7. Ver datos en una tabla
+- Ver la tabla usuarios
 ```sql
--- Crear Schema
-CREATE SCHEMA anime_schema;
+SELECT * FROM core.usuarios;
+```
+|id_usuario|nombre|telefono|email|descripcion|ocupacion|fecha_nac|foto|fecha_reg|
+|----------|------|--------|-----|-----------|---------|---------|----|---------|
+|1|Sakura Haruno|123456789|sakura@example.com|Ninja médica de Konoha|Ninja|1995-03-28|sakura.jpg|2024-01-21 00:22:27.218|
+|2|Asuka Langley Soryu|987654321|asuka@example.com|Piloto del Evangelion Unidad-02|Piloto de Eva|2001-12-04|asuka.jpg|2024-01-21 00:22:27.218|
+|3|Inuyasha|555555555|inuyasha@example.com|Mitad humano, mitad demonio|Hanyo|1988-07-29|inuyasha.jpg|2024-01-21 00:22:27.218|
+|4|Bulma Brief|111111111|bulma@example.com|Científica e inventora|Inventora|1980-08-18|bulma.jpg|2024-01-21 00:22:27.218|
+|5|Nami|222222222|nami@example.com|Navegante de los Piratas del Sombrero de Paja|Navegante|1990-07-03|nami.jpg|2024-01-21 00:22:27.218|
+|6|Mikasa Ackerman|333333333|mikasa@example.com|Soldado de la Legión de reconocimiento|Soldado|1995-02-10|mikasa.jpg|2024-01-21 00:22:27.218|
+|7|Erza Scarlet|444444444|erza@example.com|Titania, la Reina de las Hadas|Maga|1992-04-30|erza.jpg|2024-01-21 00:22:27.218|
+|8|Zero Two|666666666|zero@example.com|Piloto de FranXX|Piloto|2002-01-21|zero_two.jpg|2024-01-21 00:22:27.218|
+|9|Hinata Hyuga|777777777|hinata@example.com|Ninja de la Aldea Oculta de la Hoja|Ninja|1995-12-27|hinata.jpg|2024-01-21 00:22:27.218|
+|10|Kagome Higurashi|888888888|kagome@example.com|Viajera en el tiempo|Estudiante|1987-11-30|kagome.jpg|2024-01-21 00:22:27.218|
+|11|Lucy Heartfilia|999999999|lucy@example.com|Maga celestial de Fairy Tail|Maga|1998-07-01|lucy.jpg|2024-01-21 00:22:27.218|
+|12|Riza Hawkeye|123123123|riza@example.com|Teniente y tiradora experta|Militar|1989-01-10|riza.jpg|2024-01-21 00:22:27.218|
+|13|Rei Ayanami|456456456|rei@example.com|Piloto del Evangelion Unidad-00|Piloto de Eva|2001-03-30|rei.jpg|2024-01-21 00:22:27.218|
+|14|Winry Rockbell|789789789|winry@example.com|Mecánica y ingeniera|Ingeniera|1990-05-03|winry.jpg|2024-01-21 00:22:27.218|
+|15|Yoruichi Shihouin|135135135|yoruichi@example.com|Ex-capitana del Gotei 13|Ex-capitana|1971-01-01|yoruichi.jpg|2024-01-21 00:22:27.218|
+|16|Rukia Kuchiki|246246246|rukia@example.com|Shinigami y ex-teniente|Shinigami|1986-01-14|rukia.jpg|2024-01-21 00:22:27.218|
+|17|Tsunade Senju|357357357|tsunade@example.com|Quinta Hokage de Konoha|Hokage|1960-08-02|tsunade.jpg|2024-01-21 00:22:27.218|
+|18|Android 18|468468468|android18@example.com|Androide y luchadora|Androide|2010-02-18|android18.jpg|2024-01-21 00:22:27.218|
+|19|Yuno Gasai|579579579|yuno@example.com|Portadora del Diario de Yuki|Estudiante|1993-02-14|yuno.jpg|2024-01-21 00:22:27.218|
+|20|Homura Akemi|681681681|homura@example.com|Magical Girl y viajera en el tiempo|Magical Girl|1995-12-03|homura.jpg|2024-01-21 00:22:27.218|
 
--- Cambiar al Schema creado
-SET search_path TO anime_schema;
 
--- Crear tabla "anime_girl"
-CREATE TABLE anime_girl (
-    id SERIAL PRIMARY KEY,
-    nombre VARCHAR(100),
-    fecha_nacimiento DATE,
-    descripcion TEXT,
-    estatura DECIMAL(5, 2),
-    color_ojos VARCHAR(50),
-    color_cabello VARCHAR(50)
-);
+## 4.8. Eliminar datos en una tabla
+- Eliminar los datos de una fila que contiene tabla
+```sql
+-- Eliminar el jutsu medico de Sakura de la tabla tecnologias
+DELETE FROM portafolio.tecnologias WHERE nombre = 'Jutsu Médico';
+```
+- Consultar la tabla de nuevo
+```sql
+SELECT * FROM portafolio.tecnologias;
+```
 
--- Insertar datos en la tabla
-INSERT INTO anime_girl (nombre, fecha_nacimiento, descripcion, estatura, color_ojos, color_cabello)
-VALUES 
-    ('Sakura', '2000-03-15', 'Magical girl with pink hair', 1.60, 'Green', 'Pink'),
-    ('Hinata', '1998-12-27', 'Shy ninja with blue hair', 1.65, 'White', 'Blue');
+|id_tecnologia|nombre|foto|id_usuario|
+|-------------|------|----|----------|
+|2|Piloto de Evangelion|tecnologia_piloto_evangelion.jpg|2|
+|3|Control de Energía Youkai|tecnologia_control_energia_youkai.jpg|3|
+|4|Inventora Genial|tecnologia_inventora_genial.jpg|4|
+|5|Navegación en Grand Line|tecnologia_navegacion_grand_line.jpg|5|
+|6|Lanzamiento de Cuchillos|tecnologia_lanzamiento_cuchillos.jpg|6|
+|7|Transformación Youkai|tecnologia_transformacion_youkai.jpg|7|
+|8|Tecnología Avanzada|tecnologia_tecnologia_avanzada.jpg|8|
+|9|Magia Celestial|tecnologia_magia_celestial.jpg|9|
+|10|Artes Marciales Ninja|tecnologia_artes_marciales_ninja.jpg|10|
+|11|Control del Tiempo|tecnologia_control_tiempo.jpg|11|
+|12|Alquimia|tecnologia_alquimia.jpg|12|
+|13|Poderes Psíquicos|tecnologia_poderes_psiquicos.jpg|13|
+|14|Transformación de Evangelion|tecnologia_transformacion_evangelion.jpg|14|
+|15|Ninja de Combate|tecnologia_ninja_combate.jpg|15|
+|16|Canto Mágico|tecnologia_canto_magico.jpg|16|
+|17|Técnica de Sello|tecnologia_tecnica_sello.jpg|17|
+|18|Control de Elementos|tecnologia_control_elementos.jpg|18|
+|19|Arte de la Espada|tecnologia_arte_espada.jpg|19|
+|20|Teletransportación|tecnologia_teletransportacion.jpg|20|
 
--- Seleccionar datos
-SELECT * FROM anime_girl;
 
--- Actualizar datos
-UPDATE anime_girl SET estatura = 1.70 WHERE nombre = 'Sakura';
+## 4.9. Agregar columnas en una tabla
+- Agregue una columna para mostrar la herramienta que usa por cada chica escribiendo lo siguiente
+```sql
+ALTER TABLE portafolio.tecnologias ADD COLUMN herramienta VARCHAR(50);
+```
+- Si vuelve a ver la información de su tabla, observará que se agregó la columna nueva, pero no se ingresaron datos
+```sql
+SELECT * FROM portafolio.tecnologias;
+```
 
--- Agregar columna
-ALTER TABLE anime_girl ADD COLUMN personalidad VARCHAR(100);
+|id_tecnologia|nombre|foto|id_usuario|herramienta|
+|-------------|------|----|----------|-----------|
+|2|Piloto de Evangelion|tecnologia_piloto_evangelion.jpg|2||
+|3|Control de Energía Youkai|tecnologia_control_energia_youkai.jpg|3||
+|4|Inventora Genial|tecnologia_inventora_genial.jpg|4||
+|5|Navegación en Grand Line|tecnologia_navegacion_grand_line.jpg|5||
+|6|Lanzamiento de Cuchillos|tecnologia_lanzamiento_cuchillos.jpg|6||
+|7|Transformación Youkai|tecnologia_transformacion_youkai.jpg|7||
+|8|Tecnología Avanzada|tecnologia_tecnologia_avanzada.jpg|8||
+|9|Magia Celestial|tecnologia_magia_celestial.jpg|9||
+|10|Artes Marciales Ninja|tecnologia_artes_marciales_ninja.jpg|10||
+|11|Control del Tiempo|tecnologia_control_tiempo.jpg|11||
+|12|Alquimia|tecnologia_alquimia.jpg|12||
+|13|Poderes Psíquicos|tecnologia_poderes_psiquicos.jpg|13||
+|14|Transformación de Evangelion|tecnologia_transformacion_evangelion.jpg|14||
+|15|Ninja de Combate|tecnologia_ninja_combate.jpg|15||
+|16|Canto Mágico|tecnologia_canto_magico.jpg|16||
+|17|Técnica de Sello|tecnologia_tecnica_sello.jpg|17||
+|18|Control de Elementos|tecnologia_control_elementos.jpg|18||
+|19|Arte de la Espada|tecnologia_arte_espada.jpg|19||
+|20|Teletransportación|tecnologia_teletransportacion.jpg|20||
 
--- Actualizar datos en la nueva columna
-UPDATE anime_girl SET personalidad = 'Cheerful' WHERE nombre = 'Sakura';
+## 4.10. Eliminar columnas en una tabla
+- Eliminar la columna
+```sql
+--eliminar herramienta
+ALTER TABLE portafolio.tecnologias DROP herramienta;
+```
+## 4.11. Actualizar datos de una tabla
+- Puede actualizar los valores de una entrada existente buscando el registro que desee y fijando el valor que prefiera utilizar para la columna:
+```sql
+--actualizar foto
+UPDATE portafolio.tecnologias SET foto = 'tecnologia_eva01.jpg' WHERE nombre = 'Piloto de Evangelion';
+```
+- Puede verificar la eficacia de la operación consultando los datos de nuevo:
+```sql
+SELECT * FROM portafolio.tecnologias;
+```
 
--- Eliminar columna
-ALTER TABLE anime_girl DROP COLUMN descripcion;
+|id_tecnologia|nombre|foto|id_usuario|
+|-------------|------|----|----------|
+|3|Control de Energía Youkai|tecnologia_control_energia_youkai.jpg|3|
+|4|Inventora Genial|tecnologia_inventora_genial.jpg|4|
+|5|Navegación en Grand Line|tecnologia_navegacion_grand_line.jpg|5|
+|6|Lanzamiento de Cuchillos|tecnologia_lanzamiento_cuchillos.jpg|6|
+|7|Transformación Youkai|tecnologia_transformacion_youkai.jpg|7|
+|8|Tecnología Avanzada|tecnologia_tecnologia_avanzada.jpg|8|
+|9|Magia Celestial|tecnologia_magia_celestial.jpg|9|
+|10|Artes Marciales Ninja|tecnologia_artes_marciales_ninja.jpg|10|
+|11|Control del Tiempo|tecnologia_control_tiempo.jpg|11|
+|12|Alquimia|tecnologia_alquimia.jpg|12|
+|13|Poderes Psíquicos|tecnologia_poderes_psiquicos.jpg|13|
+|14|Transformación de Evangelion|tecnologia_transformacion_evangelion.jpg|14|
+|15|Ninja de Combate|tecnologia_ninja_combate.jpg|15|
+|16|Canto Mágico|tecnologia_canto_magico.jpg|16|
+|17|Técnica de Sello|tecnologia_tecnica_sello.jpg|17|
+|18|Control de Elementos|tecnologia_control_elementos.jpg|18|
+|19|Arte de la Espada|tecnologia_arte_espada.jpg|19|
+|20|Teletransportación|tecnologia_teletransportacion.jpg|20|
+|2|Piloto de Evangelion|tecnologia_eva01.jpg|2|
 
--- Eliminar datos
-DELETE FROM anime_girl WHERE nombre = 'Hinata';
 
--- Relación 1 a 1: Crear tabla relacionada "anime_girl_extra"
-CREATE TABLE anime_girl_extra (
-    anime_girl_id INT PRIMARY KEY,
-    hobby VARCHAR(100),
-    FOREIGN KEY (anime_girl_id) REFERENCES anime_girl(id)
-);
+## 4.12. Relacion 1 a 1
+- Asumiremos que usuarios tiene una relacion de 1:1 con la tabla tecnologias, un usuario posee 1 tecnología
+```sql
+--relacion 1:1
+SELECT u.id_usuario, u.nombre as nombre_usuario,u.telefono,u.email,u.descripcion,u.ocupacion,u.fecha_nac,u.foto as foto_usuario,u.fecha_reg,t.id_tecnologia,t.nombre as nombre_tecnologia,t.foto as foto_tecnologia 
+FROM core.usuarios u, portafolio.tecnologias t
+WHERE u.id_usuario=t.id_usuario AND u.id_usuario =1;
+```
+|id_usuario|nombre_usuario|telefono|email|descripcion|ocupacion|fecha_nac|foto_usuario|fecha_reg|id_tecnologia|nombre_tecnologia|foto_tecnologia|
+|----------|--------------|--------|-----|-----------|---------|---------|------------|---------|-------------|-----------------|---------------|
+|1|Sakura Haruno|123456789|sakura@example.com|Ninja médica de Konoha|Ninja|1995-03-28|sakura.jpg|2024-01-21 19:27:58.957|1|Jutsu Médico|tecnologia_jutsu_medico.jpg|
 
--- Relación 1 a N: Agregar datos en la tabla relacionada
-INSERT INTO anime_girl_extra (anime_girl_id, hobby)
-VALUES 
-    (1, 'Magic cards'),
-    (1, 'Singing');
+## 4.13. Relacion 1 a N
+- Usuarios tiene una relación de 1:N con la tabla redes_sociales, un usuario puede tener muchas redes sociales
+```sql
+--relacion 1:N
+SELECT u.id_usuario ,u.nombre as nombre_usuario,rs.nombre as nombre_red_social, rs.foto as foto_red_social 
+FROM core.usuarios u ,core.redes_sociales rs 
+WHERE u.id_usuario=rs.id_usuario AND u.id_usuario =1 ;
+```
 
--- Relación N a N: Crear tabla de relación
-CREATE TABLE anime_girl_ship (
-    anime_girl1_id INT,
-    anime_girl2_id INT,
-    relationship_type VARCHAR(50),
-    PRIMARY KEY (anime_girl1_id, anime_girl2_id),
-    FOREIGN KEY (anime_girl1_id) REFERENCES anime_girl(id),
-    FOREIGN KEY (anime_girl2_id) REFERENCES anime_girl(id)
-);
+|id_usuario|nombre_usuario|nombre_red_social|foto_red_social|
+|----------|--------------|-----------------|---------------|
+|1|Sakura Haruno|Twitter|twitter_icon.jpg|
+|1|Sakura Haruno|Webex|webex_icon.jpg|
 
--- Agregar relación N a N
-INSERT INTO anime_girl_ship (anime_girl1_id, anime_girl2_id, relationship_type)
-VALUES 
-    (1, 2, 'Best Friends'),
-    (2, 1, 'Best Friends');
+## 4.14. Relacion N a N
+- Usuarios tiene una relación de N:N con la tabla habilidades, muchos usuarios pueden tener muchas habilidades
+```sql
+--relacion N:N
+SELECT u.id_usuario,u.nombre as nombre_usuario,h.id_habilidad ,h.nombre as habilidad
+FROM core.usuarios u,portafolio.habilidades h ,core.usuarios_habilidades uh
+WHERE u.id_usuario=uh.id_usuario AND h.id_habilidad=uh.id_habilidad  AND (u.id_usuario =1 OR u.id_usuario=2) ;
+```
+|id_usuario|nombre_usuario|id_habilidad|habilidad|
+|----------|--------------|------------|---------|
+|1|Sakura Haruno|1|Jutsu Médico|
+|1|Sakura Haruno|2|Piloto de Evangelion|
+|2|Asuka Langley Soryu|1|Jutsu Médico|
+|2|Asuka Langley Soryu|2|Piloto de Evangelion|
 
--- Inner Join
-SELECT * FROM anime_girl
-INNER JOIN anime_girl_extra ON anime_girl.id = anime_girl_extra.anime_girl_id;
+## 4.15. INNER JOIN
+```sql
+--INNER JOIN:
+--Recupera las habilidades de los usuarios que tienen habilidades registradas.
+SELECT u.id_usuario, u.nombre as nombre_usuario, h.nombre AS habilidad_nombre
+FROM core.usuarios u
+INNER JOIN core.usuarios_habilidades uh ON u.id_usuario = uh.id_usuario
+INNER JOIN portafolio.habilidades h ON uh.id_habilidad = h.id_habilidad
+order by u.id_usuario ;
+``` 
+|id_usuario|nombre_usuario|habilidad_nombre|
+|----------|--------------|----------------|
+|1|Sakura Haruno|Jutsu Médico|
+|1|Sakura Haruno|Piloto de Evangelion|
+|2|Asuka Langley Soryu|Jutsu Médico|
+|2|Asuka Langley Soryu|Piloto de Evangelion|
+|3|Inuyasha|Control de Energía Youkai|
+|4|Bulma Brief|Inventora Genial|
+|5|Nami|Navegación en Grand Line|
+|6|Mikasa Ackerman|Lanzamiento de Cuchillos|
+|7|Erza Scarlet|Transformación Youkai|
+|8|Zero Two|Tecnología Avanzada|
+|9|Hinata Hyuga|Magia Celestial|
+|10|Kagome Higurashi|Artes Marciales Ninja|
+|11|Lucy Heartfilia|Control del Tiempo|
+|12|Riza Hawkeye|Alquimia|
+|13|Rei Ayanami|Poderes Psíquicos|
+|14|Winry Rockbell|Transformación de Evangelion|
+|15|Yoruichi Shihouin|Ninja de Combate|
+|16|Rukia Kuchiki|Canto Mágico|
+|17|Tsunade Senju|Técnica de Sello|
+|18|Android 18|Control de Elementos|
+|19|Yuno Gasai|Arte de la Espada|
+|20|Homura Akemi|Teletransportación|
 
--- Left Join
-SELECT * FROM anime_girl
-LEFT JOIN anime_girl_extra ON anime_girl.id = anime_girl_extra.anime_girl_id;
+## 4.16. LEFT JOIN
+```
+--LEFT JOIN
+--Obtener todos los usuarios y sus proyectos (si tienen alguno)
+SELECT u.*, p.nombre AS proyecto_nombre
+FROM core.usuarios u
+LEFT JOIN core.proyectos p ON u.id_usuario = p.id_usuario;
+```
+|id_usuario|nombre|telefono|email|descripcion|ocupacion|fecha_nac|foto|fecha_reg|proyecto_nombre|
+|----------|------|--------|-----|-----------|---------|---------|----|---------|---------------|
+|1|Sakura Haruno|123456789|sakura@example.com|Ninja médica de Konoha|Ninja|1995-03-28|sakura.jpg|2024-01-21 19:27:58.957|Proyecto de Sakura|
+|2|Asuka Langley Soryu|987654321|asuka@example.com|Piloto del Evangelion Unidad-02|Piloto de Eva|2001-12-04|asuka.jpg|2024-01-21 19:27:58.957|Proyecto de Asuka|
+|3|Inuyasha|555555555|inuyasha@example.com|Mitad humano, mitad demonio|Hanyo|1988-07-29|inuyasha.jpg|2024-01-21 19:27:58.957|Proyecto de Inuyasha|
+|4|Bulma Brief|111111111|bulma@example.com|Científica e inventora|Inventora|1980-08-18|bulma.jpg|2024-01-21 19:27:58.957|Proyecto de Bulma|
+|5|Nami|222222222|nami@example.com|Navegante de los Piratas del Sombrero de Paja|Navegante|1990-07-03|nami.jpg|2024-01-21 19:27:58.957|Proyecto de Nami|
+|6|Mikasa Ackerman|333333333|mikasa@example.com|Soldado de la Legión de reconocimiento|Soldado|1995-02-10|mikasa.jpg|2024-01-21 19:27:58.957|Proyecto de Mikasa|
+|7|Erza Scarlet|444444444|erza@example.com|Titania, la Reina de las Hadas|Maga|1992-04-30|erza.jpg|2024-01-21 19:27:58.957|Proyecto de Erza|
+|8|Zero Two|666666666|zero@example.com|Piloto de FranXX|Piloto|2002-01-21|zero_two.jpg|2024-01-21 19:27:58.957|Proyecto de Zero Two|
+|9|Hinata Hyuga|777777777|hinata@example.com|Ninja de la Aldea Oculta de la Hoja|Ninja|1995-12-27|hinata.jpg|2024-01-21 19:27:58.957|Proyecto de Hinata|
+|10|Kagome Higurashi|888888888|kagome@example.com|Viajera en el tiempo|Estudiante|1987-11-30|kagome.jpg|2024-01-21 19:27:58.957|Proyecto de Kagome|
+|11|Lucy Heartfilia|999999999|lucy@example.com|Maga celestial de Fairy Tail|Maga|1998-07-01|lucy.jpg|2024-01-21 19:27:58.957|Proyecto de Lucy|
+|12|Riza Hawkeye|123123123|riza@example.com|Teniente y tiradora experta|Militar|1989-01-10|riza.jpg|2024-01-21 19:27:58.957|Proyecto de Riza|
+|13|Rei Ayanami|456456456|rei@example.com|Piloto del Evangelion Unidad-00|Piloto de Eva|2001-03-30|rei.jpg|2024-01-21 19:27:58.957|Proyecto de Rei|
+|14|Winry Rockbell|789789789|winry@example.com|Mecánica y ingeniera|Ingeniera|1990-05-03|winry.jpg|2024-01-21 19:27:58.957|Proyecto de Winry|
+|15|Yoruichi Shihouin|135135135|yoruichi@example.com|Ex-capitana del Gotei 13|Ex-capitana|1971-01-01|yoruichi.jpg|2024-01-21 19:27:58.957|Proyecto de Yoruichi|
+|16|Rukia Kuchiki|246246246|rukia@example.com|Shinigami y ex-teniente|Shinigami|1986-01-14|rukia.jpg|2024-01-21 19:27:58.957|Proyecto de Rukia|
+|17|Tsunade Senju|357357357|tsunade@example.com|Quinta Hokage de Konoha|Hokage|1960-08-02|tsunade.jpg|2024-01-21 19:27:58.957|Proyecto de Tsunade|
+|18|Android 18|468468468|android18@example.com|Androide y luchadora|Androide|2010-02-18|android18.jpg|2024-01-21 19:27:58.957|Proyecto de Android 18|
+|19|Yuno Gasai|579579579|yuno@example.com|Portadora del Diario de Yuki|Estudiante|1993-02-14|yuno.jpg|2024-01-21 19:27:58.957|Proyecto de Yuno|
+|20|Homura Akemi|681681681|homura@example.com|Magical Girl y viajera en el tiempo|Magical Girl|1995-12-03|homura.jpg|2024-01-21 19:27:58.957|Proyecto de Homura|
 
--- Right Join
-SELECT * FROM anime_girl
-RIGHT JOIN anime_girl_extra ON anime_girl.id = anime_girl_extra.anime_girl_id;
+## 4.17. Right Join
+```sql
+--RIGHT JOIN
+-- Obtener todos los proyectos y sus usuarios (incluso si no tienen un usuario asociado)
+SELECT p.*, u.nombre AS usuario_nombre
+FROM core.proyectos p
+RIGHT JOIN core.usuarios u ON p.id_usuario = u.id_usuario;
+```
+|id_proyecto|nombre|foto|descripcion|link|id_usuario|usuario_nombre|
+|-----------|------|----|-----------|----|----------|--------------|
+|1|Proyecto de Sakura|proyecto_sakura.jpg|Desarrollo de técnicas médicas ninja|https://github.com/sakura/proyecto|1|Sakura Haruno|
+|2|Proyecto de Asuka|proyecto_asuka.jpg|Defensa contra los Ángeles|https://github.com/asuka/proyecto|2|Asuka Langley Soryu|
+|3|Proyecto de Inuyasha|proyecto_inuyasha.jpg|Aventuras en la era feudal|https://github.com/inuyasha/proyecto|3|Inuyasha|
+|4|Proyecto de Bulma|proyecto_bulma.jpg|Inventos revolucionarios|...|4|Bulma Brief|
+|5|Proyecto de Nami|proyecto_nami.jpg|Navegación en Grand Line|https://github.com/nami/proyecto|5|Nami|
+|6|Proyecto de Mikasa|proyecto_mikasa.jpg|Desarrollo de estrategias de combate|...|6|Mikasa Ackerman|
+|7|Proyecto de Erza|proyecto_erza.jpg|Aventuras mágicas|...|7|Erza Scarlet|
+|8|Proyecto de Zero Two|proyecto_zero_two.jpg|Investigación sobre FranXX|...|8|Zero Two|
+|9|Proyecto de Hinata|proyecto_hinata.jpg|Desarrollo de técnicas de ninjutsu|...|9|Hinata Hyuga|
+|10|Proyecto de Kagome|proyecto_kagome.jpg|Estudio de viajes en el tiempo|...|10|Kagome Higurashi|
+|11|Proyecto de Lucy|proyecto_lucy.jpg|Investigación sobre magia celestial|...|11|Lucy Heartfilia|
+|12|Proyecto de Riza|proyecto_riza.jpg|Mejora de habilidades de tirador|...|12|Riza Hawkeye|
+|13|Proyecto de Rei|proyecto_rei.jpg|Desarrollo del Evangelion Unidad-00|...|13|Rei Ayanami|
+|14|Proyecto de Winry|proyecto_winry.jpg|Innovaciones en ingeniería mecánica|...|14|Winry Rockbell|
+|15|Proyecto de Yoruichi|proyecto_yoruichi.jpg|Investigación sobre habilidades shinigami|...|15|Yoruichi Shihouin|
+|16|Proyecto de Rukia|proyecto_rukia.jpg|Estudio de técnicas de shinigami|...|16|Rukia Kuchiki|
+|17|Proyecto de Tsunade|proyecto_tsunade.jpg|Mejora de técnicas médicas|...|17|Tsunade Senju|
+|18|Proyecto de Android 18|proyecto_android18.jpg|Desarrollo de habilidades de combate|...|18|Android 18|
+|19|Proyecto de Yuno|proyecto_yuno.jpg|Estudio del Diario de Yuki|...|19|Yuno Gasai|
+|20|Proyecto de Homura|proyecto_homura.jpg|Investigación sobre viajes en el tiempo|...|20|Homura Akemi|
+## 4.18. View
+```sql
+--View
+-- Crear una vista que muestre la información del usuario y sus habilidades
+CREATE VIEW vw_usuario_habilidades AS
+SELECT u.*, h.nombre AS habilidad_nombre
+FROM core.usuarios u
+INNER JOIN core.usuarios_habilidades uh ON u.id_usuario = uh.id_usuario
+INNER JOIN portafolio.habilidades h ON uh.id_habilidad = h.id_habilidad;
+```
+- Para mostrar los datos del view
+```sql
+-- Seleccionar todos los datos de la vista vw_usuario_habilidades
+SELECT * FROM vw_usuario_habilidades;
+```
 
--- View
-CREATE VIEW anime_girl_view AS
-SELECT id, nombre, fecha_nacimiento FROM anime_girl;
+|id_usuario|nombre|telefono|email|descripcion|ocupacion|fecha_nac|foto|fecha_reg|habilidad_nombre|
+|----------|------|--------|-----|-----------|---------|---------|----|---------|----------------|
+|2|Asuka Langley Soryu|987654321|asuka@example.com|Piloto del Evangelion Unidad-02|Piloto de Eva|2001-12-04|asuka.jpg|2024-01-21 19:27:58.957|Jutsu Médico|
+|1|Sakura Haruno|123456789|sakura@example.com|Ninja médica de Konoha|Ninja|1995-03-28|sakura.jpg|2024-01-21 19:27:58.957|Jutsu Médico|
+|2|Asuka Langley Soryu|987654321|asuka@example.com|Piloto del Evangelion Unidad-02|Piloto de Eva|2001-12-04|asuka.jpg|2024-01-21 19:27:58.957|Piloto de Evangelion|
+|1|Sakura Haruno|123456789|sakura@example.com|Ninja médica de Konoha|Ninja|1995-03-28|sakura.jpg|2024-01-21 19:27:58.957|Piloto de Evangelion|
+|3|Inuyasha|555555555|inuyasha@example.com|Mitad humano, mitad demonio|Hanyo|1988-07-29|inuyasha.jpg|2024-01-21 19:27:58.957|Control de Energía Youkai|
+|4|Bulma Brief|111111111|bulma@example.com|Científica e inventora|Inventora|1980-08-18|bulma.jpg|2024-01-21 19:27:58.957|Inventora Genial|
+|5|Nami|222222222|nami@example.com|Navegante de los Piratas del Sombrero de Paja|Navegante|1990-07-03|nami.jpg|2024-01-21 19:27:58.957|Navegación en Grand Line|
+|6|Mikasa Ackerman|333333333|mikasa@example.com|Soldado de la Legión de reconocimiento|Soldado|1995-02-10|mikasa.jpg|2024-01-21 19:27:58.957|Lanzamiento de Cuchillos|
+|7|Erza Scarlet|444444444|erza@example.com|Titania, la Reina de las Hadas|Maga|1992-04-30|erza.jpg|2024-01-21 19:27:58.957|Transformación Youkai|
+|8|Zero Two|666666666|zero@example.com|Piloto de FranXX|Piloto|2002-01-21|zero_two.jpg|2024-01-21 19:27:58.957|Tecnología Avanzada|
+|9|Hinata Hyuga|777777777|hinata@example.com|Ninja de la Aldea Oculta de la Hoja|Ninja|1995-12-27|hinata.jpg|2024-01-21 19:27:58.957|Magia Celestial|
+|10|Kagome Higurashi|888888888|kagome@example.com|Viajera en el tiempo|Estudiante|1987-11-30|kagome.jpg|2024-01-21 19:27:58.957|Artes Marciales Ninja|
+|11|Lucy Heartfilia|999999999|lucy@example.com|Maga celestial de Fairy Tail|Maga|1998-07-01|lucy.jpg|2024-01-21 19:27:58.957|Control del Tiempo|
+|12|Riza Hawkeye|123123123|riza@example.com|Teniente y tiradora experta|Militar|1989-01-10|riza.jpg|2024-01-21 19:27:58.957|Alquimia|
+|13|Rei Ayanami|456456456|rei@example.com|Piloto del Evangelion Unidad-00|Piloto de Eva|2001-03-30|rei.jpg|2024-01-21 19:27:58.957|Poderes Psíquicos|
+|14|Winry Rockbell|789789789|winry@example.com|Mecánica y ingeniera|Ingeniera|1990-05-03|winry.jpg|2024-01-21 19:27:58.957|Transformación de Evangelion|
+|15|Yoruichi Shihouin|135135135|yoruichi@example.com|Ex-capitana del Gotei 13|Ex-capitana|1971-01-01|yoruichi.jpg|2024-01-21 19:27:58.957|Ninja de Combate|
+|16|Rukia Kuchiki|246246246|rukia@example.com|Shinigami y ex-teniente|Shinigami|1986-01-14|rukia.jpg|2024-01-21 19:27:58.957|Canto Mágico|
+|17|Tsunade Senju|357357357|tsunade@example.com|Quinta Hokage de Konoha|Hokage|1960-08-02|tsunade.jpg|2024-01-21 19:27:58.957|Técnica de Sello|
+|18|Android 18|468468468|android18@example.com|Androide y luchadora|Androide|2010-02-18|android18.jpg|2024-01-21 19:27:58.957|Control de Elementos|
+|19|Yuno Gasai|579579579|yuno@example.com|Portadora del Diario de Yuki|Estudiante|1993-02-14|yuno.jpg|2024-01-21 19:27:58.957|Arte de la Espada|
+|20|Homura Akemi|681681681|homura@example.com|Magical Girl y viajera en el tiempo|Magical Girl|1995-12-03|homura.jpg|2024-01-21 19:27:58.957|Teletransportación|
 
--- Function
-CREATE OR REPLACE FUNCTION calcular_edad(fecha_nacimiento DATE) RETURNS INTEGER AS $$
-DECLARE
-    edad INTEGER;
-BEGIN
-    SELECT EXTRACT(YEAR FROM age(current_date, fecha_nacimiento)) INTO edad;
-    RETURN edad;
-END;
-$$ LANGUAGE plpgsql;
-
--- Llamada a la función
-SELECT nombre, fecha_nacimiento, calcular_edad(fecha_nacimiento) AS edad FROM anime_girl;
-
--- Trigger
-CREATE OR REPLACE FUNCTION actualizar_fecha_modificacion()
+## 4.19. Temporal 
+```sql
+--temporal
+-- Crear una tabla temporal para almacenar usuarios con proyectos
+CREATE TEMPORARY TABLE temp_usuarios_proyectos AS
+SELECT u.*, p.nombre AS proyecto_nombre
+FROM core.usuarios u
+LEFT JOIN core.proyectos p ON u.id_usuario = p.id_usuario;
+```
+- Para mostrar los datos de la tabla temporal
+```sql
+-- Seleccionar todos los datos de la tabla temporal temp_usuarios_proyectos
+SELECT * FROM temp_usuarios_proyectos;
+```
+|id_usuario|nombre|telefono|email|descripcion|ocupacion|fecha_nac|foto|fecha_reg|proyecto_nombre|
+|----------|------|--------|-----|-----------|---------|---------|----|---------|---------------|
+|1|Sakura Haruno|123456789|sakura@example.com|Ninja médica de Konoha|Ninja|1995-03-28|sakura.jpg|2024-01-21 19:27:58.957|Proyecto de Sakura|
+|2|Asuka Langley Soryu|987654321|asuka@example.com|Piloto del Evangelion Unidad-02|Piloto de Eva|2001-12-04|asuka.jpg|2024-01-21 19:27:58.957|Proyecto de Asuka|
+|3|Inuyasha|555555555|inuyasha@example.com|Mitad humano, mitad demonio|Hanyo|1988-07-29|inuyasha.jpg|2024-01-21 19:27:58.957|Proyecto de Inuyasha|
+|4|Bulma Brief|111111111|bulma@example.com|Científica e inventora|Inventora|1980-08-18|bulma.jpg|2024-01-21 19:27:58.957|Proyecto de Bulma|
+|5|Nami|222222222|nami@example.com|Navegante de los Piratas del Sombrero de Paja|Navegante|1990-07-03|nami.jpg|2024-01-21 19:27:58.957|Proyecto de Nami|
+|6|Mikasa Ackerman|333333333|mikasa@example.com|Soldado de la Legión de reconocimiento|Soldado|1995-02-10|mikasa.jpg|2024-01-21 19:27:58.957|Proyecto de Mikasa|
+|7|Erza Scarlet|444444444|erza@example.com|Titania, la Reina de las Hadas|Maga|1992-04-30|erza.jpg|2024-01-21 19:27:58.957|Proyecto de Erza|
+|8|Zero Two|666666666|zero@example.com|Piloto de FranXX|Piloto|2002-01-21|zero_two.jpg|2024-01-21 19:27:58.957|Proyecto de Zero Two|
+|9|Hinata Hyuga|777777777|hinata@example.com|Ninja de la Aldea Oculta de la Hoja|Ninja|1995-12-27|hinata.jpg|2024-01-21 19:27:58.957|Proyecto de Hinata|
+|10|Kagome Higurashi|888888888|kagome@example.com|Viajera en el tiempo|Estudiante|1987-11-30|kagome.jpg|2024-01-21 19:27:58.957|Proyecto de Kagome|
+|11|Lucy Heartfilia|999999999|lucy@example.com|Maga celestial de Fairy Tail|Maga|1998-07-01|lucy.jpg|2024-01-21 19:27:58.957|Proyecto de Lucy|
+|12|Riza Hawkeye|123123123|riza@example.com|Teniente y tiradora experta|Militar|1989-01-10|riza.jpg|2024-01-21 19:27:58.957|Proyecto de Riza|
+|13|Rei Ayanami|456456456|rei@example.com|Piloto del Evangelion Unidad-00|Piloto de Eva|2001-03-30|rei.jpg|2024-01-21 19:27:58.957|Proyecto de Rei|
+|14|Winry Rockbell|789789789|winry@example.com|Mecánica y ingeniera|Ingeniera|1990-05-03|winry.jpg|2024-01-21 19:27:58.957|Proyecto de Winry|
+|15|Yoruichi Shihouin|135135135|yoruichi@example.com|Ex-capitana del Gotei 13|Ex-capitana|1971-01-01|yoruichi.jpg|2024-01-21 19:27:58.957|Proyecto de Yoruichi|
+|16|Rukia Kuchiki|246246246|rukia@example.com|Shinigami y ex-teniente|Shinigami|1986-01-14|rukia.jpg|2024-01-21 19:27:58.957|Proyecto de Rukia|
+|17|Tsunade Senju|357357357|tsunade@example.com|Quinta Hokage de Konoha|Hokage|1960-08-02|tsunade.jpg|2024-01-21 19:27:58.957|Proyecto de Tsunade|
+|18|Android 18|468468468|android18@example.com|Androide y luchadora|Androide|2010-02-18|android18.jpg|2024-01-21 19:27:58.957|Proyecto de Android 18|
+|19|Yuno Gasai|579579579|yuno@example.com|Portadora del Diario de Yuki|Estudiante|1993-02-14|yuno.jpg|2024-01-21 19:27:58.957|Proyecto de Yuno|
+|20|Homura Akemi|681681681|homura@example.com|Magical Girl y viajera en el tiempo|Magical Girl|1995-12-03|homura.jpg|2024-01-21 19:27:58.957|Proyecto de Homura|
+## 4.20. Funcion
+```sql
+--Funcion
+-- Crear una función que calcule la edad a partir de la fecha de nacimiento
+CREATE OR REPLACE FUNCTION calcular_edad(fecha_nac DATE) RETURNS INTEGER AS $$
+    SELECT EXTRACT(YEAR FROM age(CURRENT_DATE, fecha_nac));
+$$ LANGUAGE SQL;
+```
+- Usar la funcion
+```sql
+--Funcion
+-- Llamada a la función para obtener la edad de un usuario
+SELECT u.nombre as nombre_usuario, calcular_edad(fecha_nac) AS edad FROM core.usuarios u;
+```
+|nombre_usuario|edad|
+|--------------|----|
+|Sakura Haruno|28|
+|Asuka Langley Soryu|22|
+|Inuyasha|35|
+|Bulma Brief|43|
+|Nami|33|
+|Mikasa Ackerman|28|
+|Erza Scarlet|31|
+|Zero Two|22|
+|Hinata Hyuga|28|
+|Kagome Higurashi|36|
+|Lucy Heartfilia|25|
+|Riza Hawkeye|35|
+|Rei Ayanami|22|
+|Winry Rockbell|33|
+|Yoruichi Shihouin|53|
+|Rukia Kuchiki|38|
+|Tsunade Senju|63|
+|Android 18|13|
+|Yuno Gasai|30|
+|Homura Akemi|28|
+## 4.21. TRIGGER
+```sql
+--TRIGGER
+-- Crear un trigger que actualice la fecha de registro cada vez que se inserta un nuevo usuario
+CREATE OR REPLACE FUNCTION actualizar_fecha_registro()
 RETURNS TRIGGER AS $$
 BEGIN
-    NEW.fecha_modificacion := current_timestamp;
+    NEW.fecha_reg := NOW();
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER anime_girl_before_update
-BEFORE UPDATE ON anime_girl
-FOR EACH ROW
-EXECUTE FUNCTION actualizar_fecha_modificacion();
-
--- Partition
-CREATE TABLE anime_girl_partitioned (
-    id SERIAL PRIMARY KEY,
-    nombre VARCHAR(100),
-    fecha_nacimiento DATE,
-    descripcion TEXT,
-    estatura DECIMAL(5, 2),
-    color_ojos VARCHAR(50),
-    color_cabello VARCHAR(50)
-) PARTITION BY RANGE (EXTRACT(YEAR FROM fecha_nacimiento));
-
--- Procedure
-CREATE OR REPLACE PROCEDURE obtener_anime_girl_por_edad(inicio INT, fin INT)
-LANGUAGE plpgsql AS $$
-DECLARE
-    resultado RECORD;
-BEGIN
-    FOR resultado IN
-        SELECT * FROM anime_girl WHERE EXTRACT(YEAR FROM fecha_nacimiento) BETWEEN inicio AND fin
-    LOOP
-        RAISE NOTICE 'Nombre: %, Fecha de Nacimiento: %', resultado.nombre, resultado.fecha_nacimiento;
-    END LOOP;
-END;
-$$;
-
--- Llamada a la procedimiento
-CALL obtener_anime_girl_por_edad(1990, 2000);
-
+CREATE TRIGGER trigger_actualizar_fecha_registro
+BEFORE INSERT ON core.usuarios
+FOR EACH ROW EXECUTE FUNCTION actualizar_fecha_registro();
 ```
-##
+- cuando insertes un nuevo usuario en la tabla core.usuarios, el trigger se activará automáticamente y actualizará la columna fecha_reg. Aquí hay un ejemplo de cómo podrías insertar un nuevo usuario:
 ```sql
--- Sum y Count
--- Sum de estaturas de todas las anime girls
-SELECT SUM(estatura) AS suma_estaturas FROM anime_girl;
-
--- Count de anime girls
-SELECT COUNT(*) AS cantidad_anime_girls FROM anime_girl;
-
--- Inner Join con Sum y Count
-SELECT anime_girl.id, anime_girl.nombre, anime_girl.fecha_nacimiento, 
-       SUM(anime_girl_extra.hobby) AS total_hobbies,
-       COUNT(anime_girl_extra.hobby) AS cantidad_hobbies
-FROM anime_girl
-INNER JOIN anime_girl_extra ON anime_girl.id = anime_girl_extra.anime_girl_id
-GROUP BY anime_girl.id, anime_girl.nombre, anime_girl.fecha_nacimiento;
-
--- Left Join con Sum y Count
-SELECT anime_girl.id, anime_girl.nombre, anime_girl.fecha_nacimiento, 
-       SUM(anime_girl_extra.hobby) AS total_hobbies,
-       COUNT(anime_girl_extra.hobby) AS cantidad_hobbies
-FROM anime_girl
-LEFT JOIN anime_girl_extra ON anime_girl.id = anime_girl_extra.anime_girl_id
-GROUP BY anime_girl.id, anime_girl.nombre, anime_girl.fecha_nacimiento;
-
--- Right Join con Sum y Count
-SELECT anime_girl.id, anime_girl.nombre, anime_girl.fecha_nacimiento, 
-       SUM(anime_girl_extra.hobby) AS total_hobbies,
-       COUNT(anime_girl_extra.hobby) AS cantidad_hobbies
-FROM anime_girl
-RIGHT JOIN anime_girl_extra ON anime_girl.id = anime_girl_extra.anime_girl_id
-GROUP BY anime_girl.id, anime_girl.nombre, anime_girl.fecha_nacimiento;
+-- Insertar un nuevo usuario (el trigger actualizará la fecha de registro)
+INSERT INTO core.usuarios (nombre, telefono, email, descripcion, ocupacion, fecha_nac, foto)
+VALUES ('Nuevo Usuario', 123456789, 'nuevo@usuario.com', 'Descripción', 'Ocupación', '2000-01-01', 'foto.jpg');
 
 ```
+|id_usuario|nombre|telefono|email|descripcion|ocupacion|fecha_nac|foto|fecha_reg|
+|----------|------|--------|-----|-----------|---------|---------|----|---------|
+|1|Sakura Haruno|123456789|sakura@example.com|Ninja médica de Konoha|Ninja|1995-03-28|sakura.jpg|2024-01-21 19:27:58.957|
+|2|Asuka Langley Soryu|987654321|asuka@example.com|Piloto del Evangelion Unidad-02|Piloto de Eva|2001-12-04|asuka.jpg|2024-01-21 19:27:58.957|
+|3|Inuyasha|555555555|inuyasha@example.com|Mitad humano, mitad demonio|Hanyo|1988-07-29|inuyasha.jpg|2024-01-21 19:27:58.957|
+|4|Bulma Brief|111111111|bulma@example.com|Científica e inventora|Inventora|1980-08-18|bulma.jpg|2024-01-21 19:27:58.957|
+|5|Nami|222222222|nami@example.com|Navegante de los Piratas del Sombrero de Paja|Navegante|1990-07-03|nami.jpg|2024-01-21 19:27:58.957|
+|6|Mikasa Ackerman|333333333|mikasa@example.com|Soldado de la Legión de reconocimiento|Soldado|1995-02-10|mikasa.jpg|2024-01-21 19:27:58.957|
+|7|Erza Scarlet|444444444|erza@example.com|Titania, la Reina de las Hadas|Maga|1992-04-30|erza.jpg|2024-01-21 19:27:58.957|
+|8|Zero Two|666666666|zero@example.com|Piloto de FranXX|Piloto|2002-01-21|zero_two.jpg|2024-01-21 19:27:58.957|
+|9|Hinata Hyuga|777777777|hinata@example.com|Ninja de la Aldea Oculta de la Hoja|Ninja|1995-12-27|hinata.jpg|2024-01-21 19:27:58.957|
+|10|Kagome Higurashi|888888888|kagome@example.com|Viajera en el tiempo|Estudiante|1987-11-30|kagome.jpg|2024-01-21 19:27:58.957|
+|11|Lucy Heartfilia|999999999|lucy@example.com|Maga celestial de Fairy Tail|Maga|1998-07-01|lucy.jpg|2024-01-21 19:27:58.957|
+|12|Riza Hawkeye|123123123|riza@example.com|Teniente y tiradora experta|Militar|1989-01-10|riza.jpg|2024-01-21 19:27:58.957|
+|13|Rei Ayanami|456456456|rei@example.com|Piloto del Evangelion Unidad-00|Piloto de Eva|2001-03-30|rei.jpg|2024-01-21 19:27:58.957|
+|14|Winry Rockbell|789789789|winry@example.com|Mecánica y ingeniera|Ingeniera|1990-05-03|winry.jpg|2024-01-21 19:27:58.957|
+|15|Yoruichi Shihouin|135135135|yoruichi@example.com|Ex-capitana del Gotei 13|Ex-capitana|1971-01-01|yoruichi.jpg|2024-01-21 19:27:58.957|
+|16|Rukia Kuchiki|246246246|rukia@example.com|Shinigami y ex-teniente|Shinigami|1986-01-14|rukia.jpg|2024-01-21 19:27:58.957|
+|17|Tsunade Senju|357357357|tsunade@example.com|Quinta Hokage de Konoha|Hokage|1960-08-02|tsunade.jpg|2024-01-21 19:27:58.957|
+|18|Android 18|468468468|android18@example.com|Androide y luchadora|Androide|2010-02-18|android18.jpg|2024-01-21 19:27:58.957|
+|19|Yuno Gasai|579579579|yuno@example.com|Portadora del Diario de Yuki|Estudiante|1993-02-14|yuno.jpg|2024-01-21 19:27:58.957|
+|20|Homura Akemi|681681681|homura@example.com|Magical Girl y viajera en el tiempo|Magical Girl|1995-12-03|homura.jpg|2024-01-21 19:27:58.957|
+|21|Nuevo Usuario|123456789|nuevo@usuario.com|Descripción|Ocupación|2000-01-01|foto.jpg|2024-01-22 20:44:33.476|
+- En este ejemplo, la columna fecha_reg se actualizará automáticamente con la fecha y hora actuales debido al trigger que hemos creado.
+## 4.22. PARTITION
+```sql
+--PARTITION
+-- Calcular la cantidad de proyectos por usuario utilizando PARTITION
+SELECT p.id_usuario, COUNT(*) OVER (PARTITION BY p.id_usuario) AS cantidad_proyectos
+FROM core.proyectos p;
+```
+|id_usuario|cantidad_proyectos|
+|----------|------------------|
+|1|1|
+|2|1|
+|3|1|
+|4|1|
+|5|1|
+|6|1|
+|7|1|
+|8|1|
+|9|1|
+|10|1|
+|11|1|
+|12|1|
+|13|1|
+|14|1|
+|15|1|
+|16|1|
+|17|1|
+|18|1|
+|19|1|
+|20|1|
+## 4.23. PROCEDURE
+```sql
+--PROCEDIMIENTO
+-- Crear un procedimiento almacenado que inserte un nuevo usuario
+CREATE OR REPLACE PROCEDURE insertar_usuario(
+    nombre VARCHAR(2000),
+    telefono INTEGER,
+    email VARCHAR(100),
+    descripcion TEXT,
+    ocupacion VARCHAR(2000),
+    fecha_nac DATE,
+    foto VARCHAR(5000)
+)
+AS $$
+BEGIN
+    INSERT INTO core.usuarios(nombre, telefono, email, descripcion, ocupacion, fecha_nac, foto)
+    VALUES (nombre, telefono, email, descripcion, ocupacion, fecha_nac, foto);
+END;
+$$ LANGUAGE plpgsql;
+```
+- Llamada al procedimiento
+```sql
+-- Llamada al procedimiento para insertar un nuevo usuario
+CALL insertar_usuario('Nuevo Usuario2', 987654321, 'nuevo2@usuario.com', 'Descripción', 'Ocupación', '2000-01-01', 'foto2.jpg');
+```
+|id_usuario|nombre|telefono|email|descripcion|ocupacion|fecha_nac|foto|fecha_reg|
+|----------|------|--------|-----|-----------|---------|---------|----|---------|
+|1|Sakura Haruno|123456789|sakura@example.com|Ninja médica de Konoha|Ninja|1995-03-28|sakura.jpg|2024-01-21 19:27:58.957|
+|2|Asuka Langley Soryu|987654321|asuka@example.com|Piloto del Evangelion Unidad-02|Piloto de Eva|2001-12-04|asuka.jpg|2024-01-21 19:27:58.957|
+|3|Inuyasha|555555555|inuyasha@example.com|Mitad humano, mitad demonio|Hanyo|1988-07-29|inuyasha.jpg|2024-01-21 19:27:58.957|
+|4|Bulma Brief|111111111|bulma@example.com|Científica e inventora|Inventora|1980-08-18|bulma.jpg|2024-01-21 19:27:58.957|
+|5|Nami|222222222|nami@example.com|Navegante de los Piratas del Sombrero de Paja|Navegante|1990-07-03|nami.jpg|2024-01-21 19:27:58.957|
+|6|Mikasa Ackerman|333333333|mikasa@example.com|Soldado de la Legión de reconocimiento|Soldado|1995-02-10|mikasa.jpg|2024-01-21 19:27:58.957|
+|7|Erza Scarlet|444444444|erza@example.com|Titania, la Reina de las Hadas|Maga|1992-04-30|erza.jpg|2024-01-21 19:27:58.957|
+|8|Zero Two|666666666|zero@example.com|Piloto de FranXX|Piloto|2002-01-21|zero_two.jpg|2024-01-21 19:27:58.957|
+|9|Hinata Hyuga|777777777|hinata@example.com|Ninja de la Aldea Oculta de la Hoja|Ninja|1995-12-27|hinata.jpg|2024-01-21 19:27:58.957|
+|10|Kagome Higurashi|888888888|kagome@example.com|Viajera en el tiempo|Estudiante|1987-11-30|kagome.jpg|2024-01-21 19:27:58.957|
+|11|Lucy Heartfilia|999999999|lucy@example.com|Maga celestial de Fairy Tail|Maga|1998-07-01|lucy.jpg|2024-01-21 19:27:58.957|
+|12|Riza Hawkeye|123123123|riza@example.com|Teniente y tiradora experta|Militar|1989-01-10|riza.jpg|2024-01-21 19:27:58.957|
+|13|Rei Ayanami|456456456|rei@example.com|Piloto del Evangelion Unidad-00|Piloto de Eva|2001-03-30|rei.jpg|2024-01-21 19:27:58.957|
+|14|Winry Rockbell|789789789|winry@example.com|Mecánica y ingeniera|Ingeniera|1990-05-03|winry.jpg|2024-01-21 19:27:58.957|
+|15|Yoruichi Shihouin|135135135|yoruichi@example.com|Ex-capitana del Gotei 13|Ex-capitana|1971-01-01|yoruichi.jpg|2024-01-21 19:27:58.957|
+|16|Rukia Kuchiki|246246246|rukia@example.com|Shinigami y ex-teniente|Shinigami|1986-01-14|rukia.jpg|2024-01-21 19:27:58.957|
+|17|Tsunade Senju|357357357|tsunade@example.com|Quinta Hokage de Konoha|Hokage|1960-08-02|tsunade.jpg|2024-01-21 19:27:58.957|
+|18|Android 18|468468468|android18@example.com|Androide y luchadora|Androide|2010-02-18|android18.jpg|2024-01-21 19:27:58.957|
+|19|Yuno Gasai|579579579|yuno@example.com|Portadora del Diario de Yuki|Estudiante|1993-02-14|yuno.jpg|2024-01-21 19:27:58.957|
+|20|Homura Akemi|681681681|homura@example.com|Magical Girl y viajera en el tiempo|Magical Girl|1995-12-03|homura.jpg|2024-01-21 19:27:58.957|
+|21|Nuevo Usuario|123456789|nuevo@usuario.com|Descripción|Ocupación|2000-01-01|foto.jpg|2024-01-22 20:44:33.476|
+|22|Nuevo Usuario2|987654321|nuevo2@usuario.com|Descripción|Ocupación|2000-01-01|foto2.jpg|2024-01-22 20:55:57.484|
+## 4.24. SUMA
+```qsl
+--SUMA
+-- Calcular la suma de los id_usuario agrupada por usuario que tiene mas de una red social
+SELECT rs.id_usuario, SUM(rs.id_usuario) AS suma_id_usuarios
+FROM core.redes_sociales rs
+where rs.id_usuario =1
+GROUP BY rs.id_usuario;
+```
+|id_usuario|suma_id_usuarios|
+|----------|----------------|
+|1|2|
+
+## 4.25. COUNT
+```sql
+--COUNT
+-- Contar la cantidad de usuarios agrupada por nombre
+SELECT nombre, COUNT(*) AS cantidad_usuarios
+FROM core.usuarios
+GROUP BY nombre;
+```
+|nombre|cantidad_usuarios|
+|------|-----------------|
+|Riza Hawkeye|1|
+|Lucy Heartfilia|1|
+|Nami|1|
+|Erza Scarlet|1|
+|Sakura Haruno|1|
+|Yuno Gasai|1|
+|Android 18|1|
+|Zero Two|1|
+|Kagome Higurashi|1|
+|Bulma Brief|1|
+|Inuyasha|1|
+|Hinata Hyuga|1|
+|Winry Rockbell|1|
+|Nuevo Usuario|1|
+|Tsunade Senju|1|
+|Yoruichi Shihouin|1|
+|Rei Ayanami|1|
+|Asuka Langley Soryu|1|
+|Rukia Kuchiki|1|
+|Mikasa Ackerman|1|
+|Nuevo Usuario2|1|
+|Homura Akemi|1|
+- otro ejm
+```sql
+-- Calcular la cantidad de habilidades por usuario
+SELECT u.id_usuario, COUNT(h.id_habilidad) AS cantidad_habilidades
+FROM core.usuarios u
+LEFT JOIN core.usuarios_habilidades uh ON u.id_usuario = uh.id_usuario
+LEFT JOIN portafolio.habilidades h ON uh.id_habilidad = h.id_habilidad
+GROUP BY u.id_usuario
+order by u.id_usuario ;
+```
+
+|id_usuario|cantidad_habilidades|
+|----------|--------------------|
+|1|2|
+|2|2|
+|3|1|
+|4|1|
+|5|1|
+|6|1|
+|7|1|
+|8|1|
+|9|1|
+|10|1|
+|11|1|
+|12|1|
+|13|1|
+|14|1|
+|15|1|
+|16|1|
+|17|1|
+|18|1|
+|19|1|
+|20|1|
+|21|0|
+|22|0|
