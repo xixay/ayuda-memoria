@@ -15,10 +15,9 @@
 ## 1.14. [Notas Arbol](/1inicio/14-todo-tree.md)
 ## 1.15. [Color Vscode](/1inicio/15-peacock.md)
 ## 1.16. [GitIgnore](/1inicio/16-gitignore.md)
-## 1.17. [Postgres](/1inicio/17-postgres.md)
+## 1.17. [DER y Base Datos](/1inicio/17-postgresql.md)
 ## 1.18. [Tema vscode](/1inicio/18-temas.md)
-## 1.19. [DER y Base Datos](/1inicio/19-postgresql.md)
-## 1.20. [Grabador de Video ](/1inicio/20-Kasan.md)
+## 1.19. [Grabador de Video ](/1inicio/19-Kasan.md)
 # 2. Backend
 ## 2.1. [Express (Backend)](/2backend/express/1-articulo.md)
 ### 2.1..1 [Rutas api rest](/2backend/express/1.1-articuloRutas.md)

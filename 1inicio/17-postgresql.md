@@ -52,45 +52,52 @@
   - [3.2. Interacción con comandos](#32-interacción-con-comandos)
   - [3.3. Jerarquia de base de datos](#33-jerarquia-de-base-de-datos)
   - [3.4. Instalar PostgreSql Ubuntu](#34-instalar-postgresql-ubuntu)
-  - [3.5. Utilizar roles y bases de datos de PostgreSQL](#35-utilizar-roles-y-bases-de-datos-de-postgresql)
-    - [3.5.1. Cambiar cuenta de postgres](#351-cambiar-cuenta-de-postgres)
-    - [3.5.2. Acceder a la linea de comandos sin cambiar de cuenta](#352-acceder-a-la-linea-de-comandos-sin-cambiar-de-cuenta)
-  - [3.6. Crear un nuevo rol](#36-crear-un-nuevo-rol)
-    - [3.6.1. Crear un nuevo usuario](#361-crear-un-nuevo-usuario)
-  - [3.7. Comandos más utilizados](#37-comandos-más-utilizados)
-  - [3.8. Ejemplo modelo de base de datos](#38-ejemplo-modelo-de-base-de-datos)
-  - [3.9. Crear Base datos](#39-crear-base-datos)
-  - [3.10. Abrir la linea de comandos de Postgres con el nuevo rol](#310-abrir-la-linea-de-comandos-de-postgres-con-el-nuevo-rol)
-    - [3.10.1. De forma directa](#3101-de-forma-directa)
-    - [3.10.2. Conectarse a una base de datos diferente](#3102-conectarse-a-una-base-de-datos-diferente)
-    - [3.10.3. Asignar privilegios a un usuario sobre una base de datos](#3103-asignar-privilegios-a-un-usuario-sobre-una-base-de-datos)
-    - [3.10.4. Cambiar la contraseña de un usuario](#3104-cambiar-la-contraseña-de-un-usuario)
-  - [3.11. Diagrama Entidad Relación BD](#311-diagrama-entidad-relación-bd)
-  - [3.12. Diagrama Entidad BD](#312-diagrama-entidad-bd)
-  - [3.13. Crear esquemas](#313-crear-esquemas)
-    - [3.13.1. Cambiar al esquema creado](#3131-cambiar-al-esquema-creado)
-  - [3.14. Crear tablas](#314-crear-tablas)
-  - [3.15. Mostrar información sobre una tabla específica](#315-mostrar-información-sobre-una-tabla-específica)
-  - [3.16. Agregar datos en una tabla](#316-agregar-datos-en-una-tabla)
-  - [3.17. Ver datos en una tabla](#317-ver-datos-en-una-tabla)
-  - [3.18. Eliminar datos en una tabla](#318-eliminar-datos-en-una-tabla)
-  - [3.19. Agregar columnas en una tabla](#319-agregar-columnas-en-una-tabla)
-  - [3.20. Eliminar columnas en una tabla](#320-eliminar-columnas-en-una-tabla)
-  - [3.21. Actualizar datos de una tabla](#321-actualizar-datos-de-una-tabla)
-  - [3.22. Relacion 1 a 1](#322-relacion-1-a-1)
-  - [3.23. Relacion 1 a N](#323-relacion-1-a-n)
-  - [3.24. Relacion N a N](#324-relacion-n-a-n)
-  - [3.25. INNER JOIN](#325-inner-join)
-  - [3.26. LEFT JOIN](#326-left-join)
-  - [3.27. Right Join](#327-right-join)
-  - [3.28. View](#328-view)
-  - [3.29. Temporal](#329-temporal)
-  - [3.30. Funcion](#330-funcion)
-  - [3.31. TRIGGER](#331-trigger)
-  - [3.32. PARTITION](#332-partition)
-  - [3.33. PROCEDURE](#333-procedure)
-  - [3.34. SUMA](#334-suma)
-  - [3.35. COUNT](#335-count)
+  - [3.5. Instalar PgAdmin](#35-instalar-pgadmin)
+    - [3.5.1. Instalar la clave pública para el repositorio (si no lo hizo anteriormente):](#351-instalar-la-clave-pública-para-el-repositorio-si-no-lo-hizo-anteriormente)
+    - [3.5.2. Crea el archivo de configuración del repositorio:](#352-crea-el-archivo-de-configuración-del-repositorio)
+    - [3.5.3. Instalar tanto para el modo de escritorio como para el web:](#353-instalar-tanto-para-el-modo-de-escritorio-como-para-el-web)
+    - [3.5.4. Instalar solo para modo de escritorio:](#354-instalar-solo-para-modo-de-escritorio)
+    - [3.5.5. Instalar solo para modo web:](#355-instalar-solo-para-modo-web)
+    - [3.5.6. Configure el servidor web, si instaló pgadmin4-web:](#356-configure-el-servidor-web-si-instaló-pgadmin4-web)
+  - [3.6. Utilizar roles y bases de datos de PostgreSQL](#36-utilizar-roles-y-bases-de-datos-de-postgresql)
+    - [3.6.1. Cambiar cuenta de postgres](#361-cambiar-cuenta-de-postgres)
+    - [3.6.2. Acceder a la linea de comandos sin cambiar de cuenta](#362-acceder-a-la-linea-de-comandos-sin-cambiar-de-cuenta)
+  - [3.7. Crear un nuevo rol](#37-crear-un-nuevo-rol)
+    - [3.7.1. Crear un nuevo usuario](#371-crear-un-nuevo-usuario)
+  - [3.8. Comandos más utilizados](#38-comandos-más-utilizados)
+  - [3.9. Ejemplo modelo de base de datos](#39-ejemplo-modelo-de-base-de-datos)
+  - [3.10. Crear Base datos](#310-crear-base-datos)
+  - [3.11. Abrir la linea de comandos de Postgres con el nuevo rol](#311-abrir-la-linea-de-comandos-de-postgres-con-el-nuevo-rol)
+    - [3.11.1. De forma directa](#3111-de-forma-directa)
+    - [3.11.2. Conectarse a una base de datos diferente](#3112-conectarse-a-una-base-de-datos-diferente)
+    - [3.11.3. Asignar privilegios a un usuario sobre una base de datos](#3113-asignar-privilegios-a-un-usuario-sobre-una-base-de-datos)
+    - [3.11.4. Cambiar la contraseña de un usuario](#3114-cambiar-la-contraseña-de-un-usuario)
+  - [3.12. Diagrama Entidad Relación BD](#312-diagrama-entidad-relación-bd)
+  - [3.13. Diagrama Entidad BD](#313-diagrama-entidad-bd)
+  - [3.14. Crear esquemas](#314-crear-esquemas)
+    - [3.14.1. Cambiar al esquema creado](#3141-cambiar-al-esquema-creado)
+  - [3.15. Crear tablas](#315-crear-tablas)
+  - [3.16. Mostrar información sobre una tabla específica](#316-mostrar-información-sobre-una-tabla-específica)
+  - [3.17. Agregar datos en una tabla](#317-agregar-datos-en-una-tabla)
+  - [3.18. Ver datos en una tabla](#318-ver-datos-en-una-tabla)
+  - [3.19. Eliminar datos en una tabla](#319-eliminar-datos-en-una-tabla)
+  - [3.20. Agregar columnas en una tabla](#320-agregar-columnas-en-una-tabla)
+  - [3.21. Eliminar columnas en una tabla](#321-eliminar-columnas-en-una-tabla)
+  - [3.22. Actualizar datos de una tabla](#322-actualizar-datos-de-una-tabla)
+  - [3.23. Relacion 1 a 1](#323-relacion-1-a-1)
+  - [3.24. Relacion 1 a N](#324-relacion-1-a-n)
+  - [3.25. Relacion N a N](#325-relacion-n-a-n)
+  - [3.26. INNER JOIN](#326-inner-join)
+  - [3.27. LEFT JOIN](#327-left-join)
+  - [3.28. Right Join](#328-right-join)
+  - [3.29. View](#329-view)
+  - [3.30. Temporal](#330-temporal)
+  - [3.31. Funcion](#331-funcion)
+  - [3.32. TRIGGER](#332-trigger)
+  - [3.33. PARTITION](#333-partition)
+  - [3.34. PROCEDURE](#334-procedure)
+  - [3.35. SUMA](#335-suma)
+  - [3.36. COUNT](#336-count)
 
 
 # 1. Diagrama entidad relacion (Diagrama lógico DER)
@@ -374,9 +381,34 @@ sudo apt update
 ```console
 sudo apt install postgresql postgresql-contrib
 ```
-## 3.5. Utilizar roles y bases de datos de PostgreSQL
-### 3.5.1. Cambiar cuenta de postgres
-- Cambie a la cuenta de postgres en su servidor
+## 3.5. Instalar PgAdmin
+### 3.5.1. Instalar la clave pública para el repositorio (si no lo hizo anteriormente):
+```console
+curl -fsS https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo gpg --dearmor -o /usr/share/keyrings/packages-pgadmin-org.gpg
+```
+### 3.5.2. Crea el archivo de configuración del repositorio:
+```console
+sudo sh -c 'echo "deb [signed-by=/usr/share/keyrings/packages-pgadmin-org.gpg] https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
+```
+### 3.5.3. Instalar tanto para el modo de escritorio como para el web:
+```console
+sudo apt install pgadmin4
+```
+### 3.5.4. Instalar solo para modo de escritorio:
+```console
+sudo apt install pgadmin4-desktop
+```
+### 3.5.5. Instalar solo para modo web: 
+```console
+sudo apt install pgadmin4-web 
+```
+### 3.5.6. Configure el servidor web, si instaló pgadmin4-web:
+```console
+sudo /usr/pgadmin4/bin/setup-web.sh
+```
+## 3.6. Utilizar roles y bases de datos de PostgreSQL
+### 3.6.1. Cambiar cuenta de postgres
+- Cambie a la cuenta de postgres en su servidor, para ello ingrese con su usuario:
 ```console
 sudo -i -u postgres
 ```
@@ -388,13 +420,13 @@ sudo -i -u postgres psql
 ```console
 \q
 ```
-### 3.5.2. Acceder a la linea de comandos sin cambiar de cuenta
+### 3.6.2. Acceder a la linea de comandos sin cambiar de cuenta
 - Con lo siguiente
 ```console
 sudo -u postgres psql
 ```
-## 3.6. Crear un nuevo rol
-### 3.6.1. Crear un nuevo usuario
+## 3.7. Crear un nuevo rol
+### 3.7.1. Crear un nuevo usuario
 - Normalmente
 ```console
 CREATE USER nombre_de_tu_usuario WITH PASSWORD 'tu_contraseña';
@@ -412,7 +444,7 @@ ALTER USER nombre_de_tu_usuario WITH SUPERUSER;
 ```console
 \q
 ```
-## 3.7. Comandos más utilizados
+## 3.8. Comandos más utilizados
 
 **`\?` listar todos los comandos** 
 
@@ -435,21 +467,21 @@ ALTER USER nombre_de_tu_usuario WITH SUPERUSER;
 - **`\i <nombre_archivo>`** Ejecutar los comandos desde un archivo
 - **`\e`** Permite abrir un editor de texto plano, escribir comandos y ejecutar en lote. **\e** abre el editor de texto, escribir allí todos los comandos, luego guardar los cambios y cerrar, al cerrar se ejecutarán todos los comandos guardados.
 - **`\ef`** Equivalente al comando anterior pero permite editar también funciones en PostgreSQL
-## 3.8. Ejemplo modelo de base de datos
+## 3.9. Ejemplo modelo de base de datos
 - Este modelo de base de datos representa información de usuarios y sus actividades. La entidad "Usuarios" contiene datos personales como nombre, teléfono, email, y detalles como ocupación y fecha de nacimiento. Además, se almacena la fecha de registro y una foto. Las entidades relacionadas incluyen "Experiencias" (con nombre y descripción), "Redes Sociales" (con nombre y foto), "Habilidades" (con icono, nombre y descripción), "Tecnologías" (con nombre y foto), y "Proyectos" (con nombre, foto, descripción y enlace). Estas entidades se conectan a la entidad "Usuarios" a través de claves foráneas, permitiendo organizar y acceder a información detallada sobre las experiencias, habilidades y proyectos asociados a cada usuario.
 
-## 3.9. Crear Base datos
+## 3.10. Crear Base datos
 - Iniciar sesion con la cuenta postgres y crear la base de datos
 ```console
 CREATE DATABASE nombre_de_tu_base_de_datos;
 ```
-## 3.10. Abrir la linea de comandos de Postgres con el nuevo rol
-### 3.10.1. De forma directa
+## 3.11. Abrir la linea de comandos de Postgres con el nuevo rol
+### 3.11.1. De forma directa
 - También podrá hacerlo de forma directa:
 ```console
 sudo -u nombre_de_tu_usuario psql
 ```
-### 3.10.2. Conectarse a una base de datos diferente
+### 3.11.2. Conectarse a una base de datos diferente
 - Si desea que su usuario se conecte a una base de datos diferente, puede lograrlo especificando la base de datos de esta manera:
 ```console
 psql -d otra_base_de_datos -U tu_nuevo_usuario
@@ -462,31 +494,31 @@ psql -d otra_base_de_datos -U tu_nuevo_usuario
 Output
 You are connected to database "otra_base_de_datos" as user "tu_nuevo_usuario" via socket in "/var/run/postgresql" at port "5432".
 ```
-### 3.10.3. Asignar privilegios a un usuario sobre una base de datos
+### 3.11.3. Asignar privilegios a un usuario sobre una base de datos
 ```console
 GRANT ALL PRIVILEGES ON DATABASE nombre_de_tu_base_de_datos TO nombre_de_usuario;
 ```
-### 3.10.4. Cambiar la contraseña de un usuario
+### 3.11.4. Cambiar la contraseña de un usuario
 ```console
 ALTER USER nombre_de_usuario WITH PASSWORD 'nueva_contraseña';
 ```
 
-## 3.11. Diagrama Entidad Relación BD
+## 3.12. Diagrama Entidad Relación BD
 **![eder](/5imagenes/entidad-relacion/ejmDER.jpg)**
-## 3.12. Diagrama Entidad BD
+## 3.13. Diagrama Entidad BD
 **![ede](/5imagenes/entidad-relacion/ejmDE.jpg)**
-## 3.13. Crear esquemas
+## 3.14. Crear esquemas
 - La sintaxis básica para la creación de esquemas es la siguiente
 ```sql  
 CREATE SCHEMA IF NOT EXISTS core;
 CREATE SCHEMA IF NOT EXISTS portafolio;
 ```
-### 3.13.1. Cambiar al esquema creado
+### 3.14.1. Cambiar al esquema creado
 - La sintaxis básica para cambiar al esquema creado es la siguiente
 ```sql  
 SET search_path TO core;
 ```
-## 3.14. Crear tablas
+## 3.15. Crear tablas
 - La sintaxis básica para la creación de tablas es la siguiente
 ```sql
 -- Creación de la tabla de usuarios
@@ -557,7 +589,7 @@ CREATE TABLE IF NOT EXISTS portafolio.experiencias (
 );
 
 ```
-## 3.15. Mostrar información sobre una tabla específica
+## 3.16. Mostrar información sobre una tabla específica
 - Linea de comandos de Postgres
 ```console
 \d core.usuarios;
@@ -584,7 +616,7 @@ Referenciada por:
 - TABLE "core.redes_sociales" CONSTRAINT "fk_usuario_red_social" FOREIGN KEY (id_usuario) REFERENCES core.usuarios(id_usuario)
 
 
-## 3.16. Agregar datos en una tabla
+## 3.17. Agregar datos en una tabla
 - Como ejemplo, añada datos en cada una de las tablas en la que desea agregar, nombrar las columnas y, luego, proporcionar datos para cada una de ellas:
 ```sql
 -- Inserción de datos en la tabla core.usuarios
@@ -629,7 +661,7 @@ INSERT INTO core.usuarios_habilidades (id_usuario, id_habilidad)
 VALUES (1, 1),(1, 2),(2, 1),(2, 2);
 
 ```
-## 3.17. Ver datos en una tabla
+## 3.18. Ver datos en una tabla
 - Ver la tabla usuarios
 ```sql
 SELECT * FROM core.usuarios;
@@ -639,7 +671,7 @@ SELECT * FROM core.usuarios;
 |1|Sakura Haruno|123456789|sakura@example.com|Ninja médica de Konoha|Ninja|1995-03-28|sakura.jpg|2024-01-21 00:22:27.218|
 |2|Asuka Langley Soryu|987654321|asuka@example.com|Piloto del Evangelion Unidad-02|Piloto de Eva|2001-12-04|asuka.jpg|2024-01-21 00:22:27.218|
 
-## 3.18. Eliminar datos en una tabla
+## 3.19. Eliminar datos en una tabla
 - Eliminar los datos de una fila que contiene tabla
 ```sql
 -- Eliminar el jutsu medico de Sakura de la tabla tecnologias
@@ -655,7 +687,7 @@ SELECT * FROM portafolio.tecnologias;
 |2|Piloto de Evangelion|tecnologia_piloto_evangelion.jpg|2|
 
 
-## 3.19. Agregar columnas en una tabla
+## 3.20. Agregar columnas en una tabla
 - Agregue una columna para mostrar la herramienta que usa por cada chica escribiendo lo siguiente
 ```sql
 ALTER TABLE portafolio.tecnologias ADD COLUMN herramienta VARCHAR(50);
@@ -669,13 +701,13 @@ SELECT * FROM portafolio.tecnologias;
 |-------------|------|----|----------|-----------|
 |2|Piloto de Evangelion|tecnologia_piloto_evangelion.jpg|2||
 
-## 3.20. Eliminar columnas en una tabla
+## 3.21. Eliminar columnas en una tabla
 - Eliminar la columna
 ```sql
 --eliminar herramienta
 ALTER TABLE portafolio.tecnologias DROP herramienta;
 ```
-## 3.21. Actualizar datos de una tabla
+## 3.22. Actualizar datos de una tabla
 - Puede actualizar los valores de una entrada existente buscando el registro que desee y fijando el valor que prefiera utilizar para la columna:
 ```sql
 --actualizar foto
@@ -691,7 +723,7 @@ SELECT * FROM portafolio.tecnologias;
 |2|Piloto de Evangelion|tecnologia_eva01.jpg|2|
 
 
-## 3.22. Relacion 1 a 1
+## 3.23. Relacion 1 a 1
 - Asumiremos que usuarios tiene una relacion de 1:1 con la tabla tecnologias, un usuario posee 1 tecnología
 ```sql
 --relacion 1:1
@@ -703,7 +735,7 @@ WHERE u.id_usuario=t.id_usuario AND u.id_usuario =1;
 |----------|--------------|--------|-----|-----------|---------|---------|------------|---------|-------------|-----------------|---------------|
 |1|Sakura Haruno|123456789|sakura@example.com|Ninja médica de Konoha|Ninja|1995-03-28|sakura.jpg|2024-01-21 19:27:58.957|1|Jutsu Médico|tecnologia_jutsu_medico.jpg|
 
-## 3.23. Relacion 1 a N
+## 3.24. Relacion 1 a N
 - Usuarios tiene una relación de 1:N con la tabla redes_sociales, un usuario puede tener muchas redes sociales
 ```sql
 --relacion 1:N
@@ -717,7 +749,7 @@ WHERE u.id_usuario=rs.id_usuario AND u.id_usuario =1 ;
 |1|Sakura Haruno|Twitter|twitter_icon.jpg|
 |1|Sakura Haruno|Webex|webex_icon.jpg|
 
-## 3.24. Relacion N a N
+## 3.25. Relacion N a N
 - Usuarios tiene una relación de N:N con la tabla habilidades, muchos usuarios pueden tener muchas habilidades
 ```sql
 --relacion N:N
@@ -732,7 +764,7 @@ WHERE u.id_usuario=uh.id_usuario AND h.id_habilidad=uh.id_habilidad  AND (u.id_u
 |2|Asuka Langley Soryu|1|Jutsu Médico|
 |2|Asuka Langley Soryu|2|Piloto de Evangelion|
 
-## 3.25. INNER JOIN
+## 3.26. INNER JOIN
 ```sql
 --INNER JOIN:
 --Recupera las habilidades de los usuarios que tienen habilidades registradas.
@@ -749,7 +781,7 @@ order by u.id_usuario ;
 |2|Asuka Langley Soryu|Jutsu Médico|
 |2|Asuka Langley Soryu|Piloto de Evangelion|
 
-## 3.26. LEFT JOIN
+## 3.27. LEFT JOIN
 ```
 --LEFT JOIN
 --Obtener todos los usuarios y sus proyectos (si tienen alguno)
@@ -762,7 +794,7 @@ LEFT JOIN core.proyectos p ON u.id_usuario = p.id_usuario;
 |1|Sakura Haruno|123456789|sakura@example.com|Ninja médica de Konoha|Ninja|1995-03-28|sakura.jpg|2024-01-21 19:27:58.957|Proyecto de Sakura|
 |2|Asuka Langley Soryu|987654321|asuka@example.com|Piloto del Evangelion Unidad-02|Piloto de Eva|2001-12-04|asuka.jpg|2024-01-21 19:27:58.957|Proyecto de Asuka|
 
-## 3.27. Right Join
+## 3.28. Right Join
 ```sql
 --RIGHT JOIN
 -- Obtener todos los proyectos y sus usuarios (incluso si no tienen un usuario asociado)
@@ -775,7 +807,7 @@ RIGHT JOIN core.usuarios u ON p.id_usuario = u.id_usuario;
 |1|Proyecto de Sakura|proyecto_sakura.jpg|Desarrollo de técnicas médicas ninja|https://github.com/sakura/proyecto|1|Sakura Haruno|
 |2|Proyecto de Asuka|proyecto_asuka.jpg|Defensa contra los Ángeles|https://github.com/asuka/proyecto|2|Asuka Langley Soryu|
 
-## 3.28. View
+## 3.29. View
 ```sql
 --View
 -- Crear una vista que muestre la información del usuario y sus habilidades
@@ -798,7 +830,7 @@ SELECT * FROM vw_usuario_habilidades;
 |2|Asuka Langley Soryu|987654321|asuka@example.com|Piloto del Evangelion Unidad-02|Piloto de Eva|2001-12-04|asuka.jpg|2024-01-21 19:27:58.957|Piloto de Evangelion|
 |1|Sakura Haruno|123456789|sakura@example.com|Ninja médica de Konoha|Ninja|1995-03-28|sakura.jpg|2024-01-21 19:27:58.957|Piloto de Evangelion|
 
-## 3.29. Temporal 
+## 3.30. Temporal 
 ```sql
 --temporal
 -- Crear una tabla temporal para almacenar usuarios con proyectos
@@ -817,7 +849,7 @@ SELECT * FROM temp_usuarios_proyectos;
 |1|Sakura Haruno|123456789|sakura@example.com|Ninja médica de Konoha|Ninja|1995-03-28|sakura.jpg|2024-01-21 19:27:58.957|Proyecto de Sakura|
 |2|Asuka Langley Soryu|987654321|asuka@example.com|Piloto del Evangelion Unidad-02|Piloto de Eva|2001-12-04|asuka.jpg|2024-01-21 19:27:58.957|Proyecto de Asuka|
 
-## 3.30. Funcion
+## 3.31. Funcion
 ```sql
 --Funcion
 -- Crear una función que calcule la edad a partir de la fecha de nacimiento
@@ -836,7 +868,7 @@ SELECT u.nombre as nombre_usuario, calcular_edad(fecha_nac) AS edad FROM core.us
 |Sakura Haruno|28|
 |Asuka Langley Soryu|22|
 
-## 3.31. TRIGGER
+## 3.32. TRIGGER
 ```sql
 --TRIGGER
 -- Crear un trigger que actualice la fecha de registro cada vez que se inserta un nuevo usuario
@@ -865,7 +897,7 @@ VALUES ('Nuevo Usuario', 123456789, 'nuevo@usuario.com', 'Descripción', 'Ocupac
 |2|Asuka Langley Soryu|987654321|asuka@example.com|Piloto del Evangelion Unidad-02|Piloto de Eva|2001-12-04|asuka.jpg|2024-01-21 19:27:58.957|
 |3|Nuevo Usuario|123456789|nuevo@usuario.com|Descripción|Ocupación|2000-01-01|foto.jpg|2024-01-22 20:44:33.476|
 - En este ejemplo, la columna fecha_reg se actualizará automáticamente con la fecha y hora actuales debido al trigger que hemos creado.
-## 3.32. PARTITION
+## 3.33. PARTITION
 ```sql
 --PARTITION
 -- Calcular la cantidad de proyectos por usuario utilizando PARTITION
@@ -878,7 +910,7 @@ FROM core.proyectos p;
 |2|1|
 |3|1|
 
-## 3.33. PROCEDURE
+## 3.34. PROCEDURE
 ```sql
 --PROCEDIMIENTO
 -- Crear un procedimiento almacenado que inserte un nuevo usuario
@@ -909,7 +941,7 @@ CALL insertar_usuario('Nuevo Usuario2', 987654321, 'nuevo2@usuario.com', 'Descri
 |2|Asuka Langley Soryu|987654321|asuka@example.com|Piloto del Evangelion Unidad-02|Piloto de Eva|2001-12-04|asuka.jpg|2024-01-21 19:27:58.957|
 |3|Nuevo Usuario|123456789|nuevo@usuario.com|Descripción|Ocupación|2000-01-01|foto.jpg|2024-01-22 20:44:33.476|
 |4|Nuevo Usuario2|987654321|nuevo2@usuario.com|Descripción|Ocupación|2000-01-01|foto2.jpg|2024-01-22 20:55:57.484|
-## 3.34. SUMA
+## 3.35. SUMA
 ```qsl
 --SUMA
 -- Calcular la suma de los id_usuario agrupada por usuario que tiene mas de una red social
@@ -922,7 +954,7 @@ GROUP BY rs.id_usuario;
 |----------|----------------|
 |1|2|
 
-## 3.35. COUNT
+## 3.36. COUNT
 ```sql
 --COUNT
 -- Contar la cantidad de usuarios agrupada por nombre
