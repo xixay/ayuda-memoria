@@ -1,32 +1,6 @@
-<div align="center">
-  <h1> 30 Días de JavaScript: Proyecto Final</h1>
-  <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/asabeneh/">
-  <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social">
-  </a>
-  <a class="header-badge" target="_blank" href="https://twitter.com/Asabeneh">
-  <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/asabeneh?style=social">
-  </a>
-
-<sub>Autor:
-<a href="https://www.linkedin.com/in/asabeneh/" target="_blank">Asabeneh Yetayeh</a><br>
-<small> Enero, 2020</small>
-</sub>
-
-</div>
-</div>
-
-<div>
-
-</div>
-
-<div>
-<small>Apoya al <strong>autor</strong> para que cree más material educativo</small> <br />  
-<a href = "https://www.paypal.me/asabeneh"><img src='../../images/paypal_lg.png' alt='Paypal Logo' style="width:10%"/></a>
-</div>
 
 [<< Día 29](../dia_29_Mini_Proyecto_Animacion_De_Caracteres/dia_29_mini_proyecto_animacion_de_caracteres.md)
 
-![Thirty Days Of JavaScript](../images/banners/day_1_30.png)
 
 - [Día 30](#día-30)
   - [Ejercicios](#ejercicios)
@@ -59,8 +33,6 @@ Ahora es el momento de apoyar al autor y expresar su opinión sobre el autor y 3
 ## Apoyo
 
 Puedes apoyar al autor para que produzca más material educativo
-
-[![paypal](../../images/paypal_lg.png)](https://www.paypal.me/asabeneh)
 
 ![Congratulations](../../images/projects/congratulations.gif)
 

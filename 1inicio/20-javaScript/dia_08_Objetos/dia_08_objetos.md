@@ -1,29 +1,12 @@
-<div align="center">
-  <h1> 30 Días de JavaScript: Objetos</h1>
-  <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/asabeneh/">
-  <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social">
-  </a>
-  <a class="header-badge" target="_blank" href="https://twitter.com/Asabeneh">
-  <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/asabeneh?style=social">
-  </a>
-
-<sub>Autor:
-<a href="https://www.linkedin.com/in/asabeneh/" target="_blank">Asabeneh Yetayeh</a><br>
-<small> Enero, 2020</small>
-</sub>
-
-</div>
 
 [<< Día 7](../dia_07_Funciones/dia_07_funciones.md) | [Día 9 >>](../dia_09_Funciones_De_Orden_Superior/dia_09_funciones_de_orden_superior.md)
 
-![Thirty Days Of JavaScript](../images/banners/day_1_8.png)
-
-- [📔 Día 8](#📔-día-8)
-  - [Scope](#scope-alcance)
+- [📔 Día 8](#-día-8)
+  - [Scope (alcance)](#scope-alcance)
     - [Objeto Global Window](#objeto-global-window)
     - [Global scope](#global-scope)
     - [Local scope](#local-scope)
-  - [📔 Objeto](#📔-objeto)
+  - [📔 Objeto](#-objeto)
     - [Crear un objeto vacío](#crear-un-objeto-vacío)
     - [Crear un objeto con valores](#crear-un-objeto-con-valores)
     - [Obtener valores de un objeto](#obtener-valores-de-un-objeto)
@@ -34,7 +17,7 @@
       - [Obtención de valores de objetos mediante Object.values()](#obtención-de-valores-de-objetos-mediante-objectvalues)
       - [Obtención de claves y valores de objetos mediante Object.entries()](#obtención-de-claves-y-valores-de-objetos-mediante-objectentries)
       - [Comprobación de propiedades mediante hasOwnProperty()](#comprobación-de-propiedades-mediante-hasownproperty)
-  - [💻 Ejercicios](#💻-ejercicios)
+  - [💻 Ejercicios](#-ejercicios)
     - [Ejercicios: Nivel 1](#ejercicios-nivel-1)
     - [Ejercicios: Nivel 2](#ejercicios-nivel-2)
     - [Ejercicios: Nivel 3](#ejercicios-nivel-3)

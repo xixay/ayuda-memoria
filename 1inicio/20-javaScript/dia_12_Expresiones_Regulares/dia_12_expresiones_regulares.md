@@ -1,24 +1,7 @@
-<div align="center">
-  <h1> 30 Días de JavaScript: Expresiones Regulares</h1>
-  <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/asabeneh/">
-  <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social">
-  </a>
-  <a class="header-badge" target="_blank" href="https://twitter.com/Asabeneh">
-  <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/asabeneh?style=social">
-  </a>
-
-<sub>Autor:
-<a href="https://www.linkedin.com/in/asabeneh/" target="_blank">Asabeneh Yetayeh</a><br>
-<small> Enero, 2020</small>
-</sub>
-
-</div>
 
 [<< Día 11](../dia_11_Desestructuracion_y_Spreading/dia_11_desestructuracion_y_spreading.md) | [Día 13>>](../dia_13_Metodos_del_Objeto_Console/dia_13_metodos_del_objeto_console.md)
 
-![Thirty Days Of JavaScript](../images/banners/day_1_12.png)
-
-- [📘 Día 12](#📘-día-12)
+- [📘 Día 12](#-día-12)
   - [Expresiones Regulares](#expresiones-regulares)
     - [Parámetros RegExp](#parámetros-regexp)
       - [Patrón](#patrón)
@@ -34,11 +17,11 @@
     - [Una o más veces(+)](#una-o-más-veces)
     - [Punto(.)](#punto)
     - [Cero o más veces(\*)](#cero-o-más-veces)
-    - [Cero o una vez (?)](#cero-o-una-vez)
+    - [Cero o una vez (?)](#cero-o-una-vez-)
     - [Cuantificador en RegExp](#cuantificador-en-regexp)
-    - [Caret ^](#caret)
+    - [Caret ^](#caret-)
     - [Coincidencia exacta](#coincidencia-exacta)
-  - [💻 Ejercicios](#💻-ejercicios)
+  - [💻 Ejercicios](#-ejercicios)
     - [Ejercicios: Nivel 1](#ejercicios-nivel-1)
     - [Ejercicios: Nivel 2](#ejercicios-nivel-2)
     - [Ejercicios: Nivel 3](#ejercicios-nivel-3)

@@ -1,31 +1,12 @@
-<div align="center">
-  <h1> 30 Días de JavaScript: Condicionales</h1>
-  <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/asabeneh/">
-  <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social">
-  </a>
-  <a class="header-badge" target="_blank" href="https://twitter.com/Asabeneh">
-  <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/asabeneh?style=social">
-  </a>
 
-<sub>Autor:
-<a href="https://www.linkedin.com/in/asabeneh/" target="_blank">Asabeneh Yetayeh</a><br>
-<small> Enero, 2020</small>
-</sub>
-
-</div>
-
-[<< Día 3](../dia_03_Booleanos_Operadores_Date/dia_03_Boleanos_Operadores_Date.md) | [Día 5 >>](../dia_05_Arreglos/dia_05_arreglos.md)
-
-![Thirty Days Of JavaScript](../images/banners/day_1_4.png)
-
-- [📔 Día 4](#📔-día-4)
+- [📔 Día 4](#-día-4)
   - [Condicionales](#condicionales)
     - [If](#if)
     - [If Else](#if-else)
     - [If Else if Else](#if-else-if-else)
     - [Switch](#switch)
     - [Operadores Ternarios](#operadores-ternarios)
-  - [💻 Ejercicios](#💻-ejercicios)
+  - [💻 Ejercicios](#-ejercicios)
     - [Ejercicios: Nivel 1](#ejercicios-nivel-1)
     - [Ejercicios: Nivel 2](#ejercicios-nivel-2)
     - [Ejercicios: Nivel 3](#ejercicios-nivel-3)

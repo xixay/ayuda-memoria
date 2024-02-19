@@ -1,29 +1,12 @@
-<div align="center">
-  <h1> 30 Días de JavaScript: Manejo de Errores</h1>
-  <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/asabeneh/">
-  <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social">
-  </a>
-  <a class="header-badge" target="_blank" href="https://twitter.com/Asabeneh">
-  <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/asabeneh?style=social">
-  </a>
-
-<sub>Autor:
-<a href="https://www.linkedin.com/in/asabeneh/" target="_blank">Asabeneh Yetayeh</a><br>
-<small> Enero, 2020</small>
-</sub>
-
-</div>
 
 [<< Día 13](../dia_13_Metodos_del_Objeto_Console/dia_13_metodos_del_objeto_console.md) | [Día 15>>](../dia_15_Clases/dia_15_clases.md)
-
-![Thirty Days Of JavaScript](../images/banners/day_1_14.png)
 
 - [Día 14](#día-14)
   - [Manejo de Errores](#manejo-de-errores)
     - [Tipo de Error](#tipo-de-error)
   - [Ejercicios](#ejercicios)
     - [Ejercicios:Nivel 1](#ejerciciosnivel-1)
-    - [Ejercicios: Nivel 2](#ejerciciosnivel-2)
+    - [Ejercicios:Nivel 2](#ejerciciosnivel-2)
     - [Ejercicios:Nivel 3](#ejerciciosnivel-3)
 
 # Día 14

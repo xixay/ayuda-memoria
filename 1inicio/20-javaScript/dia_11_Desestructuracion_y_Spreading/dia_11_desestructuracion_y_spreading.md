@@ -1,24 +1,7 @@
-<div align="center">
-  <h1> 30 Días de JavaScript: Desestructuración y Spreading</h1>
-  <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/asabeneh/">
-  <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social">
-  </a>
-  <a class="header-badge" target="_blank" href="https://twitter.com/Asabeneh">
-  <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/asabeneh?style=social">
-  </a>
-
-<sub>Autor:
-<a href="https://www.linkedin.com/in/asabeneh/" target="_blank">Asabeneh Yetayeh</a><br>
-<small> Enero, 2020</small>
-</sub>
-
-</div>
 
 [<< Día 10](../dia_10_Sets_y_Maps/dia_10_sets_y_maps.md) | [Día 12>>](../dia_12_Expresiones_Regulares/dia_12_expresiones_regulares.md)
 
-![Day 11](../images/banners/day_1_11.png)
-
-- [Day 11](#día-11)
+- [Día 11](#día-11)
   - [Desestructuración y Spread](#desestructuración-y-spread)
     - [Desestructuración de Arrays](#desestructuración-de-arrays)
     - [Desestructuración durante la iteración](#desestructuración-durante-la-iteración)

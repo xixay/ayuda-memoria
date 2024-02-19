@@ -1,18 +1,3 @@
-<div align="center">
-  <h1> 30 Días de JavaScript: Closures</h1>
-  <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/asabeneh/">
-  <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social">
-  </a>
-  <a class="header-badge" target="_blank" href="https://twitter.com/Asabeneh">
-  <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/asabeneh?style=social">
-  </a>
-
-<sub>Autor:
-<a href="https://www.linkedin.com/in/asabeneh/" target="_blank">Asabeneh Yetayeh</a><br>
-<small> Enero, 2020</small>
-</sub>
-
-</div>
 
 [<< Día 18](../dia_18_Promesas/dia_18_Promesas.md) | [Día 20 >>](../dia_20_Escribiendo_Codigos_Limpios/dia_20_escribiendo_codigos_limpios.md)
 
@@ -20,10 +5,10 @@
 
 - [Día 19](#día-19)
   - [Closure](#closure)
-  - [Ejercicios](#exercises)
-    - [Ejercicios: Nivel 1](#exercises-level-1)
-    - [Ejercicios: Nivel 2](#exercises-level-2)
-    - [Ejercicios: Nivel 3](#exercises-level-3)
+  - [Ejercicios](#ejercicios)
+    - [Ejercicios: Nivel 1](#ejercicios-nivel-1)
+    - [Ejercicios: Nivel 2](#ejercicios-nivel-2)
+    - [Ejercicios: Nivel 3](#ejercicios-nivel-3)
 
 # Día 19
 

@@ -1,24 +1,7 @@
-<div align="center">
-  <h1> 30 Días de JavaScript: Bucles</h1>
-  <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/asabeneh/">
-  <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social">
-  </a>
-  <a class="header-badge" target="_blank" href="https://twitter.com/Asabeneh">
-  <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/asabeneh?style=social">
-  </a>
-
-<sub>Autor:
-<a href="https://www.linkedin.com/in/asabeneh/" target="_blank">Asabeneh Yetayeh</a><br>
-<small> Enero, 2020</small>
-</sub>
-
-</div>
 
 [<< Día 5](../dia_05_Arreglos/dia_05_arreglos.md) | [ Día 7 >>](../dia_07_Funciones/dia_07_funciones.md)
 
-![Day 6](../images/banners/day_1_6.png)
-
-- [📔 Día 6](#📔-día-6)
+- [📔 Día 6](#-día-6)
   - [Bucles](#bucles)
     - [Bucle for](#bucle-for)
     - [Bucle while](#bucle-while)
@@ -26,7 +9,7 @@
     - [Bucle for of](#bucle-for-of)
     - [break](#break)
     - [continue](#continue)
-  - [💻 Ejercicios: Día 6](#💻-ejerciciosdía-6)
+  - [💻 Ejercicios:Día 6](#-ejerciciosdía-6)
     - [Ejercicios: Nivel 1](#ejercicios-nivel-1)
     - [Ejercicios: Nivel 2](#ejercicios-nivel-2)
     - [Ejercicios: Nivel 3](#ejercicios-nivel-3)

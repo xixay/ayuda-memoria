@@ -1,24 +1,4 @@
-<div align="center">
-  <h1> 30 Días De JavaScript: Booleanos, Operadores, Date</h1>
-  <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/asabeneh/">
-  <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social">
-  </a>
-  <a class="header-badge" target="_blank" href="https://twitter.com/Asabeneh">
-  <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/asabeneh?style=social">
-  </a>
-
-<sub>Autor:
-<a href="https://www.linkedin.com/in/asabeneh/" target="_blank">Asabeneh Yetayeh</a><br>
-<small> Enero, 2020</small>
-</sub>
-
-</div>
-
-[<< Día 2](../dia_02_tipos_de_datos.md) | [Día 4 >>](../dia_04_Condicionales/dia_04_Condicionales.md)
-
-![Thirty Days Of JavaScript](../images/banners/day_1_3.png)
-
-- [📔 Día 3](#-day-3)
+- [📔 Day 3](#-day-3)
   - [Booleanos](#booleanos)
     - [Valores verdaderos](#valores-verdaderos)
     - [Valores falsos](#valores-falsos)
@@ -35,8 +15,8 @@
     - [Precedencia de Operadores](#precedencia-de-operadores)
   - [Métodos Window](#métodos-window)
     - [Método Window alert()](#método-window-alert)
-    - [Método Window prompt() ](#método-window-prompt)
-    - [Método Window confirm() ](#método-window-confirm)
+    - [Método Window prompt()](#método-window-prompt)
+    - [Método Window confirm()](#método-window-confirm)
   - [Objeto Date](#objeto-date)
     - [Crear un objeto de tiempo](#crear-un-objeto-de-tiempo)
     - [Obtener el año completo](#obtener-el-año-completo)
@@ -47,7 +27,7 @@
     - [Obtener minutos](#obtener-minutos)
     - [Obtener segundos](#obtener-segundos)
     - [Obtener tiempo](#obtener-tiempo)
-  - [💻 Día 3: Ejercicios](#💻-día-3-ejercicios)
+  - [💻 Día 3: Ejercicios](#-día-3-ejercicios)
     - [Ejercicios: Nivel 1](#ejercicios-nivel-1)
     - [Ejercicios: Nivel 2](#ejercicios-nivel-2)
     - [Ejercicios: Nivel 3](#ejercicios-nivel-3)

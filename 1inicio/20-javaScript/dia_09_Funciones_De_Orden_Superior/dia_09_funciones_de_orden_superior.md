@@ -1,22 +1,5 @@
-<div align="center">
-  <h1> 30 Días De JavaScript: Función De Orden Superior</h1>
-  <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/asabeneh/">
-  <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social">
-  </a>
-  <a class="header-badge" target="_blank" href="https://twitter.com/Asabeneh">
-  <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/asabeneh?style=social">
-  </a>
-
-<sub>Autor:
-<a href="https://www.linkedin.com/in/asabeneh/" target="_blank">Asabeneh Yetayeh</a><br>
-<small> Enero, 2020</small>
-</sub>
-
-</div>
 
 [<< Día 8](../dia_08_Objetos/dia_08_objetos.md) | [Día 10 >>](../dia_10_Sets_y_Maps/dia_10_sets_y_maps.md)
-
-![Day 5](../images/banners/day_1_9.png)
 
 - [Día 9](#día-9)
   - [Función De Orden Superior](#función-de-orden-superior)
@@ -38,7 +21,7 @@
       - [Ordenar los valores strings](#ordenar-los-valores-strings)
       - [Ordenar valores numéricos](#ordenar-valores-numéricos)
       - [Ordenar arrays de objetos](#ordenar-arrays-de-objetos)
-  - [💻 Ejercicios](#💻-ejercicios)
+  - [💻 Ejercicios](#-ejercicios)
     - [Ejercicios: Nivel 1](#ejercicios-nivel-1)
     - [Ejercicios: Nivel 2](#ejercicios-nivel-2)
     - [Ejercicios: Nivel 3](#ejercicios-nivel-3)

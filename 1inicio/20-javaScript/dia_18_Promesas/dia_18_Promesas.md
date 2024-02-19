@@ -1,22 +1,5 @@
-<div align="center">
-  <h1> 30 Días de JavaScript: Promesas</h1>
-  <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/asabeneh/">
-  <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social">
-  </a>
-  <a class="header-badge" target="_blank" href="https://twitter.com/Asabeneh">
-  <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/asabeneh?style=social">
-  </a>
-
-<sub>Autor:
-<a href="https://www.linkedin.com/in/asabeneh/" target="_blank">Asabeneh Yetayeh</a><br>
-<small> Enero, 2020</small>
-</sub>
-
-</div>
 
 [<< Día 17](../dia_17_Web_storages/dia_17_web_storages.md) | [Día 19>>](../dia_19_Closures/dia_19_closures.md)
-
-![Thirty Days Of JavaScript](../images/banners/day_1_18.png)
 
 - [Día 18](#día-18)
   - [Promesas](#promesas)
