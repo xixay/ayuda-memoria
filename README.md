@@ -19,6 +19,7 @@
 ## 1.18. [Tema vscode](/1inicio/18-temas.md)
 ## 1.19. [Grabador de Video ](/1inicio/19-Kasan.md)
 ## 1.20. [Java Script ](/1inicio/20-javaScript/readme.md)
+## 1.21. [VsCode Configuración ](/1inicio/21-vscode-config.md)
 # 2. Backend
 ## 2.1. [Express (Backend)](/2backend/express/1-articulo.md)
 ### 2.1..1 [Rutas api rest](/2backend/express/1.1-articuloRutas.md)
