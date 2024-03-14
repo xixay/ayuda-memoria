@@ -1,0 +1,434 @@
+### ESTADO
+###  ------------------- OBTENER - ITEM
+  GET {{Host}}/estado
+### AUTH INTERNO
+  # @name login_interno
+  # POST http://172.16.80.32:4002/api/v1/auth_cge HTTP/1.1
+  POST http://172.16.22.241:7010/ HTTP/1.1
+  Content-type: application/json
+  {
+    "usuario": "usuario",
+    "password": "1234567aA"
+  }
+
+  # {
+  #   "usuario": "4755293",
+  #   "password": "Pruebas"
+  # }
+
+  # {
+  #   "usuario": "8360022",
+  #   "password": "1234567"
+  # }
+
+### Este es token de autenticacion
+  @AuthTokenInterno = {{login_interno.response.body.datos.token}}
+  @AuthTokenExterno = Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aXBvIjoic2lzdGVtYSIsInNpc3RlbWEiOiJTaXN0ZW1hIGRlIGF1dGVudGljYWNpb24iLCJzaWdsYSI6ImF1dGVudGljYWNpb24iLCJpZCI6IjZkNDEzYWE1LWQ2MjMtNGRkNC1hOWMxLTQ0OTVmMzRjOGI3MCIsInNpc3RlbWFzIjpbeyJzaXNjZ2VfY29kaWdvIjowLCJzaXNjZ2Vfc2lnbGEiOiJhdXRlbnRpY2FjaW9uIn1dLCJpYXQiOjE2MjA0MTAwNDN9.cE1CnVUfMf7Nieg0j22MBie9I7V1RRqyuFjngUFMcJfE0Gs3OYdfXTY0ovB_CJMyGLlrWn1TXVLFGXdcGxEnTA
+###   Aqui se define IP de servicio web
+  # @Host = http://172.16.22.230:7000
+  # @Hostautenticacion = http://172.16.22.239:4002/api/v1
+  # @tokenautenticacion = Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwZXJfY29kaWdvIjoxNzkxLCJzaXN0ZW1hcyI6W3sic2lzY2dlX2NvZGlnbyI6NSwic2lzY2dlX3NpZ2xhIjoiZGpiciJ9LHsic2lzY2dlX2NvZGlnbyI6OCwic2lzY2dlX3NpZ2xhIjoic2lnYSJ9LHsic2lzY2dlX2NvZGlnbyI6MTQsInNpc2NnZV9zaWdsYSI6InNlZ2lwX3BlcnNvbmEifSx7InNpc2NnZV9jb2RpZ28iOjE2LCJzaXNjZ2Vfc2lnbGEiOiJhdXRlbnRpY2FjaW9uIn0seyJzaXNjZ2VfY29kaWdvIjoyMiwic2lzY2dlX3NpZ2xhIjoiaGlzdG9yaWFzIn0seyJzaXNjZ2VfY29kaWdvIjoyNSwic2lzY2dlX3NpZ2xhIjoidWFpIn0seyJzaXNjZ2VfY29kaWdvIjoyNywic2lzY2dlX3NpZ2xhIjoicG9ydGFsIn0seyJzaXNjZ2VfY29kaWdvIjoyOCwic2lzY2dlX3NpZ2xhIjoic2dzaXIifSx7InNpc2NnZV9jb2RpZ28iOjI5LCJzaXNjZ2Vfc2lnbGEiOiJwb2FpIn0seyJzaXNjZ2VfY29kaWdvIjozMSwic2lzY2dlX3NpZ2xhIjoic2lzdWFpIn0seyJzaXNjZ2VfY29kaWdvIjozNCwic2lzY2dlX3NpZ2xhIjoic2lzcG9hIn0seyJzaXNjZ2VfY29kaWdvIjozNywic2lzY2dlX3NpZ2xhIjoiY29uYXVkIn1dLCJyb2xlcyI6W3sic2lzY2dlX2NvZGlnbyI6MTQsInJvbF9jb2RpZ28iOjUwLCJyb2xfZGVzY3JpcGNpb24iOiJBRE1JTklTVFJBRE9SIn0seyJzaXNjZ2VfY29kaWdvIjoxNiwicm9sX2NvZGlnbyI6NTIsInJvbF9kZXNjcmlwY2lvbiI6IkFETUlOSVNUUkFET1IifSx7InNpc2NnZV9jb2RpZ28iOjUsInJvbF9jb2RpZ28iOjUzLCJyb2xfZGVzY3JpcGNpb24iOiJSZWltcHJlc2nDs24gQ2VydGlmaWNhZG8geSBGb3JtdWxhcmlvIn0seyJzaXNjZ2VfY29kaWdvIjoyMiwicm9sX2NvZGlnbyI6MTE3LCJyb2xfZGVzY3JpcGNpb24iOiJDb29yZGluYWRvciBkZSBFcXVpcG8ifSx7InNpc2NnZV9jb2RpZ28iOjIyLCJyb2xfY29kaWdvIjoxMTYsInJvbF9kZXNjcmlwY2lvbiI6IkNvbGFib3JhZG9yIn0seyJzaXNjZ2VfY29kaWdvIjo1LCJyb2xfY29kaWdvIjoxMzIsInJvbF9kZXNjcmlwY2lvbiI6IkZJUk1BRE9SIn0seyJzaXNjZ2VfY29kaWdvIjoyNSwicm9sX2NvZGlnbyI6MTM3LCJyb2xfZGVzY3JpcGNpb24iOiJTSVNURU1BUyBBRE0gVUFJIn0seyJzaXNjZ2VfY29kaWdvIjo4LCJyb2xfY29kaWdvIjoxMTgsInJvbF9kZXNjcmlwY2lvbiI6IkdlcmVudGUgQ0VOQ0FQIn0seyJzaXNjZ2VfY29kaWdvIjo4LCJyb2xfY29kaWdvIjoxMTksInJvbF9kZXNjcmlwY2lvbiI6IlByb2dyYW1hZG9yIGRlIEV2ZW50b3MifSx7InNpc2NnZV9jb2RpZ28iOjgsInJvbF9jb2RpZ28iOjEyMCwicm9sX2Rlc2NyaXBjaW9uIjoiQXByb2JhZG9yIGRlIEV2ZW50b3MifSx7InNpc2NnZV9jb2RpZ28iOjI3LCJyb2xfY29kaWdvIjoxNDQsInJvbF9kZXNjcmlwY2lvbiI6IkFETUlOSVNUUkFET1IgUE9SVEFMIn0seyJzaXNjZ2VfY29kaWdvIjoyNSwicm9sX2NvZGlnbyI6MTUwLCJyb2xfZGVzY3JpcGNpb24iOiJSRVZJU09SIFVBSSJ9LHsic2lzY2dlX2NvZGlnbyI6MjgsInJvbF9jb2RpZ28iOjE1MSwicm9sX2Rlc2NyaXBjaW9uIjoiUk9MIEFETUlOSVNUUkFET1IifSx7InNpc2NnZV9jb2RpZ28iOjI4LCJyb2xfY29kaWdvIjoxNTQsInJvbF9kZXNjcmlwY2lvbiI6IlJPTCBBUFJPQkFET1IgU0dTSVIifSx7InNpc2NnZV9jb2RpZ28iOjI4LCJyb2xfY29kaWdvIjoxNTUsInJvbF9kZXNjcmlwY2lvbiI6IkVKRUNVVE9SIFNHU0lSIn0seyJzaXNjZ2VfY29kaWdvIjoyOSwicm9sX2NvZGlnbyI6MTU3LCJyb2xfZGVzY3JpcGNpb24iOiJST0wgUkVHSVNUUk8gUkVDVVJTT1MgSFVNQU5PUyJ9LHsic2lzY2dlX2NvZGlnbyI6MjksInJvbF9jb2RpZ28iOjE3Mywicm9sX2Rlc2NyaXBjaW9uIjoiUk9MIFBMQU5JRklDQUNJw5NOIn0seyJzaXNjZ2VfY29kaWdvIjozNCwicm9sX2NvZGlnbyI6MTg0LCJyb2xfZGVzY3JpcGNpb24iOiJBZG1pbmlzdHJhZG9yIn0seyJzaXNjZ2VfY29kaWdvIjozNCwicm9sX2NvZGlnbyI6MTkwLCJyb2xfZGVzY3JpcGNpb24iOiJPcGVyYWRvciBGb3JtdWxhcmlvIn0seyJzaXNjZ2VfY29kaWdvIjozMSwicm9sX2NvZGlnbyI6MTc3LCJyb2xfZGVzY3JpcGNpb24iOiJBRE1JTklTVFJBRE9SIn0seyJzaXNjZ2VfY29kaWdvIjozNywicm9sX2NvZGlnbyI6MjAyLCJyb2xfZGVzY3JpcGNpb24iOiJBZG1pbmlzdHJhZG9yIENPTkFVRCJ9LHsic2lzY2dlX2NvZGlnbyI6MzcsInJvbF9jb2RpZ28iOjIwOCwicm9sX2Rlc2NyaXBjaW9uIjoiT3BlcmFkb3IgRm9ybXVsYXJpbyJ9XSwiaWQiOiJjYTMyYTU2Yi1lMjU4LTQ0MmEtOTY1Yi01MWVmZTE4NmU0MzEiLCJ0aXBvIjoidXN1YXJpbyIsImlhdCI6MTY5NjMzNzU5MCwiZXhwIjoxNjk2MzY2MzkwLCJtb21lbnQiOiIyMDIzLTEwLTAzVDA4OjUzOjEwLTA0OjAwIn0.Rj7oZo1GWdwWM6bLHMMq2aMgddvNaVpa7PGmFWcp1d25sUdjQEAh-ldMsPlOavveqUt27Bc0rs0iYrehHowlSQ
+  # @Host = http://172.16.22.230:7011
+  # LA IP DE MI MAQUINA SSH
+  @Host = http://localhost:7014
+  # @Host = http://172.16.75.101:7011
+  @Hostautenticacion = http://172.16.22.241:7010/
+  @tokenautenticacion = Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aXBvIjoic2lzdGVtYSIsInNpc3RlbWEiOiJTaXN0ZW1hIGRlIGF1dGVudGljYWNpb24iLCJzaWdsYSI6ImF1dGVudGljYWNpb24iLCJpZCI6IjZkNDEzYWE1LWQ2MjMtNGRkNC1hOWMxLTQ0OTVmMzRjOGI3MCIsInNpc3RlbWFzIjpbeyJzaXNjZ2VfY29kaWdvIjowLCJzaXNjZ2Vfc2lnbGEiOiJhdXRlbnRpY2FjaW9uIn1dLCJpYXQiOjE2MjA0MTAwNDN9.cE1CnVUfMf7Nieg0j22MBie9I7V1RRqyuFjngUFMcJfE0Gs3OYdfXTY0ovB_CJMyGLlrWn1TXVLFGXdcGxEnTA
+### VARIABLES
+  @tipproCodigo=20
+  @estetaCodigo=5
+  @estcontCodigo=10
+  @estclaCodigo=1
+  @tipresCodigo=3
+### TIPO PROCESO(Estados Proceso)
+###  ------------------- OBTENER - TIPO PROCESO
+  GET {{Host}}/tipo-proceso/ HTTP/1.1
+  # GET {{Host}}/tipo-proceso?tippro_codigo=({{tipproCodigo}}) HTTP/1.1
+  # GET {{Host}}/tipo-proceso?tippro_estado=(1) HTTP/1.1
+  # GET {{Host}}/tipo-proceso?tippro_descripcion=('rueba 1') HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+###  ------------------- CREAR - TIPO PROCESO
+  POST {{Host}}/tipo-proceso HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+  {
+    "tippro_nombre": "prueba 34",
+    "tippro_descripcion": "prueba 33",
+    "usuario":1024
+  }
+###  ------------------- MODIFICAR - TIPO PROCESO
+  PUT {{Host}}/tipo-proceso HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+  {
+    "tippro_codigo": 55,
+    "tippro_nombre": "prueba 35z",
+    "tippro_descripcion": "prueba 33z",
+    "usuario":1024
+  }
+###  ------------------- ACTIVAR - TIPO PROCESO
+  PATCH {{Host}}/tipo-proceso/55 HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+###  ------------------- ELIMINAR - TIPO PROCESO
+  DELETE {{Host}}/tipo-proceso/55
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+### ESTADO ETAPA
+###  ------------------- OBTENER - ESTADO ETAPA
+  # GET {{Host}}/estado-etapa/ HTTP/1.1
+  GET {{Host}}/estado-etapa/ HTTP/1.1
+  # GET {{Host}}/estado-etapa?esteta_codigo=({{estetaCodigo}}) HTTP/1.1
+  # GET {{Host}}/estado-etapa?esteta_orden=(2) HTTP/1.1
+  # GET {{Host}}/estado-etapa?esteta_nombre=('Tramite') HTTP/1.1
+  # GET {{Host}}/estado-etapa?esteta_solvencia=('false') HTTP/1.1
+  # GET {{Host}}/estado-etapa?esteta_descripcion=('prueba 22') HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+###  ------------------- CREAR - ESTADO ETAPA
+  POST {{Host}}/estado-etapa HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+  {
+    "esteta_orden": 1,
+    "esteta_nombre": "prueba333",
+    "esteta_solvencia": true,
+    "esteta_descripcion": "prueba 333",
+    "usuario":1024
+  }
+###  ------------------- MODIFICAR - ESTADO ETAPA
+  PUT {{Host}}/estado-etapa HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+  {
+    "esteta_codigo": 8,
+    "esteta_orden": 1,
+    "esteta_nombre": "prueba 11",
+    "esteta_solvencia": true,
+    "esteta_descripcion": "prueba 1",
+    "usuario":1024
+  }
+###  ------------------- ACTIVAR - ESTADO ETAPA
+  PATCH {{Host}}/estado-etapa/8 HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+###  ------------------- ELIMINAR - ESTADO ETAPA
+  DELETE {{Host}}/estado-etapa/8
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+### ESTADO CONTROL
+###  ------------------- OBTENER - ESTADO CONTROL
+  GET {{Host}}/estado-control HTTP/1.1
+  # GET {{Host}}/estado-control?estcont_codigo=({{estcontCodigo}}) HTTP/1.1
+  # GET {{Host}}/estado-control?estcon_nombre=('ACCIONES LEGALES INICIADAS') HTTP/1.1
+  # GET {{Host}}/estado-control?estcon_descripcion=('prueba 11') HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+###  ------------------- CREAR - ESTADO CONTROL
+  POST {{Host}}/estado-control HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+  {
+    "estcon_nombre": "prueba 33",
+    "estcon_descripcion": "prueba 33",
+    "usuario":1024
+  }
+###  ------------------- MODIFICAR - ESTADO CONTROL
+  PUT {{Host}}/estado-control HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+  {
+    "estcont_codigo": 16,
+    "estcon_nombre": "prueba 111",
+    "estcon_descripcion": "prueba 111",
+    "usuario":1024
+  }
+###  ------------------- ACTIVAR - ESTADO CONTROL
+  PATCH {{Host}}/estado-control/16 HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+###  ------------------- ELIMINAR - ESTADO CONTROL
+  DELETE {{Host}}/estado-control/16
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+### ESTADO CLASIFICACION
+###  ------------------- OBTENER - ESTADO CLASIFICACION
+  GET {{Host}}/estado-clasificacion/ HTTP/1.1
+  # GET {{Host}}/estado-clasificacion/ HTTP/1.1
+  # GET {{Host}}/estado-clasificacion?estcla_codigo=({{estclaCodigo}}) HTTP/1.1
+  # GET {{Host}}/estado-clasificacion?estcla_orden=(1) HTTP/1.1
+  # GET {{Host}}/estado-clasificacion?estcon_codigo=(2) HTTP/1.1
+  # GET {{Host}}/estado-clasificacion?esteta_codigo=(1) HTTP/1.1
+  # GET {{Host}}/estado-clasificacion?tipres_codigo=(1) HTTP/1.1
+  # GET {{Host}}/estado-clasificacion?tipsan_codigo=(2) HTTP/1.1
+  # GET {{Host}}/estado-clasificacion?estcla_estado=(1)&tippro_codigo=(20) HTTP/1.1
+  # GET {{Host}}/estado-clasificacion?estcla_estado=(1)&tipres_codigo=(3) HTTP/1.1
+  # GET {{Host}}/estado-clasificacion?estcla_estado=(1)&tipsan_codigo=(4) HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+###  ------------------- CREAR - ESTADO CLASIFICACION
+  POST {{Host}}/estado-clasificacion HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+  # {
+  #   "estcla_orden": 1,
+  #   "estcon_codigo": 10,
+  #   "esteta_codigo": 5,
+  #   "tippro_codigo": 19
+  # }
+    {
+      "estcla_orden": 1,
+      "estcon_codigo": 10,
+      "esteta_codigo": 5,
+      "tippro_codigo": 20
+    }
+###  ------------------- MODIFICAR - ESTADO CLASIFICACION
+  PUT {{Host}}/estado-clasificacion HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+  {
+    "estcla_codigo": 2,
+    "estcla_orden": 1,
+    "estcon_codigo": 10,
+    "esteta_codigo": 5,
+    "tippro_codigo": 20
+  }
+###  ------------------- ACTIVAR - ESTADO CLASIFICACION
+  PATCH {{Host}}/estado-clasificacion/{{estclaCodigo}} HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+###  ------------------- ELIMINAR - ESTADO CLASIFICACION
+  DELETE {{Host}}/estado-clasificacion/{{estclaCodigo}}
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+### TIPO responsabilidad
+###  ------------------- OBTENER - TIPO responsabilidad
+  GET {{Host}}/tipo-responsabilidad/ HTTP/1.1
+  # GET {{Host}}/tipo-responsabilidad?tippro_codigo=({{tipproCodigo}}) HTTP/1.1
+  # GET {{Host}}/tipo-responsabilidad?tippro_estado=(1) HTTP/1.1
+  # GET {{Host}}/tipo-responsabilidad?tippro_descripcion=('rueba 1') HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+###  ------------------- CREAR - TIPO responsabilidad
+  POST {{Host}}/tipo-responsabilidad HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+  {
+    "tipres_nombre": "prueba 1",
+    "tipres_descripcion": "prueba 1"
+  }
+###  ------------------- MODIFICAR - TIPO responsabilidad
+  PUT {{Host}}/tipo-responsabilidad HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+  {
+    "tipres_codigo": 3,
+    "tipres_nombre": "prueba 1",
+    "tipres_descripcion": "prueba 1"
+  }
+###  ------------------- ACTIVAR - TIPO responsabilidad
+  PATCH {{Host}}/tipo-responsabilidad/{{tipresCodigo}} HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+###  ------------------- ELIMINAR - TIPO responsabilidad
+  DELETE {{Host}}/tipo-responsabilidad/{{tipresCodigo}}
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+### TIPO sancion
+###  ------------------- OBTENER - TIPO sancion
+  GET {{Host}}/tipo-sancion/ HTTP/1.1
+  # GET {{Host}}/tipo-sancion?tippro_codigo=({{tipproCodigo}}) HTTP/1.1
+  # GET {{Host}}/tipo-sancion?tippro_estado=(1) HTTP/1.1
+  # GET {{Host}}/tipo-sancion?tippro_descripcion=('rueba 1') HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+###  ------------------- CREAR - TIPO sancion
+  POST {{Host}}/tipo-sancion HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+  {
+    "tipres_nombre": "prueba 1",
+    "tipres_descripcion": "prueba 1"
+  }
+###  ------------------- MODIFICAR - TIPO sancion
+  PUT {{Host}}/tipo-sancion HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+  {
+    "tipres_codigo": 3,
+    "tipres_nombre": "prueba 1",
+    "tipres_descripcion": "prueba 1"
+  }
+###  ------------------- ACTIVAR - TIPO sancion
+  PATCH {{Host}}/tipo-sancion/{{tipresCodigo}} HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+###  ------------------- ELIMINAR - TIPO sancion
+  DELETE {{Host}}/tipo-sancion/{{tipresCodigo}}
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+### MONEDA
+###  ------------------- OBTENER - MONEDA
+  GET {{Host}}/moneda HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+###  ------------------- CREAR - MONEDA
+  POST {{Host}}/moneda HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+  {
+    "mon_descripcion": "prueba 2",
+    "mon_abreviacion": "prueba 2",
+    "mon_mostrar": 1,
+    "usuario":1024
+  }
+### PERSONA JURIDICA
+###  ------------------- OBTENER - PERSONA JURIDICA
+  GET {{Host}}/parametricas/persona-juridica/ HTTP/1.1
+  # GET {{Host}}/parametricas/persona-juridica?perjur_nit=('789456321') HTTP/1.1
+  # GET {{Host}}/parametricas/persona-juridica?perjur_estado=(1)&flat_last=(true) HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+###  ------------------- CREAR - PERSONA JURIDICA
+  POST {{Host}}/persona-juridica HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+  {
+    "perjur_razon_social": "Trabajador de Tiempo Completo",
+    "perjur_nit": "123564564",
+    "perjur_sigla": "TC",
+    "perjur_direccion": "av.nieves linares",
+    "perjur_telefono": "77275584",
+    "perjur_fax": "22051",
+    "perjur_correo_electronico": "trabcomp@correo.com",
+    "perjur_observacion": "Ninguna Observacion a la vista",
+  }
+###  ------------------- MODIFICAR - PERSONA JURIDICA
+  PUT {{Host}}/persona-juridica HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+  {
+    "perjur_codigo": 3,
+    "perjur_nombre": "prueba 1",
+    "perjur_descripcion": "prueba 1"
+  }
+###  ------------------- ACTIVAR - PERSONA JURIDICA
+  PATCH {{Host}}/persona-juridica/{{perjurCodigo}} HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+###  ------------------- ELIMINAR - PERSONA JURIDICA
+  DELETE {{Host}}/persona-juridica/{{perjurCodigo}}
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+### REPRESENTANTE LEGAL
+###  ------------------- OBTENER - REPRESENTANTE LEGAL
+  GET {{Host}}/parametricas/representante-legal/ HTTP/1.1
+  # GET {{Host}}/parametricas/representante-legal?repleg_estado=(1)&perjur_codigo=(25) HTTP/1.1
+  # GET {{Host}}/parametricas/representante-legal?repleg_estado=(1)&flat_last=(true) HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+###  ------------------- CREAR - REPRESENTANTE LEGAL
+  POST {{Host}}/representante-legal HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+  {
+    "perjur_razon_social": "Trabajador de Tiempo Completo",
+    "perjur_nit": "123564564",
+    "perjur_sigla": "TC",
+    "perjur_direccion": "av.nieves linares",
+    "perjur_telefono": "77275584",
+    "perjur_fax": "22051",
+    "perjur_correo_electronico": "trabcomp@correo.com",
+    "perjur_observacion": "Ninguna Observacion a la vista",
+  }
+###  ------------------- MODIFICAR - REPRESENTANTE LEGAL
+  PUT {{Host}}/representante-legal HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+  {
+    "perjur_codigo": 3,
+    "perjur_nombre": "prueba 1",
+    "perjur_descripcion": "prueba 1"
+  }
+###  ------------------- ACTIVAR - REPRESENTANTE LEGAL
+  PATCH {{Host}}/representante-legal/{{perjurCodigo}} HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+###  ------------------- ELIMINAR - REPRESENTANTE LEGAL
+  DELETE {{Host}}/representante-legal/{{perjurCodigo}}
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+### PERSONA
+###  ------------------- OBTENER - PERSONA
+#  GET http://172.16.75.100:7014/parametricas/persona/ HTTP/1.1
+  GET {{Host}}/parametricas/persona/ HTTP/1.1
+  # GET {{Host}}/parametricas/persona/ HTTP/1.1
+  # GET {{Host}}/parametricas/persona?per_documento_identidad=('545454')&tipdoc_codigo=(1) HTTP/1.1
+  # GET {{Host}}/parametrica/persona?tippro_estado=(1) HTTP/1.1
+  # GET {{Host}}/parametrica/persona?tippro_descripcion=('rueba 1') HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+### EMPRESA UNIPERSONAL
+###  ------------------- OBTENER - EMPRESA UNIPERSONAL
+  GET {{Host}}/parametricas/empresa-unipersonal/ HTTP/1.1
+  # GET {{Host}}/parametricas/empresa-unipersonal?empuni_estado=(1) HTTP/1.1
+  # GET {{Host}}/parametricas/empresa-unipersonal?empuni_estado=(1)&perjur_codigo=(2)&per_codigo=(2) HTTP/1.1
+  # GET {{Host}}/empresa-unipersonal?empuni_estado=(1)&flat_last=(true) HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+###  ------------------- CREAR - EMPRESA UNIPERSONAL
+  POST {{Host}}/empresa-unipersonal HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+  {
+    "perjur_codigo": 3,
+    "perjur_codigo": 3,
+    "empuni_observacion": "Ninguna Observacion a la vista",
+  }
+###  ------------------- MODIFICAR - EMPRESA UNIPERSONAL
+  PUT {{Host}}/empresa-unipersonal HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+  {
+    "perjur_codigo": 3,
+    "perjur_nombre": "prueba 1",
+    "perjur_descripcion": "prueba 1"
+  }
+###  ------------------- ACTIVAR - EMPRESA UNIPERSONAL
+  PATCH {{Host}}/empresa-unipersonal/{{perjurCodigo}} HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+###  ------------------- ELIMINAR - EMPRESA UNIPERSONAL
+  DELETE {{Host}}/empresa-unipersonal/{{perjurCodigo}}
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
