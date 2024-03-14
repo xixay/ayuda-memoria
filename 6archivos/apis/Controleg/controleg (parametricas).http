@@ -300,16 +300,16 @@
 #######################################################################################################
 
 #### BUSQUEDA MATRICULA POR NIT
-GET https://interoperabilidad.agetic.gob.bo/fake/fundempresa/v2/nits/303372027/matriculas HTTP/1.1
-Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJyc3ROQnptTUpkeWlhNmVhZ1pDdmdQanhyWXpvUm5RWiIsInVzZXIiOiJtcm9zYWxlcyIsImV4cCI6MTU2NTc5MzYwNywiaWF0IjoxNTU4MDE3NjA3fQ.TFKwEIe4eQj6NMdMKzLQbHgluTTLKgQGnMMQPmw8XiI
+# GET https://interoperabilidad.agetic.gob.bo/fake/fundempresa/v2/nits/303372027/matriculas HTTP/1.1
+# Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJyc3ROQnptTUpkeWlhNmVhZ1pDdmdQanhyWXpvUm5RWiIsInVzZXIiOiJtcm9zYWxlcyIsImV4cCI6MTU2NTc5MzYwNywiaWF0IjoxNTU4MDE3NjA3fQ.TFKwEIe4eQj6NMdMKzLQbHgluTTLKgQGnMMQPmw8XiI
 
-#### BUSQUEDA DATOS POR MATRICULA
-GET https://interoperabilidad.agetic.gob.bo/fake/fundempresa/v2/matriculas/00000001 HTTP/1.1
-Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJyc3ROQnptTUpkeWlhNmVhZ1pDdmdQanhyWXpvUm5RWiIsInVzZXIiOiJtcm9zYWxlcyIsImV4cCI6MTU2NTc5MzYwNywiaWF0IjoxNTU4MDE3NjA3fQ.TFKwEIe4eQj6NMdMKzLQbHgluTTLKgQGnMMQPmw8XiI
+# #### BUSQUEDA DATOS POR MATRICULA
+# GET https://interoperabilidad.agetic.gob.bo/fake/fundempresa/v2/matriculas/00000001 HTTP/1.1
+# Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJyc3ROQnptTUpkeWlhNmVhZ1pDdmdQanhyWXpvUm5RWiIsInVzZXIiOiJtcm9zYWxlcyIsImV4cCI6MTU2NTc5MzYwNywiaWF0IjoxNTU4MDE3NjA3fQ.TFKwEIe4eQj6NMdMKzLQbHgluTTLKgQGnMMQPmw8XiI
 
-#### BUSQUEDA REPRESENTANTES POR MATRICULA
-GET https://interoperabilidad.agetic.gob.bo/fake/fundempresa/v2/matriculas/00000001/representantes HTTP/1.1
-Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJyc3ROQnptTUpkeWlhNmVhZ1pDdmdQanhyWXpvUm5RWiIsInVzZXIiOiJtcm9zYWxlcyIsImV4cCI6MTU2NTc5MzYwNywiaWF0IjoxNTU4MDE3NjA3fQ.TFKwEIe4eQj6NMdMKzLQbHgluTTLKgQGnMMQPmw8XiI
+# #### BUSQUEDA REPRESENTANTES POR MATRICULA
+# GET https://interoperabilidad.agetic.gob.bo/fake/fundempresa/v2/matriculas/00000001/representantes HTTP/1.1
+# Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJyc3ROQnptTUpkeWlhNmVhZ1pDdmdQanhyWXpvUm5RWiIsInVzZXIiOiJtcm9zYWxlcyIsImV4cCI6MTU2NTc5MzYwNywiaWF0IjoxNTU4MDE3NjA3fQ.TFKwEIe4eQj6NMdMKzLQbHgluTTLKgQGnMMQPmw8XiI
 
 #### SEPREC STATUS
 GET  https://interoperabilidad.agetic.gob.bo/fake/seprec/v1/estado HTTP/1.1
@@ -327,6 +327,3 @@ Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJyc3ROQnpt
 GET https://interoperabilidad.agetic.gob.bo/fake/seprec/v1/matriculas/1020329021/representantes HTTP/1.1
 Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJyc3ROQnptTUpkeWlhNmVhZ1pDdmdQanhyWXpvUm5RWiIsInVzZXIiOiJtcm9zYWxlcyIsImV4cCI6MTU2NTc5MzYwNywiaWF0IjoxNTU4MDE3NjA3fQ.TFKwEIe4eQj6NMdMKzLQbHgluTTLKgQGnMMQPmw8XiI
 
-#### SEPREC TODOS NIT
-GET  https://interoperabilidad.agetic.gob.bo/fake/seprec/v1/nits HTTP/1.1
-Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJyc3ROQnptTUpkeWlhNmVhZ1pDdmdQanhyWXpvUm5RWiIsInVzZXIiOiJtcm9zYWxlcyIsImV4cCI6MTU2NTc5MzYwNywiaWF0IjoxNTU4MDE3NjA3fQ.TFKwEIe4eQj6NMdMKzLQbHgluTTLKgQGnMMQPmw8XiI
