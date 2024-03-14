@@ -326,4 +326,8 @@ Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJyc3ROQnpt
 #### SEPREC BUSQUEDA REPRESENTANTES POR MATRICULA
 GET https://interoperabilidad.agetic.gob.bo/fake/seprec/v1/matriculas/1020329021/representantes HTTP/1.1
 Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJyc3ROQnptTUpkeWlhNmVhZ1pDdmdQanhyWXpvUm5RWiIsInVzZXIiOiJtcm9zYWxlcyIsImV4cCI6MTU2NTc5MzYwNywiaWF0IjoxNTU4MDE3NjA3fQ.TFKwEIe4eQj6NMdMKzLQbHgluTTLKgQGnMMQPmw8XiI
-
+### SEPREC
+###  ------------------- OBTENER - SEPREC
+  GET {{Host}}/seprec/1020329021 HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
