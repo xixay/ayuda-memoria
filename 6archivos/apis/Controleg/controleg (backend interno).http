@@ -1,5 +1,5 @@
 ### ESTADO
-###  ------------------- OBTENER - ITEM
+###  -------- OBTENER - ITEM
   GET {{Host}}/estado
 ### AUTH INTERNO
   # @name login_interno
@@ -41,7 +41,7 @@
   @estclaCodigo=1
   @tipresCodigo=3
 ### TIPO PROCESO(Estados Proceso)
-###  ------------------- OBTENER - TIPO PROCESO
+###  -------- OBTENER - TIPO PROCESO
   GET {{Host}}/tipo-proceso/ HTTP/1.1
   # GET {{Host}}/tipo-proceso?tippro_codigo=({{tipproCodigo}}) HTTP/1.1
   # GET {{Host}}/tipo-proceso?tippro_estado=(1) HTTP/1.1
@@ -49,7 +49,7 @@
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 
-###  ------------------- CREAR - TIPO PROCESO
+###  -------- CREAR - TIPO PROCESO
   POST {{Host}}/tipo-proceso HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -59,7 +59,7 @@
     "tippro_descripcion": "prueba 33",
     "usuario":1024
   }
-###  ------------------- MODIFICAR - TIPO PROCESO
+###  -------- MODIFICAR - TIPO PROCESO
   PUT {{Host}}/tipo-proceso HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -70,16 +70,16 @@
     "tippro_descripcion": "prueba 33z",
     "usuario":1024
   }
-###  ------------------- ACTIVAR - TIPO PROCESO
+###  -------- ACTIVAR - TIPO PROCESO
   PATCH {{Host}}/tipo-proceso/55 HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-###  ------------------- ELIMINAR - TIPO PROCESO
+###  -------- ELIMINAR - TIPO PROCESO
   DELETE {{Host}}/tipo-proceso/55
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ### ESTADO ETAPA
-###  ------------------- OBTENER - ESTADO ETAPA
+###  -------- OBTENER - ESTADO ETAPA
   # GET {{Host}}/estado-etapa/ HTTP/1.1
   GET {{Host}}/estado-etapa/ HTTP/1.1
   # GET {{Host}}/estado-etapa?esteta_codigo=({{estetaCodigo}}) HTTP/1.1
@@ -90,7 +90,7 @@
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 
-###  ------------------- CREAR - ESTADO ETAPA
+###  -------- CREAR - ESTADO ETAPA
   POST {{Host}}/estado-etapa HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -102,7 +102,7 @@
     "esteta_descripcion": "prueba 333",
     "usuario":1024
   }
-###  ------------------- MODIFICAR - ESTADO ETAPA
+###  -------- MODIFICAR - ESTADO ETAPA
   PUT {{Host}}/estado-etapa HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -115,16 +115,16 @@
     "esteta_descripcion": "prueba 1",
     "usuario":1024
   }
-###  ------------------- ACTIVAR - ESTADO ETAPA
+###  -------- ACTIVAR - ESTADO ETAPA
   PATCH {{Host}}/estado-etapa/8 HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-###  ------------------- ELIMINAR - ESTADO ETAPA
+###  -------- ELIMINAR - ESTADO ETAPA
   DELETE {{Host}}/estado-etapa/8
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ### ESTADO CONTROL
-###  ------------------- OBTENER - ESTADO CONTROL
+###  -------- OBTENER - ESTADO CONTROL
   GET {{Host}}/estado-control HTTP/1.1
   # GET {{Host}}/estado-control?estcont_codigo=({{estcontCodigo}}) HTTP/1.1
   # GET {{Host}}/estado-control?estcon_nombre=('ACCIONES LEGALES INICIADAS') HTTP/1.1
@@ -132,7 +132,7 @@
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 
-###  ------------------- CREAR - ESTADO CONTROL
+###  -------- CREAR - ESTADO CONTROL
   POST {{Host}}/estado-control HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -142,7 +142,7 @@
     "estcon_descripcion": "prueba 33",
     "usuario":1024
   }
-###  ------------------- MODIFICAR - ESTADO CONTROL
+###  -------- MODIFICAR - ESTADO CONTROL
   PUT {{Host}}/estado-control HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -153,16 +153,16 @@
     "estcon_descripcion": "prueba 111",
     "usuario":1024
   }
-###  ------------------- ACTIVAR - ESTADO CONTROL
+###  -------- ACTIVAR - ESTADO CONTROL
   PATCH {{Host}}/estado-control/16 HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-###  ------------------- ELIMINAR - ESTADO CONTROL
+###  -------- ELIMINAR - ESTADO CONTROL
   DELETE {{Host}}/estado-control/16
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ### ESTADO CLASIFICACION
-###  ------------------- OBTENER - ESTADO CLASIFICACION
+###  -------- OBTENER - ESTADO CLASIFICACION
   GET {{Host}}/estado-clasificacion/ HTTP/1.1
   # GET {{Host}}/estado-clasificacion/ HTTP/1.1
   # GET {{Host}}/estado-clasificacion?estcla_codigo=({{estclaCodigo}}) HTTP/1.1
@@ -177,7 +177,7 @@
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 
-###  ------------------- CREAR - ESTADO CLASIFICACION
+###  -------- CREAR - ESTADO CLASIFICACION
   POST {{Host}}/estado-clasificacion HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -194,7 +194,7 @@
       "esteta_codigo": 5,
       "tippro_codigo": 20
     }
-###  ------------------- MODIFICAR - ESTADO CLASIFICACION
+###  -------- MODIFICAR - ESTADO CLASIFICACION
   PUT {{Host}}/estado-clasificacion HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -206,16 +206,16 @@
     "esteta_codigo": 5,
     "tippro_codigo": 20
   }
-###  ------------------- ACTIVAR - ESTADO CLASIFICACION
+###  -------- ACTIVAR - ESTADO CLASIFICACION
   PATCH {{Host}}/estado-clasificacion/{{estclaCodigo}} HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-###  ------------------- ELIMINAR - ESTADO CLASIFICACION
+###  -------- ELIMINAR - ESTADO CLASIFICACION
   DELETE {{Host}}/estado-clasificacion/{{estclaCodigo}}
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ### TIPO responsabilidad
-###  ------------------- OBTENER - TIPO responsabilidad
+###  -------- OBTENER - TIPO responsabilidad
   GET {{Host}}/tipo-responsabilidad/ HTTP/1.1
   # GET {{Host}}/tipo-responsabilidad?tippro_codigo=({{tipproCodigo}}) HTTP/1.1
   # GET {{Host}}/tipo-responsabilidad?tippro_estado=(1) HTTP/1.1
@@ -223,7 +223,7 @@
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 
-###  ------------------- CREAR - TIPO responsabilidad
+###  -------- CREAR - TIPO responsabilidad
   POST {{Host}}/tipo-responsabilidad HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -232,7 +232,7 @@
     "tipres_nombre": "prueba 1",
     "tipres_descripcion": "prueba 1"
   }
-###  ------------------- MODIFICAR - TIPO responsabilidad
+###  -------- MODIFICAR - TIPO responsabilidad
   PUT {{Host}}/tipo-responsabilidad HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -242,16 +242,16 @@
     "tipres_nombre": "prueba 1",
     "tipres_descripcion": "prueba 1"
   }
-###  ------------------- ACTIVAR - TIPO responsabilidad
+###  -------- ACTIVAR - TIPO responsabilidad
   PATCH {{Host}}/tipo-responsabilidad/{{tipresCodigo}} HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-###  ------------------- ELIMINAR - TIPO responsabilidad
+###  -------- ELIMINAR - TIPO responsabilidad
   DELETE {{Host}}/tipo-responsabilidad/{{tipresCodigo}}
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ### TIPO sancion
-###  ------------------- OBTENER - TIPO sancion
+###  -------- OBTENER - TIPO sancion
   GET {{Host}}/tipo-sancion/ HTTP/1.1
   # GET {{Host}}/tipo-sancion?tippro_codigo=({{tipproCodigo}}) HTTP/1.1
   # GET {{Host}}/tipo-sancion?tippro_estado=(1) HTTP/1.1
@@ -259,7 +259,7 @@
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 
-###  ------------------- CREAR - TIPO sancion
+###  -------- CREAR - TIPO sancion
   POST {{Host}}/tipo-sancion HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -268,7 +268,7 @@
     "tipres_nombre": "prueba 1",
     "tipres_descripcion": "prueba 1"
   }
-###  ------------------- MODIFICAR - TIPO sancion
+###  -------- MODIFICAR - TIPO sancion
   PUT {{Host}}/tipo-sancion HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -278,20 +278,20 @@
     "tipres_nombre": "prueba 1",
     "tipres_descripcion": "prueba 1"
   }
-###  ------------------- ACTIVAR - TIPO sancion
+###  -------- ACTIVAR - TIPO sancion
   PATCH {{Host}}/tipo-sancion/{{tipresCodigo}} HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-###  ------------------- ELIMINAR - TIPO sancion
+###  -------- ELIMINAR - TIPO sancion
   DELETE {{Host}}/tipo-sancion/{{tipresCodigo}}
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ### MONEDA
-###  ------------------- OBTENER - MONEDA
+###  -------- OBTENER - MONEDA
   GET {{Host}}/moneda HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-###  ------------------- CREAR - MONEDA
+###  -------- CREAR - MONEDA
   POST {{Host}}/moneda HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -303,14 +303,14 @@
     "usuario":1024
   }
 ### PERSONA JURIDICA
-###  ------------------- OBTENER - PERSONA JURIDICA
+###  -------- OBTENER - PERSONA JURIDICA
   GET {{Host}}/parametricas/persona-juridica/ HTTP/1.1
   # GET {{Host}}/parametricas/persona-juridica?perjur_nit=('789456321') HTTP/1.1
   # GET {{Host}}/parametricas/persona-juridica?perjur_estado=(1)&flat_last=(true) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 
-###  ------------------- CREAR - PERSONA JURIDICA
+###  -------- CREAR - PERSONA JURIDICA
   POST {{Host}}/persona-juridica HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -325,7 +325,7 @@
     "perjur_correo_electronico": "trabcomp@correo.com",
     "perjur_observacion": "Ninguna Observacion a la vista",
   }
-###  ------------------- MODIFICAR - PERSONA JURIDICA
+###  -------- MODIFICAR - PERSONA JURIDICA
   PUT {{Host}}/persona-juridica HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -335,23 +335,23 @@
     "perjur_nombre": "prueba 1",
     "perjur_descripcion": "prueba 1"
   }
-###  ------------------- ACTIVAR - PERSONA JURIDICA
+###  -------- ACTIVAR - PERSONA JURIDICA
   PATCH {{Host}}/persona-juridica/{{perjurCodigo}} HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-###  ------------------- ELIMINAR - PERSONA JURIDICA
+###  -------- ELIMINAR - PERSONA JURIDICA
   DELETE {{Host}}/persona-juridica/{{perjurCodigo}}
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ### REPRESENTANTE LEGAL
-###  ------------------- OBTENER - REPRESENTANTE LEGAL
+###  -------- OBTENER - REPRESENTANTE LEGAL
   GET {{Host}}/parametricas/representante-legal/ HTTP/1.1
   # GET {{Host}}/parametricas/representante-legal?repleg_estado=(1)&perjur_codigo=(25) HTTP/1.1
   # GET {{Host}}/parametricas/representante-legal?repleg_estado=(1)&flat_last=(true) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 
-###  ------------------- CREAR - REPRESENTANTE LEGAL
+###  -------- CREAR - REPRESENTANTE LEGAL
   POST {{Host}}/representante-legal HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -366,7 +366,7 @@
     "perjur_correo_electronico": "trabcomp@correo.com",
     "perjur_observacion": "Ninguna Observacion a la vista",
   }
-###  ------------------- MODIFICAR - REPRESENTANTE LEGAL
+###  -------- MODIFICAR - REPRESENTANTE LEGAL
   PUT {{Host}}/representante-legal HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -376,16 +376,16 @@
     "perjur_nombre": "prueba 1",
     "perjur_descripcion": "prueba 1"
   }
-###  ------------------- ACTIVAR - REPRESENTANTE LEGAL
+###  -------- ACTIVAR - REPRESENTANTE LEGAL
   PATCH {{Host}}/representante-legal/{{perjurCodigo}} HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-###  ------------------- ELIMINAR - REPRESENTANTE LEGAL
+###  -------- ELIMINAR - REPRESENTANTE LEGAL
   DELETE {{Host}}/representante-legal/{{perjurCodigo}}
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ### PERSONA
-###  ------------------- OBTENER - PERSONA
+###  -------- OBTENER - PERSONA
 #  GET http://172.16.75.100:7014/parametricas/persona/ HTTP/1.1
   GET {{Host}}/parametricas/persona/ HTTP/1.1
   # GET {{Host}}/parametricas/persona/ HTTP/1.1
@@ -395,7 +395,7 @@
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ### EMPRESA UNIPERSONAL
-###  ------------------- OBTENER - EMPRESA UNIPERSONAL
+###  -------- OBTENER - EMPRESA UNIPERSONAL
   GET {{Host}}/parametricas/empresa-unipersonal/ HTTP/1.1
   # GET {{Host}}/parametricas/empresa-unipersonal?empuni_estado=(1) HTTP/1.1
   # GET {{Host}}/parametricas/empresa-unipersonal?empuni_estado=(1)&perjur_codigo=(2)&per_codigo=(2) HTTP/1.1
@@ -403,7 +403,7 @@
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 
-###  ------------------- CREAR - EMPRESA UNIPERSONAL
+###  -------- CREAR - EMPRESA UNIPERSONAL
   POST {{Host}}/empresa-unipersonal HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -413,7 +413,7 @@
     "perjur_codigo": 3,
     "empuni_observacion": "Ninguna Observacion a la vista",
   }
-###  ------------------- MODIFICAR - EMPRESA UNIPERSONAL
+###  -------- MODIFICAR - EMPRESA UNIPERSONAL
   PUT {{Host}}/empresa-unipersonal HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -423,12 +423,26 @@
     "perjur_nombre": "prueba 1",
     "perjur_descripcion": "prueba 1"
   }
-###  ------------------- ACTIVAR - EMPRESA UNIPERSONAL
+###  -------- ACTIVAR - EMPRESA UNIPERSONAL
   PATCH {{Host}}/empresa-unipersonal/{{perjurCodigo}} HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-###  ------------------- ELIMINAR - EMPRESA UNIPERSONAL
+###  -------- ELIMINAR - EMPRESA UNIPERSONAL
   DELETE {{Host}}/empresa-unipersonal/{{perjurCodigo}}
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+### SEPREC
+###  -------- OBTENER - SEPREC POR NIT
+  GET {{Host}}/parametricas/_seprec?codigo_nit=1020329021 HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+###  -------- OBTENER - INFORMACION SEPREC POR NIT
+  GET {{Host}}/parametricas/_seprec/data?codigo_nit=1020329021 HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+###  -------- STATUS - SEPREC
+  GET {{Host}}/parametricas/_seprec/status HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 
