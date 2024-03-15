@@ -1,0 +1,180 @@
+{
+    "client": "Thunder Client",
+    "environmentName": "SISPOA",
+    "dateExported": "2024-03-15T03:10:11.554Z",
+    "version": "1.0",
+    "variables": [
+        {
+            "name": "access_token",
+            "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwZXJfY29kaWdvIjoxNzkxLCJzaXN0ZW1hcyI6W3sic2lzY2dlX2NvZGlnbyI6NSwic2lzY2dlX3NpZ2xhIjoiZGpiciJ9LHsic2lzY2dlX2NvZGlnbyI6OCwic2lzY2dlX3NpZ2xhIjoic2lnYSJ9LHsic2lzY2dlX2NvZGlnbyI6MTQsInNpc2NnZV9zaWdsYSI6InNlZ2lwX3BlcnNvbmEifSx7InNpc2NnZV9jb2RpZ28iOjE2LCJzaXNjZ2Vfc2lnbGEiOiJhdXRlbnRpY2FjaW9uIn0seyJzaXNjZ2VfY29kaWdvIjoyMiwic2lzY2dlX3NpZ2xhIjoiaGlzdG9yaWFzIn0seyJzaXNjZ2VfY29kaWdvIjoyNSwic2lzY2dlX3NpZ2xhIjoidWFpIn0seyJzaXNjZ2VfY29kaWdvIjoyNywic2lzY2dlX3NpZ2xhIjoicG9ydGFsIn0seyJzaXNjZ2VfY29kaWdvIjoyOCwic2lzY2dlX3NpZ2xhIjoic2dzaXIifSx7InNpc2NnZV9jb2RpZ28iOjI5LCJzaXNjZ2Vfc2lnbGEiOiJwb2FpIn0seyJzaXNjZ2VfY29kaWdvIjozMSwic2lzY2dlX3NpZ2xhIjoic2lzdWFpIn0seyJzaXNjZ2VfY29kaWdvIjozMiwic2lzY2dlX3NpZ2xhIjoiY29ycmVzcG9uZGVuY2lhX2ludGVybmEifSx7InNpc2NnZV9jb2RpZ28iOjM0LCJzaXNjZ2Vfc2lnbGEiOiJzaXNwb2EifSx7InNpc2NnZV9jb2RpZ28iOjM3LCJzaXNjZ2Vfc2lnbGEiOiJjb25hdWQifSx7InNpc2NnZV9jb2RpZ28iOjM4LCJzaXNjZ2Vfc2lnbGEiOiJjb250cm9sZWcifV0sInJvbGVzIjpbeyJzaXNjZ2VfY29kaWdvIjoxNCwicm9sX2NvZGlnbyI6NTAsInJvbF9kZXNjcmlwY2lvbiI6IkFETUlOSVNUUkFET1IifSx7InNpc2NnZV9jb2RpZ28iOjE2LCJyb2xfY29kaWdvIjo1Miwicm9sX2Rlc2NyaXBjaW9uIjoiQURNSU5JU1RSQURPUiJ9LHsic2lzY2dlX2NvZGlnbyI6NSwicm9sX2NvZGlnbyI6NTMsInJvbF9kZXNjcmlwY2lvbiI6IlJlaW1wcmVzacOzbiBDZXJ0aWZpY2FkbyB5IEZvcm11bGFyaW8ifSx7InNpc2NnZV9jb2RpZ28iOjIyLCJyb2xfY29kaWdvIjoxMTcsInJvbF9kZXNjcmlwY2lvbiI6IkNvb3JkaW5hZG9yIGRlIEVxdWlwbyJ9LHsic2lzY2dlX2NvZGlnbyI6MjIsInJvbF9jb2RpZ28iOjExNiwicm9sX2Rlc2NyaXBjaW9uIjoiQ29sYWJvcmFkb3IifSx7InNpc2NnZV9jb2RpZ28iOjUsInJvbF9jb2RpZ28iOjEzMiwicm9sX2Rlc2NyaXBjaW9uIjoiRklSTUFET1IifSx7InNpc2NnZV9jb2RpZ28iOjI1LCJyb2xfY29kaWdvIjoxMzcsInJvbF9kZXNjcmlwY2lvbiI6IlNJU1RFTUFTIEFETSBVQUkifSx7InNpc2NnZV9jb2RpZ28iOjgsInJvbF9jb2RpZ28iOjExOCwicm9sX2Rlc2NyaXBjaW9uIjoiR2VyZW50ZSBDRU5DQVAifSx7InNpc2NnZV9jb2RpZ28iOjgsInJvbF9jb2RpZ28iOjExOSwicm9sX2Rlc2NyaXBjaW9uIjoiUHJvZ3JhbWFkb3IgZGUgRXZlbnRvcyJ9LHsic2lzY2dlX2NvZGlnbyI6OCwicm9sX2NvZGlnbyI6MTIwLCJyb2xfZGVzY3JpcGNpb24iOiJBcHJvYmFkb3IgZGUgRXZlbnRvcyJ9LHsic2lzY2dlX2NvZGlnbyI6MjcsInJvbF9jb2RpZ28iOjE0NCwicm9sX2Rlc2NyaXBjaW9uIjoiQURNSU5JU1RSQURPUiBQT1JUQUwifSx7InNpc2NnZV9jb2RpZ28iOjI1LCJyb2xfY29kaWdvIjoxNTAsInJvbF9kZXNjcmlwY2lvbiI6IlJFVklTT1IgVUFJIn0seyJzaXNjZ2VfY29kaWdvIjoyOCwicm9sX2NvZGlnbyI6MTUxLCJyb2xfZGVzY3JpcGNpb24iOiJST0wgQURNSU5JU1RSQURPUiJ9LHsic2lzY2dlX2NvZGlnbyI6MjgsInJvbF9jb2RpZ28iOjE1NCwicm9sX2Rlc2NyaXBjaW9uIjoiUk9MIEFQUk9CQURPUiBTR1NJUiJ9LHsic2lzY2dlX2NvZGlnbyI6MjgsInJvbF9jb2RpZ28iOjE1NSwicm9sX2Rlc2NyaXBjaW9uIjoiRUpFQ1VUT1IgU0dTSVIifSx7InNpc2NnZV9jb2RpZ28iOjI5LCJyb2xfY29kaWdvIjoxNTcsInJvbF9kZXNjcmlwY2lvbiI6IlJPTCBSRUdJU1RSTyBSRUNVUlNPUyBIVU1BTk9TIn0seyJzaXNjZ2VfY29kaWdvIjoyOSwicm9sX2NvZGlnbyI6MTczLCJyb2xfZGVzY3JpcGNpb24iOiJST0wgUExBTklGSUNBQ0nDk04ifSx7InNpc2NnZV9jb2RpZ28iOjM0LCJyb2xfY29kaWdvIjoxODQsInJvbF9kZXNjcmlwY2lvbiI6IkFkbWluaXN0cmFkb3IifSx7InNpc2NnZV9jb2RpZ28iOjM0LCJyb2xfY29kaWdvIjoxOTAsInJvbF9kZXNjcmlwY2lvbiI6Ik9wZXJhZG9yIEZvcm11bGFyaW8ifSx7InNpc2NnZV9jb2RpZ28iOjMxLCJyb2xfY29kaWdvIjoxNzcsInJvbF9kZXNjcmlwY2lvbiI6IkFETUlOSVNUUkFET1IifSx7InNpc2NnZV9jb2RpZ28iOjM3LCJyb2xfY29kaWdvIjoyMDIsInJvbF9kZXNjcmlwY2lvbiI6IkFkbWluaXN0cmFkb3IgQ09OQVVEIn0seyJzaXNjZ2VfY29kaWdvIjozNywicm9sX2NvZGlnbyI6MjA4LCJyb2xfZGVzY3JpcGNpb24iOiJPcGVyYWRvciBGb3JtdWxhcmlvIn0seyJzaXNjZ2VfY29kaWdvIjozMiwicm9sX2NvZGlnbyI6MTc1LCJyb2xfZGVzY3JpcGNpb24iOiJGVU5DSU9OQVJJTyJ9LHsic2lzY2dlX2NvZGlnbyI6MzgsInJvbF9jb2RpZ28iOjIwNSwicm9sX2Rlc2NyaXBjaW9uIjoiT1BFUkFUSVZPIn1dLCJpZCI6ImI0NGU4MGI0LTViNWItNDg4Mi05YmRkLTc4Y2ZmMTI5NDY5YyIsInRpcG8iOiJ1c3VhcmlvIiwiaWF0IjoxNzEwNDcwOTMzLCJleHAiOjE3MTA0OTk3MzMsIm1vbWVudCI6IjIwMjQtMDMtMTRUMjI6NDg6NTMtMDQ6MDAifQ.goxuqPGRlZrgzzWMasVqI61mq6fPfgt-9ryyDE5qlJWWylQYkAJDTcFIzhanCn-wjS-hqlJFxKcq_f4hPdQ0Xg"
+        },
+        {
+            "name": "baseCUrl",
+            "value": "http://localhost:7001"
+        },
+        {
+            "name": "baseUrlSispoa ",
+            "value": "http://localhost:7000"
+        },
+        {
+            "name": "gesCodigo",
+            "value": "3"
+        },
+        {
+            "name": "orgCodigo",
+            "value": "1"
+        },
+        {
+            "name": "aunCodigo",
+            "value": "47"
+        },
+        {
+            "name": "gorEstado",
+            "value": "1,2,3,4,5,6,7,8"
+        },
+        {
+            "name": "flgCodigo",
+            "value": "1"
+        },
+        {
+            "name": "flgEstado",
+            "value": "1"
+        },
+        {
+            "name": "flgFecha",
+            "value": "2023-01-01"
+        },
+        {
+            "name": "aunEstado",
+            "value": "2"
+        },
+        {
+            "name": "actCodigo",
+            "value": "1"
+        },
+        {
+            "name": "peiCodigo",
+            "value": "15"
+        },
+        {
+            "name": "aesCodigo",
+            "value": "46"
+        },
+        {
+            "name": "aegEstado",
+            "value": "1,2"
+        },
+        {
+            "name": "aegCodigo",
+            "value": "120"
+        },
+        {
+            "name": "aegIndicador",
+            "value": "1"
+        },
+        {
+            "name": "tinCodigo",
+            "value": "1"
+        },
+        {
+            "name": "proCodigo",
+            "value": "1"
+        },
+        {
+            "name": "aesNumero",
+            "value": "2"
+        },
+        {
+            "name": "estCodigo",
+            "value": "7"
+        },
+        {
+            "name": "estNumero",
+            "value": "1"
+        },
+        {
+            "name": "oesCodigo",
+            "value": "1"
+        },
+        {
+            "name": "oesPorcentaje",
+            "value": "100"
+        },
+        {
+            "name": "dimCodigo",
+            "value": "1"
+        },
+        {
+            "name": "dimNumero",
+            "value": "111"
+        },
+        {
+            "name": "gesAnio",
+            "value": "2022"
+        },
+        {
+            "name": "arc_archivo_codigo",
+            "value": "2023_255"
+        },
+        {
+            "name": "hash",
+            "value": "161fa3617021400edd6aed60fc2e9eafe000e7e6909549261e32c3ddc820614"
+        },
+        {
+            "name": "orgEstado",
+            "value": "2"
+        },
+        {
+            "name": "arc_archivo_hash",
+            "value": "5983d18578c0b2efc4aa5fe2a693923d654cedf5197143ba83ed647ea2f343a4"
+        },
+        {
+            "name": "citCodigo",
+            "value": "93"
+        },
+        {
+            "name": "iteNumero",
+            "value": "'0001','0003'"
+        },
+        {
+            "name": "gesEstado",
+            "value": "1"
+        },
+        {
+            "name": "lugEstado",
+            "value": "1"
+        },
+        {
+            "name": "lugCodigo",
+            "value": "2"
+        },
+        {
+            "name": "tluCodigo",
+            "value": "2"
+        },
+        {
+            "name": "gorCodigo",
+            "value": "3"
+        },
+        {
+            "name": "tmoCodigo",
+            "value": "2"
+        },
+        {
+            "name": "cimCodigo",
+            "value": "1"
+        },
+        {
+            "name": "aunCodigoEjecutora",
+            "value": "52"
+        },
+        {
+            "name": "poaCodigo",
+            "value": "6"
+        },
+        {
+            "name": "baseContrUrl",
+            "value": "http://localhost:7011"
+        }
+    ]
+}

@@ -1,0 +1,336 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "CONAUD",
+    "dateExported": "2024-03-15T03:10:34.825Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "af692352-c366-4e33-8952-2a21ff2f68c8",
+            "name": "grupo 1",
+            "containerId": "",
+            "created": "2023-08-12T03:34:41.449Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "c34b92dd-33d7-431b-852a-b3af6afd7db8",
+            "name": "fechas libres nacional",
+            "containerId": "af692352-c366-4e33-8952-2a21ff2f68c8",
+            "created": "2023-08-12T03:34:41.450Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "738b8f56-8ce2-429c-870d-a183ea408a06",
+            "name": "externos",
+            "containerId": "af692352-c366-4e33-8952-2a21ff2f68c8",
+            "created": "2023-08-12T03:34:41.451Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "641bebc5-070c-418f-bd99-97b742bfd0f4",
+            "name": "sispoa",
+            "containerId": "af692352-c366-4e33-8952-2a21ff2f68c8",
+            "created": "2023-08-12T03:34:41.452Z",
+            "sortNum": 40000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "1bfd559a-985b-48b2-abb7-749c639b2c0d",
+            "colId": "5bc1bc66-3f5e-483d-b560-3c10c9cdfc27",
+            "containerId": "c34b92dd-33d7-431b-852a-b3af6afd7db8",
+            "name": "PATCH DAR ALTA fechas libres",
+            "url": "{{baseCUrl}}/fechas-libres-gestiones/{{flgCodigo}}",
+            "method": "PATCH",
+            "sortNum": 10000,
+            "created": "2023-08-12T03:34:41.449Z",
+            "modified": "2023-08-12T03:34:41.449Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "47bb3f2f-3053-4aef-a9d5-fcf8a52113cf",
+            "colId": "5bc1bc66-3f5e-483d-b560-3c10c9cdfc27",
+            "containerId": "641bebc5-070c-418f-bd99-97b742bfd0f4",
+            "name": "GET areas unidades",
+            "url": "{{baseUrlSispoa }}/areas-unidades?aun_codigo=({{aunCodigo}})&aun_estado=({{aunEstado}})",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-08-12T03:34:41.454Z",
+            "modified": "2023-08-12T03:34:41.454Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "aun_codigo",
+                    "value": "({{aunCodigo}})",
+                    "isPath": false
+                },
+                {
+                    "name": "aun_estado",
+                    "value": "({{aunEstado}})",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "c281b8cd-f31b-498f-b251-01e9f1acd378",
+            "colId": "5bc1bc66-3f5e-483d-b560-3c10c9cdfc27",
+            "containerId": "738b8f56-8ce2-429c-870d-a183ea408a06",
+            "name": "GET actividad",
+            "url": "{{baseCUrl}}/sispoa/actividades?act_codigo=({{actCodigo}})",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-08-12T03:34:41.457Z",
+            "modified": "2023-08-12T03:34:41.457Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "act_codigo",
+                    "value": "({{actCodigo}})",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "cf3ddc0c-6062-412f-98cd-e5c2528be83a",
+            "colId": "5bc1bc66-3f5e-483d-b560-3c10c9cdfc27",
+            "containerId": "c34b92dd-33d7-431b-852a-b3af6afd7db8",
+            "name": "DELETE DAR BAJA fechas libres",
+            "url": "{{baseCUrl}}/fechas-libres-gestiones/{{flgCodigo}}",
+            "method": "DELETE",
+            "sortNum": 20000,
+            "created": "2023-08-12T03:34:41.450Z",
+            "modified": "2023-08-12T03:34:41.450Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "5fb75ec1-693b-4248-96f4-312428087853",
+            "colId": "5bc1bc66-3f5e-483d-b560-3c10c9cdfc27",
+            "containerId": "641bebc5-070c-418f-bd99-97b742bfd0f4",
+            "name": "GET cargos items",
+            "url": "{{baseUrlSispoa }}/cargos-items?aun_codigo=({{aunCodigo}})",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-08-12T03:34:41.456Z",
+            "modified": "2023-08-12T03:34:41.456Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "aun_codigo",
+                    "value": "({{aunCodigo}})",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "97722131-9faa-4105-8cb2-dc3ac9fd69db",
+            "colId": "5bc1bc66-3f5e-483d-b560-3c10c9cdfc27",
+            "containerId": "738b8f56-8ce2-429c-870d-a183ea408a06",
+            "name": "GET area unidad",
+            "url": "{{baseCUrl}}/sispoa/areas-unidades?aun_codigo=({{aunCodigo}})",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-08-12T03:34:41.458Z",
+            "modified": "2023-08-12T03:34:41.458Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "aun_codigo",
+                    "value": "({{aunCodigo}})",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "1ec5bb3d-4b27-4a7e-9cde-e9357f2e92d6",
+            "colId": "5bc1bc66-3f5e-483d-b560-3c10c9cdfc27",
+            "containerId": "738b8f56-8ce2-429c-870d-a183ea408a06",
+            "name": "GET cargo item horas libres",
+            "url": "{{baseCUrl}}/sispoa/cargos-items?aun_codigo=({{aunCodigo}})",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-08-12T03:34:41.459Z",
+            "modified": "2023-08-12T03:34:41.459Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "aun_codigo",
+                    "value": "({{aunCodigo}})",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "726d2fdb-d1a3-4046-adde-034ebf734683",
+            "colId": "5bc1bc66-3f5e-483d-b560-3c10c9cdfc27",
+            "containerId": "c34b92dd-33d7-431b-852a-b3af6afd7db8",
+            "name": "PUT fechas libres",
+            "url": "{{baseCUrl}}/fechas-libres-gestiones",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2023-08-12T03:34:41.451Z",
+            "modified": "2023-08-12T03:34:41.451Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "flg_codigo",
+                    "value": "('4')",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"flg_codigo\": 12,\n  \"flg_fecha\": \"20/10/2024\",\n  \"flg_descripcion\": \"Fundación de La Paz\",\n  \"ges_codigo\": 4\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "6f66e294-878c-43a8-a959-5eb5e0f92b79",
+            "colId": "5bc1bc66-3f5e-483d-b560-3c10c9cdfc27",
+            "containerId": "c34b92dd-33d7-431b-852a-b3af6afd7db8",
+            "name": "POST fechas libres",
+            "url": "{{baseCUrl}}/fechas-libres-gestiones",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2023-08-12T03:34:41.452Z",
+            "modified": "2023-08-12T03:34:41.452Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"flg_fecha\": \"2/11/2024\",\n  \"flg_descripcion\": \"Dia de lo\",\n  \"ges_codigo\": 4\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "6c14dd88-e63b-4c1e-9788-8767d287304e",
+            "colId": "5bc1bc66-3f5e-483d-b560-3c10c9cdfc27",
+            "containerId": "c34b92dd-33d7-431b-852a-b3af6afd7db8",
+            "name": "GET fechas libres",
+            "url": "{{baseCUrl}}/fechas-libres-gestiones?ges_codigo=({{gesCodigo}})",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2023-08-12T03:34:41.453Z",
+            "modified": "2023-08-12T03:34:41.453Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "flg_codigo",
+                    "value": "({{flgCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "ges_codigo",
+                    "value": "({{gesCodigo}})",
+                    "isPath": false
+                },
+                {
+                    "name": "flg_estado",
+                    "value": "({{flgEstado}})",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "flg_fecha",
+                    "value": "('{{flgFecha}}')",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "a4dbca14-8a76-4425-906e-67ba5289ebcd",
+            "colId": "5bc1bc66-3f5e-483d-b560-3c10c9cdfc27",
+            "containerId": "c34b92dd-33d7-431b-852a-b3af6afd7db8",
+            "name": "GET fechas libres HORAS LIBRES",
+            "url": "{{baseCUrl}}/fechas-libres-gestiones/libres?ges_codigo=({{gesCodigo}})",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2023-08-12T03:34:41.455Z",
+            "modified": "2023-08-12T03:34:41.455Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "flg_codigo",
+                    "value": "({{flgCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "ges_codigo",
+                    "value": "({{gesCodigo}})",
+                    "isPath": false
+                },
+                {
+                    "name": "flg_estado",
+                    "value": "({{flgEstado}})",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "flg_fecha",
+                    "value": "('{{flgFecha}}')",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        }
+    ]
+}

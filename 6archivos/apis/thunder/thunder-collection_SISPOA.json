@@ -1,0 +1,3447 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "SISPOA",
+    "dateExported": "2024-03-15T03:11:21.496Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "4f410bbd-8459-44d6-b274-25d84ab8ff27",
+            "name": "===========>AUTENTICACIÓN",
+            "containerId": "",
+            "created": "2023-10-12T03:47:38.707Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "4aadce5d-baf6-4350-91cc-8a5dad1ad8b1",
+            "name": "ARBOL DE PEI",
+            "containerId": "4ad338a2-cbb9-4d2d-a8df-c8973e3186e7",
+            "created": "2023-10-12T03:47:38.711Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "d64857d5-99bb-4125-8320-2fb86eba40a2",
+            "name": "actividades",
+            "containerId": "477d74bc-17b7-4141-b4ba-4b3b1a92432d",
+            "created": "2023-10-12T03:47:38.725Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "8b0e510d-636b-4399-bd8d-09961e68c0bb",
+            "name": "archivos",
+            "containerId": "e2588cc8-dd09-4c42-b20f-8954651b1aa2",
+            "created": "2023-10-12T03:47:38.726Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "0b54a068-3f6c-4df4-b99b-a8b980f68e10",
+            "name": "areas unidades",
+            "containerId": "63ede3d3-e98a-4b31-b036-023613c8b829",
+            "created": "2023-10-12T03:47:38.733Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "8bb6b4e1-bb0d-4899-9d14-4c6fb7bff7f5",
+            "name": "cargos-items",
+            "containerId": "0ec4a6d3-f3e4-44b7-b5d5-3b5f97317896",
+            "created": "2023-10-12T03:47:38.734Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "05ebd943-55f0-4935-a73e-75361d8f865b",
+            "name": "gestiones",
+            "containerId": "f1921cc5-da2c-4409-9d9f-327fe27c4347",
+            "created": "2023-10-12T03:47:38.737Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "848cdd7f-4cee-41c4-8df0-1158c264c3e0",
+            "name": "cargos items movimineto",
+            "containerId": "93ea246d-5815-4b60-a5af-712fada0fd71",
+            "created": "2023-10-12T03:47:38.761Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "4ad338a2-cbb9-4d2d-a8df-c8973e3186e7",
+            "name": "==========>PEI",
+            "containerId": "",
+            "created": "2023-10-12T03:47:38.708Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "46044518-b74a-4ab4-8ac2-6511d2c09d7c",
+            "name": "programas",
+            "containerId": "f1921cc5-da2c-4409-9d9f-327fe27c4347",
+            "created": "2023-10-12T03:47:38.718Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "96259f38-ccfe-4f20-ae9a-5fdab37508a5",
+            "name": "areas unidades RESPONSABLES ROL",
+            "containerId": "477d74bc-17b7-4141-b4ba-4b3b1a92432d",
+            "created": "2023-10-12T03:47:38.724Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "f2bb2476-9a56-4fd1-8551-e87fe332719b",
+            "name": "reporte areas unidades",
+            "containerId": "e2588cc8-dd09-4c42-b20f-8954651b1aa2",
+            "created": "2023-10-12T03:47:38.728Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "14d933f6-910b-4c66-bae5-8298c8a430f2",
+            "name": "gestiones-organigrama",
+            "containerId": "63ede3d3-e98a-4b31-b036-023613c8b829",
+            "created": "2023-10-12T03:47:38.732Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "e64a8de4-44f9-45cc-ba5a-e94a601f929b",
+            "name": "items",
+            "containerId": "0ec4a6d3-f3e4-44b7-b5d5-3b5f97317896",
+            "created": "2023-10-12T03:47:38.735Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "109786db-0dee-4b90-82bb-2f0ad30aff3d",
+            "name": "========>ESTRUCTURA ORGANIZACIONAL",
+            "containerId": "",
+            "created": "2023-10-12T03:47:38.709Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "a182dd47-c00f-45f3-8169-ab43f4bab087",
+            "name": "categorias programaticas",
+            "containerId": "f1921cc5-da2c-4409-9d9f-327fe27c4347",
+            "created": "2023-10-12T03:47:38.719Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "6b6d3908-3db5-4b91-bcc3-23a63567db8f",
+            "name": "autoridades funcionales",
+            "containerId": "63ede3d3-e98a-4b31-b036-023613c8b829",
+            "created": "2023-10-12T03:47:38.731Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "f98b3e43-7c0e-42e9-8db6-a4a7625e67c6",
+            "name": "cargos",
+            "containerId": "0ec4a6d3-f3e4-44b7-b5d5-3b5f97317896",
+            "created": "2023-10-12T03:47:38.736Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "861d499a-fe71-4694-a2d1-12e33fe5d89f",
+            "name": "pei",
+            "containerId": "4aadce5d-baf6-4350-91cc-8a5dad1ad8b1",
+            "created": "2023-10-12T03:47:38.712Z",
+            "sortNum": 40000
+        },
+        {
+            "_id": "e95b2eab-27d2-45a2-84a4-fcc86f37e163",
+            "name": "PEI ÁREAS",
+            "containerId": "4ad338a2-cbb9-4d2d-a8df-c8973e3186e7",
+            "created": "2023-10-12T03:47:38.720Z",
+            "sortNum": 40000
+        },
+        {
+            "_id": "d73c89c4-1505-4ac7-b7b4-1492ce488632",
+            "name": "niveles areas unidades",
+            "containerId": "f1921cc5-da2c-4409-9d9f-327fe27c4347",
+            "created": "2023-10-12T03:47:38.727Z",
+            "sortNum": 40000
+        },
+        {
+            "_id": "208191ae-e55b-4c62-a70a-2e1a31f82e13",
+            "name": "acciones estrategias gestiones",
+            "containerId": "4aadce5d-baf6-4350-91cc-8a5dad1ad8b1",
+            "created": "2023-10-12T03:47:38.713Z",
+            "sortNum": 50000
+        },
+        {
+            "_id": "1f918848-2bf3-440a-814a-9561d61ef826",
+            "name": "ambitos departamentales",
+            "containerId": "f1921cc5-da2c-4409-9d9f-327fe27c4347",
+            "created": "2023-10-12T03:47:38.729Z",
+            "sortNum": 50000
+        },
+        {
+            "_id": "616870fc-5363-4565-9212-2106a345ccbf",
+            "name": "acciones estrategias",
+            "containerId": "4aadce5d-baf6-4350-91cc-8a5dad1ad8b1",
+            "created": "2023-10-12T03:47:38.714Z",
+            "sortNum": 60000
+        },
+        {
+            "_id": "d07d129d-1c75-4c2c-a670-ae2cc8307e36",
+            "name": "tipos-areas-unidades",
+            "containerId": "f1921cc5-da2c-4409-9d9f-327fe27c4347",
+            "created": "2023-10-12T03:47:38.730Z",
+            "sortNum": 60000
+        },
+        {
+            "_id": "1d86f1fe-ea41-462e-9239-34d33f3a898b",
+            "name": "GET",
+            "containerId": "372daa86-b0e5-4b8f-9b71-2d1df7f103bb",
+            "created": "2023-10-12T03:47:38.760Z",
+            "sortNum": 60000
+        },
+        {
+            "_id": "09cb44f4-10ff-48f2-acc7-14af31e0d901",
+            "name": "PUT",
+            "containerId": "848cdd7f-4cee-41c4-8df0-1158c264c3e0",
+            "created": "2023-10-12T03:47:38.762Z",
+            "sortNum": 60000
+        },
+        {
+            "_id": "4e6bc357-d9e0-4127-9d28-dd8d931fafd2",
+            "name": "tipos-movimientos",
+            "containerId": "f1921cc5-da2c-4409-9d9f-327fe27c4347",
+            "created": "2023-10-12T03:47:38.764Z",
+            "sortNum": 65000
+        },
+        {
+            "_id": "d7ab279a-727a-4466-9617-e91edb818a64",
+            "name": "estrategias",
+            "containerId": "4aadce5d-baf6-4350-91cc-8a5dad1ad8b1",
+            "created": "2023-10-12T03:47:38.715Z",
+            "sortNum": 70000
+        },
+        {
+            "_id": "fb7c6425-e369-487d-8c04-54d077bb10b5",
+            "name": "lugares",
+            "containerId": "f1921cc5-da2c-4409-9d9f-327fe27c4347",
+            "created": "2023-10-12T03:47:38.738Z",
+            "sortNum": 70000
+        },
+        {
+            "_id": "5cbd697e-de3c-4a29-873f-ba0f2ae04798",
+            "name": "objetivos estrategicos",
+            "containerId": "4aadce5d-baf6-4350-91cc-8a5dad1ad8b1",
+            "created": "2023-10-12T03:47:38.716Z",
+            "sortNum": 80000
+        },
+        {
+            "_id": "372daa86-b0e5-4b8f-9b71-2d1df7f103bb",
+            "name": "fechas libres",
+            "containerId": "f1921cc5-da2c-4409-9d9f-327fe27c4347",
+            "created": "2023-10-12T03:47:38.759Z",
+            "sortNum": 80000
+        },
+        {
+            "_id": "4c5c5cb6-1209-452c-8d40-8fa9eb063d82",
+            "name": "estrategias areas",
+            "containerId": "e95b2eab-27d2-45a2-84a4-fcc86f37e163",
+            "created": "2023-10-12T03:47:38.721Z",
+            "sortNum": 100000
+        },
+        {
+            "_id": "2e33cfa9-1f1d-4c60-8a05-3e96d772aeab",
+            "name": "acciones estrategicos areas ",
+            "containerId": "e95b2eab-27d2-45a2-84a4-fcc86f37e163",
+            "created": "2023-10-12T03:47:38.722Z",
+            "sortNum": 110000
+        },
+        {
+            "_id": "75c6c7a1-a26b-4bd8-b21c-29e6a9d837b8",
+            "name": "objetivos estrategicos areas",
+            "containerId": "e95b2eab-27d2-45a2-84a4-fcc86f37e163",
+            "created": "2023-10-12T03:47:38.723Z",
+            "sortNum": 120000
+        },
+        {
+            "_id": "2657e8e4-dc99-40c0-b44d-6ca557452bdc",
+            "name": "dimensiones",
+            "containerId": "4aadce5d-baf6-4350-91cc-8a5dad1ad8b1",
+            "created": "2023-10-12T03:47:38.717Z",
+            "sortNum": 140000
+        },
+        {
+            "_id": "f0dce8e2-e6cb-4ece-8d03-8d4d0d196cf9",
+            "name": "POST",
+            "containerId": "0b54a068-3f6c-4df4-b99b-a8b980f68e10",
+            "created": "2023-10-12T03:47:38.739Z",
+            "sortNum": 170000
+        },
+        {
+            "_id": "2862093e-11d2-4b23-b1ab-60d01b1110c6",
+            "name": "PUT",
+            "containerId": "0b54a068-3f6c-4df4-b99b-a8b980f68e10",
+            "created": "2023-10-12T03:47:38.740Z",
+            "sortNum": 180000
+        },
+        {
+            "_id": "90ad7ec2-c1e1-4abc-8bd7-1efece698738",
+            "name": "GET",
+            "containerId": "0b54a068-3f6c-4df4-b99b-a8b980f68e10",
+            "created": "2023-10-12T03:47:38.741Z",
+            "sortNum": 190000
+        },
+        {
+            "_id": "2f56efec-1d0f-4a4d-acc8-f0f90b4d5375",
+            "name": "PUT",
+            "containerId": "8bb6b4e1-bb0d-4899-9d14-4c6fb7bff7f5",
+            "created": "2023-10-12T03:47:38.742Z",
+            "sortNum": 200000
+        },
+        {
+            "_id": "325bd592-3e82-4301-8257-897fac82e25b",
+            "name": "GET",
+            "containerId": "8bb6b4e1-bb0d-4899-9d14-4c6fb7bff7f5",
+            "created": "2023-10-12T03:47:38.743Z",
+            "sortNum": 210000
+        },
+        {
+            "_id": "d44cf232-2769-49c3-8a3c-7ef0488fe4e2",
+            "name": "PUT",
+            "containerId": "e64a8de4-44f9-45cc-ba5a-e94a601f929b",
+            "created": "2023-10-12T03:47:38.744Z",
+            "sortNum": 220000
+        },
+        {
+            "_id": "38a72ddb-4cc4-4ba8-933c-d8116a079d04",
+            "name": "GET",
+            "containerId": "14d933f6-910b-4c66-bae5-8298c8a430f2",
+            "created": "2023-10-12T03:47:38.746Z",
+            "sortNum": 230000
+        },
+        {
+            "_id": "36921020-061f-439a-b40c-5b7351844de4",
+            "name": "PUT",
+            "containerId": "14d933f6-910b-4c66-bae5-8298c8a430f2",
+            "created": "2023-10-12T03:47:38.747Z",
+            "sortNum": 240000
+        },
+        {
+            "_id": "64765ae6-8291-4169-9dea-083e080f1d75",
+            "name": "PUT",
+            "containerId": "208191ae-e55b-4c62-a70a-2e1a31f82e13",
+            "created": "2023-10-12T03:47:38.748Z",
+            "sortNum": 250000
+        },
+        {
+            "_id": "ca65e9c0-bfd3-44cb-8d52-439720a06e13",
+            "name": "GET",
+            "containerId": "208191ae-e55b-4c62-a70a-2e1a31f82e13",
+            "created": "2023-10-12T03:47:38.749Z",
+            "sortNum": 260000
+        },
+        {
+            "_id": "1002475b-c166-4b0d-a25a-a450f9cc9082",
+            "name": "DEL",
+            "containerId": "616870fc-5363-4565-9212-2106a345ccbf",
+            "created": "2023-10-12T03:47:38.750Z",
+            "sortNum": 270000
+        },
+        {
+            "_id": "e7cd5575-1979-40fd-a1d0-e094ca532b3e",
+            "name": "GET",
+            "containerId": "616870fc-5363-4565-9212-2106a345ccbf",
+            "created": "2023-10-12T03:47:38.751Z",
+            "sortNum": 280000
+        },
+        {
+            "_id": "9125da68-edf5-4cf2-8ff3-43e6392a10ce",
+            "name": "PUT",
+            "containerId": "616870fc-5363-4565-9212-2106a345ccbf",
+            "created": "2023-10-12T03:47:38.752Z",
+            "sortNum": 290000
+        },
+        {
+            "_id": "536f4f97-97a7-4a6e-b126-dde9b0761352",
+            "name": "GET",
+            "containerId": "2657e8e4-dc99-40c0-b44d-6ca557452bdc",
+            "created": "2023-10-12T03:47:38.753Z",
+            "sortNum": 300000
+        },
+        {
+            "_id": "6debd272-8342-4216-89af-5c1227c2006a",
+            "name": "GET",
+            "containerId": "96259f38-ccfe-4f20-ae9a-5fdab37508a5",
+            "created": "2023-10-12T03:47:38.754Z",
+            "sortNum": 310000
+        },
+        {
+            "_id": "f1921cc5-da2c-4409-9d9f-327fe27c4347",
+            "name": "===========>PARAMETRICAS",
+            "containerId": "",
+            "created": "2023-10-12T03:47:38.755Z",
+            "sortNum": 320000
+        },
+        {
+            "_id": "477d74bc-17b7-4141-b4ba-4b3b1a92432d",
+            "name": "APROBADOR FORMULADOR",
+            "containerId": "4ad338a2-cbb9-4d2d-a8df-c8973e3186e7",
+            "created": "2023-10-12T03:47:38.756Z",
+            "sortNum": 330000
+        },
+        {
+            "_id": "e2588cc8-dd09-4c42-b20f-8954651b1aa2",
+            "name": "=================>ARCHIVOS",
+            "containerId": "",
+            "created": "2023-10-12T03:47:38.757Z",
+            "sortNum": 340000
+        },
+        {
+            "_id": "63ede3d3-e98a-4b31-b036-023613c8b829",
+            "name": "ORGANIGRAMAS Y ÁREAS UNIDADES",
+            "containerId": "109786db-0dee-4b90-82bb-2f0ad30aff3d",
+            "created": "2023-10-12T03:47:38.763Z",
+            "sortNum": 370000
+        },
+        {
+            "_id": "0ec4a6d3-f3e4-44b7-b5d5-3b5f97317896",
+            "name": "CARGOS Y ITEMS",
+            "containerId": "109786db-0dee-4b90-82bb-2f0ad30aff3d",
+            "created": "2023-10-12T03:47:38.710Z",
+            "sortNum": 380000
+        },
+        {
+            "_id": "93ea246d-5815-4b60-a5af-712fada0fd71",
+            "name": "CARGOS ITEMS MOVIMIENTOS",
+            "containerId": "109786db-0dee-4b90-82bb-2f0ad30aff3d",
+            "created": "2023-10-12T03:47:38.758Z",
+            "sortNum": 390000
+        },
+        {
+            "_id": "217c74c7-ce6f-421d-98e1-d58ee597b206",
+            "name": "========>ESTRUCTURA POAS",
+            "containerId": "",
+            "created": "2023-10-12T03:47:38.765Z",
+            "sortNum": 400000
+        },
+        {
+            "_id": "15ef54ab-5a67-44ee-80cd-19a56313cd41",
+            "name": "poas",
+            "containerId": "217c74c7-ce6f-421d-98e1-d58ee597b206",
+            "created": "2023-10-12T03:47:38.766Z",
+            "sortNum": 410000
+        },
+        {
+            "_id": "c53da569-29dc-47fa-8020-77ed4374227f",
+            "name": "actividades",
+            "containerId": "217c74c7-ce6f-421d-98e1-d58ee597b206",
+            "created": "2023-10-12T03:47:38.767Z",
+            "sortNum": 420000
+        },
+        {
+            "_id": "9339cbf3-21dc-4664-892a-db6cdc8c9477",
+            "name": "areas unidades responsables",
+            "containerId": "217c74c7-ce6f-421d-98e1-d58ee597b206",
+            "created": "2023-10-12T03:47:38.768Z",
+            "sortNum": 430000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "aee9df56-663f-4c84-bfe5-7337448f2eea",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "861d499a-fe71-4694-a2d1-12e33fe5d89f",
+            "name": "PUT CAMBIO ESTADO PEI",
+            "url": "{{baseUrlSispoa }}/plan-estrategico-institucional/estado/integrado",
+            "method": "PUT",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.708Z",
+            "modified": "2023-10-12T03:47:38.708Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "  {\n    \"pei_codigo\": 4,\n    \"pei_estado\": 2\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "de543e30-b8e9-486a-83be-bca5c5389309",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "64765ae6-8291-4169-9dea-083e080f1d75",
+            "name": "PUT acciones estrategicas gestiones ESTADOS",
+            "url": "{{baseUrlSispoa }}/acciones-estrategicas-gestiones/estado",
+            "method": "PUT",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.710Z",
+            "modified": "2023-10-12T03:47:38.710Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "    {\n      \"aeg_codigo\": 7,\n      \"aeg_estado\": 9\n    }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "d9c1c81a-7da7-4ab2-8dce-7a04ad09ba74",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "ca65e9c0-bfd3-44cb-8d52-439720a06e13",
+            "name": "GET SUMA indicadores acciones estrategicas gestiones",
+            "url": "{{baseUrlSispoa }}/acciones-estrategicas-gestiones/total?aes_codigo=({{aesCodigo}})&aeg_estado=({{aegEstado}})",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.713Z",
+            "modified": "2023-10-12T03:47:38.713Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "aes_codigo",
+                    "value": "({{aesCodigo}})",
+                    "isPath": false
+                },
+                {
+                    "name": "aeg_estado",
+                    "value": "({{aegEstado}})",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "59049b4a-4b48-46a1-bc57-29c2eabe22b8",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "616870fc-5363-4565-9212-2106a345ccbf",
+            "name": "PATCH DAR ALTA acciones estrategicas",
+            "url": "{{baseUrlSispoa }}/acciones-estrategicas/{{aesCodigo}}",
+            "method": "PATCH",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.715Z",
+            "modified": "2023-10-12T03:47:38.715Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "4d62d745-5348-4a28-92d4-7bf0e4dc32fa",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "1002475b-c166-4b0d-a25a-a450f9cc9082",
+            "name": "DELETE DAR BAJA acciones estrategicas",
+            "url": "{{baseUrlSispoa }}/acciones-estrategicas/{{aesCodigo}}",
+            "method": "DELETE",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.716Z",
+            "modified": "2023-10-12T03:47:38.716Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "a790f656-4b54-4de7-903b-aae11c6eeabb",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "9125da68-edf5-4cf2-8ff3-43e6392a10ce",
+            "name": "PUT acciones estrategicas",
+            "url": "{{baseUrlSispoa }}/acciones-estrategicas",
+            "method": "PUT",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.718Z",
+            "modified": "2023-10-12T03:47:38.718Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"aes_codigo\": 4,\n    \"aes_numero\": \"1.4\",\n    \"aes_descripcion\": \"Prueba 4 accion estrategica 4\",\n    \"aes_porcentaje\": 75,\n    \"est_codigo\": 1,\n    \"pro_codigo\": 2,\n    \"aes_indicador\":46,\n    \"tin_codigo\":2\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "efc8d4ae-e979-4aa7-aaf0-947275549289",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "e7cd5575-1979-40fd-a1d0-e094ca532b3e",
+            "name": "GET acciones estrategicas Oliver",
+            "url": "{{baseUrlSispoa }}/acciones-estrategicas/gestiones?pro_codigo=({{proCodigo}})&ges_codigo=({{gesCodigo}})",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.720Z",
+            "modified": "2023-10-12T03:47:38.720Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "pro_codigo",
+                    "value": "({{proCodigo}})",
+                    "isPath": false
+                },
+                {
+                    "name": "ges_codigo",
+                    "value": "({{gesCodigo}})",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "8db496e2-67c4-4528-8a05-daa9f497daea",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "d7ab279a-727a-4466-9617-e91edb818a64",
+            "name": "DELETE estrategias",
+            "url": "{{baseUrlSispoa }}/estrategias/eliminar/{{estCodigo}}",
+            "method": "DELETE",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.723Z",
+            "modified": "2023-10-12T03:47:38.723Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "db08e8ab-802a-4e31-b880-3ec4593c2777",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "5cbd697e-de3c-4a29-873f-ba0f2ae04798",
+            "name": "DELETE objetivos estrategicos",
+            "url": "{{baseUrlSispoa }}/objetivos-estrategicos/eliminar/{{oesCodigo}}",
+            "method": "DELETE",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.727Z",
+            "modified": "2023-10-12T03:47:38.727Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "e9f6094d-6743-42fd-b5d5-eebc3d0636ac",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "2657e8e4-dc99-40c0-b44d-6ca557452bdc",
+            "name": "DELETE dimensiones",
+            "url": "{{baseUrlSispoa }}/dimensiones/eliminar/{{dimCodigo}}",
+            "method": "DELETE",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.731Z",
+            "modified": "2023-10-12T03:47:38.731Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "87291c1f-62c9-4a64-a94e-beb12a106843",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "536f4f97-97a7-4a6e-b126-dde9b0761352",
+            "name": "GET dimensiones Estructura",
+            "url": "{{baseUrlSispoa }}/dimensiones/objetivo-estrategico?pei_codigo=({{peiCodigo}})",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.734Z",
+            "modified": "2023-10-12T03:47:38.734Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "pei_codigo",
+                    "value": "({{peiCodigo}})",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "e73672fb-12f8-49b2-8449-4d55fcb50816",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "46044518-b74a-4ab4-8ac2-6511d2c09d7c",
+            "name": "GET programa",
+            "url": "{{baseUrlSispoa }}/programas/?ges_codigo=({{gesCodigo}})",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.737Z",
+            "modified": "2023-10-12T03:47:38.737Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "ges_codigo",
+                    "value": "({{gesCodigo}})",
+                    "isPath": false
+                },
+                {
+                    "name": "pei_codigo",
+                    "value": "({{peiCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "4b3735b7-be57-4018-96c6-2ebec3933817",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "a182dd47-c00f-45f3-8169-ab43f4bab087",
+            "name": "GET categorias programaticas",
+            "url": "{{baseUrlSispoa }}/categorias-programaticas?ges_anio=('{{gesAnio}}')",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.738Z",
+            "modified": "2023-10-12T03:47:38.738Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "ges_anio",
+                    "value": "('{{gesAnio}}')",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "c2236c4f-6201-43b2-a766-480da02b21fb",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "4c5c5cb6-1209-452c-8d40-8fa9eb063d82",
+            "name": "DELETE estAreas",
+            "url": "{{baseUrlSispoa }}/estrategias-areas/eliminar/{{estCodigo}}",
+            "method": "DELETE",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.741Z",
+            "modified": "2023-10-12T03:47:38.741Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "8b502834-9ef9-4dd7-975d-06558ae522dc",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "2e33cfa9-1f1d-4c60-8a05-3e96d772aeab",
+            "name": "DELETE aEsAreas",
+            "url": "{{baseUrlSispoa }}/acciones-estrategicas-areas/eliminar/{{aesCodigo}}",
+            "method": "DELETE",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.745Z",
+            "modified": "2023-10-12T03:47:38.745Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "e47693cb-0645-4cac-8aa5-fdffcdec22aa",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "75c6c7a1-a26b-4bd8-b21c-29e6a9d837b8",
+            "name": "DELETE objAreas",
+            "url": "{{baseUrlSispoa }}/objetivos-estrategicos-areas/eliminar/{{oesCodigo}}",
+            "method": "DELETE",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.749Z",
+            "modified": "2023-10-12T03:47:38.749Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "a2d24fe6-11e6-4604-9bd5-e82a0d646a82",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "6debd272-8342-4216-89af-5c1227c2006a",
+            "name": "GET area unidad responsables",
+            "url": "{{baseUrlSispoa }}/area-unidad-responsables",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.753Z",
+            "modified": "2023-10-12T03:47:38.753Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "act_codigo",
+                    "value": "({{actCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "330d222d-a251-40eb-ae33-7f477498bc4d",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "d64857d5-99bb-4125-8320-2fb86eba40a2",
+            "name": "GET actividades hrs",
+            "url": "{{baseUrlSispoa }}/actividades-horas-planificadas/cargos?act_codigo=({{actCodigo}})",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.755Z",
+            "modified": "2023-10-12T03:47:38.755Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "act_codigo",
+                    "value": "({{actCodigo}})",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "abced8e1-889a-4848-9bd4-18ccd6799817",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "8b0e510d-636b-4399-bd8d-09961e68c0bb",
+            "name": "GET Archivos",
+            "url": "{{baseUrlSispoa }}/archivos?arc_archivo_codigo=({{arc_archivo_codigo}})&hash=({{hash}})",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.757Z",
+            "modified": "2023-10-12T03:47:38.757Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "arc_archivo_codigo",
+                    "value": "({{arc_archivo_codigo}})",
+                    "isPath": false
+                },
+                {
+                    "name": "hash",
+                    "value": "({{hash}})",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "db565a20-1799-4c55-84d2-4e69c4a98a85",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "d73c89c4-1505-4ac7-b7b4-1492ce488632",
+            "name": "GET niveles areas unidades",
+            "url": "{{baseUrlSispoa }}/niveles-areas-unidades",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.758Z",
+            "modified": "2023-10-12T03:47:38.758Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"aun_codigo\": 1,\n    \"aun_nombre\": \"NEW area_unidades\",\n    \"aun_sigla\": \"GNAF\",\n    \"nau_codigo\": 1,\n    \"aau_codigo\": 1,\n    \"cau_codigo\": 1,\n    \"aun_estado\": 1,\n    \"usuario_registro\": 1791,\n    \"usuario_modificacion\": 1,\n    \"usuario_baja\": 0,\n    \"org_codigo\": 1\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "4653c5d6-2498-4b2f-bfdb-aef7352a8405",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "f2bb2476-9a56-4fd1-8551-e87fe332719b",
+            "name": "POST OBTENER REPORTE AREAS UNIDADES",
+            "url": "{{baseUrlSispoa }}/reporte-jasper/cargos-areas-unidades",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.759Z",
+            "modified": "2023-10-12T03:47:38.759Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"i_bandera_borrador\": 0,\n    \"s_org_codigo\": \"(16)\"\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "f3ea5052-f60c-4e5c-902d-466dd0095d49",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "1f918848-2bf3-440a-814a-9561d61ef826",
+            "name": "PUT ambitos departamentales",
+            "url": "{{baseUrlSispoa }}/ambitos-departamentales",
+            "method": "PUT",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.760Z",
+            "modified": "2023-10-12T03:47:38.760Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"ade_codigo\": 5,\n    \"ade_nombre\": \"GERENCIA NUEVA2\",\n     \"ade_descripcion\": \"Para Areas nuevas\"\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "e6f081cf-bd5e-49a4-af8a-dd43d1fb24a0",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "6b6d3908-3db5-4b91-bcc3-23a63567db8f",
+            "name": "GET autoridades Funcionales",
+            "url": "{{baseUrlSispoa }}/autoridades-funcionales",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.764Z",
+            "modified": "2023-10-12T03:47:38.764Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"aun_codigo\": 1,\n    \"aun_nombre\": \"NEW area_unidades\",\n    \"aun_sigla\": \"GNAF\",\n    \"nau_codigo\": 1,\n    \"aau_codigo\": 1,\n    \"cau_codigo\": 1,\n    \"aun_estado\": 1,\n    \"usuario_registro\": 1791,\n    \"usuario_modificacion\": 1,\n    \"usuario_baja\": 0,\n    \"org_codigo\": 1\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "f9c3d1a5-d464-496c-a142-cc90c89cea22",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "38a72ddb-4cc4-4ba8-933c-d8116a079d04",
+            "name": "GET gestiones-organigrama  ESTADOS VIGENTES Y REVISION",
+            "url": "{{baseUrlSispoa }}/gestiones-organigramas?ges_codigo=({{gesCodigo}})&org_estado=({{orgEstado}})",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.766Z",
+            "modified": "2023-10-12T03:47:38.766Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "ges_anio",
+                    "value": "({{gesAnio}})",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "gor_estado",
+                    "value": "({{gorEstado}})",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "ges_codigo",
+                    "value": "({{gesCodigo}})",
+                    "isPath": false
+                },
+                {
+                    "name": "org_estado",
+                    "value": "({{orgEstado}})",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "9fd25b90-5cfc-4f44-bb0b-0fe8e2ce3809",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "36921020-061f-439a-b40c-5b7351844de4",
+            "name": "PUT gestiones-organigrama  CAMBIAR ESTADOS",
+            "url": "{{baseUrlSispoa }}/gestiones-organigramas/estado",
+            "method": "PUT",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.768Z",
+            "modified": "2023-10-12T03:47:38.768Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "    {\n      \"gor_codigo\": 10,\n      \"gor_estado\": 3\n    }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "bc53c34d-4cde-4b0e-a861-4586871e3dea",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "f0dce8e2-e6cb-4ece-8d03-8d4d0d196cf9",
+            "name": "POST areas unidades",
+            "url": "{{baseUrlSispoa }}/areas-unidades",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.772Z",
+            "modified": "2023-10-12T03:47:38.772Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"aun_codigo\": 13,\n    \"aun_nombre\": \"SubGerenciaOtro\",\n    \"aun_sigla\": \"sgo\",\n    \"nau_codigo\": 1,\n    \"aau_codigo\": 1,\n    \"cau_codigo\": 1,\n    \"aun_estado\": 1,\n    \"usuario_registro\": 1791,\n    \"org_codigo\": 2\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "8410f796-379c-473b-a1fb-ab6c5493879c",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "2862093e-11d2-4b23-b1ab-60d01b1110c6",
+            "name": "PUT areas unidades modifica igual",
+            "url": "{{baseUrlSispoa }}/areas-unidades",
+            "method": "PUT",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.774Z",
+            "modified": "2023-10-12T03:47:38.774Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"aun_codigo\": 1,\n    \"aun_nombre\": \"Despacho Contralor\",\n    \"aun_sigla\": \"DC\",\n    \"nau_codigo\": 2,\n    \"aau_codigo\": 2,\n    \"cau_codigo\": 1,\n    \"aun_estado\": 1,\n    \"org_codigo\": 1\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "e24a8485-2c2e-44e5-8584-9271634e35b7",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "90ad7ec2-c1e1-4abc-8bd7-1efece698738",
+            "name": "GET areas unidades no anidado",
+            "url": "{{baseUrlSispoa }}/areas-unidades?org_codigo=({{orgCodigo}})&aun_estado=({{aunEstado}})",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.776Z",
+            "modified": "2023-10-12T03:47:38.776Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "org_codigo",
+                    "value": "({{orgCodigo}})",
+                    "isPath": false
+                },
+                {
+                    "name": "aun_codigo",
+                    "value": "({{aunCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "aun_estado",
+                    "value": "({{aunEstado}})",
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"aun_codigo\": 1,\n    \"aun_nombre\": \"NEW area_unidades\",\n    \"aun_sigla\": \"GNAF\",\n    \"nau_codigo\": 1,\n    \"aau_codigo\": 1,\n    \"cau_codigo\": 1,\n    \"aun_estado\": 1,\n    \"usuario_registro\": 1791,\n    \"usuario_modificacion\": 1,\n    \"usuario_baja\": 0,\n    \"org_codigo\": 1\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "4051cf33-b93f-4fef-a53a-620f03748943",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "2f56efec-1d0f-4a4d-acc8-f0f90b4d5375",
+            "name": "PUT cargos items CAMBIAR CARGO y ITEM",
+            "url": "{{baseUrlSispoa }}/cargos-items",
+            "method": "PUT",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.790Z",
+            "modified": "2023-10-12T03:47:38.790Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"aun_codigo\": 186,\n  \"car_codigo\": 68,\n  \"cit_codigo\": 201,\n  \"ite_codigo\": 135\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "87531b2d-3af8-44e3-b02a-703e8749a6d6",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "325bd592-3e82-4301-8257-897fac82e25b",
+            "name": "GET cargos-item OBTENER",
+            "url": "{{baseUrlSispoa }}/cargos-items/?cit_codigo=({{citCodigo}})",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.792Z",
+            "modified": "2023-10-12T03:47:38.792Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "cit_codigo",
+                    "value": "({{citCodigo}})",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "58dccc7f-ea72-4df2-b17c-fa53eebbcc17",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "d44cf232-2769-49c3-8a3c-7ef0488fe4e2",
+            "name": "PUT modificar ITEMS",
+            "url": "{{baseUrlSispoa }}/items",
+            "method": "PUT",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.796Z",
+            "modified": "2023-10-12T03:47:38.796Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "    {\n      \"ite_numero\": 4,\n      \"ite_descripcion\": \"desc4sadsadsadsad\",\n      \"ite_codigo\": 50\n    }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "7ff8e8b4-3047-4604-bf4c-d93b7bd1736d",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "f98b3e43-7c0e-42e9-8db6-a4a7625e67c6",
+            "name": "GET obtener cargos",
+            "url": "{{baseUrlSispoa }}/cargos",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.799Z",
+            "modified": "2023-10-12T03:47:38.799Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "f924e8ca-d39a-48f3-ab3f-e6adfe871c30",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "05ebd943-55f0-4935-a73e-75361d8f865b",
+            "name": "GET obtener gestiones",
+            "url": "{{baseUrlSispoa }}/gestiones?ges_estado=({{gesEstado}})",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.802Z",
+            "modified": "2023-10-12T03:47:38.802Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "ges_estado",
+                    "value": "({{gesEstado}})",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "7a2949d3-59a8-4a95-a27e-b492b0d1bef5",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "fb7c6425-e369-487d-8c04-54d077bb10b5",
+            "name": "GET lugares",
+            "url": "{{baseUrlSispoa }}/lugares?lug_codigo=({{lugCodigo}})",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.803Z",
+            "modified": "2023-10-12T03:47:38.803Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "lug_estado",
+                    "value": "({{lugEstado}})",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "lug_codigo",
+                    "value": "({{lugCodigo}})",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "4c955e2e-aef2-4602-b9fe-5756cf678d58",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "372daa86-b0e5-4b8f-9b71-2d1df7f103bb",
+            "name": "PATCH DAR ALTA fechas libres",
+            "url": "{{baseUrlSispoa }}/fechas-libres-gestiones/{{flgCodigo}}",
+            "method": "PATCH",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.806Z",
+            "modified": "2023-10-12T03:47:38.806Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "cf6df773-078d-437f-9a73-e5705c08f9ba",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "1d86f1fe-ea41-462e-9239-34d33f3a898b",
+            "name": "GET fechas libres",
+            "url": "{{baseUrlSispoa }}/fechas-libres-gestiones?ges_codigo=({{gesCodigo}})",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.810Z",
+            "modified": "2023-10-12T03:47:38.810Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "flg_codigo",
+                    "value": "({{flgCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "ges_codigo",
+                    "value": "({{gesCodigo}})",
+                    "isPath": false
+                },
+                {
+                    "name": "flg_estado",
+                    "value": "({{flgEstado}})",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "flg_fecha",
+                    "value": "('{{flgFecha}}')",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "4518bea2-bd0d-4c11-ae27-914ad6e46db1",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "848cdd7f-4cee-41c4-8df0-1158c264c3e0",
+            "name": "PATCH DAR ALTA cargos items movientos",
+            "url": "{{baseUrlSispoa }}/cargos-item-movimientos/{{cimCodigo}}",
+            "method": "PATCH",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.812Z",
+            "modified": "2023-10-12T03:47:38.812Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "88ece6e4-1fc6-487d-8600-9de020966645",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "09cb44f4-10ff-48f2-acc7-14af31e0d901",
+            "name": "PUT cargos items movimientos",
+            "url": "{{baseUrlSispoa }}/cargos-item-movimientos",
+            "method": "PUT",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.814Z",
+            "modified": "2023-10-12T03:47:38.814Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "flg_codigo",
+                    "value": "('4')",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"cim_codigo\": 1,\n  \"cim_descripcion\": \"De Despacho Contralor a Gerencia Capacitacion\",\n  \"aun_codigo\": 46,\n  \"cit_codigo\": 82,\n  \"tmo_codigo\": 1\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "165317d9-9887-480d-ad4d-b64bf1883487",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "15ef54ab-5a67-44ee-80cd-19a56313cd41",
+            "name": "GET poa",
+            "url": "{{baseUrlSispoa }}/poas",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.819Z",
+            "modified": "2023-10-12T03:47:38.819Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "7c00778e-d47d-4779-b8ad-e6ca066fe325",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "c53da569-29dc-47fa-8020-77ed4374227f",
+            "name": "GET actividades OBTENER POR AREA UNIDAD",
+            "url": "{{baseUrlSispoa }}/actividades/area_ejecutora/?aun_codigo_ejecutora=({{aunCodigoEjecutora}})",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.821Z",
+            "modified": "2023-10-12T03:47:38.821Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "aun_codigo_ejecutora",
+                    "value": "({{aunCodigoEjecutora}})",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "1ed2424d-52ef-44a7-985b-1886a36f04ee",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "9339cbf3-21dc-4664-892a-db6cdc8c9477",
+            "name": "GET actividades OBTENER POR AREA UNIDAD para FORMULADOR GERENTE",
+            "url": "{{baseUrlSispoa }}/area-unidad-responsables/formulador-gerente?poa_codigo=({{poaCodigo}})",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-10-12T03:47:38.822Z",
+            "modified": "2023-10-12T03:47:38.822Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "poa_codigo",
+                    "value": "({{poaCodigo}})",
+                    "isPath": false
+                },
+                {
+                    "name": "aun_codigo_ejecutora",
+                    "value": "({{aunCodigoEjecutora}})",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "9b8c1e94-4d4f-42d5-a400-9b87423d837c",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "0b54a068-3f6c-4df4-b99b-a8b980f68e10",
+            "name": "DELETE areas unidades",
+            "url": "{{baseUrlSispoa }}/areas-unidades/{{aunCodigo}}",
+            "method": "DELETE",
+            "sortNum": 19062.5,
+            "created": "2023-10-12T03:47:38.778Z",
+            "modified": "2023-10-12T03:47:38.778Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "b3b83c29-02c5-45ed-9d3f-f5a4f5feedca",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "861d499a-fe71-4694-a2d1-12e33fe5d89f",
+            "name": "GET pei GESTION",
+            "url": "{{baseUrlSispoa }}/plan-estrategico-institucional/",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.709Z",
+            "modified": "2023-10-12T03:47:38.709Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "ges_codigo",
+                    "value": "({{gesCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "pei_codigo",
+                    "value": "({{peiCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "eb6ad52d-b2c1-4182-a1c7-73eddd8d7ffb",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "64765ae6-8291-4169-9dea-083e080f1d75",
+            "name": "PUT acciones estrategicas gestiones",
+            "url": "{{baseUrlSispoa }}/acciones-estrategicas-gestiones",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.711Z",
+            "modified": "2023-10-12T03:47:38.711Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"aeg_codigo\": 1,\n    \"aeg_indicador\": 1,\n    \"tin_codigo\": 1,\n    \"ges_codigo\": 5,\n    \"aes_codigo\": 2\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "2a69a666-34ae-4257-87ad-5d03136817bc",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "ca65e9c0-bfd3-44cb-8d52-439720a06e13",
+            "name": "GET acciones estrategicas gestiones",
+            "url": "{{baseUrlSispoa }}/acciones-estrategicas-gestiones?aes_codigo=({{aesCodigo}})&ges_codigo=({{gesCodigo}})",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.714Z",
+            "modified": "2023-10-12T03:47:38.714Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "aes_codigo",
+                    "value": "({{aesCodigo}})",
+                    "isPath": false
+                },
+                {
+                    "name": "aeg_codigo",
+                    "value": "({{aegCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "aeg_indicador",
+                    "value": "({{aegIndicador}})",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "tin_codigo",
+                    "value": "({{tinCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "ges_codigo",
+                    "value": "({{gesCodigo}})",
+                    "isPath": false
+                },
+                {
+                    "name": "pei_codigo",
+                    "value": "({{peiCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "aeb29762-68e9-423b-932d-3d312605567d",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "1002475b-c166-4b0d-a25a-a450f9cc9082",
+            "name": "DELETE acciones estrategicas",
+            "url": "{{baseUrlSispoa }}/acciones-estrategicas/eliminar/{{aesCodigo}}",
+            "method": "DELETE",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.717Z",
+            "modified": "2023-10-12T03:47:38.717Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "a542b3f9-abcc-4b11-9e89-ccb8db36a6c2",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "9125da68-edf5-4cf2-8ff3-43e6392a10ce",
+            "name": "PUT estrategias ESTADOS",
+            "url": "{{baseUrlSispoa }}/estrategias/estado",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.721Z",
+            "modified": "2023-10-12T03:47:38.721Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "    {\n      \"est_codigo\": 3,\n      \"est_estado\": 2\n    }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "c0993f8b-5402-496c-82d9-a35e6abafc1f",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "e7cd5575-1979-40fd-a1d0-e094ca532b3e",
+            "name": "GET acciones estrategicas",
+            "url": "{{baseUrlSispoa }}/acciones-estrategicas?aes_codigo=({{aesCodigo}})",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.722Z",
+            "modified": "2023-10-12T03:47:38.722Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "aes_numero",
+                    "value": "('{{aesNumero}}')",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "aes_codigo",
+                    "value": "({{aesCodigo}})",
+                    "isPath": false
+                },
+                {
+                    "name": "pro_codigo",
+                    "value": "({{proCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "e017716b-6911-4471-b966-54164b976474",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "d7ab279a-727a-4466-9617-e91edb818a64",
+            "name": "PUT estrategias",
+            "url": "{{baseUrlSispoa }}/estrategias",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.724Z",
+            "modified": "2023-10-12T03:47:38.724Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"est_codigo\": 1,\n    \"oes_codigo\": 1,\n    \"est_numero\": \"1\",\n    \"est_descripcion\": \"estrategia 1\"\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "140dfb49-4abc-40cc-96bb-9710cb10a0b2",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "5cbd697e-de3c-4a29-873f-ba0f2ae04798",
+            "name": "PUT objetivos estrategicos",
+            "url": "{{baseUrlSispoa }}/objetivos-estrategicos",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.728Z",
+            "modified": "2023-10-12T03:47:38.728Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"oes_codigo\": 1,\n    \"dim_codigo\": 1,\n    \"oes_numero\": \"1\",\n    \"oes_descripcion\": \"objetivo estratégico 1\",\n    \"oes_porcentaje\": 50,\n    \"oes_estado\": 1\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "7348e3fd-2ec4-4b79-a531-64f84e559551",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "2657e8e4-dc99-40c0-b44d-6ca557452bdc",
+            "name": "PUT dimensiones",
+            "url": "{{baseUrlSispoa }}/dimensiones",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.732Z",
+            "modified": "2023-10-12T03:47:38.732Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"dim_codigo\": 1,\n    \"dim_numero\": \"112\",\n    \"dim_descripcion\": \"DC\",\n    \"dim_gestion_inicio\": 2025,\n    \"dim_gestion_fin\": 2026,\n    \"dim_estado\": 1\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "0a89a819-1be5-4359-b65e-8033203f8105",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "536f4f97-97a7-4a6e-b126-dde9b0761352",
+            "name": "GET dimensiones",
+            "url": "{{baseUrlSispoa }}/dimensiones",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.736Z",
+            "modified": "2023-10-12T03:47:38.736Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "dim_numero",
+                    "value": "('111')",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "4eb59aaf-c0d8-4aba-bc40-9b1988ee33d0",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "a182dd47-c00f-45f3-8169-ab43f4bab087",
+            "name": "PUT acciones estrategicas",
+            "url": "{{baseUrlSispoa }}/acciones-estrategicas",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.739Z",
+            "modified": "2023-10-12T03:47:38.739Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"aes_codigo\": 1,\n    \"est_codigo\": 1,\n    \"aes_numero\": \"1\",\n    \"aes_descripcion\": \"acciones estrategicas 1\",\n    \"aes_porcentaje\": 50\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "18816cb3-1dae-45cb-b617-fb49077db44a",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "4c5c5cb6-1209-452c-8d40-8fa9eb063d82",
+            "name": "PUT estAreas",
+            "url": "{{baseUrlSispoa }}/estrategias-areas",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.742Z",
+            "modified": "2023-10-12T03:47:38.742Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"dim_codigo\": 1,\n    \"dim_numero\": \"112\",\n    \"dim_descripcion\": \"DC\",\n    \"dim_gestion_inicio\": 2025,\n    \"dim_gestion_fin\": 2026,\n    \"dim_estado\": 1\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "a265d188-d93d-4618-997c-f6f9b7737d97",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "2e33cfa9-1f1d-4c60-8a05-3e96d772aeab",
+            "name": "PUT aEsArea",
+            "url": "{{baseUrlSispoa }}/acciones-estrategicas-areas",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.746Z",
+            "modified": "2023-10-12T03:47:38.746Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"dim_codigo\": 1,\n    \"dim_numero\": \"112\",\n    \"dim_descripcion\": \"DC\",\n    \"dim_gestion_inicio\": 2025,\n    \"dim_gestion_fin\": 2026,\n    \"dim_estado\": 1\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "17b572b7-f194-4a05-87e6-f5e9c6ecc907",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "75c6c7a1-a26b-4bd8-b21c-29e6a9d837b8",
+            "name": "PUT objArea",
+            "url": "{{baseUrlSispoa }}/objetivos-estrategicos-areas",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.750Z",
+            "modified": "2023-10-12T03:47:38.750Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"dim_codigo\": 1,\n    \"dim_numero\": \"112\",\n    \"dim_descripcion\": \"DC\",\n    \"dim_gestion_inicio\": 2025,\n    \"dim_gestion_fin\": 2026,\n    \"dim_estado\": 1\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "ac37bca0-e913-4c0f-82e0-6fdd40198834",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "96259f38-ccfe-4f20-ae9a-5fdab37508a5",
+            "name": "POST area unidad responsables DUPLICADO",
+            "url": "{{baseUrlSispoa }}/area-unidad-responsables/duplicado",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.754Z",
+            "modified": "2023-10-12T03:47:38.754Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"aun_codigo_ejecutora\": 12740,\n  \"rol\":2\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "b6623806-60fd-436e-b9a3-cbdd101f647f",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "d64857d5-99bb-4125-8320-2fb86eba40a2",
+            "name": "POST actividades hrs",
+            "url": "{{baseUrlSispoa }}/ambitos-departamentales",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.756Z",
+            "modified": "2023-10-12T03:47:38.756Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"ade_nombre\": \"GERENCIA NUEVA\",\n    \"ade_descripcion\": \"Para Areas nuevas\",\n    \"usuario_registro\": 1791\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "cd35d45a-00ef-419e-a701-2faaf291523d",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "1f918848-2bf3-440a-814a-9561d61ef826",
+            "name": "POST ambitos departamentales",
+            "url": "{{baseUrlSispoa }}/ambitos-departamentales",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.761Z",
+            "modified": "2023-10-12T03:47:38.761Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"ade_nombre\": \"GERENCIA NUEVA\",\n    \"ade_descripcion\": \"Para Areas nuevas\",\n    \"usuario_registro\": 1791\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "086ebd1f-e3d6-49ce-a9d1-2b04b2775626",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "d07d129d-1c75-4c2c-a670-ae2cc8307e36",
+            "name": "GET tipos areas unidades",
+            "url": "{{baseUrlSispoa }}/tipo-areas-unidades",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.763Z",
+            "modified": "2023-10-12T03:47:38.763Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "99620785-03b9-45e2-b659-edd1b19b779f",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "6b6d3908-3db5-4b91-bcc3-23a63567db8f",
+            "name": "POST autoridades funcionales",
+            "url": "{{baseUrlSispoa }}/autoridades-funcionales",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.765Z",
+            "modified": "2023-10-12T03:47:38.765Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"afu_codigo_supervisor\": 1,\n    \"aun_codigo_supervisor\": 1,\n    \"aun_codigo_supervisado\": 3,\n    \"afu_descripcion\": \"\",\n    \"usuario\": 1791\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "4348305e-112d-4eeb-ace5-765f5b125b1d",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "38a72ddb-4cc4-4ba8-933c-d8116a079d04",
+            "name": "GET gestiones-organigrama  OBTENER PDF  aprobador",
+            "url": "{{baseUrlSispoa }}/archivos?arc_archivo_codigo={{arc_archivo_codigo}}&arc_archivo_hash={{arc_archivo_hash}}",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.767Z",
+            "modified": "2023-10-12T03:47:38.767Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "arc_archivo_codigo",
+                    "value": "{{arc_archivo_codigo}}",
+                    "isPath": false
+                },
+                {
+                    "name": "arc_archivo_hash",
+                    "value": "{{arc_archivo_hash}}",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "949a21ed-9f9e-4446-930b-409db5a3497f",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "36921020-061f-439a-b40c-5b7351844de4",
+            "name": "PUT gestiones-organigrama  ENVIAR OBSERVACION",
+            "url": "{{baseUrlSispoa }}/gestiones-organigramas/global",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.769Z",
+            "modified": "2023-10-12T03:47:38.769Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "    {\n      \"gor_codigo\": 6,\n      \"gor_estado\": 3\n    }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "ad95b42e-59ab-486a-801c-c6abb972873c",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "f0dce8e2-e6cb-4ece-8d03-8d4d0d196cf9",
+            "name": "POST areas unidades Y au Dependencias Y Autoridades Funcionales",
+            "url": "{{baseUrlSispoa }}/areas-unidades/crear",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.773Z",
+            "modified": "2023-10-12T03:47:38.773Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"aun_codigo\": 1,\n    \"aun_nombre\": \"PRUEBA28\",\n    \"aun_sigla\": \"p28\",\n    \"nau_codigo\": 2,\n    \"aau_codigo\": 1,\n    \"cau_codigo\": 2,\n    \"aun_estado\": 1,\n    \"org_codigo\": 1,\n    \"aun_codigo_padre\":1,\n    \"aun_codigo_supervisor\":[2,1]\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "f9d5577c-ad78-4645-834b-d9c96a56de83",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "2862093e-11d2-4b23-b1ab-60d01b1110c6",
+            "name": "PUT areas unidades Y au Dependencias Y Autoridades Funcionales",
+            "url": "{{baseUrlSispoa }}/areas-unidades/actualizar",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.775Z",
+            "modified": "2023-10-12T03:47:38.775Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"aun_codigo\": 33,\n    \"aun_nombre\": \"prueba22z\",\n    \"aun_sigla\": \"p22z\",\n    \"nau_codigo\": 2,\n    \"aau_codigo\": 1,\n    \"cau_codigo\": 1,\n    \"aun_estado\": 1,\n    \"org_codigo\": 2,\n    \"aun_codigo_padre\":1,\n    \"aun_codigo_supervisor\":[2,1],\n    \"usuario\":1791,\n    \"aud_codigo\":7,\n    \"afu_codigo\":1\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "3b83031c-d007-4019-89bb-ff1bd01ed853",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "90ad7ec2-c1e1-4abc-8bd7-1efece698738",
+            "name": "GET areas unidades",
+            "url": "{{baseUrlSispoa }}/areas-unidades/cargos-plano",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.777Z",
+            "modified": "2023-10-12T03:47:38.777Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "org_codigo",
+                    "value": "({{orgCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "aun_codigo",
+                    "value": "({{aunCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"aun_codigo\": 1,\n    \"aun_nombre\": \"NEW area_unidades\",\n    \"aun_sigla\": \"GNAF\",\n    \"nau_codigo\": 1,\n    \"aau_codigo\": 1,\n    \"cau_codigo\": 1,\n    \"aun_estado\": 1,\n    \"usuario_registro\": 1791,\n    \"usuario_modificacion\": 1,\n    \"usuario_baja\": 0,\n    \"org_codigo\": 1\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "c9571d69-a3a9-46fe-86c2-a98ba7cdaf64",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "6debd272-8342-4216-89af-5c1227c2006a",
+            "name": "GET AREA UNIDAD supervision COMPARTIDA",
+            "url": "{{baseUrlSispoa }}/areas-unidades/supervision-compartida?aun_codigo=({{aunCodigo}})&aun_estado=({{aunEstado}})",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.785Z",
+            "modified": "2023-10-12T03:47:38.785Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "aun_codigo",
+                    "value": "({{aunCodigo}})",
+                    "isPath": false
+                },
+                {
+                    "name": "aun_estado",
+                    "value": "({{aunEstado}})",
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"aun_codigo\": 1,\n    \"aun_nombre\": \"NEW area_unidades\",\n    \"aun_sigla\": \"GNAF\",\n    \"nau_codigo\": 1,\n    \"aau_codigo\": 1,\n    \"cau_codigo\": 1,\n    \"aun_estado\": 1,\n    \"usuario_registro\": 1791,\n    \"usuario_modificacion\": 1,\n    \"usuario_baja\": 0,\n    \"org_codigo\": 1\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "77c51e07-9d57-4678-8467-0f61e42fabd1",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "2f56efec-1d0f-4a4d-acc8-f0f90b4d5375",
+            "name": "PUT cargos items ESTADOS",
+            "url": "{{baseUrlSispoa }}/cargos-items/estado",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.791Z",
+            "modified": "2023-10-12T03:47:38.791Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "    {\n      \"cit_codigo\": 69,\n      \"cit_estado\": 1\n    }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "493e92e5-6820-4400-b30c-7fec43d91094",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "325bd592-3e82-4301-8257-897fac82e25b",
+            "name": "GET obtener - cargos con items y dependencia por cargo",
+            "url": "{{baseUrlSispoa }}/cargos-items/estructura?aun_codigo=({{aunCodigo}})&cit_codigo=({{citCodigo}})",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.793Z",
+            "modified": "2023-10-12T03:47:38.793Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "aun_codigo",
+                    "value": "({{aunCodigo}})",
+                    "isPath": false
+                },
+                {
+                    "name": "cit_codigo",
+                    "value": "({{citCodigo}})",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "77af36d1-741d-4ba8-bee5-1acaeca49908",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "d44cf232-2769-49c3-8a3c-7ef0488fe4e2",
+            "name": "PUT items ESTADOS",
+            "url": "{{baseUrlSispoa }}/items/estado",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.797Z",
+            "modified": "2023-10-12T03:47:38.797Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "    {\n      \"ite_codigo\": 29,\n      \"ite_estado\": 5\n    }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "ccb12d5c-75fd-45bd-b392-25f83b7aad3f",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "fb7c6425-e369-487d-8c04-54d077bb10b5",
+            "name": "GET lugares Nacional",
+            "url": "{{baseUrlSispoa }}/lugares/nacional?tlu_codigo=({{tluCodigo}})",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.804Z",
+            "modified": "2023-10-12T03:47:38.804Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "lug_estado",
+                    "value": "({{lugEstado}})",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "lug_codigo",
+                    "value": "({{lugCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "tlu_codigo",
+                    "value": "({{tluCodigo}})",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "afe86a98-165c-43a5-93c5-24cc1315d120",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "372daa86-b0e5-4b8f-9b71-2d1df7f103bb",
+            "name": "DELETE DAR BAJA fechas libres",
+            "url": "{{baseUrlSispoa }}/fechas-libres-gestiones/{{flgCodigo}}",
+            "method": "DELETE",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.807Z",
+            "modified": "2023-10-12T03:47:38.807Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "baea0664-6b1d-4db1-be2c-baccdf33f47c",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "1d86f1fe-ea41-462e-9239-34d33f3a898b",
+            "name": "GET fechas libres HORAS LIBRES",
+            "url": "{{baseUrlSispoa }}/fechas-libres-gestiones/libres?ges_codigo=({{gesCodigo}})",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.811Z",
+            "modified": "2023-10-12T03:47:38.811Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "flg_codigo",
+                    "value": "({{flgCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "ges_codigo",
+                    "value": "({{gesCodigo}})",
+                    "isPath": false
+                },
+                {
+                    "name": "flg_estado",
+                    "value": "({{flgEstado}})",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "flg_fecha",
+                    "value": "('{{flgFecha}}')",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "8ccdb03d-82d9-4ce9-821f-f696df9e099c",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "848cdd7f-4cee-41c4-8df0-1158c264c3e0",
+            "name": "DELETE DAR BAJA cargos items movimientos",
+            "url": "{{baseUrlSispoa }}/cargos-item-movimientos/{{cimCodigo}}",
+            "method": "DELETE",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.813Z",
+            "modified": "2023-10-12T03:47:38.813Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "771d505c-7985-4c3d-bc1d-5eaf6326781d",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "09cb44f4-10ff-48f2-acc7-14af31e0d901",
+            "name": "PUT cargos items movimientos ESTADOS",
+            "url": "{{baseUrlSispoa }}/cargos-item-movimientos/estado",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.817Z",
+            "modified": "2023-10-12T03:47:38.817Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "flg_codigo",
+                    "value": "('4')",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"cim_codigo\": 2,\n    \"cim_estado\": 5\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "81ec3770-d851-4112-8fd6-2f81f2d3240b",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "4e6bc357-d9e0-4127-9d28-dd8d931fafd2",
+            "name": "GET tipos movimientos",
+            "url": "{{baseUrlSispoa }}/tipos-movimientos",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.818Z",
+            "modified": "2023-10-12T03:47:38.818Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "9ccefc24-7ffa-4e6b-8f2d-065b45a99529",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "15ef54ab-5a67-44ee-80cd-19a56313cd41",
+            "name": "GET poa CAMBIA A CONSOLIDADO",
+            "url": "{{baseUrlSispoa }}/poas/consolidado/?ges_codigo=({{gesCodigo}})",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-10-12T03:47:38.820Z",
+            "modified": "2023-10-12T03:47:38.820Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "ges_codigo",
+                    "value": "({{gesCodigo}})",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "8412b0bd-7b6f-4a89-bcc6-000405ccf923",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "208191ae-e55b-4c62-a70a-2e1a31f82e13",
+            "name": "POST acciones estrategicas gestiones",
+            "url": "{{baseUrlSispoa }}/acciones-estrategicas-gestiones",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-10-12T03:47:38.712Z",
+            "modified": "2023-10-12T03:47:38.712Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"aeg_indicador\": 62,\n    \"ges_codigo\": 3,\n    \"aes_codigo\": 2,\n    \"usuario_registro\": 1791\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "55c5df88-d6da-4bc5-b017-f7e7a4f496a3",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "d7ab279a-727a-4466-9617-e91edb818a64",
+            "name": "POST estrategias",
+            "url": "{{baseUrlSispoa }}/estrategias",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-10-12T03:47:38.725Z",
+            "modified": "2023-10-12T03:47:38.725Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"oes_codigo\": 2,\n    \"est_numero\": \"1\",\n    \"est_descripcion\": \"estrategia 2\",\n    \"usuario_registro\": 1791\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "63467c59-9bf4-41c6-9bea-917f693a3972",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "5cbd697e-de3c-4a29-873f-ba0f2ae04798",
+            "name": "POST objetivos estrategicos",
+            "url": "{{baseUrlSispoa }}/objetivos-estrategicos",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-10-12T03:47:38.729Z",
+            "modified": "2023-10-12T03:47:38.729Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"dim_codigo\": 1,\n    \"oes_numero\": \"3\",\n    \"oes_descripcion\": \"objetivo estratégico 3\",\n    \"oes_porcentaje\": 150,\n    \"usuario_registro\": 1791\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "cf0e4c60-a076-49eb-b3ae-01af942d9642",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "2657e8e4-dc99-40c0-b44d-6ca557452bdc",
+            "name": "POST dimensiones",
+            "url": "{{baseUrlSispoa }}/dimensiones",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-10-12T03:47:38.733Z",
+            "modified": "2023-10-12T03:47:38.733Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"dim_numero\": \"111\",\n    \"dim_descripcion\": \"dim descripcion 1\",\n    \"dim_gestion_inicio\": 2023,\n    \"dim_gestion_fin\": 2024,\n    \"usuario_registro\": 1791\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "11af9965-719c-48a6-b1d9-388a591d97c2",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "a182dd47-c00f-45f3-8169-ab43f4bab087",
+            "name": "POST acciones estrategicas",
+            "url": "{{baseUrlSispoa }}/acciones-estrategicas",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-10-12T03:47:38.740Z",
+            "modified": "2023-10-12T03:47:38.740Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"aes_numero\": \"3\",\n    \"aes_descripcion\": \"acciones estrategicas 3\",\n    \"aes_porcentaje\": 75,\n    \"est_codigo\": 1,\n    \"pro_codigo\": 2,\n    \"usuario_registro\": 1791\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "69c0de01-2aea-4712-bb36-f6a69cd89e8e",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "4c5c5cb6-1209-452c-8d40-8fa9eb063d82",
+            "name": "POST estAreas",
+            "url": "{{baseUrlSispoa }}/estrategias-areas",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-10-12T03:47:38.743Z",
+            "modified": "2023-10-12T03:47:38.743Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"est_codigo\": 87,\n    \"aun_codigo\": 12809,\n    \"usuario_registro\": 1791\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "a76af996-7672-4b46-b6bb-1563551030ea",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "2e33cfa9-1f1d-4c60-8a05-3e96d772aeab",
+            "name": "POST aEsArea",
+            "url": "{{baseUrlSispoa }}/acciones-estrategicas-areas",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-10-12T03:47:38.747Z",
+            "modified": "2023-10-12T03:47:38.747Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"aes_codigo\": 106,\n    \"aun_codigo\": 12809,\n    \"usuario_registro\": 1791\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "7ffc93b0-72e6-4eb3-91ea-2c7431e58d01",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "75c6c7a1-a26b-4bd8-b21c-29e6a9d837b8",
+            "name": "POST objArea",
+            "url": "{{baseUrlSispoa }}/objetivos-estrategicos-areas",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-10-12T03:47:38.751Z",
+            "modified": "2023-10-12T03:47:38.751Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"oes_codigo\": 87,\n    \"aun_codigo\": 12809,\n    \"usuario_registro\": 1914\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "8ba521c7-accb-4092-a7a2-581d77d200e9",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "1f918848-2bf3-440a-814a-9561d61ef826",
+            "name": "GET ambitos departamentales",
+            "url": "{{baseUrlSispoa }}/ambitos-departamentales",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-10-12T03:47:38.762Z",
+            "modified": "2023-10-12T03:47:38.762Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "aes_numero",
+                    "value": "('{{aesNumero}}')",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "aes_codigo",
+                    "value": "({{aesCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "7bdc7bef-49cb-4849-85e2-e8328d68ef14",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "38a72ddb-4cc4-4ba8-933c-d8116a079d04",
+            "name": "GET areas unidades funcionales",
+            "url": "{{baseUrlSispoa }}/gestiones-organigramas/areas-unidades-funcionales?ges_codigo=({{gesCodigo}})&aun_codigo=({{aunCodigo}})",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-10-12T03:47:38.770Z",
+            "modified": "2023-10-12T03:47:38.770Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "ges_codigo",
+                    "value": "({{gesCodigo}})",
+                    "isPath": false
+                },
+                {
+                    "name": "aun_codigo",
+                    "value": "({{aunCodigo}})",
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"aun_codigo\": 1,\n    \"aun_nombre\": \"NEW area_unidades\",\n    \"aun_sigla\": \"GNAF\",\n    \"nau_codigo\": 1,\n    \"aau_codigo\": 1,\n    \"cau_codigo\": 1,\n    \"aun_estado\": 1,\n    \"usuario_registro\": 1791,\n    \"usuario_modificacion\": 1,\n    \"usuario_baja\": 0,\n    \"org_codigo\": 1\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "de6973dc-9584-4d72-ba82-1be16d5faa66",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "90ad7ec2-c1e1-4abc-8bd7-1efece698738",
+            "name": "GET areas unidades Con CARGOS",
+            "url": "{{baseUrlSispoa }}/areas-unidades/cargos?org_codigo=({{orgCodigo}})",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-10-12T03:47:38.779Z",
+            "modified": "2023-10-12T03:47:38.779Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "org_codigo",
+                    "value": "({{orgCodigo}})",
+                    "isPath": false
+                },
+                {
+                    "name": "aun_codigo",
+                    "value": "({{aunCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"aun_codigo\": 1,\n    \"aun_nombre\": \"NEW area_unidades\",\n    \"aun_sigla\": \"GNAF\",\n    \"nau_codigo\": 1,\n    \"aau_codigo\": 1,\n    \"cau_codigo\": 1,\n    \"aun_estado\": 1,\n    \"usuario_registro\": 1791,\n    \"usuario_modificacion\": 1,\n    \"usuario_baja\": 0,\n    \"org_codigo\": 1\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "3794a8bf-c6f1-4f76-a3a8-8a9e488d776b",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "2862093e-11d2-4b23-b1ab-60d01b1110c6",
+            "name": "PUT areas unidades MOVER",
+            "url": "{{baseUrlSispoa }}/areas-unidades",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2023-10-12T03:47:38.780Z",
+            "modified": "2023-10-12T03:47:38.780Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"aud_codigo\": 13,\n    \"aun_codigo_padre\": 3\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "892b48b7-014b-4001-a4f1-1b6bf0c431a9",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "325bd592-3e82-4301-8257-897fac82e25b",
+            "name": "GET cargos-item Estructura",
+            "url": "{{baseUrlSispoa }}/cargos-items/estructura?aun_codigo=({{aunCodigo}})",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-10-12T03:47:38.794Z",
+            "modified": "2023-10-12T03:47:38.794Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "aun_codigo",
+                    "value": "({{aunCodigo}})",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "51f88eb0-4fb8-42ca-af26-c30084c1cb4a",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "e64a8de4-44f9-45cc-ba5a-e94a601f929b",
+            "name": "GET para obtener todos items",
+            "url": "{{baseUrlSispoa }}/items?ite_numero=({{iteNumero}})",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-10-12T03:47:38.798Z",
+            "modified": "2023-10-12T03:47:38.798Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "ite_numero",
+                    "value": "({{iteNumero}})",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "eead69ab-2e34-430c-9322-458a67e4fdc0",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "861d499a-fe71-4694-a2d1-12e33fe5d89f",
+            "name": "GET entidades",
+            "url": "{{baseUrlSispoa }}/_entidades?codigo_entidad=592",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-03-15T02:49:30.789Z",
+            "modified": "2024-03-15T03:04:43.096Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "ges_codigo",
+                    "value": "({{gesCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "pei_codigo",
+                    "value": "({{peiCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "codigo_entidad",
+                    "value": "592",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "2aad0fbd-49b1-44ac-9cae-3dfa5b78d50a",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "d7ab279a-727a-4466-9617-e91edb818a64",
+            "name": "GET estrategias",
+            "url": "{{baseUrlSispoa }}/estrategias?est_codigo=({{estCodigo}})",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-10-12T03:47:38.726Z",
+            "modified": "2023-10-12T03:47:38.726Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "est_numero",
+                    "value": "('{{estNumero}}')",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "oes_codigo",
+                    "value": "({{oesCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "est_codigo",
+                    "value": "({{estCodigo}})",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "7bf59c4f-6175-4451-a27c-93d725ee3710",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "5cbd697e-de3c-4a29-873f-ba0f2ae04798",
+            "name": "GET objetivos estrategicos",
+            "url": "{{baseUrlSispoa }}/objetivos-estrategicos",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-10-12T03:47:38.730Z",
+            "modified": "2023-10-12T03:47:38.730Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "oes_porcentaje",
+                    "value": "('{{oesPorcentaje}}')",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "b2f6ab7e-afef-4cb6-9627-14c2ae1a36fc",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "4c5c5cb6-1209-452c-8d40-8fa9eb063d82",
+            "name": "GET estAreas",
+            "url": "{{baseUrlSispoa }}/estrategias-areas?est_codigo=('{{estCodigo}}')",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-10-12T03:47:38.744Z",
+            "modified": "2023-10-12T03:47:38.744Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "est_codigo",
+                    "value": "('{{estCodigo}}')",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "3196d431-3b92-493b-af52-a49a6fc31bf0",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "2e33cfa9-1f1d-4c60-8a05-3e96d772aeab",
+            "name": "GET aEsAreas",
+            "url": "{{baseUrlSispoa }}/acciones-estrategicas-areas?aes_codigo=('{{aesCodigo}}')",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-10-12T03:47:38.748Z",
+            "modified": "2023-10-12T03:47:38.748Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "aes_codigo",
+                    "value": "('{{aesCodigo}}')",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "0067eab0-6598-44e2-b82e-0fe8b46ddb26",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "75c6c7a1-a26b-4bd8-b21c-29e6a9d837b8",
+            "name": "GET objAreas",
+            "url": "{{baseUrlSispoa }}/objetivos-estrategicos-areas?oes_codigo=('{{oesCodigo}}')",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-10-12T03:47:38.752Z",
+            "modified": "2023-10-12T03:47:38.752Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "oes_codigo",
+                    "value": "('{{oesCodigo}}')",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "c83c6f63-97d0-4826-9531-c5937259a578",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "38a72ddb-4cc4-4ba8-933c-d8116a079d04",
+            "name": "GET areas unidades GESCODIGO",
+            "url": "{{baseUrlSispoa }}/gestiones-organigramas/areas-unidades?ges_codigo=({{gesCodigo}})&gor_estado=({{gorEstado}})",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-10-12T03:47:38.771Z",
+            "modified": "2023-10-12T03:47:38.771Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "ges_codigo",
+                    "value": "({{gesCodigo}})",
+                    "isPath": false
+                },
+                {
+                    "name": "gor_estado",
+                    "value": "({{gorEstado}})",
+                    "isPath": false
+                },
+                {
+                    "name": "org_codigo",
+                    "value": "({{orgCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "gor_codigo",
+                    "value": "({{gorCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"aun_codigo\": 1,\n    \"aun_nombre\": \"NEW area_unidades\",\n    \"aun_sigla\": \"GNAF\",\n    \"nau_codigo\": 1,\n    \"aau_codigo\": 1,\n    \"cau_codigo\": 1,\n    \"aun_estado\": 1,\n    \"usuario_registro\": 1791,\n    \"usuario_modificacion\": 1,\n    \"usuario_baja\": 0,\n    \"org_codigo\": 1\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "9879792a-03bb-4dd4-9161-5d142d416468",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "90ad7ec2-c1e1-4abc-8bd7-1efece698738",
+            "name": "GET areas unidades Organizacional texto plano",
+            "url": "{{baseUrlSispoa }}/areas-unidades/areas-organizacional?aun_codigo=({{aunCodigo}})",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-10-12T03:47:38.781Z",
+            "modified": "2023-10-12T03:47:38.781Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "aun_codigo",
+                    "value": "({{aunCodigo}})",
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"aun_codigo\": 1,\n    \"aun_nombre\": \"NEW area_unidades\",\n    \"aun_sigla\": \"GNAF\",\n    \"nau_codigo\": 1,\n    \"aau_codigo\": 1,\n    \"cau_codigo\": 1,\n    \"aun_estado\": 1,\n    \"usuario_registro\": 1791,\n    \"usuario_modificacion\": 1,\n    \"usuario_baja\": 0,\n    \"org_codigo\": 1\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "cd897ed5-49ab-4e11-b756-df18bbe2187a",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "2862093e-11d2-4b23-b1ab-60d01b1110c6",
+            "name": "PUT areas unidades con una directiva demas",
+            "url": "{{baseUrlSispoa }}/areas-unidades",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2023-10-12T03:47:38.786Z",
+            "modified": "2023-10-12T03:47:38.786Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"aun_codigo\": 1,\n    \"aun_nombre\": \"Despacho Contralor\",\n    \"aun_sigla\": \"dc\",\n    \"nau_codigo\": 1,\n    \"aau_codigo\": 2,\n    \"cau_codigo\": 1,\n    \"aun_estado\": 1,\n    \"org_codigo\": 2\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "273ea525-bfb1-4e4d-81f0-2c2dea072dda",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "325bd592-3e82-4301-8257-897fac82e25b",
+            "name": "GET cargos items estructura",
+            "url": "{{baseUrlSispoa }}/cargos-items/estructura?aun_codigo=({{aunCodigo}})",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-10-12T03:47:38.795Z",
+            "modified": "2023-10-12T03:47:38.795Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "aun_codigo",
+                    "value": "({{aunCodigo}})",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "86009d67-7e82-41eb-b385-990d5118e05b",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "372daa86-b0e5-4b8f-9b71-2d1df7f103bb",
+            "name": "PUT fechas libres",
+            "url": "{{baseUrlSispoa }}/fechas-libres-gestiones",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2023-10-12T03:47:38.808Z",
+            "modified": "2023-10-12T03:47:38.808Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "flg_codigo",
+                    "value": "('4')",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"flg_codigo\": 12,\n  \"flg_fecha\": \"20/10/2024\",\n  \"flg_descripcion\": \"Fundación de La Paz\",\n  \"ges_codigo\": 4\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "fba987b3-9836-4923-a63d-085bbd2ceed0",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "616870fc-5363-4565-9212-2106a345ccbf",
+            "name": "POST acciones estrategicas",
+            "url": "{{baseUrlSispoa }}/acciones-estrategicas",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2023-10-12T03:47:38.719Z",
+            "modified": "2023-10-12T03:47:38.719Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"aes_numero\": \"4\",\n    \"aes_descripcion\": \"Prueba 4 accion estrategica 4\",\n    \"aes_porcentaje\": 75,\n    \"est_codigo\": 1,\n    \"pro_codigo\": 2,\n    \"aes_indicador\":46,\n    \"tin_codigo\":2,\n    \"usuario_registro\": 1791\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "913c227f-1aa8-47d8-affa-0bb1f0e73f08",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "90ad7ec2-c1e1-4abc-8bd7-1efece698738",
+            "name": "GET areas unidades con o sin DIRECTIVA",
+            "url": "{{baseUrlSispoa }}/areas-unidades/areas-con-sin-directiva?org_codigo=({{orgCodigo}})",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2023-10-12T03:47:38.782Z",
+            "modified": "2023-10-12T03:47:38.782Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "org_codigo",
+                    "value": "({{orgCodigo}})",
+                    "isPath": false
+                },
+                {
+                    "name": "aun_estado",
+                    "value": "({{aunEstado}})",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"aun_codigo\": 1,\n    \"aun_nombre\": \"NEW area_unidades\",\n    \"aun_sigla\": \"GNAF\",\n    \"nau_codigo\": 1,\n    \"aau_codigo\": 1,\n    \"cau_codigo\": 1,\n    \"aun_estado\": 1,\n    \"usuario_registro\": 1791,\n    \"usuario_modificacion\": 1,\n    \"usuario_baja\": 0,\n    \"org_codigo\": 1\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "c42fd559-3356-4b03-b897-d48c6f9cd3dd",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "2862093e-11d2-4b23-b1ab-60d01b1110c6",
+            "name": "GET areas unidades ARBOL",
+            "url": "{{baseUrlSispoa }}/areas-unidades/estructura?org_codigo=({{orgCodigo}})&aun_codigo=({{aunCodigo}})",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2023-10-12T03:47:38.787Z",
+            "modified": "2023-10-12T03:47:38.787Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "org_codigo",
+                    "value": "({{orgCodigo}})",
+                    "isPath": false
+                },
+                {
+                    "name": "org_estado",
+                    "value": "({{orgEstado}})",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "aun_codigo",
+                    "value": "({{aunCodigo}})",
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"aun_codigo\": 1,\n    \"aun_nombre\": \"NEW area_unidades\",\n    \"aun_sigla\": \"GNAF\",\n    \"nau_codigo\": 1,\n    \"aau_codigo\": 1,\n    \"cau_codigo\": 1,\n    \"aun_estado\": 1,\n    \"usuario_registro\": 1791,\n    \"usuario_modificacion\": 1,\n    \"usuario_baja\": 0,\n    \"org_codigo\": 1\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "1b4b3c74-310c-466c-8d97-0eda484402eb",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "38a72ddb-4cc4-4ba8-933c-d8116a079d04",
+            "name": "GET areas unidades para PEI",
+            "url": "{{baseUrlSispoa }}/gestiones-organigramas/areas-unidades-responsables?ges_codigo=({{gesCodigo}})&gor_estado=({{gorEstado}})",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2023-10-12T03:47:38.805Z",
+            "modified": "2023-10-12T03:47:38.805Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "ges_codigo",
+                    "value": "({{gesCodigo}})",
+                    "isPath": false
+                },
+                {
+                    "name": "gor_estado",
+                    "value": "({{gorEstado}})",
+                    "isPath": false
+                },
+                {
+                    "name": "org_codigo",
+                    "value": "({{orgCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "gor_codigo",
+                    "value": "({{gorCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"aun_codigo\": 1,\n  \"aun_nombre\": \"NEW area_unidades\",\n  \"aun_sigla\": \"GNAF\",\n  \"nau_codigo\": 1,\n  \"aau_codigo\": 1,\n  \"cau_codigo\": 1,\n  \"aun_estado\": 1,\n  \"usuario_registro\": 1791,\n  \"usuario_modificacion\": 1,\n  \"usuario_baja\": 0,\n  \"org_codigo\": 1\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "548eef66-f8d9-4943-9308-037b35bfeca8",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "372daa86-b0e5-4b8f-9b71-2d1df7f103bb",
+            "name": "POST fechas libres",
+            "url": "{{baseUrlSispoa }}/fechas-libres-gestiones",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2023-10-12T03:47:38.809Z",
+            "modified": "2023-10-12T03:47:38.809Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"flg_fecha\": \"1/1/2025\",\n  \"flg_descripcion\": \"Año Nuevo\",\n  \"lug_codigo\": 1,\n  \"ges_codigo\": 5\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "4c7d5ea1-c9ff-4946-96f7-8577b22b8fd0",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "848cdd7f-4cee-41c4-8df0-1158c264c3e0",
+            "name": "POST cargos items movimientos",
+            "url": "{{baseUrlSispoa }}/cargos-item-movimientos",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2023-10-12T03:47:38.815Z",
+            "modified": "2023-10-12T03:47:38.815Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"cim_descripcion\": \"De Despacho Contralor a Gerencia Capacitacion\",\n  \"aun_codigo\": 46,\n  \"cit_codigo\": 83,\n  \"tmo_codigo\": 1\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "ba9a2e3e-dc03-4921-8f04-1da03e863761",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "90ad7ec2-c1e1-4abc-8bd7-1efece698738",
+            "name": "GET areas unidades texto plano",
+            "url": "{{baseUrlSispoa }}/areas-unidades/cargos-plano?org_codigo=({{orgCodigo}})",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2023-10-12T03:47:38.783Z",
+            "modified": "2023-10-12T03:47:38.783Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "org_codigo",
+                    "value": "({{orgCodigo}})",
+                    "isPath": false
+                },
+                {
+                    "name": "aun_codigo",
+                    "value": "({{aunCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"aun_codigo\": 1,\n    \"aun_nombre\": \"NEW area_unidades\",\n    \"aun_sigla\": \"GNAF\",\n    \"nau_codigo\": 1,\n    \"aau_codigo\": 1,\n    \"cau_codigo\": 1,\n    \"aun_estado\": 1,\n    \"usuario_registro\": 1791,\n    \"usuario_modificacion\": 1,\n    \"usuario_baja\": 0,\n    \"org_codigo\": 1\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "9be7905e-d68c-4718-a684-8a54b7e501c4",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "2862093e-11d2-4b23-b1ab-60d01b1110c6",
+            "name": "PUT areas unidades eliminar",
+            "url": "{{baseUrlSispoa }}/areas-unidades/eliminar-area-unidad",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2023-10-12T03:47:38.788Z",
+            "modified": "2023-10-12T03:47:38.788Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"aun_codigo\": 130,\n    \"usuario\":1791,\n    \"aun_estado\":1\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "0998f537-a026-477f-9def-cd72135759ec",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "848cdd7f-4cee-41c4-8df0-1158c264c3e0",
+            "name": "GET cargos items movimientos",
+            "url": "{{baseUrlSispoa }}/cargos-item-movimientos",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2023-10-12T03:47:38.816Z",
+            "modified": "2023-10-12T03:47:38.816Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "aun_codigo",
+                    "value": "({{aunCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "tmo_codigo",
+                    "value": "({{tmoCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "038c1857-83de-4f27-930b-e8e9c3b67513",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "90ad7ec2-c1e1-4abc-8bd7-1efece698738",
+            "name": "GET areas unidades con cargos TEXTO PLANO reportes",
+            "url": "{{baseUrlSispoa }}/areas-unidades/cargos-plano?org_codigo=({{orgCodigo}})",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2023-10-12T03:47:38.784Z",
+            "modified": "2023-10-12T03:47:38.784Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "org_codigo",
+                    "value": "({{orgCodigo}})",
+                    "isPath": false
+                },
+                {
+                    "name": "aun_codigo",
+                    "value": "({{aunCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"aun_codigo\": 1,\n    \"aun_nombre\": \"NEW area_unidades\",\n    \"aun_sigla\": \"GNAF\",\n    \"nau_codigo\": 1,\n    \"aau_codigo\": 1,\n    \"cau_codigo\": 1,\n    \"aun_estado\": 1,\n    \"usuario_registro\": 1791,\n    \"usuario_modificacion\": 1,\n    \"usuario_baja\": 0,\n    \"org_codigo\": 1\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "38620a38-1fc6-4ee8-b841-1a183ab5e104",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "90ad7ec2-c1e1-4abc-8bd7-1efece698738",
+            "name": "GET areas unidades TEXTO PLANO reportes",
+            "url": "{{baseUrlSispoa }}/areas-unidades/areas-plano?org_codigo=({{orgCodigo}})",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2023-10-12T03:47:38.800Z",
+            "modified": "2023-10-12T03:47:38.800Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "org_codigo",
+                    "value": "({{orgCodigo}})",
+                    "isPath": false
+                },
+                {
+                    "name": "aun_codigo",
+                    "value": "({{aunCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"aun_codigo\": 1,\n    \"aun_nombre\": \"NEW area_unidades\",\n    \"aun_sigla\": \"GNAF\",\n    \"nau_codigo\": 1,\n    \"aau_codigo\": 1,\n    \"cau_codigo\": 1,\n    \"aun_estado\": 1,\n    \"usuario_registro\": 1791,\n    \"usuario_modificacion\": 1,\n    \"usuario_baja\": 0,\n    \"org_codigo\": 1\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "1717c7f8-98fc-4abf-bf94-f9c0dd75086c",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "90ad7ec2-c1e1-4abc-8bd7-1efece698738",
+            "name": "GET areas unidades devuelve AREA UNIDAD",
+            "url": "{{baseUrlSispoa }}/areas-unidades/areaUnidad?aun_codigo=({{aunCodigo}})",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2023-10-12T03:47:38.789Z",
+            "modified": "2023-10-12T03:47:38.789Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "aun_codigo",
+                    "value": "({{aunCodigo}})",
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"aun_codigo\": 1,\n    \"aun_nombre\": \"NEW area_unidades\",\n    \"aun_sigla\": \"GNAF\",\n    \"nau_codigo\": 1,\n    \"aau_codigo\": 1,\n    \"cau_codigo\": 1,\n    \"aun_estado\": 1,\n    \"usuario_registro\": 1791,\n    \"usuario_modificacion\": 1,\n    \"usuario_baja\": 0,\n    \"org_codigo\": 1\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "32eff545-eb23-4520-aea4-3baf4d4e5fe3",
+            "colId": "e0a83e15-fbee-461c-b01e-7351985c65f2",
+            "containerId": "4f410bbd-8459-44d6-b274-25d84ab8ff27",
+            "name": "POST autenticarse",
+            "url": "http://172.16.80.32:4002/api/v1/auth_cge",
+            "method": "POST",
+            "sortNum": 90000,
+            "created": "2023-10-12T03:47:38.801Z",
+            "modified": "2023-10-12T03:47:38.801Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"usuario\": \"9212497\",\n    \"password\": \"1234567\"\n  }",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "Content-Type",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "application/json; charset=utf-8"
+                },
+                {
+                    "type": "set-env-var",
+                    "custom": "json.datos.token",
+                    "action": "setto",
+                    "value": "{{access_token}}"
+                }
+            ]
+        }
+    ]
+}

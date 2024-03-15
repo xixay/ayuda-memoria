@@ -1,0 +1,193 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "CONTROLEG",
+    "dateExported": "2024-03-15T03:11:39.862Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "140c2eee-a3a2-46d1-9283-f0fc41a0e32b",
+            "name": "====>PARAMETRICAS",
+            "containerId": "",
+            "created": "2024-02-21T03:19:07.030Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "7d42f948-a2f8-470b-93d0-3e00239efa21",
+            "name": "estado clasificaciones",
+            "containerId": "140c2eee-a3a2-46d1-9283-f0fc41a0e32b",
+            "created": "2024-02-21T03:20:42.871Z",
+            "sortNum": 10000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "63122b8f-182c-4771-a2c6-d83684629f8c",
+            "colId": "50c24c0d-a95e-483e-b686-c5b5b4709028",
+            "containerId": "7d42f948-a2f8-470b-93d0-3e00239efa21",
+            "name": "PATCH DAR ALTA fechas libres",
+            "url": "{{baseCUrl}}/fechas-libres-gestiones/{{flgCodigo}}",
+            "method": "PATCH",
+            "sortNum": 10000,
+            "created": "2024-02-21T03:20:42.873Z",
+            "modified": "2024-02-21T03:20:42.873Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "270f3675-4e98-4ed8-9d20-ce733b803644",
+            "colId": "50c24c0d-a95e-483e-b686-c5b5b4709028",
+            "containerId": "7d42f948-a2f8-470b-93d0-3e00239efa21",
+            "name": "DELETE DAR BAJA fechas libres",
+            "url": "{{baseCUrl}}/fechas-libres-gestiones/{{flgCodigo}}",
+            "method": "DELETE",
+            "sortNum": 20000,
+            "created": "2024-02-21T03:20:42.873Z",
+            "modified": "2024-02-21T03:20:42.873Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "9db7b7e9-de14-4d06-a2cf-89a18308c3e3",
+            "colId": "50c24c0d-a95e-483e-b686-c5b5b4709028",
+            "containerId": "7d42f948-a2f8-470b-93d0-3e00239efa21",
+            "name": "PUT fechas libres",
+            "url": "{{baseCUrl}}/fechas-libres-gestiones",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-02-21T03:20:42.873Z",
+            "modified": "2024-02-21T03:20:42.873Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "flg_codigo",
+                    "value": "('4')",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"flg_codigo\": 12,\n  \"flg_fecha\": \"20/10/2024\",\n  \"flg_descripcion\": \"Fundación de La Paz\",\n  \"ges_codigo\": 4\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "cd2b4e1c-a113-45ae-ba52-ca2d8cf78956",
+            "colId": "50c24c0d-a95e-483e-b686-c5b5b4709028",
+            "containerId": "7d42f948-a2f8-470b-93d0-3e00239efa21",
+            "name": "POST fechas libres",
+            "url": "{{baseCUrl}}/fechas-libres-gestiones",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2024-02-21T03:20:42.873Z",
+            "modified": "2024-02-21T03:20:42.873Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"flg_fecha\": \"2/11/2024\",\n  \"flg_descripcion\": \"Dia de lo\",\n  \"ges_codigo\": 4\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "241f6396-5868-43f7-aa2d-bdf5c202d219",
+            "colId": "50c24c0d-a95e-483e-b686-c5b5b4709028",
+            "containerId": "7d42f948-a2f8-470b-93d0-3e00239efa21",
+            "name": "GET fechas libres",
+            "url": "{{baseContrUrl}}/estado-clasificacion",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2024-02-21T03:20:42.873Z",
+            "modified": "2024-02-21T03:24:52.577Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "flg_codigo",
+                    "value": "({{flgCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "ges_codigo",
+                    "value": "({{gesCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "flg_estado",
+                    "value": "({{flgEstado}})",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "flg_fecha",
+                    "value": "('{{flgFecha}}')",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "0f51979c-06d7-4810-9060-8f70b4607459",
+            "colId": "50c24c0d-a95e-483e-b686-c5b5b4709028",
+            "containerId": "7d42f948-a2f8-470b-93d0-3e00239efa21",
+            "name": "GET estado clasificaciones",
+            "url": "{{baseContrUrl}}/estado-clasificacion",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2024-02-21T03:20:42.873Z",
+            "modified": "2024-02-21T03:44:44.016Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "flg_codigo",
+                    "value": "({{flgCodigo}})",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "flg_estado",
+                    "value": "({{flgEstado}})",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "flg_fecha",
+                    "value": "('{{flgFecha}}')",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{access_token}}"
+            },
+            "tests": []
+        }
+    ]
+}

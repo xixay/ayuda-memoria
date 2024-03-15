@@ -1,0 +1,89 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "post",
+    "dateExported": "2024-03-15T03:10:57.839Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "64e6f5fd-b2fc-413e-82bf-171481ca7a60",
+            "colId": "baf0f853-14cf-4fdc-a87f-622bce014557",
+            "containerId": "",
+            "name": "GET id Post",
+            "url": "http://localhost:3000/api/blogs/1692585575347",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-08-21T03:01:14.311Z",
+            "modified": "2023-08-21T03:01:14.311Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "65a474ab-a972-44b0-a92f-345a509395df",
+            "colId": "baf0f853-14cf-4fdc-a87f-622bce014557",
+            "containerId": "",
+            "name": "DELETE id Post",
+            "url": "http://localhost:3000/api/blogs/1692585575347",
+            "method": "DELETE",
+            "sortNum": 20000,
+            "created": "2023-08-21T03:01:29.263Z",
+            "modified": "2023-08-21T03:01:29.263Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "a12f8d0c-b118-4091-8d2e-6b0d800b45da",
+            "colId": "baf0f853-14cf-4fdc-a87f-622bce014557",
+            "containerId": "",
+            "name": "POST post",
+            "url": "http://localhost:3000/api/blogs",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-08-21T03:01:40.271Z",
+            "modified": "2023-08-21T03:01:40.271Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"My new Post\",\n  \"desc\": \"SAMPLE\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "62de798b-a696-4f15-bb4a-8b82d6ab6e6c",
+            "colId": "baf0f853-14cf-4fdc-a87f-622bce014557",
+            "containerId": "",
+            "name": "PUT post",
+            "url": "http://localhost:3000/api/blogs/1692585575347",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2023-08-21T03:01:53.758Z",
+            "modified": "2023-08-21T03:01:53.758Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"My new Post\",\n  \"desc\": \"SAMPLE\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "1dafd179-3c3e-4832-a013-557bccc2a2b4",
+            "colId": "baf0f853-14cf-4fdc-a87f-622bce014557",
+            "containerId": "",
+            "name": "GET post",
+            "url": "http://localhost:3000/api/blogs",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2023-08-21T03:02:04.766Z",
+            "modified": "2023-08-21T03:02:04.766Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
