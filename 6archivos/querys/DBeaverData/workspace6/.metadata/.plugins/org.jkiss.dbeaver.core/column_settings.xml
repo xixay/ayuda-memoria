@@ -135,24 +135,24 @@
 		<column name="Query abreviada" visible="true" order="6" width="385"/>
 	</item>
 	<item id="Suggestion/NodeList/PostgreTableColumn">
-		<column name="Column Name" visible="true" order="0" width="150"/>
+		<column name="Column Name" visible="true" order="0" width="182"/>
 		<column name="#" visible="true" order="1" width="25"/>
 		<column name="Tipo de datos" visible="true" order="2" width="90"/>
 		<column name="Identidad" visible="true" order="3" width="67"/>
 		<column name="Collation" visible="false" order="4" width="100"/>
 		<column name="No Nulo" visible="false" order="5" width="100"/>
 		<column name="Por defecto" visible="false" order="6" width="332"/>
-		<column name="Comentario" visible="true" order="4" width="322"/>
+		<column name="Comentario" visible="true" order="4" width="302"/>
 	</item>
 	<item id="projectExplorer">
 		<column name="Name" visible="true" order="0" width="178"/>
 		<column name="DataSource" visible="true" order="1" width="126"/>
 	</item>
 	<item id="scriptSelectorViewer">
-		<column name="Script" visible="true" order="0" width="217"/>
-		<column name="Time" visible="true" order="1" width="186"/>
-		<column name="Info" visible="true" order="2" width="41"/>
-		<column name="Folder" visible="true" order="3" width="57"/>
+		<column name="Script" visible="true" order="0" width="218"/>
+		<column name="Time" visible="true" order="1" width="184"/>
+		<column name="Info" visible="true" order="2" width="42"/>
+		<column name="Folder" visible="true" order="3" width="58"/>
 	</item>
 	<item id="sqlFilterValueEditPopup">
 		<column name="Value" visible="true" order="0" width="46"/>
