@@ -1,4 +1,0 @@
-{
-  "driver": "postgresql:postgres-jdbc",
-  "variables": {}
-}

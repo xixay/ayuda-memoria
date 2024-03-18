@@ -1,7 +1,0 @@
-select * from estructura_organizacional.items i 
-
-select *
-from estructura_organizacional.items i
-where i.ite_descripcion like 'NEW ITEM'
-		and i.ite_numero  = '1'
-		and i.usuario_registro = 1;
