@@ -25,13 +25,13 @@ echo "Nombre del hostname: $(get_hostname)"
 case "$(get_hostname)" in
     "OC-SGSIR-PC20L")
         echo "Detectado entorno de trabajo: Trabajo"
-        directorio_origen="$(get_home_directory)/Documentos/richard/ayuda-memoria/6archivos/querys/scripts_dbeaver"
-        directorio_destino="$(get_home_directory)/.local/share/DBeaverData/workspace6/General/Scripts/"
+        directorio_origen="$(get_home_directory)/Documentos/richard/ayuda-memoria/6archivos/querys/DBeaverData"
+        directorio_destino="$(get_home_directory)/.local/share/DBeaverData/"
         ;;
     "nombre-del-equipo-casa")
         echo "Detectado entorno de trabajo: Casa"
-        directorio_origen="/home/xixay/Documentos/Richard/ayuda-memoria/6archivos/querys/scripts_dbeaver"
-        directorio_destino="/home/xixay/snap/dbeaver-ce/288/.local/share/DBeaverData/workspace6/General/Scripts/"
+        directorio_origen="/home/xixay/Documentos/Richard/ayuda-memoria/6archivos/querys/DBeaverData"
+        directorio_destino="/home/xixay/snap/dbeaver-ce/288/.local/share/DBeaverData/"
         ;;
     *)
         echo "Error: No se puede determinar el entorno de trabajo."
