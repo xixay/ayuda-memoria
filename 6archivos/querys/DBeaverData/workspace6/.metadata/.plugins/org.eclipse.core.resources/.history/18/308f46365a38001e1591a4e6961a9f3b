@@ -1,0 +1,216 @@
+--######################### ESTADOS dfads #######################
+select *from pei.plan_estrategico_institucional pei where pei.pei_codigo =15;
+select *from pei.dimensiones d where d.pei_codigo =15;--no tiene
+select *from pei.objetivos_estrategicos oe where oe.dim_codigo in (10,11);--no tiene
+select *from pei.objetivos_estrategicos oe where oe.oes_codigo in (19,20,21,22);--no tiene
+select *from pei.estrategias e where e.oes_codigo in (19,20,21,22);--no tiene
+select *from pei.acciones_estrategicas ae where ae.est_codigo in (14,15,16,17);--no tiene
+
+select *from pei.acciones_estrategicas_gestiones aeg where aeg.aes_codigo in (24);--no tiene
+
+
+--############# organigrama areas unidades##############
+select * from estructura_organizacional.organigramas o where o.org_codigo in (164);
+select * from estructura_organizacional.areas_unidades au where au.org_codigo in (164) and au.aun_estado !=9 ;
+select *from estructura_organizacional.areas_unidades_dependencias aud where aud.aun_codigo_hijo =13850;
+select *from estructura_organizacional.autoridades_funcionales af where af.aun_codigo_supervisado in (13850)
+
+select *from estructura_organizacional.areas_unidades au where au.aun_codigo in (13850);
+--############# organigrama areas unidades y cargos##############
+--encontrar el organigrama
+-- buscar org_codigo el area unidad
+select * from estructura_organizacional.areas_unidades au where au.aun_codigo in (10546);
+-- buscar ese organigrama
+select * from estructura_organizacional.organigramas o where o.org_codigo in (161);
+
+--buscar la gestion de ese organigrama con ese org_codigo
+select
+	*
+from
+	estructura_organizacional.gestiones_organigramas go2
+left join parametricas.gestiones g on
+	g.ges_codigo = go2.ges_codigo
+where
+	go2.org_codigo in (161)
+	and go2.gor_estado in (2);
+--encontrar los cargos para esas areas
+select
+	*
+from
+	estructura_organizacional.cargos_items ci
+left join estructura_organizacional.cargos c on c.car_codigo =ci.car_codigo
+left join estructura_organizacional.items i  on i.ite_codigo  =ci.ite_codigo
+where
+	ci.aun_codigo in (10546);
+
+-- ################## PEI####################
+select *from estructura_organizacional.areas_unidades au ;
+
+select *from pei.plan_estrategico_institucional pei where pei.pei_codigo =10;
+select *from pei.dimensiones d where d.pei_codigo =10;
+--dimension 
+select *from pei.objetivos_estrategicos oe where oe.dim_codigo in (75);
+select *from pei.objetivos_estrategicos oe where oe.oes_codigo in (100);
+select *from pei.estrategias e where e.oes_codigo in (100);
+select *from pei.acciones_estrategicas ae where ae.est_codigo in (94);
+select *from pei.acciones_estrategicas_gestiones aeg where aeg.aes_codigo in (116);
+
+select *from pei.objetivos_estrategicos_areas oea where oea.oes_codigo  in (94);
+select *from pei.estrategias_areas ea where ea.est_codigo in (89);
+select * from pei.acciones_estrategias_areas aea where aea.aes_codigo in (108);
+
+select * from estructura_organizacional.areas_unidades au where au.aun_codigo in (12809,12811);
+
+
+-- ################## PEI TODO####################
+select *from estructura_organizacional.areas_unidades au ;
+
+select *from pei.plan_estrategico_institucional pei where pei.pei_codigo =1;
+select *from pei.dimensiones d where d.pei_codigo =1;
+--dimension 
+select *from pei.objetivos_estrategicos oe where oe.dim_codigo in (1,2);
+select *from pei.objetivos_estrategicos oe where oe.oes_codigo in (1,2,3,4,5,6,7,8,9,10,11,12,13,14);
+select *from pei.estrategias e where e.oes_codigo in (1,2,3,4,5,6,7,8,9,10,11,12,13,14);
+select *from pei.acciones_estrategicas ae where ae.est_codigo in (1,2,3,4,5,6,7,8,9);
+select *from pei.acciones_estrategicas_gestiones aeg where aeg.aes_codigo in (10,11,12,13,14,15);
+--
+select *from pei.objetivos_estrategicos_areas oea where oea.oes_codigo  in (88,89,90,91,92,93,94,95,96,97);
+select *from pei.estrategias_areas ea where ea.est_codigo in (88,89,90,91);
+select * from pei.acciones_estrategias_areas aea where aea.aes_codigo in (107,108,109);
+
+select * from estructura_organizacional.areas_unidades au where au.aun_codigo in (12809,12811);
+
+--###########################################################
+-- lu,ma
+select
+	count(case when extract(dow from generate_series) > 0 and extract(dow from generate_series) < 6 then 1 end) n
+from
+	generate_series('2030-01-01'::date,
+	'2030-12-31'::date,
+	'1 day');
+
+-- muestra todos los dias, menos fines de semana(S,D)
+select
+	(case
+		when extract(dow
+	from
+		generate_series) > 0
+		and extract(dow
+	from
+		generate_series) < 6 then generate_series
+	end )::date
+from
+	generate_series('2023-01-01'::date,--comienzo
+	'2023-12-31'::date,--final
+	'1 day');--salto
+
+	
+-- muestra todos los dias, menos fines de semana(S,D)
+select
+	count((case
+		when extract(dow
+	from
+		generate_series) > 0
+		and extract(dow
+	from
+		generate_series) < 6 then generate_series
+	end )::date) n
+from
+	generate_series('2023-01-01'::date,--comienzo
+	'2023-12-31'::date,--final
+	'1 day');--salto
+	
+--generar series los 365 dias del año
+select generate_series('2023-01-01'::date,--comienzo
+	'2023-12-31'::date,--final
+	'1 day');--salto
+--extrae el año	
+SELECT EXTRACT(YEAR FROM TIMESTAMP '1986-09-26 15:30:00');
+
+SELECT EXTRACT(dow FROM generate_series('2023-01-01'::date,--comienzo
+	'2023-12-31'::date,--final
+	'1 day'));
+-- muestra todos los dias, menos dias laborales(L,M,X,J,V)
+select
+	count ((case
+		when extract(dow
+	from
+		generate_series) < 1
+		or extract(dow
+	from
+		generate_series) > 5 then generate_series
+	end )::date) c
+from
+	generate_series('2024-01-01'::date,--comienzo
+	'2024-12-31'::date,--final
+	'1 day');--salto
+	
+	--############################
+select to_char('21/9/2024'::DATE,'DD/MM/YYYY') as fecha;
+
+UPDATE parametricas.fechas_libres_gestiones
+SET flg_fecha='2021-04-07', flg_descripcion='Viernes santo', ges_codigo=1, flg_estado=1, usuario_registro=1791, usuario_modificacion=1791, usuario_baja=1791, fecha_registro='2023-08-09 12:30:58.607', fecha_modificacion='2023-08-09 12:34:22.591', fecha_baja='2023-08-09 12:32:50.562'
+WHERE flg_codigo=15;
+
+--#####################################################
+select
+	g.ges_anio
+from
+	parametricas.gestiones g
+where
+	g.ges_codigo in (4);
+
+-- ################### Fechas libres gestiones ###################
+select * from parametricas.gestiones g ;
+select * from parametricas.fechas_libres_gestiones flg ;
+select *from parametricas.estados e ;
+
+--############# fechas libres##############
+--encontrar el organigrama
+select *  from estructura_organizacional.organigramas o 
+left join estructura_organizacional.gestiones_organigramas go2 on go2.org_codigo  = o.org_codigo  
+where go2.ges_codigo in (3) and o.org_estado in(2);--consolidado
+--encontrar las horas libres en ese organigrama horas_libres=2048
+--buscar las areas unidades con ese org_codigo
+select
+	*
+from
+	estructura_organizacional.areas_unidades au 
+where
+	au.org_codigo in (11)
+	and au.aun_estado !=9
+order by au.aun_codigo ;
+--buscar para cada area unidad sus cargos items
+select *
+from estructura_organizacional.cargos_items ci 
+left join estructura_organizacional.cargos c on c.car_codigo =ci.car_codigo 
+left join estructura_organizacional.items i on i.ite_codigo =ci.ite_codigo
+where ci.aun_codigo in (211);
+--##########################################
+select * from estructura_organizacional.areas_unidades au where au.org_codigo in (161) and au.aun_estado !=9;
+select * from estructura_organizacional.areas_unidades au where au.aun_codigo in (10546);
+select * from estructura_organizacional.areas_unidades au where au.aun_codigo in (1);
+select * from estructura_organizacional.gestiones_organigramas go2 where go2.org_codigo in (161);
+select * from estructura_organizacional.gestiones_organigramas go2 where go2.gor_estado in (2);
+select *from estructura_organizacional.organigramas o where o.org_codigo in (161);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

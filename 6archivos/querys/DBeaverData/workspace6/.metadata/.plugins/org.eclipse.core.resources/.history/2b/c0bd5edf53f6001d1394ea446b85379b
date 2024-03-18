@@ -1,0 +1,83 @@
+--EJECUTIVO CON HIJOS
+-- SUS AFUS
+select *from estructura_organizacional.autoridades_funcionales af where af.aun_codigo_supervisado =114;--EJECUTIVO
+
+select *from estructura_organizacional.autoridades_funcionales af where af.aun_codigo_supervisado =117;--OPE 1
+INSERT INTO estructura_organizacional.autoridades_funcionales
+(afu_codigo, afu_descripcion, aun_codigo_supervisado, aun_codigo_supervisor, afu_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
+VALUES(184, 'El area/unidad: TSI - TER SIX, esta supervisado funcionalmente por: TSI - TER SIX', 117, 117, 1, 1791, 0, 0, '2023-05-16 17:11:31.837', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
+select *from estructura_organizacional.autoridades_funcionales af where af.aun_codigo_supervisado =166;--OPE 2
+INSERT INTO estructura_organizacional.autoridades_funcionales
+(afu_codigo, afu_descripcion, aun_codigo_supervisado, aun_codigo_supervisor, afu_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
+VALUES(257, 'El area/unidad: TT - TER TEN, esta supervisado funcionalmente por: TF - TER FIVE', 166, 116, 1, 1791, 0, 0, '2023-05-18 17:22:29.419', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
+INSERT INTO estructura_organizacional.autoridades_funcionales
+(afu_codigo, afu_descripcion, aun_codigo_supervisado, aun_codigo_supervisor, afu_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
+VALUES(258, 'El area/unidad: TT - TER TEN, esta supervisado funcionalmente por: SF - SEC FOR', 166, 115, 1, 1791, 0, 0, '2023-05-18 17:22:29.419', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
+INSERT INTO estructura_organizacional.autoridades_funcionales
+(afu_codigo, afu_descripcion, aun_codigo_supervisado, aun_codigo_supervisor, afu_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
+VALUES(259, 'El area/unidad: TT - TER TEN, esta supervisado funcionalmente por: STR - SEC TREE', 166, 114, 1, 1791, 0, 0, '2023-05-18 17:22:29.419', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
+INSERT INTO estructura_organizacional.autoridades_funcionales
+(afu_codigo, afu_descripcion, aun_codigo_supervisado, aun_codigo_supervisor, afu_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
+VALUES(260, 'El area/unidad: TT - TER TEN, esta supervisado funcionalmente por: ST - SEC TWO', 166, 113, 1, 1791, 0, 0, '2023-05-18 17:22:29.419', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
+
+--SUS DEP
+select *from estructura_organizacional.areas_unidades_dependencias aud where aud.aun_codigo_hijo =114;--RELACION EJE-DIR
+INSERT INTO estructura_organizacional.areas_unidades_dependencias
+(aud_codigo, aud_descripcion, aun_codigo_padre, aun_codigo_hijo, aud_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
+VALUES(96, 'El area/unidad: STR - SEC TREE, depende de: PO - PRINC ONE', 112, 114, 1, 1791, 0, 0, '2023-05-16 17:07:34.112', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
+
+select *from estructura_organizacional.areas_unidades_dependencias aud where aud.aun_codigo_padre =114;--RELACION OP-EJE
+INSERT INTO estructura_organizacional.areas_unidades_dependencias
+(aud_codigo, aud_descripcion, aun_codigo_padre, aun_codigo_hijo, aud_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
+VALUES(99, 'El area/unidad: TSI - TER SIX, depende de: STR - SEC TREE', 114, 117, 1, 1791, 0, 0, '2023-05-16 17:11:31.837', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
+INSERT INTO estructura_organizacional.areas_unidades_dependencias
+(aud_codigo, aud_descripcion, aun_codigo_padre, aun_codigo_hijo, aud_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
+VALUES(145, 'El area/unidad: TT - TER TEN, depende de: STR - SEC TREE', 114, 166, 1, 1791, 0, 0, '2023-05-18 17:22:29.419', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
+
+-- AREA UNIDAD
+select *from estructura_organizacional.areas_unidades au where au.aun_codigo =114;--ejecutivo
+INSERT INTO estructura_organizacional.areas_unidades
+(aun_codigo, aun_nombre, aun_numero, aun_sigla, org_codigo, nau_codigo, aau_codigo, cau_codigo, aun_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja, aun_copia, tau_codigo, ade_codigo)
+VALUES(114, 'SEC TREE', '3', 'STR', 18, 2, 2, 3, 1, 1791, 0, 0, '2023-05-16 17:07:34.112', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000', false, 2, 0);
+
+select *from estructura_organizacional.areas_unidades au where au.aun_codigo =117;--operativo 1
+INSERT INTO estructura_organizacional.areas_unidades
+(aun_codigo, aun_nombre, aun_numero, aun_sigla, org_codigo, nau_codigo, aau_codigo, cau_codigo, aun_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja, aun_copia, tau_codigo, ade_codigo)
+VALUES(117, 'TER SIX', '6', 'TSI', 18, 3, 2, 3, 1, 1791, 0, 0, '2023-05-16 17:11:31.837', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000', false, 2, 0);
+
+select *from estructura_organizacional.areas_unidades au where au.aun_codigo =166;--operativo 1
+INSERT INTO estructura_organizacional.areas_unidades
+(aun_codigo, aun_nombre, aun_numero, aun_sigla, org_codigo, nau_codigo, aau_codigo, cau_codigo, aun_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja, aun_copia, tau_codigo, ade_codigo)
+VALUES(166, 'TER TEN', '10', 'TT', 18, 3, 2, 3, 1, 1791, 0, 0, '2023-05-18 17:22:29.419', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000', false, 2, 1);
+
+--select *from estructura_organizacional.cargos_items ci where ci.aun_codigo =114;
+--select * from estructura_organizacional.autoridades_funcionales af where af.aun_codigo_supervisado =114;
+
+--EJECUTIVO SIN HIJOS
+--select *from estructura_organizacional.autoridades_funcionales af where af.aun_codigo_supervisado =76;
+-- SUS AFUS
+select *from estructura_organizacional.autoridades_funcionales af where af.aun_codigo_supervisado =114;--EJECUTIVO
+INSERT INTO estructura_organizacional.autoridades_funcionales
+(afu_codigo, afu_descripcion, aun_codigo_supervisado, aun_codigo_supervisor, afu_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
+VALUES(181, 'El area/unidad: STR - SEC TREE, esta supervisado funcionalmente por: STR - SEC TREE', 114, 114, 1, 1791, 0, 0, '2023-05-16 17:07:34.112', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
+
+--SUS DEP
+select *from estructura_organizacional.areas_unidades_dependencias aud where aud.aun_codigo_hijo =114;--RELACION EJE-DIR
+INSERT INTO estructura_organizacional.areas_unidades_dependencias
+(aud_codigo, aud_descripcion, aun_codigo_padre, aun_codigo_hijo, aud_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
+VALUES(96, 'El area/unidad: STR - SEC TREE, depende de: PO - PRINC ONE', 112, 114, 1, 1791, 0, 0, '2023-05-16 17:07:34.112', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
+
+-- AREA UNIDAD
+select *from estructura_organizacional.areas_unidades au where au.aun_codigo =165;--ejecutivo
+
+
+
+INSERT INTO estructura_organizacional.areas_unidades
+(aun_codigo, aun_nombre, aun_numero, aun_sigla, org_codigo, nau_codigo, aau_codigo, cau_codigo, aun_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja, aun_copia, tau_codigo, ade_codigo)
+VALUES(114, 'SEC TREE', '3', 'STR', 18, 2, 2, 3, 1, 1791, 0, 0, '2023-05-16 17:07:34.112', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000', false, 2, 0);
+
+
+select * from estructura_organizacional.cargos_items ci where ci.aun_codigo =117;
+select * from estructura_organizacional.areas_unidades au ;
+select *from estructura_organizacional.areas_unidades_dependencias aud;
+select *from estructura_organizacional.autoridades_funcionales af ;

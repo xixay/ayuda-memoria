@@ -1,0 +1,28 @@
+DELETE FROM estructura_organizacional.cargos_item_dependencias
+WHERE cid_codigo=11;
+
+
+select *
+from estructura_organizacional.organigramas o ;
+
+select *
+from estructura_organizacional.areas_unidades au 
+where au.aun_codigo =19;
+
+select *
+from estructura_organizacional.cargos_items ci
+where ci.cit_codigo =2
+
+select *
+from estructura_organizacional.cargos_item_dependencias cid;
+
+select *
+from estructura_organizacional.items i ;
+
+INSERT INTO parametricas.gestiones
+(ges_codigo, ges_anio, ges_descripcion, ges_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
+VALUES(7, 2027, 'Gestión 2027', 1, 1791, 0, 0, '2023-04-27 11:58:07.050', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
+
+
+
+

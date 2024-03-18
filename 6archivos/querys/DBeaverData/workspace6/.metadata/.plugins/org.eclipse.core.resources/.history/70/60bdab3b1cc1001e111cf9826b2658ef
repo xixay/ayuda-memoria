@@ -1,0 +1,20 @@
+--###  ------------------- PROCESO
+	select * from controleg.proceso p 
+;
+
+select * from parametricas.moneda m 
+--###  ------------------- 
+select * from parametricas.tipo_proceso tp 
+select * from parametricas.estado_tipo_proceso etp 
+select * from parametricas.estado_proceso ep 
+;
+
+INSERT INTO parametricas.estado_tipo_proceso
+(esttippro_codigo, tippro_codigo, estpro_codigo, esttippro_estado, usuario_registro, fecha_registro, usuario_modificacion, fecha_modificacion, usuario_baja, fecha_baja)
+VALUES(1, 1, 1, 1, 0, CURRENT_TIMESTAMP::timestamp without time zone, 0, CURRENT_TIMESTAMP::timestamp without time zone, 0, CURRENT_TIMESTAMP::timestamp without time zone),(2, 1, 2, 1, 0, CURRENT_TIMESTAMP::timestamp without time zone, 0, CURRENT_TIMESTAMP::timestamp without time zone, 0, CURRENT_TIMESTAMP::timestamp without time zone),(3, 1, 3, 1, 0, CURRENT_TIMESTAMP::timestamp without time zone, 0, CURRENT_TIMESTAMP::timestamp without time zone, 0, CURRENT_TIMESTAMP::timestamp without time zone),(4, 1, 4, 1, 0, CURRENT_TIMESTAMP::timestamp without time zone, 0, CURRENT_TIMESTAMP::timestamp without time zone, 0, CURRENT_TIMESTAMP::timestamp without time zone),(5, 1, 5, 1, 0, CURRENT_TIMESTAMP::timestamp without time zone, 0, CURRENT_TIMESTAMP::timestamp without time zone, 0, CURRENT_TIMESTAMP::timestamp without time zone),(6, 1, 6, 1, 0, CURRENT_TIMESTAMP::timestamp without time zone, 0, CURRENT_TIMESTAMP::timestamp without time zone, 0, CURRENT_TIMESTAMP::timestamp without time zone),(7, 1, 7, 1, 0, CURRENT_TIMESTAMP::timestamp without time zone, 0, CURRENT_TIMESTAMP::timestamp without time zone, 0, CURRENT_TIMESTAMP::timestamp without time zone);
+
+INSERT INTO parametricas.estado_tipo_proceso
+(esttippro_codigo, tippro_codigo, estpro_codigo, esttippro_estado, usuario_registro, fecha_registro, usuario_modificacion, fecha_modificacion, usuario_baja, fecha_baja)
+VALUES(8, 18, 55, 1, 0, CURRENT_TIMESTAMP::timestamp without time zone, 0, CURRENT_TIMESTAMP::timestamp without time zone, 0, CURRENT_TIMESTAMP::timestamp without time zone),(9, 18, 56, 1, 0, CURRENT_TIMESTAMP::timestamp without time zone, 0, CURRENT_TIMESTAMP::timestamp without time zone, 0, CURRENT_TIMESTAMP::timestamp without time zone),(10, 18, 57, 1, 0, CURRENT_TIMESTAMP::timestamp without time zone, 0, CURRENT_TIMESTAMP::timestamp without time zone, 0, CURRENT_TIMESTAMP::timestamp without time zone),(11, 18, 58, 1, 0, CURRENT_TIMESTAMP::timestamp without time zone, 0, CURRENT_TIMESTAMP::timestamp without time zone, 0, CURRENT_TIMESTAMP::timestamp without time zone),(12, 18, 59, 1, 0, CURRENT_TIMESTAMP::timestamp without time zone, 0, CURRENT_TIMESTAMP::timestamp without time zone, 0, CURRENT_TIMESTAMP::timestamp without time zone);
+
+

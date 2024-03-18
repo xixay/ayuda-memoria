@@ -1,0 +1,215 @@
+--###  ------------------- ORGANIGRAMA - ÁREA UNIDAD - LUGAR - TIPO LUGAR
+	select * from parametricas.lugares l
+	select * from parametricas.tipos_lugares tl 
+	select * from estructura_organizacional.organigramas o where o.org_codigo in (3)
+	select * from estructura_organizacional.gestiones_organigramas go2 where go2.org_codigo in (3)
+	select * from estructura_organizacional.areas_unidades au where au.org_codigo in (3) and au.aun_estado !=9
+	;
+--###  ------------------- ORGANIGRAMA - ÁREA UNIDAD - CARGOS
+	--select * from estructura_organizacional.areas_unidades au where au.aun_codigo in (25)
+	select * from estructura_organizacional.areas_unidades au where au.org_codigo in (3)
+	select * from estructura_organizacional.organigramas o where o.org_codigo in (2)
+	select * from estructura_organizacional.cargos_items ci where ci.aun_codigo in (45)
+	select * from estructura_organizacional.cargos_items ci where ci.cit_codigo in (82)
+	;
+--###  ------------------- ORGANIGRAMA - GESTIONES ORGANIGRAMAS - AREAS UNIDADES -CARGOS ITEMS
+	select * from estructura_organizacional.organigramas o where o.org_codigo in (10)	
+	select * from estructura_organizacional.gestiones_organigramas go2 where go2.org_codigo in (3)
+	select * from estructura_organizacional.areas_unidades au where au.aun_codigo in (1)
+	select * from estructura_organizacional.cargos_items ci where ci.aun_codigo in (1)
+	select * from estructura_organizacional.cargos c where c.car_codigo in (1)
+	select * from estructura_organizacional.items i where i.ite_codigo in (1)
+	;
+--###  ------------------- TIPOS MOVIMIENTOS - CARGOS ITEM MOVIMIENTOS
+	select *from parametricas.tipos_movimientos tm 
+	select * from estructura_organizacional.cargos_item_movimientos cim 
+	;
+--###  ------------------- GESTIONES - FECHAS LIBRES DE GESTIONES
+	select * from parametricas.gestiones g 
+	select * from parametricas.fechas_libres_gestiones flg where flg.ges_codigo in (3)
+	select *from parametricas.estados e
+	;
+--###  ------------------- GESTIONES - GESTIONES ORGANIGRAMAS CONSOLIDADO - AREAS UNIDADES - CARGOS ITEMS
+	--encontrar el organigrama
+	select *  from estructura_organizacional.organigramas o 
+	left join estructura_organizacional.gestiones_organigramas go2 on go2.org_codigo  = o.org_codigo  
+	where go2.ges_codigo in (3) and o.org_estado in(2)--consolidado
+	--encontrar las horas libres en ese organigrama horas_libres=2048
+	--buscar las areas unidades con ese org_codigo
+	select
+		*
+	from
+		estructura_organizacional.areas_unidades au 
+	where
+		au.org_codigo in (1)
+		and au.aun_estado !=9
+	order by au.aun_codigo 
+	--buscar para cada area unidad sus cargos items
+	select *
+	from estructura_organizacional.cargos_items ci 
+	left join estructura_organizacional.cargos c on c.car_codigo =ci.car_codigo 
+	left join estructura_organizacional.items i on i.ite_codigo =ci.ite_codigo
+	where ci.aun_codigo in (211)
+	;
+--###  ------------------- PEI - DIMENSIONES - OBJETIVOS ESTRATEGICOS - ESTRATEGIAS - ACCIONES ESTRATEGICAS - OBJESTR_AREAS - ESTR_AREAS - AES_AREAS
+	select *from estructura_organizacional.areas_unidades au 
+	select *from pei.plan_estrategico_institucional pei where pei.pei_codigo =1
+	select *from pei.dimensiones d where d.pei_codigo =1
+	--dentro pei
+	select *from pei.objetivos_estrategicos oe where oe.dim_codigo in (1,2,3,4)
+	select *from pei.objetivos_estrategicos oe where oe.oes_codigo in (1,2,3,4,5)
+	select *from pei.estrategias e where e.oes_codigo in (1,2,3,4,5)
+	select *from pei.acciones_estrategicas ae where ae.est_codigo in (1,2,3,4,5,6)
+	select *from pei.acciones_estrategicas_gestiones aeg where aeg.aes_codigo in (1,2,3,4,5,6)
+	--areas
+	select *from pei.objetivos_estrategicos_areas oea where oea.oes_codigo  in (1,2,3,4,5)
+	select *from pei.estrategias_areas ea where ea.est_codigo in (1,2,3,4,5,6)
+	select * from pei.acciones_estrategias_areas aea where aea.aes_codigo in (1,2,3,4,5,6)
+	--areas unidades en organigrama 
+	select * from estructura_organizacional.areas_unidades au where au.org_codigo in (1)
+	;
+--###  ------------------- GESTIONES ORGANIGRAMA - GESTIONES - ACTIVIDADES - AREAS UNIDADES
+	select * from estructura_organizacional.gestiones_organigramas go2 where go2.ges_codigo in (3)
+	select * from estructura_organizacional.organigramas o where o.org_codigo in (2)
+	select * from estructura_organizacional.areas_unidades au where au.org_codigo in (2) and au.aun_codigo in (33)
+	--poa actividades
+	select * from estructura_poa.actividades a where a.act_codigo in (1)
+	select * from estructura_organizacional.areas_unidades au where au.aun_codigo in (25)
+	;
+--###  ------------------- CARGOS ITEMS DEPENDENCIAS
+	select * from estructura_organizacional.cargos_item_dependencias cid 
+	;
+--###  ------------------- FORMULARIOS
+	select * from estructura_poa.formularios f where f.for_estado in (1)
+	select * from estructura_poa.formularios f where f.for_estado in (3)
+	select * from estructura_poa.formularios f where f.for_estado in (8)
+	select * from estructura_poa.formularios f where f.for_estado in (7)
+	;
+--###  ------------------- POAS - POAS OBJETIVOS
+	select * from estructura_poa.poas p where p.ges_codigo in (3)
+	select * from estructura_poa.poas_objetivos po where po.poa_codigo in (3)
+	;
+--###  ------------------- POAS - POAS OBJETIVOS - FORMULARIOS - FORMULARIOS OBJETIVOS - ACTIVIDADES - VIATICOS
+	select * from estructura_poa.poas p where p.ges_codigo in (3)
+	select * from estructura_poa.poas_objetivos po where po.poa_codigo in (3)
+	select * from estructura_poa.objetivos_area_unidad oau
+	select * from estructura_poa.formularios f 
+	select * from estructura_poa.formularios_objetivos fo
+	select * from estructura_poa.actividades a
+	select * from estructura_poa.actividades_viaticos av 
+	;
+--###  ------------------- POAS - POAS OBJETIVOS - FORMULARIOS - FORMULARIOS OBJETIVOS - ACTIVIDADES - ROL -AREA UNIDAD RESPONSABLES - AREAS UNIDADES - GESTIONES
+	select * from estructura_poa.area_unidad_responsables aur where aur.aun_codigo_ejecutora in (52)
+	select * from estructura_poa.poas p where p.poa_codigo in (4,5,6)
+	select * from estructura_poa.formularios f where f.for_codigo in (18,23,28)
+	select * from estructura_poa.formularios_objetivos fo where fo.fob_codigo in (21,26,31)
+	select * from estructura_poa.actividades a where a.act_codigo in (213,218,223)
+	-- EL SERVICIO
+	select * from parametricas.roles r where r.rol_codigo in(4)
+	select * from estructura_poa.area_unidad_responsables aur where aur.rol_codigo in (4)
+	select * from estructura_organizacional.areas_unidades au where au.aun_codigo in (50)
+	select * from estructura_poa.poas p where p.ges_codigo in (4) and p.poa_estado in (2)
+	select * from parametricas.gestiones g 
+	;
+--###  ------------------- GESTIONES ORGANIGRAMAS - POAS - 
+	select * from estructura_organizacional.areas_unidades au where au.aun_codigo in (50)
+	select * from estructura_poa.poas p where p.ges_codigo in (4) and p.poa_estado in (2)
+	select * from parametricas.gestiones g 
+	;
+--###  ------------------- FECHAS LIBRES GESTIONES - FECHAS
+	-- obtiene los dias de un año
+	select
+		g.ges_anio,
+		DATE_PART('doy',
+		('31/12/' || g.ges_anio)::date) as dias_gestion
+	from
+		parametricas.gestiones g
+	where
+		g.ges_codigo in (3)
+	-- cantidad de dias libres	
+	select
+		count(*) dias_libres_nac
+	from
+		parametricas.fechas_libres_gestiones flg
+	where
+		flg.ges_codigo in (3)
+		and flg.lug_codigo = 10
+	-- obtiene los dias libres por departamento
+    select
+		flg.lug_codigo,
+		count(flg.lug_codigo) dias_libres_dep
+	from
+		parametricas.fechas_libres_gestiones flg
+	where
+		flg.ges_codigo in (3)
+		and flg.lug_codigo in (7,8,9,1,2,6)
+	group by
+		flg.lug_codigo 
+	-- obtiene todos los dias del año
+	select
+		generate_series(
+	          ('01/01/' || g.ges_anio)::date,
+		--comienzo
+	          ('31/12/' || g.ges_anio)::date,
+		--final
+	          '1 day') as serie_fechas
+	from
+		parametricas.gestiones g
+	where
+		g.ges_codigo in (3)
+;
+--###  ------------------- INICIO ACT POA - INICIO ACT - INICIO ACT ADICIONAL - ASIGN - ASIGN CARGOS ITEM
+	select iap.iap_codigo,iap.iac_codigo,iap.iap_observaciones ,iap.ges_codigo ,iap.iap_estado  from ejecucion_poa.inicio_actividad_poa iap where iap.iap_codigo in (25)
+	select ia.iac_codigo,ia.iac_observaciones ,ia.iac_estado ,ia.ges_codigo  from ejecucion_poa.inicios_actividades ia where ia.iac_codigo in (10)
+	select * from ejecucion_poa.inicios_actividades ia 
+	select iaa.iaa_codigo ,iaa.iac_codigo ,iaa.iaa_estado  from ejecucion_poa.inicios_actividades_adicional iaa where iaa.iac_codigo in (10)
+	select *  from ejecucion_poa.asignaciones a where a.iap_codigo in (25)
+	select aci.aci_codigo ,aci.asi_codigo ,aci.aci_estado  from ejecucion_poa.asignaciones_cargos_item aci where aci.asi_codigo in (9)
+	-- obtiene los estados de cada uno
+	select * from control_estados.estados_inicio_actividad_poa eiap where eiap.iap_codigo in (24)
+	select * from control_estados.estados_inicios_actividades eia where eia.iac_codigo in (9)
+	select * from control_estados.estados_inicios_actividades_adicional eiaa where eiaa.iaa_codigo in (24)
+	select * from control_estados.estados_asignaciones ea  where ea.asi_codigo in (9)
+	select * from control_estados.estados_asignaciones_cargos_item eaci  where eaci.aci_codigo in (68)
+;
+--###  ------------------- INFORMES EMERGENTES - TIPOS TRABAJOS - INFORMES - INFORMES RECOMENDACIONES 
+	select * from parametricas.informes_emergentes ie
+	select * from parametricas.tipos_trabajos tt
+	select * from parametricas.especificacion_tipos_trabajo ett
+	select * from ejecucion_poa.informes i  
+	select * from ejecucion_poa.informe_recomendaciones ir 
+;
+--###  ------------------- FLUJOS ESTADOS EVOLUCION - ESTADOS EVOLUCION - INFORMES EMERGENTES - TIPOS TRABAJOS
+	select * from parametricas.flujos_estados_evolucion fee 
+	select * from parametricas.estados_evolucion ee
+	select * from parametricas.informes_emergentes ie 
+	select * from parametricas.tipos_trabajos tt 
+;
+--###  ------------------- INICIO ACTIVIDAD POA - ACTIVIDADES - TIPOS TRABAJOS - INFORMES EMERGENTES - INFORMES
+	select * from ejecucion_poa.inicio_actividad_poa iap where iap.iap_codigo in (2)
+	select * from estructura_poa.actividades a WHERE a.act_codigo in (58)
+	select * from parametricas.tipos_trabajos tt where tt.ttr_codigo in (11)
+	select * from parametricas.informes_emergentes ie where ie.ttr_codigo in (11)
+	select * from ejecucion_poa.informes i where i.iap_codigo in (2)
+;
+--###  ------------------- FLUJOS ESTADOS EVOLUCION - INF EMERGENTES - INF - INF ESTADOS - INF RECOMENDACIONES -ESTADOS INFORMES 
+	select * from parametricas.flujos_estados_evolucion fee where fee.iem_codigo in (10)
+	select * from parametricas.informes_emergentes ie where ie.iem_codigo in (10)
+	select * from ejecucion_poa.informes i where i.inf_codigo in (17)
+	select * from ejecucion_poa.informes_estados ie where ie.inf_codigo in (17)
+	select * from ejecucion_poa.informe_recomendaciones ir where ir.inf_codigo in (17)
+	select * from control_estados.estados_informes ei where ei.inf_codigo in (17)
+;
+--###  ------------------- INICIO ACTIVIDAD POA ASIGNACIONES - ASIGNACIONES - ASIGNACIONES CARGOS ITEM - ACTIVIDADES - INICIOS ACTIVIDADES
+	select * from ejecucion_poa.inicio_actividad_poa_asignaciones iapa
+	select * from ejecucion_poa.asignaciones a
+	select * from ejecucion_poa.asignaciones_cargos_item aci 
+	select * from estructura_poa.actividades a where a.act_codigo in (222)
+	select * from ejecucion_poa.inicios_actividades ia where ia.iac_codigo in (11)
+;
+
+
+select * from ejecucion_poa.inicios_actividades ia where ia.iac_codigo =10
+
+
+

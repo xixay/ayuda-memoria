@@ -1,0 +1,1083 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram version="1" name="diagrama:prueba">
+	<entities>
+		<data-source id="postgres-jdbc-186e6b2dc2e-7e898a1769aa36e4">
+			<entity id="1" name="archivos" fq-name="control_archivos.archivos">
+				<path name="control_archivos"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="2" name="archivos_organigramas" fq-name="control_archivos.archivos_organigramas">
+				<path name="control_archivos"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="3" name="cambios_estados_areas_unidades" fq-name="control_estados.cambios_estados_areas_unidades">
+				<path name="control_estados"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="4" name="cambios_estados_areas_unidades_cargos" fq-name="control_estados.cambios_estados_areas_unidades_cargos">
+				<path name="control_estados"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="5" name="cambios_estados_areas_unidades_dependencias" fq-name="control_estados.cambios_estados_areas_unidades_dependencias">
+				<path name="control_estados"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="6" name="cambios_estados_autoridades_funcionales" fq-name="control_estados.cambios_estados_autoridades_funcionales">
+				<path name="control_estados"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="7" name="cambios_estados_cargos" fq-name="control_estados.cambios_estados_cargos">
+				<path name="control_estados"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="8" name="cambios_estados_cargos_dependencias" fq-name="control_estados.cambios_estados_cargos_dependencias">
+				<path name="control_estados"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="9" name="cambios_estados_cargos_items" fq-name="control_estados.cambios_estados_cargos_items">
+				<path name="control_estados"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="10" name="cambios_estados_gestiones_organigramas" fq-name="control_estados.cambios_estados_gestiones_organigramas">
+				<path name="control_estados"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="11" name="cambios_estados_items" fq-name="control_estados.cambios_estados_items">
+				<path name="control_estados"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="12" name="cambios_estados_organigramas" fq-name="control_estados.cambios_estados_organigramas">
+				<path name="control_estados"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="13" name="estados_actividades" fq-name="control_estados.estados_actividades">
+				<path name="control_estados"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="14" name="estados_actividades_viaticos" fq-name="control_estados.estados_actividades_viaticos">
+				<path name="control_estados"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="15" name="estados_formularios" fq-name="control_estados.estados_formularios">
+				<path name="control_estados"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="16" name="estados_formularios_objetivos" fq-name="control_estados.estados_formularios_objetivos">
+				<path name="control_estados"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="17" name="estados_objetivos_actividades" fq-name="control_estados.estados_objetivos_actividades">
+				<path name="control_estados"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="18" name="estados_objetivos_area_unidad" fq-name="control_estados.estados_objetivos_area_unidad">
+				<path name="control_estados"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="19" name="estados_poas" fq-name="control_estados.estados_poas">
+				<path name="control_estados"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="20" name="estados_poas_objetivos" fq-name="control_estados.estados_poas_objetivos">
+				<path name="control_estados"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="21" name="flujos_tablas" fq-name="control_estados.flujos_tablas">
+				<path name="control_estados"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="22" name="areas_unidades" fq-name="estructura_organizacional.areas_unidades">
+				<path name="estructura_organizacional"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="23" name="areas_unidades_cargos" fq-name="estructura_organizacional.areas_unidades_cargos">
+				<path name="estructura_organizacional"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="24" name="areas_unidades_dependencias" fq-name="estructura_organizacional.areas_unidades_dependencias">
+				<path name="estructura_organizacional"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="25" name="autoridades_funcionales" fq-name="estructura_organizacional.autoridades_funcionales">
+				<path name="estructura_organizacional"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="26" name="cargos" fq-name="estructura_organizacional.cargos">
+				<path name="estructura_organizacional"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="27" name="cargos_dependencias" fq-name="estructura_organizacional.cargos_dependencias">
+				<path name="estructura_organizacional"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="28" name="cargos_items" fq-name="estructura_organizacional.cargos_items">
+				<path name="estructura_organizacional"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="29" name="gestiones_organigramas" fq-name="estructura_organizacional.gestiones_organigramas">
+				<path name="estructura_organizacional"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="30" name="items" fq-name="estructura_organizacional.items">
+				<path name="estructura_organizacional"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="31" name="organigramas" fq-name="estructura_organizacional.organigramas">
+				<path name="estructura_organizacional"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="32" name="actividades" fq-name="estructura_poa.actividades">
+				<path name="estructura_poa"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="33" name="actividades_viaticos" fq-name="estructura_poa.actividades_viaticos">
+				<path name="estructura_poa"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="34" name="formularios" fq-name="estructura_poa.formularios">
+				<path name="estructura_poa"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="35" name="formularios_objetivos" fq-name="estructura_poa.formularios_objetivos">
+				<path name="estructura_poa"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="36" name="objetivos_actividades" fq-name="estructura_poa.objetivos_actividades">
+				<path name="estructura_poa"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="37" name="objetivos_area_unidad" fq-name="estructura_poa.objetivos_area_unidad">
+				<path name="estructura_poa"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="38" name="poas" fq-name="estructura_poa.poas">
+				<path name="estructura_poa"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="39" name="poas_objetivos" fq-name="estructura_poa.poas_objetivos">
+				<path name="estructura_poa"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="40" name="_pg_foreign_data_wrappers" fq-name="information_schema.&quot;_pg_foreign_data_wrappers&quot;">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="41" name="_pg_foreign_servers" fq-name="information_schema.&quot;_pg_foreign_servers&quot;">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="42" name="_pg_foreign_table_columns" fq-name="information_schema.&quot;_pg_foreign_table_columns&quot;">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="43" name="_pg_foreign_tables" fq-name="information_schema.&quot;_pg_foreign_tables&quot;">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="44" name="_pg_user_mappings" fq-name="information_schema.&quot;_pg_user_mappings&quot;">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="45" name="administrable_role_authorizations" fq-name="information_schema.administrable_role_authorizations">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="46" name="applicable_roles" fq-name="information_schema.applicable_roles">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="47" name="attributes" fq-name="information_schema.&quot;attributes&quot;">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="48" name="character_sets" fq-name="information_schema.character_sets">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="49" name="check_constraint_routine_usage" fq-name="information_schema.check_constraint_routine_usage">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="50" name="check_constraints" fq-name="information_schema.check_constraints">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="51" name="collation_character_set_applicability" fq-name="information_schema.collation_character_set_applicability">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="52" name="collations" fq-name="information_schema.collations">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="53" name="column_domain_usage" fq-name="information_schema.column_domain_usage">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="54" name="column_options" fq-name="information_schema.column_options">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="55" name="column_privileges" fq-name="information_schema.column_privileges">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="56" name="column_udt_usage" fq-name="information_schema.column_udt_usage">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="57" name="columns" fq-name="information_schema.&quot;columns&quot;">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="58" name="constraint_column_usage" fq-name="information_schema.constraint_column_usage">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="59" name="constraint_table_usage" fq-name="information_schema.constraint_table_usage">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="60" name="data_type_privileges" fq-name="information_schema.data_type_privileges">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="61" name="domain_constraints" fq-name="information_schema.domain_constraints">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="62" name="domain_udt_usage" fq-name="information_schema.domain_udt_usage">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="63" name="domains" fq-name="information_schema.domains">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="64" name="element_types" fq-name="information_schema.element_types">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="65" name="enabled_roles" fq-name="information_schema.enabled_roles">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="66" name="foreign_data_wrapper_options" fq-name="information_schema.foreign_data_wrapper_options">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="67" name="foreign_data_wrappers" fq-name="information_schema.foreign_data_wrappers">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="68" name="foreign_server_options" fq-name="information_schema.foreign_server_options">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="69" name="foreign_servers" fq-name="information_schema.foreign_servers">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="70" name="foreign_table_options" fq-name="information_schema.foreign_table_options">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="71" name="foreign_tables" fq-name="information_schema.foreign_tables">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="72" name="information_schema_catalog_name" fq-name="information_schema.information_schema_catalog_name">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="73" name="key_column_usage" fq-name="information_schema.key_column_usage">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="74" name="parameters" fq-name="information_schema.parameters">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="75" name="referential_constraints" fq-name="information_schema.referential_constraints">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="76" name="role_column_grants" fq-name="information_schema.role_column_grants">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="77" name="role_routine_grants" fq-name="information_schema.role_routine_grants">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="78" name="role_table_grants" fq-name="information_schema.role_table_grants">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="79" name="role_udt_grants" fq-name="information_schema.role_udt_grants">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="80" name="role_usage_grants" fq-name="information_schema.role_usage_grants">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="81" name="routine_privileges" fq-name="information_schema.routine_privileges">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="82" name="routines" fq-name="information_schema.&quot;routines&quot;">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="83" name="schemata" fq-name="information_schema.schemata">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="84" name="sequences" fq-name="information_schema.&quot;sequences&quot;">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="85" name="sql_features" fq-name="information_schema.sql_features">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="86" name="sql_implementation_info" fq-name="information_schema.sql_implementation_info">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="87" name="sql_languages" fq-name="information_schema.sql_languages">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="88" name="sql_packages" fq-name="information_schema.sql_packages">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="89" name="sql_parts" fq-name="information_schema.sql_parts">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="90" name="sql_sizing" fq-name="information_schema.sql_sizing">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="91" name="sql_sizing_profiles" fq-name="information_schema.sql_sizing_profiles">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="92" name="table_constraints" fq-name="information_schema.table_constraints">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="93" name="table_privileges" fq-name="information_schema.table_privileges">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="94" name="tables" fq-name="information_schema.&quot;tables&quot;">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="95" name="transforms" fq-name="information_schema.&quot;transforms&quot;">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="96" name="triggered_update_columns" fq-name="information_schema.triggered_update_columns">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="97" name="triggers" fq-name="information_schema.triggers">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="98" name="udt_privileges" fq-name="information_schema.udt_privileges">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="99" name="usage_privileges" fq-name="information_schema.usage_privileges">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="100" name="user_defined_types" fq-name="information_schema.user_defined_types">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="101" name="user_mapping_options" fq-name="information_schema.user_mapping_options">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="102" name="user_mappings" fq-name="information_schema.user_mappings">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="103" name="view_column_usage" fq-name="information_schema.view_column_usage">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="104" name="view_routine_usage" fq-name="information_schema.view_routine_usage">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="105" name="view_table_usage" fq-name="information_schema.view_table_usage">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="106" name="views" fq-name="information_schema.&quot;views&quot;">
+				<path name="information_schema"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="107" name="ambitos_areas_unidades" fq-name="parametricas.ambitos_areas_unidades">
+				<path name="parametricas"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="108" name="clasificaciones_areas_unidades" fq-name="parametricas.clasificaciones_areas_unidades">
+				<path name="parametricas"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="109" name="estados" fq-name="parametricas.estados">
+				<path name="parametricas"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="110" name="gestiones" fq-name="parametricas.gestiones">
+				<path name="parametricas"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="111" name="niveles_areas_unidades" fq-name="parametricas.niveles_areas_unidades">
+				<path name="parametricas"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="112" name="tablas" fq-name="parametricas.tablas">
+				<path name="parametricas"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="113" name="tipos_cargos" fq-name="parametricas.tipos_cargos">
+				<path name="parametricas"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="114" name="tipos_formulaciones" fq-name="parametricas.tipos_formulaciones">
+				<path name="parametricas"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="115" name="tipos_trabajos" fq-name="parametricas.tipos_trabajos">
+				<path name="parametricas"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="116" name="unidades_medidas" fq-name="parametricas.unidades_medidas">
+				<path name="parametricas"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="117" name="programas" fq-name="pei.programas">
+				<path name="pei"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="118" name="programas_objetivos" fq-name="pei.programas_objetivos">
+				<path name="pei"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="119" name="pg_aggregate" fq-name="pg_catalog.pg_aggregate">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="120" name="pg_am" fq-name="pg_catalog.pg_am">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="121" name="pg_amop" fq-name="pg_catalog.pg_amop">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="122" name="pg_amproc" fq-name="pg_catalog.pg_amproc">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="123" name="pg_attrdef" fq-name="pg_catalog.pg_attrdef">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="124" name="pg_attribute" fq-name="pg_catalog.pg_attribute">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="125" name="pg_auth_members" fq-name="pg_catalog.pg_auth_members">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="126" name="pg_authid" fq-name="pg_catalog.pg_authid">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="127" name="pg_available_extension_versions" fq-name="pg_catalog.pg_available_extension_versions">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="128" name="pg_available_extensions" fq-name="pg_catalog.pg_available_extensions">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="129" name="pg_cast" fq-name="pg_catalog.pg_cast">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="130" name="pg_class" fq-name="pg_catalog.pg_class">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="131" name="pg_collation" fq-name="pg_catalog.pg_collation">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="132" name="pg_config" fq-name="pg_catalog.pg_config">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="133" name="pg_constraint" fq-name="pg_catalog.pg_constraint">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="134" name="pg_conversion" fq-name="pg_catalog.pg_conversion">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="135" name="pg_cursors" fq-name="pg_catalog.pg_cursors">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="136" name="pg_database" fq-name="pg_catalog.pg_database">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="137" name="pg_db_role_setting" fq-name="pg_catalog.pg_db_role_setting">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="138" name="pg_default_acl" fq-name="pg_catalog.pg_default_acl">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="139" name="pg_depend" fq-name="pg_catalog.pg_depend">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="140" name="pg_description" fq-name="pg_catalog.pg_description">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="141" name="pg_enum" fq-name="pg_catalog.pg_enum">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="142" name="pg_event_trigger" fq-name="pg_catalog.pg_event_trigger">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="143" name="pg_extension" fq-name="pg_catalog.pg_extension">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="144" name="pg_file_settings" fq-name="pg_catalog.pg_file_settings">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="145" name="pg_foreign_data_wrapper" fq-name="pg_catalog.pg_foreign_data_wrapper">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="146" name="pg_foreign_server" fq-name="pg_catalog.pg_foreign_server">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="147" name="pg_foreign_table" fq-name="pg_catalog.pg_foreign_table">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="148" name="pg_group" fq-name="pg_catalog.pg_group">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="149" name="pg_hba_file_rules" fq-name="pg_catalog.pg_hba_file_rules">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="150" name="pg_index" fq-name="pg_catalog.pg_index">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="151" name="pg_indexes" fq-name="pg_catalog.pg_indexes">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="152" name="pg_inherits" fq-name="pg_catalog.pg_inherits">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="153" name="pg_init_privs" fq-name="pg_catalog.pg_init_privs">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="154" name="pg_language" fq-name="pg_catalog.pg_language">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="155" name="pg_largeobject" fq-name="pg_catalog.pg_largeobject">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="156" name="pg_largeobject_metadata" fq-name="pg_catalog.pg_largeobject_metadata">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="157" name="pg_locks" fq-name="pg_catalog.pg_locks">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="158" name="pg_matviews" fq-name="pg_catalog.pg_matviews">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="159" name="pg_namespace" fq-name="pg_catalog.pg_namespace">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="160" name="pg_opclass" fq-name="pg_catalog.pg_opclass">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="161" name="pg_operator" fq-name="pg_catalog.pg_operator">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="162" name="pg_opfamily" fq-name="pg_catalog.pg_opfamily">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="163" name="pg_partitioned_table" fq-name="pg_catalog.pg_partitioned_table">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="164" name="pg_pltemplate" fq-name="pg_catalog.pg_pltemplate">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="165" name="pg_policies" fq-name="pg_catalog.pg_policies">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="166" name="pg_policy" fq-name="pg_catalog.pg_policy">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="167" name="pg_prepared_statements" fq-name="pg_catalog.pg_prepared_statements">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="168" name="pg_prepared_xacts" fq-name="pg_catalog.pg_prepared_xacts">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="169" name="pg_proc" fq-name="pg_catalog.pg_proc">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="170" name="pg_publication" fq-name="pg_catalog.pg_publication">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="171" name="pg_publication_rel" fq-name="pg_catalog.pg_publication_rel">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="172" name="pg_publication_tables" fq-name="pg_catalog.pg_publication_tables">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="173" name="pg_range" fq-name="pg_catalog.pg_range">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="174" name="pg_replication_origin" fq-name="pg_catalog.pg_replication_origin">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="175" name="pg_replication_origin_status" fq-name="pg_catalog.pg_replication_origin_status">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="176" name="pg_replication_slots" fq-name="pg_catalog.pg_replication_slots">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="177" name="pg_rewrite" fq-name="pg_catalog.pg_rewrite">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="178" name="pg_roles" fq-name="pg_catalog.pg_roles">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="179" name="pg_rules" fq-name="pg_catalog.pg_rules">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="180" name="pg_seclabel" fq-name="pg_catalog.pg_seclabel">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="181" name="pg_seclabels" fq-name="pg_catalog.pg_seclabels">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="182" name="pg_sequence" fq-name="pg_catalog.pg_sequence">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="183" name="pg_sequences" fq-name="pg_catalog.pg_sequences">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="184" name="pg_settings" fq-name="pg_catalog.pg_settings">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="185" name="pg_shadow" fq-name="pg_catalog.pg_shadow">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="186" name="pg_shdepend" fq-name="pg_catalog.pg_shdepend">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="187" name="pg_shdescription" fq-name="pg_catalog.pg_shdescription">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="188" name="pg_shseclabel" fq-name="pg_catalog.pg_shseclabel">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="189" name="pg_stat_activity" fq-name="pg_catalog.pg_stat_activity">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="190" name="pg_stat_all_indexes" fq-name="pg_catalog.pg_stat_all_indexes">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="191" name="pg_stat_all_tables" fq-name="pg_catalog.pg_stat_all_tables">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="192" name="pg_stat_archiver" fq-name="pg_catalog.pg_stat_archiver">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="193" name="pg_stat_bgwriter" fq-name="pg_catalog.pg_stat_bgwriter">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="194" name="pg_stat_database" fq-name="pg_catalog.pg_stat_database">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="195" name="pg_stat_database_conflicts" fq-name="pg_catalog.pg_stat_database_conflicts">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="196" name="pg_stat_progress_vacuum" fq-name="pg_catalog.pg_stat_progress_vacuum">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="197" name="pg_stat_replication" fq-name="pg_catalog.pg_stat_replication">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="198" name="pg_stat_ssl" fq-name="pg_catalog.pg_stat_ssl">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="199" name="pg_stat_subscription" fq-name="pg_catalog.pg_stat_subscription">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="200" name="pg_stat_sys_indexes" fq-name="pg_catalog.pg_stat_sys_indexes">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="201" name="pg_stat_sys_tables" fq-name="pg_catalog.pg_stat_sys_tables">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="202" name="pg_stat_user_functions" fq-name="pg_catalog.pg_stat_user_functions">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="203" name="pg_stat_user_indexes" fq-name="pg_catalog.pg_stat_user_indexes">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="204" name="pg_stat_user_tables" fq-name="pg_catalog.pg_stat_user_tables">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="205" name="pg_stat_wal_receiver" fq-name="pg_catalog.pg_stat_wal_receiver">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="206" name="pg_stat_xact_all_tables" fq-name="pg_catalog.pg_stat_xact_all_tables">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="207" name="pg_stat_xact_sys_tables" fq-name="pg_catalog.pg_stat_xact_sys_tables">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="208" name="pg_stat_xact_user_functions" fq-name="pg_catalog.pg_stat_xact_user_functions">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="209" name="pg_stat_xact_user_tables" fq-name="pg_catalog.pg_stat_xact_user_tables">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="210" name="pg_statio_all_indexes" fq-name="pg_catalog.pg_statio_all_indexes">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="211" name="pg_statio_all_sequences" fq-name="pg_catalog.pg_statio_all_sequences">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="212" name="pg_statio_all_tables" fq-name="pg_catalog.pg_statio_all_tables">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="213" name="pg_statio_sys_indexes" fq-name="pg_catalog.pg_statio_sys_indexes">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="214" name="pg_statio_sys_sequences" fq-name="pg_catalog.pg_statio_sys_sequences">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="215" name="pg_statio_sys_tables" fq-name="pg_catalog.pg_statio_sys_tables">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="216" name="pg_statio_user_indexes" fq-name="pg_catalog.pg_statio_user_indexes">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="217" name="pg_statio_user_sequences" fq-name="pg_catalog.pg_statio_user_sequences">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="218" name="pg_statio_user_tables" fq-name="pg_catalog.pg_statio_user_tables">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="219" name="pg_statistic" fq-name="pg_catalog.pg_statistic">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="220" name="pg_statistic_ext" fq-name="pg_catalog.pg_statistic_ext">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="221" name="pg_stats" fq-name="pg_catalog.pg_stats">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="222" name="pg_subscription" fq-name="pg_catalog.pg_subscription">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="223" name="pg_subscription_rel" fq-name="pg_catalog.pg_subscription_rel">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="224" name="pg_tables" fq-name="pg_catalog.pg_tables">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="225" name="pg_tablespace" fq-name="pg_catalog.pg_tablespace">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="226" name="pg_timezone_abbrevs" fq-name="pg_catalog.pg_timezone_abbrevs">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="227" name="pg_timezone_names" fq-name="pg_catalog.pg_timezone_names">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="228" name="pg_transform" fq-name="pg_catalog.pg_transform">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="229" name="pg_trigger" fq-name="pg_catalog.pg_trigger">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="230" name="pg_ts_config" fq-name="pg_catalog.pg_ts_config">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="231" name="pg_ts_config_map" fq-name="pg_catalog.pg_ts_config_map">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="232" name="pg_ts_dict" fq-name="pg_catalog.pg_ts_dict">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="233" name="pg_ts_parser" fq-name="pg_catalog.pg_ts_parser">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="234" name="pg_ts_template" fq-name="pg_catalog.pg_ts_template">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="235" name="pg_type" fq-name="pg_catalog.pg_type">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="236" name="pg_user" fq-name="pg_catalog.pg_user">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="237" name="pg_user_mapping" fq-name="pg_catalog.pg_user_mapping">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="238" name="pg_user_mappings" fq-name="pg_catalog.pg_user_mappings">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="239" name="pg_views" fq-name="pg_catalog.pg_views">
+				<path name="pg_catalog"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="240" name="dimension" fq-name="rock.dimension">
+				<path name="rock"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="241" name="objetivo_estrategico" fq-name="rock.objetivo_estrategico">
+				<path name="rock"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+			<entity id="242" name="objetivos_estrategicos_gestiones" fq-name="rock.objetivos_estrategicos_gestiones">
+				<path name="rock"/>
+				<path name="bd_cge_poa_dev"/>
+			</entity>
+		</data-source>
+	</entities>
+	<relations>
+		<relation name="fk_arc_codigo" fq-name="control_archivos.archivos_organigramas.fk_arc_codigo" type="fk" pk-ref="1" fk-ref="2"/>
+		<relation name="fk_aun_codigo" fq-name="control_estados.cambios_estados_areas_unidades.fk_aun_codigo" type="fk" pk-ref="22" fk-ref="3"/>
+		<relation name="fk_aun_codigo" fq-name="estructura_organizacional.areas_unidades_cargos.fk_aun_codigo" type="fk" pk-ref="22" fk-ref="23"/>
+		<relation name="fk_afu_codigo_hijo" fq-name="estructura_organizacional.areas_unidades_dependencias.fk_afu_codigo_hijo" type="fk" pk-ref="22" fk-ref="24"/>
+		<relation name="fk_afu_codigo_padre" fq-name="estructura_organizacional.areas_unidades_dependencias.fk_afu_codigo_padre" type="fk" pk-ref="22" fk-ref="24"/>
+		<relation name="fk_aun_codigo_supervisado" fq-name="estructura_organizacional.autoridades_funcionales.fk_aun_codigo_supervisado" type="fk" pk-ref="22" fk-ref="25"/>
+		<relation name="fk_aun_codigo_supervisor" fq-name="estructura_organizacional.autoridades_funcionales.fk_aun_codigo_supervisor" type="fk" pk-ref="22" fk-ref="25"/>
+		<relation name="fk_aun_codigo_ejecutora" fq-name="estructura_poa.objetivos_area_unidad.fk_aun_codigo_ejecutora" type="fk" pk-ref="22" fk-ref="37"/>
+		<relation name="fk_aun_codigo_supervisora" fq-name="estructura_poa.objetivos_area_unidad.fk_aun_codigo_supervisora" type="fk" pk-ref="22" fk-ref="37"/>
+		<relation name="fk_auc_codigo" fq-name="control_estados.cambios_estados_areas_unidades_cargos.fk_auc_codigo" type="fk" pk-ref="23" fk-ref="4"/>
+		<relation name="fk_aud_codigo" fq-name="control_estados.cambios_estados_areas_unidades_dependencias.fk_aud_codigo" type="fk" pk-ref="24" fk-ref="5"/>
+		<relation name="fk_afu_codigo" fq-name="control_estados.cambios_estados_autoridades_funcionales.fk_afu_codigo" type="fk" pk-ref="25" fk-ref="6"/>
+		<relation name="fk_car_codigo" fq-name="control_estados.cambios_estados_cargos.fk_car_codigo" type="fk" pk-ref="26" fk-ref="7"/>
+		<relation name="fk_car_codigo" fq-name="estructura_organizacional.areas_unidades_cargos.fk_car_codigo" type="fk" pk-ref="26" fk-ref="23"/>
+		<relation name="fk_car_codigo_hijo" fq-name="estructura_organizacional.cargos_dependencias.fk_car_codigo_hijo" type="fk" pk-ref="26" fk-ref="27"/>
+		<relation name="fk_car_codigo_padre" fq-name="estructura_organizacional.cargos_dependencias.fk_car_codigo_padre" type="fk" pk-ref="26" fk-ref="27"/>
+		<relation name="fk_car_codigo" fq-name="estructura_organizacional.cargos_items.fk_car_codigo" type="fk" pk-ref="26" fk-ref="28"/>
+		<relation name="fk_cde_codigo" fq-name="control_estados.cambios_estados_cargos_dependencias.fk_cde_codigo" type="fk" pk-ref="27" fk-ref="8"/>
+		<relation name="fk_cit_codigo" fq-name="control_estados.cambios_estados_cargos_items.fk_cit_codigo" type="fk" pk-ref="28" fk-ref="9"/>
+		<relation name="fk_gor_codigo" fq-name="control_estados.cambios_estados_gestiones_organigramas.fk_gor_codigo" type="fk" pk-ref="29" fk-ref="10"/>
+		<relation name="fk_ite_codigo" fq-name="control_estados.cambios_estados_items.fk_ite_codigo" type="fk" pk-ref="30" fk-ref="11"/>
+		<relation name="fk_ite_codigo" fq-name="estructura_organizacional.cargos_items.fk_ite_codigo" type="fk" pk-ref="30" fk-ref="28"/>
+		<relation name="fk_org_codigo" fq-name="control_archivos.archivos_organigramas.fk_org_codigo" type="fk" pk-ref="31" fk-ref="2"/>
+		<relation name="fk_org_codigo" fq-name="control_estados.cambios_estados_organigramas.fk_org_codigo" type="fk" pk-ref="31" fk-ref="12"/>
+		<relation name="fk_org_codigo" fq-name="estructura_organizacional.gestiones_organigramas.fk_org_codigo" type="fk" pk-ref="31" fk-ref="29"/>
+		<relation name="fk_act_codigo" fq-name="control_estados.estados_actividades.fk_act_codigo" type="fk" pk-ref="32" fk-ref="13"/>
+		<relation name="fk_act_codigo" fq-name="estructura_poa.actividades_viaticos.fk_act_codigo" type="fk" pk-ref="32" fk-ref="33"/>
+		<relation name="fk_act_codigo" fq-name="estructura_poa.objetivos_actividades.fk_act_codigo" type="fk" pk-ref="32" fk-ref="36"/>
+		<relation name="fk_avi_codigo" fq-name="control_estados.estados_actividades_viaticos.fk_avi_codigo" type="fk" pk-ref="33" fk-ref="14"/>
+		<relation name="fk_for_codigo" fq-name="control_estados.estados_formularios.fk_for_codigo" type="fk" pk-ref="34" fk-ref="15"/>
+		<relation name="fk_for_codigo" fq-name="estructura_poa.formularios_objetivos.fk_for_codigo" type="fk" pk-ref="34" fk-ref="35"/>
+		<relation name="fk_fob_codigo" fq-name="control_estados.estados_formularios_objetivos.fk_fob_codigo" type="fk" pk-ref="35" fk-ref="16"/>
+		<relation name="fk_fob_codigo" fq-name="estructura_poa.objetivos_actividades.fk_fob_codigo" type="fk" pk-ref="35" fk-ref="36"/>
+		<relation name="fk_oac_codigo" fq-name="control_estados.estados_objetivos_actividades.fk_oac_codigo" type="fk" pk-ref="36" fk-ref="17"/>
+		<relation name="fk_oau_codigo" fq-name="control_estados.estados_objetivos_area_unidad.fk_oau_codigo" type="fk" pk-ref="37" fk-ref="18"/>
+		<relation name="fk_oau_codigo" fq-name="estructura_poa.formularios_objetivos.fk_oau_codigo" type="fk" pk-ref="37" fk-ref="35"/>
+		<relation name="fk_poa_codigo" fq-name="control_estados.estados_poas.fk_poa_codigo" type="fk" pk-ref="38" fk-ref="19"/>
+		<relation name="fk_poa_codigo" fq-name="estructura_poa.poas_objetivos.fk_poa_codigo" type="fk" pk-ref="38" fk-ref="39"/>
+		<relation name="fk_pobj_codigo" fq-name="control_estados.estados_poas_objetivos.fk_pobj_codigo" type="fk" pk-ref="39" fk-ref="20"/>
+		<relation name="fk_pobj_codigo" fq-name="estructura_poa.objetivos_area_unidad.fk_pobj_codigo" type="fk" pk-ref="39" fk-ref="37"/>
+		<relation name="fk_amb_codigo" fq-name="estructura_organizacional.areas_unidades.fk_amb_codigo" type="fk" pk-ref="107" fk-ref="22"/>
+		<relation name="fk_cla_codigo" fq-name="estructura_organizacional.areas_unidades.fk_cla_codigo" type="fk" pk-ref="108" fk-ref="22"/>
+		<relation name="fk_est_codigo" fq-name="control_archivos.archivos.fk_est_codigo" type="fk" pk-ref="109" fk-ref="1"/>
+		<relation name="fk_est_codigo" fq-name="control_archivos.archivos_organigramas.fk_est_codigo" type="fk" pk-ref="109" fk-ref="2"/>
+		<relation name="estado_fk" fq-name="control_estados.cambios_estados_areas_unidades.estado_fk" type="fk" pk-ref="109" fk-ref="3"/>
+		<relation name="estado_fk" fq-name="control_estados.cambios_estados_areas_unidades_cargos.estado_fk" type="fk" pk-ref="109" fk-ref="4"/>
+		<relation name="estado_fk" fq-name="control_estados.cambios_estados_areas_unidades_dependencias.estado_fk" type="fk" pk-ref="109" fk-ref="5"/>
+		<relation name="estado_fk" fq-name="control_estados.cambios_estados_autoridades_funcionales.estado_fk" type="fk" pk-ref="109" fk-ref="6"/>
+		<relation name="estado_fk" fq-name="control_estados.cambios_estados_cargos.estado_fk" type="fk" pk-ref="109" fk-ref="7"/>
+		<relation name="estado_fk" fq-name="control_estados.cambios_estados_cargos_dependencias.estado_fk" type="fk" pk-ref="109" fk-ref="8"/>
+		<relation name="estado_fk" fq-name="control_estados.cambios_estados_cargos_items.estado_fk" type="fk" pk-ref="109" fk-ref="9"/>
+		<relation name="estado_fk" fq-name="control_estados.cambios_estados_gestiones_organigramas.estado_fk" type="fk" pk-ref="109" fk-ref="10"/>
+		<relation name="estado_fk" fq-name="control_estados.cambios_estados_items.estado_fk" type="fk" pk-ref="109" fk-ref="11"/>
+		<relation name="estado_fk" fq-name="control_estados.cambios_estados_organigramas.estado_fk" type="fk" pk-ref="109" fk-ref="12"/>
+		<relation name="fk_eac_estado" fq-name="control_estados.estados_actividades.fk_eac_estado" type="fk" pk-ref="109" fk-ref="13"/>
+		<relation name="fk_eavi_estado" fq-name="control_estados.estados_actividades_viaticos.fk_eavi_estado" type="fk" pk-ref="109" fk-ref="14"/>
+		<relation name="fk_efo_estado" fq-name="control_estados.estados_formularios.fk_efo_estado" type="fk" pk-ref="109" fk-ref="15"/>
+		<relation name="fk_efoo_estado" fq-name="control_estados.estados_formularios_objetivos.fk_efoo_estado" type="fk" pk-ref="109" fk-ref="16"/>
+		<relation name="fk_eoba_estado" fq-name="control_estados.estados_objetivos_actividades.fk_eoba_estado" type="fk" pk-ref="109" fk-ref="17"/>
+		<relation name="fk_eoau_estado" fq-name="control_estados.estados_objetivos_area_unidad.fk_eoau_estado" type="fk" pk-ref="109" fk-ref="18"/>
+		<relation name="fk_epo_estado" fq-name="control_estados.estados_poas.fk_epo_estado" type="fk" pk-ref="109" fk-ref="19"/>
+		<relation name="fk_epoo_estado" fq-name="control_estados.estados_poas_objetivos.fk_epoo_estado" type="fk" pk-ref="109" fk-ref="20"/>
+		<relation name="estado_fk" fq-name="control_estados.flujos_tablas.estado_fk" type="fk" pk-ref="109" fk-ref="21"/>
+		<relation name="estado_fk_destino" fq-name="control_estados.flujos_tablas.estado_fk_destino" type="fk" pk-ref="109" fk-ref="21"/>
+		<relation name="estado_fk_origen" fq-name="control_estados.flujos_tablas.estado_fk_origen" type="fk" pk-ref="109" fk-ref="21"/>
+		<relation name="estado_fk" fq-name="estructura_organizacional.areas_unidades.estado_fk" type="fk" pk-ref="109" fk-ref="22"/>
+		<relation name="estado_fk" fq-name="estructura_organizacional.areas_unidades_cargos.estado_fk" type="fk" pk-ref="109" fk-ref="23"/>
+		<relation name="estado_fk" fq-name="estructura_organizacional.areas_unidades_dependencias.estado_fk" type="fk" pk-ref="109" fk-ref="24"/>
+		<relation name="estado_fk" fq-name="estructura_organizacional.autoridades_funcionales.estado_fk" type="fk" pk-ref="109" fk-ref="25"/>
+		<relation name="estado_fk" fq-name="estructura_organizacional.cargos.estado_fk" type="fk" pk-ref="109" fk-ref="26"/>
+		<relation name="estado_fk" fq-name="estructura_organizacional.cargos_dependencias.estado_fk" type="fk" pk-ref="109" fk-ref="27"/>
+		<relation name="estado_fk" fq-name="estructura_organizacional.cargos_items.estado_fk" type="fk" pk-ref="109" fk-ref="28"/>
+		<relation name="estado_fk" fq-name="estructura_organizacional.gestiones_organigramas.estado_fk" type="fk" pk-ref="109" fk-ref="29"/>
+		<relation name="estado_fk" fq-name="estructura_organizacional.items.estado_fk" type="fk" pk-ref="109" fk-ref="30"/>
+		<relation name="estado_fk" fq-name="estructura_organizacional.organigramas.estado_fk" type="fk" pk-ref="109" fk-ref="31"/>
+		<relation name="fk_act_estado" fq-name="estructura_poa.actividades.fk_act_estado" type="fk" pk-ref="109" fk-ref="32"/>
+		<relation name="fk_avi_estado" fq-name="estructura_poa.actividades_viaticos.fk_avi_estado" type="fk" pk-ref="109" fk-ref="33"/>
+		<relation name="fk_for_estado" fq-name="estructura_poa.formularios.fk_for_estado" type="fk" pk-ref="109" fk-ref="34"/>
+		<relation name="fk_fob_estado" fq-name="estructura_poa.formularios_objetivos.fk_fob_estado" type="fk" pk-ref="109" fk-ref="35"/>
+		<relation name="fk_oac_estado" fq-name="estructura_poa.objetivos_actividades.fk_oac_estado" type="fk" pk-ref="109" fk-ref="36"/>
+		<relation name="fk_oau_estado" fq-name="estructura_poa.objetivos_area_unidad.fk_oau_estado" type="fk" pk-ref="109" fk-ref="37"/>
+		<relation name="fk_poa_estado" fq-name="estructura_poa.poas.fk_poa_estado" type="fk" pk-ref="109" fk-ref="38"/>
+		<relation name="fk_pobj_estado" fq-name="estructura_poa.poas_objetivos.fk_pobj_estado" type="fk" pk-ref="109" fk-ref="39"/>
+		<relation name="estado_fk" fq-name="parametricas.ambitos_areas_unidades.estado_fk" type="fk" pk-ref="109" fk-ref="107"/>
+		<relation name="estado_fk" fq-name="parametricas.clasificaciones_areas_unidades.estado_fk" type="fk" pk-ref="109" fk-ref="108"/>
+		<relation name="estado_fk" fq-name="parametricas.gestiones.estado_fk" type="fk" pk-ref="109" fk-ref="110"/>
+		<relation name="estado_fk" fq-name="parametricas.niveles_areas_unidades.estado_fk" type="fk" pk-ref="109" fk-ref="111"/>
+		<relation name="estado_fk" fq-name="parametricas.tablas.estado_fk" type="fk" pk-ref="109" fk-ref="112"/>
+		<relation name="estado_fk" fq-name="parametricas.tipos_cargos.estado_fk" type="fk" pk-ref="109" fk-ref="113"/>
+		<relation name="fk_tpo_estado" fq-name="parametricas.tipos_formulaciones.fk_tpo_estado" type="fk" pk-ref="109" fk-ref="114"/>
+		<relation name="fk_ttr_estado" fq-name="parametricas.tipos_trabajos.fk_ttr_estado" type="fk" pk-ref="109" fk-ref="115"/>
+		<relation name="fk_ume_estado" fq-name="parametricas.unidades_medidas.fk_ume_estado" type="fk" pk-ref="109" fk-ref="116"/>
+		<relation name="fk_pro_estado" fq-name="pei.programas.fk_pro_estado" type="fk" pk-ref="109" fk-ref="117"/>
+		<relation name="fk_pob_estado" fq-name="pei.programas_objetivos.fk_pob_estado" type="fk" pk-ref="109" fk-ref="118"/>
+		<relation name="fk_ges_codigo" fq-name="estructura_organizacional.gestiones_organigramas.fk_ges_codigo" type="fk" pk-ref="110" fk-ref="29"/>
+		<relation name="fk_ges_codigo" fq-name="estructura_poa.poas.fk_ges_codigo" type="fk" pk-ref="110" fk-ref="38"/>
+		<relation name="fk_niv_codigo" fq-name="estructura_organizacional.areas_unidades.fk_niv_codigo" type="fk" pk-ref="111" fk-ref="22"/>
+		<relation name="tabla_fk" fq-name="control_estados.flujos_tablas.tabla_fk" type="fk" pk-ref="112" fk-ref="21"/>
+		<relation name="fk_tca_codigo" fq-name="estructura_organizacional.cargos.fk_tca_codigo" type="fk" pk-ref="113" fk-ref="26"/>
+		<relation name="fk_tpo_codigo" fq-name="estructura_poa.poas.fk_tpo_codigo" type="fk" pk-ref="114" fk-ref="38"/>
+		<relation name="fk_ttr_codigo" fq-name="estructura_poa.actividades.fk_ttr_codigo" type="fk" pk-ref="115" fk-ref="32"/>
+		<relation name="fk_ume_codigo" fq-name="estructura_poa.actividades.fk_ume_codigo" type="fk" pk-ref="116" fk-ref="32"/>
+		<relation name="fk_pro_codigo" fq-name="pei.programas_objetivos.fk_pro_codigo" type="fk" pk-ref="117" fk-ref="118"/>
+		<relation name="fk_pob_codigo" fq-name="estructura_poa.poas_objetivos.fk_pob_codigo" type="fk" pk-ref="118" fk-ref="39"/>
+		<relation name="objetivo_estrategico_fk" fq-name="rock.objetivo_estrategico.objetivo_estrategico_fk" type="fk" pk-ref="240" fk-ref="241"/>
+		<relation name="objetivos_estrategicos_gestiones_fk" fq-name="rock.objetivos_estrategicos_gestiones.objetivos_estrategicos_gestiones_fk" type="fk" pk-ref="241" fk-ref="242"/>
+	</relations>
+</diagram>

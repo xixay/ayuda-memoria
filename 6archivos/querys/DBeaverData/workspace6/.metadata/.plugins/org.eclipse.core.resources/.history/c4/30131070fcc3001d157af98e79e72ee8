@@ -1,0 +1,7 @@
+select * from estructura_organizacional.items i 
+
+select *
+from estructura_organizacional.items i
+where i.ite_descripcion like 'NEW item'
+		and i.ite_numero  = '52'
+		and i.usuario_registro = 1791;

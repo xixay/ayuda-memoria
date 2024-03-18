@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+	<item id="">
+		<column name="Name" visible="true" order="0" width="111"/>
+		<column name="#" visible="true" order="1" width="15"/>
+		<column name="Visible" visible="true" order="2" width="49"/>
+		<column name="Pinned" visible="true" order="3" width="50"/>
+		<column name="Order" visible="true" order="4" width="44"/>
+		<column name="Criteria" visible="true" order="5" width="56"/>
+	</item>
+	<item id="DatabaseInstanceSelector">
+		<column name="Nombre" visible="true" order="0" width="183"/>
+		<column name="Description" visible="true" order="1" width="106"/>
+	</item>
+	<item id="Locks/postgres-jdbc">
+		<column name="PID en espera" visible="true" order="0" width="100"/>
+		<column name="Usuario en espera" visible="true" order="1" width="126"/>
+		<column name="PID que lo toma" visible="true" order="2" width="111"/>
+		<column name="Usuario que lo toma" visible="true" order="3" width="138"/>
+		<column name="Sentencia en espera" visible="true" order="4" width="140"/>
+		<column name="Sentencia que lo toma" visible="true" order="5" width="152"/>
+	</item>
+	<item id="MetaData/postgres-jdbc">
+		<column name="Name" visible="true" order="0" width="174"/>
+		<column name="Label" visible="true" order="1" width="136"/>
+		<column name="#" visible="true" order="2" width="100"/>
+		<column name="Type" visible="true" order="3" width="100"/>
+		<column name="Catalog Name" visible="true" order="4" width="132"/>
+		<column name="Schema Name" visible="true" order="5" width="100"/>
+		<column name="Table Name" visible="true" order="6" width="167"/>
+		<column name="Max Length" visible="true" order="7" width="100"/>
+		<column name="Precision" visible="true" order="8" width="100"/>
+		<column name="Scale" visible="true" order="9" width="100"/>
+		<column name="JDBC Type" visible="true" order="10" width="100"/>
+		<column name="Not Null" visible="true" order="11" width="100"/>
+		<column name="Auto" visible="true" order="12" width="100"/>
+		<column name="Description" visible="true" order="13" width="256"/>
+	</item>
+	<item id="NodeList/DataSourceDescriptor">
+		<column name="Name" visible="true" order="0" width="100"/>
+		<column name="Description" visible="true" order="1" width="100"/>
+		<column name="Origin" visible="true" order="2" width="100"/>
+		<column name="Driver Type" visible="true" order="3" width="535"/>
+	</item>
+	<item id="NodeList/PostgreDatabase">
+		<column name="Nombre" visible="true" order="0" width="134"/>
+		<column name="Description" visible="true" order="1" width="1046"/>
+	</item>
+	<item id="NodeList/PostgreDependency">
+		<column name="Dependencia" visible="true" order="0" width="100"/>
+		<column name="Tipo" visible="true" order="1" width="100"/>
+		<column name="Tabla" visible="true" order="2" width="100"/>
+		<column name="Esquema" visible="true" order="3" width="100"/>
+		<column name="Object" visible="true" order="4" width="100"/>
+	</item>
+	<item id="NodeList/PostgreEventTrigger">
+		<column name="Name" visible="true" order="0" width="100"/>
+		<column name="Object ID" visible="true" order="1" width="100"/>
+		<column name="Event type" visible="true" order="2" width="100"/>
+		<column name="Function/Procedure" visible="true" order="3" width="130"/>
+		<column name="Enabled State" visible="true" order="4" width="100"/>
+		<column name="Object description (comment)" visible="true" order="5" width="193"/>
+	</item>
+	<item id="NodeList/PostgreInformation/DBNDatabaseFolder">
+		<column name="Name" visible="true" order="0" width="484"/>
+	</item>
+	<item id="NodeList/PostgreProcedure">
+		<column name="Procedure Name" visible="true" order="0" width="145"/>
+		<column name="Lenguaje" visible="true" order="1" width="100"/>
+		<column name="Tipo de retorno" visible="true" order="2" width="102"/>
+		<column name="Agregado" visible="true" order="3" width="100"/>
+		<column name="Ventana" visible="true" order="4" width="100"/>
+		<column name="Definidor de seguridad" visible="true" order="5" width="149"/>
+		<column name="Sin pérdidas" visible="true" order="6" width="100"/>
+		<column name="Estricto" visible="true" order="7" width="100"/>
+		<column name="Devuelve conjunto" visible="true" order="8" width="124"/>
+		<column name="Proc Volatil" visible="true" order="9" width="100"/>
+		<column name="Procedure Description" visible="true" order="10" width="924"/>
+	</item>
+	<item id="NodeList/PostgreProcedureParameter">
+		<column name="Nombre" visible="true" order="0" width="151"/>
+		<column name="TIpo de parámetro" visible="true" order="1" width="120"/>
+		<column name="Clase de parámetro" visible="true" order="2" width="127"/>
+		<column name="Posición Ordinal " visible="true" order="3" width="110"/>
+		<column name="Defecto" visible="true" order="4" width="245"/>
+	</item>
+	<item id="NodeList/PostgreRole">
+		<column name="Nombre" visible="true" order="0" width="195"/>
+		<column name="ID Objeto" visible="true" order="1" width="100"/>
+		<column name="Description" visible="true" order="2" width="189"/>
+	</item>
+	<item id="NodeList/PostgreRoleMember">
+		<column name="Propietario" visible="true" order="0" width="100"/>
+		<column name="Rol" visible="true" order="1" width="100"/>
+		<column name="Grantor" visible="true" order="2" width="100"/>
+		<column name="Opción Admin " visible="true" order="3" width="537"/>
+	</item>
+	<item id="NodeList/PostgreSchema">
+		<column name="Nombre" visible="true" order="0" width="182"/>
+		<column name="Comentario" visible="true" order="1" width="998"/>
+	</item>
+	<item id="NodeList/PostgreTableColumn">
+		<column name="Column Name" visible="true" order="0" width="150"/>
+		<column name="#" visible="true" order="1" width="100"/>
+		<column name="Tipo de datos" visible="true" order="2" width="100"/>
+		<column name="Identidad" visible="true" order="3" width="100"/>
+		<column name="Collation" visible="true" order="4" width="100"/>
+		<column name="No Nulo" visible="true" order="5" width="100"/>
+		<column name="Por defecto" visible="true" order="6" width="332"/>
+		<column name="Comentario" visible="true" order="7" width="444"/>
+	</item>
+	<item id="NodeList/PostgreTableRegular">
+		<column name="Table Name" visible="true" order="0" width="365"/>
+		<column name="ID Objeto" visible="true" order="1" width="100"/>
+		<column name="Propietario" visible="true" order="2" width="100"/>
+		<column name="Tablespace" visible="true" order="3" width="100"/>
+		<column name="Cuenta de filas estimada" visible="true" order="4" width="170"/>
+		<column name="Has Row-Level Security" visible="true" order="7" width="166"/>
+		<column name="Partitions" visible="true" order="5" width="100"/>
+		<column name="Partition by" visible="true" order="6" width="100"/>
+		<column name="Opciones extra" visible="true" order="8" width="106"/>
+		<column name="Comentario" visible="true" order="9" width="559"/>
+	</item>
+	<item id="SchemaSelector">
+		<column name="Nombre" visible="true" order="0" width="179"/>
+		<column name="Comentario" visible="true" order="1" width="323"/>
+	</item>
+	<item id="Sessions/postgres-jdbc">
+		<column name="PID" visible="true" order="0" width="100"/>
+		<column name="Usuario" visible="true" order="1" width="107"/>
+		<column name="Base de datos" visible="true" order="2" width="161"/>
+		<column name="Nombre de App " visible="true" order="3" width="360"/>
+		<column name="Estado" visible="true" order="4" width="100"/>
+		<column name="Inicio de la query" visible="true" order="5" width="205"/>
+		<column name="Query abreviada" visible="true" order="6" width="385"/>
+	</item>
+	<item id="Suggestion/NodeList/PostgreTableColumn">
+		<column name="Column Name" visible="true" order="0" width="150"/>
+		<column name="#" visible="true" order="1" width="25"/>
+		<column name="Tipo de datos" visible="true" order="2" width="90"/>
+		<column name="Identidad" visible="true" order="3" width="67"/>
+		<column name="Collation" visible="false" order="4" width="100"/>
+		<column name="No Nulo" visible="false" order="5" width="100"/>
+		<column name="Por defecto" visible="false" order="6" width="332"/>
+		<column name="Comentario" visible="true" order="4" width="322"/>
+	</item>
+	<item id="projectExplorer">
+		<column name="Name" visible="true" order="0" width="178"/>
+		<column name="DataSource" visible="true" order="1" width="126"/>
+	</item>
+	<item id="scriptSelectorViewer">
+		<column name="Script" visible="true" order="0" width="217"/>
+		<column name="Time" visible="true" order="1" width="186"/>
+		<column name="Info" visible="true" order="2" width="41"/>
+		<column name="Folder" visible="true" order="3" width="57"/>
+	</item>
+	<item id="sqlFilterValueEditPopup">
+		<column name="Value" visible="true" order="0" width="46"/>
+		<column name="Description" visible="true" order="1" width="85"/>
+	</item>
+	<item id="tareas">
+		<column name="Nombre" visible="true" order="0" width="100"/>
+		<column name="Última ejecución" visible="true" order="1" width="118"/>
+		<column name="Ultimo resultado(Hora del sistema)" visible="true" order="2" width="239"/>
+		<column name="Tipo" visible="true" order="3" width="100"/>
+		<column name="Proyecto" visible="true" order="4" width="100"/>
+	</item>
+	<item id="taskruns">
+		<column name="Hora Del Sistema" visible="true" order="0" width="125"/>
+		<column name="Duración" visible="true" order="1" width="100"/>
+		<column name="Resultado" visible="true" order="2" width="100"/>
+	</item>
+</items>
