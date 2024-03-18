@@ -1,16 +1,55 @@
 #!/bin/bash
 
-# Directorio donde guardar los scripts de DBeaver
-directorio_destino="/home/xixay/Documentos/Richard/ayuda-memoria/6archivos/querys/scripts_dbeaver"
+# Función para obtener el directorio de inicio del usuario
+get_home_directory() {
+    if [ -n "$HOME" ]; then
+        echo "$HOME"
+    elif [ -n "$USER" ]; then
+        echo "/home/$USER"
+    else
+        echo "Error: No se puede determinar el directorio de inicio del usuario."
+        exit 1
+    fi
+}
+
+# Función para obtener el nombre del hostname
+get_hostname() {
+    hostname=$(hostname)
+    echo "$hostname"
+}
+
+# Mostrar el nombre del hostname
+echo "Nombre del hostname: $(get_hostname)"
+
+# Detectar el entorno basado en el nombre de host
+case "$(get_hostname)" in
+    "OC-SGSIR-PC20L")
+        echo "Detectado entorno de trabajo: Trabajo"
+        directorio_origen="$(get_home_directory)/.local/share/DBeaverData/workspace6/General/Scripts/"
+        directorio_destino="$(get_home_directory)/Documentos/richard/ayuda-memoria/6archivos/querys/scripts_dbeaver"
+        ;;
+    "nombre-del-equipo-casa")
+        echo "Detectado entorno de trabajo: Casa"
+        directorio_origen="/home/xixay/snap/dbeaver-ce/288/.local/share/DBeaverData/workspace6/General/Scripts/"
+        directorio_destino="/home/xixay/Documentos/Richard/ayuda-memoria/6archivos/querys/scripts_dbeaver"
+
+        ;;
+    *)
+        echo "Error: No se puede determinar el entorno de trabajo."
+        exit 1
+        ;;
+esac
 
 # Borrar contenido del directorio de destino si existe
+echo "Borrando contenido del directorio de destino..."
 rm -rf "$directorio_destino"/*
 
 # Crear el directorio de destino si no existe
 mkdir -p "$directorio_destino"
 
 # Copiar los archivos de scripts desde la carpeta de DBeaver a la carpeta de destino
-cp -r /home/xixay/snap/dbeaver-ce/288/.local/share/DBeaverData/workspace6/General/Scripts/* "$directorio_destino"
+echo "Copiando archivos desde el directorio de origen al directorio de destino..."
+cp -r "$directorio_origen"/* "$directorio_destino"
 
 # Verificar si se copiaron los archivos exitosamente
 if [ $? -eq 0 ]; then
