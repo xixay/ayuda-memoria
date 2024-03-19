@@ -142,6 +142,9 @@ select * from controleg_persona.persona_juridica pj where pj.perjur_estado in (1
 select * from controleg_persona.empresa_unipersonal eu where eu.empuni_estado in (1) order by eu.empuni_codigo desc 
 ;
 
+
+
+ 
  
  
  
