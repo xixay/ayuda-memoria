@@ -1,9 +1,9 @@
 #!/bin/bash
-remote_host="172.16.22.239"
+remote_host="172.16.75.101"
 remote_port="5432"
-remote_db="bd_cge_controleg_190223"
-remote_user="usr_controleg_app"
-remote_password="Us34_app*"
+remote_db="bd_cge_controleg_210223"
+remote_user="usr_controleg"
+remote_password="CGE*C0ntr0l3g*4dmin"
 local_db="bd_cge_controleg_190223_local"
 local_user="postgres"
 local_password="postgres"
