@@ -28,10 +28,10 @@ case "$(get_hostname)" in
         directorio_origen="$(get_home_directory)/.local/share/DBeaverData/workspace6/General/Scripts/"
         directorio_destino="$(get_home_directory)/Documentos/richard/ayuda-memoria/6archivos/querys"
         ;;
-    "nombre-del-equipo-casa")
+    "xixay2023")
         echo "Detectado entorno de trabajo: Casa"
-        directorio_origen="/home/xixay/snap/dbeaver-ce/288/.local/share/DBeaverData/workspace6/General/Scripts/"
-        directorio_destino="/home/xixay/Documentos/Richard/ayuda-memoria/6archivos/querys"
+        directorio_origen="$(get_home_directory)/snap/dbeaver-ce/288/.local/share/DBeaverData/workspace6/General/Scripts/"
+       directorio_destino="$(get_home_directory)/Documentos/Richard/ayuda-memoria/6archivos/querys"
 
         ;;
     *)
