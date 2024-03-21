@@ -134,12 +134,6 @@
     PATCH {{Host}}/tipos-movimientos/1
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
-
-### PERSONA INTERINA
-###  ------------------- OBTENER - PERSONA INTERINA
-    GET {{Host}}/areas-unidades/personas?aun_codigo=(1)
-    Content-Type: application/json
-    Authorization: {{AuthTokenInterno}}
 ### PERSONA INTERINA
 ###  ------------------- OBTENER - PERSONA INTERINA
     GET {{Host}}/cargos-items/personas?aun_codigo=(1)

@@ -27,11 +27,13 @@ case "$(get_hostname)" in
         echo "Detectado entorno de trabajo: Trabajo"
         directorio_origen="$(get_home_directory)/.local/share/DBeaverData/workspace6/General/Scripts/"
         directorio_destino="$(get_home_directory)/Documentos/richard/ayuda-memoria/6archivos/querys"
+        directorio_dest="$(get_home_directory)/Documentos/richard/ayuda-memoria"
         ;;
     "xixay2023")
         echo "Detectado entorno de trabajo: Casa"
         directorio_origen="$(get_home_directory)/snap/dbeaver-ce/288/.local/share/DBeaverData/workspace6/General/Scripts/"
-       directorio_destino="$(get_home_directory)/Documentos/Richard/ayuda-memoria/6archivos/querys"
+        directorio_destino="$(get_home_directory)/Documentos/Richard/ayuda-memoria/6archivos/querys"
+        directorio_dest="$(get_home_directory)/Documentos/Richard/ayuda-memoria"
 
         ;;
     *)
@@ -55,7 +57,7 @@ if [ $? -eq 0 ]; then
     notify-send "Copiado exitoso" "Los scripts de DBeaver fueron copiados correctamente a: $directorio_destino"
     
     # Entrar al directorio de destino
-    cd "$directorio_destino" || exit
+    cd "$directorio_dest" || exit
     
     # Realizar el commit
     git add .
