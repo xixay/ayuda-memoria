@@ -4,7 +4,7 @@
 	;
 --###  --- CARGOS ITEM PERSONA
 	select cip.* from estructura_organizacional.cargos_items_persona cip where cip.cip_codigo in (126, 129) order by cip.cip_codigo asc
-	select * from estructura_organizacional.cargos_items ci where ci.aun_codigo in (1) order by ci.cit_codigo desc -- 602
+	select * from estructura_organizacional.cargos_items ci where ci.aun_codigo in (2) order by ci.cit_codigo desc -- 602
 	select * from estructura_organizacional.cargos_items_persona cip where cip.cit_codigo in (235,602) order by cip.cip_codigo desc -- 587
 	select cip.*
 	from estructura_organizacional.areas_unidades au
