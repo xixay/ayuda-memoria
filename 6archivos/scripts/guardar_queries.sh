@@ -71,7 +71,7 @@ if [ $? -eq 0 ]; then
         echo "Commit y push realizados correctamente."
         
         # Notificar que el push fue exitoso
-        notify-send "Push exitoso" "Se realizó el commit y push correctamente."
+        notify-send "Push exitoso" "Se realizó el commit y push correctamente. "
     else
         echo "Error al realizar el push."
         
