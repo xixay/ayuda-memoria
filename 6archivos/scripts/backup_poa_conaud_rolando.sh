@@ -1,9 +1,9 @@
 #!/bin/bash
-remote_host="172.16.22.239"
+remote_host="172.16.22.234"
 remote_port="5432"
-remote_db="bd_cge_poa_conaud_administracion"
-remote_user="usr_app_poa"
-remote_password="4ppP0a"
+remote_db="bd_cge_poa_local_norka"
+remote_user="postgres"
+remote_password="postgres"
 local_db="bd_cge_poa_conaud_administracion_local"
 local_user="postgres"
 local_password="postgres"
