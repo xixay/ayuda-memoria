@@ -137,7 +137,12 @@
 
 ### PERSONA INTERINA
 ###  ------------------- OBTENER - PERSONA INTERINA
-    GET {{Host}}/tipos-movimientos
+    GET {{Host}}/areas-unidades/personas?aun_codigo=(1)
+    Content-Type: application/json
+    Authorization: {{AuthTokenInterno}}
+### PERSONA INTERINA
+###  ------------------- OBTENER - PERSONA INTERINA
+    GET {{Host}}/cargos-items/personas?aun_codigo=(1)
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
 ###  ------------------- CREAR - PERSONA INTERINA
@@ -146,10 +151,11 @@
     Authorization: {{AuthTokenInterno}}
 
     {
-      "cit_descripcion": "Descripcion prueba 2",
       "car_codigo": 2,
       "ite_codigo": 3,
-      "aun_codigo": 3
+      "aun_codigo": 3,
+      "per_codigo": 1,
+      "cit_codigo":1
     }
 ###  ------------------- MODIFICAR - PERSONA INTERINA 
     PUT {{Host}}/tipos-movimientos
