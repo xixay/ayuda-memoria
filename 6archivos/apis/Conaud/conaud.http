@@ -1,5 +1,5 @@
 ### ESTADO
-###  ------------------- OBTENER - ITEM
+###  ------- OBTENER - ITEM
   GET {{Host}}/estado
 ### AUTH INTERNO
   # @name login_interno
@@ -11,15 +11,15 @@
   #   "password": "Pruebas"
   # }
 
-  # {
-  #   "usuario": "4740633",
-  #   "password": "Pruebas"
-  # }
-
   {
-    "usuario": "5896756",
-    "password": "1234567"
+    "usuario": "4740633",
+    "password": "Pruebas"
   }
+
+  # {
+  #   "usuario": "5896756",
+  #   "password": "1234567"
+  # }
 
 ### Este es token de autenticacion
   @AuthTokenInterno = {{login_interno.response.body.datos.token}}
@@ -68,42 +68,42 @@
   @asiCodigo=13
   @perCodigo=1997
 ### ACTIVIDADES
-###  ------------------- OBTENER - ACTIVIDADES
+###  ------- OBTENER - ACTIVIDADES
   GET {{Host}}/sispoa/actividades?act_codigo=({{actCodigo}}) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-###  ------------------- OBTENER - ACTIVIDADES DE AREA EJECUTORA
+###  ------- OBTENER - ACTIVIDADES DE AREA EJECUTORA
   GET {{Host}}/sispoa-actividades/area-ejecutora?act_codigo=(543) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ### AREAS UNIDADES
-###  ------------------- OBTENER - AREAS UNIDADES y sus CARGOS
+###  ------- OBTENER - AREAS UNIDADES y sus CARGOS
   GET {{Host}}/sispoa/areas-unidades?aun_codigo=({{aunCodigo}}) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-###  ------------------- OBTENER - AREAS UNIDADES POR GESTION
+###  ------- OBTENER - AREAS UNIDADES POR GESTION
   GET {{Host}}/sispoa/areas-unidades/gestion?ges_codigo=({{gesCodigo}}) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-###  ------------------- OBTENER - AREAS UNIDADES y sus CARGOS y HORAS LABORALES
+###  ------- OBTENER - AREAS UNIDADES y sus CARGOS y HORAS LABORALES
   GET {{Host}}/sispoa/areas-unidades/cargos-hrs?aun_codigo=({{aunCodigo}}) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ### CARGOS ITEMS
-###  ------------------- OBTENER - CARGOS ITEMS
+###  ------- OBTENER - CARGOS ITEMS
   # GET {{Host}}/sispoa/cargos-items?aun_codigo=({{aunCodigo}}) HTTP/1.1
   GET {{Host}}/sispoa/cargos-items?cit_codigo=({{citCodigo}}) HTTP/1.1
   # GET {{Host}}/sispoa/cargos-items HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ### AREA UNIDAD RESPONSABLES
-###  ------------------- OBTENER - ACTIVIDADES POR AREA UNIDAD EJECUTORA, DADO UN FORMULADOR GERENTE
+###  ------- OBTENER - ACTIVIDADES POR AREA UNIDAD EJECUTORA, DADO UN FORMULADOR GERENTE
   GET {{Host}}/sispoa/area-unidad-responsables/formulador-gerente?ges_codigo=({{gesCodigo}}) HTTP/1.1
   # GET {{Host}}/sispoa/area-unidad-responsables/formulador-gerente?poa_codigo=({{poaCodigo}}) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ### INICIO ACTIVIDAD POA
-###  ------------------- ESTADOS - INICIO ACTIVIDAD POA
+###  ------- ESTADOS - INICIO ACTIVIDAD POA
   PUT {{Host}}/inicio-actividad-poa/estado HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -113,13 +113,13 @@
     "iap_estado": 2
   }
 
-###  ------------------- RESUMEN - INICIO ACTIVIDAD POA
+###  ------- RESUMEN - INICIO ACTIVIDAD POA
   GET {{Host}}/inicio-actividad-poa/summary?iap_codigo=({{iapCodigo}}) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 
 ### INICIO ACTIVIDADES
-###  ------------------- ESTADOS - INICIO ACTIVIDADES
+###  ------- ESTADOS - INICIO ACTIVIDADES
   PUT {{Host}}/inicios-actividades/estado HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -129,7 +129,7 @@
     "iac_estado": 22
   }
 ### INICIO ACTIVIDADES ADICIONALES 
-###  ------------------- ESTADOS - INICIO ACTIVIDADES ADICIONALES
+###  ------- ESTADOS - INICIO ACTIVIDADES ADICIONALES
   PUT {{Host}}/inicios-actividades-adicional/estado HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -139,16 +139,16 @@
     "iaa_estado": 2
   }
 ### SISPOA ACTIVIDADES
-###  ------------------- OBTENER - SISPOA ACTIVIDADES
+###  ------- OBTENER - SISPOA ACTIVIDADES
   GET {{Host}}/sispoa-actividades/gerente?ges_codigo=(2) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-###  ------------------- OBTENER - ARRAY ASIGNACIONES INICIO EVALUACION Y INICIO ACTIVIDAD POA
+###  ------- OBTENER - ARRAY ASIGNACIONES INICIO EVALUACION Y INICIO ACTIVIDAD POA
   GET {{Host}}/sispoa-actividades/asignaciones?per_codigo=(461) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ### ASIGNACIONES
-###  ------------------- ESTADOS - ASIGNACIONES
+###  ------- ESTADOS - ASIGNACIONES
   PUT {{Host}}/asignaciones/estado HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -157,7 +157,7 @@
     "asi_codigo": 1,
     "asi_estado": 5
   }
-###  ------------------- OBTENER - ASIGNACIONES
+###  ------- OBTENER - ASIGNACIONES
   # GET {{Host}}/asignaciones?ett_codigo=({{ettCodigo}}) HTTP/1.1
   # GET {{Host}}/asignaciones?iap_codigo=({{iapCodigo}}) HTTP/1.1
   GET {{Host}}/asignaciones?asi_codigo=({{asiCodigo}}) HTTP/1.1
@@ -165,12 +165,12 @@
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ### ASIGNACIONES CARGOS ITEMS
-###  ------------------- OBTENER - ASIGNACIONES CARGOS ITEMS
+###  ------- OBTENER - ASIGNACIONES CARGOS ITEMS
   GET {{Host}}/asignaciones-cargos-item?cit_codigo=('27') HTTP/1.1
   # GET {{Host}}/asignaciones-cargos-item HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-###  ------------------- ESTADOS - ASIGNACIONES CARGOS ITEMS
+###  ------- ESTADOS - ASIGNACIONES CARGOS ITEMS
   PUT {{Host}}/asignaciones-cargos-item/estado HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -180,14 +180,14 @@
     "aci_estado": 5
   }
 ### INFORMES EMERGENTES
-###  ------------------- OBTENER - INFORMES EMERGENTES
+###  ------- OBTENER - INFORMES EMERGENTES
   # GET {{Host}}/sispoa/parametricas/informes-emergentes HTTP/1.1
   GET {{Host}}/sispoa/parametricas/informes-emergentes?ttr_codigo=(11}) HTTP/1.1
   # GET {{Host}}/informes-emergentes?iem_sigla=('{{iemSigla}}') HTTP/1.1
   # GET {{Host}}/sispoa/parametricas/informes-emergentes?ett_codigo=({{ettCodigo}}) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-###  ------------------- CREAR - INFORMES EMERGENTES
+###  ------- CREAR - INFORMES EMERGENTES
   POST {{Host}}/informes-emergentes HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -197,7 +197,7 @@
     "iem_descripcion": "desc 1",
     "ttr_codigo": 8
   }
-###  ------------------- MODIFICAR - INFORMES EMERGENTES
+###  ------- MODIFICAR - INFORMES EMERGENTES
   PUT {{Host}}/informes-emergentes HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -208,17 +208,17 @@
     "iem_descripcion": "desc 1.0",
     "ttr_codigo": 8
   }
-###  ------------------- ACTIVAR - INFORMES EMERGENTES
+###  ------- ACTIVAR - INFORMES EMERGENTES
   PATCH {{Host}}/informes-emergentes/{{iemCodigo}} HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-###  ------------------- ELIMINAR - INFORMES EMERGENTES
+###  ------- ELIMINAR - INFORMES EMERGENTES
   DELETE {{Host}}/informes-emergentes/{{iemCodigo}}
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 
 ### INFORMES RECOMENDACIONES
-###  ------------------- OBTENER - INFORMES RECOMENDACIONES
+###  ------- OBTENER - INFORMES RECOMENDACIONES
   GET {{Host}}/informe-recomendaciones HTTP/1.1
   # GET {{Host}}/informe-recomendaciones?ire_codigo=({{ireCodigo}}) HTTP/1.1
   # GET {{Host}}/informe-recomendaciones?ire_descripcion=('{{ireDescripcion}}') HTTP/1.1
@@ -231,7 +231,7 @@
   # GET {{Host}}/informe-recomendaciones?inf_estado=({{infEstado}}) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-###  ------------------- CREAR - INFORMES RECOMENDACIONES
+###  ------- CREAR - INFORMES RECOMENDACIONES
   POST {{Host}}/informe-recomendaciones HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -240,7 +240,7 @@
     "ire_descripcion": "desc 1",
     "inf_codigo": 1
   }
-###  ------------------- MODIFICAR - INFORMES RECOMENDACIONES
+###  ------- MODIFICAR - INFORMES RECOMENDACIONES
   PUT {{Host}}/informe-recomendaciones HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -250,16 +250,16 @@
     "ire_descripcion": "desc 1.0",
     "inf_codigo": 1
   }
-###  ------------------- ACTIVAR - INFORMES RECOMENDACIONES
+###  ------- ACTIVAR - INFORMES RECOMENDACIONES
   PATCH {{Host}}/informe-recomendaciones/{{ireCodigo}} HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-###  ------------------- ELIMINAR - INFORMES RECOMENDACIONES
+###  ------- ELIMINAR - INFORMES RECOMENDACIONES
   DELETE {{Host}}/informe-recomendaciones/{{ireCodigo}}
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ### FLUJOS ESTADOS EVOLUCION
-###  ------------------- OBTENER - FLUJOS ESTADOS EVOLUCION
+###  ------- OBTENER - FLUJOS ESTADOS EVOLUCION
   # GET {{Host}}/flujos-estados-evolucion HTTP/1.1
   # GET {{Host}}/flujos-estados-evolucion?fee_codigo=({{feeCodigo}}) HTTP/1.1
   # GET {{Host}}/flujos-estados-evolucion?fee_descripcion=('{{feeDescripcion}}') HTTP/1.1
@@ -279,7 +279,7 @@
   GET {{Host}}/flujos-estados-evolucion?ett_codigo=({{ettCodigo}}) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-###  ------------------- CREAR - FLUJOS ESTADOS EVOLUCION
+###  ------- CREAR - FLUJOS ESTADOS EVOLUCION
   POST {{Host}}/flujos-estados-evolucion HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -290,7 +290,7 @@
     "eev_codigo_destino": 3,
     "iem_codigo": 3
   }
-###  ------------------- MODIFICAR - FLUJOS ESTADOS EVOLUCION
+###  ------- MODIFICAR - FLUJOS ESTADOS EVOLUCION
   PUT {{Host}}/flujos-estados-evolucion HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -302,24 +302,24 @@
     "eev_codigo_destino": 1,
     "iem_codigo": 3
   }
-###  ------------------- ACTIVAR - FLUJOS ESTADOS EVOLUCION
+###  ------- ACTIVAR - FLUJOS ESTADOS EVOLUCION
   PATCH {{Host}}/flujos-estados-evolucion/{{feeCodigo}} HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-###  ------------------- ELIMINAR - FLUJOS ESTADOS EVOLUCION
+###  ------- ELIMINAR - FLUJOS ESTADOS EVOLUCION
   DELETE {{Host}}/flujos-estados-evolucion/{{feeCodigo}}
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-###  ------------------- ESTADOS DESTINO POSIBLE - FLUJOS ESTADOS EVOLUCION
+###  ------- ESTADOS DESTINO POSIBLE - FLUJOS ESTADOS EVOLUCION
   GET {{Host}}/flujos-estados-evolucion/estados-destino-posibles?iem_codigo=({{iemCodigo}}) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ### INFORMES ESTADOS
-###  ------------------- OBTENER - INFORMES ESTADOS
+###  ------- OBTENER - INFORMES ESTADOS
   GET {{Host}}/informes-estados?inf_codigo=(1) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-###  ------------------- CREAR - INFORMES ESTADOS
+###  ------- CREAR - INFORMES ESTADOS
   POST {{Host}}/informes-estados/ HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -329,7 +329,7 @@
     "inf_codigo": 3,
     "eev_codigo": 1
   }
-###  ------------------- MODIFICAR - INFORMES ESTADOS
+###  ------- MODIFICAR - INFORMES ESTADOS
   PUT {{Host}}/informes-estados HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -340,7 +340,7 @@
     "inf_codigo": 3,
     "eev_codigo": 5
   }
-###  ------------------- ESTADOS - INFORMES ESTADOS
+###  ------- ESTADOS - INFORMES ESTADOS
   PUT {{Host}}/informes-estados/estado-flujo HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -350,11 +350,11 @@
     "ies_estado": 1
   }
 ### INFORMES
-###  ------------------- OBTENER - INFORMES
+###  ------- OBTENER - INFORMES
   GET {{Host}}/informes/detalle?iac_codigo=({{iacCodigo}}) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-###  ------------------- ESTADOS - CAMBIO DE ESTADO
+###  ------- ESTADOS - CAMBIO DE ESTADO
   PUT {{Host}}/informes/estado-flujo HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -364,53 +364,53 @@
     "inf_estado": 39
   }
 ### PERMISOS CARGOS ITEM
-###  ------------------- OBTENER - PERMISOS CARGOS ITEM
+###  ------- OBTENER - PERMISOS CARGOS ITEM
   GET {{Host}}/permisos-cargos-item?cit_codigo=({{citCodigo}})&pci_estado=(0,1,2) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ### USUARIOS
-###  ------------------- OBTENER - USUARIOS
+###  ------- OBTENER - USUARIOS
   # GET {{Host}}/autenticacion/usuarios?per_codigo=({{perCodigo}}) HTTP/1.1
   GET {{Host}}/autenticacion/usuarios HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ### ESTADOS TABLAS
-###  ------------------- OBTENER - (TODOS) ESTADOS TABLAS
+###  ------- OBTENER - (TODOS) ESTADOS TABLAS
   GET {{Host}}/estados-tablas/listado_datos?tab_nombre=('IniciosActividades')&tab_codigo=(3) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-###  ------------------- OBTENER - (APROBADOS) ESTADOS TABLAS
+###  ------- OBTENER - (APROBADOS) ESTADOS TABLAS
   GET {{Host}}/estados-tablas/listado_datos?tab_nombre=('IniciosActividades')&tab_codigo=(3)&tab_estado=(22,11,12,13,19,20,9,23,24,25,27) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-###  ------------------- OBTENER - (OBSERVADOS) ESTADOS TABLAS
+###  ------- OBTENER - (OBSERVADOS) ESTADOS TABLAS
   GET {{Host}}/estados-tablas/listado_datos?tab_nombre=('IniciosActividades')&tab_codigo=(3)&tab_estado=(4,14,26) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-###  ------------------- OBTENER - (TODOS) ESTADOS ULTIMO ERICK
+###  ------- OBTENER - (TODOS) ESTADOS ULTIMO ERICK
   GET {{Host}}/estados-tablas/listado_datos/concatenado?tab_nombre=('IniciosActividades')&tab_codigo=(78) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-###  ------------------- OBTENER - (APROBADOS) ESTADOS ULTIMO ERICK
+###  ------- OBTENER - (APROBADOS) ESTADOS ULTIMO ERICK
   GET {{Host}}/estados-tablas/listado_datos/concatenado?tab_nombre=('IniciosActividades')&tab_codigo=(78)&tab_estado=(3,8,2,22,11,12,13,19,20,9,23,24,25,27,29,30,32) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-###  ------------------- OBTENER - (OBSERVADOS) ESTADOS ULTIMO ERICK
+###  ------- OBTENER - (OBSERVADOS) ESTADOS ULTIMO ERICK
   GET {{Host}}/estados-tablas/listado_datos/concatenado?tab_nombre=('IniciosActividades')&tab_codigo=(78)&tab_estado=(4,14,26,40,31) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-###  ------------------- OBTENER - (OBSERVADOS) ESTADOS TABLAS
+###  ------- OBTENER - (OBSERVADOS) ESTADOS TABLAS
   GET {{Host}}/sispoa/parametricas/hitos-rutas-criticas?ttr_codigo=(6)&tab_codigo=(3)&hrc_estado=(1) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ### FECHAS LIBRES
-###  ------------------- OBTENER - FECHAS LIBRES
+###  ------- OBTENER - FECHAS LIBRES
   # GET {{Host}}/fechas-libres-gestiones/fechas_datos?ges_codigo=(1)&lug_codigo=(2)&fecha_inicio=("15/8/2023")&fecha_final=("21/10/2023")&cantidad_dias=(45) HTTP/1.1
   GET {{Host}}/fechas-libres-gestiones/fechas_datos?ges_codigo=(2)&lug_codigo=(2)&fecha_inicio=(01/11/2023)&dias_habiles=(89)&cantidad_dias=(150) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ### INICIOS ADMINISTRATIVAS
-###  ------------------- OBTENER - INICIOS ADMINISTRATIVAS
+###  ------- OBTENER - INICIOS ADMINISTRATIVAS
   GET {{Host}}/inicios-administrativas/resumen?poa_codigo=(2)&aun_codigo=(9)&ges_codigo=(2)
   #GET {{Host}}/inicios-administrativas/resumen?aun_codigo=(9)
   # GET {{Host}}/inicios-administrativas/resumen?ges_codigo=(2)
@@ -423,7 +423,7 @@
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ### PLANIFICACION EJECUCIONES
-###  ------------------- CREAR - PLANIFICACION EJECUCIONES
+###  ------- CREAR - PLANIFICACION EJECUCIONES
   POST {{Host}}/planificaciones-ejecuciones/ HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -434,7 +434,5 @@
     "mes_codigo": 10,
     "iad_codigo": 3
   }
-###
-  GET {{Host}}/sispoa-actividades/gerente?ges_codigo=(2)
-  Authorization: {{AuthTokenInterno}}
-  Content-Type: application/json
+
+### --------
