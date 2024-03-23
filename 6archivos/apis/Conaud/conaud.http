@@ -258,6 +258,53 @@
   DELETE {{Host}}/informe-recomendaciones/{{ireCodigo}}
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
+### INFORMES RECOMENDACIONES SEGUIMIENTOS
+###  ------- OBTENER - INFORMES RECOMENDACIONES SEGUIMIENTOS
+  # GET {{Host}}/informe-recomendaciones-seguimientos HTTP/1.1
+  # GET {{Host}}/informe-recomendaciones-seguimientos?irs_codigo=(2) HTTP/1.1
+  # GET {{Host}}/informe-recomendaciones-seguimientos?irs_codigo=(2) HTTP/1.1
+  # GET {{Host}}/informe-recomendaciones-seguimientos?irs_aceptacion=('0') HTTP/1.1
+  GET {{Host}}/informe-recomendaciones-seguimientos?irs_justificacion=('justificacion 2') HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+###  ------- CREAR - INFORMES RECOMENDACIONES SEGUIMIENTOS
+  POST {{Host}}/informe-recomendaciones-seguimientos HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+
+  # {
+  #   "irs_aceptacion": 1,
+  #   "irs_justificacion": "justificacion 2",
+  #   "ire_codigo": 1,
+  #   "inf_codigo": 2,
+  #   "eir_codigo": 1
+  # }
+  {
+    "irs_aceptacion": 1,
+    "irs_justificacion": "justificacion 2",
+    "ire_codigo": 1,
+    "inf_codigo": 2,
+    "eir_codigo": 1
+  }
+###  ------- MODIFICAR - INFORMES RECOMENDACIONES SEGUIMIENTOS
+  PUT {{Host}}/informe-recomendaciones-seguimientos HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+  {
+    "ire_codigo": 1,
+    "ire_descripcion": "desc 1.0",
+    "inf_codigo": 1
+  }
+###  ------- ACTIVAR - INFORMES RECOMENDACIONES SEGUIMIENTOS
+  PATCH {{Host}}/informe-recomendaciones-seguimientos/{{ireCodigo}} HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+###  ------- ELIMINAR - INFORMES RECOMENDACIONES SEGUIMIENTOS
+  DELETE {{Host}}/informe-recomendaciones-seguimientos/{{ireCodigo}}
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
 ### FLUJOS ESTADOS EVOLUCION
 ###  ------- OBTENER - FLUJOS ESTADOS EVOLUCION
   # GET {{Host}}/flujos-estados-evolucion HTTP/1.1
