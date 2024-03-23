@@ -240,6 +240,19 @@
     "ire_descripcion": "desc 1",
     "inf_codigo": 1
   }
+
+###  ------- CREAR - INFORMES RECOMENDACIONES Y SEGUIMIENTO
+  POST {{Host}}/informe-recomendaciones/crear HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+  {
+    "ire_descripcion": "recomendacion 18",
+    "inf_codigo": 17,
+    "irs_aceptacion": 0,
+    "irs_justificacion": "justificacion 3",
+    "eir_codigo": 1
+  }
 ###  ------- MODIFICAR - INFORMES RECOMENDACIONES
   PUT {{Host}}/informe-recomendaciones HTTP/1.1
   Authorization: {{AuthTokenInterno}}
