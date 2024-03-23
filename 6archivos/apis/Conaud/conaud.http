@@ -247,10 +247,10 @@
   Content-Type: application/json
 
   {
-    "ire_descripcion": "recomendacion 18",
+    "ire_descripcion": "recomendacion 19",
     "inf_codigo": 17,
     "irs_aceptacion": 0,
-    "irs_justificacion": "justificacion 3",
+    "irs_justificacion": "justificacion 4",
     "eir_codigo": 1
   }
 ###  ------- MODIFICAR - INFORMES RECOMENDACIONES
@@ -289,16 +289,16 @@
   # {
   #   "irs_aceptacion": 0,
   #   "irs_justificacion": "justificacion 2",
-  #   "ire_codigo": 1,
-  #   "inf_codigo": 2,
+  #   "ire_codigo": 18,
+  #   "inf_codigo": 17,
   #   "eir_codigo": 1
   # }
   {
     "irs_aceptacion": 1,
     "irs_fecha_inicio":"21/6/2023",
     "irs_fecha_fin":"14/9/2025",
-    "ire_codigo": 1,
-    "inf_codigo": 4,
+    "ire_codigo": 19,
+    "inf_codigo": 17,
     "eir_codigo": 1
   }
 ###  ------- MODIFICAR - INFORMES RECOMENDACIONES SEGUIMIENTOS
