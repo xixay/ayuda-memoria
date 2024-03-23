@@ -260,11 +260,11 @@
   Content-Type: application/json
 ### INFORMES RECOMENDACIONES SEGUIMIENTOS
 ###  ------- OBTENER - INFORMES RECOMENDACIONES SEGUIMIENTOS
-  # GET {{Host}}/informe-recomendaciones-seguimientos HTTP/1.1
+  GET {{Host}}/informe-recomendaciones-seguimientos HTTP/1.1
   # GET {{Host}}/informe-recomendaciones-seguimientos?irs_codigo=(2) HTTP/1.1
   # GET {{Host}}/informe-recomendaciones-seguimientos?irs_codigo=(2) HTTP/1.1
   # GET {{Host}}/informe-recomendaciones-seguimientos?irs_aceptacion=('0') HTTP/1.1
-  GET {{Host}}/informe-recomendaciones-seguimientos?irs_justificacion=('justificacion 2') HTTP/1.1
+  # GET {{Host}}/informe-recomendaciones-seguimientos?irs_justificacion=('justificacion 2') HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ###  ------- CREAR - INFORMES RECOMENDACIONES SEGUIMIENTOS
@@ -274,7 +274,7 @@
 
 
   # {
-  #   "irs_aceptacion": 1,
+  #   "irs_aceptacion": 0,
   #   "irs_justificacion": "justificacion 2",
   #   "ire_codigo": 1,
   #   "inf_codigo": 2,
@@ -282,9 +282,10 @@
   # }
   {
     "irs_aceptacion": 1,
-    "irs_justificacion": "justificacion 2",
+    "irs_fecha_inicio":"21/6/2023",
+    "irs_fecha_fin":"14/9/2025",
     "ire_codigo": 1,
-    "inf_codigo": 2,
+    "inf_codigo": 4,
     "eir_codigo": 1
   }
 ###  ------- MODIFICAR - INFORMES RECOMENDACIONES SEGUIMIENTOS
@@ -293,16 +294,19 @@
   Content-Type: application/json
 
   {
+    "irs_codigo": 2,
+    "irs_aceptacion": 0,
+    "irs_justificacion": "justificacion 2.1",
     "ire_codigo": 1,
-    "ire_descripcion": "desc 1.0",
-    "inf_codigo": 1
+    "inf_codigo": 2,
+    "eir_codigo": 1
   }
 ###  ------- ACTIVAR - INFORMES RECOMENDACIONES SEGUIMIENTOS
-  PATCH {{Host}}/informe-recomendaciones-seguimientos/{{ireCodigo}} HTTP/1.1
+  PATCH {{Host}}/informe-recomendaciones-seguimientos/2 HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ###  ------- ELIMINAR - INFORMES RECOMENDACIONES SEGUIMIENTOS
-  DELETE {{Host}}/informe-recomendaciones-seguimientos/{{ireCodigo}}
+  DELETE {{Host}}/informe-recomendaciones-seguimientos/2
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ### FLUJOS ESTADOS EVOLUCION
