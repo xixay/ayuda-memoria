@@ -263,6 +263,22 @@
     "ire_descripcion": "desc 1.0",
     "inf_codigo": 1
   }
+###  ------- MODIFICAR - INFORMES RECOMENDACIONES EDITAR
+  PUT {{Host}}/informe-recomendaciones/editar HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+  {
+    "ire_codigo": 19,
+    "ire_descripcion": "recomendacion 19",
+    "inf_codigo": 17,
+    "irs_codigo": 19,
+    "irs_aceptacion": 0,
+    "irs_justificacion": "justificacion 19",
+    "irs_fecha_inicio":null,
+    "irs_fecha_fin":null,
+    "eir_codigo": 1
+  }
 ###  ------- ACTIVAR - INFORMES RECOMENDACIONES
   PATCH {{Host}}/informe-recomendaciones/{{ireCodigo}} HTTP/1.1
   Authorization: {{AuthTokenInterno}}
