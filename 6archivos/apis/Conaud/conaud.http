@@ -338,6 +338,42 @@
   DELETE {{Host}}/informe-recomendaciones-seguimientos/2
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
+### RECOMENDACIONES INICIOS SEGUIMIENTOS
+###  ------- OBTENER - RECOMENDACIONES INICIOS SEGUIMIENTOS
+  GET {{Host}}/recomendaciones-inicios-seguimientos HTTP/1.1
+  # GET {{Host}}/recomendaciones-inicios-seguimientos?irs_codigo=(2) HTTP/1.1
+  # GET {{Host}}/recomendaciones-inicios-seguimientos?irs_codigo=(2) HTTP/1.1
+  # GET {{Host}}/recomendaciones-inicios-seguimientos?irs_aceptacion=('0') HTTP/1.1
+  # GET {{Host}}/recomendaciones-inicios-seguimientos?irs_justificacion=('justificacion 2') HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+###  ------- CREAR - RECOMENDACIONES INICIOS SEGUIMIENTOS
+  POST {{Host}}/recomendaciones-inicios-seguimientos HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+  {
+    "iac_codigo": 141,
+    "ire_codigo": 2
+  }
+###  ------- MODIFICAR - RECOMENDACIONES INICIOS SEGUIMIENTOS
+  PUT {{Host}}/recomendaciones-inicios-seguimientos HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+  {
+    "ris_codigo": 1,
+    "iac_codigo": 141,
+    "ire_codigo": 1
+  }
+###  ------- ACTIVAR - RECOMENDACIONES INICIOS SEGUIMIENTOS
+  PATCH {{Host}}/recomendaciones-inicios-seguimientos/1 HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+###  ------- ELIMINAR - RECOMENDACIONES INICIOS SEGUIMIENTOS
+  DELETE {{Host}}/recomendaciones-inicios-seguimientos/1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
 ### FLUJOS ESTADOS EVOLUCION
 ###  ------- OBTENER - FLUJOS ESTADOS EVOLUCION
   # GET {{Host}}/flujos-estados-evolucion HTTP/1.1
