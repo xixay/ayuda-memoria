@@ -135,16 +135,16 @@ select *from parametricas.tipo_sancion ts
 SELECT * FROM parametricas.moneda m
 ;
 --###  ---TABLA PERSONA JURIDICA
-select * from controleg_persona.persona p order by p.fecha_registro desc
-select * from controleg_persona.persona p where p.per_estado in (1) and p.tipdoc_codigo in (1) order by p.fecha_registro desc
-select * from controleg_persona.persona p where p.per_estado in (1) and p.tipdoc_codigo in (2) order by p.fecha_registro desc
+select * from controleg_persona.persona p where p.per_estado in (1) order by p.fecha_registro desc
 select * from controleg_persona.persona p where p.per_documento_identidad in ('434343443')
 select * from controleg_persona.representante_legal rl where rl.repleg_estado in (1) order by rl.fecha_registro desc
 select * from controleg_persona.persona_juridica pj where pj.perjur_estado in (1) order by pj.perjur_codigo desc
-select * from controleg_persona.empresa_unipersonal eu where eu.empuni_estado in (1) order by eu.empuni_codigo desc
+select * from controleg_persona.empresa_unipersonal eu where eu.empuni_estado in (1) order by eu.empuni_codigo desc 
 ;
 
 
+
+ 
  
  
  
