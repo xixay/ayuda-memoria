@@ -5,7 +5,9 @@
 	select * from ejecucion_actividades.informes i where i.inf_codigo in (17)
 	select * from ejecucion_actividades.recomendaciones_inicios_seguimientos ris
 	select * from ejecucion_actividades.inicios_actividades ia where ia.iac_codigo in (141)
+	select * from ejecucion_actividades.inicio_actividad_informe iai where iai.iac_codigo in (141)
 	select * from ejecucion_actividades.inicio_actividad_poa iap where iap.act_codigo in (860)
+	select * from ejecucion_actividades.actividad_migrada_conaud amc 
 	;
 --###  --- INICIO ACT POA - AMPLIACION JUSTIFICACION - CAMBIO GLOBAL DE ESTADOS, POR ROL
 	select iap.iap_codigo,iap.iac_codigo,iap.iap_observaciones ,iap.ges_codigo ,iap.iap_estado  from ejecucion_actividades.inicio_actividad_poa iap where iap.iap_codigo in (140)
