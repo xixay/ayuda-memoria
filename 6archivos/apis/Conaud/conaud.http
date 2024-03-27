@@ -355,6 +355,15 @@
     "iac_codigo": 141,
     "ire_codigo": 2
   }
+###  ------- CREAR ALL - RECOMENDACIONES INICIOS SEGUIMIENTOS
+  POST {{Host}}/recomendaciones-inicios-seguimientos/all HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+  {
+    "iac_codigo": 141,
+    "array_ire_codigo": [26,27,28,29]
+  }
 ###  ------- MODIFICAR - RECOMENDACIONES INICIOS SEGUIMIENTOS
   PUT {{Host}}/recomendaciones-inicios-seguimientos HTTP/1.1
   Authorization: {{AuthTokenInterno}}
