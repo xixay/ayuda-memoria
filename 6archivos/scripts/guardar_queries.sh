@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x  # Activar modo verbose para depuración
+
 # Función para obtener el directorio de inicio del usuario
 get_home_directory() {
     if [ -n "$HOME" ]; then
@@ -34,7 +36,6 @@ case "$(get_hostname)" in
         directorio_origen="$(get_home_directory)/snap/dbeaver-ce/288/.local/share/DBeaverData/workspace6/General/Scripts/"
         directorio_destino="$(get_home_directory)/Documentos/Richard/ayuda-memoria/6archivos/querys"
         directorio_dest="$(get_home_directory)/Documentos/Richard/ayuda-memoria"
-
         ;;
     *)
         echo "Error: No se puede determinar el entorno de trabajo."
@@ -45,9 +46,15 @@ esac
 # Crear el directorio de destino si no existe
 mkdir -p "$directorio_destino"
 
+# Mostrar los archivos en el directorio de origen (para depurar)
+ls -l "$directorio_origen"
+
 # Copiar los archivos de scripts desde la carpeta de DBeaver a la carpeta de destino
 echo "Copiando archivos desde el directorio de origen al directorio de destino..."
-cp -r "$directorio_origen"/* "$directorio_destino"
+cp -rf "$directorio_origen"/* "$directorio_destino"
+
+# Mostrar los archivos en el directorio de destino (para depurar)
+ls -l "$directorio_destino"
 
 # Verificar si se copiaron los archivos exitosamente
 if [ $? -eq 0 ]; then
@@ -85,3 +92,5 @@ else
     notify-send "Error en copia" "Ocurrió un error al copiar los scripts de DBeaver."
 fi
 
+# Desactivar el modo verbose al final del script
+set +x
