@@ -219,10 +219,10 @@
 
 ### INFORMES RECOMENDACIONES
 ###  ------- OBTENER - INFORMES RECOMENDACIONES
-  GET {{Host}}/informe-recomendaciones HTTP/1.1
+  # GET {{Host}}/informe-recomendaciones HTTP/1.1
   # GET {{Host}}/informe-recomendaciones?ire_codigo=({{ireCodigo}}) HTTP/1.1
   # GET {{Host}}/informe-recomendaciones?ire_descripcion=('{{ireDescripcion}}') HTTP/1.1
-  # GET {{Host}}/informe-recomendaciones?inf_codigo=({{infCodigo}}) HTTP/1.1
+  GET {{Host}}/informe-recomendaciones?inf_codigo=(4) HTTP/1.1
   # GET {{Host}}/informe-recomendaciones?inf_nombre=('{{infNombre}}') HTTP/1.1
   # GET {{Host}}/informe-recomendaciones?inf_descripcion=('{{infDescripcion}}') HTTP/1.1
   # GET {{Host}}/informe-recomendaciones?iap_codigo=({{iapCodigo}}) HTTP/1.1
@@ -379,7 +379,7 @@
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ###  ------- ELIMINAR - RECOMENDACIONES INICIOS SEGUIMIENTOS
-  DELETE {{Host}}/recomendaciones-inicios-seguimientos/2
+  DELETE {{Host}}/recomendaciones-inicios-seguimientos/6
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ### FLUJOS ESTADOS EVOLUCION
