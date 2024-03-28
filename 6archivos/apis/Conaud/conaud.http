@@ -382,6 +382,12 @@
   DELETE {{Host}}/recomendaciones-inicios-seguimientos/6
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
+### ACTIVIDAD MIGRADA CONAUD
+###  ------- OBTENER - RECOMENDACIONES INICIOS SEGUIMIENTOS
+  GET {{Host}}/actividad-migrada-conaud?iac_codigo_migrado=(140) HTTP/1.1
+  # GET {{Host}}/actividad-migrada-conaud/migrado?iac_codigo_migrado=(141) HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
 ### FLUJOS ESTADOS EVOLUCION
 ###  ------- OBTENER - FLUJOS ESTADOS EVOLUCION
   # GET {{Host}}/flujos-estados-evolucion HTTP/1.1
