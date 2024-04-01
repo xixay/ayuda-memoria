@@ -66,18 +66,18 @@
 	          LEFT JOIN ejecucion_actividades.inicios_actividades ia ON t.iac_codigo = ia.iac_codigo
 	    WHERE	t.inf_codigo in (17)
 	    ORDER BY t.fecha_registro desc
-	    --###############
-	 	select t.iac_codigo
+	    --############### codigo_poa=500.2002.119.3.24   http://172.16.75.100:3002/conaud/inicios-actividades?ges_codigo=2&act_codigo=864
+	 	select *
 	    FROM	ejecucion_actividades.inicio_actividad_informe t
-	    WHERE	t.inf_codigo in (17)--iac_codigo=249
+	    WHERE	t.iac_codigo in (249)--inf_codigo=17
 	    
-	   	select t.iac_codigo_control	
+	   	select *
 	    FROM	ejecucion_actividades.inicios_actividades t
-	    WHERE	t.iac_codigo in (249)
+	    WHERE	t.iac_codigo in (249)--iac_codigo_control=EBGP120M24F2
 	    
 	 	select *
 	    FROM	ejecucion_actividades.inicio_actividad_poa t
-	    WHERE	t.iac_codigo in (249)--ac_codigo=864
+	    WHERE	t.iac_codigo in (249)--act_codigo=864
 	    
 	 	select a.act_descripcion 
 	 	from estructura_poa.actividades a 
@@ -91,15 +91,38 @@
 	 	from parametricas.tipos_trabajos tt 
 	 	where tt.ttr_codigo in (12)
 	 	
+	 	select ie.eev_codigo  
+	 	from ejecucion_actividades.informes_estados ie  
+	 	where ie.inf_codigo in (17)--no hay nada
+	 	order by ie.fecha_registro desc
+	 	limit 1
+	 	
+	 	select ee.eev_sigla 
+	 	from parametricas.estados_evolucion ee 
+	 	where ee.eev_codigo in (38)
+	 	
+	 	SELECT * 
+	 	FROM ejecucion_actividades.informe_recomendaciones ir
+	 	where ir.inf_codigo in (17)
+	 	
+	 	SELECT COUNT(*) as nrecom 
+	 	FROM ejecucion_actividades.informe_recomendaciones ir
+	 	where ir.ire_estado in (1) AND ir.inf_codigo in (17)
+	 	
 	 	--#################
-	 	select t.inf_codigo, t.iac_codigo, ia.iac_codigo_control,tt.ttr_descripcion, ia.ttr_codigo ,iap.act_codigo, a.act_descripcion , i2.inf_nombre
+	 	select t.inf_codigo, t.iac_codigo,ia.iac_fecha_inicio, ia.iac_fecha_fin, ia.iac_dias_habiles, ia.iac_dias_calendario, g.ges_anio, ia.iac_codigo_control, tt.ttr_sigla, tt.ttr_descripcion, ia.ttr_codigo , iap.act_codigo, a.act_numero , a.act_descripcion , i2.inf_codigo_control , i2.inf_nombre, ee.eev_sigla
 	    FROM	ejecucion_actividades.inicio_actividad_informe t
 	    left join ejecucion_actividades.inicios_actividades ia on ia.iac_codigo = t.iac_codigo
-	    left join parametricas.tipos_trabajos tt on tt.ttr_codigo = ia.ttr_codigo 
+	    left join parametricas.tipos_trabajos tt on tt.ttr_codigo = ia.ttr_codigo
+	    left join parametricas.gestiones g on g.ges_codigo = ia.ges_codigo
 	    left join ejecucion_actividades.inicio_actividad_poa iap on iap.iac_codigo = t.iac_codigo
 	    left join estructura_poa.actividades a  on a.act_codigo = iap.act_codigo
 	    left join ejecucion_actividades.informes i2 on i2.inf_codigo = t.inf_codigo
-	    WHERE	t.inf_codigo in (17)--iac_codigo=249
+	    left join ejecucion_actividades.informes_estados ie on ie.inf_codigo = t.inf_codigo
+	    left join parametricas.estados_evolucion ee on ee.eev_codigo = ie.eev_codigo
+	    WHERE	t.iac_codigo in (249)--iac_codigo=141
+	 	order by ie.fecha_registro desc
+	 	limit 1
 
 	;
 --###  --- INICIO ACT POA - AMPLIACION JUSTIFICACION - CAMBIO GLOBAL DE ESTADOS, POR ROL
