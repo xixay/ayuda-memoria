@@ -289,9 +289,9 @@
   Content-Type: application/json
 ### INFORMES RECOMENDACIONES SEGUIMIENTOS
 ###  ------- OBTENER - INFORMES RECOMENDACIONES SEGUIMIENTOS
-  GET {{Host}}/informe-recomendaciones-seguimientos HTTP/1.1
+  # GET {{Host}}/informe-recomendaciones-seguimientos HTTP/1.1
   # GET {{Host}}/informe-recomendaciones-seguimientos?irs_codigo=(2) HTTP/1.1
-  # GET {{Host}}/informe-recomendaciones-seguimientos?irs_codigo=(2) HTTP/1.1
+  GET {{Host}}/informe-recomendaciones-seguimientos?ire_codigo=(1) HTTP/1.1
   # GET {{Host}}/informe-recomendaciones-seguimientos?irs_aceptacion=('0') HTTP/1.1
   # GET {{Host}}/informe-recomendaciones-seguimientos?irs_justificacion=('justificacion 2') HTTP/1.1
   Authorization: {{AuthTokenInterno}}
@@ -342,7 +342,7 @@
 ###  ------- OBTENER - RECOMENDACIONES INICIOS SEGUIMIENTOS
   # GET {{Host}}/recomendaciones-inicios-seguimientos HTTP/1.1
   # GET {{Host}}/recomendaciones-inicios-seguimientos?ris_codigo=(2) HTTP/1.1
-  GET {{Host}}/recomendaciones-inicios-seguimientos?iac_codigo=(141)&ris_estado=(1) HTTP/1.1
+  GET {{Host}}/recomendaciones-inicios-seguimientos?iac_codigo=(249)&ris_estado=(1) HTTP/1.1
   # GET {{Host}}/recomendaciones-inicios-seguimientos?ire_codigo=(1) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
