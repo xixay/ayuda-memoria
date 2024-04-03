@@ -153,7 +153,73 @@
 	select * from control_estados.estados_asignaciones_cargos_item eaci  where eaci.aci_codigo in (650) order by eaci.eaci_codigo desc
 ;
 
+select * from estructura_poa.area_unidad_responsables aur where aur.per_codigo in (1390)
+
+
+select * from estructura_poa.area_unidad_responsables aur where aur.per_codigo in (1289)
+select * from estructura_poa.area_unidad_responsables aur where aur.per_codigo in (142)
+select * from estructura_poa.area_unidad_responsables aur where aur.per_codigo in (346)
+
+
+select *
+from ejecucion_poa.asignaciones_cargos_item aci
+where aci.asi_codigo = 32
+	and aci.aci_estado != 0
+--	and aci.aci_estado in (1,2)
+;
 
 
 
+WITH tmp_cargo_item_top_padre AS ( 
+  SELECT
+    ci.cit_codigo
+  FROM estructura_organizacional.cargos_items ci
+  WHERE ci.cit_codigo NOT IN (SELECT cid.cit_codigo_hijo FROM estructura_organizacional.cargos_item_dependencias cid WHERE cid.cid_estado > 0)
+  AND ci.cit_codigo IN (SELECT cid.cit_codigo_padre FROM estructura_organizacional.cargos_item_dependencias cid WHERE cid.cid_estado > 0)
+  ), -- CargoItem que no tiene padre ni hijos
+  tmp_cargo_item_suelto AS ( 
+  SELECT
+    ci.cit_codigo
+  FROM estructura_organizacional.cargos_items ci
+  WHERE ci.cit_codigo NOT IN (SELECT cid.cit_codigo_hijo FROM estructura_organizacional.cargos_item_dependencias cid WHERE cid.cid_estado > 0)
+  AND ci.cit_codigo NOT IN (SELECT cid.cit_codigo_padre FROM estructura_organizacional.cargos_item_dependencias cid WHERE cid.cid_estado > 0)
+  ),
+  tmp_cargo_item_persona as ( -- Filtro de cargos items persona
+    SELECT cip.cip_codigo, cip.cip_estado, cip.cit_codigo, cip.per_codigo
+    FROM estructura_organizacional.cargos_items_persona cip
+    WHERE cip_estado NOT IN (0,5)
+  )
+  SELECT 
+    t.cit_codigo,
+    t.cit_descripcion,
+    t.car_codigo,
+    t.ite_codigo,
+    t.aun_codigo, 
+    t.cit_estado,
+    au.aun_nombre,
+    au.aun_sigla,
+    CONCAT_WS(' - ', au.aun_sigla, au.aun_nombre) AS aun_concatenado,
+CONCAT_WS(' - ', au.aun_nombre, au.aun_sigla) AS aun_concatenado_invert,
+au.aun_numero,
+( CASE WHEN (t.cit_estado = 42) THEN CONCAT( c.car_nombre, ' (', e.est_nombre,')' ) ELSE c.car_nombre END ) AS car_nombre,
+c.car_alias,
+tc.tca_nombre,
+i.ite_descripcion,
+i.ite_numero,
+CONCAT_WS(' - ', i.ite_numero, c.car_nombre) car_nombre_item,
+    cip.cip_codigo,
+    cip.cip_estado,
+    cip.per_codigo,
+    e.est_color, 
+    e.est_nombre AS cit_estado_descripcion
+  FROM estructura_organizacional.cargos_items t
+  LEFT JOIN parametricas.estados e ON e.est_codigo = t.cit_estado
+  LEFT JOIN estructura_organizacional.areas_unidades au ON au.aun_codigo = t.aun_codigo
+  LEFT JOIN estructura_organizacional.cargos c ON c.car_codigo = t.car_codigo
+  LEFT JOIN parametricas.tipos_cargos tc ON tc.tca_codigo = c.tca_codigo
+  LEFT JOIN estructura_organizacional.items i  ON i.ite_codigo = t.ite_codigo
+  LEFT JOIN tmp_cargo_item_persona cip  ON cip.cit_codigo = t.cit_codigo
+  WHERE TRUE
+  	AND t.cit_codigo in (530, 566, 568)
+  ORDER BY t.fecha_registro;
 

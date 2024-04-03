@@ -1,7 +1,7 @@
 #!/bin/bash
 remote_host="172.16.22.234"
 remote_port="5432"
-remote_db="bd_cge_poa_local_norka"
+remote_db="db_poa_conaud_soportes"
 remote_user="postgres"
 remote_password="postgres"
 local_db="bd_cge_poa_conaud_administracion_local"
