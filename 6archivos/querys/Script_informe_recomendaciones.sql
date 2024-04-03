@@ -1,16 +1,16 @@
---###  --- INFORME RECOMENDACIONES
+--### INFORME RECOMENDACIONES
 	select * from ejecucion_actividades.informe_recomendaciones ir where ir.ire_estado in (1) order by ir.fecha_registro desc
 	select * from ejecucion_actividades.informe_recomendaciones_seguimientos irs where irs.irs_estado in (1) and irs.ire_codigo in (1) order by irs.fecha_registro desc 
 	select * from parametricas.estados_informe_recomendaciones eir
 	select *
     FROM	ejecucion_actividades.inicio_actividad_informe t
-    WHERE	t.iac_codigo in (249)--inf_codigo=17
-	select * from ejecucion_actividades.informes i where i.inf_codigo in (17)
-	select * from ejecucion_actividades.recomendaciones_inicios_seguimientos ris where ris.iac_codigo in (249)
+    WHERE	t.iac_codigo in (93)--inf_codigo=17
+	select * from ejecucion_actividades.informes i where i.inf_codigo in (19)
+	select * from ejecucion_actividades.recomendaciones_inicios_seguimientos ris where ris.iac_codigo in (93)
 	-- tiene tabla migrada
-	select * from ejecucion_actividades.inicios_actividades ia where ia.iac_codigo in (141)
-	select * from ejecucion_actividades.inicio_actividad_informe iai where iai.iac_codigo in (141)--inf_codigo=4
-	select * from ejecucion_actividades.inicio_actividad_poa iap where iap.act_codigo in (860)
+	select * from ejecucion_actividades.inicios_actividades ia where ia.iac_codigo in (93)
+	select * from ejecucion_actividades.inicio_actividad_informe iai where iai.iac_codigo in (93)--inf_codigo=19
+	select * from ejecucion_actividades.inicio_actividad_poa iap where iap.act_codigo in (492)
 	SELECT 
       t.ris_codigo,
       t.iac_codigo,
@@ -39,7 +39,11 @@
     LEFT JOIN ejecucion_actividades.informe_recomendaciones_seguimientos irs ON irs.ire_codigo = ir.ire_codigo
     LEFT JOIN parametricas.estados_informe_recomendaciones eir ON eir.eir_codigo = irs.eir_codigo
     LEFT JOIN parametricas.estados e ON e.est_codigo = t.ris_estado
-    where t.iac_codigo in (249)
+    where t.iac_codigo in (93)
+;
+--###  NICIO ACT POA - AMPLIACION JUSTIFICACION - CAMBIO GLOBAL DE ESTADOS, POR ROL
+	select * from estructura_poa.actividades a where a.act_codigo in (492)
+ 	select * from parametricas.tipos_trabajos tt where tt.ttr_codigo in (12)
 ;
 ---### migrada existe
 	--- obt inf codigo//res.- 4
@@ -84,28 +88,28 @@
 	select * from estructura_poa.actividades a where a.act_codigo in (860)
 	select * from ejecucion_actividades.inicios_actividades ia
 ;
---### DATOS EN BASE
+--### OBTENER DATOS EN BASE, YA NO MIGRADO
  	select *
     FROM	ejecucion_actividades.inicio_actividad_informe t
-    WHERE	t.iac_codigo in (249)--inf_codigo=17
+    WHERE	t.iac_codigo in (93)--inf_codigo=19
    	select *
     FROM	ejecucion_actividades.inicios_actividades t
-    WHERE	t.iac_codigo in (249)--iac_codigo_control=EBGP120M24F2
+    WHERE	t.iac_codigo in (93)--iac_codigo_control=GOEP19F23
  	select *
     FROM	ejecucion_actividades.inicio_actividad_poa t
-    WHERE	t.iac_codigo in (249)--act_codigo=864
+    WHERE	t.iac_codigo in (93)--act_codigo=492
  	select a.act_descripcion 
  	from estructura_poa.actividades a 
- 	where a.act_codigo in (864)--act_descripcion=GOBIERNO AUTÓNOMO DEPARTAMENTAL DE ORURO
+ 	where a.act_codigo in (492)--act_descripcion=GOBIERNO AUTÓNOMO DEPARTAMENTAL DE ORURO
  	select * 
  	from ejecucion_actividades.informes i 
- 	where i.inf_codigo in (17)--inf_nombre
+ 	where i.inf_codigo in (19)--inf_nombre
  	select *
  	from parametricas.tipos_trabajos tt 
  	where tt.ttr_codigo in (12)
  	select ie.eev_codigo  
  	from ejecucion_actividades.informes_estados ie  
- 	where ie.inf_codigo in (17)--no hay nada
+ 	where ie.inf_codigo in (19)--no hay nada
  	order by ie.fecha_registro desc
  	limit 1
  	select ee.eev_sigla 
@@ -113,10 +117,10 @@
  	where ee.eev_codigo in (38)
  	SELECT * 
  	FROM ejecucion_actividades.informe_recomendaciones ir
- 	where ir.inf_codigo in (17)
+ 	where ir.inf_codigo in (19)
  	SELECT COUNT(*) as nrecom 
  	FROM ejecucion_actividades.informe_recomendaciones ir
- 	where ir.ire_estado in (1) AND ir.inf_codigo in (17)
+ 	where ir.ire_estado in (1) AND ir.inf_codigo in (19)
  	--#################
  	select t.inf_codigo, t.iac_codigo,ia.iac_fecha_inicio, ia.iac_fecha_fin, ia.iac_dias_habiles, ia.iac_dias_calendario, g.ges_anio, ia.iac_codigo_control, tt.ttr_sigla, tt.ttr_descripcion, ia.ttr_codigo , iap.act_codigo, a.act_numero , a.act_descripcion , i2.inf_codigo_control , i2.inf_nombre, ee.eev_sigla
     FROM	ejecucion_actividades.inicio_actividad_informe t
@@ -128,22 +132,22 @@
     left join ejecucion_actividades.informes i2 on i2.inf_codigo = t.inf_codigo
     left join ejecucion_actividades.informes_estados ie on ie.inf_codigo = t.inf_codigo
     left join parametricas.estados_evolucion ee on ee.eev_codigo = ie.eev_codigo
-    WHERE	t.iac_codigo in (249)--iac_codigo=141
+    WHERE	t.iac_codigo in (93)--iac_codigo=141
  	order by ie.fecha_registro desc
  	limit 1
 	;
---###  --- INICIO ACT POA - AMPLIACION JUSTIFICACION - CAMBIO GLOBAL DE ESTADOS, POR ROL
-	select iap.iap_codigo,iap.iac_codigo,iap.iap_observaciones ,iap.ges_codigo ,iap.iap_estado  from ejecucion_actividades.inicio_actividad_poa iap where iap.iap_codigo in (140)
-	select ia.iac_codigo,ia.iac_observaciones ,ia.iac_estado ,ia.ges_codigo  from ejecucion_actividades.inicios_actividades ia where ia.iac_codigo in (245) 
-	select iaa.iaa_codigo ,iaa.iac_codigo ,iaa.iaa_estado  from ejecucion_actividades.inicios_actividades_adicional iaa where iaa.iac_codigo in (245)
-	select *  from ejecucion_actividades.inicio_actividad_poa_asignaciones iapa where iapa.iap_codigo in (140) 
-	select *  from ejecucion_poa.asignaciones a where a.asi_codigo in (140)
-	select * from ejecucion_poa.asignaciones_cargos_item aci where aci.asi_codigo in (140)
+--###  INICIO ACT POA - AMPLIACION JUSTIFICACION - CAMBIO GLOBAL DE ESTADOS, POR ROL
+	select iap.iap_codigo,iap.iac_codigo,iap.iap_observaciones ,iap.ges_codigo ,iap.iap_estado  from ejecucion_actividades.inicio_actividad_poa iap where iap.iap_codigo in (147)
+	select ia.iac_codigo,ia.iac_observaciones ,ia.iac_estado ,ia.ges_codigo  from ejecucion_actividades.inicios_actividades ia where ia.iac_codigo in (93) 
+	select iaa.iaa_codigo ,iaa.iac_codigo ,iaa.iaa_estado  from ejecucion_actividades.inicios_actividades_adicional iaa where iaa.iac_codigo in (93)
+	select *  from ejecucion_actividades.inicio_actividad_poa_asignaciones iapa where iapa.iap_codigo in (147) 
+	select *  from ejecucion_poa.asignaciones a where a.asi_codigo in (149)
+	select * from ejecucion_poa.asignaciones_cargos_item aci where aci.asi_codigo in (149)
 	-- obtiene los estados de cada uno
-	select * from control_estados.estados_inicio_actividad_poa eiap where eiap.iap_codigo in (140) order by eiap.eiap_codigo desc
-	select * from control_estados.estados_inicios_actividades eia where eia.iac_codigo in (245) order by eia.eia_codigo desc
+	select * from control_estados.estados_inicio_actividad_poa eiap where eiap.iap_codigo in (147) order by eiap.eiap_codigo desc
+	select * from control_estados.estados_inicios_actividades eia where eia.iac_codigo in (93) order by eia.eia_codigo desc
 	--select * from control_estados.estados_inicios_actividades_adicional eiaa where eiaa.iaa_codigo in (2) order by eiaa.eiaa_codigo desc
-	select * from control_estados.estados_asignaciones ea  where ea.asi_codigo in (140) order by ea.asi_codigo desc
+	select * from control_estados.estados_asignaciones ea  where ea.asi_codigo in (149) order by ea.asi_codigo desc
 	select * from control_estados.estados_asignaciones_cargos_item eaci  where eaci.aci_codigo in (667) order by eaci.eaci_codigo desc
 	select * from control_estados.estados_asignaciones_cargos_item eaci  where eaci.aci_codigo in (649) order by eaci.eaci_codigo desc
 	select * from control_estados.estados_asignaciones_cargos_item eaci  where eaci.aci_codigo in (650) order by eaci.eaci_codigo desc
