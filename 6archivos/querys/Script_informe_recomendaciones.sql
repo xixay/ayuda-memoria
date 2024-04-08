@@ -179,9 +179,12 @@ where aci.asi_codigo = 32
 	select * from estructura_poa.area_unidad_responsables aur
 	where aur.poa_codigo in (2) and aun_codigo_ejecutora in (20) and aur.aun_codigo_rol in (17) order by fecha_registro desc--rol_codigo=(aproba)
 	select * from estructura_poa.area_unidad_responsables aur where aur.aur_codigo in (402)--nuevo rol
-	
 	select * from estructura_poa.area_unidad_responsables aur where aur.aur_codigo in (346)--nuevo rol
+	select * from estructura_poa.area_unidad_responsables aur where aur.aur_codigo in (35,346,342,341,337,335,154,24,405,406)--nuevo rol
 ;
+--### ACCIONES A CORTO PLAZO
+  	--area Unidad
+	select * from estructura_organizacional.areas_unidades au where au.aun_codigo in (63)
 
 
 
