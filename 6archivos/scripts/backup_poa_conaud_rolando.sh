@@ -10,7 +10,7 @@ local_password="postgres"
 backup_file="backup_$(date '+%Y%m%d_%H%M%S').sql"
 
 # Especificar la ruta completa de pg_dump
-pg_dump_path="/ruta/completa/a/pg_dump"
+pg_dump_path="/home/richard_teran/usr/bin/pg_dump"
 
 # Realizar la copia de seguridad
 PGPASSWORD=$remote_password $pg_dump_path -h $remote_host -p $remote_port -U $remote_user -d $remote_db -w -F c -f $backup_file
