@@ -16,11 +16,23 @@
 ;
 --### CAMBIOS ESTADOS
   	--poa
-	select * from estructura_poa.poas p where p.poa_estado in (1)
+	select * from estructura_poa.poas p where p.poa_codigo in (2)
 	--poas-objetivos
 	select *from estructura_poa.poas_objetivos po where po.poa_codigo in (1) 
-	--activides
-	
+	--obje area unidad
+	select * from estructura_poa.objetivos_area_unidad oau where oau.pobj_codigo in (641)
+	--formulario
+	select * from estructura_poa.formularios f where f.for_codigo in (46)
+	--for obj
+	select * from estructura_poa.formularios_objetivos fo where fo.for_codigo in (46)
+	select * from estructura_poa.formularios_objetivos fo where fo.fob_codigo in (486)
+	--act
+	select * from estructura_poa.actividades a where a.act_numero in ('500.1302.54.1.24','500.1302.54.2.24')
+	select * from estructura_poa.actividades a where a.fob_codigo in (486) and a.act_estado in (1,3,4)
+	select * from parametricas.tablas t
+	select * from control_estados.flujos_tablas ft where ft.tab_codigo in (33)
+	select * from control_estados.flujos_tablas ft where ft.tab_codigo in (32)
+	select * from control_estados.flujos_tablas ft where ft.tab_codigo in (1)
 
 
 
