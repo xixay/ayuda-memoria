@@ -14,3 +14,18 @@
 	select * from estructura_poa.dependencia_accion_corto_plazo dacp where dacp.pobj_codigo_accion in (1)
 	select * from estructura_poa.dependencia_accion_corto_plazo dacp where dacp.pobj_codigo_operacion in (1)
 ;
+--### CAMBIOS ESTADOS
+  	--poa
+	select * from estructura_poa.poas p where p.poa_estado in (1)
+	--poas-objetivos
+	select *from estructura_poa.poas_objetivos po where po.poa_codigo in (1) 
+	--activides
+	
+
+
+
+
+
+
+
+

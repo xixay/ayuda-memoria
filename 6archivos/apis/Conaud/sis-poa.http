@@ -197,4 +197,30 @@
       "per_codigo": 1,
       "cit_codigo":1
     }
+###  ------------------- ESTADOS - ACTIVIDADES
+  PUT {{Host}}/cargos-item-movimientos/estado HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
 
+  {
+    "cim_codigo": 2,
+    "cim_estado": 5
+  }
+###  ------------------- ESTADOS - FORMULARIO OBJETIVOS
+  PUT {{Host}}/cargos-item-movimientos/estado HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+  {
+    "cim_codigo": 2,
+    "cim_estado": 5
+  }
+###  ------------------- ESTADOS - ACTIVIDADES
+  PUT {{Host}}/actividades/estado HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+  {
+    "act_codigo": 1323,
+    "act_estado":3
+  }
