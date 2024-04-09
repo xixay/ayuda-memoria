@@ -172,11 +172,6 @@
     PATCH {{Host}}/tipos-movimientos/1
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
-### POA OBJETIVO
-###  ------------------- OBTENER - POA OBJETIVO
-    GET {{Host}}/poas-objetivos?poa_codigo=(2)&pobj_codigo=(726)
-    Content-Type: application/json
-    Authorization: {{AuthTokenInterno}}
 ### OBJETIVOS AREA UNIDAD
 ###  ------------------- OBTENER - OBJETIVOS AREA UNIDAD
     # GET {{Host}}/objetivos-area-unidad/poa_codigo
@@ -222,14 +217,29 @@
     "fob_codigo": 486,
     "fob_estado": 3
   }
-###  ------------------- ESTADOS - ACTIVIDADES
+### ACTIVIDADES
+###  ------------------- ESTADOS - ACTIVIDADES 1359,1360,1361,1362
   PUT {{Host}}/actividades/estado HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 
   {
-    "act_codigo": 1323,
-    "act_estado":1
+    "act_codigo": 1362,
+    "act_estado":7,
+    "act_observacion":"obs 9 abril"
+  }
+  
+### POA OBJETIVO
+###  ------------------- OBTENER - POA OBJETIVO
+    PUT {{Host}}/poas-objetivos/estado
+    Content-Type: application/json
+    Authorization: {{AuthTokenInterno}}
+
+  {
+    "pobj_codigo": 641,
+    "pobj_estado":2,
+    "pobj_observacion":"cinuatro",
+    "cac_codigo":1
   }
 ### POA
 ###  ------------------- ESTADOS - POA
@@ -239,5 +249,5 @@
 
   {
     "poa_codigo": 1,
-    "poa_estado":3
+    "poa_estado":1
   }
