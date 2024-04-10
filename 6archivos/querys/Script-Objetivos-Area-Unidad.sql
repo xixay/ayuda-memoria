@@ -26,6 +26,7 @@
 	--for obj
 	select * from estructura_poa.formularios_objetivos fo where fo.for_codigo in (46)
 	select * from estructura_poa.formularios_objetivos fo where fo.fob_codigo in (486)
+	select * from pei.programas p2 
 	--act
 	select * from estructura_poa.actividades a where a.act_numero in ('500.1302.54.1.24','500.1302.54.2.24')
 	select * from estructura_poa.actividades a where a.fob_codigo in (486) and a.act_estado in (1,3,4)
@@ -33,7 +34,54 @@
 	select * from control_estados.flujos_tablas ft where ft.tab_codigo in (33)
 	select * from control_estados.flujos_tablas ft where ft.tab_codigo in (32)
 	select * from control_estados.flujos_tablas ft where ft.tab_codigo in (1)
-
+	select * from estructura_poa.actividades a where a.act_codigo in (1323)
+	select * from control_estados.estados_actividades ea
+	-- ACTIV
+	select a.act_codigo, a.act_estado, a.pobj_codigo, a.cac_codigo, a.act_justificacion from estructura_poa.actividades a where a.pobj_codigo in (641)
+	-- ACTI ESTAD
+	select * from control_estados.estados_actividades ea where ea.act_codigo in (1362) order by fecha_registro desc
+	select * from estructura_poa.actividades_viaticos av where av.act_codigo in (1359)
+	-- POA OBJE
+	select po.pobj_codigo, po.poa_codigo, po.pobj_estado  from estructura_poa.poas_objetivos po where po.pobj_codigo in (641)
+	-- POA OBJ ESTADO
+	select * from control_estados.estados_poas_objetivos epo where epo.pobj_codigo in (641) order by fecha_registro desc
+	--
+	-- ACTIV
+	select a.act_codigo, a.act_estado, a.pobj_codigo, a.cac_codigo, a.act_justificacion from estructura_poa.actividades a where a.pobj_codigo in (109)
+	--select * from estructura_poa.actividades a where a.pobj_codigo in (109)
+	-- ACTI ESTAD
+--	select * from control_estados.estados_actividades ea where ea.act_codigo in (1362) order by fecha_registro desc
+	select av.avi_codigo, av.act_codigo ,av.avi_estado from estructura_poa.actividades_viaticos av where av.act_codigo in (19)
+	-- POA OBJE
+	select po.pobj_codigo, po.poa_codigo, po.pobj_estado  from estructura_poa.poas_objetivos po where po.pobj_codigo in (109)
+	-- POA OBJ ESTADO
+	select * from control_estados.estados_poas_objetivos epo where epo.pobj_codigo in (641) order by fecha_registro desc
+	-- OBJETIVO AREA UNIDAD
+	select oau.oau_codigo,oau.pobj_codigo,oau.oau_estado  from estructura_poa.objetivos_area_unidad oau where oau.pobj_codigo in (641)
+	SELECT	t.tab_nombre, ft.est_codigo_origen, eo.est_nombre, ft.est_codigo_destino, ed.est_nombre
+	FROM	control_estados.flujos_tablas ft
+			LEFT JOIN parametricas.tablas t ON ft.tab_codigo = t.tab_codigo
+			LEFT JOIN parametricas.estados eo ON ft.est_codigo_origen = eo.est_codigo
+			LEFT JOIN parametricas.estados ed ON ft.est_codigo_destino = ed.est_codigo
+	WHERE	ft.tab_codigo IN (SELECT t.tab_codigo FROM parametricas.tablas t WHERE t.tab_nombre IN (
+				--'Poas', 'PoasObjetivos',
+				'Actividades'--, 'ActividadesViaticos'
+			))
+	ORDER BY ft.tab_codigo ASC, ft.est_codigo_origen ASC, ft.est_codigo_destino ASC
+	--
+	SELECT	t.tab_nombre, ft.est_codigo_origen, eo.est_nombre, ft.est_codigo_destino, ed.est_nombre
+	FROM	control_estados.flujos_tablas ft
+			LEFT JOIN parametricas.tablas t ON ft.tab_codigo = t.tab_codigo
+			LEFT JOIN parametricas.estados eo ON ft.est_codigo_origen = eo.est_codigo
+			LEFT JOIN parametricas.estados ed ON ft.est_codigo_destino = ed.est_codigo
+	WHERE	ft.tab_codigo IN (SELECT t.tab_codigo FROM parametricas.tablas t WHERE t.tab_nombre IN (
+				--'Poas', 
+				'PoasObjetivos'--,
+				--'Actividades'--, 
+				--'ActividadesViaticos'
+			))
+	ORDER BY ft.tab_codigo ASC, ft.est_codigo_origen ASC, ft.est_codigo_destino ASC
+;
 
 
 

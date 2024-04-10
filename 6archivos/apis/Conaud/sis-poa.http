@@ -224,20 +224,20 @@
   Content-Type: application/json
 
   {
-    "act_codigo": 1362,
-    "act_estado":7,
+    "act_codigo": 1359,
+    "act_estado":2,
     "act_observacion":"obs 9 abril"
   }
   
 ### POA OBJETIVO
 ###  ------------------- OBTENER - POA OBJETIVO
-    PUT {{Host}}/poas-objetivos/estado
+    PUT {{Host}}/poas-objetivos/estado-all
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
 
   {
-    "pobj_codigo": 641,
-    "pobj_estado":2,
+    "pobj_codigo": 109,
+    "pobj_estado":3,
     "pobj_observacion":"cinuatro",
     "cac_codigo":1
   }
