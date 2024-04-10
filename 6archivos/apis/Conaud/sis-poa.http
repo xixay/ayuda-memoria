@@ -238,16 +238,20 @@
   {
     "pobj_codigo": 109,
     "pobj_estado":3,
+    "aun_codigo_ejecutora":10,
     "pobj_observacion":"cinuatro",
     "cac_codigo":1
   }
 ### POA
 ###  ------------------- ESTADOS - POA
-  PUT {{Host}}/poas/estado HTTP/1.1
+  PUT {{Host}}/poas/estado-all HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 
   {
-    "poa_codigo": 1,
-    "poa_estado":1
+    "poa_codigo": 2,
+    "poa_estado":3,
+    "aun_codigo_ejecutora":10,
+    "pobj_observacion":"cinuatro",
+    "cac_codigo": 1
   }
