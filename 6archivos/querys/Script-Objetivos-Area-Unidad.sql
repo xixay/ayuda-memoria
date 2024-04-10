@@ -66,24 +66,61 @@
 	WHERE	ft.tab_codigo IN (SELECT t.tab_codigo FROM parametricas.tablas t WHERE t.tab_nombre IN (
 				--'Poas', 
 				--'PoasObjetivos'--,
-				'Actividades'--, 
-				--'ActividadesViaticos'
+				--'Actividades'--, 
+				'ActividadesViaticos'
 			))
 	ORDER BY ft.tab_codigo ASC, ft.est_codigo_origen ASC, ft.est_codigo_destino asc
 	
-	SELECT	po.poa_codigo,p.poa_estado ,po.pobj_codigo , po.pobj_estado, a.act_codigo ,a.cac_codigo,a.act_estado,a.aun_codigo_ejecutora 
+	--SELECT	po.poa_codigo,p.poa_estado ,po.pobj_codigo , po.pobj_estado, a.act_codigo ,a.cac_codigo,a.act_estado,a.aun_codigo_ejecutora 
+	SELECT	po.pobj_codigo, po.pobj_nombre, po.pobj_numero ,p.poa_estado, a.act_codigo ,a.cac_codigo,a.act_estado,a.aun_codigo_ejecutora
 	FROM	estructura_poa.poas p
 			LEFT JOIN estructura_poa.poas_objetivos po on po.poa_codigo = p.poa_codigo
 			LEFT JOIN estructura_poa.actividades a on a.pobj_codigo = po.pobj_codigo
-	WHERE	a.aun_codigo_ejecutora IN (10) and p.poa_codigo  in (2)
-		--WHERE	p.poa_codigo  in (2)
-	--WHERE	a.aun_codigo_ejecutora IN (79) and p.poa_codigo  in (2)
+	WHERE	a.aun_codigo_ejecutora IN (1) and p.poa_codigo  in (2)
 	ORDER BY po.pobj_codigo DESC 
 ;
 
 
+-- 1 --
+select	po.pobj_codigo, po.pobj_nombre, po.pobj_numero,
+		oau.aun_codigo_ejecutora, oau.aun_codigo_supervisora
+from	estructura_poa.poas p
+		left join estructura_poa.poas_objetivos po on p.poa_codigo = po.poa_codigo and po.pobj_estado in (2,8)
+		left join estructura_poa.objetivos_area_unidad oau on po.pobj_codigo = oau.pobj_codigo and oau.oau_estado != 0
+where	true
+		and p.poa_codigo in (2)
+		and oau.aun_codigo_ejecutora in (6)
+--activi
+select a.act_codigo,a.act_estado ,a.pobj_codigo,a.cac_codigo ,a.aun_codigo_ejecutora  
+from 	estructura_poa.actividades a
+where 	a.act_codigo in (1387,1388,1383,1385,1389,1390,1386)--pobjcodigo=27,727,723,cac_codigo=2,aun_ejecutora=6
+--viatico
+select av2.avi_codigo,av2.act_codigo ,  av2.avi_estado
+from 	estructura_poa.actividades_viaticos av2 
+where 	av2.act_codigo in (1387,1388,1383,1385,1389,1390,1386)
+;
+-- 2 --
+select	*
+from	estructura_poa.actividades a
+where	true
+		and a.act_estado != 0
+		and a.pobj_codigo in (613)
+		and a.aun_codigo_ejecutora in (1)
+		and a.cac_codigo in (2)
 
-
-
+let estado_destino = 3; -- 3 <= 1
+for (const item of resultArray) {
+	if ((await this.funVerificar(estado_destino)).includes(item.act_estado)) {
+		this.actividesServices.CambiarStatu(act_codigo,);
+	}
+}
+--activi
+select a.act_codigo,a.act_estado ,a.pobj_codigo,a.cac_codigo ,a.aun_codigo_ejecutora  
+from 	estructura_poa.actividades a
+where 	a.act_codigo in (1383,1385,1389,1390)--pobjcodigo=727,cac_codigo=2,aun_ejecutora=6
+--viatico
+select av2.avi_codigo,av2.act_codigo ,  av2.avi_estado
+from 	estructura_poa.actividades_viaticos av2 
+where 	av2.act_codigo in (1383,1385,1389,1390)
 
 

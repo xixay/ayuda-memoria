@@ -236,11 +236,11 @@
     Authorization: {{AuthTokenInterno}}
 
   {
-    "pobj_codigo": 109,
+    "pobj_codigo": 727,
     "pobj_estado":3,
-    "aun_codigo_ejecutora":10,
+    "aun_codigo_ejecutora":6,
     "pobj_observacion":"cinuatro",
-    "cac_codigo":1
+    "cac_codigo":2
   }
 ### POA
 ###  ------------------- ESTADOS - POA
@@ -251,7 +251,7 @@
   {
     "poa_codigo": 2,
     "poa_estado":3,
-    "aun_codigo_ejecutora":10,
+    "aun_codigo_ejecutora":6,
     "pobj_observacion":"cinuatro",
-    "cac_codigo": 1
+    "cac_codigo": 2
   }
