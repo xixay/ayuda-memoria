@@ -236,10 +236,9 @@
     Authorization: {{AuthTokenInterno}}
 
   {
-    "pobj_codigo": 727,
+    "pobj_codigo": 605,
     "pobj_estado":3,
-    "aun_codigo_ejecutora":6,
-    "pobj_observacion":"cinuatro",
+    "aun_codigo_ejecutora":44,
     "cac_codigo":2
   }
 ### POA
@@ -251,7 +250,6 @@
   {
     "poa_codigo": 2,
     "poa_estado":3,
-    "aun_codigo_ejecutora":6,
-    "pobj_observacion":"cinuatro",
+    "aun_codigo_ejecutora":44,
     "cac_codigo": 2
   }

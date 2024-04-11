@@ -66,8 +66,8 @@
 	WHERE	ft.tab_codigo IN (SELECT t.tab_codigo FROM parametricas.tablas t WHERE t.tab_nombre IN (
 				--'Poas', 
 				--'PoasObjetivos'--,
-				--'Actividades'--, 
-				'ActividadesViaticos'
+				'Actividades'--, 
+				--'ActividadesViaticos'
 			))
 	ORDER BY ft.tab_codigo ASC, ft.est_codigo_origen ASC, ft.est_codigo_destino asc
 	
@@ -89,38 +89,51 @@ from	estructura_poa.poas p
 		left join estructura_poa.objetivos_area_unidad oau on po.pobj_codigo = oau.pobj_codigo and oau.oau_estado != 0
 where	true
 		and p.poa_codigo in (2)
-		and oau.aun_codigo_ejecutora in (6)
+		and oau.aun_codigo_ejecutora in (44)
 --activi
 select a.act_codigo,a.act_estado ,a.pobj_codigo,a.cac_codigo ,a.aun_codigo_ejecutora  
 from 	estructura_poa.actividades a
-where 	a.act_codigo in (1387,1388,1383,1385,1389,1390,1386)--pobjcodigo=27,727,723,cac_codigo=2,aun_ejecutora=6
+where 	a.act_codigo in (1380,1396,1398,1399,1400,1401,1402,1403,1404,1406,1407,1376)--pobjcodigo=607,606,605,579,32,cac_codigo=2,aun_ejecutora=44
 --viatico
 select av2.avi_codigo,av2.act_codigo ,  av2.avi_estado
 from 	estructura_poa.actividades_viaticos av2 
-where 	av2.act_codigo in (1387,1388,1383,1385,1389,1390,1386)
+where 	av2.act_codigo in (1380,1396,1398,1399,1400,1401,1402,1403,1404,1406,1407,1376)
 ;
 -- 2 --
 select	*
 from	estructura_poa.actividades a
 where	true
 		and a.act_estado != 0
-		and a.pobj_codigo in (613)
-		and a.aun_codigo_ejecutora in (1)
+		and a.pobj_codigo in (605)
+		and a.aun_codigo_ejecutora in (44)
 		and a.cac_codigo in (2)
-
-let estado_destino = 3; -- 3 <= 1
-for (const item of resultArray) {
-	if ((await this.funVerificar(estado_destino)).includes(item.act_estado)) {
-		this.actividesServices.CambiarStatu(act_codigo,);
-	}
-}
 --activi
 select a.act_codigo,a.act_estado ,a.pobj_codigo,a.cac_codigo ,a.aun_codigo_ejecutora  
 from 	estructura_poa.actividades a
-where 	a.act_codigo in (1383,1385,1389,1390)--pobjcodigo=727,cac_codigo=2,aun_ejecutora=6
+where 	a.act_codigo in (1407,1406)--pobjcodigo=605,cac_codigo=2,aun_ejecutora=44
 --viatico
 select av2.avi_codigo,av2.act_codigo ,  av2.avi_estado
 from 	estructura_poa.actividades_viaticos av2 
-where 	av2.act_codigo in (1383,1385,1389,1390)
+where 	av2.act_codigo in (1407,1406)--avi_codigo=(298,299)
+-- 3 --
+--activi
+select 	a.act_codigo,a.act_estado ,a.pobj_codigo,a.cac_codigo ,a.aun_codigo_ejecutora  ,a.fecha_modificacion
+from	estructura_poa.actividades a
+where 	a.act_codigo in (1323)--1405
+order by	a.fecha_modificacion desc
+--est activ
+select 	*
+from 	control_estados.estados_actividades ea 
+where 	ea.act_codigo in (1323) --1405
+order by 	fecha_registro desc
+--viatico
+select av2.avi_codigo,av2.act_codigo ,av2.avi_estado
+from 	estructura_poa.actividades_viaticos av2 
+where 	av2.act_codigo in (1323)--1405
+--est viat
+select 	*
+from 	control_estados.estados_actividades_viaticos eav 
+where 	eav.avi_codigo  in (294)--294 
+order by	fecha_registro desc
 
 
