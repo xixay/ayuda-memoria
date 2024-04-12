@@ -141,5 +141,32 @@ select 	*
 from 	control_estados.estados_actividades_viaticos eav 
 where 	eav.avi_codigo  in (294)--294 
 order by	fecha_registro desc
-
+------
+SELECT
+a.act_estado, av.avi_estado, COALESCE(COUNT(DISTINCT a.act_codigo), 0) AS cantidad_actividades,
+COALESCE(COUNT(DISTINCT av.avi_codigo), 0) AS cantidad_viaticos
+FROM estructura_poa.poas_objetivos po
+LEFT JOIN estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo
+LEFT JOIN estructura_poa.actividades a ON po.pobj_codigo = a.pobj_codigo AND a.act_estado IN (4,10,14,11,12,13,1,3,8,7,2,5)
+LEFT JOIN estructura_poa.actividades_viaticos av ON a.act_codigo = av.act_codigo AND av.avi_estado IN (4,10,14,11,12,13,1,3,8,7,2,5)
+WHERE TRUE
+AND oau.oau_estado != 0
+AND po.poa_codigo IN (2)
+AND po.pobj_estado IN (2, 8)
+AND oau.aun_codigo_ejecutora IN (57)
+AND a.aun_codigo_ejecutora IN (57)
+AND a.cac_codigo IN (2,4)
+GROUP BY a.act_estado, av.avi_estado
+ORDER BY
+array_position( array[4,10,14,11,12,13,1,3,8,7,2,5], av.avi_estado),
+array_position( array[4,10,14,11,12,13,1,3,8,7,2,5], a.act_estado);
+SELECT	t.tab_nombre, ft.est_codigo_origen, eo.est_nombre, ft.est_codigo_destino, ed.est_nombre
+        FROM	control_estados.flujos_tablas ft
+            LEFT JOIN parametricas.tablas t ON ft.tab_codigo = t.tab_codigo
+            LEFT JOIN parametricas.estados eo ON ft.est_codigo_origen = eo.est_codigo
+            LEFT JOIN parametricas.estados ed ON ft.est_codigo_destino = ed.est_codigo
+        WHERE	ft.tab_codigo IN (SELECT t.tab_codigo FROM parametricas.tablas t WHERE t.tab_nombre IN (
+              'Actividades'--,
+            ))
+        ORDER BY ft.tab_codigo ASC, ft.est_codigo_origen ASC, ft.est_codigo_destino ASC
 
