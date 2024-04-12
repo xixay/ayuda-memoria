@@ -111,6 +111,12 @@ where	true
 select a.act_codigo,a.act_estado ,a.pobj_codigo,a.cac_codigo ,a.aun_codigo_ejecutora  
 from 	estructura_poa.actividades a
 where 	a.act_codigo in (1407,1406)--pobjcodigo=605,cac_codigo=2,aun_ejecutora=44
+
+select *  
+from 	estructura_poa.actividades a
+where 	a.act_descripcion  in ('asdc')--pobjcodigo=605,cac_codigo=2,aun_ejecutora=44
+select * from control_estados.estados_actividades ea where ea.act_codigo in (1380) order by fecha_registro desc
+select 
 --viatico
 select av2.avi_codigo,av2.act_codigo ,  av2.avi_estado
 from 	estructura_poa.actividades_viaticos av2 
