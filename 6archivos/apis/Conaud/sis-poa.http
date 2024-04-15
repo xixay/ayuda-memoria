@@ -246,10 +246,7 @@
   PUT {{Host}}/poas/estado-all HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-
-  {
-    "poa_codigo": 2,
-    "poa_estado":3,
-    "aun_codigo_ejecutora":44,
-    "cac_codigo": 2
-  }
+###  ------------------- OBTENER - MIGRAR
+  GET {{Host}}/poas/migrar?ges_codigo=2
+  Content-Type: application/json
+  Authorization: {{AuthTokenInterno}}
