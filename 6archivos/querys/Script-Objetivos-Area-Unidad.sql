@@ -170,3 +170,4 @@ SELECT	t.tab_nombre, ft.est_codigo_origen, eo.est_nombre, ft.est_codigo_destino,
             ))
         ORDER BY ft.tab_codigo ASC, ft.est_codigo_origen ASC, ft.est_codigo_destino ASC
 
+select * from estructura_poa.actividades a 
