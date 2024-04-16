@@ -250,3 +250,7 @@
   GET {{Host}}/poas/migrar?ges_codigo=2
   Content-Type: application/json
   Authorization: {{AuthTokenInterno}}
+###
+  GET http://172.16.75.94:7015/auditorias?auditoria_codigo=GPEP10A22
+  Content-Type: application/json
+  Authorization: {{AuthTokenInterno}}
