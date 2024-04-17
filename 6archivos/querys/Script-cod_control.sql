@@ -105,18 +105,23 @@ select ia.iac_codigo,ia.iac_estado, ia.iac_codigo_control,ia.iac_objeto,ia.iac_m
 select ia.iac_codigo,ia.iac_estado, ia.iac_codigo_control,ia.iac_objeto,ia.iac_migrado,ia.iac_codigo_control_vista ,ia.fecha_registro,ia.fecha_modificacion from ejecucion_actividades.inicios_actividades ia where ia.iac_codigo_control in ('S6AP')
 
 --
-select	a.act_codigo, a.act_numero, a.tipact_codigo,--actividad
+select	a.act_codigo, a.act_numero, a.tipact_codigo,a.act_objeto,a.ttr_codigo,  --actividad
 		ac.conaud_detalle, ac.conaud_codigo, ac.conaud_correlativo,--al que se le va ser continuidad
 		ia.iac_codigo, ia.iac_codigo_control, ia.iac_codigo_control_vista,--inicio actividad q se crea
+		iap2.iap_codigo,--
 		iap.iap_codigo, ia2.iac_codigo--inicio actividad no creado haun ???
 from	estructura_poa.actividades a
 		left join estructura_poa.actividades_continuidad ac on a.act_codigo = ac.act_codigo
 		left join ejecucion_actividades.inicios_actividades ia on ac.iac_codigo = ia.iac_codigo
+		left join ejecucion_actividades.inicio_actividad_poa iap2 on ac.iac_codigo = iap2.iac_codigo
 		left join ejecucion_actividades.inicio_actividad_poa iap on a.act_codigo = iap.act_codigo
 		left join ejecucion_actividades.inicios_actividades ia2 on iap.iac_codigo = ia2.iac_codigo
 order by a.act_codigo desc
 limit 5
 ;
+
+select * from estructura_poa.actividades a where a.act_codigo = 1380
+
 
 select *
 from ejecucion_actividades.inicios_actividades ia
@@ -127,6 +132,17 @@ order by ia.iac_codigo desc
 -- P5DP09S21
 
 
-
+	SELECT	t.tab_nombre, ft.est_codigo_origen, eo.est_nombre, ft.est_codigo_destino, ed.est_nombre
+	FROM	control_estados.flujos_tablas ft
+			LEFT JOIN parametricas.tablas t ON ft.tab_codigo = t.tab_codigo
+			LEFT JOIN parametricas.estados eo ON ft.est_codigo_origen = eo.est_codigo
+			LEFT JOIN parametricas.estados ed ON ft.est_codigo_destino = ed.est_codigo
+	WHERE	ft.tab_codigo IN (SELECT t.tab_codigo FROM parametricas.tablas t WHERE t.tab_nombre IN (
+				--'Poas', 
+				--'PoasObjetivos'--,
+				'Actividades'--, 
+				--'ActividadesViaticos'
+			))
+	ORDER BY ft.tab_codigo ASC, ft.est_codigo_origen ASC, ft.est_codigo_destino asc
 
 
