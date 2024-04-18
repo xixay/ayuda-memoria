@@ -15,10 +15,10 @@ from	estructura_poa.actividades a
 		left join ejecucion_actividades.inicios_actividades ia2 on iap.iac_codigo = ia2.iac_codigo
 		left join estructura_poa.actividades_apoyo aa on a.act_codigo = aa.act_codigo 
 order by a.act_codigo desc
-limit 10
+limit 7
 ;
 select * from estructura_poa.actividades a where a.act_codigo = 1385;
-select * from estructura_poa.actividades_apoyo aa where aa.aap_codigo in (2);
+select * from estructura_poa.actividades_apoyo aa where aa.aap_codigo in (4);
 
 select *
 from ejecucion_actividades.inicios_actividades ia

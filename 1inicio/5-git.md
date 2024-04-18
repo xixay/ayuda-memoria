@@ -14,7 +14,8 @@
 - [10. Crear una rama con una versión anterior de commit](#10-crear-una-rama-con-una-versión-anterior-de-commit)
 - [11. Como Deshacer Un Git Pull en Git De Manera Eficiente](#11-como-deshacer-un-git-pull-en-git-de-manera-eficiente)
 - [12. Como Deshacer Un Git Pull traido de otra rama](#12-como-deshacer-un-git-pull-traido-de-otra-rama)
-- [13. Referencia](#13-referencia)
+- [13. Como Deshacer Un commit despues de haber hecho un Git Pull traido de otra rama](#13-como-deshacer-un-commit-despues-de-haber-hecho-un-git-pull-traido-de-otra-rama)
+- [14. Referencia](#14-referencia)
 
 # 1. Ramas
 
@@ -157,6 +158,11 @@ git log --oneline
 ```console
 git merge --abort
 ```
-# 13. Referencia
+# 13. Como Deshacer Un commit despues de haber hecho un Git Pull traido de otra rama
+- Si ya se hizo commit para cancelarlo
+```console
+git reset --soft HEAD~1
+```
+# 14. Referencia
 - [Tablas de markdown](https://www.tablesgenerator.com/markdown_tables#)
 - [Como Deshacer Un Git Pull en Git De Manera Eficiente](https://blog.nubecolectiva.com/como-deshacer-un-git-pull-en-git-de-manera-eficiente/)
