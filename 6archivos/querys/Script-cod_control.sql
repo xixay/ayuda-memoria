@@ -1,9 +1,11 @@
 --ACTIVIDAD
-select	a.act_codigo, a.act_numero, a.tipact_codigo,a.act_objeto,a.ttr_codigo,  --actividad
+select	a.act_codigo, 
+		--a.act_numero, 
+		a.tipact_codigo,a.act_objeto,a.ttr_codigo,  --actividad
 		ac.conaud_detalle, ac.conaud_codigo, ac.conaud_correlativo,--al que se le va ser continuidad
 		ia.iac_codigo, ia.iac_codigo_control, ia.iac_codigo_control_vista,--inicio actividad q se crea
 		iap2.iap_codigo,--
-		iap.iap_codigo, ia2.iac_codigo,--inicio actividad no creado haun ???
+		iap.iap_codigo, ia2.iac_codigo,iap.iap_estado ,ia2.iac_estado, --inicio actividad no creado haun ???
 		aa.aap_codigo, aa.aap_descripcion , aa.act_codigo ,aa.act_codigo_apoyo
 from	estructura_poa.actividades a
 		left join estructura_poa.actividades_continuidad ac on a.act_codigo = ac.act_codigo
@@ -13,9 +15,9 @@ from	estructura_poa.actividades a
 		left join ejecucion_actividades.inicios_actividades ia2 on iap.iac_codigo = ia2.iac_codigo
 		left join estructura_poa.actividades_apoyo aa on a.act_codigo = aa.act_codigo 
 order by a.act_codigo desc
-limit 5
+limit 10
 ;
-select * from estructura_poa.actividades a where a.act_codigo = 1380;
+select * from estructura_poa.actividades a where a.act_codigo = 1385;
 select * from estructura_poa.actividades_apoyo aa where aa.aap_codigo in (2);
 
 select *
