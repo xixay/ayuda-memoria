@@ -1,3 +1,76 @@
+--
+       SELECT
+              t.pobj_codigo,
+              t.pobj_nombre,
+              t.pobj_indicador,
+              t.poa_codigo,
+              p.poa_descripcion AS pobj_poa_descripcion,
+              t.pro_codigo,
+              pr.pro_numero,
+              pr.pro_descripcion AS pobj_pro_descripcion,
+              t.pobj_estado,
+              e.est_color,
+              e.est_nombre AS pobj_estado_descripcion,
+              TO_CHAR(t.fecha_registro, 'HH24:MI am dd/mm/yyyy') as fecha_registro,
+              --CONCAT(pr.pro_numero, '.', aes.aes_numero) AS poa_pobj_codigo,
+              pr.pro_numero AS poa_pobj_codigo,
+              t.tin_codigo,
+              ti.tin_descripcion AS pobj_tin_descripcion,
+              t.tacp_codigo,
+              tacp.tacp_descripcion AS pobj_tacp_descripcion,
+              CASE
+                WHEN t.tacp_codigo = 3 THEN dacp.pobj_codigo_accion
+                ELSE NULL
+              END AS pobj_codigo_accion,
+              CASE
+                WHEN t.tacp_codigo = 3 THEN dacp.dac_codigo
+                ELSE NULL
+              END AS pobj_dac_codigo,
+              t.cpr_codigo,
+              cpr.cpr_numero,
+              cpr.cpr_descripcion AS pobj_cpr_descripcion,
+              t.aeg_codigo,
+              aes.aes_numero,
+              aes.aes_descripcion AS pobj_aes_descripcion,
+              oau.oau_codigo,
+              oau.aun_codigo_ejecutora,
+              oau.aun_codigo_supervisora,
+              ge.ges_codigo,
+              ge.ges_anio,
+              t.pobj_numero
+        FROM	estructura_poa.poas_objetivos t
+              LEFT JOIN parametricas.estados e ON e.est_codigo = t.pobj_estado
+              LEFT JOIN estructura_poa.poas p ON p.poa_codigo = t.poa_codigo
+              LEFT JOIN parametricas.gestiones ge ON ge.ges_codigo = p.ges_codigo
+              LEFT JOIN pei.programas pr ON pr.pro_codigo = t.pro_codigo
+              LEFT JOIN (
+                SELECT	MAX(dacp.dac_codigo) as dac_codigo,
+                    (SELECT tmp.pobj_codigo_accion
+                    FROM estructura_poa.dependencia_accion_corto_plazo tmp
+                    WHERE tmp.dac_codigo = MAX(dacp.dac_codigo)) as pobj_codigo_accion,
+                    dacp.pobj_codigo_operacion
+                FROM	estructura_poa.dependencia_accion_corto_plazo dacp
+                GROUP BY dacp.pobj_codigo_operacion
+              ) dacp ON t.pobj_codigo = dacp.pobj_codigo_operacion
+              LEFT JOIN parametricas.tipo_indicador ti ON t.tin_codigo = ti.tin_codigo
+              LEFT JOIN parametricas.tipo_accion_corto_plazo tacp ON t.tacp_codigo = tacp.tacp_codigo
+              LEFT JOIN pei.categorias_programaticas cpr ON t.cpr_codigo = cpr.cpr_codigo
+              LEFT JOIN pei.acciones_estrategicas_gestiones aeg ON t.aeg_codigo = aeg.aeg_codigo
+              LEFT JOIN pei.acciones_estrategicas aes ON aeg.aes_codigo = aes.aes_codigo
+              LEFT JOIN (
+                SELECT	oau.pobj_codigo,
+                        COALESCE((COALESCE(ARRAY_AGG(oau.oau_codigo ORDER BY oau.oau_codigo ASC), '{}'))[1], 0) AS oau_codigo,
+                        COALESCE((COALESCE(ARRAY_AGG(oau.aun_codigo_ejecutora ORDER BY oau.oau_codigo ASC), '{}'))[1], 0) AS aun_codigo_ejecutora,
+                        COALESCE((COALESCE(ARRAY_AGG(oau.aun_codigo_supervisora ORDER BY oau.oau_codigo ASC), '{}'))[1], 0) AS aun_codigo_supervisora
+                FROM	estructura_poa.objetivos_area_unidad oau
+                      LEFT JOIN estructura_poa.poas_objetivos po ON oau.pobj_codigo = po.pobj_codigo
+                WHERE	oau.oau_estado NOT IN (0)
+                GROUP BY oau.pobj_codigo
+              ) oau ON t.pobj_codigo = oau.pobj_codigo
+        WHERE	TRUE
+              AND t.pobj_codigo IN (727)
+              order by t.fecha_registro desc, t.pobj_codigo DESC        ;
+--
 SELECT
       iac.*,
       iap.iap_codigo,
@@ -38,7 +111,19 @@ from	estructura_poa.actividades a
 order by iap.act_codigo desc
 --limit 7
 ;
-select * from estructura_poa.actividades a where a.act_codigo = 1366;
+--poa
+select * from estructura_poa.poas p where p.poa_estado !=2;
+--_pobj =2
+select * from estructura_poa.poas_objetivos po where po.poa_codigo =2 and po.pobj_estado !=2;
+--obj_area_unidad
+select 	oau.oau_codigo ,oau.oau_estado ,po.pobj_codigo ,po.pobj_estado  
+from 	estructura_poa.objetivos_area_unidad oau
+		left join estructura_poa.poas_objetivos po on oau.pobj_codigo =oau.pobj_codigo 
+where 	oau.oau_estado !=2 and po.poa_codigo in (2);
+--act
+select * from estructura_poa.actividades a where a.act_estado !=2;
+--viatico
+select * from estructura_poa.actividades_viaticos av where av.avi_estado !=2;
 
 
 
