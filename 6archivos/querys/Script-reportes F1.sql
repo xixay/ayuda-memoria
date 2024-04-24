@@ -1,3 +1,8 @@
+-- GENERAL
+select 	*  
+from 	ejecucion_actividades.inicio_actividad_poa iap
+left join 
+		ejecucion_actividades.inicios_actividades ia on iap.iac_codigo = ia.iac_codigo; 
 -- iap_codigo = 227 iap_estado = 17 DEBERIA MOSTRAR 3 FIRMAS
 select 	iap.iap_codigo ,iap.iap_estado ,
 		ia.iac_codigo ,ia.iac_estado  
