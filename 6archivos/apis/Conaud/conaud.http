@@ -26,7 +26,7 @@
   @AuthTokenExterno = Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aXBvIjoic2lzdGVtYSIsInNpc3RlbWEiOiJzaXNwb2EiLCJzaWdsYSI6InNpc3BvYSIsImlkIjoiNmViY2E2MzEtNmJhNy00NGY2LTk1NWYtODdkMjhmMTY5YjdiIiwic2lzdGVtYXMiOlt7InRpcG8iOiJzaXN0ZW1hIiwic2lzY2dlX2NvZGlnbyI6MzQsInNpc2NnZV9zaWdsYSI6InNpc3BvYSJ9XSwiaWF0IjoxNjkyNzE3MDM0fQ.W8JlvAb1LKCyxfdQqJEmhGqtDGaeLQeswBOesj_S2YF_BKQ7z8mAcYJnH6e7A7DwbU-ReZ68Ws9RVMMgRtoSKQ
 ###   Aqui se define IP de servicio web
   ### Antes
-  @Host = http://localhost:7001
+  # @Host = http://localhost:7001
   ### Servidor
   @Host = http://172.16.75.100:7002
   @Hostautenticacion = http://172.16.22.239:4002/api/v1
@@ -566,3 +566,8 @@
   }
 
 ### --------
+### JASPER
+###  ------- OBTENER - F1
+  GET {{Host}}/inicio-actividad-poa/summary-report?iap_codigo=(227)&i_bandera_borrador=(0) HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
