@@ -25,3 +25,7 @@ where 	iap.iap_codigo in (1);
 select 	ia.iac_codigo ,ia.iac_estado 
 from 	ejecucion_actividades.inicios_actividades ia 
 where 	ia.iac_codigo in (119);
+--ACTIVIDADES act_codigo = 284
+select 	*
+from	estructura_poa.actividades a
+where 	a.aun_codigo_ejecutora in (59);
