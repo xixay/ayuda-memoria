@@ -224,12 +224,17 @@
   Content-Type: application/json
   Authorization: {{AuthTokenInterno}}
 ###  ------------------- OBTENER - ACTIVIDADES CONAUD
-  GET {{Host}}/actividades/conaud?iac_estado=(22)&iap_estado=(2)
+  GET {{Host}}/actividades/conaud?iac_estado=(22)&iap_estado=(2)&iac_codigo_control=A08417
+  Content-Type: application/json
+  Authorization: {{AuthTokenInterno}}
+###  ------------------- OBTENER - ACTIVIDADES CONAUD EJECUCION
+  GET {{Host}}/actividades/conaud_ejecucion?iac_estado=(22)
   Content-Type: application/json
   Authorization: {{AuthTokenInterno}}
 ###  ------------------- OBTENER - ACTIVIDAD EN CONAUD
-  # GET {{Host}}/actividades/conaud_actividad?iac_codigo_control=L8XP176A24
-  GET {{Host}}/actividades/conaud_actividad?iac_codigo_control=EBEN18G00
+  # GET {{Host}}/actividades/conaud_actividad?iac_estado=(22)&iap_estado=(2)&iac_codigo_control=L8XP176A24
+  # GET {{Host}}/actividades/conaud_actividad?iac_estado=(22)&iap_estado=(2)&iac_codigo_control=ELEN36A99
+  GET {{Host}}/actividades/conaud_actividad?iac_estado=(22)&iac_codigo_control=GSFP21A99
   Content-Type: application/json
   Authorization: {{AuthTokenInterno}}
 ###  ------------------- ESTADOS - ACTIVIDADES 1359,1360,1361,1362
@@ -265,7 +270,8 @@
   Content-Type: application/json
   Authorization: {{AuthTokenInterno}}
 ###
-  GET http://172.16.75.94:7015/auditorias?auditoria_codigo=GPEP10A22
+  # GET http://172.16.75.94:7015/auditorias?auditoria_codigo=EOOP69J22
+  GET http://172.16.75.94:7015/auditorias?auditoria_codigo=GSFP21A99
   Content-Type: application/json
   Authorization: {{AuthTokenInterno}}
 ###
