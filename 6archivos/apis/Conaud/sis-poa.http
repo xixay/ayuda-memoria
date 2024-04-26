@@ -228,7 +228,8 @@
   Content-Type: application/json
   Authorization: {{AuthTokenInterno}}
 ###  ------------------- OBTENER - ACTIVIDAD EN CONAUD
-  GET {{Host}}/actividades/conaud_actividad?iac_codigo_control='L8XP176A24'
+  # GET {{Host}}/actividades/conaud_actividad?iac_codigo_control=L8XP176A24
+  GET {{Host}}/actividades/conaud_actividad?iac_codigo_control=EBEN18G00
   Content-Type: application/json
   Authorization: {{AuthTokenInterno}}
 ###  ------------------- ESTADOS - ACTIVIDADES 1359,1360,1361,1362
@@ -267,3 +268,6 @@
   GET http://172.16.75.94:7015/auditorias?auditoria_codigo=GPEP10A22
   Content-Type: application/json
   Authorization: {{AuthTokenInterno}}
+###
+GET
+	http://172.16.75.100:7091/_conaud/busqueda-actividades?auditoria_codigo=1
