@@ -232,9 +232,8 @@
   Content-Type: application/json
   Authorization: {{AuthTokenInterno}}
 ###  ------------------- OBTENER - ACTIVIDAD EN CONAUD
-  # GET {{Host}}/actividades/conaud_actividad?iac_estado=(22)&iap_estado=(2)&iac_codigo_control=L8XP176A24
-  # GET {{Host}}/actividades/conaud_actividad?iac_estado=(22)&iap_estado=(2)&iac_codigo_control=ELEN36A99
-  GET {{Host}}/actividades/conaud_actividad?iac_estado=(22)&iac_codigo_control=GHEP25A97
+  GET {{Host}}/actividades/conaud_actividad?iac_estado=(22)&iac_codigo_control=L8XP176A24
+  # GET {{Host}}/actividades/conaud_actividad?iac_estado=(22)&iac_codigo_control=GHEP25A97
   Content-Type: application/json
   Authorization: {{AuthTokenInterno}}
 ###  ------------------- ESTADOS - ACTIVIDADES 1359,1360,1361,1362
