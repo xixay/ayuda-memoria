@@ -66,4 +66,59 @@ where
 	t.iac_codigo in (304)
 order by
 	t.iac_codigo desc;
+--tipos inicios actividades
+select 	*
+from 	parametricas.tipos_inicios_actividades tia ;
+--especificacion tipos de trabajo
+select 	*
+from 	parametricas.especificacion_tipos_trabajo ett;
+--apoyada
+select 	iap.iap_codigo,
+		iap.iac_codigo,
+		iap.act_codigo
+from 	ejecucion_actividades.inicio_actividad_poa iap 
+where 	true and
+		iap.act_codigo in (select	aa.act_codigo_ejecucion
+							from 	estructura_poa.actividades_apoyo aa 
+							where 	true
+									and aa.aap_estado in (1)
+									and aa.act_codigo in (1404)
+						  );
+--inicios actividades
+select	*
+from 	ejecucion_actividades.inicios_actividades ia
+--where 	ia.iac_codigo in (367)
+order	by	ia.iac_codigo desc;
+--actividad
+select 	*
+from 	estructura_poa.actividades a
+where 	a.act_codigo in (1405)
+order 	by	a.act_codigo desc;
+--inicio actividad poa
+select 	*
+from 	ejecucion_actividades.inicio_actividad_poa iap
+where 	iap.iap_codigo in (269)
+order 	by iap.iap_codigo desc;
+--juntos
+SELECT	*
+FROM	ejecucion_actividades.inicios_actividades ia
+WHERE	ia.iac_codigo IN (SELECT a.iac_codigo_apoyo FROM estructura_poa.actividades a WHERE a.act_codigo IN (1404))
+;
+--juntos 2
+SELECT	iap.iap_codigo,
+		ia.*,
+		a.act_codigo
+FROM	ejecucion_actividades.inicio_actividad_poa iap
+		left join estructura_poa.actividades a on iap.act_codigo = a.act_codigo
+		left join ejecucion_actividades.inicios_actividades ia on a.iac_codigo_apoyo = ia.iac_codigo
+where 	a.act_codigo in (1404)
+;
+
+SELECT	ia.iac_codigo, ia.iac_migrado,
+		iap.iap_codigo
+FROM	ejecucion_actividades.inicios_actividades ia
+		LEFT JOIN ejecucion_actividades.inicio_actividad_poa iap ON ia.iac_codigo = iap.iac_codigo AND iap.iap_estado NOT IN (0, 5)
+WHERE	ia.iac_codigo IN (SELECT a.iac_codigo_apoyo FROM estructura_poa.actividades a WHERE a.act_codigo IN (1404))
+;
+
 
