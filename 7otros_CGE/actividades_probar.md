@@ -49,4 +49,6 @@
 
 - 00.0101.81.4.24
 - No imprime el reporte en ejecucion
-- 
+
+# Continuidad
+- NO SE ENCONTRARON REGISTROS EN GESTIONES, me sale al querer crear continuidad, quiere crear inici actividad, como el tipact_codigo es 2 osea de continuidad, y porque ActividadObject.conaud_gestion: no tiene año
