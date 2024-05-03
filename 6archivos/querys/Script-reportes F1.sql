@@ -96,10 +96,12 @@ where 	true and
 									and aa.act_codigo in (1404)
 						  );
 --inicios actividades
-select	*
-from 	ejecucion_actividades.inicios_actividades ia
---where 	ia.iac_codigo in (367)
-order	by	ia.iac_codigo desc;
+select	t.iac_codigo,t.iac_codigo_control
+FROM 	ejecucion_actividades.inicios_actividades t
+		LEFT JOIN parametricas.estados e ON e.est_codigo = t.iac_estado
+WHERE 	TRUE
+        AND t.iac_codigo_control IN ('ISEP66N21')
+      ORDER BY t.iac_codigo DESC;
 --actividad
 select 	*
 from 	estructura_poa.actividades a
@@ -131,15 +133,7 @@ select 	*
 from 	ejecucion_actividades.recomendaciones_inicios_seguimientos ris 
 order by	ris.ris_codigo desc 
 limit 5;
---
-SELECT	i.inf_codigo, i.inf_correlativo,
-		ir.ire_descripcion
-FROM	ejecucion_actividades.informes i
-		LEFT JOIN ejecucion_actividades.informe_recomendaciones ir ON i.inf_codigo = ir.inf_codigo AND ir.ire_estado != 0
-WHERE	TRUE
-		AND i.inf_codigo IN (52)
-;  
---
+--   INFORME RECOMENDAC
 SELECT	i.inf_codigo, i.inf_correlativo,
 		ir.ire_descripcion, ris.*
 FROM	ejecucion_actividades.informes i
@@ -147,8 +141,8 @@ FROM	ejecucion_actividades.informes i
 		LEFT JOIN ejecucion_actividades.recomendaciones_inicios_seguimientos ris ON ir.ire_codigo = ris.ire_codigo
 WHERE	TRUE
 		AND i.inf_codigo IN (52)
---		AND ris.iac_codigo IN (402)
-		AND ris.iac_codigo IN (392)
+		AND ris.iac_codigo IN (402)
+--		AND ris.iac_codigo IN (392)
 ;     		
      
 --inicio actividad poa
