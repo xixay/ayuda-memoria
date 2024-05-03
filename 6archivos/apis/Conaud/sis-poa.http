@@ -270,7 +270,7 @@
   Authorization: {{AuthTokenInterno}}
 ###
   # GET http://172.16.75.94:7015/auditorias?auditoria_codigo=EOOP69J22
-  GET http://172.16.75.94:7015/auditorias?auditoria_codigo=GTEN33A99
+  GET http://172.16.75.94:7015/auditorias?auditoria_codigo=ECEN28A00
   Content-Type: application/json
   Authorization: {{AuthTokenInterno}}
 ###

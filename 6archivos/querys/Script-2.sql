@@ -1,3 +1,7 @@
+--gestiones
+select 	*
+from 	parametricas.gestiones g
+where 	g.ges_codigo in (25);
 --tipos inicios actividades
 select 	*
 from 	parametricas.tipos_inicios_actividades tia ;
@@ -20,7 +24,12 @@ select 	*
 from 	estructura_poa.actividades a
 --where 	a.act_codigo in (1446)
 order 	by	a.act_codigo desc
-limit 1;
+limit 5;
+--act continuidad
+select 	*
+from 	estructura_poa.actividades_continuidad ac
+order by ac.aco_codigo desc
+limit 5;
 --informes
 select 	*
 from 	ejecucion_actividades.informes i 
