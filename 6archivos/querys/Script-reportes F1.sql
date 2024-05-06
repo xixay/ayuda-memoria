@@ -96,12 +96,9 @@ where 	true and
 									and aa.act_codigo in (1404)
 						  );
 --inicios actividades
-select	t.iac_codigo,t.iac_codigo_control
+select	*
 FROM 	ejecucion_actividades.inicios_actividades t
-		LEFT JOIN parametricas.estados e ON e.est_codigo = t.iac_estado
-WHERE 	TRUE
-        AND t.iac_codigo_control IN ('ISEP66N21')
-      ORDER BY t.iac_codigo DESC;
+ORDER BY t.iac_codigo DESC;
 --actividad
 select 	*
 from 	estructura_poa.actividades a
@@ -116,13 +113,15 @@ limit 5;
 --informes
 select 	*
 from 	ejecucion_actividades.informes i 
-order by	i.inf_codigo desc
-limit 5;
+order by	i.inf_codigo desc;
+--limit 5;
 --informe recomendaciones
 select 	*
 from 	ejecucion_actividades.informe_recomendaciones ir
 order by	ir.ire_codigo desc
 limit 5;
+select *
+from parametricas.gestiones g ;
 --informe recomendaciones seguimientos
 select 	*
 from 	ejecucion_actividades.informe_recomendaciones_seguimientos irs
@@ -174,5 +173,11 @@ FROM	ejecucion_actividades.inicios_actividades ia
 		LEFT JOIN ejecucion_actividades.inicio_actividad_poa iap ON ia.iac_codigo = iap.iac_codigo AND iap.iap_estado NOT IN (0, 5)
 WHERE	ia.iac_codigo IN (SELECT a.iac_codigo_apoyo FROM estructura_poa.actividades a WHERE a.act_codigo IN (1404))
 ;
-    		
+    		--informes
+select 	i.inf_codigo ,i.inf_codigo_control 
+from 	ejecucion_actividades.informes i
+where 	i.iac_codigo in (386)
+		and i.inf_codigo_control in ('T1')
+order by	i.inf_codigo desc
+limit 5;
    
