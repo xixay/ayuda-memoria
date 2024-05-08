@@ -339,6 +339,10 @@
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ### RECOMENDACIONES INICIOS SEGUIMIENTOS
+###  ------- OBTENER - NRO RECOMENDACIONES INICIOS SEGUIMIENTOS
+  GET {{Host}}/recomendaciones-inicios-seguimientos/nro_recom_inic_seg?inf_codigo=(65)&iac_codigo=(415)&ris_estado=(1) HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
 ###  ------- OBTENER - RECOMENDACIONES INICIOS SEGUIMIENTOS
   # GET {{Host}}/recomendaciones-inicios-seguimientos HTTP/1.1
   # GET {{Host}}/recomendaciones-inicios-seguimientos?ris_codigo=(2) HTTP/1.1
