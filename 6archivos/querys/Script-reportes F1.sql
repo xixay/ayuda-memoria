@@ -29,19 +29,41 @@ limit 10;
 select 	*
 --select 	a.act_codigo ,a.act_numero ,a.act_descripcion ,a.act_fecha_inicio ,a.act_fecha_fin ,a.act_objeto ,a.ttr_codigo ,a.tipact_codigo,a.cac_codigo 
 from 	estructura_poa.actividades a 
+where a.act_numero = '00.0101.81.26.24'
 order by a.act_codigo desc 
 limit 7;
 --INICIOS ACTIVIDADES
 select	*
 FROM 	ejecucion_actividades.inicios_actividades t
 --where 	t.iac_codigo_control in ('ISEP66N21')
+--where 	t.iac_codigo in (403)
 order by t.iac_codigo desc ;
+--INICIO ACTIVIDAD POA
+select 	*
+from 	ejecucion_actividades.inicio_actividad_poa iap
+--where 	iap.iap_codigo in (276)
+order 	by iap.iap_codigo desc;
 --limit 5;
+--NRO RECOMENDACIONES POR IAP_CODIGO
+SELECT	iap.iap_codigo, ia.iac_codigo, iai.inf_codigo, ir.ire_codigo
+FROM	ejecucion_actividades.inicio_actividad_poa iap
+		LEFT JOIN ejecucion_actividades.inicios_actividades ia ON iap.iac_codigo = ia.iac_codigo
+		LEFT JOIN ejecucion_actividades.inicio_actividad_informe iai ON ia.iac_codigo = iai.iac_codigo
+		LEFT JOIN ejecucion_actividades.informe_recomendaciones ir ON iai.inf_codigo = ir.inf_codigo
+WHERE	TRUE
+		AND ir.ire_estado NOT IN (0)
+		AND iap.iap_codigo IN (285)
+;
+--INFORMES EMERGENTES
+select 	*
+from 	parametricas.informes_emergentes ie
+where 	ie.iem_descripcion = 'Evaluacion de Confiabilidad de Estados Financieros'
+;
 --INFORMES
 select 	*
 from 	ejecucion_actividades.informes i 
---where 	i.iac_codigo in (65)
-where 	i.inf_codigo in (52)
+--where 	i.iac_codigo in (403)
+where 	i.inf_codigo in (78)
 order by	i.inf_codigo desc;
 --INICIO ACTIVIDAD INFORME
 select 	*
@@ -50,8 +72,16 @@ order 	by	iai.iai_codigo desc;
 --INFORME RECOMENDACIONES
 select 	*
 from 	ejecucion_actividades.informe_recomendaciones ir
+where 	ir.inf_codigo in (78)
 order by	ir.ire_codigo desc
 limit 5;
+--FLUJOS ESTADOS EVOLUCION
+select 	*
+from 	parametricas.flujos_estados_evolucion fee 
+where 	fee.iem_codigo = 16;
+--ACTIVIDAD MIGRADA CONAUD
+select 	*
+from 	ejecucion_actividades.actividad_migrada_conaud amc ;
 --INFORME RECOMENDACIONES SEGUIMIENTOS
 select 	*
 from 	ejecucion_actividades.informe_recomendaciones_seguimientos irs
@@ -77,11 +107,7 @@ from 	estructura_poa.actividades_continuidad ac
 where 	ac.iac_codigo in (397)
 order by ac.aco_codigo desc
 limit 5;
---INICIO ACTIVIDAD POA
-select 	*
-from 	ejecucion_actividades.inicio_actividad_poa iap
-order 	by iap.iap_codigo desc
-limit 7;
+
 
    		
 
