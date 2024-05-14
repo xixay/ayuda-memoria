@@ -247,6 +247,12 @@
     "act_observacion":"obs 9 abril"
   }
   
+### INICIOS ACTIVIDADES
+###  ------------------- OBTENER - INICIOS ACTIVIDADES
+  # GET {{Host}}/sispoa-conaud/inicios-actividades
+  GET {{Host}}/sispoa-conaud/inicios-actividades?iac_codigo=(423)
+  Content-Type: application/json
+  Authorization: {{AuthTokenInterno}}
 ### POA OBJETIVO
 ###  ------------------- OBTENER - POA OBJETIVO
     PUT {{Host}}/poas-objetivos/estado-all

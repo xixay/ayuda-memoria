@@ -29,14 +29,14 @@ limit 10;
 select 	*
 --select 	a.act_codigo ,a.act_numero ,a.act_descripcion ,a.act_fecha_inicio ,a.act_fecha_fin ,a.act_objeto ,a.ttr_codigo ,a.tipact_codigo,a.cac_codigo 
 from 	estructura_poa.actividades a 
-where a.act_numero = '00.1601.110.2.24'
+--where a.act_numero = '00.1601.110.2.24'
 order by a.act_codigo desc 
 limit 17;
 --INICIOS ACTIVIDADES
 select	*
 FROM 	ejecucion_actividades.inicios_actividades t
 --where 	t.iac_codigo_control in ('EHEN26Y00')
-where 	t.iac_codigo in (407)
+--where 	t.iac_codigo in (407)
 --where 	t.iac_estado in (22)
 order by t.iac_codigo desc ;
 --ACTIVIDADES CONTINUIDAD
@@ -45,6 +45,10 @@ from 	estructura_poa.actividades_continuidad ac
 --where 	ac.iac_codigo in (397)
 order by ac.aco_codigo desc
 limit 5;
+--ACTIVIDAD MIGRADA CONAUD
+select 	*
+from 	ejecucion_actividades.actividad_migrada_conaud amc 
+order by amc.amc_codigo desc;
 --INICIO ACTIVIDAD POA
 select 	*
 from 	ejecucion_actividades.inicio_actividad_poa iap
@@ -86,9 +90,6 @@ limit 5;
 select 	*
 from 	parametricas.flujos_estados_evolucion fee 
 where 	fee.iem_codigo = 16;
---ACTIVIDAD MIGRADA CONAUD
-select 	*
-from 	ejecucion_actividades.actividad_migrada_conaud amc ;
 --INFORME RECOMENDACIONES SEGUIMIENTOS
 select 	*
 from 	ejecucion_actividades.informe_recomendaciones_seguimientos irs
