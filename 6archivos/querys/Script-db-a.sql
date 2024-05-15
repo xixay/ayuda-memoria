@@ -62,11 +62,12 @@ FROM	estructura_poa.actividades a
 		LEFT JOIN ejecucion_actividades.inicio_actividad_poa_asignaciones iapa ON iap.iap_codigo = iapa.iap_codigo
 		LEFT JOIN ejecucion_poa.asignaciones asi ON iapa.asi_codigo = asi.asi_codigo
 --WHERE	iap.tia_codigo = 3 and a.act_estado = 2		
-WHERE	a.act_codigo = 1448
+--WHERE	a.act_codigo = 1448
 --WHERE	a.act_codigo = 1317
 --WHERE	a.act_codigo = 1200
 --WHERE	a.act_codigo = 1181
 --WHERE	a.act_codigo = 1156
+WHERE	a.act_codigo = 1450
 --F2
 --WHERE	a.act_codigo = 1021
 ;
