@@ -30,6 +30,7 @@ select 	*
 --select 	a.act_codigo ,a.act_numero ,a.act_descripcion ,a.act_fecha_inicio ,a.act_fecha_fin ,a.act_objeto ,a.ttr_codigo ,a.tipact_codigo,a.cac_codigo 
 from 	estructura_poa.actividades a 
 --where a.act_numero = '00.1601.110.2.24'
+where 	a.act_codigo in (711)
 order by a.act_codigo desc 
 limit 17;
 --INICIOS ACTIVIDADES
@@ -39,6 +40,13 @@ FROM 	ejecucion_actividades.inicios_actividades t
 --where 	t.iac_codigo in (407)
 --where 	t.iac_estado in (22)
 order by t.iac_codigo desc ;
+--INICIO ACTIVIDAD POA
+select 	*
+from 	ejecucion_actividades.inicio_actividad_poa iap
+--where 	iap.iap_codigo in (276)
+--where 	iap.act_codigo in (711)
+order 	by iap.iap_codigo desc;
+--limit 5;
 --ACTIVIDADES CONTINUIDAD
 select 	*
 from 	estructura_poa.actividades_continuidad ac
@@ -49,12 +57,6 @@ limit 5;
 select 	*
 from 	ejecucion_actividades.actividad_migrada_conaud amc 
 order by amc.amc_codigo desc;
---INICIO ACTIVIDAD POA
-select 	*
-from 	ejecucion_actividades.inicio_actividad_poa iap
---where 	iap.iap_codigo in (276)
-order 	by iap.iap_codigo desc;
---limit 5;
 --NRO RECOMENDACIONES POR IAP_CODIGO
 SELECT	iap.iap_codigo, ia.iac_codigo, iai.inf_codigo, ir.ire_codigo
 FROM	ejecucion_actividades.inicio_actividad_poa iap

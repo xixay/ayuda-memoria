@@ -103,6 +103,10 @@
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ### INICIO ACTIVIDAD POA
+###  ------- OBTENER - lista reportes INICIO ACTIVIDAD POA
+  GET {{Host}}/inicio-actividad-poa/lista-reportes?act_codigo=(1448) HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
 ###  ------- ESTADOS - INICIO ACTIVIDAD POA
   PUT {{Host}}/inicio-actividad-poa/estado HTTP/1.1
   Authorization: {{AuthTokenInterno}}
@@ -128,7 +132,7 @@
     "iac_codigo": 4,
     "iac_estado": 22
   }
-### INICIO ACTIVIDADES ADICIONALES 
+### INICIO ACTIVIDADES ADICIONALES
 ###  ------- ESTADOS - INICIO ACTIVIDADES ADICIONALES
   PUT {{Host}}/inicios-actividades-adicional/estado HTTP/1.1
   Authorization: {{AuthTokenInterno}}
@@ -140,7 +144,7 @@
   }
 ### SISPOA ACTIVIDADES
 ###  ------- OBTENER - SISPOA ACTIVIDADES
-  GET {{Host}}/sispoa-actividades/gerente?ges_codigo=(2) HTTP/1.1
+  GET {{Host}}/sispoa-actividades/gerente?ges_codigo=(1156) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ###  ------- OBTENER - ARRAY ASIGNACIONES INICIO EVALUACION Y INICIO ACTIVIDAD POA
