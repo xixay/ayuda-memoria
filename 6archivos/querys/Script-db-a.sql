@@ -29,25 +29,36 @@ limit 10;
 select 	*
 --select 	a.act_codigo ,a.act_numero ,a.act_descripcion ,a.act_fecha_inicio ,a.act_fecha_fin ,a.act_objeto ,a.ttr_codigo ,a.tipact_codigo,a.cac_codigo 
 from 	estructura_poa.actividades a 
---where a.act_numero = '00.1601.110.2.24'
-where 	a.act_codigo in (1448)
+where	true 	
+--		and a.act_numero = '00.1601.110.2.24'
+--		and a.act_codigo in (1121)
 order by a.act_codigo desc 
-limit 17;
+limit 16;
+--ACTIVIDADES CONTINUIDAD
+select 	*
+from 	estructura_poa.actividades_continuidad ac
+--where 	ac.iac_codigo in (397)
+order by ac.aco_codigo desc
+limit 7;
 --INICIOS ACTIVIDADES
 select	*
 FROM 	ejecucion_actividades.inicios_actividades t
---where 	t.iac_codigo_control in ('EHEN26Y00')
+--where 	t.iac_codigo_control in ('K1PP03F15')
 --where 	t.iac_codigo in (407)
 --where 	t.iac_estado in (22)
 order by t.iac_codigo desc ;
 --INICIO ACTIVIDAD POA
 select 	*
 from 	ejecucion_actividades.inicio_actividad_poa iap
---where 	iap.iap_codigo in (276)
---where 	iap.act_codigo in (711)
 where 	true 
+--		and iap.iap_codigo in (141)--act_codigo=933
+--		and iap.iap_codigo in (240)--act_codigo=1121
+--		and iap.iap_codigo in (283)
+--		and iap.iap_codigo in (385)
+		and iap.iap_codigo in (223)
+--		and iap.act_codigo in (711) 
 --		and iap.tia_codigo in (2)
-		and iap.act_codigo in (1156)
+--		and iap.act_codigo in (1156)
 order 	by iap.iap_codigo desc;
 --limit 5;
 --OBTIENE EL F1 y el F1A
@@ -61,13 +72,14 @@ FROM	estructura_poa.actividades a
 		LEFT JOIN ejecucion_actividades.inicios_actividades ia ON iap.iac_codigo = ia.iac_codigo
 		LEFT JOIN ejecucion_actividades.inicio_actividad_poa_asignaciones iapa ON iap.iap_codigo = iapa.iap_codigo
 		LEFT JOIN ejecucion_poa.asignaciones asi ON iapa.asi_codigo = asi.asi_codigo
---WHERE	iap.tia_codigo = 3 and a.act_estado = 2		
---WHERE	a.act_codigo = 1448
---WHERE	a.act_codigo = 1317
---WHERE	a.act_codigo = 1200
---WHERE	a.act_codigo = 1181
---WHERE	a.act_codigo = 1156
-WHERE	a.act_codigo = 1450
+WHERE	true
+--		and iap.tia_codigo = 3 and a.act_estado = 2		
+		and a.act_codigo = 1448
+--		and a.act_codigo = 1317
+--		and a.act_codigo = 1200
+--		and a.act_codigo = 1181
+--		and a.act_codigo = 1156
+--		and	a.act_codigo = 1450
 --F2
 --WHERE	a.act_codigo = 1021
 ;
@@ -91,40 +103,58 @@ WHERE	a.act_codigo = 1317
 --WHERE	a.act_codigo = 1156
 ;
 --OBTIENE LOS DETALLES DE F1 que se quedo historico con iapCodigo
-select 	t.iap_codigo , t.iac_codigo , t.act_codigo , t.tia_codigo,
-		iapa.asi_codigo,
-		a.asi_codigo, a.asi_estado,
-		tt.ttr_codigo,tt.ttr_descripcion, 
-		ett.ett_codigo, ett.ett_nombre,
-      	(
-        	CASE
-              WHEN (t.tia_codigo = 1 and (tt.ett_codigo = 1 or tt.ett_codigo = 2 or ia.ttr_codigo = 0)) THEN 'REPORTE F1'
-              WHEN (t.tia_codigo = 2 and (tt.ett_codigo = 1 or tt.ett_codigo = 2 or ia.ttr_codigo = 0)) THEN 'REPORTE F1-A'
-              WHEN (t.tia_codigo = 3 and (tt.ett_codigo = 3 or ia.ttr_codigo = 0)) THEN 'REPORTE F2'
-              WHEN (t.tia_codigo = 4 and (tt.ett_codigo = 3 or ia.ttr_codigo = 0)) THEN 'REPORTE F2-A'
-              ELSE '' END
-      	) AS nombre_reporte,
-      	(
-        	CASE
-              WHEN (t.tia_codigo = 1 and (tt.ett_codigo = 1 or tt.ett_codigo = 2 or ia.ttr_codigo = 0)) THEN 1
-              WHEN (t.tia_codigo = 2 and (tt.ett_codigo = 1 or tt.ett_codigo = 2 or ia.ttr_codigo = 0)) THEN 2
-              WHEN (t.tia_codigo = 3 and (tt.ett_codigo = 3 or ia.ttr_codigo = 0)) THEN 3
-              WHEN (t.tia_codigo = 4 and (tt.ett_codigo = 3 or ia.ttr_codigo = 0)) THEN 4
-              ELSE 0 END
-      	) AS tipo_reporte
-from 	ejecucion_actividades.inicio_actividad_poa t
-		left join ejecucion_actividades.inicios_actividades ia on t.iac_codigo = ia.iac_codigo
-		left join parametricas.tipos_trabajos tt on ia.ttr_codigo = tt.ttr_codigo 
-		left join parametricas.especificacion_tipos_trabajo ett on tt.ett_codigo = ett.ett_codigo 
-		left join estructura_poa.actividades a2 on t.act_codigo = a2.act_codigo 
-		left join ejecucion_actividades.inicio_actividad_poa_asignaciones iapa on t.iap_codigo = iapa.iap_codigo 
-		left join ejecucion_poa.asignaciones a on iapa.asi_codigo = a.asi_codigo 
---where 	t.act_codigo in (1317)
---WHERE	t.act_codigo = 1448
---WHERE	t.act_codigo = 1200
---WHERE	t.act_codigo = 1181
-WHERE	t.act_codigo = 1156 --no da
---where 	t.act_codigo in (1021) 
+SELECT
+  		t.iap_codigo, t.iap_estado, t.iac_codigo , t.act_codigo, t.tia_codigo,
+  		ett.ett_codigo,
+  		iapa.asi_codigo,
+  		a.asi_codigo, a.asi_estado,
+	  (
+	    CASE
+	        WHEN (tt.ett_codigo = 0 and t.tia_codigo = 1) THEN 'REPORTE F1'
+	        WHEN (tt.ett_codigo = 0 and t.tia_codigo = 2) THEN 'REPORTE F1-A'
+	        WHEN (tt.ett_codigo = 1 and t.tia_codigo = 1) THEN 'REPORTE F1'
+	        WHEN (tt.ett_codigo = 1 and t.tia_codigo = 2) THEN 'REPORTE F1-A'
+	       	WHEN (tt.ett_codigo = 2 and t.tia_codigo = 1) THEN 'REPORTE F1'
+	        WHEN (tt.ett_codigo = 2 and t.tia_codigo = 2) THEN 'REPORTE F1-A'
+	       	WHEN (tt.ett_codigo = 3 and t.tia_codigo = 3) THEN 'REPORTE F2'
+	        WHEN (tt.ett_codigo = 3 and t.tia_codigo = 4) THEN 'REPORTE F2-A'
+	       	WHEN (tt.ett_codigo = 4 and t.tia_codigo = 1) THEN 'REPORTE F1'
+	        WHEN (tt.ett_codigo = 4 and t.tia_codigo = 2) THEN 'REPORTE F1-A'
+	       	WHEN (tt.ett_codigo = 5 and t.tia_codigo = 1) THEN 'REPORTE F1'
+	        WHEN (tt.ett_codigo = 5 and t.tia_codigo = 2) THEN 'REPORTE F1-A'
+	        ELSE '' END
+	  ) AS nombre_reporte,
+	  (
+	    CASE
+	        WHEN (tt.ett_codigo = 0 and t.tia_codigo = 1) THEN 1
+	        WHEN (tt.ett_codigo = 0 and t.tia_codigo = 2) THEN 2
+	        WHEN (tt.ett_codigo = 1 and t.tia_codigo = 1) THEN 1
+	        WHEN (tt.ett_codigo = 1 and t.tia_codigo = 2) THEN 2
+	       	WHEN (tt.ett_codigo = 2 and t.tia_codigo = 1) THEN 1
+	        WHEN (tt.ett_codigo = 2 and t.tia_codigo = 2) THEN 2
+	       	WHEN (tt.ett_codigo = 3 and t.tia_codigo = 3) THEN 3
+	        WHEN (tt.ett_codigo = 3 and t.tia_codigo = 4) THEN 4
+	       	WHEN (tt.ett_codigo = 4 and t.tia_codigo = 1) THEN 1
+	        WHEN (tt.ett_codigo = 4 and t.tia_codigo = 2) THEN 2
+	       	WHEN (tt.ett_codigo = 5 and t.tia_codigo = 1) THEN 1
+	        WHEN (tt.ett_codigo = 5 and t.tia_codigo = 2) THEN 2
+	        ELSE 0 END
+	  ) AS tipo_reporte
+FROM ejecucion_actividades.inicio_actividad_poa t
+		LEFT JOIN ejecucion_actividades.inicios_actividades ia on t.iac_codigo = ia.iac_codigo
+		LEFT JOIN parametricas.tipos_trabajos tt on ia.ttr_codigo = tt.ttr_codigo
+		LEFT JOIN parametricas.especificacion_tipos_trabajo ett on tt.ett_codigo = ett.ett_codigo
+		LEFT JOIN estructura_poa.actividades a2 on t.act_codigo = a2.act_codigo
+		LEFT JOIN ejecucion_actividades.inicio_actividad_poa_asignaciones iapa on t.iap_codigo = iapa.iap_codigo
+		LEFT JOIN ejecucion_poa.asignaciones a on iapa.asi_codigo = a.asi_codigo
+where	TRUE
+		and t.act_codigo in (1121)
+--		and	t.act_codigo = 1448
+--		and t.act_codigo = 1200
+--		and t.act_codigo = 1181
+--		and	t.act_codigo = 1156 --no da
+--		and t.act_codigo in (933) 
+ORDER BY t.fecha_registro DESC
 ;
 select 	t.iap_codigo , t.iac_codigo , t.act_codigo , t.tia_codigo,
 		tt.ttr_codigo,tt.ttr_descripcion,
@@ -149,12 +179,6 @@ limit 5;
 --ASIGNACIONES HORAS USADAS
 select 	*
 from 	ejecucion_poa.asignaciones_horas_usadas ahu
---ACTIVIDADES CONTINUIDAD
-select 	*
-from 	estructura_poa.actividades_continuidad ac
---where 	ac.iac_codigo in (397)
-order by ac.aco_codigo desc
-limit 5;
 --ACTIVIDAD MIGRADA CONAUD
 select 	*
 from 	ejecucion_actividades.actividad_migrada_conaud amc 
