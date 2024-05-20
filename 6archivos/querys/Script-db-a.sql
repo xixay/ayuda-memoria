@@ -105,6 +105,7 @@ WHERE	a.act_codigo = 1317
 --OBTIENE LOS DETALLES DE F1 que se quedo historico con iapCodigo
 SELECT
   		t.iap_codigo, t.iap_estado, t.iac_codigo , t.act_codigo, t.tia_codigo,
+  		a2.act_codigo, a2.act_numero, a2.aun_codigo_ejecutora,
   		ett.ett_codigo,
   		iapa.asi_codigo,
   		a.asi_codigo, a.asi_estado,
@@ -148,12 +149,18 @@ FROM ejecucion_actividades.inicio_actividad_poa t
 		LEFT JOIN ejecucion_actividades.inicio_actividad_poa_asignaciones iapa on t.iap_codigo = iapa.iap_codigo
 		LEFT JOIN ejecucion_poa.asignaciones a on iapa.asi_codigo = a.asi_codigo
 where	TRUE
-		and t.act_codigo in (1121)
+--		and t.act_codigo in (1121)
 --		and	t.act_codigo = 1448
 --		and t.act_codigo = 1200
 --		and t.act_codigo = 1181
 --		and	t.act_codigo = 1156 --no da
---		and t.act_codigo in (933) 
+--		and t.act_codigo in (933)
+--		and t.tia_codigo in (4)
+--		and t.tia_codigo in (3)
+--		and t.tia_codigo in (2)
+		and t.tia_codigo in (1)
+--		and t.iap_codigo in (386)
+--		and t.iap_codigo in (89)
 ORDER BY t.fecha_registro DESC
 ;
 select 	t.iap_codigo , t.iac_codigo , t.act_codigo , t.tia_codigo,
