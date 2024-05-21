@@ -29,10 +29,12 @@ limit 10;
 select 	*
 --select 	a.act_codigo ,a.act_numero ,a.act_descripcion ,a.act_fecha_inicio ,a.act_fecha_fin ,a.act_objeto ,a.ttr_codigo ,a.tipact_codigo,a.cac_codigo 
 from 	estructura_poa.actividades a 
---where a.act_numero = '00.1601.110.2.24'
-where 	a.act_codigo in (711)
-order by a.act_codigo desc 
-limit 17;
+where	true 	
+--		and a.act_numero = '00.1601.110.2.24'
+--		and a.act_codigo in (1121)
+		and a.act_estado not in (2,9,0)
+order by a.act_codigo desc; 
+--limit 16;
 --INICIOS ACTIVIDADES
 select	*
 FROM 	ejecucion_actividades.inicios_actividades t

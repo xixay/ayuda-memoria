@@ -329,7 +329,8 @@ where	TRUE
 --		and t.tia_codigo in (2)
 --		and t.tia_codigo in (1)
 --		and t.iap_codigo in (375)
-		and t.iap_codigo in (283)
+--		and t.iap_codigo in (283)
+		and t.iap_codigo in (246)
 ORDER BY t.fecha_registro DESC
 ;
 select 	t.iap_codigo , t.iac_codigo , t.act_codigo , t.tia_codigo,
