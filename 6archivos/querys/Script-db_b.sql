@@ -273,7 +273,7 @@ WHERE	a.act_codigo = 1317
 ;
 --OBTIENE LOS DETALLES DE F1 que se quedo historico con iapCodigo
 SELECT
-  		t.iap_codigo, t.iap_estado, t.iac_codigo , t.act_codigo, t.tia_codigo,
+  		t.iap_codigo, t.iap_estado, t.iac_codigo , t.act_codigo, t.tia_codigo, t.fecha_registro,
   		a2.act_codigo, a2.act_numero, a2.aun_codigo_ejecutora,
   		ett.ett_codigo,
   		iapa.asi_codigo,
@@ -322,7 +322,7 @@ where	TRUE
 --		and	t.act_codigo = 1448
 --		and t.act_codigo = 1200
 --		and t.act_codigo = 1181
---		and	t.act_codigo = 1156 --no da
+		and	t.act_codigo = 1156 --no da
 --		and t.act_codigo in (933)
 --		and t.tia_codigo in (4)
 --		and t.tia_codigo in (3)
@@ -330,28 +330,47 @@ where	TRUE
 --		and t.tia_codigo in (1)
 --		and t.iap_codigo in (375)
 --		and t.iap_codigo in (283)
-		and t.iap_codigo in (246)
+--		and t.iap_codigo in (246)
 ORDER BY t.fecha_registro DESC
 ;
-select 	t.iap_codigo , t.iac_codigo , t.act_codigo , t.tia_codigo,
-		tt.ttr_codigo,tt.ttr_descripcion,
-		ett.ett_codigo, ett.ett_nombre  
-from 	ejecucion_actividades.inicio_actividad_poa t
-		left join ejecucion_actividades.inicios_actividades ia on t.iac_codigo = ia.iac_codigo
-		left join parametricas.tipos_trabajos tt on ia.ttr_codigo = tt.ttr_codigo
-		left join parametricas.especificacion_tipos_trabajo ett on tt.ett_codigo = ett.ett_codigo 
-where 	t.act_codigo in (1317)
-;
+--
+SELECT
+  t.iap_codigo, t.iap_estado, t.iac_codigo , t.act_codigo, t.tia_codigo, t.fecha_registro,
+  tt.ett_codigo,
+  iapa.asi_codigo,
+  a.asi_codigo, a.asi_estado
+FROM ejecucion_actividades.inicio_actividad_poa t
+LEFT JOIN ejecucion_actividades.inicios_actividades ia on t.iac_codigo = ia.iac_codigo
+LEFT JOIN parametricas.tipos_trabajos tt on ia.ttr_codigo = tt.ttr_codigo
+    LEFT JOIN parametricas.especificacion_tipos_trabajo ett on tt.ett_codigo = ett.ett_codigo
+LEFT JOIN estructura_poa.actividades a2 on t.act_codigo = a2.act_codigo
+LEFT JOIN ejecucion_actividades.inicio_actividad_poa_asignaciones iapa on t.iap_codigo = iapa.iap_codigo
+LEFT JOIN ejecucion_poa.asignaciones a on iapa.asi_codigo = a.asi_codigo
+WHERE TRUE
+AND t.act_codigo IN (1156)
+ORDER BY t.fecha_registro DESC;
 
-
-
-
-
-
-
-
-
-
+        SELECT
+              t.iap_codigo, t.iap_estado, t.iac_codigo , t.act_codigo, t.tia_codigo, t.fecha_registro,
+              tt.ett_codigo,
+              iapa.asi_codigo,
+              a.asi_codigo, a.asi_estado
+        FROM  ejecucion_actividades.inicio_actividad_poa t
+              LEFT JOIN ejecucion_actividades.inicios_actividades ia on t.iac_codigo = ia.iac_codigo
+              LEFT JOIN parametricas.tipos_trabajos tt on ia.ttr_codigo = tt.ttr_codigo
+              LEFT JOIN parametricas.especificacion_tipos_trabajo ett on tt.ett_codigo = ett.ett_codigo
+              LEFT JOIN estructura_poa.actividades a2 on t.act_codigo = a2.act_codigo
+              LEFT JOIN ejecucion_actividades.inicio_actividad_poa_asignaciones iapa on t.iap_codigo = iapa.iap_codigo
+              LEFT JOIN ejecucion_poa.asignaciones a on iapa.asi_codigo = a.asi_codigo
+        WHERE TRUE
+              AND t.act_codigo IN (1156)
+        ORDER BY t.fecha_registro DESC;
+--
+       select 	t.iap_codigo, t.iap_estado, t.iac_codigo , t.act_codigo, t.tia_codigo, t.fecha_registro
+       from 	ejecucion_actividades.inicio_actividad_poa t
+       			LEFT JOIN parametricas.tipos_trabajos tt on ia.ttr_codigo = tt.ttr_codigo
+       			LEFT JOIN parametricas.especificacion_tipos_trabajo ett on tt.ett_codigo = ett.ett_codigo
+       where 	t.iac_codigo in (7) and t.iap_estado not in (0);
 
 
 
