@@ -33,7 +33,13 @@ case "$(get_hostname)" in
         ;;
     "xixay2023")
         echo "Detectado entorno de trabajo: Casa"
-        directorio_origen="$(get_home_directory)/snap/dbeaver-ce/288/.local/share/DBeaverData/workspace6/General/Scripts/"
+        # Buscar el directorio actual de DBeaverData más reciente
+        directorio_dbeaver=$(find "$(get_home_directory)/snap/dbeaver-ce" -type d -name "DBeaverData" -exec stat -c "%Y %n" {} + | sort -nr | head -n 1 | cut -d' ' -f2)
+        if [ -z "$directorio_dbeaver" ]; then
+            echo "Error: No se pudo encontrar el directorio DBeaverData."
+            exit 1
+        fi
+        directorio_origen="$directorio_dbeaver/workspace6/General/Scripts/"
         directorio_destino="$(get_home_directory)/Documentos/Richard/ayuda-memoria/6archivos/querys"
         directorio_dest="$(get_home_directory)/Documentos/Richard/ayuda-memoria"
         ;;
