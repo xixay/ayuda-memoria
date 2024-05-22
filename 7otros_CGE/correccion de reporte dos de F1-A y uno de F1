@@ -11,3 +11,7 @@ Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwZXJfY29kaWdvIjo0NjEsInNpc3RlbWFz
 iap_codigo=375(sale borrador) tia_codigo=2,ett_codigo=0, iap_estado = 1 (REPORTE F1-A)
 iap_codigo=283(x) tia_codigo=2,ett_codigo=0, iap_estado = 5 (REPORTE F1-A)
 iap_codigo=246(x) tia_codigo=1,ett_codigo=0, iap_estado = 5 (REPORTE F1)
+
+<SispoaActividadesTable>
+	<IniciosActividadesReportes>
+

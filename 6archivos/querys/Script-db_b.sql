@@ -366,11 +366,21 @@ ORDER BY t.fecha_registro DESC;
               AND t.act_codigo IN (1156)
         ORDER BY t.fecha_registro DESC;
 --
-       select 	t.iap_codigo, t.iap_estado, t.iac_codigo , t.act_codigo, t.tia_codigo, t.fecha_registro
-       from 	ejecucion_actividades.inicio_actividad_poa t
-       			LEFT JOIN parametricas.tipos_trabajos tt on ia.ttr_codigo = tt.ttr_codigo
-       			LEFT JOIN parametricas.especificacion_tipos_trabajo ett on tt.ett_codigo = ett.ett_codigo
-       where 	t.iac_codigo in (7) and t.iap_estado not in (0);
+SELECT	t.iap_codigo, t.tia_codigo, tia.tia_nombre, t.fecha_registro,
+		a.act_codigo, a.act_numero,
+		ia.iac_codigo, ia.iac_codigo_control,
+		tt.ett_codigo
+FROM	ejecucion_actividades.inicio_actividad_poa t
+		LEFT JOIN parametricas.tipos_inicios_actividades tia ON t.tia_codigo = tia.tia_codigo
+		LEFT JOIN estructura_poa.actividades a on t.act_codigo = a.act_codigo
+		LEFT JOIN ejecucion_actividades.inicios_actividades ia on t.iac_codigo = ia.iac_codigo
+		LEFT JOIN parametricas.tipos_trabajos tt on ia.ttr_codigo = tt.ttr_codigo
+		LEFT JOIN parametricas.especificacion_tipos_trabajo ett on tt.ett_codigo = ett.ett_codigo
+WHERE	TRUE
+		AND t.iac_codigo IN (83)
+		AND t.iap_estado NOT IN (0)
+ORDER BY t.fecha_registro DESC
+;
 
 
 

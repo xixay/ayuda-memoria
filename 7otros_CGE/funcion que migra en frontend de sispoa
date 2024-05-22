@@ -36,6 +36,9 @@
 -this.areaUnidadResponsablesService.migrateAreaUnidadResponsablesWithPoaCodigo
 	-CREATE NEWS AREA-UNIDAD-RESPONSABLES
 	
+poa_codigo_anterior=2
+poa_codigo_nuevo=4
+	
 	
 	
 	
