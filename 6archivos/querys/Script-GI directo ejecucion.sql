@@ -45,10 +45,34 @@ order by t.iac_codigo desc ;
 --INICIO ACTIVIDAD POA
 select 	*
 from 	ejecucion_actividades.inicio_actividad_poa iap
---where 	iap.iap_codigo in (276)
+where 	true 
+		and iap.iap_codigo in (19)
 --where 	iap.act_codigo in (711)
 order 	by iap.iap_codigo desc;
 --limit 5;
+--FLUJOS TABLAS SERVICES
+select 	*
+from 	control_estados.flujos_tablas ft
+where 	true 
+		and ft.tab_codigo in (64)
+order by ft.fta_codigo asc;
+--
+--###  --- INICIO ACT POA - CAMBIO GLOBAL DE ESTADOS, POR ROL
+	select iap.iap_codigo,iap.iac_codigo,iap.iap_observaciones ,iap.iap_estado  from ejecucion_actividades.inicio_actividad_poa iap where iap.iap_codigo in (19);
+	select ia.iac_codigo,ia.iac_observaciones ,ia.iac_estado from ejecucion_actividades.inicios_actividades ia where ia.iac_codigo in (82); 
+	select iaa.iaa_codigo ,iaa.iac_codigo ,iaa.iaa_estado  from ejecucion_actividades.inicios_actividades_adicional iaa where iaa.iac_codigo in (82);
+	select iapa.iapa_codigo,iapa.asi_codigo, iapa.iap_codigo,iapa.iapa_estado from ejecucion_actividades.inicio_actividad_poa_asignaciones iapa where iapa.iap_codigo in (19); 
+	select a.asi_codigo, a.asi_estado  from ejecucion_poa.asignaciones a where a.asi_codigo in (19);
+	select aci.aci_codigo , aci.aci_estado  from ejecucion_poa.asignaciones_cargos_item aci where aci.asi_codigo in (19);
+	-- obtiene los estados de cada uno
+	select eiap.iap_codigo , eiap.eiap_estado from control_estados.estados_inicio_actividad_poa eiap where eiap.iap_codigo in (19) order by eiap.eiap_codigo desc;
+	select eia.iac_codigo ,eia.eia_estado  from control_estados.estados_inicios_actividades eia where eia.iac_codigo in (82) order by eia.eia_codigo desc;
+	select * from control_estados.estados_asignaciones ea  where ea.asi_codigo in (19) order by ea.asi_codigo desc;
+	select * from control_estados.estados_asignaciones_cargos_item eaci  where eaci.aci_codigo in (63) order by eaci.eaci_codigo desc;
+	select * from control_estados.estados_asignaciones_cargos_item eaci  where eaci.aci_codigo in (61) order by eaci.eaci_codigo desc;
+	select * from control_estados.estados_asignaciones_cargos_item eaci  where eaci.aci_codigo in (62) order by eaci.eaci_codigo desc;
+	select * from control_estados.estados_asignaciones_cargos_item eaci  where eaci.aci_codigo in (431) order by eaci.eaci_codigo desc;
+--
 --ACTIVIDADES CONTINUIDAD
 select 	*
 from 	estructura_poa.actividades_continuidad ac
@@ -104,87 +128,3 @@ select 	*
 from 	ejecucion_actividades.recomendaciones_inicios_seguimientos ris 
 order by	ris.ris_codigo desc 
 limit 5;
--- Nro RECOMENDACIONES INICIOS SEGUIMIENTO
-  SELECT
-        i.inf_codigo, i.inf_correlativo,
-        ir.ire_descripcion, ris.*
-  FROM ejecucion_actividades.informes i
-        LEFT JOIN ejecucion_actividades.informe_recomendaciones ir ON i.inf_codigo = ir.inf_codigo AND ir.ire_estado != 0
-        LEFT JOIN ejecucion_actividades.recomendaciones_inicios_seguimientos ris ON ir.ire_codigo = ris.ire_codigo
-  WHERE i.inf_codigo IN (65) AND ris.iac_codigo IN (415) AND ris.ris_estado IN (1)
-;
---
-SELECT  iac.*, ges.ges_anio
-FROM	ejecucion_actividades.inicios_actividades iac
-		LEFT JOIN parametricas.gestiones ges ON iac.ges_codigo = ges.ges_codigo
-WHERE	true
-		--and iac.iac_estado IN (22)
-		and iac.iac_codigo_control IN ('EHEN26Y00');
-	
---
-select
-		t.iac_codigo,
-		t.iac_codigo_control,
-		CONCAT_WS(' | ', ge2.ges_anio, t.iac_codigo_control, t.iac_objetivo) as iac_concatenado
-from	ejecucion_actividades.inicios_actividades t
-		left join parametricas.estados e on e.est_codigo = t.iac_estado
-		left join parametricas.gestiones ge2 on ge2.ges_codigo = t.ges_codigo
-where	true
-  		and t.iac_codigo in (432)
-order by t.iac_codigo desc;
-
---
-SELECT
-              t.iac_codigo,
-              t.iac_correlativo,
-              t.iac_codigo_control,
-              t.iac_codigo_control_vista,
-              t.iac_objeto,
-              t.iac_objetivo,
-              t.iac_alcance,
-              t.iac_migrado,
-              t.iac_observaciones,
-              TO_CHAR(t.iac_fecha_inicio, 'dd/mm/yyyy') AS iac_fecha_inicio,
-              t.ttr_codigo, tt.ttr_sigla, tt.ttr_descripcion,
-              t.iac_dias_habiles,
-              t.iac_dias_calendario,
-              TO_CHAR(t.iac_fecha_fin, 'dd/mm/yyyy') AS iac_fecha_fin,
-              t.ttr_codigo,
-              TO_CHAR(t.iac_mes_inicio, 'dd/mm/yyyy') AS iac_mes_inicio,
-              TO_CHAR(t.iac_mes_fin, 'dd/mm/yyyy') AS iac_mes_fin,
-              TO_CHAR(t.iac_mes_inicio, 'mm/yyyy') AS mes_inicio,
-              TO_CHAR(t.iac_mes_fin, 'mm/yyyy') AS mes_fin,
-              TO_CHAR(t.iac_fecha_borrador, 'dd/mm/yyyy') AS iac_fecha_borrador,
-              TO_CHAR(t.iac_fecha_emision, 'dd/mm/yyyy') AS iac_fecha_emision,
-              t.ges_codigo,
-              g.ges_anio,
-              t.iac_estado,
-              e.est_color,
-              e.est_nombre AS iac_estado_descripcion,
-              TO_CHAR(t.iac_fecha_inicio_historico, 'dd/mm/yyyy') AS iac_fecha_inicio_historico,
-              TO_CHAR(t.fecha_registro, 'HH24:MI am dd/mm/yyyy') AS fecha_registro
-        FROM	ejecucion_actividades.inicios_actividades t
-              LEFT JOIN parametricas.estados e ON t.iac_estado = e.est_codigo
-              LEFT JOIN parametricas.gestiones g ON t.ges_codigo = g.ges_codigo
-              LEFT JOIN parametricas.tipos_trabajos tt ON t.ttr_codigo = tt.ttr_codigo
-        WHERE	TRUE
-              AND t.iac_estado IN (22)
-              AND t.iac_codigo_control like '%ESEN19A99%'
-        ORDER BY t.fecha_registro DESC;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
