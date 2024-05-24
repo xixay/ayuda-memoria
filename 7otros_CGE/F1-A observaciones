@@ -8,64 +8,6 @@ Gerencia Departamental de Auditoría en Gobiernos Departamentales - GDS-GAD
 520.1402.74.1.24
 
 
-Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwZXJfY29kaWdvIjo0NjEsInNpc3RlbWFzIjpbeyJzaXNjZ2VfY29kaWdvIjozMiwic2lzY2dlX3NpZ2xhIjoiY29ycmVzcG9uZGVuY2lhX2ludGVybmEifSx7InNpc2NnZV9jb2RpZ28iOjM0LCJzaXNjZ2Vfc2lnbGEiOiJzaXNwb2EifSx7InNpc2NnZV9jb2RpZ28iOjM3LCJzaXNjZ2Vfc2lnbGEiOiJjb25hdWQifV0sInJvbGVzIjpbeyJzaXNjZ2VfY29kaWdvIjozMiwicm9sX2NvZGlnbyI6MTc2LCJyb2xfZGVzY3JpcGNpb24iOiJBU0lTVEVOVEUgQURNSU5JU1RSQVRJVk8ifSx7InNpc2NnZV9jb2RpZ28iOjM0LCJyb2xfY29kaWdvIjoxOTAsInJvbF9kZXNjcmlwY2lvbiI6Ik9wZXJhZG9yIEZvcm11bGFyaW8ifSx7InNpc2NnZV9jb2RpZ28iOjM3LCJyb2xfY29kaWdvIjoyMDgsInJvbF9kZXNjcmlwY2lvbiI6Ik9wZXJhZG9yIEZvcm11bGFyaW8ifV0sImlkIjoiYjQxZDdlMGYtMzg0NC00NWYzLWJlMmQtNWU4YmYzYjgwZGNlIiwidGlwbyI6InVzdWFyaW8iLCJpYXQiOjE3MTY0MjM4NTYsImV4cCI6MTcxNjQ1MjY1NiwibW9tZW50IjoiMjAyNC0wNS0yMlQyMDoyNDoxNi0wNDowMCJ9.eRi8gxpztMw_wAghNRgFEo9q4FGNXJ1dBQiFVfbt5ZBe4FlM-bpIJnvilHGm11DcClYSGGQH-JYf_K9BfsuSlw
+Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwZXJfY29kaWdvIjo0NjEsInNpc3RlbWFzIjpbeyJzaXNjZ2VfY29kaWdvIjozMiwic2lzY2dlX3NpZ2xhIjoiY29ycmVzcG9uZGVuY2lhX2ludGVybmEifSx7InNpc2NnZV9jb2RpZ28iOjM0LCJzaXNjZ2Vfc2lnbGEiOiJzaXNwb2EifSx7InNpc2NnZV9jb2RpZ28iOjM3LCJzaXNjZ2Vfc2lnbGEiOiJjb25hdWQifV0sInJvbGVzIjpbeyJzaXNjZ2VfY29kaWdvIjozMiwicm9sX2NvZGlnbyI6MTc2LCJyb2xfZGVzY3JpcGNpb24iOiJBU0lTVEVOVEUgQURNSU5JU1RSQVRJVk8ifSx7InNpc2NnZV9jb2RpZ28iOjM0LCJyb2xfY29kaWdvIjoxOTAsInJvbF9kZXNjcmlwY2lvbiI6Ik9wZXJhZG9yIEZvcm11bGFyaW8ifSx7InNpc2NnZV9jb2RpZ28iOjM3LCJyb2xfY29kaWdvIjoyMDgsInJvbF9kZXNjcmlwY2lvbiI6Ik9wZXJhZG9yIEZvcm11bGFyaW8ifV0sImlkIjoiMTdiYmNlMzQtZTdjNy00ZDBkLTk3MTQtMjgwMTYzM2Q2ZmQ1IiwidGlwbyI6InVzdWFyaW8iLCJpYXQiOjE3MTY0NjkwNTgsImV4cCI6MTcxNjQ5Nzg1OCwibW9tZW50IjoiMjAyNC0wNS0yM1QwODo1NzozOC0wNDowMCJ9.SgG4oUhlJNU7c9rJEV0WHlqjWQBRP671J-CR3WU_cB7qadeMBi1uPcn0D-KBJJB3-v6U2lGbGniRwdT3oxEFnQ
 
-
-!EQUALS( $F{iap_estado},"2") &&  !EQUALS( $F{iap_estado},"5")
-
-Quiero mostrar un subreporte y enviarle el valor de 1 o 2 o 3 o 4, como variable_adicional, dependiendo de:
-si el total de paginas del principal es 4, si se encuentra en la pag 1  enviar como variable_adicional 1,si se encuentra en la pag 2  enviar como variable_adicional 2,si se encuentra en la pag 3  enviar como variable_adicional 3,si se encuentra en la pag 4  enviar como variable_adicional 4
-
-si el total de paginas del principal es 8, si se encuentra en la pag 1  enviar como variable_adicional 1,si se encuentra en la pag 2  enviar como variable_adicional 1,si se encuentra en la pag 3  enviar como variable_adicional 2,si se encuentra en la pag 4  enviar como variable_adicional 2,si se encuentra en la pag 5  enviar como variable_adicional 3,si se encuentra en la pag 6  enviar como variable_adicional 3,si se encuentra en la pag 7  enviar como variable_adicional 4,si se encuentra en la pag 8  enviar como variable_adicional 4
-
-<jasperReport ...>
-    <parameter name="SUBREPORT_DIR" class="java.lang.String"/>
-    <parameter name="variable_adicional" class="java.lang.Integer"/>
-
-    <!-- Variables -->
-    <variable name="PAGE_GROUP" class="java.lang.Integer" calculation="Nothing">
-        <variableExpression><![CDATA[
-            new Integer($V{PAGE_NUMBER} <= $V{REPORT_COUNT} / 2 ? 1 : 2)
-        ]]></variableExpression>
-    </variable>
-
-    <variable name="variable_adicional" class="java.lang.Integer" calculation="Nothing">
-        <variableExpression><![CDATA[
-            $V{REPORT_COUNT} == 4 ? $V{PAGE_NUMBER} :
-            $V{REPORT_COUNT} == 8 ? ((($V{PAGE_NUMBER} - 1) / 2) + 1) : null
-        ]]></variableExpression>
-    </variable>
-
-    <!-- Banda de Detalle -->
-    <detail>
-        <!-- Subreporte de Detalle -->
-        <band height="200">
-            <subreport>
-                <reportElement x="0" y="0" width="555" height="200"/>
-                <dataSourceExpression><![CDATA[$P{dataSourceForDetail1}]]></dataSourceExpression>
-                <subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "detalle1.jasper"]]></subreportExpression>
-                <subreportParameter name="variable_adicional">
-                    <subreportParameterExpression><![CDATA[$V{variable_adicional}]]></subreportParameterExpression>
-                </subreportParameter>
-            </subreport>
-        </band>
-    </detail>
-
-    <!-- Banda de Page Footer -->
-    <pageFooter>
-        <!-- Subreporte de Footer -->
-        <band height="50">
-            <subreport>
-                <reportElement x="0" y="0" width="555" height="50"/>
-                <subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "footer1.jasper"]]></subreportExpression>
-                <subreportParameter name="variable_adicional">
-                    <subreportParameterExpression><![CDATA[$V{variable_adicional}]]></subreportParameterExpression>
-                </subreportParameter>
-            </subreport>
-        </band>
-    </pageFooter>
-
-    <!-- Repetir lo mismo para los otros pares de subreportes -->
-
-</jasperReport>
 

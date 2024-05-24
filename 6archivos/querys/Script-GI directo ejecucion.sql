@@ -46,7 +46,7 @@ order by t.iac_codigo desc ;
 select 	*
 from 	ejecucion_actividades.inicio_actividad_poa iap
 where 	true 
-		and iap.iap_codigo in (19)
+		and iap.iap_codigo in (210)
 --where 	iap.act_codigo in (711)
 order 	by iap.iap_codigo desc;
 --limit 5;
