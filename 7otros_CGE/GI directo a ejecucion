@@ -4,9 +4,14 @@ NORKA VALERIA CHAVEZ LIMACHI
 
 ÁREA UNIDAD EJECUTORA : Gerencia Departamental de Auditoría en Gobiernos Departamentales - GPA2-GAD
 
-ELEP50A23
-520.1201.49.1.24
-iap_codigo=19
+ELEP
+520.1201.48.4.24
+iap_codigo=17
+iap_estado=16
+
+ELEP40S23
+520.1201.48.1.24
+iap_codigo=377
 iap_estado=16
 
 
@@ -16,62 +21,4 @@ iap_estado=16
 
 iia_codigo=16
 
-  @LoggerMethod
-  private async validations(manager: EntityManager, params: any): Promise<InicioActividadPoa> {
-    console.log("🐱==yy==> ~ params:", params)
-    const inicioActividadPoa: InicioActividadPoa = new InicioActividadPoa();
-    const estados = new Estados();
-    const usuario = params.usuario;
-    try {
-      // Validacion de existencia
-      const getAllInicioActividadPoaDto = new GetAllInicioActividadPoaDto();
-      getAllInicioActividadPoaDto.iap_codigo = `(${params.iap_codigo})`;
-      const resultInicioActividades = (await this.getAllInicioActividadPoaService.findAll(getAllInicioActividadPoaDto, manager))[0];
-      if (!resultInicioActividades?.iap_codigo) throwError(400, 'REGISTRO DE INICIO/ACTIVIDAD POA NO SE ENCONTRÓ, O NO EXISTE.');
-
-      // Verificacion del flujo para el cambio de estados.
-      const getAllFlujosTablasDto = new GetAllFlujosTablasDto();
-      getAllFlujosTablasDto.tab_nombre = `('${InicioActividadPoa.name}')`;
-      getAllFlujosTablasDto.est_codigo_origen = `(${resultInicioActividades.iap_estado})`;
-      getAllFlujosTablasDto.est_codigo_destino = `(${params.iap_estado})`;
-      console.log("🐱==zz==> ~ getAllFlujosTablasDto:", getAllFlujosTablasDto)
-      throwError(400,'SSSSTOPINGS');
-      // Verificación de flujos especiales
-      if (params.iap_estado == EstadoPoa.CONSOLIDADO) {
-        await this.cambioEstados(resultInicioActividades.iap_estado, EstadoPoa.APROBADO_DESPACHO, resultInicioActividades, params, manager);
-        await this.cambioEstados(EstadoPoa.APROBADO_DESPACHO, params.iap_estado, resultInicioActividades, params, manager);
-      } else {
-        await this.cambioEstados(resultInicioActividades.iap_estado, params.iap_estado, resultInicioActividades, params, manager);
-      }
-
-      // await this.cambioEstados2(resultInicioActividades.iap_estado, params.iap_estado, resultInicioActividades, params, manager);
-
-      const resultEstados = await this.flujosTablasServicesFacade.checkStatus(getAllFlujosTablasDto, manager);
-      const currentState = resultEstados.find(f => f.est_codigo_destino == params.iap_estado);
-      this.historyDescription = `${DescripcionControlEstados.CHANGE_STATUS}: origen: (${currentState.est_codigo_origen} - ${currentState.est_codigo_origen_descripcion}), destino: (${currentState.est_codigo_destino} - ${currentState.est_codigo_destino_descripcion})`;
-
-      estados.est_codigo = params.iap_estado;
-      inicioActividadPoa.iap_codigo = params.iap_codigo;
-      inicioActividadPoa.iap_estado = estados;
-      if (params.iap_observaciones) {
-        inicioActividadPoa.iap_observaciones = params.iap_observaciones;
-      }
-      inicioActividadPoa.usuario_modificacion = params.usuario;
-      inicioActividadPoa.fecha_modificacion = new Date();
-
-      // Guardar los datos historicos.
-      const createEstadosTablasDto = new CreateEstadosTablasDto();
-      createEstadosTablasDto.tab_nombre = InicioActividadPoa.name;
-      createEstadosTablasDto.tab_codigo = inicioActividadPoa.iap_codigo;
-      createEstadosTablasDto.tab_descripcion = this.historyDescription;
-      createEstadosTablasDto.tab_detalle = { ...inicioActividadPoa, observaciones: params.iap_observaciones };
-      createEstadosTablasDto.tab_estado = Number(inicioActividadPoa.iap_estado.est_codigo);
-      createEstadosTablasDto.usuario = usuario;
-      await this.estadosTablasService.create(createEstadosTablasDto, manager);
-
-      return inicioActividadPoa;
-    } catch (error) {
-      this.logger.debug(error);
-      throwError(400, error.message || 'ERROR EN PROCESO DE VALIDACIÓN');
-    }
-  }
+fecha_aprobacion

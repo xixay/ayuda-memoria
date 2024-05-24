@@ -46,7 +46,7 @@ order by t.iac_codigo desc ;
 select 	*
 from 	ejecucion_actividades.inicio_actividad_poa iap
 where 	true 
-		and iap.iap_codigo in (210)
+		and iap.iap_codigo in (304)
 --where 	iap.act_codigo in (711)
 order 	by iap.iap_codigo desc;
 --limit 5;
@@ -58,20 +58,22 @@ where 	true
 order by ft.fta_codigo asc;
 --
 --###  --- INICIO ACT POA - CAMBIO GLOBAL DE ESTADOS, POR ROL
-	select iap.iap_codigo,iap.iac_codigo,iap.iap_observaciones ,iap.iap_estado  from ejecucion_actividades.inicio_actividad_poa iap where iap.iap_codigo in (19);
-	select ia.iac_codigo,ia.iac_observaciones ,ia.iac_estado from ejecucion_actividades.inicios_actividades ia where ia.iac_codigo in (82); 
-	select iaa.iaa_codigo ,iaa.iac_codigo ,iaa.iaa_estado  from ejecucion_actividades.inicios_actividades_adicional iaa where iaa.iac_codigo in (82);
-	select iapa.iapa_codigo,iapa.asi_codigo, iapa.iap_codigo,iapa.iapa_estado from ejecucion_actividades.inicio_actividad_poa_asignaciones iapa where iapa.iap_codigo in (19); 
-	select a.asi_codigo, a.asi_estado  from ejecucion_poa.asignaciones a where a.asi_codigo in (19);
-	select aci.aci_codigo , aci.aci_estado  from ejecucion_poa.asignaciones_cargos_item aci where aci.asi_codigo in (19);
+	select iap.iap_codigo,iap.iac_codigo,iap.iap_observaciones ,iap.iap_estado  from ejecucion_actividades.inicio_actividad_poa iap where iap.iap_codigo in (17);
+	select ia.iac_codigo,ia.iac_observaciones ,ia.iac_estado from ejecucion_actividades.inicios_actividades ia where ia.iac_codigo in (134); 
+	select iaa.iaa_codigo ,iaa.iac_codigo ,iaa.iaa_estado  from ejecucion_actividades.inicios_actividades_adicional iaa where iaa.iac_codigo in (134);
+	select iapa.iapa_codigo,iapa.asi_codigo, iapa.iap_codigo,iapa.iapa_estado from ejecucion_actividades.inicio_actividad_poa_asignaciones iapa where iapa.iap_codigo in (17); 
+	select a.asi_codigo, a.asi_estado  from ejecucion_poa.asignaciones a where a.asi_codigo in (17);
+	select aci.aci_codigo , aci.aci_estado  from ejecucion_poa.asignaciones_cargos_item aci where aci.asi_codigo in (17);
 	-- obtiene los estados de cada uno
-	select eiap.iap_codigo , eiap.eiap_estado from control_estados.estados_inicio_actividad_poa eiap where eiap.iap_codigo in (19) order by eiap.eiap_codigo desc;
-	select eia.iac_codigo ,eia.eia_estado  from control_estados.estados_inicios_actividades eia where eia.iac_codigo in (82) order by eia.eia_codigo desc;
-	select * from control_estados.estados_asignaciones ea  where ea.asi_codigo in (19) order by ea.asi_codigo desc;
-	select * from control_estados.estados_asignaciones_cargos_item eaci  where eaci.aci_codigo in (63) order by eaci.eaci_codigo desc;
-	select * from control_estados.estados_asignaciones_cargos_item eaci  where eaci.aci_codigo in (61) order by eaci.eaci_codigo desc;
-	select * from control_estados.estados_asignaciones_cargos_item eaci  where eaci.aci_codigo in (62) order by eaci.eaci_codigo desc;
-	select * from control_estados.estados_asignaciones_cargos_item eaci  where eaci.aci_codigo in (431) order by eaci.eaci_codigo desc;
+	select eiap.iap_codigo , eiap.eiap_estado from control_estados.estados_inicio_actividad_poa eiap where eiap.iap_codigo in (17) order by eiap.eiap_codigo desc;
+	select eia.iac_codigo ,eia.eia_estado  from control_estados.estados_inicios_actividades eia where eia.iac_codigo in (134) order by eia.eia_codigo desc;
+	select * from control_estados.estados_asignaciones ea  where ea.asi_codigo in (17) order by ea.asi_codigo desc;
+	select * from control_estados.estados_asignaciones_cargos_item eaci  where eaci.aci_codigo in (51) order by eaci.eaci_codigo desc;
+	select * from control_estados.estados_asignaciones_cargos_item eaci  where eaci.aci_codigo in (52) order by eaci.eaci_codigo desc;
+	select * from control_estados.estados_asignaciones_cargos_item eaci  where eaci.aci_codigo in (53) order by eaci.eaci_codigo desc;
+	select * from control_estados.estados_asignaciones_cargos_item eaci  where eaci.aci_codigo in (54) order by eaci.eaci_codigo desc;
+	select * from control_estados.estados_asignaciones_cargos_item eaci  where eaci.aci_codigo in (55) order by eaci.eaci_codigo desc;
+	select * from control_estados.estados_asignaciones_cargos_item eaci  where eaci.aci_codigo in (430) order by eaci.eaci_codigo desc;
 --
 --ACTIVIDADES CONTINUIDAD
 select 	*
