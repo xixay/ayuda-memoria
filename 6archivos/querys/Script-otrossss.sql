@@ -20,6 +20,11 @@ select	*
 from 	estructura_poa.poas_objetivos po 
 order by	po.pobj_codigo desc 
 limit 5;
+-- OBJETIVO AREA UNIDAD
+select	*
+from 	estructura_poa.objetivos_area_unidad oau  
+order by	oau.oau_codigo desc 
+limit 5;
 -- VIATICOS
 select 	*
 from 	estructura_poa.actividades_viaticos av 
