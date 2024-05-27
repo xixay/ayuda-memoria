@@ -20,18 +20,30 @@ select	*
 from 	estructura_poa.poas_objetivos po 
 order by	po.pobj_codigo desc 
 limit 5;
+-- ACTIVIDADES
+--select 	*
+--select 	a.act_codigo ,a.act_numero ,a.act_descripcion ,a.act_fecha_inicio ,a.act_fecha_fin ,a.act_objeto ,a.ttr_codigo ,a.tipact_codigo,a.cac_codigo
+select	a.act_codigo, a.act_estado, a.cac_codigo, a.pobj_codigo 
+from 	estructura_poa.actividades a 
+where 	true 
+--		and a.act_numero = '00.1601.110.2.24'
+		and a.act_estado in (2)
+		and a.pobj_codigo in (1)
+order by a.act_codigo desc; 
+--limit 17;
 -- VIATICOS
 select 	*
 from 	estructura_poa.actividades_viaticos av 
-order by av.avi_codigo desc 
+order by av.avi_codigo, av.avi_viatico  desc 
 limit 10;
--- ACTIVIDADES
-select 	*
---select 	a.act_codigo ,a.act_numero ,a.act_descripcion ,a.act_fecha_inicio ,a.act_fecha_fin ,a.act_objeto ,a.ttr_codigo ,a.tipact_codigo,a.cac_codigo 
-from 	estructura_poa.actividades a 
---where a.act_numero = '00.1601.110.2.24'
-order by a.act_codigo desc 
-limit 17;
+--CANTIDAD VIATICOS
+select	t.act_codigo, t.avi_viatico,
+  		count(*) as cant_viaticos
+FROM 	estructura_poa.actividades_viaticos t
+WHERE 	TRUE
+		AND t.act_codigo IN (3)
+		AND t.avi_estado IN (1,2,3,4,5,7,8,9,10,11,12,13,14)
+GROUP BY t.act_codigo, t.avi_viatico;
 --INICIOS ACTIVIDADES
 select	*
 FROM 	ejecucion_actividades.inicios_actividades t
