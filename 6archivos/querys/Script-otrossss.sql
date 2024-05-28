@@ -33,10 +33,15 @@ limit 10;
 -- ACTIVIDADES
 select 	*
 --select 	a.act_codigo ,a.act_numero ,a.act_descripcion ,a.act_fecha_inicio ,a.act_fecha_fin ,a.act_objeto ,a.ttr_codigo ,a.tipact_codigo,a.cac_codigo 
-from 	estructura_poa.actividades a 
-where	true 	
+from 	estructura_poa.actividades a
+where	true
+--		and a.act_estado in (2)
+--		and a.pobj_codigo in (726)
+--		and a.tipact_codigo in (2)
+--		and a.cac_codigo in (2)
 --		and a.act_numero = '00.1601.110.2.24'
---		and a.act_codigo in (1121)
+--		and a.act_codigo in (1256)
+		and a.act_codigo in (1428)
 --		and a.act_estado not in (2,9,0)
 order by a.act_codigo desc; 
 --limit 16;
@@ -193,3 +198,91 @@ SELECT
 
 
 
+--
+         SELECT
+          t.act_codigo,
+          t.act_descripcion,
+          t.act_cantidad,
+          TO_CHAR(t.act_fecha_inicio, 'dd/mm/yyyy') as act_fecha_inicio,
+          TO_CHAR(t.act_fecha_fin, 'dd/mm/yyyy') as act_fecha_fin,
+          t.act_objeto,
+          t.act_objetivo,
+          t.act_alcance,
+          t.act_horas_planificadas,
+          t.act_estado,
+          t.act_no_planificado,
+          t.act_codigo_anterior,
+          t.act_codigo_bolsa,
+          fo.for_codigo,
+          ge.ges_codigo,
+          pobj.pobj_numero,
+          aune.aun_numero,
+          pr.pro_numero,
+          t.act_correlativo,
+          ge.ges_anio,
+          t.act_numero,
+          CONCAT_WS(' - ', t.act_numero, t.act_descripcion)AS act_num_desc,
+          e.est_color,
+          e.est_nombre AS act_estado_descripcion,
+          t.ttr_codigo,
+          tt.ttr_sigla,
+          tt.ttr_inicial,
+          tt.ett_codigo,
+          ett.ett_nombre,
+          t.ume_codigo,
+          um.ume_descripcion,
+          t.ent_codigo,
+          t.fob_codigo,
+          t.tipact_codigo,
+          ta.tipact_descripcion AS act_tipact_descripcion,
+          t.cac_codigo,
+          t.sec_codigo,
+          se.sec_descripcion,
+          ca.cac_descripcion AS act_cac_descripcion,
+          t.aun_codigo_supervisora,
+          auns.aun_sigla AS aun_sigla_supervisora,
+          auns.aun_inicial AS aun_inicial_supervisora,
+          CONCAT_WS(' - ', auns.aun_nombre, auns.aun_sigla)AS aun_nombre_supervisora,
+          t.aun_codigo_ejecutora,
+          t.aun_codigo_ejecutora AS aun_codigo_ejecutora_actividad,
+          t.pobj_codigo,
+          aune.aun_sigla AS aun_sigla_ejecutora,
+          aune.aun_inicial AS aun_inicial_ejecutora,
+          aune.lug_codigo,
+          CONCAT_WS(' - ', aune.aun_nombre, aune.aun_sigla)AS aun_nombre_ejecutora,
+          COALESCE(aa.act_codigo_apoyo, 0) AS act_codigo_apoyo,
+          COALESCE(aa.act_codigo_ejecucion, 0) AS act_codigo_ejecucion,
+          t.act_justificacion,
+          t.iac_codigo_apoyo,
+          CONCAT_WS(' | ', ge2.ges_anio, ia.iac_codigo_control, ia.iac_objetivo) AS iac_concatenado,
+          ia.iac_codigo_control,
+          actv.avi_estado,
+          TO_CHAR(t.fecha_registro, 'HH24:MI am dd/mm/yyyy') as fecha_registro,
+          t.act_denuncia,
+          pobj.poa_codigo,
+          aune.cau_codigo
+        FROM estructura_poa.actividades t
+          LEFT JOIN parametricas.estados e ON e.est_codigo = t.act_estado
+          LEFT JOIN parametricas.tipos_trabajos tt ON tt.ttr_codigo = t.ttr_codigo
+          LEFT JOIN parametricas.unidades_medidas um ON um.ume_codigo = t.ume_codigo
+          LEFT JOIN estructura_poa.actividades_viaticos actv ON actv.avi_codigo = t.act_codigo
+          LEFT JOIN estructura_poa.formularios_objetivos fob ON fob.fob_codigo = t.fob_codigo
+          LEFT JOIN estructura_poa.formularios fo ON fo.for_codigo = fob.for_codigo
+          LEFT JOIN estructura_poa.poas po ON po.poa_codigo = fo.poa_codigo
+          LEFT JOIN parametricas.gestiones ge ON ge.ges_codigo = po.ges_codigo
+          LEFT JOIN parametricas.tipos_actividades ta ON ta.tipact_codigo = t.tipact_codigo
+          LEFT JOIN parametricas.clasificacion_actividades ca ON ca.cac_codigo = t.cac_codigo
+          LEFT JOIN parametricas.sector se ON se.sec_codigo = t.sec_codigo
+          LEFT JOIN estructura_poa.actividades_apoyo aa ON t.act_codigo = aa.act_codigo AND aa.aap_estado = 1
+          LEFT JOIN estructura_organizacional.areas_unidades aune ON t.aun_codigo_ejecutora = aune.aun_codigo
+          LEFT JOIN estructura_organizacional.areas_unidades auns ON t.aun_codigo_supervisora = auns.aun_codigo
+          LEFT JOIN parametricas.especificacion_tipos_trabajo ett ON tt.ett_codigo = ett.ett_codigo
+          LEFT JOIN estructura_poa.poas_objetivos pobj ON pobj.pobj_codigo = t.pobj_codigo
+          LEFT JOIN pei.programas pr ON pobj.pro_codigo = pr.pro_codigo
+          LEFT JOIN ejecucion_actividades.inicios_actividades ia ON t.iac_codigo_apoyo = ia.iac_codigo
+          LEFT JOIN parametricas.gestiones ge2 ON ge2.ges_codigo = ia.ges_codigo
+        WHERE TRUE
+          AND t.act_estado IN (2)
+          AND t.pobj_codigo IN (676)
+          AND t.cac_codigo IN (2)
+        ORDER BY t.act_codigo desc;
