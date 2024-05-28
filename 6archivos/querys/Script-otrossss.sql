@@ -41,7 +41,7 @@ where	true
 --		and a.cac_codigo in (2)
 --		and a.act_numero = '00.1601.110.2.24'
 --		and a.act_codigo in (1256)
-		and a.act_codigo in (1428)
+--		and a.act_codigo in (1428)
 --		and a.act_estado not in (2,9,0)
 order by a.act_codigo desc; 
 --limit 16;
