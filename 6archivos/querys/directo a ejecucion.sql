@@ -28,16 +28,38 @@ limit 10;
 -- ACTIVIDADES
 --select 	*
 --select 	a.act_codigo ,a.act_numero ,a.act_descripcion ,a.act_fecha_inicio ,a.act_fecha_fin ,a.act_objeto ,a.ttr_codigo ,a.tipact_codigo,a.cac_codigo 
-select 	a.act_codigo ,a.act_numero , a.act_estado, a.act_descripcion ,a.aun_codigo_ejecutora,
+select 	a.act_codigo ,a.act_numero , a.act_estado, a.act_descripcion , a.aun_codigo_ejecutora, a.tipact_codigo, a.act_codigo_bolsa, a.cac_codigo , a.fecha_registro,
 		au.aun_nombre, au.aun_sigla  
 from 	estructura_poa.actividades a 
 		left join estructura_organizacional.areas_unidades au on a.aun_codigo_ejecutora = au.aun_codigo 
 where	true 	
 --		and a.act_numero = '00.1601.110.2.24'
 --		and a.act_codigo in (1121)
-		and a.act_estado not in (2,9,0)
-order by au.aun_codigo desc; 
+--		and a.act_estado not in (2,9,0)
+		and a.tipact_codigo in (2)
+--order by au.aun_codigo desc;
+order by a.act_descripcion desc;
 --limit 16;
+select 	a.act_codigo ,a.act_numero , a.act_estado, a.act_descripcion , a.aun_codigo_ejecutora, a.tipact_codigo, a.act_codigo_bolsa, a.cac_codigo , a.fecha_registro,
+		au.aun_nombre, au.aun_sigla  
+from 	estructura_poa.actividades a 
+		left join estructura_organizacional.areas_unidades au on a.aun_codigo_ejecutora = au.aun_codigo 
+where	true 	
+--		and a.act_numero = '00.1601.110.2.24'
+		and a.act_codigo in (2447,1208)
+--		and a.act_estado not in (2,9,0)
+--		and a.tipact_codigo in (2)
+--order by au.aun_codigo desc;
+order by a.act_descripcion desc;
+--limit 16;
+--select 	*
+select 	a.act_codigo ,a.act_codigo_anterior, a.ttr_codigo , a.fecha_registro, a.iac_codigo_apoyo 
+from 	estructura_poa.actividades a 
+		left join estructura_organizacional.areas_unidades au on a.aun_codigo_ejecutora = au.aun_codigo 
+where	true 	
+		and a.ttr_codigo in (8)
+--order by au.aun_codigo desc;
+order by a.iac_codigo_apoyo asc;
 --INICIOS ACTIVIDADES
 select	*
 FROM 	ejecucion_actividades.inicios_actividades t
@@ -134,11 +156,12 @@ where	true
 ORDER BY t.fecha_registro DESC
 ;
 --ACTIVIDADES CONTINUIDAD
-select 	*
+select 	ac.aco_codigo, ac.act_codigo ,ac.fecha_registro, ac.iac_codigo 
 from 	estructura_poa.actividades_continuidad ac
---where 	ac.iac_codigo in (397)
-order by ac.aco_codigo desc
-limit 5;
+where 	true 
+--		and ac.iac_codigo in (397)
+order by ac.iac_codigo asc;
+--limit 5;
 --ACTIVIDAD MIGRADA CONAUD
 select 	*
 from 	ejecucion_actividades.actividad_migrada_conaud amc 
