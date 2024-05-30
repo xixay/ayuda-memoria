@@ -35,14 +35,22 @@ from 	estructura_poa.actividades a
 where	true 	
 --		and a.act_numero = '00.1601.110.2.24'
 --		and a.act_codigo in (1121)
-		and a.act_estado not in (2,9,0,13)
+--		and a.act_estado not in (2,9,0,13)
 --		and a.tipact_codigo in (2)
-order by au.aun_codigo desc;
---order by a.act_descripcion desc;
---AREA UNIDAD RESPONSABLES SERVICES
+--order by au.aun_codigo desc;
+order by a.act_codigo desc;
+--AREA UNIDAD RESPONSABLES
 select 	*
 from 	estructura_poa.area_unidad_responsables aur
+where 	true
+--		and aur.poa_codigo in (3)
 order by aur.aur_codigo desc;
+--OBJETIVO AREA UNIDAD
+select 	*
+from 	estructura_poa.objetivos_area_unidad oau 
+where 	true
+--		and oau.oau_codigo in (3)
+order by oau.oau_codigo desc;
 --INICIOS ACTIVIDADES
 select	*
 FROM 	ejecucion_actividades.inicios_actividades t
@@ -56,8 +64,8 @@ from 	ejecucion_actividades.inicio_actividad_poa iap
 where 	true 
 		and iap.iap_codigo in (304)
 --where 	iap.act_codigo in (711)
-order 	by iap.iap_codigo desc;
 --limit 5;
+order 	by iap.iap_codigo desc;
 --FLUJOS TABLAS SERVICES
 select 	*
 from 	control_estados.flujos_tablas ft
@@ -138,3 +146,89 @@ select 	*
 from 	ejecucion_actividades.recomendaciones_inicios_seguimientos ris 
 order by	ris.ris_codigo desc 
 limit 5;
+--###1
+SELECT
+    po.pobj_codigo, po.pobj_estado, pr.pro_numero, au.aun_numero, po.pobj_numero,
+    CONCAT(pr.pro_numero, '.', au.aun_numero, '.', po.pobj_numero) AS pobj_codigo_sigla,
+    po.pobj_nombre
+FROM	estructura_poa.poas_objetivos po
+      LEFT JOIN pei.programas pr ON po.pro_codigo = pr.pro_codigo
+      LEFT JOIN (
+        SELECT	oau.pobj_codigo, COALESCE((COALESCE(ARRAY_AGG(oau.aun_codigo_ejecutora ORDER BY oau.oau_codigo ASC), '{}'))[1], 0) AS aun_codigo_ejecutora_principal
+        FROM	estructura_poa.objetivos_area_unidad oau
+              LEFT JOIN estructura_poa.poas_objetivos po ON oau.pobj_codigo = po.pobj_codigo
+        WHERE	oau.oau_estado NOT IN (0)
+              AND po.poa_codigo IN (3) -- POA SELECCIONADO
+        GROUP BY oau.pobj_codigo
+      ) temporal ON po.pobj_codigo = temporal.pobj_codigo
+      LEFT JOIN estructura_organizacional.areas_unidades au ON temporal.aun_codigo_ejecutora_principal = au.aun_codigo
+      LEFT JOIN estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo AND oau.oau_estado NOT IN (0)
+WHERE	TRUE
+      	AND po.poa_codigo IN (3) -- POA SELECCIONADO
+      	AND po.pobj_estado IN (2,8) -- ESTADOS
+      	AND oau.aun_codigo_ejecutora IN (1) -- ESTADOS
+GROUP BY po.pobj_codigo, pr.pro_numero, po.pobj_numero, po.pobj_nombre, au.aun_numero
+;
+--##2
+select
+      p.poa_codigo,
+      act.aun_codigo_ejecutora,
+      cau.cau_codigo,
+      cau.cau_nombre,
+      CONCAT_WS(' - ', au.aun_nombre, au.aun_sigla) AS aun_nombre,
+      au.aun_estado,
+      COALESCE(MAX(aur.n_formulador), 0) AS n_formulador,
+      COALESCE(MAX(aur.n_aprobador), 0) AS n_aprobador,
+      COALESCE(MAX(aur.n_supervisor), 0) AS n_supervisor,
+      COALESCE(MAX(aur.n_formulador_gerencial), 0) AS n_formulador_gerencial,
+      CASE WHEN cau.cau_codigo = 2 THEN COALESCE(MAX(aur.n_responsable), 0) ELSE null END AS n_responsable
+FROM	estructura_poa.poas p
+      LEFT JOIN estructura_poa.poas_objetivos po ON p.poa_codigo = po.poa_codigo
+      LEFT JOIN estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo
+      LEFT JOIN estructura_poa.formularios_objetivos fo ON oau.oau_codigo = fo.oau_codigo
+      LEFT JOIN estructura_poa.actividades act ON fo.fob_codigo = act.fob_codigo
+      LEFT JOIN estructura_organizacional.areas_unidades au ON act.aun_codigo_ejecutora = au.aun_codigo
+      LEFT JOIN parametricas.clasificaciones_areas_unidades cau ON au.cau_codigo = cau.cau_codigo
+      LEFT JOIN (
+        SELECT	aur.aun_codigo_ejecutora,
+            SUM(CASE WHEN aur.rol_codigo = 1 THEN 1 ELSE 0 END) AS n_formulador,
+            SUM(CASE WHEN aur.rol_codigo = 2 THEN 1 ELSE 0 END) AS n_aprobador,
+            SUM(CASE WHEN aur.rol_codigo = 3 THEN 1 ELSE 0 END) AS n_supervisor,
+            SUM(CASE WHEN aur.rol_codigo = 4 THEN 1 ELSE 0 END) AS n_formulador_gerencial,
+            SUM(CASE WHEN aur.rol_codigo = 6 THEN 1 ELSE 0 END) AS n_responsable
+        FROM	estructura_poa.area_unidad_responsables aur
+        WHERE	TRUE
+            AND aur.aur_estado != 0
+            AND aur.poa_codigo IN (3)
+        GROUP BY aur.aun_codigo_ejecutora
+        ORDER BY aur.aun_codigo_ejecutora ASC
+      ) aur ON act.aun_codigo_ejecutora = aur.aun_codigo_ejecutora
+WHERE	TRUE
+      AND p.poa_estado != 0
+      AND po.pobj_estado != 0
+      AND oau.oau_estado != 0
+      AND act.act_estado != 0
+      and au.aun_estado in (2) --filtro solo CONSOLIDADOS
+      AND p.poa_codigo IN (3)
+GROUP BY p.poa_codigo ,act.aun_codigo_ejecutora, au.aun_nombre, au.aun_estado, au.aun_sigla, cau.cau_nombre, cau.cau_codigo
+ORDER BY act.aun_codigo_ejecutora ASC
+;
+
+--
+SELECT
+    aur.aun_codigo_ejecutora, 
+    aur.poa_codigo,
+    SUM(CASE WHEN aur.rol_codigo = 1 THEN 1 ELSE 0 END) AS n_formulador,
+    SUM(CASE WHEN aur.rol_codigo = 2 THEN 1 ELSE 0 END) AS n_aprobador,
+    SUM(CASE WHEN aur.rol_codigo = 3 THEN 1 ELSE 0 END) AS n_supervisor,
+    SUM(CASE WHEN aur.rol_codigo = 4 THEN 1 ELSE 0 END) AS n_formulador_gerencial,
+    SUM(CASE WHEN aur.rol_codigo = 6 THEN 1 ELSE 0 END) AS n_responsable
+FROM
+    estructura_poa.area_unidad_responsables aur
+WHERE
+    aur.aur_estado != 0
+    AND aur.poa_codigo IN (3)
+GROUP BY
+    aur.aun_codigo_ejecutora, aur.poa_codigo
+ORDER BY
+    aur.aun_codigo_ejecutora ASC, aur.poa_codigo ASC;

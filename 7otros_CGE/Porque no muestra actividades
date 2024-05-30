@@ -1,0 +1,23 @@
+Fallando:
+-findAllPoasObjetivosOfAunCodigo (Solo busca estados 2, 8) pero los poaObjetivos nuevos estan en estado 1
+-findAllAreasUnidadesEjecutorasWithPoaCodigo
+
+|aun_codigo_ejecutora|poa_codigo|n_formulador|n_aprobador|n_supervisor|n_formulador_gerencial|n_responsable|
+|--------------------|----------|------------|-----------|------------|----------------------|-------------|
+|1                   |3         |2           |1          |1           |0                     |0            |
+|2                   |3         |3           |1          |1           |1                     |0            |
+|3                   |3         |1           |1          |1           |1                     |0            |
+|4                   |3         |1           |1          |1           |0                     |0            |
+|5                   |3         |1           |1          |1           |1                     |0            |
+|6                   |3         |1           |1          |1           |0                     |0            |
+|7                   |3         |1           |1          |1           |1                     |1            |
+|8                   |3         |1           |1          |1           |1                     |0            |
+|9                   |3         |2           |1          |1           |0                     |0            |
+|10                  |3         |1           |1          |1           |1                     |0            |
+...
+
+Cambiar su:
+      LEFT JOIN estructura_poa.formularios_objetivos fo ON oau.oau_codigo = fo.oau_codigo
+      LEFT JOIN estructura_poa.actividades act ON fo.fob_codigo = act.fob_codigo
+Cambiar por:
+LEFT JOIN estructura_poa.actividades act ON po.pobj_codigo = act.pobj_codigo
