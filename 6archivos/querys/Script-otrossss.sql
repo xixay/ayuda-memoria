@@ -17,7 +17,9 @@ order by p.poa_codigo desc
 limit 5;
 -- POA OBJETIVOS
 select	*
-from 	estructura_poa.poas_objetivos po 
+from 	estructura_poa.poas_objetivos po
+where 	true 
+		and po.pobj_codigo in ()
 order by	po.pobj_codigo desc 
 limit 5;
 -- OBJETIVO AREA UNIDAD
@@ -31,20 +33,30 @@ from 	estructura_poa.actividades_viaticos av
 order by av.avi_codigo desc 
 limit 10;
 -- ACTIVIDADES
-select 	*
+--select 	*
 --select 	a.act_codigo ,a.act_numero ,a.act_descripcion ,a.act_fecha_inicio ,a.act_fecha_fin ,a.act_objeto ,a.ttr_codigo ,a.tipact_codigo,a.cac_codigo 
-from 	estructura_poa.actividades a
-where	true
---		and a.act_estado in (2)
---		and a.pobj_codigo in (726)
---		and a.tipact_codigo in (2)
---		and a.cac_codigo in (2)
+select 	a.act_codigo ,a.act_codigo_anterior ,a.cac_codigo , a.act_estado, a.act_descripcion , a.aun_codigo_ejecutora, a.tipact_codigo, a.fecha_registro, 
+		au.aun_nombre, au.aun_sigla  
+from 	estructura_poa.actividades a 
+		left join estructura_organizacional.areas_unidades au on a.aun_codigo_ejecutora = au.aun_codigo 
+where	true 	
 --		and a.act_numero = '00.1601.110.2.24'
---		and a.act_codigo in (1256)
---		and a.act_codigo in (1428)
---		and a.act_estado not in (2,9,0)
-order by a.act_codigo desc; 
---limit 16;
+--		and a.act_codigo in (1121)
+		and a.act_estado not in (2,9,0,13,7)
+--		and au.aun_sigla like 'GDB'
+--		and a.iac_codigo_apoyo is not null
+--		and a.tipact_codigo in (2)
+order by au.aun_codigo desc;
+-- 
+select 	a.act_codigo ,a.act_codigo_anterior ,a.cac_codigo , a.act_estado, a.act_descripcion , a.aun_codigo_ejecutora, a.tipact_codigo, a.fecha_registro, 
+		au.aun_nombre, au.aun_sigla  
+from 	estructura_poa.actividades a 
+		left join estructura_organizacional.areas_unidades au on a.aun_codigo_ejecutora = au.aun_codigo 
+where	true 	
+		and a.aun_codigo_ejecutora in (44)
+order by au.aun_codigo desc;
+--
+--order by a.act_codigo desc;
 --INICIOS ACTIVIDADES
 select	*
 FROM 	ejecucion_actividades.inicios_actividades t

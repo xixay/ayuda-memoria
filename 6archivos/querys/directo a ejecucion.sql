@@ -46,8 +46,8 @@ from 	estructura_poa.actividades a
 where	true 	
 --		and a.act_numero = '00.1601.110.2.24'
 --		and a.act_codigo in (1121)
---		and a.act_estado not in (2,9,0,13)
-		and a.iac_codigo_apoyo is not null
+		and a.act_estado not in (2,9,0,13)
+--		and a.iac_codigo_apoyo is not null
 --		and a.tipact_codigo in (2)
 order by au.aun_codigo desc;
 --order by a.act_codigo desc;
