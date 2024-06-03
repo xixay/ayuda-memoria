@@ -36,9 +36,9 @@ from 	estructura_poa.actividades a
 		left join estructura_poa.poas p on po.poa_codigo = p.poa_codigo
 where	true 	
 --		and a.act_numero = '500.1102.100.1.24'
-		and au.aun_sigla like 'GPA-GA3'
+		and au.aun_sigla like 'GCI'
 --		and a.act_codigo in (1121)
---		and a.act_estado not in (2,9,0,13,7)
+		and a.act_estado not in (2,9,0,13,7)
 --		and a.tipact_codigo in (2)
 		and p.poa_codigo in (3)
 order by au.aun_codigo desc;
