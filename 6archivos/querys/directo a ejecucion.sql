@@ -39,16 +39,25 @@ order by av.avi_codigo desc;
 -- ACTIVIDADES
 --select 	*
 --select 	a.act_codigo ,a.act_numero ,a.act_descripcion ,a.act_fecha_inicio ,a.act_fecha_fin ,a.act_objeto ,a.ttr_codigo ,a.tipact_codigo,a.cac_codigo 
-select 	a.act_codigo ,a.act_codigo_anterior ,a.iac_codigo_apoyo, a.act_estado, a.act_descripcion , a.aun_codigo_ejecutora, a.tipact_codigo, a.fecha_registro, 
-		au.aun_nombre, au.aun_sigla  
+select 	a.act_codigo ,a.act_numero ,a.cac_codigo ,a.iac_codigo_apoyo, a.act_estado, a.act_descripcion , a.aun_codigo_ejecutora, a.tipact_codigo, a.fecha_registro, 
+		au.aun_nombre, au.aun_sigla,
+		po.pobj_codigo ,po.pobj_nombre, po.pobj_estado,
+		p.poa_codigo 
 from 	estructura_poa.actividades a 
 		left join estructura_organizacional.areas_unidades au on a.aun_codigo_ejecutora = au.aun_codigo 
+		left join estructura_poa.poas_objetivos po on a.pobj_codigo = po.pobj_codigo 
+		left join estructura_poa.poas p on p.poa_codigo = po.poa_codigo 
 where	true 	
 --		and a.act_numero = '00.1601.110.2.24'
 --		and a.act_codigo in (1121)
-		and a.act_estado not in (2,9,0,13)
+--		and au.aun_sigla like 'GPA-GA3'
+--		and a.act_estado not in (2,9,0,13)
+		and a.act_estado in (9)
+--		and po.pobj_estado not in (0)
 --		and a.iac_codigo_apoyo is not null
 --		and a.tipact_codigo in (2)
+--		and a.cac_codigo in (1,2)
+		and p.poa_codigo in (3)
 order by au.aun_codigo desc;
 --order by a.act_codigo desc;
 --AREA UNIDAD RESPONSABLES

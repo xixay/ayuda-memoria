@@ -35,18 +35,27 @@ limit 10;
 -- ACTIVIDADES
 --select 	*
 --select 	a.act_codigo ,a.act_numero ,a.act_descripcion ,a.act_fecha_inicio ,a.act_fecha_fin ,a.act_objeto ,a.ttr_codigo ,a.tipact_codigo,a.cac_codigo 
-select 	a.act_codigo ,a.act_codigo_anterior ,a.cac_codigo , a.act_estado, a.act_descripcion , a.aun_codigo_ejecutora, a.tipact_codigo, a.fecha_registro, 
-		au.aun_nombre, au.aun_sigla  
+select 	a.act_codigo ,a.act_numero ,a.cac_codigo ,a.iac_codigo_apoyo, a.act_estado, a.act_descripcion , a.aun_codigo_ejecutora, a.tipact_codigo, a.fecha_registro, 
+		au.aun_nombre, au.aun_sigla, au.aun_estado,
+		po.pobj_codigo ,po.pobj_nombre, po.pobj_estado,
+		p.poa_codigo 
 from 	estructura_poa.actividades a 
 		left join estructura_organizacional.areas_unidades au on a.aun_codigo_ejecutora = au.aun_codigo 
+		left join estructura_poa.poas_objetivos po on a.pobj_codigo = po.pobj_codigo 
+		left join estructura_poa.poas p on p.poa_codigo = po.poa_codigo 
 where	true 	
 --		and a.act_numero = '00.1601.110.2.24'
 --		and a.act_codigo in (1121)
-		and a.act_estado not in (2,9,0,13,7)
---		and au.aun_sigla like 'GDB'
+--		and au.aun_sigla like 'GPA-GA3'
+--		and a.act_estado not in (2,9,0,13)
+--		and a.act_estado not in (2,9,0,13)
+		and a.act_estado in (9)
 --		and a.iac_codigo_apoyo is not null
 --		and a.tipact_codigo in (2)
+--		and a.cac_codigo in (1)
+		and p.poa_codigo in (2)
 order by au.aun_codigo desc;
+--order by a.act_codigo desc;
 -- 
 select 	a.act_codigo ,a.act_codigo_anterior ,a.cac_codigo , a.act_estado, a.act_descripcion , a.aun_codigo_ejecutora, a.tipact_codigo, a.fecha_registro, 
 		au.aun_nombre, au.aun_sigla  
@@ -56,6 +65,75 @@ where	true
 		and a.aun_codigo_ejecutora in (44)
 order by au.aun_codigo desc;
 --
+--$$$$$$$$$$$$$$$
+SELECT
+    po.pobj_codigo, po.pobj_estado, pr.pro_numero, au.aun_numero, po.pobj_numero,
+    CONCAT(pr.pro_numero, '.', au.aun_numero, '.', po.pobj_numero) AS pobj_codigo_sigla,
+    po.pobj_nombre
+FROM	estructura_poa.poas_objetivos po
+      LEFT JOIN pei.programas pr ON po.pro_codigo = pr.pro_codigo
+      LEFT JOIN (
+        SELECT	oau.pobj_codigo, COALESCE((COALESCE(ARRAY_AGG(oau.aun_codigo_ejecutora ORDER BY oau.oau_codigo ASC), '{}'))[1], 0) AS aun_codigo_ejecutora_principal
+        FROM	estructura_poa.objetivos_area_unidad oau
+              LEFT JOIN estructura_poa.poas_objetivos po ON oau.pobj_codigo = po.pobj_codigo
+        WHERE	oau.oau_estado NOT IN (0)
+              AND po.poa_codigo IN (3) -- POA SELECCIONADO
+        GROUP BY oau.pobj_codigo
+      ) temporal ON po.pobj_codigo = temporal.pobj_codigo
+      LEFT JOIN estructura_organizacional.areas_unidades au ON temporal.aun_codigo_ejecutora_principal = au.aun_codigo
+      LEFT JOIN estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo AND oau.oau_estado NOT IN (0)
+WHERE	TRUE
+      AND po.poa_codigo IN (3) -- POA SELECCIONADO
+      AND po.pobj_estado IN (2,8) -- ESTADOS
+      AND oau.aun_codigo_ejecutora IN (77) -- ESTADOS
+    GROUP BY po.pobj_codigo, pr.pro_numero, po.pobj_numero, po.pobj_nombre, au.aun_numero
+    ;
+--$$$$$$$$$$$$$$$
+--#################
+        SELECT
+              t.for_estado, fob.fob_estado, act.act_estado, avi.avi_estado
+              ,COALESCE(COUNT(DISTINCT act.act_codigo), 0) AS cantidad_actividades
+        FROM	estructura_poa.formularios t
+              LEFT JOIN estructura_poa.formularios_objetivos fob ON
+                t.for_codigo = fob.for_codigo
+                AND fob.fob_estado IN (4,10,14,11,12,13,1,3,8,7,2,5)
+              LEFT JOIN (
+                SELECT	*
+                FROM	estructura_poa.actividades act
+                WHERE	TRUE
+                    AND act.act_estado IN (4,10,14,11,12,13,1,3,8,7,2,5)
+                    --AND act.cac_codigo IN ()
+                    --${queryAddConditionAreaUnidadRolPersonaForActividades || ''}
+              ) act ON fob.fob_codigo = act.fob_codigo
+              LEFT JOIN estructura_poa.actividades_viaticos avi ON
+                act.act_codigo = avi.act_codigo
+                AND avi.avi_estado IN (4,10,14,11,12,13,1,3,8,7,2,5)
+        WHERE TRUE
+              AND t.poa_codigo IN (3)
+        GROUP BY t.for_estado, fob.fob_estado, act.act_estado, avi.avi_estado
+        ORDER BY
+          array_position( array[4,10,14,11,12,13,1,3,8,7,2,5], avi.avi_estado ),
+          array_position( array[4,10,14,11,12,13,1,3,8,7,2,5], act.act_estado ),
+          array_position( array[4,10,14,11,12,13,1,3,8,7,2,5], fob.fob_estado ),
+          array_position( array[4,10,14,11,12,13,1,3,8,7,2,5], t.for_estado )
+        ;
+--##############
+SELECT	*
+FROM	estructura_poa.actividades act
+WHERE	TRUE
+    AND act.act_estado IN (4,10,14,11,12,13,1,3,8,7,2,5);
+    --AND act.cac_codigo IN (1);
+    --${queryAddConditionAreaUnidadRolPersonaForActividades || ''};
+--##############
+--######## formula
+select 	*
+from 	estructura_poa.formularios f 
+order by f.for_codigo desc;
+--######## formula obj
+select 	*
+from 	estructura_poa.formularios_objetivos fo  
+order by fo.fob_codigo desc;
+--########
 --order by a.act_codigo desc;
 --INICIOS ACTIVIDADES
 select	*
