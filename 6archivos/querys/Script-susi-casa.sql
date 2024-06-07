@@ -255,6 +255,10 @@ FROM usuarios u
 LEFT JOIN roles r USING (usu_codigo)
 LEFT JOIN entidades e USING (usu_codigo)
 WHERE e.conjunto::text IS NOT NULL AND e.conjunto::text != '[]';
+--
+select 	*
+from 	autenticacion.usuario_rol ur 
+		left join autenticacion.rol r on ur.rol_codigo = r.rol_codigo ;
 
      
        
