@@ -333,7 +333,14 @@ where 	t.aci_codigo in (1603);
         ORDER BY t.fecha_registro desc
         ;
 
+select 	*
+from 	estructura_organizacional.gestiones_organigramas go2 
+		left join parametricas.gestiones g on go2.ges_codigo = g.ges_codigo ;
 
+	
+	
+select 	*
+from 	parametricas.gestiones g ;
 
 
 
