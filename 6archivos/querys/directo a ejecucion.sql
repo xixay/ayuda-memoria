@@ -410,5 +410,15 @@ ORDER BY t.fecha_registro DESC
 ;
 select 	*
 from 	estructura_organizacional.areas_unidades au 
-where 	au.aun_codigo in (68)
+where 	au.aun_codigo in (68);
+
+select 	*
+from 	estructura_organizacional.gestiones_organigramas go2 
+		left join parametricas.gestiones g on go2.ges_codigo = g.ges_codigo ;
+	
+select 	*
+from 	parametricas.gestiones g ;
+
+
+
 ;
