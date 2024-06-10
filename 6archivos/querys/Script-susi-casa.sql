@@ -259,6 +259,10 @@ WHERE e.conjunto::text IS NOT NULL AND e.conjunto::text != '[]';
 select 	*
 from 	autenticacion.usuario_rol ur 
 		left join autenticacion.rol r on ur.rol_codigo = r.rol_codigo ;
+	
+select	r.rol_codigo
+from 	autenticacion.rol r
+group by r.rol_codigo ;
 
      
        
