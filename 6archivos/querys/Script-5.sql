@@ -62,8 +62,8 @@ order by tr.tiprol_codigo desc;
 --select 	rro.*
 select 	u.usu_codigo, u.usu_usuario, u.usu_contrasenia,u.usu_estado,
       	pn.pernat_codigo ,pn.pernat_nombres , pn.per_codigo,
-	    r.rol_codigo,
-	 	tr.tiprol_codigo,tr.tiprol_nombre, 
+	    r.rol_codigo, r.rol_nombre,  r.rol_descripcion, 
+	 	tr.tiprol_codigo,tr.tiprol_nombre,
 		r2.rec_codigo, r2.rec_nombre,
 		m.men_codigo, m.men_nombre, m.men_icono, m.men_ruta,
 		o.ope_codigo, o.ope_sigla, o.ope_nombre
@@ -83,274 +83,102 @@ where 	true
 		and u.usu_codigo in (45)		
 		and ur.usurol_estado in (2)
 order by u.usu_codigo desc;
---
-WITH cte AS (
-    SELECT
-        u.usu_codigo,
-        u.usu_usuario,
-        u.usu_contrasenia,
-        u.usu_estado,
-        pn.pernat_codigo,
-        pn.pernat_nombres,
-        pn.per_codigo,
-        r.rol_codigo,
-        tr.tiprol_codigo,
-        tr.tiprol_nombre,
-        r2.rec_codigo,
-        r2.rec_nombre,
-        m.men_codigo,
-        m.men_nombre,
-        m.men_icono,
-        m.men_ruta,
-        o.ope_codigo,
-        o.ope_sigla,
-        o.ope_nombre
-    FROM
-        autenticacion.usuario u
-        LEFT JOIN controleg_persona.persona_natural pn ON u.pernat_codigo = pn.pernat_codigo 
-        LEFT JOIN autenticacion.usuario_rol ur ON u.usu_codigo = ur.usu_codigo
-        LEFT JOIN autenticacion.rol r ON ur.rol_codigo = r.rol_codigo 
-        LEFT JOIN parametricas.tipo_rol tr ON r.tiprol_codigo = tr.tiprol_codigo
-        LEFT JOIN autenticacion.rol_recurso_operacion rro ON r.rol_codigo = rro.rol_codigo
-        LEFT JOIN autenticacion.recurso r2 ON rro.rec_codigo = r2.rec_codigo 
-        LEFT JOIN autenticacion.menu m ON m.men_codigo = r2.men_codigo
-        LEFT JOIN parametricas.operacion o ON rro.ope_codigo = o.ope_codigo 
-    WHERE
-        u.usu_codigo IN (36)
-)
-SELECT
-    cte.usu_codigo,
-    cte.usu_usuario,
-    cte.usu_contrasenia,
-    cte.usu_estado,
-    cte.pernat_codigo,
-    cte.pernat_nombres,
-    cte.per_codigo,
-    cte.rol_codigo,
-    cte.tiprol_codigo,
-    cte.tiprol_nombre,
-    STRING_AGG(DISTINCT cte.rec_nombre || ' (' || cte.ope_nombre || ')', ', ') AS recursos_y_operaciones
-FROM
-    cte
-GROUP BY
-    cte.usu_codigo,
-    cte.usu_usuario,
-    cte.usu_contrasenia,
-    cte.usu_estado,
-    cte.pernat_codigo,
-    cte.pernat_nombres,
-    cte.per_codigo,
-    cte.rol_codigo,
-    cte.tiprol_codigo,
-    cte.tiprol_nombre
-ORDER BY
-    cte.usu_codigo DESC;
-
-
-
-
+--USUARIO ROL
+--select 	tr.*
+select ur.usurol_codigo, ur.rol_codigo, ur.usurol_estado,
+		u.usu_codigo ,u.usu_estado,
+		r.rol_codigo, r.rol_nombre, r.rol_estado,
+		tr.tiprol_codigo, tr.tiprol_nombre, tr.tiprol_estado
+from 	autenticacion.usuario_rol ur
+		left join autenticacion.usuario u on ur.usu_codigo = u.usu_codigo
+		left join autenticacion.rol r on ur.rol_codigo = r.rol_codigo
+		left join parametricas.tipo_rol tr on r.tiprol_codigo = tr.tiprol_codigo 
+where 	true 
+		and u.usu_codigo in (40)
+		and ur.usurol_estado in (2)
+order by ur.usurol_codigo desc;
+--USUARIO ENTIDAD
+--select 	*
+select ue.usuent_codigo, ue.ent_codigo, ue.usuent_estado,
+		u.usu_codigo ,u.usu_estado 
+from 	autenticacion.usuario_entidad ue 
+		left join autenticacion.usuario u on ue.usu_codigo = u.usu_codigo
+where 	true 
+		and u.usu_codigo in (40)
+order by ue.usuent_codigo desc;
 --######################## OTROS ###########################################
---TRAE USUARIOS--
-        WITH usuarios AS (
-          SELECT
-          t.usu_codigo,
-          t.usu_usuario,
-          t.usu_contrasenia,
-          TO_CHAR(t.usu_fecha_expiracion, 'dd/mm/yyyy') as usu_fecha_expiracion,
-          t.pernat_codigo,
-          p.pernat_nombres || ' ' || p.pernat_apellido_paterno || ' ' || p.pernat_apellido_materno AS pernat_nombre_completo,
-          p.pernat_documento_identidad,
-          p.pernat_correo_electronico,
-          t.usu_estado,
-          e.est_color,
-          e.est_nombre AS usu_estado_descripcion,
-          TO_CHAR(t.fecha_registro, 'HH24:MI am dd/mm/yyyy') as fecha_registro
-        FROM autenticacion.usuario t
-        LEFT JOIN parametricas.estados e ON e.est_codigo = t.usu_estado
-        LEFT JOIN controleg_persona.persona_natural p ON t.pernat_codigo = p.pernat_codigo
-        --LEFT JOIN autenticacion.usuario_entidad ue USING (usu_codigo)
-        --LEFT JOIN controleg_persona.entidad ent USING (ent_codigo)
-        WHERE TRUE
-        and t.usu_estado in (1,2)
-        ORDER by usu_codigo desc
-        limit 10
-        ),
-        roles AS (
-        SELECT
-              tabla_subconsulta.usu_codigo,
-              array_to_json(array_agg(row_to_json(tabla_subconsulta))) conjunto
-          FROM (
-            SELECT ur.usu_codigo, r.rol_nombre,  tr.tiprol_nombre  ,r.tiprol_codigo, r.rol_codigo
-            FROM autenticacion.usuario_rol ur
-            JOIN usuarios USING (usu_codigo)
-            JOIN autenticacion.rol r USING (rol_codigo)
-            LEFT JOIN parametricas.tipo_rol tr USING (tiprol_codigo)
-            where true 
-            --	  and tr.tiprol_codigo in (2)
-          ) tabla_subconsulta
-          GROUP BY tabla_subconsulta.usu_codigo
-        ),
-        entidades as (
-          SELECT
-              tabla_subconsulta.usu_codigo,
-              array_to_json(array_agg(row_to_json(tabla_subconsulta))) conjunto
-          FROM (
-            SELECT u.usu_codigo, ue.usuent_codigo, ue.ent_codigo, e.ent_descripcion
-            FROM autenticacion.usuario_entidad ue
-            JOIN usuarios u USING (usu_codigo)
-            LEFT JOIN public.entidad  e USING (ent_codigo)
-            where true
-		          and ue.usuent_estado > 0
-            order by ue.usuent_codigo desc
-          ) tabla_subconsulta
-          GROUP BY tabla_subconsulta.usu_codigo
-        )
-        SELECT u.*,
-        COALESCE (r.conjunto,'[]') AS roles_codigos,
-        COALESCE (e.conjunto, '[]') entidades
-        FROM usuarios u
-        LEFT JOIN roles r USING (usu_codigo)
-        LEFT JOIN entidades e USING (usu_codigo)
-        ;
---SUSI
-WITH usuarios AS (
-          SELECT
-          t.usu_codigo,
-          t.usu_usuario,
-          t.usu_contrasenia,
-          TO_CHAR(t.usu_fecha_expiracion, 'dd/mm/yyyy') as usu_fecha_expiracion,
-          t.pernat_codigo,
-          p.pernat_nombres || ' ' || p.pernat_apellido_paterno || ' ' || p.pernat_apellido_materno AS pernat_nombre_completo,
-          p.pernat_documento_identidad,
-          p.pernat_correo_electronico,
-          t.usu_estado,
-          e.est_color,
-          e.est_nombre AS usu_estado_descripcion,
-          TO_CHAR(t.fecha_registro, 'HH24:MI am dd/mm/yyyy') as fecha_registro         
-        FROM autenticacion.usuario t
-        LEFT JOIN parametricas.estados e ON e.est_codigo = t.usu_estado
-        LEFT JOIN controleg_persona.persona_natural p ON t.pernat_codigo = p.pernat_codigo       
-        JOIN (
-        	SELECT DISTINCT r.tiprol_codigo, ur.usu_codigo
-        	FROM autenticacion.usuario_rol ur
-        	JOIN autenticacion.rol r USING (rol_codigo)
-        	WHERE r.tiprol_codigo = 2
-        ) rol 
-        ON rol.usu_codigo = t.usu_codigo       
-        WHERE TRUE 
-        and t.usu_estado in (1,2)
-        order by usu_codigo desc
-        limit 10
-        )
-        ,
-        roles AS (
-        SELECT
-              tabla_subconsulta.usu_codigo,
-              array_to_json(array_agg(row_to_json(tabla_subconsulta))) conjunto
-          FROM (
-            SELECT ur.usu_codigo, r.rol_nombre,  tr.tiprol_nombre  ,r.tiprol_codigo, r.rol_codigo
-            FROM autenticacion.usuario_rol ur
-            JOIN usuarios USING (usu_codigo)
-            JOIN autenticacion.rol r USING (rol_codigo)
-            LEFT JOIN parametricas.tipo_rol tr USING (tiprol_codigo)
-            where ur.usurol_estado > 0
-          ) tabla_subconsulta
-          GROUP BY tabla_subconsulta.usu_codigo
-        )     
-        ,
-        entidades as (
-          SELECT
-              tabla_subconsulta.usu_codigo,
-              array_to_json(array_agg(row_to_json(tabla_subconsulta))) conjunto
-          FROM (
-            SELECT u.usu_codigo, ue.usuent_codigo, ue.ent_codigo, e.ent_descripcion
-            FROM autenticacion.usuario_entidad ue
-            JOIN usuarios u USING (usu_codigo)
-            LEFT JOIN public.entidad  e USING (ent_codigo)
-            where ue.usuent_estado > 0
-            order by ue.usuent_codigo desc
-          ) tabla_subconsulta
-          GROUP BY tabla_subconsulta.usu_codigo
-        )
-        SELECT u.*,
-        COALESCE (r.conjunto,'[]') AS roles_codigos,
-        COALESCE (e.conjunto, '[]') entidades
-        FROM usuarios u
-        LEFT JOIN roles r USING (usu_codigo)
-        LEFT JOIN entidades e USING (usu_codigo)
-        ORDER BY u.fecha_registro DESC
-        ;
---CHAT
-WITH usuarios AS (
-    SELECT
-        t.usu_codigo,
-        t.usu_usuario,
-        t.usu_contrasenia,
-        TO_CHAR(t.usu_fecha_expiracion, 'dd/mm/yyyy') as usu_fecha_expiracion,
-        t.pernat_codigo,
-        p.pernat_nombres || ' ' || p.pernat_apellido_paterno || ' ' || p.pernat_apellido_materno AS pernat_nombre_completo,
-        p.pernat_documento_identidad,
-        p.pernat_correo_electronico,
-        t.usu_estado,
-        e.est_color,
-        e.est_nombre AS usu_estado_descripcion,
-        TO_CHAR(t.fecha_registro, 'HH24:MI am dd/mm/yyyy') as fecha_registro,
-        t.fecha_registro as fecha_registro_original
-    FROM autenticacion.usuario t
-    LEFT JOIN parametricas.estados e ON e.est_codigo = t.usu_estado
-    LEFT JOIN controleg_persona.persona_natural p ON t.pernat_codigo = p.pernat_codigo
-    JOIN (
-        SELECT DISTINCT r.tiprol_codigo, ur.usu_codigo
-        FROM autenticacion.usuario_rol ur
-        JOIN autenticacion.rol r USING (rol_codigo)
-        WHERE r.tiprol_codigo = 2
-    ) rol 
-    ON rol.usu_codigo = t.usu_codigo
-    WHERE TRUE 
-    and t.usu_estado in (1,2)
-    ORDER BY t.fecha_registro DESC
-    LIMIT 10
+--TRAE USUARIOS SUSI--
+WITH 	usuarios AS (
+SELECT
+  		t.usu_codigo,
+  		t.usu_usuario,
+  		t.usu_contrasenia,
+  		TO_CHAR(t.usu_fecha_expiracion, 'dd/mm/yyyy') as usu_fecha_expiracion,
+  		t.pernat_codigo,
+  		p.pernat_nombres || ' ' || p.pernat_apellido_paterno || ' ' || p.pernat_apellido_materno AS pernat_nombre_completo,
+  		p.pernat_documento_identidad,
+  		p.pernat_correo_electronico,
+  		t.usu_estado,
+		e.est_color,
+  		e.est_nombre AS usu_estado_descripcion,
+  		TO_CHAR(t.fecha_registro, 'HH24:MI am dd/mm/yyyy') as fecha_registro         
+FROM 	autenticacion.usuario t
+		LEFT JOIN parametricas.estados e ON e.est_codigo = t.usu_estado
+		LEFT JOIN controleg_persona.persona_natural p ON t.pernat_codigo = p.pernat_codigo       
+		JOIN (
+			SELECT 	DISTINCT r.tiprol_codigo, ur.usu_codigo
+			FROM 	autenticacion.usuario_rol ur
+			JOIN 	autenticacion.rol r USING (rol_codigo)
+			WHERE 	r.tiprol_codigo = 2
+		) rol ON rol.usu_codigo = t.usu_codigo       
+WHERE 	TRUE 
+		and t.usu_estado in (1,2)
+order by usu_codigo desc
+limit 10
+offset 0
 ),
-roles AS (
-    SELECT
-        tabla_subconsulta.usu_codigo,
-        array_to_json(array_agg(row_to_json(tabla_subconsulta))) conjunto
-    FROM (
-        SELECT ur.usu_codigo, r.rol_nombre, tr.tiprol_nombre, r.tiprol_codigo, r.rol_codigo
-        FROM autenticacion.usuario_rol ur
-        JOIN usuarios USING (usu_codigo)
-        JOIN autenticacion.rol r USING (rol_codigo)
-        LEFT JOIN parametricas.tipo_rol tr USING (tiprol_codigo)
-        WHERE ur.usurol_estado > 0
-    ) tabla_subconsulta
-    GROUP BY tabla_subconsulta.usu_codigo
+roles 	AS (
+SELECT
+      	tabla_subconsulta.usu_codigo,
+      	array_to_json(array_agg(row_to_json(tabla_subconsulta))) conjunto
+FROM 	(
+    	SELECT 	ur.usu_codigo, r.rol_nombre,  tr.tiprol_nombre  ,r.tiprol_codigo, r.rol_codigo
+    	FROM 	autenticacion.usuario_rol ur
+    			JOIN usuarios USING (usu_codigo)
+    			JOIN autenticacion.rol r USING (rol_codigo)
+    			LEFT JOIN parametricas.tipo_rol tr USING (tiprol_codigo)
+    	where ur.usurol_estado > 0
+  		) tabla_subconsulta
+GROUP BY tabla_subconsulta.usu_codigo
 ),
-entidades AS (
-    SELECT
-        tabla_subconsulta.usu_codigo,
-        array_to_json(array_agg(row_to_json(tabla_subconsulta))) conjunto
-    FROM (
-        SELECT u.usu_codigo, ue.usuent_codigo, ue.ent_codigo, e.ent_descripcion
-        FROM autenticacion.usuario_entidad ue
-        JOIN usuarios u USING (usu_codigo)
-        LEFT JOIN public.entidad e USING (ent_codigo)
-        WHERE ue.usuent_estado > 0
-        ORDER BY ue.usuent_codigo DESC
-    ) tabla_subconsulta
-    GROUP BY tabla_subconsulta.usu_codigo
+entidades as (
+SELECT
+      	tabla_subconsulta.usu_codigo,
+      	array_to_json(array_agg(row_to_json(tabla_subconsulta))) conjunto
+FROM 	(
+    	SELECT 	u.usu_codigo, ue.usuent_codigo, ue.ent_codigo, e.ent_descripcion
+    	FROM 	autenticacion.usuario_entidad ue
+    			JOIN usuarios u USING (usu_codigo)
+    			LEFT JOIN public.entidad  e USING (ent_codigo)
+		where ue.usuent_estado > 0
+    	order by ue.usuent_codigo desc
+  		) tabla_subconsulta
+GROUP BY tabla_subconsulta.usu_codigo
 )
-SELECT u.*,
-COALESCE(r.conjunto, '[]') AS roles_codigos,
-COALESCE(e.conjunto, '[]') entidades
-FROM usuarios u
-LEFT JOIN roles r USING (usu_codigo)
-LEFT JOIN entidades e USING (usu_codigo)
-ORDER BY u.fecha_registro_original DESC;
+SELECT 	u.*,
+COALESCE (r.conjunto,'[]') AS roles_codigos,
+COALESCE (e.conjunto, '[]') entidades
+FROM 	usuarios u
+		LEFT JOIN roles r USING (usu_codigo)
+		LEFT JOIN entidades e USING (usu_codigo)
+where 	true 
+		and u.usu_codigo in (46)
+ORDER BY u.usu_codigo DESC
+;
 
---
-select 	*
-from 	autenticacion.usuario_rol ur 
-		left join autenticacion.rol r on ur.rol_codigo = r.rol_codigo ;
+
+
+
 
      
        

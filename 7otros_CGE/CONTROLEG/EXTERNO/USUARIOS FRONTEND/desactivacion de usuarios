@@ -1,0 +1,15 @@
+SOLO HAY LOS ESTADOS:
+0 INACTIVO
+1 EDICION
+2 PROTEGIDO
+3 HISTORICO
+
+
+usuario (usu_estado=2)
+usuario_rol (usurol_estado=2)
+	rol (rol_estado=2)
+	tiprol (tiprol_estado=2)
+usuario_entidad (usuent_estado=1)
+
+
+
