@@ -1,3 +1,10 @@
+--usuario_rol:
+		usu_codigo
+		rol_codigo
+---usuario:
+		pernat_codigo
+		
+		
 --rol_recurso_operacion:
 			rol_codigo
 			rec_codigo

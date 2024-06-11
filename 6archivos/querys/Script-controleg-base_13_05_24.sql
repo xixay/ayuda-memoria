@@ -49,7 +49,7 @@ where	true
 order by pn.pernat_codigo  desc;
 --limit 16;
 --ROL RECURSO OPERACION
---select 	m.*
+--select 	rro.*
 select	rro.rro_codigo, rro.rro_estado,
 		r.rol_codigo, r.rol_nombre ,r.rol_estado,
 		tr.tiprol_codigo, tr.tiprol_nombre, tr.tiprol_estado,
@@ -64,8 +64,11 @@ from 	autenticacion.rol_recurso_operacion rro
 where 	true 
 order by rro.rro_codigo desc;
 --ROL
-select 	*
+--select 	tr.*
+select 	r.rol_codigo, r.rol_nombre,r.rol_descripcion, r.rol_estado, r.fecha_registro,
+		tr.tiprol_codigo, tr.tiprol_nombre, tr.tiprol_estado 
 from 	autenticacion.rol r
+		left join parametricas.tipo_rol tr on r.tiprol_codigo = tr.tiprol_codigo 
 where 	true 
 order by r.rol_codigo desc;
 --TIPO ROL

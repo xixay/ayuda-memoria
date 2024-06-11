@@ -14,7 +14,7 @@
     "usuario": "4755293",
     "password": "Pruebas"
   }
-  
+
 ### Este es token de autenticacion
   @AuthTokenInterno = {{login_interno.response.body.datos.token}}
 ###   Aqui se define IP de servicio web
@@ -26,7 +26,7 @@
     GET {{Host}}/tipos-permisos
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
-###  ------------------- CREAR - TIPOS PERMISOS 
+###  ------------------- CREAR - TIPOS PERMISOS
     POST {{Host}}/tipos-permisos
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
@@ -36,7 +36,7 @@
       "tpe_descripcion": "Descripcion prueba 9",
       "cpe_codigo": 1
     }
-###  ------------------- MODIFICAR - TIPOS PERMISOS 
+###  ------------------- MODIFICAR - TIPOS PERMISOS
     PUT {{Host}}/tipos-permisos
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
@@ -47,11 +47,11 @@
       "tpe_descripcion": "Descripcion prueba 4",
       "cpe_codigo": 10
     }
-###  ------------------- ELIMINAR - TIPOS PERMISOS 
+###  ------------------- ELIMINAR - TIPOS PERMISOS
     DELETE {{Host}}/tipos-permisos/9
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
-###  ------------------- ACTIVAR - TIPOS PERMISOS 
+###  ------------------- ACTIVAR - TIPOS PERMISOS
     PATCH {{Host}}/tipos-permisos/9
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
@@ -85,7 +85,7 @@
       "tmo_nombre": "Prueba 2",
       "tmo_descripcion": "Descripcion prueba 2"
     }
-###  ------------------- MODIFICAR - TIPOS MOVIMIENTOS 
+###  ------------------- MODIFICAR - TIPOS MOVIMIENTOS
     PUT {{Host}}/tipos-movimientos
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
@@ -95,11 +95,11 @@
       "tmo_nombre": "Prueba 2",
       "tmo_descripcion": "Descripcion prueba E"
     }
-###  ------------------- ELIMINAR - TIPOS MOVIMIENTOS 
+###  ------------------- ELIMINAR - TIPOS MOVIMIENTOS
     DELETE {{Host}}/tipos-movimientos/1
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
-###  ------------------- ACTIVAR - TIPOS MOVIMIENTOS 
+###  ------------------- ACTIVAR - TIPOS MOVIMIENTOS
     PATCH {{Host}}/tipos-movimientos/1
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
@@ -119,7 +119,7 @@
       "car_codigo":1,
       "ite_codigo":1
     }
-###  ------------------- MODIFICAR - CARGO-ITEM-INTERINO 
+###  ------------------- MODIFICAR - CARGO-ITEM-INTERINO
     PUT {{Host}}/tipos-movimientos
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
@@ -129,11 +129,11 @@
       "tmo_nombre": "Prueba 2",
       "tmo_descripcion": "Descripcion prueba E"
     }
-###  ------------------- ELIMINAR - CARGO-ITEM-INTERINO 
+###  ------------------- ELIMINAR - CARGO-ITEM-INTERINO
     DELETE {{Host}}/tipos-movimientos/1
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
-###  ------------------- ACTIVAR - TIPOS MOVIMIENTOS 
+###  ------------------- ACTIVAR - TIPOS MOVIMIENTOS
     PATCH {{Host}}/tipos-movimientos/1
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
@@ -154,7 +154,7 @@
       "per_codigo": 1,
       "cit_codigo":1
     }
-###  ------------------- MODIFICAR - PERSONA INTERINA 
+###  ------------------- MODIFICAR - PERSONA INTERINA
     PUT {{Host}}/tipos-movimientos
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
@@ -164,11 +164,11 @@
       "tmo_nombre": "Prueba 2",
       "tmo_descripcion": "Descripcion prueba E"
     }
-###  ------------------- ELIMINAR - PERSONA INTERINA 
+###  ------------------- ELIMINAR - PERSONA INTERINA
     DELETE {{Host}}/tipos-movimientos/1
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
-###  ------------------- ACTIVAR - TIPOS MOVIMIENTOS 
+###  ------------------- ACTIVAR - TIPOS MOVIMIENTOS
     PATCH {{Host}}/tipos-movimientos/1
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
@@ -213,7 +213,7 @@
   Content-Type: application/json
 
   {
-    "for_codigo": 46, 
+    "for_codigo": 46,
     "fob_codigo": 486,
     "fob_estado": 3
   }
@@ -246,7 +246,7 @@
     "act_estado":2,
     "act_observacion":"obs 9 abril"
   }
-  
+
 ### INICIOS ACTIVIDADES
 ###  ------------------- OBTENER - INICIOS ACTIVIDADES
   # GET {{Host}}/sispoa-conaud/inicios-actividades
@@ -274,11 +274,15 @@
   GET {{Host}}/poas/migrar?ges_codigo=2
   Content-Type: application/json
   Authorization: {{AuthTokenInterno}}
-###
+###  ------------------- OBTENER - CONAUD ANTIGUO
   # GET http://172.16.75.94:7015/auditorias?auditoria_codigo=EOOP69J22
   GET http://172.16.75.94:7015/auditorias?auditoria_codigo=EHEN26Y00
   Content-Type: application/json
   Authorization: {{AuthTokenInterno}}
-###
-GET
+###  ------------------- BUSQUEDA - ACTIVIDADES AUDITORIA
+  GET
 	http://172.16.75.100:7091/_conaud/busqueda-actividades?auditoria_codigo=13
+### REPORT-SEGUUIMIENTO-ESTADO-ACTIVIDADES
+  GET http://172.16.22.234:7000/poas/report-seguimiento-estado-actividades?poa_codigo=(2)&aun_codigo=(36) HTTP/1.1
+  Content-Type: application/json
+  Authorization: {{AuthTokenInterno}}

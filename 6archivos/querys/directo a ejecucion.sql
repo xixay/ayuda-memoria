@@ -1,3 +1,5 @@
+select 	*
+from 	estructura_organizacional.areas_unidades au ;
 --TIPOS DE INICIOS DE ACTIVIDADES
 select 	*
 from 	parametricas.tipos_inicios_actividades tia ;
