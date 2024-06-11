@@ -1,10 +1,10 @@
--rol:
-	rol_codigo
-	tiprol_codigo
 --rol_recurso_operacion:
 			rol_codigo
 			rec_codigo
 			ope_codigo
+---rol:
+	rol_codigo
+	tiprol_codigo
 ---recurso:
 		rec_codigo
 		mem_codigo

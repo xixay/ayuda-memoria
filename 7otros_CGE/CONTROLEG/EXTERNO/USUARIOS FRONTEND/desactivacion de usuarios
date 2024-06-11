@@ -7,9 +7,30 @@ SOLO HAY LOS ESTADOS:
 
 usuario (usu_estado=2)
 usuario_rol (usurol_estado=2)
+	usuario (usu_estado=2)
+	persona_natural(pernat_estado=1)
 	rol (rol_estado=2)
 	tiprol (tiprol_estado=2)
 usuario_entidad (usuent_estado=1)
+	usuario (usu_estado=2)
+	persona_natural(pernat_estado=1)
+	tipo_documento (tipdoc_estado=1)
+#OPCION 1	
+usu_estado = 2
+2-8
+8-2
 
+usu_estado = 1
+1-9
+9-1
+
+#OPCION 2
+2-0
+0-1
+1-2
+
+#OPCION 3
+2-0
+0-2
 
 

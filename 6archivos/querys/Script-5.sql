@@ -61,51 +61,51 @@ order by tr.tiprol_codigo desc;
 --USUARIO
 --select 	rro.*
 select 	u.usu_codigo, u.usu_usuario, u.usu_contrasenia,u.usu_estado,
-      	pn.pernat_codigo ,pn.pernat_nombres , pn.per_codigo,
-	    r.rol_codigo, r.rol_nombre,  r.rol_descripcion, 
-	 	tr.tiprol_codigo,tr.tiprol_nombre,
-		r2.rec_codigo, r2.rec_nombre,
-		m.men_codigo, m.men_nombre, m.men_icono, m.men_ruta,
-		o.ope_codigo, o.ope_sigla, o.ope_nombre
+      	pn.pernat_codigo ,pn.pernat_nombres , pn.per_codigo
 from 	autenticacion.usuario u
 		left join controleg_persona.persona_natural pn on u.pernat_codigo = pn.pernat_codigo
-		left join autenticacion.usuario_rol ur on u.usu_codigo = ur.usu_codigo 
-		left join autenticacion.rol r on ur.rol_codigo = r.rol_codigo 
-		left join parametricas.tipo_rol tr on r.tiprol_codigo = tr.tiprol_codigo
-		left join autenticacion.rol_recurso_operacion rro on r.rol_codigo =rro.rol_codigo
-		left join autenticacion.recurso r2 on rro.rec_codigo = r2.rec_codigo 
-		left join autenticacion.menu m on m.men_codigo = r2.men_codigo
-		left join parametricas.operacion o on rro.ope_codigo = o.ope_codigo 
 where 	true
 --		and u.usu_codigo in (1,2,3,7,8,9,10,11,15,18,20,24,32,33,34,35,36)
 --		and u.usu_codigo in (39)
 --		and u.usu_codigo in (36)
-		and u.usu_codigo in (45)		
-		and ur.usurol_estado in (2)
+		and u.usu_codigo in (40)		
+--		and ur.usurol_estado in (2)
 order by u.usu_codigo desc;
 --USUARIO ROL
---select 	tr.*
-select ur.usurol_codigo, ur.rol_codigo, ur.usurol_estado,
-		u.usu_codigo ,u.usu_estado,
-		r.rol_codigo, r.rol_nombre, r.rol_estado,
-		tr.tiprol_codigo, tr.tiprol_nombre, tr.tiprol_estado
+select 	tr.*
+--select 	ur.usurol_codigo, ur.rol_codigo, ur.usurol_estado,
+--		u.usu_codigo ,u.usu_estado,
+--		pn.pernat_codigo, pn.per_codigo, pn.pernat_nombres, pn.pernat_estado,
+--		r.rol_codigo, r.rol_nombre, r.rol_estado,
+--		tr.tiprol_codigo, tr.tiprol_nombre, tr.tiprol_estado
 from 	autenticacion.usuario_rol ur
 		left join autenticacion.usuario u on ur.usu_codigo = u.usu_codigo
+		left join controleg_persona.persona_natural pn on u.pernat_codigo = pn.pernat_codigo
 		left join autenticacion.rol r on ur.rol_codigo = r.rol_codigo
 		left join parametricas.tipo_rol tr on r.tiprol_codigo = tr.tiprol_codigo 
 where 	true 
 		and u.usu_codigo in (40)
-		and ur.usurol_estado in (2)
+--		and ur.usurol_estado in (2)
 order by ur.usurol_codigo desc;
 --USUARIO ENTIDAD
---select 	*
-select ue.usuent_codigo, ue.ent_codigo, ue.usuent_estado,
-		u.usu_codigo ,u.usu_estado 
+select 	td.*
+--select 	ue.usuent_codigo, ue.ent_codigo, ue.usuent_estado,
+	--	u.usu_codigo ,u.usu_estado,
+	--	pn.pernat_codigo, pn.per_codigo, pn.pernat_nombres, pn.pernat_estado,
+	--	td.tipdoc_codigo ,td.tipdoc_nombre , td.tipdoc_estado 
 from 	autenticacion.usuario_entidad ue 
 		left join autenticacion.usuario u on ue.usu_codigo = u.usu_codigo
+		left join controleg_persona.persona_natural pn on u.pernat_codigo = pn.pernat_codigo
+		left join parametricas.tipo_documento td on pn.tipdoc_codigo = td.tipdoc_codigo 
 where 	true 
 		and u.usu_codigo in (40)
 order by ue.usuent_codigo desc;
+--FLUJOS TABLAS SERVICES
+--select 	*
+--from 	control_estados.flujos_tablas ft
+--where 	true 
+--		and ft.tab_codigo in (64)
+--order by ft.fta_codigo asc;
 --######################## OTROS ###########################################
 --TRAE USUARIOS SUSI--
 WITH 	usuarios AS (
@@ -132,7 +132,7 @@ FROM 	autenticacion.usuario t
 			WHERE 	r.tiprol_codigo = 2
 		) rol ON rol.usu_codigo = t.usu_codigo       
 WHERE 	TRUE 
-		and t.usu_estado in (1,2)
+		and t.usu_estado in (0,1,2)
 order by usu_codigo desc
 limit 10
 offset 0
@@ -172,7 +172,7 @@ FROM 	usuarios u
 		LEFT JOIN roles r USING (usu_codigo)
 		LEFT JOIN entidades e USING (usu_codigo)
 where 	true 
-		and u.usu_codigo in (46)
+		and u.usu_codigo in (40)
 ORDER BY u.usu_codigo DESC
 ;
 
