@@ -420,6 +420,64 @@ from 	estructura_organizacional.gestiones_organigramas go2
 	
 select 	*
 from 	parametricas.gestiones g ;
+--##############################
+SELECT
+      a.act_estado, av.avi_estado, COALESCE(COUNT(DISTINCT a.act_codigo), 0) AS cantidad_actividades,
+      COALESCE(COUNT(DISTINCT av.avi_codigo), 0) AS cantidad_viaticos
+FROM	estructura_poa.poas_objetivos po
+      LEFT JOIN estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo
+      LEFT JOIN estructura_poa.actividades a ON po.pobj_codigo = a.pobj_codigo AND a.act_estado IN (4,10,14,11,12,13,1,3,8,7,2,5)
+      LEFT JOIN estructura_poa.actividades_viaticos av ON a.act_codigo = av.act_codigo AND av.avi_estado IN (4,10,14,11,12,13,1,3,8,7,2,5)
+WHERE	TRUE
+      AND oau.oau_estado != 0
+      AND po.poa_codigo IN (2)
+      AND po.pobj_estado IN (2,8)
+      AND oau.aun_codigo_ejecutora IN (79)
+      AND a.aun_codigo_ejecutora IN (79)
+      AND a.cac_codigo IN (2,4)
+GROUP BY a.act_estado, av.avi_estado
+ORDER BY
+      array_position( array[4,10,14,11,12,13,1,3,8,7,2,5], av.avi_estado ),
+      array_position( array[4,10,14,11,12,13,1,3,8,7,2,5], a.act_estado )
+;
+--###############################
+SELECT
+      au.aun_codigo AS aun_codigo_ejecutora, au.aun_nombre, au.aun_sigla, au.cau_codigo, au.aun_numero,
+      CONCAT(au.aun_nombre, ' - ', au.aun_sigla) AS nom_ejecutora,
+      COALESCE(
+        ARRAY_AGG(
+          DISTINCT aur.rol_codigo ORDER BY aur.rol_codigo ASC
+        ) FILTER (WHERE aur.per_codigo = 1914),
+        '{}'
+      ) AS roles,
+      COUNT(DISTINCT aur.rol_codigo) AS cantidad_roles
+FROM	estructura_poa.area_unidad_responsables aur
+      LEFT JOIN estructura_organizacional.areas_unidades au ON aur.aun_codigo_ejecutora = au.aun_codigo
+WHERE	aur.aur_estado != 0 -- ESTADO ROL-RESPONSABLE
+      AND au.aun_estado IN (2) -- ESTADO AREA-UNIDAD (CONSOLIDADO)
+      AND aur.rol_codigo IN (1,2,3,4) -- ROL SELECCIONADO
+      AND aur.poa_codigo IN (2) -- POA SELECCIONADO
+GROUP BY au.aun_codigo, au.aun_nombre, au.aun_sigla, au.cau_codigo, au.aun_numero
+ORDER BY au.aun_sigla ASC, au.aun_nombre ASC
+;
+--
+--AREA UNIDAD RESPONSABLES
+select 	*
+--select 	aur.aur_codigo , aur.aur_estado ,p.poa_codigo, aur.fecha_registro ,
+--		g.ges_anio 
+from 	estructura_poa.area_unidad_responsables aur
+		left join estructura_poa.poas p on aur.poa_codigo = p.poa_codigo 
+		left join parametricas.gestiones g on p.ges_codigo = g.ges_codigo 
+where 	true
+--		and aur.aur_estado in (1)
+--		and aur.poa_codigo in (2)
+		and aur.per_codigo in (1914)
+order by aur.aur_codigo desc;
+
+
+
+
+
 
 
 
