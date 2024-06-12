@@ -59,9 +59,9 @@ where	true
 --		and a.act_estado in (1)
 --		and a.iac_codigo_apoyo is not null
 --		and a.tipact_codigo in (2)
---		and a.cac_codigo in (3)
-		and po.pobj_codigo in (1181)
-		and p.poa_codigo in (3)
+--		and a.cac_codigo in (2)
+--		and po.pobj_codigo in (1181)
+		and p.poa_codigo in (2)
 order by au.aun_codigo desc;
 --order by a.act_codigo desc;
 --#################
