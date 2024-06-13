@@ -49,21 +49,6 @@ where	true
 --		and pn.pernat_nombres like 'MIRIAM NICOLAZA'
 order by pn.pernat_codigo  desc;
 --limit 16;
---ROL RECURSO OPERACION
---select 	rro.*
-select	rro.rro_codigo, rro.rro_estado,
-		r.rol_codigo, r.rol_nombre ,r.rol_estado,
-		tr.tiprol_codigo, tr.tiprol_nombre, tr.tiprol_estado,
-		r2.rec_codigo, r2.rec_nombre, r2.rec_estado,
-		m.men_codigo, m.men_orden, m.men_nombre, m.men_icono, m.men_ruta, m.men_codigo_padre, m.men_estado 
-from 	autenticacion.rol_recurso_operacion rro
-		left join autenticacion.rol r on rro.rol_codigo = r.rol_codigo
-		left join parametricas.tipo_rol tr on r.tiprol_codigo = tr.tiprol_codigo 
-		left join autenticacion.recurso r2 on rro.rec_codigo = r2.rec_codigo
-		left join autenticacion.menu m on r2.men_codigo = m.men_codigo 
-		left join parametricas.operacion o on rro.ope_codigo = rro.ope_codigo 
-where 	true 
-order by rro.rro_codigo desc;
 --ROL
 --select 	tr.*
 select 	r.rol_codigo, r.rol_nombre,r.rol_descripcion, r.rol_estado, r.fecha_registro,
@@ -77,11 +62,6 @@ select 	*
 from 	parametricas.tipo_rol tr
 where 	true 
 order by tr.tiprol_codigo desc;
---RECURSO
-select 	*
-from 	autenticacion.recurso r 
-where 	true 
-order by r.rec_codigo desc;
 --MENU
 select 	*
 from 	autenticacion.menu m 
@@ -276,6 +256,79 @@ FROM 	usuarios u
 		LEFT JOIN entidades e USING (usu_codigo)
 WHERE 	TRUE 
 ORDER BY u.usu_codigo DESC;
+--MENU ROL
+select 	*
+from 	autenticacion.menu_rol mr
+where 	true 
+		and mr.rol_codigo in (1)
+order by mr.menrol_codigo desc;
+--RECURSO
+select 	*
+from 	autenticacion.recurso r 
+where 	true
+		and r.rec_codigo in (24,25)
+order by r.rec_codigo desc;
+--ROL RECURSO OPERACION
+--select 	rro.*
+select	rro.rro_codigo, rro.rro_estado,
+		r.rol_codigo, r.rol_nombre ,r.rol_estado,
+		tr.tiprol_codigo, tr.tiprol_nombre, tr.tiprol_estado,
+		r2.rec_codigo, r2.rec_nombre, r2.rec_estado,
+		m.men_codigo, m.men_orden, m.men_nombre, m.men_icono, m.men_ruta, m.men_codigo_padre, m.men_estado 
+from 	autenticacion.rol_recurso_operacion rro
+		left join autenticacion.rol r on rro.rol_codigo = r.rol_codigo
+		left join parametricas.tipo_rol tr on r.tiprol_codigo = tr.tiprol_codigo 
+		left join autenticacion.recurso r2 on rro.rec_codigo = r2.rec_codigo
+		left join autenticacion.menu m on r2.men_codigo = m.men_codigo 
+		left join parametricas.operacion o on rro.ope_codigo = rro.ope_codigo 
+where 	true
+		and rro.rol_codigo in (1,7,4)
+order by rro.rro_codigo desc;
+--USUARIO ROL CODIGO
+select 	*
+from 	autenticacion.usuario_rol ur 
+where 	true 
+--		and ur.usurol_codigo in (172)
+order by ur.usurol_codigo desc;
+--QUERY SUSY
+select 	distinct mur.mur_codigo, mur.usurol_codigo, mur.mur_estado, 
+		ur.rol_codigo,
+		mr.men_codigo, mr.menrol_codigo,
+		mro.ope_codigo,mro.mro_estado  
+from 	autenticacion.menu_usuario_rol mur
+		join autenticacion.usuario_rol ur using (usurol_codigo)
+		join autenticacion.menu_rol mr on mr.rol_codigo = ur.rol_codigo and mr.men_codigo =mur.men_codigo  		
+		join autenticacion.menu_rol_operacion mro using (menrol_codigo)
+where 	true
+--		and mur.usurol_codigo in (204,205,206)
+		and mur.usurol_codigo in (207) 
+--		and mur.usurol_codigo in (202,203) 
+order by mur.usurol_codigo;
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 
 

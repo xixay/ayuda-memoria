@@ -1,0 +1,18 @@
+usu_codigo=53
+usurol_codigo	rol_codigo	usurol_estado(al editar los usu_rol se inhabilitan, y se crea un nuevo usu_rol)
+183		1		0
+184		2		0
+185		3		0
+
+197		2		2 (nuevo)
+
+---------------------------------------------
+usu_codigo=56
+usurol_codigo	rol_codigo	usurol_estado(al editar los usu_rol se inhabilitan, y se crea un nuevo usu_rol)
+192		4		0
+193		5		0
+194		6		0
+195		7		0
+
+198		7		0 (antes nuevo)
+199		5		2 (nuevo)
