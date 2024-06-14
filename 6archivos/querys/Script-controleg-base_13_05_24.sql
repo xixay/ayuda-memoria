@@ -288,8 +288,24 @@ order by rro.rro_codigo desc;
 select 	*
 from 	autenticacion.usuario_rol ur 
 where 	true 
+		and ur.usu_codigo in (54)
 --		and ur.usurol_codigo in (172)
-order by ur.usurol_codigo desc;
+--		and ur.usurol_estado in (0)
+--order by ur.usurol_codigo desc;
+order by ur.fecha_registro desc;
+--MENU USUARIO ROL
+select 	*
+from 	autenticacion.menu_usuario_rol mur 
+where 	true 
+--		and mur.mur_estado in (2)
+		and mur.usurol_codigo in (186,187,188,189)
+order by mur.mur_codigo desc;
+--MENU USUARIO ROL OPERACION
+select 	*
+from 	autenticacion.menu_usuario_rol_operacion muro
+where 	true
+		and muro.mur_codigo in (320,321,325,326)
+order by muro.muro_codigo desc;
 --QUERY SUSY
 select 	distinct mur.mur_codigo, mur.usurol_codigo, mur.mur_estado, 
 		ur.rol_codigo,
@@ -300,8 +316,8 @@ from 	autenticacion.menu_usuario_rol mur
 		join autenticacion.menu_rol mr on mr.rol_codigo = ur.rol_codigo and mr.men_codigo =mur.men_codigo  		
 		join autenticacion.menu_rol_operacion mro using (menrol_codigo)
 where 	true
---		and mur.usurol_codigo in (204,205,206)
-		and mur.usurol_codigo in (207) 
+		and mur.usurol_codigo in (215,216,217,218)
+--		and mur.usurol_codigo in (219) 
 --		and mur.usurol_codigo in (202,203) 
 order by mur.usurol_codigo;
 
@@ -325,6 +341,27 @@ order by mur.usurol_codigo;
 	
 	
 	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 	
 	
