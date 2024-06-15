@@ -331,6 +331,14 @@ WHERE  true
 --	   and r.rol_codigo in (6)--REGISTRO DE SUMARIO
 	   and r.rol_codigo in (7)--SOLICITUD
 ORDER BY r.rol_codigo ASC , m.men_codigo asc;
+--
+select count (*) as total
+FROM autenticacion.usuario t
+LEFT JOIN parametricas.estados e ON e.est_codigo = t.usu_estado
+LEFT JOIN controleg_persona.persona_natural p ON t.pernat_codigo = p.pernat_codigo
+left join autenticacion.usuario_entidad ue on t.usu_codigo = ue.usuent_codigo 
+WHERE true
+		and ue.ent_codigo in (1);
 
 	
 	
