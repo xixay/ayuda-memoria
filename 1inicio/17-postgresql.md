@@ -738,12 +738,14 @@ WHERE   u.id_usuario=t.id_usuario AND u.id_usuario =1;
 |1|Sakura Haruno|123456789|sakura@example.com|Ninja médica de Konoha|Ninja|1995-03-28|sakura.jpg|2024-01-21 19:27:58.957|1|Jutsu Médico|tecnologia_jutsu_medico.jpg|
 
 ## 3.24. Relacion 1 a N
+**![a1n](/5imagenes/entidad-relacion/anime_1_n.png)**
 - Usuarios tiene una relación de 1:N con la tabla redes_sociales, un usuario puede tener muchas redes sociales
 ```sql
 --relacion 1:N
-SELECT u.id_usuario ,u.nombre as nombre_usuario,rs.nombre as nombre_red_social, rs.foto as foto_red_social 
-FROM core.usuarios u ,core.redes_sociales rs 
-WHERE u.id_usuario=rs.id_usuario AND u.id_usuario =1 ;
+SELECT  u.id_usuario ,u.nombre as nombre_usuario,
+        rs.nombre as nombre_red_social, rs.foto as foto_red_social 
+FROM    core.usuarios u ,core.redes_sociales rs 
+WHERE   u.id_usuario=rs.id_usuario AND u.id_usuario =1 ;
 ```
 
 |id_usuario|nombre_usuario|nombre_red_social|foto_red_social|
