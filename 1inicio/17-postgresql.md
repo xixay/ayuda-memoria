@@ -724,6 +724,7 @@ SELECT * FROM portafolio.tecnologias;
 
 
 ## 3.23. Relacion 1 a 1
+**![a11](/5imagenes/entidad-relacion/anime_1_1.png)**
 - Asumiremos que usuarios tiene una relacion de 1:1 con la tabla tecnologias, un usuario posee 1 tecnología
 ```sql
 --relacion 1:1
