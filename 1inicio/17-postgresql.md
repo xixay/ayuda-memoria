@@ -754,12 +754,15 @@ WHERE   u.id_usuario=rs.id_usuario AND u.id_usuario =1 ;
 |1|Sakura Haruno|Webex|webex_icon.jpg|
 
 ## 3.25. Relacion N a N
+**![ann](/5imagenes/entidad-relacion/anime_n_n.png)**
 - Usuarios tiene una relación de N:N con la tabla habilidades, muchos usuarios pueden tener muchas habilidades
 ```sql
 --relacion N:N
-SELECT u.id_usuario,u.nombre as nombre_usuario,h.id_habilidad ,h.nombre as habilidad
-FROM core.usuarios u,portafolio.habilidades h ,core.usuarios_habilidades uh
-WHERE u.id_usuario=uh.id_usuario AND h.id_habilidad=uh.id_habilidad  AND (u.id_usuario =1 OR u.id_usuario=2) ;
+SELECT  u.id_usuario,u.nombre as nombre_usuario,
+        h.id_habilidad ,h.nombre as habilidad
+FROM    core.usuarios u,portafolio.habilidades h ,core.usuarios_habilidades uh
+WHERE   TRUE
+        AND u.id_usuario=uh.id_usuario AND h.id_habilidad=uh.id_habilidad  AND (u.id_usuario =1 OR u.id_usuario=2) ;
 ```
 |id_usuario|nombre_usuario|id_habilidad|habilidad|
 |----------|--------------|------------|---------|
