@@ -728,9 +728,10 @@ SELECT * FROM portafolio.tecnologias;
 - Asumiremos que usuarios tiene una relacion de 1:1 con la tabla tecnologias, un usuario posee 1 tecnología
 ```sql
 --relacion 1:1
-SELECT u.id_usuario, u.nombre as nombre_usuario,u.telefono,u.email,u.descripcion,u.ocupacion,u.fecha_nac,u.foto as foto_usuario,u.fecha_reg,t.id_tecnologia,t.nombre as nombre_tecnologia,t.foto as foto_tecnologia 
-FROM core.usuarios u, portafolio.tecnologias t
-WHERE u.id_usuario=t.id_usuario AND u.id_usuario =1;
+SELECT  u.id_usuario, u.nombre as nombre_usuario,u.telefono,u.email,u.descripcion,u.ocupacion,u.fecha_nac,u.foto as foto_usuario,u.fecha_reg,
+        t.id_tecnologia,t.nombre as nombre_tecnologia,t.foto as foto_tecnologia 
+FROM    core.usuarios u, portafolio.tecnologias t
+WHERE   u.id_usuario=t.id_usuario AND u.id_usuario =1;
 ```
 |id_usuario|nombre_usuario|telefono|email|descripcion|ocupacion|fecha_nac|foto_usuario|fecha_reg|id_tecnologia|nombre_tecnologia|foto_tecnologia|
 |----------|--------------|--------|-----|-----------|---------|---------|------------|---------|-------------|-----------------|---------------|
