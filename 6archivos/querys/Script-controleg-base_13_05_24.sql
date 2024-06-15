@@ -1,3 +1,29 @@
+--############### YA NO SE USAN ###########
+;
+--RECURSO (YA NO SE USARA)
+select 	*
+from 	autenticacion.recurso r 
+where 	true
+		and r.rec_codigo in (24,25)
+order by r.rec_codigo desc;
+--ROL RECURSO OPERACION (YA NO SE USARA)
+--select 	rro.*
+select	rro.rro_codigo, rro.rro_estado,
+		r.rol_codigo, r.rol_nombre ,r.rol_estado,
+		tr.tiprol_codigo, tr.tiprol_nombre, tr.tiprol_estado,
+		r2.rec_codigo, r2.rec_nombre, r2.rec_estado,
+		m.men_codigo, m.men_orden, m.men_nombre, m.men_icono, m.men_ruta, m.men_codigo_padre, m.men_estado 
+from 	autenticacion.rol_recurso_operacion rro
+		left join autenticacion.rol r on rro.rol_codigo = r.rol_codigo
+		left join parametricas.tipo_rol tr on r.tiprol_codigo = tr.tiprol_codigo 
+		left join autenticacion.recurso r2 on rro.rec_codigo = r2.rec_codigo
+		left join autenticacion.menu m on r2.men_codigo = m.men_codigo 
+		left join parametricas.operacion o on rro.ope_codigo = rro.ope_codigo 
+where 	true
+		and rro.rol_codigo in (1,7,4)
+order by rro.rro_codigo desc;
+--############### USAN ##############
+;
 -- EMPRESA UNIPERSONAL
 select 	* 
 from 	controleg_persona.empresa_unipersonal eu 
@@ -6,7 +32,6 @@ where	true
 --		and eu.perjur_codigo in (127)
 --		and eu.pernat_codigo in (106)
 order by eu.empuni_codigo desc;
---limit 16;
 -- ENTIDADES
 select 	* 
 from 	controleg_persona.entidad e   
@@ -14,7 +39,6 @@ where	true
 --		and e.ent_codigo in (1)
 --		and e.ent_descripcion LIKE '%ASAMBLEA LEGISLATIVA PLURINACIONAL%'
 order by e.ent_codigo  desc;
---limit 16;
 -- PERSONA JURIDICA
 select 	* 
 from 	controleg_persona.persona_juridica pj  
@@ -24,7 +48,6 @@ where	true
 --		and pj.perjur_sigla  like 'siga'
 --		and pj.tpj_codigo in (1)
 order by pj.perjur_codigo desc;
---limit 16;
 -- PERSONA RESPONSABLE
 select 	* 
 from 	controleg_persona.persona_responsable pr  
@@ -48,7 +71,6 @@ where	true
 --		and pn.pernat_codigo in (125)
 --		and pn.pernat_nombres like 'MIRIAM NICOLAZA'
 order by pn.pernat_codigo  desc;
---limit 16;
 --ROL
 --select 	tr.*
 select 	r.rol_codigo, r.rol_nombre,r.rol_descripcion, r.rol_estado, r.fecha_registro,
@@ -80,22 +102,6 @@ where 	true
 		and u.usu_codigo in (40)		
 --		and ur.usurol_estado in (2)
 order by u.usu_codigo desc;
---USUARIO ROL
---select 	ur.*
-select 	ur.usurol_codigo, ur.usuario_registro, ur.rol_codigo, ur.usurol_estado,
-		u.usu_codigo ,u.usu_estado,
-		pn.pernat_codigo, pn.per_codigo, pn.pernat_nombres, pn.pernat_estado,
-		r.rol_codigo, r.rol_nombre, r.rol_estado,
-		tr.tiprol_codigo, tr.tiprol_nombre, tr.tiprol_estado
-from 	autenticacion.usuario_rol ur
-		left join autenticacion.usuario u on ur.usu_codigo = u.usu_codigo
-		left join controleg_persona.persona_natural pn on u.pernat_codigo = pn.pernat_codigo
-		left join autenticacion.rol r on ur.rol_codigo = r.rol_codigo
-		left join parametricas.tipo_rol tr on r.tiprol_codigo = tr.tiprol_codigo 
-where 	true 
-		and u.usu_codigo in (40)
---		and ur.usurol_estado in (2)
-order by ur.usurol_codigo desc;
 --USUARIO ENTIDAD
 select 	ue.*
 --select 	ue.usuent_codigo, ue.ent_codigo, ue.usuent_estado,
@@ -184,8 +190,7 @@ where 	true
 --		and u.usu_codigo in (40)
 ORDER BY u.usu_codigo DESC
 ;
---#######
--- Definir la variable del código de entidad
+--TRAE LOS USUARIOS(No Actualizado)
 WITH 	usuarios AS (
 SELECT
   		t.usu_codigo,
@@ -260,36 +265,26 @@ ORDER BY u.usu_codigo DESC;
 select 	*
 from 	autenticacion.menu_rol mr
 where 	true 
-		and mr.rol_codigo in (1)
+--		and mr.rol_codigo in (1)
 order by mr.menrol_codigo desc;
---RECURSO
-select 	*
-from 	autenticacion.recurso r 
-where 	true
-		and r.rec_codigo in (24,25)
-order by r.rec_codigo desc;
---ROL RECURSO OPERACION
---select 	rro.*
-select	rro.rro_codigo, rro.rro_estado,
-		r.rol_codigo, r.rol_nombre ,r.rol_estado,
-		tr.tiprol_codigo, tr.tiprol_nombre, tr.tiprol_estado,
-		r2.rec_codigo, r2.rec_nombre, r2.rec_estado,
-		m.men_codigo, m.men_orden, m.men_nombre, m.men_icono, m.men_ruta, m.men_codigo_padre, m.men_estado 
-from 	autenticacion.rol_recurso_operacion rro
-		left join autenticacion.rol r on rro.rol_codigo = r.rol_codigo
+--USUARIO ROL
+--select 	ur.*
+select 	ur.usurol_codigo, ur.usuario_registro, ur.rol_codigo, ur.usurol_estado,
+		u.usu_codigo ,u.usu_estado,
+		pn.pernat_codigo, pn.per_codigo, pn.pernat_nombres, pn.pernat_estado,
+		r.rol_codigo, r.rol_nombre, r.rol_estado,
+		tr.tiprol_codigo, tr.tiprol_nombre, tr.tiprol_estado
+from 	autenticacion.usuario_rol ur
+		left join autenticacion.usuario u on ur.usu_codigo = u.usu_codigo
+		left join controleg_persona.persona_natural pn on u.pernat_codigo = pn.pernat_codigo
+		left join autenticacion.rol r on ur.rol_codigo = r.rol_codigo
 		left join parametricas.tipo_rol tr on r.tiprol_codigo = tr.tiprol_codigo 
-		left join autenticacion.recurso r2 on rro.rec_codigo = r2.rec_codigo
-		left join autenticacion.menu m on r2.men_codigo = m.men_codigo 
-		left join parametricas.operacion o on rro.ope_codigo = rro.ope_codigo 
-where 	true
-		and rro.rol_codigo in (1,7,4)
-order by rro.rro_codigo desc;
---USUARIO ROL CODIGO
-select 	*
-from 	autenticacion.usuario_rol ur 
 where 	true 
-		and ur.usu_codigo in (54)
---		and ur.usurol_codigo in (172)
+		and ur.usu_codigo in (60)
+--		and ur.usu_codigo in (62)
+--		and ur.usu_codigo in (63)
+--		and ur.usu_codigo in (64)
+--		and ur.usurol_codigo in (242)
 --		and ur.usurol_estado in (0)
 --order by ur.usurol_codigo desc;
 order by ur.fecha_registro desc;
@@ -308,18 +303,34 @@ where 	true
 order by muro.muro_codigo desc;
 --QUERY SUSY
 select 	distinct mur.mur_codigo, mur.usurol_codigo, mur.mur_estado, 
-		ur.rol_codigo,
-		mr.men_codigo, mr.menrol_codigo,
-		mro.ope_codigo,mro.mro_estado  
+		ur.rol_codigo--,
+--		mr.men_codigo, mr.menrol_codigo,
+--		mro.ope_codigo,mro.mro_estado,
+--		m.men_orden, m.men_nombre, m.men_icono, m.men_ruta, m.men_codigo_padre, m.men_estado 
 from 	autenticacion.menu_usuario_rol mur
 		join autenticacion.usuario_rol ur using (usurol_codigo)
-		join autenticacion.menu_rol mr on mr.rol_codigo = ur.rol_codigo and mr.men_codigo =mur.men_codigo  		
-		join autenticacion.menu_rol_operacion mro using (menrol_codigo)
+--		join autenticacion.menu_rol mr on mr.rol_codigo = ur.rol_codigo and mr.men_codigo =mur.men_codigo
+--		left join autenticacion.menu m on mr.men_codigo = m.men_codigo 
+--		join autenticacion.menu_rol_operacion mro using (menrol_codigo)
 where 	true
-		and mur.usurol_codigo in (215,216,217,218)
+		and mur.usurol_codigo in (256)
+--		and mur.usurol_codigo in (223,224,225,226)
+		and mur.mur_estado not in (0)
 --		and mur.usurol_codigo in (219) 
 --		and mur.usurol_codigo in (202,203) 
 order by mur.usurol_codigo;
+--QUE TIPOS DE MENU TIENE
+SELECT r.rol_codigo, r.tiprol_codigo,  r.rol_nombre, m.men_codigo, m.men_nombre 
+FROM autenticacion.rol r
+LEFT JOIN autenticacion.menu_rol mr USInG (rol_codigo)	
+LEFT JOIN autenticacion.menu m USInG (men_codigo)
+LEFT JOIN autenticacion.menu_rol_operacion mro USING (menrol_codigo)
+WHERE  true
+--	   and r.rol_codigo in (4)--ADMINISTRADOR INSTITUCIONAL
+--	   and r.rol_codigo in (5)--REGISTRO DE PROCESOS
+--	   and r.rol_codigo in (6)--REGISTRO DE SUMARIO
+	   and r.rol_codigo in (7)--SOLICITUD
+ORDER BY r.rol_codigo ASC , m.men_codigo asc;
 
 	
 	
