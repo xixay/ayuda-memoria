@@ -1,194 +1,82 @@
-- [1. Diagrama entidad relacion (Diagrama lógico DER)](#1-diagrama-entidad-relacion-diagrama-lógico-der)
-  - [1.1. Entidad](#11-entidad)
-    - [1.1.1. Entidad Fuerte](#111-entidad-fuerte)
-    - [1.1.2. Entidad Debil](#112-entidad-debil)
-  - [1.2. Atributos](#12-atributos)
-    - [1.2.1. Normal o Simple](#121-normal-o-simple)
-    - [1.2.2. Clave Primaria](#122-clave-primaria)
-    - [1.2.3. Clave Debil](#123-clave-debil)
-    - [1.2.4. Derivado](#124-derivado)
-    - [1.2.5. Multivalor](#125-multivalor)
-    - [1.2.6. Especialización y genealización](#126-especialización-y-genealización)
-  - [1.3. Relaciones](#13-relaciones)
-    - [1.3.1. Normal](#131-normal)
-    - [1.3.2. Debil](#132-debil)
-      - [1.3.2.1. Tipos Entidad Debil](#1321-tipos-entidad-debil)
-  - [1.4. Cardinalidad](#14-cardinalidad)
-    - [1.4.1. Cardinalidad uno a uno (1:1)](#141-cardinalidad-uno-a-uno-11)
-    - [1.4.2. Cardinalidad uno a varios (1:N)](#142-cardinalidad-uno-a-varios-1n)
-    - [1.4.3. Cardinalidad varios a varios (N:N)](#143-cardinalidad-varios-a-varios-nn)
-      - [1.4.3.1. Ejm 1](#1431-ejm-1)
-      - [1.4.3.2. Ejm 2](#1432-ejm-2)
-      - [1.4.3.3. Ejm 3](#1433-ejm-3)
-      - [1.4.3.4. Ejm 4](#1434-ejm-4)
-  - [1.5. Modelo de entidad relacion extendida](#15-modelo-de-entidad-relacion-extendida)
-    - [1.5.1. Parcial exclusiva](#151-parcial-exclusiva)
-    - [1.5.2. Total exclusiva](#152-total-exclusiva)
-    - [1.5.3. Parcial solapada](#153-parcial-solapada)
-    - [1.5.4. Total solapada](#154-total-solapada)
-      - [1.5.4.1. Ejm 1](#1541-ejm-1)
-      - [1.5.4.2. Ejm 2](#1542-ejm-2)
-  - [1.6. Modelo de entidad relacion y cardinalidad](#16-modelo-de-entidad-relacion-y-cardinalidad)
-    - [1.6.1. ER uno a uno (1:1)](#161-er-uno-a-uno-11)
-    - [1.6.2. ER uno a varios (1:N)](#162-er-uno-a-varios-1n)
-    - [1.6.3. ER varios a varios (N:N)](#163-er-varios-a-varios-nn)
-    - [1.6.4. ER varios a varios Debil(1:N)](#164-er-varios-a-varios-debil1n)
-    - [1.6.5. ER varios a varios (N:N) con ER varios a varios Debil(1:N)](#165-er-varios-a-varios-nn-con-er-varios-a-varios-debil1n)
-  - [1.7. Cardinalidad y ordinalidad](#17-cardinalidad-y-ordinalidad)
-    - [1.7.1. Cardinalidad](#171-cardinalidad)
-    - [1.7.2. Ordinalidad](#172-ordinalidad)
-- [2. Diagrama Entidad Relación (Diagrama Físico ER)](#2-diagrama-entidad-relación-diagrama-físico-er)
-  - [2.1. Tipos de datos](#21-tipos-de-datos)
-  - [2.2. Constraints (Restricciones)](#22-constraints-restricciones)
-  - [2.3. Normalización](#23-normalización)
-    - [2.3.1. Primera forma normal (1FN)](#231-primera-forma-normal-1fn)
-      - [2.3.1.1. Ejemplo](#2311-ejemplo)
-    - [2.3.2. Segunda forma normal (2FN)](#232-segunda-forma-normal-2fn)
-    - [2.3.3. Tercera forma normal (3FN)](#233-tercera-forma-normal-3fn)
-      - [2.3.3.1. Ejemplo mas simplificado](#2331-ejemplo-mas-simplificado)
-      - [2.3.3.2. Segundo Ejemplo](#2332-segundo-ejemplo)
-- [3. Base de datos PostgreSQL](#3-base-de-datos-postgresql)
-  - [3.1. Definición Base de Datos](#31-definición-base-de-datos)
-    - [3.1.1. Componentes Clave de una Base de Datos](#311-componentes-clave-de-una-base-de-datos)
-  - [3.2. Tipos de Bases de Datos](#32-tipos-de-bases-de-datos)
-  - [3.3. Operaciones Comunes en una Base de Datos](#33-operaciones-comunes-en-una-base-de-datos)
-    - [3.3.1. CRUD](#331-crud)
-    - [3.3.2. Consultas (Queries)](#332-consultas-queries)
-  - [3.4. Conceptos Fundamentales](#34-conceptos-fundamentales)
-    - [3.4.1. Llave Primaria (Primary Key)](#341-llave-primaria-primary-key)
-    - [3.4.2. Llave Foránea (Foreign Key)](#342-llave-foránea-foreign-key)
-    - [3.4.3. Índices (Indexes)](#343-índices-indexes)
-    - [3.4.4. Llave Única (Unique Key)](#344-llave-única-unique-key)
-    - [3.4.5. Constraint (Restricción)](#345-constraint-restricción)
-  - [3.5. POSTGRESQL](#35-postgresql)
-  - [3.6. Ventajas](#36-ventajas)
-  - [3.7. Interacción con comandos](#37-interacción-con-comandos)
-  - [3.8. Jerarquia de base de datos](#38-jerarquia-de-base-de-datos)
-  - [3.9. Instalar PostgreSql Ubuntu](#39-instalar-postgresql-ubuntu)
-  - [3.10. Instalar PgAdmin](#310-instalar-pgadmin)
-    - [3.10.1. Instalar la clave pública para el repositorio (si no lo hizo anteriormente):](#3101-instalar-la-clave-pública-para-el-repositorio-si-no-lo-hizo-anteriormente)
-    - [3.10.2. Crea el archivo de configuración del repositorio:](#3102-crea-el-archivo-de-configuración-del-repositorio)
-    - [3.10.3. Instalar tanto para el modo de escritorio como para el web:](#3103-instalar-tanto-para-el-modo-de-escritorio-como-para-el-web)
-    - [3.10.4. Instalar solo para modo de escritorio:](#3104-instalar-solo-para-modo-de-escritorio)
-    - [3.10.5. Instalar solo para modo web:](#3105-instalar-solo-para-modo-web)
-    - [3.10.6. Configure el servidor web, si instaló pgadmin4-web:](#3106-configure-el-servidor-web-si-instaló-pgadmin4-web)
-  - [3.11. Utilizar roles y bases de datos de PostgreSQL](#311-utilizar-roles-y-bases-de-datos-de-postgresql)
-    - [3.11.1. Cambiar cuenta de postgres](#3111-cambiar-cuenta-de-postgres)
-    - [3.11.2. Acceder a la linea de comandos sin cambiar de cuenta](#3112-acceder-a-la-linea-de-comandos-sin-cambiar-de-cuenta)
-  - [3.12. Crear un nuevo rol](#312-crear-un-nuevo-rol)
-    - [3.12.1. Crear un nuevo usuario](#3121-crear-un-nuevo-usuario)
-  - [3.13. Comandos más utilizados](#313-comandos-más-utilizados)
-  - [3.14. Ejemplo modelo de base de datos](#314-ejemplo-modelo-de-base-de-datos)
-  - [3.15. Crear Base datos](#315-crear-base-datos)
-  - [3.16. Abrir la linea de comandos de Postgres con el nuevo rol](#316-abrir-la-linea-de-comandos-de-postgres-con-el-nuevo-rol)
-    - [3.16.1. De forma directa](#3161-de-forma-directa)
-    - [3.16.2. Conectarse a una base de datos diferente](#3162-conectarse-a-una-base-de-datos-diferente)
-    - [3.16.3. Asignar privilegios a un usuario sobre una base de datos](#3163-asignar-privilegios-a-un-usuario-sobre-una-base-de-datos)
-    - [3.16.4. Cambiar la contraseña de un usuario](#3164-cambiar-la-contraseña-de-un-usuario)
-  - [3.17. Diagrama Entidad Relación BD](#317-diagrama-entidad-relación-bd)
-  - [3.18. Diagrama Entidad BD](#318-diagrama-entidad-bd)
-  - [3.19. Crear esquemas](#319-crear-esquemas)
-    - [3.19.1. Cambiar al esquema creado](#3191-cambiar-al-esquema-creado)
-  - [3.20. Crear tablas](#320-crear-tablas)
-  - [3.21. Mostrar información sobre una tabla específica](#321-mostrar-información-sobre-una-tabla-específica)
-  - [3.22. Agregar datos en una tabla](#322-agregar-datos-en-una-tabla)
-  - [3.23. Ver datos en una tabla](#323-ver-datos-en-una-tabla)
-  - [3.24. Eliminar datos en una tabla](#324-eliminar-datos-en-una-tabla)
-  - [3.25. Agregar columnas en una tabla](#325-agregar-columnas-en-una-tabla)
-  - [3.26. Eliminar columnas en una tabla](#326-eliminar-columnas-en-una-tabla)
-  - [3.27. Actualizar datos de una tabla](#327-actualizar-datos-de-una-tabla)
-  - [3.28. Relacion 1 a 1](#328-relacion-1-a-1)
-  - [3.29. Relacion 1 a N](#329-relacion-1-a-n)
-  - [3.30. Relacion N a N](#330-relacion-n-a-n)
-  - [3.31. INNER JOIN](#331-inner-join)
-  - [3.32. LEFT JOIN](#332-left-join)
-  - [3.33. Right Join](#333-right-join)
-  - [3.34. View](#334-view)
-  - [3.35. Temporal](#335-temporal)
-  - [3.36. Funcion](#336-funcion)
-  - [3.37. TRIGGER](#337-trigger)
-  - [3.38. PARTITION](#338-partition)
-  - [3.39. PROCEDURE](#339-procedure)
-  - [3.40. SUMA](#340-suma)
-  - [3.41. COUNT](#341-count)
 
-# 1. Diagrama entidad relacion (Diagrama lógico DER)
+
+# Diagrama entidad relacion (Diagrama lógico DER)
 - Los diagramas ER se componen de entidades, relaciones y atributos. También representan la cardinalidad, que define las relaciones en términos de números.
-## 1.1. Entidad
+## Entidad
 | **CONCRETA(tangible)** | **ABSTRACTO(intangible)** |
 |------------------------|---------------------------|
 | EMPLEADO               | CUENTA                    |
 | CASA                   | CURSO                     |
 | AUTO                   | MEMBRESIA                 |
-### 1.1.1. Entidad Fuerte
+### Entidad Fuerte
 - Son independientes de otras entidades, tienen una clave primaria, que distinga a cada suceso de la entidad.
 
 **![Entidad Fuerte](/5imagenes/entidad-relacion/entidadFuerte.jpg)**
-### 1.1.2. Entidad Debil
+### Entidad Debil
 - Dependen de algun otro tipo de entidad, No tienen claves primarias.
 
 **![Entidad Debil](/5imagenes/entidad-relacion/entidadDebil.jpg)**
-## 1.2. Atributos
+## Atributos
 **![Atributo](/5imagenes/entidad-relacion/atributo.jpg)**
 
-### 1.2.1. Normal o Simple
+### Normal o Simple
 - Son las caracteristicas de una entidad, una relacion de muchos a muchos, o una relacion de uno a uno
 
 **![Atributo Normal](/5imagenes/entidad-relacion/atributoNormal.jpg)**
 
-### 1.2.2. Clave Primaria
+### Clave Primaria
 - serán los identificadores, tienen un valor único en cada entidad (ejemplo: matrícula de la entidad vehículo)
 
 **![Atributo Principal](/5imagenes/entidad-relacion/atributoPrincipal.jpg)**
 
-### 1.2.3. Clave Debil
+### Clave Debil
 
 **![Atributo Debil](/5imagenes/entidad-relacion/atributoDebil.jpg)**
 
-### 1.2.4. Derivado
+### Derivado
 - se calculan o derivan de otro atributo, por ejemplo, la edad se calcula a partir de la fecha de nacimiento
 
 **![Atributo Derivado](/5imagenes/entidad-relacion/atributoDerivado.jpg)**
 
-### 1.2.5. Multivalor
+### Multivalor
 - se denota más de un valor del atributo, como varios números de teléfono para una persona.
 
 **![Atributo Multivalor](/5imagenes/entidad-relacion/atributoMultivalor.jpg)**
-### 1.2.6. Especialización y genealización
+### Especialización y genealización
 - Herencia, la persona hereda sus atributos a : director, estudiante,etc.
 
 **![Atributo Generalizacion](/5imagenes/entidad-relacion/atributoGeneralizacion.jpg)**
-## 1.3. Relaciones
+## Relaciones
 - Las relaciones son asociaciones entre entidades, son vervos o acciones
 
 **![relacion](/5imagenes/entidad-relacion/ralacion.jpg)**
-### 1.3.1. Normal
+### Normal
 - son asociaciones entre dos o más entidades
 
 **![Normal](/5imagenes/entidad-relacion/relacionNormal.jpg)**
-### 1.3.2. Debil
+### Debil
 - son conexiones entre una entidad débil y su propietario
 
 **![Debil](/5imagenes/entidad-relacion/relacionDebil.jpg)**
-#### 1.3.2.1. Tipos Entidad Debil
+#### Tipos Entidad Debil
 - Las entidades débiles, tienen relaciones débiles, no llevan atributo identificador principal, en su lugar tiene un "atributo discriminador" y su cardinalidad siempre será (1:N)
 
 **![Tipos Debil](/5imagenes/entidad-relacion/tiposEntidadDebil.jpg)**
-## 1.4. Cardinalidad
-### 1.4.1. Cardinalidad uno a uno (1:1)
+## Cardinalidad
+### Cardinalidad uno a uno (1:1)
 - Esta se da cuenta cuando un registro  o elemento  de una entidad A se relaciona unicamente  con un solo registro de una entidad B y viceversa
 
 **![unoAuno](/5imagenes/entidad-relacion/cardinalidad1a1.jpg)**
-### 1.4.2. Cardinalidad uno a varios (1:N)
+### Cardinalidad uno a varios (1:N)
 - Esta se da cuenta cuando un registro  o elemento  de una entidad A se relaciona con cero o varios registros de una entidad B, y cada registro de la entidad B se relaciona únicamente con un registro de la entidad A.
 
 **![unoAN](/5imagenes/entidad-relacion/cardinalidad1aN.jpg)**
-### 1.4.3. Cardinalidad varios a varios (N:N)
+### Cardinalidad varios a varios (N:N)
 - Esta se da cuenta cuando un registro  o elemento  de una entidad A se relaciona con cero o varios registros de una entidad B, y cada registro de la entidad B se relaciona únicamente con cero o varios registros de la entidad A.
 
 **![nAN](/5imagenes/entidad-relacion/cardinalidadNaN.jpg)**
 
-#### 1.4.3.1. Ejm 1
+#### Ejm 1
 - Obtener el diagrama entidad relación con las tres entidades siguientes:
   - ESTUDIANTE(num_matricula, nombre_e, fecha_nacimiento, telefono)
   - ASIGANTURA(codigo_asignatura, nombre_a)
@@ -201,7 +89,7 @@
   - Se quiere saber el curso escolar en el que cada estudiante está matriculado de cada asignatura
   
 **![est](/5imagenes/entidad-relacion/estudiante.jpg)**
-#### 1.4.3.2. Ejm 2
+#### Ejm 2
 - Dada las 4 entidades realizar el diagrama E/R:
   - EMPLEADO(id_empleado, nombre_e, salario, telefono)
   - LOCALIDAD(id_localidad, nombre)
@@ -213,7 +101,7 @@
   - Cada provincia pertenece a una única región del país.
   
 **![prov](/5imagenes/entidad-relacion/provincia.jpg)**
-#### 1.4.3.3. Ejm 3
+#### Ejm 3
 - Una empresa dedicada a la instalación de dormitorios juveniles a medida quiere relizar una base de datos donde se reflejen las ventas y montajes, para lo cual se tiene en cuenta:
   - Cada modelo de dormitorio lo debe montar al menos dos empleados
   - El mismo empleado puede montar varios modelos de dormitorios.
@@ -223,7 +111,7 @@
   - Cada modelo de dormitorio puede ser comprado por uno o varios clientes y el mismo cliente podrá comprar uno o varios dormitorios. De un cliente nos interesa su id_cliente, nombre_cli, direccion_cli, telefono_cli y fecha de compra de cada modelo.
   
 **![dorm](/5imagenes/entidad-relacion/dormitorio.jpg)**
-#### 1.4.3.4. Ejm 4
+#### Ejm 4
 - El hospital tiene varias plantas, cada una de las cuales tiene un nombre y una cantidad de camas.
 - Las camas que están en los niveles tienen un código que las identifican.
 - Los pacientes cuentan con un número de seguro, ci y nombre, cada vez que el paciente llega al hospital se anota en su historia una fecha de entrada y una salida.
@@ -231,38 +119,38 @@
 - Existen médicos que atienden a las pacientes, estas atenciones las denominan visitas medicas.
   
 **![hosp](/5imagenes/entidad-relacion/hospitalDer.jpg)**
-## 1.5. Modelo de entidad relacion extendida
+## Modelo de entidad relacion extendida
 - Es un modelo de entidades de nivel más alto  y bajo que heredan  atributos  y se dividen en generalizacion y especificacion 
 - Las entidades hijas heredan los atributos de la entidad padre como tambien la llave primaria 
 - Las entidades hijas no pueden tener el mismo atributo 
 
 **![gen](/5imagenes/entidad-relacion/gen.jpg)**
-### 1.5.1. Parcial exclusiva   
+### Parcial exclusiva   
 - Es parcial porque puede haber más empleados como: mesero, cajero, etc.
 - Y es exclusiva porque el camarero no puede ser cocinero ni el camarero lava platos.
 
 **![excl](/5imagenes/entidad-relacion/gen1.jpg)**
-### 1.5.2. Total exclusiva
+### Total exclusiva
 - Es total porque no existe mas fichas y es exclusiva porque una ficha de autor no puede ser ficha de tema.
 
 **![texcl](/5imagenes/entidad-relacion/gen2.jpg)**
 
-### 1.5.3. Parcial solapada
+### Parcial solapada
 - Es parcial porque púede haber mas participantes como: actores, suplentes, etc.
 - Y es solapada porque un director puede ser actor.
 
 **![psol](/5imagenes/entidad-relacion/gen3.jpg)**
-### 1.5.4. Total solapada
+### Total solapada
 - Es total porque solo puede haber esos jugadores en el equipo y es solapada porque una defensa puede ser un portero, un portero puede ser un centro campista, etc
 
 **![psol](/5imagenes/entidad-relacion/gencuatro.jpg)**
 
-#### 1.5.4.1. Ejm 1
+#### Ejm 1
 - En una empresa existen varios empleados conatributos como nombre, codigo del empleado, dirección, telefono, fecha de Nacimiento, salario; los empleados se dividen en arquitecto, indicando el numero de matricula y numero de proyecto, tambien existen administrativos que tiene cargo y nivel, tambien existen los ingenieros que tienen una especialidad y años de experiencia.
 
 **![emp](/5imagenes/entidad-relacion/empresa.jpg)**
 
-#### 1.5.4.2. Ejm 2
+#### Ejm 2
 - Le contratan para hacer una BD que permita apoyar la gestión de un sistema de ventas. La empresa necesita llevar un control de proveedores, clientes, productos y ventas. Un proveedor tiene un RUT, nombre, dirección, telefono y página web.
 - Un cliente tambien tiene RUT, nombre, dirección, pero puede tener varios teléfonos de contacto. 
 - La dirección se entiende por calle, numero, comuna y ciudad.
@@ -272,37 +160,37 @@
 - Ademas se debe guardar el precio al momento de la venta, la cantidad vendida y el monto total por el producto.
 
 **![ven](/5imagenes/entidad-relacion/ventas.jpg)**
-## 1.6. Modelo de entidad relacion y cardinalidad
-### 1.6.1. ER uno a uno (1:1)
+## Modelo de entidad relacion y cardinalidad
+### ER uno a uno (1:1)
 
 **![ERunoAuno](/5imagenes/entidad-relacion/er1a1.jpg)**
-### 1.6.2. ER uno a varios (1:N)
+### ER uno a varios (1:N)
 
 **![ERunoAN](/5imagenes/entidad-relacion/er1aN.jpg)**
-### 1.6.3. ER varios a varios (N:N)
+### ER varios a varios (N:N)
 
 **![nAN](/5imagenes/entidad-relacion/erNaN.jpg)**
-### 1.6.4. ER varios a varios Debil(1:N)
+### ER varios a varios Debil(1:N)
 
 **![nAND](/5imagenes/entidad-relacion/er1aNDebil.jpg)**
-### 1.6.5. ER varios a varios (N:N) con ER varios a varios Debil(1:N)
+### ER varios a varios (N:N) con ER varios a varios Debil(1:N)
 
 **![com](/5imagenes/entidad-relacion/combinacion.jpg)**
-## 1.7. Cardinalidad y ordinalidad
+## Cardinalidad y ordinalidad
 
 **![cYO](/5imagenes/entidad-relacion/cardYord.jpg)**
-### 1.7.1. Cardinalidad
+### Cardinalidad
 - es el numero maximo de veces que una instancia en una entidad se puede relacionar con instancias de otra entidad.
 
-### 1.7.2. Ordinalidad
+### Ordinalidad
 - es el numero minimo de veces que una instancia en una entidad se puede asociar con una instancia en la entidad relacionada.
-# 2. Diagrama Entidad Relación (Diagrama Físico ER)
-## 2.1. Tipos de datos
+# Diagrama Entidad Relación (Diagrama Físico ER)
+## Tipos de datos
 - Los tipos de datos dependiendo al manejador pueden cambiar un poco, los mas básicos son los siguientes:
 
 **![tiposD](/5imagenes/entidad-relacion/tiposDatos.jpg)**
 - La finalidad al elegir el tipo de dato correcto es optimizar el uso de memoria.
-## 2.2. Constraints (Restricciones)
+## Constraints (Restricciones)
 - El valor por defecto en una DB en Null
 - Cuando no se meten datos el tipo es DEFAULT
 
@@ -314,7 +202,7 @@
 | DEFAULT     | Coloca un valor por defecto cuando no hay un valor especifico |
 | INDEX       | Se crea por columna para permitir búsquedas más rápidas       |
 
-## 2.3. Normalización
+## Normalización
 - La normalización es un proceso que se aplica a las bases de datos para organizar las tablas y evitar la redundancia o complejidad en los datos.
 - La normalización de una base de datos es la aplicación de una serie de reglas para evitar a futuro realizar quierys o consultas innecesariamente complejas. En otras palabras están enfocadas en eliminar redundancias e inconsistencias de dependencia en el diseño de las tablas que creamos para organizar las bases de datos.
 - Los datos redundantes desperdician el espacio de disco de tu pc, además de crear problemas de mantenimiento.
@@ -326,7 +214,7 @@
 | Evitar problemas de actualización de los datos en las tablas |
 | FOREIGN KEY                                                  |
 
-### 2.3.1. Primera forma normal (1FN)
+### Primera forma normal (1FN)
 - Todos los atribuots son atómicos.Un atributo es atómico si los elementos del dominio son simples e indivisibles.
 - No debe existir variación en el número de columnas.
 - Los campos no clave debe identificarse por la clave (dependencia funcional).
@@ -334,16 +222,16 @@
 
 **![1FN](/5imagenes/entidad-relacion/1FN.jpg)**
 
-#### 2.3.1.1. Ejemplo
+#### Ejemplo
 
 **![1FNE](/5imagenes/entidad-relacion/1FNE.jpg)**
-### 2.3.2. Segunda forma normal (2FN)
+### Segunda forma normal (2FN)
 - Debe cumplir la 1FN.
 - No tiene dependencia parcial.Es decir, todos los atributos no claves son totalmente dependientes de la la clave primaria  
 
 **![2FN](/5imagenes/entidad-relacion/2FN.jpg)**
 
-### 2.3.3. Tercera forma normal (3FN)
+### Tercera forma normal (3FN)
 - Se encuentra en 2FN.
 - No existe ninguna dependencia funcional transitiva en los atributos que no son clave.
 - Esta FN se traduce en que aquellos datos que no pertenecen a la entidad deben tener una independencia de las demás y debe tener un campo clave propio.
@@ -351,10 +239,10 @@
 
 **![3FN](/5imagenes/entidad-relacion/3FN.jpg)**
 
-#### 2.3.3.1. Ejemplo mas simplificado
+#### Ejemplo mas simplificado
 
 **![3FNS](/5imagenes/entidad-relacion/3FNS.jpg)**
-#### 2.3.3.2. Segundo Ejemplo
+#### Segundo Ejemplo
 - Se llevara a la 3ra forma normal la siguiente tabla
 **![3FNS2](/5imagenes/entidad-relacion/3FNS2.jpg)**
 
@@ -366,29 +254,29 @@
 
 - Se simplifica lo demas
 **![3FNS2](/5imagenes/entidad-relacion/3FNS2-3.jpg)**
-# 3. Base de datos PostgreSQL
-## 3.1. Definición Base de Datos
+# Base de datos PostgreSQL
+## Definición Base de Datos
 - Una base de datos es una colección de datos estructurados y organizados que permite el almacenamiento y recuperación eficiente de información. Está diseñada para manejar grandes volúmenes de datos y soportar múltiples tipos de operaciones de datos, tales como inserciones, actualizaciones, eliminaciones y consultas.
-### 3.1.1. Componentes Clave de una Base de Datos
+### Componentes Clave de una Base de Datos
 - Tablas (Tables): Las tablas son la estructura principal dentro de una base de datos relacional y están formadas por filas (registros) y columnas (campos). Cada tabla almacena datos relacionados en un formato tabular.
 - Filas (Rows): Cada fila en una tabla representa un único registro de datos.
 - Columnas (Columns): Cada columna en una tabla representa un campo de datos específico y define el tipo de datos que se puede almacenar en esa columna.
 - Esquema (Schema): Un esquema es la estructura que define la organización de la base de datos, incluyendo las tablas, vistas, índices, procedimientos almacenados, etc. En PostgreSQL, un esquema es también un contenedor lógico dentro de una base de datos.
-## 3.2. Tipos de Bases de Datos
+## Tipos de Bases de Datos
 - Bases de Datos Relacionales (RDBMS): Utilizan tablas para almacenar datos y usan SQL (Structured Query Language) para gestionar y manipular datos. Ejemplos incluyen PostgreSQL, MySQL, Oracle, y SQL Server.
 - Bases de Datos NoSQL: Diseñadas para manejar grandes volúmenes de datos no estructurados y distribuidos. Ejemplos incluyen MongoDB, Cassandra, y Redis.
-## 3.3. Operaciones Comunes en una Base de Datos
-### 3.3.1. CRUD
+## Operaciones Comunes en una Base de Datos
+### CRUD
 - Acrónimo que representa las cuatro operaciones básicas de manipulación de datos:
   - Create (Crear): Insertar nuevos registros en una tabla.
   - Read (Leer): Consultar y recuperar datos de la base de datos.
   - Update (Actualizar): Modificar datos existentes.
   - Delete (Eliminar): Eliminar registros de una tabla.
-### 3.3.2. Consultas (Queries)
+### Consultas (Queries)
 - Utilización de SQL para buscar y recuperar datos específicos según criterios determinados.
-## 3.4. Conceptos Fundamentales
+## Conceptos Fundamentales
 - En PostgreSQL (y en sistemas de bases de datos relacionales en general), las llaves primarias y foráneas son conceptos fundamentales para asegurar la integridad y la relación de los datos. 
-### 3.4.1. Llave Primaria (Primary Key)
+### Llave Primaria (Primary Key)
 - Una llave primaria es una columna o un conjunto de columnas que identifica de manera única a cada fila en una tabla. Las características principales de una llave primaria son:
   - Unicidad: Cada valor en la columna de la llave primaria debe ser único.
   - No Nulo: Los valores en la columna de la llave primaria no pueden ser nulos.
@@ -401,7 +289,7 @@ CREATE TABLE empleados (
 );
 --En este ejemplo, empleado_id es la llave primaria de la tabla empleados.
 ```
-### 3.4.2. Llave Foránea (Foreign Key)
+### Llave Foránea (Foreign Key)
 - Una llave foránea es una columna o un conjunto de columnas en una tabla que se refiere a la llave primaria de otra tabla. La llave foránea asegura que los valores en la columna de referencia existan en la tabla relacionada, manteniendo la integridad referencial.
 ```sql
 CREATE TABLE departamentos (
@@ -418,13 +306,13 @@ CREATE TABLE empleados (
 );
 --En este ejemplo, departamento_id en la tabla empleados es una llave foránea que se refiere a departamento_id en la tabla departamentos.
 ```
-### 3.4.3. Índices (Indexes)
+### Índices (Indexes)
 - Los índices son estructuras que mejoran la velocidad de las operaciones de consulta en una tabla. Aunque los índices mejoran el rendimiento de las consultas, también pueden ralentizar las operaciones de inserción, actualización y eliminación.
 ```sql
 CREATE INDEX idx_nombre ON empleados(nombre);
 --Este comando crea un índice en la columna nombre de la tabla empleados.
 ```
-### 3.4.4. Llave Única (Unique Key)
+### Llave Única (Unique Key)
 - Una llave única es una columna o un conjunto de columnas en una tabla que garantiza que los valores almacenados sean únicos en todas las filas de la tabla. A diferencia de la llave primaria, una tabla puede tener múltiples llaves únicas y las columnas de llaves únicas pueden aceptar valores nulos.
 ```sql
 CREATE TABLE usuarios (
@@ -434,7 +322,7 @@ CREATE TABLE usuarios (
 );
 --En este ejemplo, email debe ser único en toda la tabla usuarios.
 ```
-### 3.4.5. Constraint (Restricción)
+### Constraint (Restricción)
 - Las restricciones son reglas aplicadas a las columnas de una tabla para garantizar la exactitud y la fiabilidad de los datos en la base de datos. Algunos tipos comunes de restricciones incluyen:
   - NOT NULL: Asegura que una columna no puede tener valores nulos.
   - CHECK: Asegura que los valores en una columna cumplen una condición específica.
@@ -448,9 +336,9 @@ CREATE TABLE productos (
 );
 --En este ejemplo, email debe ser único en toda la tabla usuarios.
 ```
-## 3.5. POSTGRESQL
+## POSTGRESQL
 - PostgreSQL es un potente sistema de base de datos relacional de objetos de código abierto con más de 35 años de desarrollo activo que le ha ganado una sólida reputación por su confiabilidad, solidez de funciones y rendimiento.
-## 3.6. Ventajas
+## Ventajas
 - Instalación ilimitada y gratuita
 - Gran escalabilidad
 - Estabilidad y confiabilidad
@@ -458,15 +346,15 @@ CREATE TABLE productos (
 - Potencia y robustez
 - Extensibilidad
 - pgAdmin
-## 3.7. Interacción con comandos
+## Interacción con comandos
 - La consola en PostgreSQL es una herramienta muy potente para crear, administrar y depurar nuestra base de datos, podemos acceder a ella después de instalar PostgreSQL
-## 3.8. Jerarquia de base de datos
+## Jerarquia de base de datos
 - Servidor de base de datos: Computador que tiene un motor de base de datos instalado y en ejecución.
 - Motor de base de datos: Software que provee un conjunto de servicios encargados de administrar una base de datos
 - Base de datos: Grupo de datos que pertenencen a un mismo contexto.
 - Esquemas de base de datos en PostgreSQL: Grupo de objetos de base de datos que guarda relación entre sí (tablas, funciones, relaciones, secuencias)
 - Tablas de base de datos: Estructura de datos: Estructura que organiza los datos en filas y columnas formando una matriz.
-## 3.9. Instalar PostgreSql Ubuntu
+## Instalar PostgreSql Ubuntu
 - Actualizar primero:
 ```console
 sudo apt update
@@ -475,33 +363,33 @@ sudo apt update
 ```console
 sudo apt install postgresql postgresql-contrib
 ```
-## 3.10. Instalar PgAdmin
-### 3.10.1. Instalar la clave pública para el repositorio (si no lo hizo anteriormente):
+## Instalar PgAdmin
+### Instalar la clave pública para el repositorio (si no lo hizo anteriormente):
 ```console
 curl -fsS https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo gpg --dearmor -o /usr/share/keyrings/packages-pgadmin-org.gpg
 ```
-### 3.10.2. Crea el archivo de configuración del repositorio:
+### Crea el archivo de configuración del repositorio:
 ```console
 sudo sh -c 'echo "deb [signed-by=/usr/share/keyrings/packages-pgadmin-org.gpg] https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
 ```
-### 3.10.3. Instalar tanto para el modo de escritorio como para el web:
+### Instalar tanto para el modo de escritorio como para el web:
 ```console
 sudo apt install pgadmin4
 ```
-### 3.10.4. Instalar solo para modo de escritorio:
+### Instalar solo para modo de escritorio:
 ```console
 sudo apt install pgadmin4-desktop
 ```
-### 3.10.5. Instalar solo para modo web: 
+### Instalar solo para modo web: 
 ```console
 sudo apt install pgadmin4-web 
 ```
-### 3.10.6. Configure el servidor web, si instaló pgadmin4-web:
+### Configure el servidor web, si instaló pgadmin4-web:
 ```console
 sudo /usr/pgadmin4/bin/setup-web.sh
 ```
-## 3.11. Utilizar roles y bases de datos de PostgreSQL
-### 3.11.1. Cambiar cuenta de postgres
+## Utilizar roles y bases de datos de PostgreSQL
+### Cambiar cuenta de postgres
 - Cambie a la cuenta de postgres en su servidor, para ello ingrese con su usuario:
 ```console
 sudo -i -u postgres
@@ -514,13 +402,13 @@ sudo -i -u postgres psql
 ```console
 \q
 ```
-### 3.11.2. Acceder a la linea de comandos sin cambiar de cuenta
+### Acceder a la linea de comandos sin cambiar de cuenta
 - Con lo siguiente
 ```console
 sudo -u postgres psql
 ```
-## 3.12. Crear un nuevo rol
-### 3.12.1. Crear un nuevo usuario
+## Crear un nuevo rol
+### Crear un nuevo usuario
 - Normalmente
 ```console
 CREATE USER nombre_de_tu_usuario WITH PASSWORD 'tu_contraseña';
@@ -538,7 +426,7 @@ ALTER USER nombre_de_tu_usuario WITH SUPERUSER;
 ```console
 \q
 ```
-## 3.13. Comandos más utilizados
+## Comandos más utilizados
 
 **`\?` listar todos los comandos** 
 
@@ -561,21 +449,21 @@ ALTER USER nombre_de_tu_usuario WITH SUPERUSER;
 - **`\i <nombre_archivo>`** Ejecutar los comandos desde un archivo
 - **`\e`** Permite abrir un editor de texto plano, escribir comandos y ejecutar en lote. **\e** abre el editor de texto, escribir allí todos los comandos, luego guardar los cambios y cerrar, al cerrar se ejecutarán todos los comandos guardados.
 - **`\ef`** Equivalente al comando anterior pero permite editar también funciones en PostgreSQL
-## 3.14. Ejemplo modelo de base de datos
+## Ejemplo modelo de base de datos
 - Este modelo de base de datos representa información de usuarios y sus actividades. La entidad "Usuarios" contiene datos personales como nombre, teléfono, email, y detalles como ocupación y fecha de nacimiento. Además, se almacena la fecha de registro y una foto. Las entidades relacionadas incluyen "Experiencias" (con nombre y descripción), "Redes Sociales" (con nombre y foto), "Habilidades" (con icono, nombre y descripción), "Tecnologías" (con nombre y foto), y "Proyectos" (con nombre, foto, descripción y enlace). Estas entidades se conectan a la entidad "Usuarios" a través de claves foráneas, permitiendo organizar y acceder a información detallada sobre las experiencias, habilidades y proyectos asociados a cada usuario.
 
-## 3.15. Crear Base datos
+## Crear Base datos
 - Iniciar sesion con la cuenta postgres y crear la base de datos
 ```console
 CREATE DATABASE nombre_de_tu_base_de_datos;
 ```
-## 3.16. Abrir la linea de comandos de Postgres con el nuevo rol
-### 3.16.1. De forma directa
+## Abrir la linea de comandos de Postgres con el nuevo rol
+### De forma directa
 - También podrá hacerlo de forma directa:
 ```console
 sudo -u nombre_de_tu_usuario psql
 ```
-### 3.16.2. Conectarse a una base de datos diferente
+### Conectarse a una base de datos diferente
 - Si desea que su usuario se conecte a una base de datos diferente, puede lograrlo especificando la base de datos de esta manera:
 ```console
 psql -d otra_base_de_datos -U tu_nuevo_usuario
@@ -588,31 +476,31 @@ psql -d otra_base_de_datos -U tu_nuevo_usuario
 Output
 You are connected to database "otra_base_de_datos" as user "tu_nuevo_usuario" via socket in "/var/run/postgresql" at port "5432".
 ```
-### 3.16.3. Asignar privilegios a un usuario sobre una base de datos
+### Asignar privilegios a un usuario sobre una base de datos
 ```console
 GRANT ALL PRIVILEGES ON DATABASE nombre_de_tu_base_de_datos TO nombre_de_usuario;
 ```
-### 3.16.4. Cambiar la contraseña de un usuario
+### Cambiar la contraseña de un usuario
 ```console
 ALTER USER nombre_de_usuario WITH PASSWORD 'nueva_contraseña';
 ```
 
-## 3.17. Diagrama Entidad Relación BD
+## Diagrama Entidad Relación BD
 **![eder](/5imagenes/entidad-relacion/ejmDER.jpg)**
-## 3.18. Diagrama Entidad BD
+## Diagrama Entidad BD
 **![ede](/5imagenes/entidad-relacion/ejmDE.jpg)**
-## 3.19. Crear esquemas
+## Crear esquemas
 - La sintaxis básica para la creación de esquemas es la siguiente
 ```sql  
 CREATE SCHEMA IF NOT EXISTS core;
 CREATE SCHEMA IF NOT EXISTS portafolio;
 ```
-### 3.19.1. Cambiar al esquema creado
+### Cambiar al esquema creado
 - La sintaxis básica para cambiar al esquema creado es la siguiente
 ```sql  
 SET search_path TO core;
 ```
-## 3.20. Crear tablas
+## Crear tablas
 - La sintaxis básica para la creación de tablas es la siguiente
 ```sql
 -- Creación de la tabla de usuarios
@@ -683,7 +571,7 @@ CREATE TABLE IF NOT EXISTS portafolio.experiencias (
 );
 
 ```
-## 3.21. Mostrar información sobre una tabla específica
+## Mostrar información sobre una tabla específica
 - Linea de comandos de Postgres
 ```console
 \d core.usuarios;
@@ -710,7 +598,7 @@ Referenciada por:
 - TABLE "core.redes_sociales" CONSTRAINT "fk_usuario_red_social" FOREIGN KEY (id_usuario) REFERENCES core.usuarios(id_usuario)
 
 
-## 3.22. Agregar datos en una tabla
+## Agregar datos en una tabla
 - Como ejemplo, añada datos en cada una de las tablas en la que desea agregar, nombrar las columnas y, luego, proporcionar datos para cada una de ellas:
 ```sql
 -- Inserción de datos en la tabla core.usuarios
@@ -755,7 +643,7 @@ INSERT INTO core.usuarios_habilidades (id_usuario, id_habilidad)
 VALUES (1, 1),(1, 2),(2, 1),(2, 2);
 
 ```
-## 3.23. Ver datos en una tabla
+## Ver datos en una tabla
 - Ver la tabla usuarios
 ```sql
 SELECT * FROM core.usuarios;
@@ -765,7 +653,7 @@ SELECT * FROM core.usuarios;
 |1|Sakura Haruno|123456789|sakura@example.com|Ninja médica de Konoha|Ninja|1995-03-28|sakura.jpg|2024-01-21 00:22:27.218|
 |2|Asuka Langley Soryu|987654321|asuka@example.com|Piloto del Evangelion Unidad-02|Piloto de Eva|2001-12-04|asuka.jpg|2024-01-21 00:22:27.218|
 
-## 3.24. Eliminar datos en una tabla
+## Eliminar datos en una tabla
 - Eliminar los datos de una fila que contiene tabla
 ```sql
 -- Eliminar el jutsu medico de Sakura de la tabla tecnologias
@@ -781,7 +669,7 @@ SELECT * FROM portafolio.tecnologias;
 |2|Piloto de Evangelion|tecnologia_piloto_evangelion.jpg|2|
 
 
-## 3.25. Agregar columnas en una tabla
+## Agregar columnas en una tabla
 - Agregue una columna para mostrar la herramienta que usa por cada chica escribiendo lo siguiente
 ```sql
 ALTER TABLE portafolio.tecnologias ADD COLUMN herramienta VARCHAR(50);
@@ -795,13 +683,13 @@ SELECT * FROM portafolio.tecnologias;
 |-------------|------|----|----------|-----------|
 |2|Piloto de Evangelion|tecnologia_piloto_evangelion.jpg|2||
 
-## 3.26. Eliminar columnas en una tabla
+## Eliminar columnas en una tabla
 - Eliminar la columna
 ```sql
 --eliminar herramienta
 ALTER TABLE portafolio.tecnologias DROP herramienta;
 ```
-## 3.27. Actualizar datos de una tabla
+## Actualizar datos de una tabla
 - Puede actualizar los valores de una entrada existente buscando el registro que desee y fijando el valor que prefiera utilizar para la columna:
 ```sql
 --actualizar foto
@@ -817,7 +705,7 @@ SELECT * FROM portafolio.tecnologias;
 |2|Piloto de Evangelion|tecnologia_eva01.jpg|2|
 
 
-## 3.28. Relacion 1 a 1
+## Relacion 1 a 1
 **![a11](/5imagenes/entidad-relacion/anime_1_1.png)**
 - Asumiremos que usuarios tiene una relacion de 1:1 con la tabla tecnologias, un usuario posee 1 tecnología
 ```sql
@@ -831,7 +719,7 @@ WHERE   u.id_usuario=t.id_usuario AND u.id_usuario =1;
 |----------|--------------|--------|-----|-----------|---------|---------|------------|---------|-------------|-----------------|---------------|
 |1|Sakura Haruno|123456789|sakura@example.com|Ninja médica de Konoha|Ninja|1995-03-28|sakura.jpg|2024-01-21 19:27:58.957|1|Jutsu Médico|tecnologia_jutsu_medico.jpg|
 
-## 3.29. Relacion 1 a N
+## Relacion 1 a N
 **![a1n](/5imagenes/entidad-relacion/anime_1_n.png)**
 - Usuarios tiene una relación de 1:N con la tabla redes_sociales, un usuario puede tener muchas redes sociales
 ```sql
@@ -847,7 +735,7 @@ WHERE   u.id_usuario=rs.id_usuario AND u.id_usuario =1 ;
 |1|Sakura Haruno|Twitter|twitter_icon.jpg|
 |1|Sakura Haruno|Webex|webex_icon.jpg|
 
-## 3.30. Relacion N a N
+## Relacion N a N
 **![ann](/5imagenes/entidad-relacion/anime_n_n.png)**
 - Usuarios tiene una relación de N:N con la tabla habilidades, muchos usuarios pueden tener muchas habilidades
 ```sql
@@ -865,7 +753,10 @@ WHERE   TRUE
 |2|Asuka Langley Soryu|1|Jutsu Médico|
 |2|Asuka Langley Soryu|2|Piloto de Evangelion|
 
-## 3.31. INNER JOIN
+## SQL JOINS
+- En SQL, existen varios tipos de joins que permiten combinar registros de dos o más tablas en función de una condición relacionada.
+**![aj](/5imagenes/entidad-relacion/sqljoin.jpeg)**
+## INNER JOIN
 - El INNER JOIN se utiliza para combinar filas de dos o más tablas basándose en una condición de relación entre ellas. Solo devuelve las filas donde hay coincidencias en todas las tablas involucradas, en resumen es la intersecciòn de las tres tablas
 **![aij](/5imagenes/entidad-relacion/anime-inner-join.png)**
 ```sql
@@ -885,7 +776,7 @@ order by u.id_usuario ;
 |2|Asuka Langley Soryu|Jutsu Médico|
 |2|Asuka Langley Soryu|Piloto de Evangelion|
 
-## 3.32. LEFT JOIN
+## LEFT JOIN
 - El LEFT JOIN es un tipo de operación de unión que devuelve todos los registros de la tabla de la izquierda (en este caso core.usuarios), y los registros coincidentes de la tabla de la derecha (en este caso core.proyectos). Si no hay coincidencias en la tabla de la derecha, se devolverán valores nulos en las columnas de esa tabla.
 **![alj](/5imagenes/entidad-relacion/anime-left-join.png)**
 ```sql
@@ -905,7 +796,7 @@ FROM    core.usuarios u
 |1|Sakura Haruno|123456789|sakura@example.com|Ninja médica de Konoha|Ninja|1995-03-28|sakura.jpg|2024-01-21 19:27:58.957|Proyecto de Sakura|
 |2|Asuka Langley Soryu|987654321|asuka@example.com|Piloto del Evangelion Unidad-02|Piloto de Eva|2001-12-04|asuka.jpg|2024-01-21 19:27:58.957|Proyecto de Asuka|
 
-## 3.33. Right Join
+## Right Join
 - Un Right Join en PostgreSQL devuelve todos los registros de la tabla de la derecha (en este caso, core.usuarios) y los registros de la tabla de la izquierda (en este caso, core.proyectos) que tienen una coincidencia en la condición especificada (p.id_usuario = u.id_usuario). Si no hay ninguna coincidencia en la tabla de la izquierda, los campos de esa tabla tendrán valores nulos en el resultado.
 **![arj](/5imagenes/entidad-relacion/anime-rigth-join.png)**
 ```sql
@@ -926,7 +817,7 @@ FROM    core.proyectos p
 |||||||Nuevo Usuario|
 |||||||Nuevo Usuario2|
 
-## 3.34. View
+## View
 ```sql
 --View
 -- Crear una vista que muestre la información del usuario y sus habilidades
@@ -949,7 +840,7 @@ SELECT * FROM vw_usuario_habilidades;
 |2|Asuka Langley Soryu|987654321|asuka@example.com|Piloto del Evangelion Unidad-02|Piloto de Eva|2001-12-04|asuka.jpg|2024-01-21 19:27:58.957|Piloto de Evangelion|
 |1|Sakura Haruno|123456789|sakura@example.com|Ninja médica de Konoha|Ninja|1995-03-28|sakura.jpg|2024-01-21 19:27:58.957|Piloto de Evangelion|
 
-## 3.35. Temporal 
+## Temporal 
 ```sql
 --temporal
 -- Crear una tabla temporal para almacenar usuarios con proyectos
@@ -968,7 +859,7 @@ SELECT * FROM temp_usuarios_proyectos;
 |1|Sakura Haruno|123456789|sakura@example.com|Ninja médica de Konoha|Ninja|1995-03-28|sakura.jpg|2024-01-21 19:27:58.957|Proyecto de Sakura|
 |2|Asuka Langley Soryu|987654321|asuka@example.com|Piloto del Evangelion Unidad-02|Piloto de Eva|2001-12-04|asuka.jpg|2024-01-21 19:27:58.957|Proyecto de Asuka|
 
-## 3.36. Funcion
+## Funcion
 ```sql
 --Funcion
 -- Crear una función que calcule la edad a partir de la fecha de nacimiento
@@ -987,7 +878,7 @@ SELECT u.nombre as nombre_usuario, calcular_edad(fecha_nac) AS edad FROM core.us
 |Sakura Haruno|28|
 |Asuka Langley Soryu|22|
 
-## 3.37. TRIGGER
+## TRIGGER
 ```sql
 --TRIGGER
 -- Crear un trigger que actualice la fecha de registro cada vez que se inserta un nuevo usuario
@@ -1016,7 +907,7 @@ VALUES ('Nuevo Usuario', 123456789, 'nuevo@usuario.com', 'Descripción', 'Ocupac
 |2|Asuka Langley Soryu|987654321|asuka@example.com|Piloto del Evangelion Unidad-02|Piloto de Eva|2001-12-04|asuka.jpg|2024-01-21 19:27:58.957|
 |3|Nuevo Usuario|123456789|nuevo@usuario.com|Descripción|Ocupación|2000-01-01|foto.jpg|2024-01-22 20:44:33.476|
 - En este ejemplo, la columna fecha_reg se actualizará automáticamente con la fecha y hora actuales debido al trigger que hemos creado.
-## 3.38. PARTITION
+## PARTITION
 ```sql
 --PARTITION
 -- Calcular la cantidad de proyectos por usuario utilizando PARTITION
@@ -1029,7 +920,7 @@ FROM core.proyectos p;
 |2|1|
 |3|1|
 
-## 3.39. PROCEDURE
+## PROCEDURE
 ```sql
 --PROCEDIMIENTO
 -- Crear un procedimiento almacenado que inserte un nuevo usuario
@@ -1060,7 +951,7 @@ CALL insertar_usuario('Nuevo Usuario2', 987654321, 'nuevo2@usuario.com', 'Descri
 |2|Asuka Langley Soryu|987654321|asuka@example.com|Piloto del Evangelion Unidad-02|Piloto de Eva|2001-12-04|asuka.jpg|2024-01-21 19:27:58.957|
 |3|Nuevo Usuario|123456789|nuevo@usuario.com|Descripción|Ocupación|2000-01-01|foto.jpg|2024-01-22 20:44:33.476|
 |4|Nuevo Usuario2|987654321|nuevo2@usuario.com|Descripción|Ocupación|2000-01-01|foto2.jpg|2024-01-22 20:55:57.484|
-## 3.40. SUMA
+## SUMA
 ```qsl
 --SUMA
 -- Calcular la suma de los id_usuario agrupada por usuario que tiene mas de una red social
@@ -1073,7 +964,7 @@ GROUP BY rs.id_usuario;
 |----------|----------------|
 |1|2|
 
-## 3.41. COUNT
+## COUNT
 ```sql
 --COUNT
 -- Contar la cantidad de usuarios agrupada por nombre
