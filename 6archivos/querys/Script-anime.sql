@@ -240,10 +240,11 @@ FROM core.usuarios u,portafolio.habilidades h ,core.usuarios_habilidades uh
 WHERE u.id_usuario=uh.id_usuario AND h.id_habilidad=uh.id_habilidad  AND (u.id_usuario =1 OR u.id_usuario=2) ;
 --INNER JOIN:
 --Recupera las habilidades de los usuarios que tienen habilidades registradas.
-SELECT u.id_usuario, u.nombre as nombre_usuario, h.nombre AS habilidad_nombre
-FROM core.usuarios u
-INNER JOIN core.usuarios_habilidades uh ON u.id_usuario = uh.id_usuario
-INNER JOIN portafolio.habilidades h ON uh.id_habilidad = h.id_habilidad
+SELECT 	u.id_usuario, u.nombre as nombre_usuario,
+		h.nombre AS habilidad_nombre
+FROM 	core.usuarios u
+		INNER JOIN core.usuarios_habilidades uh ON u.id_usuario = uh.id_usuario
+		INNER JOIN portafolio.habilidades h ON uh.id_habilidad = h.id_habilidad
 order by u.id_usuario ;
 --LEFT JOIN
 --Obtener todos los usuarios y sus proyectos (si tienen alguno)
