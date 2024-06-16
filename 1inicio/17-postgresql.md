@@ -759,10 +759,11 @@ WHERE   TRUE
 ```sql
 --INNER JOIN:
 --Recupera las habilidades de los usuarios que tienen habilidades registradas.
-SELECT u.id_usuario, u.nombre as nombre_usuario, h.nombre AS habilidad_nombre
-FROM core.usuarios u
-INNER JOIN core.usuarios_habilidades uh ON u.id_usuario = uh.id_usuario
-INNER JOIN portafolio.habilidades h ON uh.id_habilidad = h.id_habilidad
+SELECT 	u.id_usuario, u.nombre as nombre_usuario,
+		h.nombre AS habilidad_nombre
+FROM 	core.usuarios u
+		INNER JOIN core.usuarios_habilidades uh ON u.id_usuario = uh.id_usuario
+		INNER JOIN portafolio.habilidades h ON uh.id_habilidad = h.id_habilidad
 order by u.id_usuario ;
 ``` 
 |id_usuario|nombre_usuario|habilidad_nombre|
