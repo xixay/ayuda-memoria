@@ -251,6 +251,15 @@ order by u.id_usuario ;
 SELECT u.*, p.nombre AS proyecto_nombre
 FROM core.usuarios u
 LEFT JOIN core.proyectos p ON u.id_usuario = p.id_usuario;
+--A-B
+SELECT
+    u.*,
+    t.id_tecnologia,
+    t.nombre AS tecnologia_nombre,
+    t.foto AS tecnologia_foto
+FROM core.usuarios u
+LEFT JOIN portafolio.tecnologias t ON u.id_usuario = t.id_usuario
+WHERE t.id_usuario IS NULL;
 --RIGHT JOIN
 -- Obtener todos los proyectos y sus usuarios (incluso si no tienen un usuario asociado)
 SELECT p.*, u.nombre AS usuario_nombre

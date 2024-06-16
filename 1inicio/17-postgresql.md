@@ -776,7 +776,7 @@ order by u.id_usuario ;
 |2|Asuka Langley Soryu|Jutsu Médico|
 |2|Asuka Langley Soryu|Piloto de Evangelion|
 
-## LEFT JOIN
+## LEFT JOIN (LEFT OUTER JOIN)
 - El LEFT JOIN es un tipo de operación de unión que devuelve todos los registros de la tabla de la izquierda (en este caso core.usuarios), y los registros coincidentes de la tabla de la derecha (en este caso core.proyectos). Si no hay coincidencias en la tabla de la derecha, se devolverán valores nulos en las columnas de esa tabla.
 **![alj](/5imagenes/entidad-relacion/anime-left-join.png)**
 ```sql
@@ -796,7 +796,30 @@ FROM    core.usuarios u
 |1|Sakura Haruno|123456789|sakura@example.com|Ninja médica de Konoha|Ninja|1995-03-28|sakura.jpg|2024-01-21 19:27:58.957|Proyecto de Sakura|
 |2|Asuka Langley Soryu|987654321|asuka@example.com|Piloto del Evangelion Unidad-02|Piloto de Eva|2001-12-04|asuka.jpg|2024-01-21 19:27:58.957|Proyecto de Asuka|
 
-## Right Join
+## LEFT JOIN (A - B) 
+- Para realizar una consulta que utilice la diferencia de conjuntos (A - B) entre las tablas core.usuarios y portafolio.tecnologias en PostgreSQL, y para entender cómo se relacionan estos conjuntos, podemos usar una operación de LEFT JOIN con una condición que excluya los registros que tienen correspondencia en ambas tablas.
+**![aloj](/5imagenes/entidad-relacion/anime-a-b.png)**
+```sql
+--LEFT JOIN
+--Obtener los usuarios que están en core.usuarios pero no tienen ninguna entrada correspondiente en portafolio.tecnologias.
+SELECT  u.*,
+        t.id_tecnologia,
+        t.nombre AS tecnologia_nombre,
+        t.foto AS tecnologia_foto
+FROM    core.usuarios u
+        LEFT JOIN portafolio.tecnologias t ON u.id_usuario = t.id_usuario
+WHERE   t.id_usuario IS NULL;
+--core.usuarios u: Especificamos la tabla de usuarios como el conjunto A.
+--portafolio.tecnologias t: Especificamos la tabla de tecnologías como el conjunto B.
+--Realizamos un LEFT JOIN para combinar los usuarios con las tecnologías basado en id_usuario.
+--La condición asegura que solo se seleccionen los registros de core.usuarios que no tienen una correspondencia en portafolio.tecnologias, es decir, los usuarios que no están asociados a ninguna tecnología.
+```
+|id_usuario|nombre|telefono|email|descripcion|ocupacion|fecha_nac|foto|fecha_reg|id_tecnologia|tecnologia_nombre|tecnologia_foto|
+|----------|------|--------|-----|-----------|---------|---------|----|---------|-------------|-----------------|---------------|
+|21|Nuevo Usuario|123456789|nuevo@usuario.com|Descripción|Ocupación|2000-01-01|foto.jpg|2024-01-22 20:44:33.476||||
+|22|Nuevo Usuario2|987654321|nuevo2@usuario.com|Descripción|Ocupación|2000-01-01|foto2.jpg|2024-01-22 20:55:57.484||||
+
+## RIGHT JOIN (RIGHT OUTER JOIN)
 - Un Right Join en PostgreSQL devuelve todos los registros de la tabla de la derecha (en este caso, core.usuarios) y los registros de la tabla de la izquierda (en este caso, core.proyectos) que tienen una coincidencia en la condición especificada (p.id_usuario = u.id_usuario). Si no hay ninguna coincidencia en la tabla de la izquierda, los campos de esa tabla tendrán valores nulos en el resultado.
 **![arj](/5imagenes/entidad-relacion/anime-rigth-join.png)**
 ```sql
@@ -814,6 +837,24 @@ FROM    core.proyectos p
 |-----------|------|----|-----------|----|----------|--------------|
 |1|Proyecto de Sakura|proyecto_sakura.jpg|Desarrollo de técnicas médicas ninja|https://github.com/sakura/proyecto|1|Sakura Haruno|
 |2|Proyecto de Asuka|proyecto_asuka.jpg|Defensa contra los Ángeles|https://github.com/asuka/proyecto|2|Asuka Langley Soryu|
+|||||||Nuevo Usuario|
+|||||||Nuevo Usuario2|
+
+## RIGHT JOIN (B-A)
+- Para obtener la diferencia de conjuntos (B - A) entre las tablas usuarios y proyectos utilizando un RIGHT JOIN en PostgreSQL, puedes seguir este enfoque:
+**![arj](/5imagenes/entidad-relacion/anime-b-a.png)**
+```sql
+--RIGHT JOIN
+-- Representar los usuarios que no tienen proyectos asociados
+SELECT  p.*,
+        u.nombre AS usuario_nombre
+FROM    core.proyectos p
+        RIGHT JOIN core.usuarios u ON p.id_usuario = u.id_usuario
+WHERE p.id_proyecto IS NULL;
+--El resultado de esta consulta sería una tabla que muestra información detallada de los usuarios que no tienen proyectos asociados. Esto incluiría todos los campos de usuarios y los campos relevantes de proyectos serán NULL.
+```
+|id_proyecto|nombre|foto|descripcion|link|id_usuario|usuario_nombre|
+|-----------|------|----|-----------|----|----------|--------------|
 |||||||Nuevo Usuario|
 |||||||Nuevo Usuario2|
 
