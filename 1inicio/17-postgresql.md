@@ -968,7 +968,7 @@ FROM    core.proyectos p
 **![arj](/5imagenes/entidad-relacion/anime-b-a.png)**
 ```sql
 --RIGHT JOIN
--- Representar los usuarios que no tienen proyectos asociados
+-- Representar los usuarios que no tienen proyectos asociados.
 SELECT  p.*,
         u.nombre AS usuario_nombre
 FROM    core.proyectos p
