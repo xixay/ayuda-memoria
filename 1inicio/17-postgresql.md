@@ -965,7 +965,7 @@ FROM    core.proyectos p
 ## 3.36. RIGHT JOIN (B-A)
 - Para obtener la diferencia de conjuntos (B - A) entre las tablas usuarios y proyectos utilizando un RIGHT JOIN en PostgreSQL, puedes seguir este enfoque:
 
-**![arj](/5imagenes/entidad-relacion/anime-b-a.png)**
+**![arj](/5imagenes/entidad-relacion/anime-b-a_.png)**
 ```sql
 --RIGHT JOIN
 -- Representar los usuarios que no tienen proyectos asociados.
