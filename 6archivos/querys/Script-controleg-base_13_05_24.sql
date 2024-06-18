@@ -99,9 +99,26 @@ where 	true
 --		and u.usu_codigo in (1,2,3,7,8,9,10,11,15,18,20,24,32,33,34,35,36)
 --		and u.usu_codigo in (39)
 --		and u.usu_codigo in (36)
-		and u.usu_codigo in (40)		
+--		and u.usu_codigo in (40)
+		and u.usu_estado in (0)		
 --		and ur.usurol_estado in (2)
 order by u.usu_codigo desc;
+--CONDICION USUARIO
+select 	c.con_codigo, c.con_nombre, c.con_estado,
+		cu.conusu_codigo, cu.conusu_justificacion, cu.conusu_fecha_inicio, cu.conusu_fecha_final, cu.conusu_estado,
+		u.usu_codigo, u.usu_usuario,
+		pn.pernat_codigo, pn.pernat_nombres 
+from 	controleg_control.condicion_usuario cu
+		left join controleg_control.condicion c on cu.con_codigo = c.con_codigo 
+		left join autenticacion.usuario u on cu.usu_codigo = u.usu_codigo
+		left join controleg_persona.persona_natural pn on u.pernat_codigo = pn.pernat_codigo 
+where 	true 
+--		and cu.conusu_codigo in (1)
+order by cu.conusu_codigo desc;
+--CONDICION
+select 	*
+from 	controleg_control.condicion c
+order by c.con_codigo desc;
 --USUARIO ENTIDAD
 select 	ue.*
 --select 	ue.usuent_codigo, ue.ent_codigo, ue.usuent_estado,
@@ -280,7 +297,7 @@ from 	autenticacion.usuario_rol ur
 		left join autenticacion.rol r on ur.rol_codigo = r.rol_codigo
 		left join parametricas.tipo_rol tr on r.tiprol_codigo = tr.tiprol_codigo 
 where 	true 
-		and ur.usu_codigo in (60)
+		and ur.usu_codigo in (51)
 --		and ur.usu_codigo in (62)
 --		and ur.usu_codigo in (63)
 --		and ur.usu_codigo in (64)
@@ -331,14 +348,6 @@ WHERE  true
 --	   and r.rol_codigo in (6)--REGISTRO DE SUMARIO
 	   and r.rol_codigo in (7)--SOLICITUD
 ORDER BY r.rol_codigo ASC , m.men_codigo asc;
---
-select count (*) as total
-FROM autenticacion.usuario t
-LEFT JOIN parametricas.estados e ON e.est_codigo = t.usu_estado
-LEFT JOIN controleg_persona.persona_natural p ON t.pernat_codigo = p.pernat_codigo
-left join autenticacion.usuario_entidad ue on t.usu_codigo = ue.usuent_codigo 
-WHERE true
-		and ue.ent_codigo in (1);
 
 	
 	

@@ -3,27 +3,27 @@
   GET {{Host}}/estado
 ### AUTH INTERNO
   # @name login_interno
-  POST http://172.16.80.32:4002/api/v1/auth_cge HTTP/1.1
+  POST http://172.16.75.100:7064/auth/interno HTTP/1.1
   Content-type: application/json
 
-  # {
-  #   "usuario": "usuario1",
-  #   "password": "1234567aA"
-  # }
+  {
+    "usu_usuario": "4332293-1E",
+    "usu_contrasenia": "AFC4332293-1E"
+  }
+### AUTH EXTERNO
+  # @name login_interno
+  POST http://172.16.75.100:7064/auth/externo HTTP/1.1
+  Content-type: application/json
 
   {
-    "usuario": "4755293",
-    "password": "Pruebas"
+    "usu_usuario": "3508438",
+    "usu_contrasenia": "DZS3508438",
+    "ent_codigo": 0
   }
-
-  # {
-  #   "usuario": "8360022",
-  #   "password": "1234567"
-  # }
 
 ### Este es token de autenticacion
   @AuthTokenInterno = {{login_interno.response.body.datos.token}}
-  @AuthTokenExterno = Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsInBlcm5hdCI6MSwiaWF0IjoxNzE4Mjg1MzMxLCJleHAiOjE3MTgzMTQxMzF9.FVf24yjFYP8irnfcsCp9kAa5d1YLPdAeBUEjrV2PVCE67-zywUVlqgfRYa7vAaSzIrYAWO_kRx1M7dmKW3oQPxiL1FEnd5atwpPTYxC1arSpqVcOOKDHq8XKGWmdeN0WCD8D2rNonIeSoeQpL2Yzs9xNIYPtuQM0DpZYnZFrMi4uKFEB-KJJM8usZVqSSwPznY1aWGaLVYKwDP3sohPfo7sZFUFSmEs233pq9ejpXSTD7aS_FaWgLjtTpejYpvpNeH-mDPT0FNsMFOAwI1NESvOBmhGDK7Fm11JRGuWrFHgLu1fdTpaw7Nh7iDnaxXs1ZVeCrKlDo66Efsc12Zor60ZLaifvi490YUwKyzuxrk5Nl2K7hzFGMytcb6BpPHv-Lz9Ig-C7ZnMRzWs8160O8-oQvYTBvZDSXi4SmWHzPrnCxoiD46Er1J9yEgofQcvUxitLeCypuOICNbgh6-L0g2D-ysblzlRJBV7kkwOVlOSqjwWxgTiEMMSJ4n__2UL4cD_nqeTlHNlV_BgHagxzzUlczT3Jn8L8wil3ygVb68-f-9Xuh8qj7ZGZU-kic7te6y6tv7tnEyhGHaJUvSSNNl_W-7k8GFDY5bdKe_9ZIxYRWU-r8fLzCEHMcvQUhZUq28TF_YcTMPxlWLkJqbEq1oeGPTp5blXn5JKAFgEPJec
+  @AuthTokenExterno = Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjY2LCJlbnQiOjk4LCJwZXJuYXQiOjg1LCJpYXQiOjE3MTg0MDUyOTAsImV4cCI6MTcxODQzNDA5MH0.jbnMm7y8ra1KPBT3AJMv_GJFd62pETtmGcHN-dFkOHhSXntD4FmctZenkKPwYgD1hrDaZS-Uf-UTnMgep3x8prPO0qKKoAfM6KikiKSJ-HImP75V-LgIqGfwdxyp2899lCsxKLyFd5CAMpZHWGHB3F3ArBQaWutrfO7PiFxAEP1YGcKqbnX-ktRQGEI4CX9A-fDAFBcH6LskeQqhRAj9fnsYHrR4DRomVnWv8LC8Ju81E3YNHNXM4QegZWTl3n2BjHzfsEUkEXgfV2kHHXBc9UGIOk4EMaMzELZPQ3jbmf_H3QQ19phWMGaxxE57iTJiGSIvua174XeRcOkebCA96AY08Nf1gHGj_wIDhKuxfFM2-yTAVDdGPpTtixAbPHLJF5yu7gQDP3Pasdhy1qkSC-7knxZgiFX0L3flSqyeVdJebGQJDHOlCMZYDFbA6XbJUmvlGj536nGsJSmlVkMXmuAKOIZfg9NW0hJa8f1QE9XZP151DJOeSoCz1YxId2yFkLN3_jN2c_vmaJnetfFE2UHh03Vi34T3IoTu_bSebgXf_dzNj4Lo1IXuuIK3l8uruNUu8GTDO8rxvKVRyjXDgnxAjiB70F2wfOaPcS-T7kvpCx1SI75gZWyIWbzHxplZjba8LyPKauHBRSny2ypWymk3gixNBYj766zoHOc-cps
 ###   Aqui se define IP de servicio web
   @Host = http://172.16.75.100:7064
   @Hostautenticacion = http://172.16.22.241:7010/
@@ -36,12 +36,12 @@
   @tipresCodigo=3
 ### USUARIO
 ###  -------- OBTENER - USUARIO
-  # GET {{Host}}/usuario/ HTTP/1.1
-  GET {{Host}}/usuario/recursos?tipoRecurso=1 HTTP/1.1
+  GET {{Host}}/usuario/ HTTP/1.1
+  # GET {{Host}}/usuario/recursos?tipoRecurso=1 HTTP/1.1
   Authorization: {{AuthTokenExterno}}
   Content-Type: application/json
 ###  -------- OBTENER - USUARIO POST
-  POST {{Host}}/usuario/find HTTP/1.1
+  POST {{Host}}/usuario/find?usu_estado(1,2) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 
@@ -274,5 +274,53 @@
   Content-Type: application/json
 ###  -------- ACTIVAR - RUTAS-DEPENDIENTES
   PATCH {{Host}}/rutas-dependientes/2 HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+### CONDICION - USUARIOS
+###  -------- OBTENER - CONDICION - USUARIOS
+  GET {{Host}}/condicion-usuario/ HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+###  -------- OBTENER - CONDICION - USUARIOS POST
+  POST {{Host}}/condicion-usuario/find HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+  {
+    "usuario": "1024",
+    "rutdep_estado": 2
+  }
+###  -------- CREAR - CONDICION - USUARIOS
+  POST {{Host}}/condicion-usuario HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+  {
+    "conusu_justificacion": "just prueba 3",
+    "conusu_fecha_inicio": "2024-06-17",
+    "conusu_fecha_final": "2024-09-17",
+    "con_codigo": 16,
+    "usu_codigo": 3,
+    "usuario":2022
+  }
+###  -------- MODIFICAR - CONDICION - USUARIOS
+  PUT {{Host}}/condicion-usuario HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+  {
+    "rutdep_codigo": 3,
+    "rutdep_ruta": "ruta 3",
+    "rutdep_descripcion": "desc 3 3",
+    "men_codigo": 1,
+    "rutdep_estado": 2,
+    "usuario":2022
+  }
+###  -------- ELIMINAR - CONDICION - USUARIOS
+  DELETE {{Host}}/condicion-usuario/6
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+###  -------- ACTIVAR - CONDICION - USUARIOS
+  PATCH {{Host}}/condicion-usuario/6 HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
