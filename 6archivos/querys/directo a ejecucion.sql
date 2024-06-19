@@ -33,14 +33,18 @@ from 	control_estados.flujos_tablas ft
 where 	true 
 		and ft.tab_codigo in (64)
 order by ft.fta_codigo asc;
+--
+select 	*
+from 	ejecucion_informes.informes_uai iu
+order by iu.iua_codigo desc;
 --INFORMES UAI
---select 	tt.*
-select 	iu.iua_codigo, iu.iua_estado, iu.iua_correlativo, iu.iua_codigo_control, iu.ent_codigo,iu.ttr_codigo,
-		ie.iev_codigo, ie.iev_estado,
-		a.act_codigo, a.act_numero,
-		au.aun_nombre, au.aun_sigla,
-		tt.ttr_codigo, tt.ttr_sigla,
-		ett.ett_codigo, ett.ett_nombre
+select 	*
+--select 	iu.iua_codigo, iu.iua_estado, iu.iua_cite , iu.iua_codigo_control, iu.ent_codigo,iu.ttr_codigo,
+--		ie.iev_codigo, ie.iev_estado,
+--		a.act_codigo, a.act_numero,
+--		au.aun_nombre, au.aun_sigla,
+--		tt.ttr_codigo, tt.ttr_sigla,
+--		ett.ett_codigo, ett.ett_nombre
 from 	ejecucion_informes.informes_uai iu
 		left join ejecucion_informes.informes_evaluaciones ie on iu.iua_codigo = ie.iua_codigo 
 		left join parametricas.tipos_trabajos tt on iu.ttr_codigo = tt.ttr_codigo
@@ -49,14 +53,37 @@ from 	ejecucion_informes.informes_uai iu
 		left join estructura_organizacional.areas_unidades au on a.aun_codigo_ejecutora = au.aun_codigo 
 where 	true
 		and au.aun_sigla = 'GDT-GAM1'
---		and iu.iua_codigo in (1)
+		and a.act_numero = '500.1703.102.1.24'
+		and iu.iua_codigo in (573)
 order by iu.iua_codigo desc;
 --INFORMES EVALUACIONES
 select 	*
 from 	ejecucion_informes.informes_evaluaciones ie
 where 	true 
-		and ie.iev_codigo in (1)
+--		and ie.iev_codigo in (1)
 order by ie.iev_codigo desc;
+--INICIO EVALUACION INFORME
+select 	*
+from 	ejecucion_informes.inicio_evaluacion_informe iei
+where  true 
+		and iei.iua_codigo in (573);
+--ASIGNACIONES
+select 	*
+from 	ejecucion_poa.asignaciones a
+where 	true 
+		and a.asi_codigo in (972);
+--ASIGNACIONES CARGOS ITEM
+select	*
+from 	ejecucion_poa.asignaciones_cargos_item aci
+where 	true
+		and aci.asi_codigo in (972)
+order by aci.aci_codigo desc;
+--INICIO EVALUACION INFORME ASIGNACIONES
+select 	*
+from 	ejecucion_informes.inicio_evaluacion_informe_asignaciones ieia
+where 	true 
+		and ieia.asi_codigo in (972)
+order by ieia.ieia_codigo desc;
 
 
 
