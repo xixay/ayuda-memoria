@@ -1,208 +1,315 @@
--- EMPRESA UNIPERSONAL
-select 	* 
-from 	controleg_persona.empresa_unipersonal eu 
-where	true
---		and eu.empuni_codigo in (49)
---		and eu.perjur_codigo in (127)
---		and eu.pernat_codigo in (106)
-order by eu.empuni_codigo desc;
---limit 16;
--- ENTIDADES
-select 	* 
-from 	controleg_persona.entidad e   
-where	true 	
---		and e.ent_codigo in (1139)
-order by e.ent_codigo  desc;
---limit 16;
--- PERSONA JURIDICA
-select 	* 
-from 	controleg_persona.persona_juridica pj  
-where	true 	
---		and pj.perjur_codigo in (1)
---		and pj.perjur_nit like '54%'
---		and pj.perjur_sigla  like 'siga'
---		and pj.tpj_codigo in (1)
-order by pj.perjur_codigo desc;
---limit 16;
--- PERSONA RESPONSABLE
-select 	* 
-from 	controleg_persona.persona_responsable pr  
-where	true 	
---		and a.act_numero = '00.1601.110.2.24'
---		and a.act_codigo in (1121)
-order by pr.perres_codigo desc 
-limit 16;
--- REPRESENTANTE LEGAL
-select 	* 
-from 	controleg_persona.representante_legal rl 
-where	true 	
---		and a.act_numero = '00.1601.110.2.24'
---		and a.act_codigo in (1121)
-order by rl.repleg_codigo desc 
-limit 16;
--- PERSONA NATURAL
-select 	* 
-from 	controleg_persona.persona_natural pn  
-where	true 	
---		and pn.pernat_codigo in (125)
---		and pn.pernat_nombres like 'MIRIAM NICOLAZA'
-order by pn.pernat_codigo  desc;
---limit 16;
---ROL
 select 	*
-from 	autenticacion.rol r
-where 	true 
-order by r.rol_codigo desc;
---TIPO ROL
+from 	estructura_organizacional.areas_unidades au ;
+--TIPOS DE INICIOS DE ACTIVIDADES
 select 	*
-from 	parametricas.tipo_rol tr
+from 	parametricas.tipos_inicios_actividades tia ;
+--TIPOS DE TRABAJO
+select	*
+from 	parametricas.tipos_trabajos tt ;
+--ESPECIFICACION TIPOS DE TRABAJO
+select 	*
+from 	parametricas.especificacion_tipos_trabajo ett;
+--TIPO DE ACTIVIDAD
+select 	*
+from 	parametricas.tipos_actividades ta ;
+-- POA
+select 	*  
+from 	estructura_poa.poas p
 where 	true 
-order by tr.tiprol_codigo desc;
---USUARIO
---select 	rro.*
-select 	u.usu_codigo, u.usu_usuario, u.usu_contrasenia,u.usu_estado,
-      	pn.pernat_codigo ,pn.pernat_nombres , pn.per_codigo
-from 	autenticacion.usuario u
-		left join controleg_persona.persona_natural pn on u.pernat_codigo = pn.pernat_codigo
-where 	true
---		and u.usu_codigo in (1,2,3,7,8,9,10,11,15,18,20,24,32,33,34,35,36)
---		and u.usu_codigo in (39)
---		and u.usu_codigo in (36)
-		and u.usu_codigo in (40)		
---		and ur.usurol_estado in (2)
-order by u.usu_codigo desc;
---USUARIO ROL
-select 	tr.*
---select 	ur.usurol_codigo, ur.rol_codigo, ur.usurol_estado,
---		u.usu_codigo ,u.usu_estado,
---		pn.pernat_codigo, pn.per_codigo, pn.pernat_nombres, pn.pernat_estado,
---		r.rol_codigo, r.rol_nombre, r.rol_estado,
---		tr.tiprol_codigo, tr.tiprol_nombre, tr.tiprol_estado
-from 	autenticacion.usuario_rol ur
-		left join autenticacion.usuario u on ur.usu_codigo = u.usu_codigo
-		left join controleg_persona.persona_natural pn on u.pernat_codigo = pn.pernat_codigo
-		left join autenticacion.rol r on ur.rol_codigo = r.rol_codigo
-		left join parametricas.tipo_rol tr on r.tiprol_codigo = tr.tiprol_codigo 
+--		and p.poa_estado not in (2,9,0,13)
+		and p.poa_codigo in (3)
+order by p.poa_codigo desc
+limit 5;
+-- POA OBJETIVOS
+select	*
+from 	estructura_poa.poas_objetivos po 
 where 	true 
-		and u.usu_codigo in (40)
---		and ur.usurol_estado in (2)
-order by ur.usurol_codigo desc;
---USUARIO ENTIDAD
-select 	td.*
---select 	ue.usuent_codigo, ue.ent_codigo, ue.usuent_estado,
-	--	u.usu_codigo ,u.usu_estado,
-	--	pn.pernat_codigo, pn.per_codigo, pn.pernat_nombres, pn.pernat_estado,
-	--	td.tipdoc_codigo ,td.tipdoc_nombre , td.tipdoc_estado 
-from 	autenticacion.usuario_entidad ue 
-		left join autenticacion.usuario u on ue.usu_codigo = u.usu_codigo
-		left join controleg_persona.persona_natural pn on u.pernat_codigo = pn.pernat_codigo
-		left join parametricas.tipo_documento td on pn.tipdoc_codigo = td.tipdoc_codigo 
+--		and po.pobj_estado not in (2,9,0,13)
+--		and po.pobj_estado in (0)
+		and po.pobj_codigo in (1181)
+order by	po.pobj_codigo desc;
+-- VIATICOS
+select 	av.avi_codigo ,av.act_codigo, av.avi_estado, av.fecha_registro ,
+		au.aun_sigla, a.pobj_codigo, p.poa_codigo  
+from 	estructura_poa.actividades_viaticos av
+		left join estructura_poa.actividades a on av.act_codigo = a.act_codigo
+		left join estructura_poa.poas_objetivos po on a.pobj_codigo = po.pobj_codigo 
+		left join estructura_poa.poas p on po.poa_codigo = p.poa_codigo 
+		left join estructura_organizacional.areas_unidades au on a.aun_codigo_ejecutora = au.aun_codigo
 where 	true 
-		and u.usu_codigo in (40)
-order by ue.usuent_codigo desc;
---FLUJOS TABLAS SERVICES
+--		and av.avi_estado in (1)
+		and p.poa_codigo in (3)
+order by av.avi_codigo desc; 
+-- ACTIVIDADES
 --select 	*
---from 	control_estados.flujos_tablas ft
---where 	true 
---		and ft.tab_codigo in (64)
---order by ft.fta_codigo asc;
---######################## OTROS ###########################################
---TRAE USUARIOS SUSI--
-WITH 	usuarios AS (
+--select 	a.act_codigo ,a.act_numero ,a.act_descripcion ,a.act_fecha_inicio ,a.act_fecha_fin ,a.act_objeto ,a.ttr_codigo ,a.tipact_codigo,a.cac_codigo 
+select 	a.act_codigo ,a.act_numero ,a.cac_codigo ,a.iac_codigo_apoyo, a.act_estado, a.act_descripcion , a.aun_codigo_ejecutora, a.tipact_codigo, a.fecha_registro, 
+		au.aun_nombre, au.aun_sigla, au.aun_estado,
+		po.pobj_codigo ,po.pobj_nombre, po.pobj_estado,
+		p.poa_codigo 
+from 	estructura_poa.actividades a 
+		left join estructura_organizacional.areas_unidades au on a.aun_codigo_ejecutora = au.aun_codigo 
+		left join estructura_poa.poas_objetivos po on a.pobj_codigo = po.pobj_codigo 
+		left join estructura_poa.poas p on p.poa_codigo = po.poa_codigo 
+where	true 	
+--		and a.act_numero = '530.0022.15.1.24'
+--		and a.act_codigo in (1121)
+--		and au.aun_sigla like 'GPA-GA3'
+--		and a.act_estado not in (2,9,0,13)
+--		and a.act_estado in (1)
+--		and a.iac_codigo_apoyo is not null
+--		and a.tipact_codigo in (2)
+--		and a.cac_codigo in (2)
+--		and po.pobj_codigo in (1181)
+		and p.poa_codigo in (2)
+order by au.aun_codigo desc;
+--order by a.act_codigo desc;
+--#################
+        SELECT
+              t.for_estado, fob.fob_estado, act.act_estado, avi.avi_estado
+              ,COALESCE(COUNT(DISTINCT act.act_codigo), 0) AS cantidad_actividades
+        FROM	estructura_poa.formularios t
+              LEFT JOIN estructura_poa.formularios_objetivos fob ON
+                t.for_codigo = fob.for_codigo
+                AND fob.fob_estado IN (4,10,14,11,12,13,1,3,8,7,2,5)
+              LEFT JOIN (
+                SELECT	*
+                FROM	estructura_poa.actividades act
+                WHERE	TRUE
+                    AND act.act_estado IN (4,10,14,11,12,13,1,3,8,7,2,5)
+                    --AND act.cac_codigo IN (1)
+                    --${queryAddConditionAreaUnidadRolPersonaForActividades || ''}
+              ) act ON fob.fob_codigo = act.fob_codigo
+              LEFT JOIN estructura_poa.actividades_viaticos avi ON
+                act.act_codigo = avi.act_codigo
+                AND avi.avi_estado IN (4,10,14,11,12,13,1,3,8,7,2,5)
+        WHERE TRUE
+              AND t.poa_codigo IN (3)
+        GROUP BY t.for_estado, fob.fob_estado, act.act_estado, avi.avi_estado
+        ORDER BY
+          array_position( array[4,10,14,11,12,13,1,3,8,7,2,5], avi.avi_estado ),
+          array_position( array[4,10,14,11,12,13,1,3,8,7,2,5], act.act_estado ),
+          array_position( array[4,10,14,11,12,13,1,3,8,7,2,5], fob.fob_estado ),
+          array_position( array[4,10,14,11,12,13,1,3,8,7,2,5], t.for_estado )
+        ;
+--##############
+--##############
+SELECT	*
+FROM	estructura_poa.actividades act
+WHERE	TRUE
+    AND act.act_estado IN (4,10,14,11,12,13,1,3,8,7,2,5);
+    --AND act.cac_codigo IN (1);
+    --${queryAddConditionAreaUnidadRolPersonaForActividades || ''};
+--##############
+--##############
 SELECT
-  		t.usu_codigo,
-  		t.usu_usuario,
-  		t.usu_contrasenia,
-  		TO_CHAR(t.usu_fecha_expiracion, 'dd/mm/yyyy') as usu_fecha_expiracion,
-  		t.pernat_codigo,
-  		p.pernat_nombres || ' ' || p.pernat_apellido_paterno || ' ' || p.pernat_apellido_materno AS pernat_nombre_completo,
-  		p.pernat_documento_identidad,
-  		p.pernat_correo_electronico,
-  		t.usu_estado,
-		e.est_color,
-  		e.est_nombre AS usu_estado_descripcion,
-  		TO_CHAR(t.fecha_registro, 'HH24:MI am dd/mm/yyyy') as fecha_registro         
-FROM 	autenticacion.usuario t
-		LEFT JOIN parametricas.estados e ON e.est_codigo = t.usu_estado
-		LEFT JOIN controleg_persona.persona_natural p ON t.pernat_codigo = p.pernat_codigo       
-		JOIN (
-			SELECT 	DISTINCT r.tiprol_codigo, ur.usu_codigo
-			FROM 	autenticacion.usuario_rol ur
-			JOIN 	autenticacion.rol r USING (rol_codigo)
-			WHERE 	r.tiprol_codigo = 2
-		) rol ON rol.usu_codigo = t.usu_codigo       
-WHERE 	TRUE 
-		and t.usu_estado in (0,1,2)
-order by usu_codigo desc
-limit 10
-offset 0
-),
-roles 	AS (
-SELECT
-      	tabla_subconsulta.usu_codigo,
-      	array_to_json(array_agg(row_to_json(tabla_subconsulta))) conjunto
-FROM 	(
-    	SELECT 	ur.usu_codigo, r.rol_nombre,  tr.tiprol_nombre  ,r.tiprol_codigo, r.rol_codigo
-    	FROM 	autenticacion.usuario_rol ur
-    			JOIN usuarios USING (usu_codigo)
-    			JOIN autenticacion.rol r USING (rol_codigo)
-    			LEFT JOIN parametricas.tipo_rol tr USING (tiprol_codigo)
-    	where ur.usurol_estado > 0
-  		) tabla_subconsulta
-GROUP BY tabla_subconsulta.usu_codigo
-),
-entidades as (
-SELECT
-      	tabla_subconsulta.usu_codigo,
-      	array_to_json(array_agg(row_to_json(tabla_subconsulta))) conjunto
-FROM 	(
-    	SELECT 	u.usu_codigo, ue.usuent_codigo, ue.ent_codigo, e.ent_descripcion
-    	FROM 	autenticacion.usuario_entidad ue
-    			JOIN usuarios u USING (usu_codigo)
-    			LEFT JOIN public.entidad  e USING (ent_codigo)
-		where ue.usuent_estado > 0
-    	order by ue.usuent_codigo desc
-  		) tabla_subconsulta
-GROUP BY tabla_subconsulta.usu_codigo
-)
-SELECT 	u.*,
-COALESCE (r.conjunto,'[]') AS roles_codigos,
-COALESCE (e.conjunto, '[]') entidades
-FROM 	usuarios u
-		LEFT JOIN roles r USING (usu_codigo)
-		LEFT JOIN entidades e USING (usu_codigo)
-where 	true 
-		and u.usu_codigo in (40)
-ORDER BY u.usu_codigo DESC
+      t.poa_estado, po.pobj_estado, act.act_estado, avi.avi_estado
+      ,COALESCE(COUNT(DISTINCT act.act_codigo), 0) AS cantidad_actividades
+FROM	estructura_poa.poas t
+      LEFT JOIN estructura_poa.poas_objetivos po ON
+        t.poa_codigo = po.poa_codigo
+        AND po.pobj_estado IN (4,10,14,11,12,13,1,3,8,7,2,5)
+      LEFT JOIN (
+        SELECT	*
+        FROM	estructura_poa.actividades act
+        WHERE	TRUE
+            AND act.act_estado IN (4,10,14,11,12,13,1,3,8,7,2,5)
+            --AND act.cac_codigo IN (1)
+            --${queryAddConditionAreaUnidadRolPersonaForActividades || ''}
+      ) act ON po.pobj_codigo = act.pobj_codigo
+      LEFT JOIN estructura_poa.actividades_viaticos avi ON
+        act.act_codigo = avi.act_codigo
+        AND avi.avi_estado IN (4,10,14,11,12,13,1,3,8,7,2,5)
+WHERE TRUE
+      AND t.poa_codigo IN (3)
+GROUP BY t.poa_estado, po.pobj_estado, act.act_estado, avi.avi_estado
+ORDER BY
+  array_position( array[4,10,14,11,12,13,1,3,8,7,2,5], avi.avi_estado ),
+  array_position( array[4,10,14,11,12,13,1,3,8,7,2,5], act.act_estado ),
+  array_position( array[4,10,14,11,12,13,1,3,8,7,2,5], po.pobj_estado ),
+  array_position( array[4,10,14,11,12,13,1,3,8,7,2,5], t.poa_estado )
 ;
+--##############
+--$$$$$$$$$$$$$$$$$$$$
+      SELECT
+              t.oau_codigo,
+              t.oau_descripcion,
+              t.pobj_codigo,
+              po.pobj_nombre AS oau_pobj_nombre,
+              t.aun_codigo_ejecutora,
+              CONCAT_WS(' - ', au1.aun_nombre, au1.aun_sigla) AS oau_aun_nombre_ejecutora,
+              au1.aun_sigla AS oau_aun_sigla_ejecutora,
+              au1.aun_inicial AS aun_inicial_ejecutora,
+              au1.cau_codigo,
+              t.aun_codigo_supervisora,
+              CONCAT_WS(' - ', au2.aun_nombre, au2.aun_sigla) AS oau_aun_nombre_supervisora,
+              au2.aun_sigla AS oau_aun_sigla_supervisora,
+              au2.aun_inicial AS aun_inicial_supervisora,
+              t.oau_estado,
+              e.est_color,
+              e.est_nombre AS oau_estado_descripcion,
+              TO_CHAR(t.fecha_registro, 'HH24:MI am dd/mm/yyyy') as fecha_registro,
+              po.poa_codigo, poa.ges_codigo,
+              CONCAT(pr.pro_numero, '.', au1.aun_numero,'.',po.pobj_numero) AS poa_pobj_oau_codigo
+        FROM	estructura_poa.objetivos_area_unidad t
+              LEFT JOIN parametricas.estados e ON e.est_codigo = t.oau_estado
+              LEFT JOIN estructura_poa.poas_objetivos po ON po.pobj_codigo = t.pobj_codigo
+              LEFT JOIN estructura_poa.poas poa ON po.poa_codigo = poa.poa_codigo
+              LEFT JOIN pei.programas pr ON pr.pro_codigo = po.pro_codigo
+              LEFT JOIN estructura_organizacional.areas_unidades au1 ON au1.aun_codigo = t.aun_codigo_ejecutora
+              LEFT JOIN estructura_organizacional.areas_unidades au2 ON au2.aun_codigo = t.aun_codigo_supervisora
+        WHERE	TRUE
+              AND t.oau_codigo IN (1745)
+        		order by t.fecha_registro desc
+        ;
+--$$$$$$$$$$$$$$$$$
+--AREA UNIDAD RESPONSABLES
+select 	aur.aur_codigo , aur.aur_estado ,p.poa_codigo, aur.fecha_registro ,
+		g.ges_anio 
+from 	estructura_poa.area_unidad_responsables aur
+		left join estructura_poa.poas p on aur.poa_codigo = p.poa_codigo 
+		left join parametricas.gestiones g on p.ges_codigo = g.ges_codigo 
+where 	true
+		and aur.aur_estado in (1)
+		and aur.poa_codigo in (3)
+order by aur.aur_codigo desc;
+--OBJETIVO AREA UNIDAD
+select 	oau.oau_codigo , oau.oau_estado, oau.pobj_codigo, oau.fecha_registro, 
+		au.aun_sigla,
+		p.poa_codigo 
+from 	estructura_poa.objetivos_area_unidad oau
+		left join estructura_organizacional.areas_unidades au on oau.aun_codigo_ejecutora = au.aun_codigo 
+		left join estructura_poa.poas_objetivos po on oau.pobj_codigo = po.pobj_codigo 
+		left join estructura_poa.poas p on po.poa_codigo = p.poa_codigo 
+where 	true
+--		and oau.oau_estado in (1)
+		and p.poa_codigo in (3)
+order by oau.oau_codigo desc;
+--FLUJO ESTADO
+select 	*
+from 	control_estados.flujos_tablas ft
+where 	true 
+		and ft.tab_codigo in (39)
+;
+--INICIOS ACTIVIDADES
+select	*
+FROM 	ejecucion_actividades.inicios_actividades t
+--where 	t.iac_codigo_control in ('EHEN26Y00')
+--where 	t.iac_codigo in (407)
+--where 	t.iac_estado in (22)
+order by t.iac_codigo desc ;
+--INICIO ACTIVIDAD POA
+select 	*
+from 	ejecucion_actividades.inicio_actividad_poa iap
+		left join ejecucion_actividades.inicios_actividades ia on iap.iac_codigo =ia.iac_codigo 
+where 	true 
+		and iap.iap_codigo in (478)
+--where 	iap.act_codigo in (711)
+--limit 5;
+order 	by iap.iap_codigo desc;
+--FLUJOS TABLAS SERVICES
+select 	*
+from 	control_estados.flujos_tablas ft
+where 	true 
+		and ft.tab_codigo in (64)
+order by ft.fta_codigo asc;
+--
+--###  --- INICIO ACT POA - CAMBIO GLOBAL DE ESTADOS, POR ROL
+	select iap.iap_codigo,iap.iac_codigo,iap.iap_observaciones ,iap.iap_estado  from ejecucion_actividades.inicio_actividad_poa iap where iap.iap_codigo in (17);
+	select ia.iac_codigo,ia.iac_observaciones ,ia.iac_estado from ejecucion_actividades.inicios_actividades ia where ia.iac_codigo in (134); 
+	select iaa.iaa_codigo ,iaa.iac_codigo ,iaa.iaa_estado  from ejecucion_actividades.inicios_actividades_adicional iaa where iaa.iac_codigo in (134);
+	select iapa.iapa_codigo,iapa.asi_codigo, iapa.iap_codigo,iapa.iapa_estado from ejecucion_actividades.inicio_actividad_poa_asignaciones iapa where iapa.iap_codigo in (17); 
+	select a.asi_codigo, a.asi_estado  from ejecucion_poa.asignaciones a where a.asi_codigo in (17);
+	select aci.aci_codigo , aci.aci_estado  from ejecucion_poa.asignaciones_cargos_item aci where aci.asi_codigo in (17);
+	-- obtiene los estados de cada uno
+	select eiap.iap_codigo , eiap.eiap_estado from control_estados.estados_inicio_actividad_poa eiap where eiap.iap_codigo in (17) order by eiap.eiap_codigo desc;
+	select eia.iac_codigo ,eia.eia_estado  from control_estados.estados_inicios_actividades eia where eia.iac_codigo in (134) order by eia.eia_codigo desc;
+	select * from control_estados.estados_asignaciones ea  where ea.asi_codigo in (17) order by ea.asi_codigo desc;
+	select * from control_estados.estados_asignaciones_cargos_item eaci  where eaci.aci_codigo in (51) order by eaci.eaci_codigo desc;
+	select * from control_estados.estados_asignaciones_cargos_item eaci  where eaci.aci_codigo in (52) order by eaci.eaci_codigo desc;
+	select * from control_estados.estados_asignaciones_cargos_item eaci  where eaci.aci_codigo in (53) order by eaci.eaci_codigo desc;
+	select * from control_estados.estados_asignaciones_cargos_item eaci  where eaci.aci_codigo in (54) order by eaci.eaci_codigo desc;
+	select * from control_estados.estados_asignaciones_cargos_item eaci  where eaci.aci_codigo in (55) order by eaci.eaci_codigo desc;
+	select * from control_estados.estados_asignaciones_cargos_item eaci  where eaci.aci_codigo in (430) order by eaci.eaci_codigo desc;
+--
+--ACTIVIDADES CONTINUIDAD
+select 	*
+from 	estructura_poa.actividades_continuidad ac
+--where 	ac.iac_codigo in (397)
+order by ac.aco_codigo desc;
+--ACTIVIDADES HORAS PLANIFICADAS
+select 	*
+from 	estructura_poa.actividades_horas_planificadas ahp 
+--where 	ac.iac_codigo in (397)
+order by ahp.ahp_codigo desc
+limit 5;
+--ACTIVIDAD MIGRADA CONAUD
+select 	*
+from 	ejecucion_actividades.actividad_migrada_conaud amc 
+order by amc.amc_codigo desc;
+--NRO RECOMENDACIONES POR IAP_CODIGO
+SELECT	iap.iap_codigo, ia.iac_codigo, iai.inf_codigo, ir.ire_codigo
+FROM	ejecucion_actividades.inicio_actividad_poa iap
+		LEFT JOIN ejecucion_actividades.inicios_actividades ia ON iap.iac_codigo = ia.iac_codigo
+		LEFT JOIN ejecucion_actividades.inicio_actividad_informe iai ON ia.iac_codigo = iai.iac_codigo
+		LEFT JOIN ejecucion_actividades.informe_recomendaciones ir ON iai.inf_codigo = ir.inf_codigo
+WHERE	TRUE
+		AND ir.ire_estado NOT IN (0)
+		AND iap.iap_codigo IN (285)
+;
+--INFORMES EMERGENTES
+select 	*
+from 	parametricas.informes_emergentes ie
+where 	ie.iem_descripcion = 'Evaluacion de Confiabilidad de Estados Financieros'
+;
+--INFORMES
+select 	*
+from 	ejecucion_actividades.informes i 
+--where 	i.iac_codigo in (403)
+where 	i.inf_codigo in (78)
+order by	i.inf_codigo desc;
+--INICIO ACTIVIDAD INFORME
+select 	*
+from 	ejecucion_actividades.inicio_actividad_informe iai
+order 	by	iai.iai_codigo desc;
+--INFORME RECOMENDACIONES
+select 	*
+from 	ejecucion_actividades.informe_recomendaciones ir
+where 	ir.inf_codigo in (78)
+order by	ir.ire_codigo desc
+limit 5;
+--FLUJOS ESTADOS EVOLUCION
+select 	*
+from 	parametricas.flujos_estados_evolucion fee 
+where 	fee.iem_codigo = 16;
+--INFORME RECOMENDACIONES SEGUIMIENTOS
+select 	*
+from 	ejecucion_actividades.informe_recomendaciones_seguimientos irs
+order by	irs.irs_codigo desc 
+limit 5;
+--RECOMENDACIONES INICIOS SEGUIMIENTOS
+select 	*
+from 	ejecucion_actividades.recomendaciones_inicios_seguimientos ris 
+order by	ris.ris_codigo desc 
+limit 5;
+--AREA UNIDAD RESPONSABLES
+select 	*
+--select 	aur.aur_codigo , aur.aur_estado ,p.poa_codigo, aur.fecha_registro ,
+--		g.ges_anio 
+from 	estructura_poa.area_unidad_responsables aur
+		left join estructura_poa.poas p on aur.poa_codigo = p.poa_codigo 
+		left join parametricas.gestiones g on p.ges_codigo = g.ges_codigo 
+where 	true
+--		and aur.aur_estado in (1)
+--		and aur.poa_codigo in (2)
+		and aur.per_codigo in (1914)
+order by aur.aur_codigo desc;
 
 
 
 
 
-     
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
+
+
+
+;
