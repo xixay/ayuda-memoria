@@ -1,13 +1,15 @@
 --TIPOS DE TRABAJO
 select	*
-from 	parametricas.tipos_trabajos tt ;
+from 	parametricas.tipos_trabajos tt 
+order by tt.ttr_codigo desc ;
 --ESPECIFICACION TIPOS DE TRABAJO
 select 	*
-from 	parametricas.especificacion_tipos_trabajo ett;
+from 	parametricas.especificacion_tipos_trabajo ett
+order by ett.ett_codigo desc;
 -- ACTIVIDADES
 --select 	*
 --select 	a.act_codigo ,a.act_numero ,a.act_descripcion ,a.act_fecha_inicio ,a.act_fecha_fin ,a.act_objeto ,a.ttr_codigo ,a.tipact_codigo,a.cac_codigo 
-select 	a.act_codigo ,a.act_numero ,a.cac_codigo ,a.iac_codigo_apoyo, a.act_estado, a.act_descripcion , a.aun_codigo_ejecutora, a.tipact_codigo, a.fecha_registro, 
+select 	a.act_codigo ,a.act_numero ,a.cac_codigo ,a.iac_codigo_apoyo, a.act_estado, a.ttr_codigo, a.act_descripcion , a.aun_codigo_ejecutora, a.tipact_codigo, a.fecha_registro, 
 		au.aun_nombre, au.aun_sigla, au.aun_estado,
 		po.pobj_codigo ,po.pobj_nombre, po.pobj_estado,
 		p.poa_codigo 
@@ -17,7 +19,7 @@ from 	estructura_poa.actividades a
 		left join estructura_poa.poas p on p.poa_codigo = po.poa_codigo 
 where	true 	
 --		and a.act_numero = '530.0022.15.1.24'
---		and a.act_codigo in (1121)
+		and a.act_codigo in (608)
 --		and au.aun_sigla like 'GPA-GA3'
 --		and a.act_estado not in (2,9,0,13)
 --		and a.act_estado in (1)
@@ -25,7 +27,7 @@ where	true
 --		and a.tipact_codigo in (2)
 --		and a.cac_codigo in (2)
 --		and po.pobj_codigo in (1181)
-		and p.poa_codigo in (2)
+--		and p.poa_codigo in (2)
 order by au.aun_codigo desc;
 --FLUJOS TABLAS SERVICES
 select 	*
@@ -38,13 +40,13 @@ select 	*
 from 	ejecucion_informes.informes_uai iu
 order by iu.iua_codigo desc;
 --INFORMES UAI
-select 	*
---select 	iu.iua_codigo, iu.iua_estado, iu.iua_cite , iu.iua_codigo_control, iu.ent_codigo,iu.ttr_codigo,
---		ie.iev_codigo, ie.iev_estado,
---		a.act_codigo, a.act_numero,
---		au.aun_nombre, au.aun_sigla,
---		tt.ttr_codigo, tt.ttr_sigla,
---		ett.ett_codigo, ett.ett_nombre
+--select 	iu.*
+select 	iu.iua_codigo, iu.iua_estado, iu.iua_cite , iu.iua_codigo_control, iu.ent_codigo,iu.ttr_codigo,
+		ie.iev_codigo, ie.iev_estado,
+		a.act_codigo, a.act_numero, a.ttr_codigo, 
+		au.aun_nombre, au.aun_sigla,
+		tt.ttr_codigo, tt.ttr_sigla,
+		ett.ett_codigo, ett.ett_nombre
 from 	ejecucion_informes.informes_uai iu
 		left join ejecucion_informes.informes_evaluaciones ie on iu.iua_codigo = ie.iua_codigo 
 		left join parametricas.tipos_trabajos tt on iu.ttr_codigo = tt.ttr_codigo
@@ -52,10 +54,10 @@ from 	ejecucion_informes.informes_uai iu
 		left join estructura_poa.actividades a on iu.act_codigo = a.act_codigo
 		left join estructura_organizacional.areas_unidades au on a.aun_codigo_ejecutora = au.aun_codigo 
 where 	true
-		and au.aun_sigla = 'GDT-GAM1'
-		and a.act_numero = '500.1703.102.1.24'
-		and iu.iua_codigo in (573)
-order by iu.iua_codigo desc;
+--		and au.aun_sigla = 'GDT-GAM1'
+--		and a.act_numero = '500.1703.102.1.24'
+		and iu.iua_codigo in (591)
+order by iu.iua_codigo desc;	
 --INFORMES EVALUACIONES
 select 	*
 from 	ejecucion_informes.informes_evaluaciones ie
