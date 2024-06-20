@@ -452,12 +452,12 @@ const mernStack = ["MongoDB", "Express", "React", "Node"];
 1. Copia el array countries (Evita mutaciones)
 1. Los arrays son mutables. Crea una copia del array que no modifique el original. Ordena la copia del array y guárdala en una variable sortedCountries
 1. Ordena el array webTechs y el array mernStack
-1. Extrae todos los países que contengan la palabra 'land' del [array countries](https://github.com/Asabeneh/30DaysOfJavaScript/tree/master/data/countries.js) e imprimela como un array
-1. Encuentra el país que contiene la mayor cantidad de caracteres en el [array countries](https://github.com/Asabeneh/30DaysOfJavaScript/tree/master/data/countries.js)
-1. Extrae todos los países que contienen la palabra 'land' del [array countries](https://github.com/Asabeneh/30DaysOfJavaScript/tree/master/data/countries.js) e imprimela como un array
-1. Extrae todos los países que contengan solo cuatro caracters del [array countries](https://github.com/Asabeneh/30DaysOfJavaScript/tree/master/data/countries.js) e impremela como un array
-1. Extrae todos los paíse que contengan dos o más palabras del [array countries](https://github.com/Asabeneh/30DaysOfJavaScript/tree/master/data/countries.js) e imprimela como un array
-1. Invertir el [array countries](https://github.com/Asabeneh/30DaysOfJavaScript/tree/master/data/countries.js) y poner en mayúscula cada país y almacenalo en un array
+1. Extrae todos los países que contengan la palabra 'land' del [array countries](../data/countries.js) e imprimela como un array
+1. Encuentra el país que contiene la mayor cantidad de caracteres en el [array countries](../data/countries.js)
+1. Extrae todos los países que contienen la palabra 'land' del [array countries](../data/countries.js) e imprimela como un array
+1. Extrae todos los países que contengan solo cuatro caracters del [array countries](../data/countries.js) e impremela como un array
+1. Extrae todos los paíse que contengan dos o más palabras del [array countries](../data/countries.js) e imprimela como un array
+1. Invertir el [array countries](../data/countries.js) y poner en mayúscula cada país y almacenalo en un array
 
 🎉 ¡FELICITACIONES! 🎉
 
