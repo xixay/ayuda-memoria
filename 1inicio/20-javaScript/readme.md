@@ -1,5 +1,6 @@
 [<< INDICE](../../README.md)
 
+[Day 2 >>](./dia_02_tipos_de_datos.md)
 - [📔Día 1](#día-1)
   - [Introducción](#introducción)
   - [Requerimientos](#requerimientos)
