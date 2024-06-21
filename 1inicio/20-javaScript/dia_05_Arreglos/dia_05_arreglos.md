@@ -752,10 +752,10 @@ const webTechs = [
         - Encuentre el rango de las edades (max menos min)
         - Compare el valor de (mín - promedio) y (máx - promedio), use el método _abs()_
 
-    1.Cortar los diez primeros países de la [array de países](https://github.com/Asabeneh/30DaysOfJavaScript/tree/master/data/countries.js)
+    1.Cortar los diez primeros países de la [array de países](../data/countries.js)
 
-1.  Encuentre el país o países de en medio en el [array de países](https://github.com/Asabeneh/30DaysOfJavaScript/tree/master/data/countries.js)
-1.  Divide el array de países en dos arrays iguales si es par. Si el array de países no es par, agregue un país más para la primera mitad.
+2.  Encuentre el país o países de en medio en el [array de países](../data/countries.js)
+3.  Divide el array de países en dos arrays iguales si es par. Si el array de países no es par, agregue un país más para la primera mitad.
 
 🎉 ¡Felicitaciones! 🎉
 
