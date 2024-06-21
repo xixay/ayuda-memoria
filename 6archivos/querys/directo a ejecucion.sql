@@ -56,7 +56,7 @@ from 	ejecucion_informes.informes_uai iu
 where 	true
 --		and au.aun_sigla = 'GDT-GAM1'
 --		and a.act_numero = '500.1703.102.1.24'
-		and iu.iua_codigo in (591)
+--		and iu.iua_codigo in (599)
 order by iu.iua_codigo desc;	
 --INFORMES EVALUACIONES
 select 	*
