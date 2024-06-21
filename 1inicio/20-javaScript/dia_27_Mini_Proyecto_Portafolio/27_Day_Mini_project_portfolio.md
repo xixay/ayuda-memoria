@@ -1,3 +1,4 @@
+[<< INDICE](../../../README.md)
 
 [<< Día 26](../dia_26_Visualizacion_De_Datos_De_Los_Paises_Del_Mundo_2/dia_26_visualizacion_de_datos_de_los_paises_del_mundo_2.md) | [Día 28 >>](../dia_28_Mini_Proyecto_Tabla_De_Posiciones/dia_28_mini_proyecto_tabla_de_posiciones.md)
 
@@ -18,3 +19,5 @@
 🎉 ¡FELICITACIONES! 🎉
 
 [<< Día 26](../dia_26_Visualizacion_De_Datos_De_Los_Paises_Del_Mundo_2/dia_26_visualizacion_de_datos_de_los_paises_del_mundo_2.md) | [Día 28 >>](../dia_28_Mini_Proyecto_Tabla_De_Posiciones/dia_28_mini_proyecto_tabla_de_posiciones.md)
+
+[<< INDICE](../../../README.md)

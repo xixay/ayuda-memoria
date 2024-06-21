@@ -1,3 +1,5 @@
+[<< INDICE](../../../README.md)
+
 [<< Día 1](./readme.md) | [Day 3 >>](./dia_03_Booleanos_Operadores_Date/dia_03_Boleanos_Operadores_Date.md)
 
 - [📔 Día 2](#-día-2)
@@ -971,3 +973,5 @@ console.log(numInt); // 9
 🎉 ¡FELICITACIONES! 🎉
 
 [<< Día 1](./readme.md) | [Day 3 >>](./dia_03_Booleanos_Operadores_Date/dia_03_Boleanos_Operadores_Date.md)
+
+[<< INDICE](../../../README.md)

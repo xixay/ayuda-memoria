@@ -1,3 +1,4 @@
+[<< INDICE](../../../README.md)
 
 [<< Día 20](../dia_20_Escribiendo_Codigos_Limpios/dia_20_escribiendo_codigos_limpios.md) | [Día 22 >>](../dia_22_Manipulacion_del_Objeto_DOM/dia_22_manipulacion_del_objeto_dom.md)
 
@@ -388,3 +389,5 @@ Como has notado, las propiedades de css cuando lo usamos en JavaScript va a ser 
 🎉 ¡FELICITACIONES! 🎉
 
 [<< Día 20](../dia_20_Escribiendo_Codigos_Limpios/dia_20_escribiendo_codigos_limpios.md) | [Día 22 >>](../dia_22_Manipulacion_del_Objeto_DOM/dia_22_manipulacion_del_objeto_dom.md)
+
+[<< INDICE](../../../README.md)

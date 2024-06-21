@@ -1,3 +1,4 @@
+[<< INDICE](../../../README.md)
 
 [<< Día 28](../dia_28_Mini_Proyecto_Tabla_De_Posiciones/dia_28_mini_proyecto_tabla_de_posiciones.md) | [Día 30>>](../dia_30_Mini_Proyecto_Final/dia_30_mini_proyecto_final.md)
 
@@ -18,3 +19,5 @@
 🎉 ¡FELICITACIONES! 🎉
 
 [<< Día 28](../dia_28_Mini_Proyecto_Tabla_De_Posiciones/dia_28_mini_proyecto_tabla_de_posiciones.md) | [Día 30>>](../dia_30_Mini_Proyecto_Final/dia_30_mini_proyecto_final.md)
+
+[<< INDICE](../../../README.md)
