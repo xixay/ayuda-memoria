@@ -1,4 +1,4 @@
-[<< INDICE](../../../README.md)
+[<< INDICE](../../README.md)
 
 - [📔Día 1](#día-1)
   - [Introducción](#introducción)
@@ -524,4 +524,4 @@ Cuando ejecutas los archivos en la carpeta Día_1 deberías obtener esto:
 
 [Day 2 >>](./dia_02_tipos_de_datos.md)
 
-[<< INDICE](../../../README.md)
+[<< INDICE](../../README.md)
