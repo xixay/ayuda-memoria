@@ -1,3 +1,4 @@
+[<< Día 2](../dia_02_tipos_de_datos.md) | [Día 4 >>](../dia_04_Condicionales/dia_04_Condicionales.md)
 - [📔 Day 3](#-day-3)
   - [Booleanos](#booleanos)
     - [Valores verdaderos](#valores-verdaderos)

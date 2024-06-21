@@ -1,4 +1,4 @@
-
+[<< Día 3](../dia_03_Booleanos_Operadores_Date/dia_03_Boleanos_Operadores_Date.md) | [Día 5 >>](../dia_05_Arreglos/dia_05_arreglos.md)
 - [📔 Día 4](#-día-4)
   - [Condicionales](#condicionales)
     - [If](#if)
