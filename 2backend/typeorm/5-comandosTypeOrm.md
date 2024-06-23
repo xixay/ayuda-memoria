@@ -1,3 +1,4 @@
+[<< INDICE](../../README.md)
 ## Comandos
 | **Comandos**                                       | **Hace**                                                                                                                                                                                                                       |
 |----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -15,3 +16,5 @@
 | npx typeorm-ts-node-commonjs version | Imprime la versión TypeORM que usa este proyecto.                                                                                                                                                                              |
 | npx typeorm-ts-node-commonjs cache:clear -d src/data-source.ts | Borra todos los datos almacenados en el ejecutor de consultas cache.                                                                                                                                                           |
 | npx typeorm-ts-node-commonjs init --name MyProject --database postgres | Genera el proyecto TypeORM inicial estructura.  Si se especifica el nombre, se crea archivos dentro del directorio llamado como nombre Si no se especifica, luego crea archivos dentro directorio actual.                      |
+
+[<< INDICE](../../README.md)

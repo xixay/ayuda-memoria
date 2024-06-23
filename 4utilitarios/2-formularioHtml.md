@@ -1,4 +1,8 @@
-# Formulario-Repositorio
+[<< INDICE](../README.md)
+- [1. Formulario-Repositorio](#1-formulario-repositorio)
+- [2. Funcion Captura Datos](#2-funcion-captura-datos)
+
+## 1. Formulario-Repositorio
 - Capturar datos a través de formulario utilizando funciones en JavaScript
 ```html
 <!DOCTYPE html>
@@ -22,6 +26,7 @@
 </body>
 </html>
 ```
+## 2. Funcion Captura Datos
 - Funcion js que captura datos desde un cuadro de texto de formulario
 ```js
 //Funcion que captura datos desde un cuadro de texto de formulario
@@ -52,3 +57,5 @@ function captura(){
     } 
 }
 ```
+
+[<< INDICE](../README.md)

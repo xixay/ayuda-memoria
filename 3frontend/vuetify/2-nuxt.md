@@ -1,5 +1,12 @@
-# Instalar Nuxt y Vuetify
-## Crear proyecto
+[<< INDICE](../../README.md)
+- [1. Instalar Nuxt y Vuetify](#1-instalar-nuxt-y-vuetify)
+  - [1.1. Crear proyecto](#11-crear-proyecto)
+  - [1.2. Iniciar el proyecto en modo desarrollo](#12-iniciar-el-proyecto-en-modo-desarrollo)
+  - [1.3. Instalar extensiones](#13-instalar-extensiones)
+  - [1.4. Referencia](#14-referencia)
+
+# 1. Instalar Nuxt y Vuetify
+## 1.1. Crear proyecto
 - Terminal
 ```console
 npx create-nuxt-app ejemplo-nuxt
@@ -22,7 +29,7 @@ npx create-nuxt-app ejemplo-nuxt
 ? What is your GitHub username? richard teran
 ? Version control system: Git
 ```
-## Iniciar el proyecto en modo desarrollo
+## 1.2. Iniciar el proyecto en modo desarrollo
 - Ingresar al proyecto
 ```console
 cd ejemplo-nuxt
@@ -35,10 +42,12 @@ npm run dev
 ```txt
 http://localhost:3000/
 ```
-## Instalar extensiones
+## 1.3. Instalar extensiones
 ```txt
 vetur,Material icon theme, htmltagwrap
 vue3 supoort all in one
 ```
-## Referencia
+## 1.4. Referencia
 - Ir a [Crear Proyecto web con Nuxt y Vuetify](https://www.youtube.com/watch?v=Vh5wT0j9Czo)
+
+[<< INDICE](../../README.md)

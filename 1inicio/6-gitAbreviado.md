@@ -1,3 +1,4 @@
+[<< INDICE](../README.md)
 - [1. Atajos abreviados Oh My Zsh, GIT](#1-atajos-abreviados-oh-my-zsh-git)
   - [1.1. Git add](#11-git-add)
   - [1.2. Git aplly](#12-git-aplly)
@@ -43,6 +44,7 @@
 
 ## 1. Atajos abreviados Oh My Zsh, GIT
 ### 1.1. Git add
+- Añade archivos al área de preparación para el próximo commit.
 
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -52,11 +54,15 @@
 |    gau                    |   git add --update                                                                                                                                 |
 |    gav                    |   git add --verbose                                                                                                                                |
 ### 1.2. Git aplly
+- Aplica parches generados por `git diff` o `git format-patch`.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    gap                    |   git apply                                                                                                                                        |
 |    gapt                   |   git apply --3way                                                                                                                                 |
 ### 1.3. Git branch
+- Gestiona las ramas en el repositorio.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    gb                     |   git branch                                                                                                                                       |
@@ -68,10 +74,14 @@
 |    gbr                    |   git branch --remote                                                                                                                              |
 |    ggsup                  |   git branch --set-upstream-to=origin/$(git_current_branch)                                                                                        |
 ### 1.4. Git blame
+- Muestra información sobre las modificaciones de cada línea de un archivo.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    gbl                    |   git blame -b -w                                                                                                                                  |
 ### 1.5. Git bisect
+- Encuentra el commit que introdujo un bug usando una búsqueda binaria.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    gbs                    |   git bisect                                                                                                                                       |
@@ -80,6 +90,8 @@
 |    gbsr                   |   git bisect reset                                                                                                                                 |
 |    gbss                   |   git bisect start                                                                                                                                 |
 ### 1.6. Git commit
+- Guarda los cambios en el repositorio.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    gc                     |   git commit -v                                                                                                                                    |
@@ -96,6 +108,8 @@
 |    gcmsg                  |   git commit -m                                                                                                                                    |
 |    gcs                    |   git commit -S                                                                                                                                    |
 ### 1.7. Git checkout
+- Cambia de ramas o restaura archivos del historial.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    gcb                    |   git checkout -b                                                                                                                                  |
@@ -104,33 +118,47 @@
 |    gco                    |   git checkout                                                                                                                                     |
 |    gcor                   |   git checkout --recurse-submodules                                                                                                                |
 ### 1.8. Git config
+- Configura las opciones de Git a nivel global o de repositorio.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    gcf                    |   git config --list                                                                                                                                |
 ### 1.9. Git clone
+- Crea una copia de un repositorio remoto en la máquina local.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    gcl                    |   git clone --recurse-submodules                                                                                                                   |
 |    gccd                   |   git clone --recurse-submodules "$@" && cd "$(basename $_ .git)"                                                                                  |
 ### 1.10. Git clean
+- Elimina archivos no rastreados del directorio de trabajo.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    gclean                 |   git clean -id                                                                                                                                    |
 ### 1.11. Git reset
+- Deshace commits o cambios en el área de preparación.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    gpristine              |   git reset --hard && git clean -dffx                                                                                                              |
 ### 1.12. Git shortlog
+- Genera un resumen de los commits agrupados por autor.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    gcount                 |   git shortlog -sn                                                                                                                                 |
 ### 1.13. Git cherry-pick
+- Aplica los cambios de un commit específico en la rama actual.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    gcp                    |   git cherry-pick                                                                                                                                  |
 |    gcpa                   |   git cherry-pick --abort                                                                                                                          |
 |    gcpc                   |   git cherry-pick --continue                                                                                                                       |
 ### 1.14. git diff
+- Muestra las diferencias entre commits, ramas o archivos.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    gd                     |   git diff                                                                                                                                         |
@@ -143,21 +171,29 @@
 |    gdv                    |   git diff -w $@ \| view -                                                                                                                         |
 |    gdw                    |   git diff --word-diff                                                                                                                             |
 ### 1.15. Git fetch
+- Descarga los cambios desde un repositorio remoto sin fusionarlos.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    gf                     |   git fetch                                                                                                                                        |
 |    gfa                    |   git fetch --all --prune                                                                                                                          |
 |    gfo                    |   git fetch origin                                                                                                                                 |
 ### 1.16. Git ls-files
+- Muestra los archivos en el índice de Git.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    gfg                    |   git ls-files \| grep                                                                                                                             |
 ### 1.17. Git gui
+- Abre una interfaz gráfica de usuario para interactuar con Git.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    gg                     |   git gui citool                                                                                                                                   |
 |    gga                    |   git gui citool --amend                                                                                                                           |
 ### 1.18. Git push
+- Envía los commits locales a un repositorio remoto.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    ggf                    |   git push --force origin $(current_branch)                                                                                                        |
@@ -173,6 +209,8 @@
 |    gpu                    |   git push upstream                                                                                                                                |
 |    gpv                    |   git push -v                                                                                                                                      |
 ### 1.19. Git pull
+- Descarga y fusiona los cambios desde un repositorio remoto.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    ggl                    |   git pull origin $(current_branch)                                                                                                                |
@@ -190,20 +228,28 @@
 |    gpr                    |   git pull --rebase                                                                                                                                |
 
 ### 1.20. Git help
+- Muestra la documentación y ayuda para los comandos de Git.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    ghh                    |   git help                                                                                                                                         |
 ### 1.21. Gignore
+- Especifica archivos o directorios que deben ser ignorados por Git.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    gignore                |   git update-index --assume-unchanged                                                                                                              |
 |    gignored               |   git ls-files -v \| grep "^[[:lower:]]"                                                                                                           |
 ### 1.22. Git gitk
+- Abre una interfaz gráfica para visualizar el historial de commits.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    gk                     |   gitk --all --branches &!                                                                                                                         |
 |    gke                    |   gitk --all $(git log -g --pretty=%h) &!                                                                                                          |
 ### 1.23. Git log
+- Muestra el historial de commits de una rama.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    glg                    |   git log --stat                                                                                                                                   |
@@ -221,6 +267,8 @@
 |    gloga                  |   git log --oneline --decorate --graph --all                                                                                                       |
 |    glp                    |   git log --pretty=<format>                                                                                                                        |
 ### 1.24. Git merge
+- Combina los cambios de diferentes ramas en una sola rama.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    gm                     |   git merge                                                                                                                                        |
@@ -230,6 +278,8 @@
 |    gmum                   |   git merge upstream/$(git_main_branch)                                                                                                            |
 |    gma                    |   git merge --abort                                                                                                                                |
 ### 1.25. Git remote
+- Gestiona los repositorios remotos.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    gr                     |   git remote                                                                                                                                       |
@@ -240,6 +290,8 @@
 |    grup                   |   git remote update                                                                                                                                |
 |    grv                    |   git remote -v                                                                                                                                    |
 ### 1.26. Git rebase
+- Aplica los commits de una rama sobre otra.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    grb                    |   git rebase                                                                                                                                       |
@@ -252,10 +304,14 @@
 |    grbo                   |   git rebase --onto                                                                                                                                |
 |    grbs                   |   git rebase --skip                                                                                                                                |
 ### 1.27. Git revert
+- Crea un nuevo commit que deshace los cambios de un commit anterior.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    grev                   |   git revert                                                                                                                                       |
 ### 1.28. Git reset
+- Deshace commits o cambios en el área de preparación.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    grh                    |   git reset                                                                                                                                        |
@@ -263,37 +319,51 @@
 |    groh                   |   git reset origin/$(git_current_branch) --hard                                                                                                    |
 |    gru                    |   git reset --                                                                                                                                     |
 ### 1.29. Git rm
+- Elimina archivos del índice y del directorio de trabajo.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    grm                    |   git rm                                                                                                                                           |
 |    grmc                   |   git rm --cached                                                                                                                                  |
 ### 1.30. Git restore
+- Restaura archivos del historial a su estado en el repositorio o en el área de preparación.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    grs                    |   git restore                                                                                                                                      |
 |    grss                   |   git restore --source                                                                                                                             |
 |    grst                   |   git restore --staged                                                                                                                             |
 ### 1.31. Git svn
+- Permite interactuar con repositorios Subversion usando Git.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    gsd                    |   git svn dcommit                                                                                                                                  |
 |    gsr                    |   git svn rebase                                                                                                                                   |
 ### 1.32. Git submodule
+- Gestiona submódulos dentro de un repositorio.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    gsi                    |   git submodule init                                                                                                                               |
 ### 1.33. show
+- Muestra los cambios introducidos por un commit específico.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    gsh                    |   git show                                                                                                                                         |
 |    gsps                   |   git show --pretty=short --show-signature                                                                                                         |
 ### 1.34. Git status
+- Muestra el estado de los archivos en el directorio de trabajo y el área de preparación.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    gsb                    |   git status -sb                                                                                                                                   |
 |    gss                    |   git status -s                                                                                                                                    |
 |    gst                    |   git status                                                                                                                                       |
 ### 1.35. Git stash
+- Guarda los cambios no confirmados en un almacenamiento temporal.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    gsta                   |   git stash push                                                                                                                                   |
@@ -307,23 +377,31 @@
 |    gstu                   |   git stash --include-untracked                                                                                                                    |
 |    gstall                 |   git stash --all                                                                                                                                  |
 ### 1.36. Git submodule
+- Gestiona submódulos dentro de un repositorio.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    gsu                    |   git submodule update                                                                                                                             |
 ### 1.37. Git switch
+- Cambia entre ramas o crea una nueva rama.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    gsw                    |   git switch                                                                                                                                       |
 |    gswc                   |   git switch -c                                                                                                                                    |
 |    gswm                   |   git switch $(git_main_branch)                                                                                                                    |
 |    gswd                   |   git switch $(git_develop_branch)                                                                                                                 |
-### 1.38. Git tag
+### 1.38. Git tag 
+- Crea, lista o elimina etiquetas en los commits.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    gts                    |   git tag -s                                                                                                                                       |
 |    gtv                    |   git tag \| sort -V                                                                                                                               |
 |    gtl                    |   gtl(){ git tag --sort=-v:refname -n -l ${1}* }; noglob gtl                                                                                       |
 ### 1.39. Combinaciones y otros
+- Cubre combinaciones de comandos y otros comandos útiles en Git.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    ggpnp                  |   ggl && ggp                                                                                                                                       |
@@ -336,6 +414,8 @@
 |    grt                    |   cd "$(git rev-parse --show-toplevel \|\| echo .)"                                                                                                |
 |    gdct                   |   git describe --tags $(git rev-list --tags --max-count=1)                                                                                         |
 ### 1.40. Git am
+- Aplica parches desde correos electrónicos.
+
 |  g                        |   git                                                                                                                                              |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    gam                    |   git am                                                                                                                                           |
@@ -346,3 +426,5 @@
 ## 2. Referencia
 - https://www.youtube.com/watch?v=EW2eDzBFONw
 - [oh-my-zsh](https://kapeli.com/cheat_sheets/Oh-My-Zsh_Git.docset/Contents/Resources/Documents/index)
+
+[<< INDICE](../README.md)

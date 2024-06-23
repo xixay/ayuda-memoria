@@ -1,4 +1,9 @@
-# Ver todos los puertos que estan siendo usados
+[<< INDICE](../README.md)
+- [1. Ver todos los puertos que estan siendo usados](#1-ver-todos-los-puertos-que-estan-siendo-usados)
+- [2. Ver un puerto en especifico](#2-ver-un-puerto-en-especifico)
+- [3. Matar el puerto 7008, mediante su PID](#3-matar-el-puerto-7008-mediante-su-pid)
+
+## 1. Ver todos los puertos que estan siendo usados
 - Ver todos los puertos
 ```cmd
 netstat -plntu
@@ -12,7 +17,7 @@ Proto  Recib Enviad Dirección local         Dirección remota       Estado     
 tcp        0      0 0.0.0.0:5432            0.0.0.0:*               ESCUCHAR    -                   
 tcp        0      0 127.0.0.1:8828          0.0.0.0:*               ESCUCHAR    24141/Code --standa 
 ```
-- Ver un puerto en especifico
+## 2. Ver un puerto en especifico
 ```cmd
 netstat -plntu | grep 7008
 ```
@@ -20,8 +25,9 @@ netstat -plntu | grep 7008
 ```cmd
 tcp6    0   0:::7008      :::*    LISTEN    2112143/node
 ```
-- Matar el puerto 7008, mediante su PID
+## 3. Matar el puerto 7008, mediante su PID
 ```cmd
 kill -9 2112143
 ```
 **![Matar Puertos](/5imagenes/puertos/puerto.png)**
+[<< INDICE](../README.md)

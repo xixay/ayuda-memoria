@@ -1,3 +1,4 @@
+[<< INDICE](../README.md)
 ## Crear el archivo de configuracion
 - En la carpeta .vscode crear el archivo settings.json, donde estaran los colores
 ```json
@@ -26,3 +27,5 @@
  
 }
 ```
+
+[<< INDICE](../README.md)

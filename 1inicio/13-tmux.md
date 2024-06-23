@@ -1,3 +1,5 @@
+[<< INDICE](../README.md)
+
 - [1. Instalar tmux](#1-instalar-tmux)
 - [2. Instalar Vmin](#2-instalar-vmin)
   - [2.1. Utilizar vim para editar un archivo](#21-utilizar-vim-para-editar-un-archivo)
@@ -246,3 +248,5 @@ ctrl+B | :
 ## 11. Referencia
 - [Tmux](https://www.youtube.com/watch?v=BHhA_ZKjyxo)
 - [Otro Tmux](https://www.youtube.com/watch?v=Yl7NFenTgIo)
+
+[<< INDICE](../README.md)

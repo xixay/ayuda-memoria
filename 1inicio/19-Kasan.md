@@ -1,3 +1,4 @@
+[<< INDICE](../README.md)
 # Instalar Kasam
 - Para instalar
 ```console

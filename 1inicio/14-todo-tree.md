@@ -1,4 +1,8 @@
-## Crear el archivo de configuracion
+[<< INDICE](../README.md)
+- [1. Crear el archivo de configuracion](#1-crear-el-archivo-de-configuracion)
+- [2. Explicación de las configuraciones](#2-explicación-de-las-configuraciones)
+
+## 1. Crear el archivo de configuracion
 - En la carpeta .vscode crear el archivo settings.json, donde estaran los tipos de notas
 ```json
 {
@@ -70,3 +74,20 @@
  
 }
 ```
+## 2. Explicación de las configuraciones
+- todo-tree.tree.showCountsInTree: Muestra el recuento de notas en el árbol.
+- todo-tree.tree.disableCompactFolders: Desactiva el plegado compacto de carpetas en el árbol.
+- todo-tree.highlights.defaultHighlight: Configuración predeterminada para resaltar notas.
+  - icon: Ícono para resaltar.
+  - type: Tipo de resaltado.
+  - foreground: Color del texto.
+  - background: Color de fondo.
+  - opacity: Opacidad del resaltado.
+  - iconColour: Color del ícono.
+  - gutterIcon: Habilita el ícono en el margen.
+- todo-tree.highlights.customHighlight: Resaltado personalizado por tipo de nota.
+  - Configuraciones detalladas para TODO, NOTE, COMMENT, FIXME, BUG, [ ], [x].
+- todo-tree.general.tags: Lista de etiquetas reconocidas por todo-tree.
+- todo-tree.regex.regex: Expresión regular para identificar comentarios y etiquetas.
+
+[<< INDICE](../README.md)

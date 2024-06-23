@@ -1,3 +1,4 @@
+[<< INDICE](../README.md)
 - [1. Instalar zsh](#1-instalar-zsh)
 - [2. Comprobar tipo de terminal](#2-comprobar-tipo-de-terminal)
 - [3. Ver terminales instaladas](#3-ver-terminales-instaladas)
@@ -153,3 +154,5 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 ## 10. Referencia
 - https://www.youtube.com/watch?v=EW2eDzBFONw
 - [oh-my-zsh](https://kapeli.com/cheat_sheets/Oh-My-Zsh_Git.docset/Contents/Resources/Documents/index)
+
+[<< INDICE](../README.md)

@@ -1,4 +1,8 @@
-# Formulario-Repositorio
+[<< INDICE](../README.md)
+- [1. Formulario-Repositorio](#1-formulario-repositorio)
+- [2. Obtener los datos del formulario](#2-obtener-los-datos-del-formulario)
+
+## 1. Formulario-Repositorio
 - Utilizando funciones en JavaScript
 ```html
 <!DOCTYPE html>
@@ -32,6 +36,7 @@
 </body>
 </html>
 ```
+## 2. Obtener los datos del formulario
 - Obtener los datos del formulario
 ```js
 //obtiene los elementos del formulario
@@ -60,3 +65,5 @@ elementoForm.addEventListener("submit", (evento) => {
     console.log('JSON transaccion', transaccionJson);
 });
 ```
+
+[<< INDICE](../README.md)
