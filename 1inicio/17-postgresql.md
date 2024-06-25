@@ -766,7 +766,8 @@ VALUES (1, 1),(1, 2),(2, 1),(2, 2);
 ## 3.23. Ver datos en una tabla
 - Ver la tabla usuarios
 ```sql
-SELECT * FROM core.usuarios;
+SELECT 	*
+FROM 	core.usuarios;
 ```
 |id_usuario|nombre|telefono|email|descripcion|ocupacion|fecha_nac|foto|fecha_reg|
 |----------|------|--------|-----|-----------|---------|---------|----|---------|
@@ -777,11 +778,14 @@ SELECT * FROM core.usuarios;
 - Eliminar los datos de una fila que contiene tabla
 ```sql
 -- Eliminar el jutsu medico de Sakura de la tabla tecnologias
-DELETE FROM portafolio.tecnologias WHERE nombre = 'Jutsu Médico';
+DELETE
+FROM 	portafolio.tecnologias
+WHERE 	nombre = 'Jutsu Médico';
 ```
 - Consultar la tabla de nuevo
 ```sql
-SELECT * FROM portafolio.tecnologias;
+SELECT 	*
+FROM 	portafolio.tecnologias;
 ```
 
 |id_tecnologia|nombre|foto|id_usuario|
@@ -792,11 +796,14 @@ SELECT * FROM portafolio.tecnologias;
 ## 3.25. Agregar columnas en una tabla
 - Agregue una columna para mostrar la herramienta que usa por cada chica escribiendo lo siguiente
 ```sql
-ALTER TABLE portafolio.tecnologias ADD COLUMN herramienta VARCHAR(50);
+ALTER
+TABLE 	portafolio.tecnologias
+ADD 	COLUMN herramienta VARCHAR(50);
 ```
 - Si vuelve a ver la información de su tabla, observará que se agregó la columna nueva, pero no se ingresaron datos
 ```sql
-SELECT * FROM portafolio.tecnologias;
+SELECT 	*
+FROM 	portafolio.tecnologias;
 ```
 
 |id_tecnologia|nombre|foto|id_usuario|herramienta|
@@ -807,17 +814,22 @@ SELECT * FROM portafolio.tecnologias;
 - Eliminar la columna
 ```sql
 --eliminar herramienta
-ALTER TABLE portafolio.tecnologias DROP herramienta;
+ALTER
+TABLE 	portafolio.tecnologias
+DROP 	herramienta;
 ```
 ## 3.27. Actualizar datos de una tabla
 - Puede actualizar los valores de una entrada existente buscando el registro que desee y fijando el valor que prefiera utilizar para la columna:
 ```sql
 --actualizar foto
-UPDATE portafolio.tecnologias SET foto = 'tecnologia_eva01.jpg' WHERE nombre = 'Piloto de Evangelion';
+UPDATE 	portafolio.tecnologias
+SET 	foto = 'tecnologia_eva01.jpg'
+WHERE nombre = 'Piloto de Evangelion';
 ```
 - Puede verificar la eficacia de la operación consultando los datos de nuevo:
 ```sql
-SELECT * FROM portafolio.tecnologias;
+SELECT 	*
+FROM 	portafolio.tecnologias;
 ```
 
 |id_tecnologia|nombre|foto|id_usuario|
