@@ -824,7 +824,7 @@ DROP 	herramienta;
 --actualizar foto
 UPDATE 	portafolio.tecnologias
 SET 	foto = 'tecnologia_eva01.jpg'
-WHERE nombre = 'Piloto de Evangelion';
+WHERE 	nombre = 'Piloto de Evangelion';
 ```
 - Puede verificar la eficacia de la operación consultando los datos de nuevo:
 ```sql
