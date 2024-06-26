@@ -1,3 +1,13 @@
+--AREA UNIDAD RESPONSABLES
+select 	*
+from 	estructura_poa.area_unidad_responsables aur
+where 	true 
+		and aur.rol_codigo in (1,2,3);
+--CAMBIAR TODAS LAS AREAS
+UPDATE 	estructura_poa.area_unidad_responsables aur
+SET 	aur.per_codigo = 1914
+WHERE 	aur.rol_codigo IN (1, 2, 3);
+
 --TIPOS DE INICIOS DE ACTIVIDADES
 select 	*
 from 	parametricas.tipos_inicios_actividades tia ;

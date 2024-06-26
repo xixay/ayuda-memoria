@@ -1,5 +1,152 @@
+--TABLAS A CAMBIAR
+--#####AUDITORIAS
+SELECT 	iap.* 
+FROM 	ejecucion_actividades.inicio_actividad_poa iap;
+--#####INFORMES UAI, EVALUACIO
+SELECT 	iu.act_codigo, iu.* 
+FROM 	ejecucion_informes.informes_uai iu;
+--###### ADMINISTRATIVAS####
+SELECT 	ia.act_codigo, ia.* 
+FROM 	ejecucion_administrativas.inicios_administrativas ia;
+--POAS
+select 	po.poa_codigo , po.pobj_codigo, po.pobj_estado, 
+		a.act_codigo, a.act_codigo_anterior , a.act_estado 
+from 	estructura_poa.poas p
+		left join estructura_poa.poas_objetivos po on p.poa_codigo = po.poa_codigo
+		left join estructura_poa.actividades a on po.pobj_codigo = a.pobj_codigo 
+where 	true
+		and p.poa_codigo in (3)
+order by p.poa_codigo desc;
+--UUUUUUNO
+WITH act_mapping AS (
+    select 	p.poa_estado, 
+			po.poa_codigo , po.pobj_codigo, po.pobj_estado, 
+			a.act_codigo, a.act_codigo_anterior , a.act_estado 
+	from 	estructura_poa.poas p
+			left join estructura_poa.poas_objetivos po on p.poa_codigo = po.poa_codigo
+			left join estructura_poa.actividades a on po.pobj_codigo = a.pobj_codigo 
+	where 	true
+			and p.poa_codigo in (2)--and p.poa_estado in (8)
+			and a.act_codigo in (1468)
+	order by p.poa_codigo desc
+)
+--select * from act_mapping;
+UPDATE ejecucion_actividades.inicio_actividad_poa p
+SET act_codigo = act_mapping.act_codigo
+FROM act_mapping
+WHERE p.act_codigo = act_mapping.act_codigo_anterior;
+--DDDOSS
+WITH act_mapping AS (
+    select 	p.poa_estado, 
+			po.poa_codigo , po.pobj_codigo, po.pobj_estado, 
+			a.act_codigo, a.act_codigo_anterior , a.act_estado 
+	from 	estructura_poa.poas p
+			left join estructura_poa.poas_objetivos po on p.poa_codigo = po.poa_codigo
+			left join estructura_poa.actividades a on po.pobj_codigo = a.pobj_codigo 
+	where 	true
+			and p.poa_codigo in (3) and po.pobj_estado in (8)
+--			and a.act_codigo in (1468)
+	order by p.poa_codigo desc
+)
+--select * from act_mapping
+UPDATE ejecucion_informes.informes_uai uai
+SET uai.act_codigo = act_mapping.act_codigo
+FROM act_mapping
+WHERE uai.act_codigo = act_mapping.act_codigo_anterior;
+--TRESSSS
+WITH act_mapping AS (
+    select 	p.poa_estado, 
+			po.poa_codigo , po.pobj_codigo, po.pobj_estado, 
+			a.act_codigo, a.act_codigo_anterior , a.act_estado 
+	from 	estructura_poa.poas p
+			left join estructura_poa.poas_objetivos po on p.poa_codigo = po.poa_codigo
+			left join estructura_poa.actividades a on po.pobj_codigo = a.pobj_codigo 
+	where 	true
+--			and p.poa_codigo in (3) and po.pobj_estado in (8)
+--			and a.act_codigo in (1468)
+	order by p.poa_codigo desc
+)
+--select * from act_mapping
+UPDATE ejecucion_administrativas.inicios_administrativas ia
+SET ia.act_codigo = act_mapping.act_codigo
+FROM act_mapping
+WHERE ia.act_codigo = act_mapping.act_codigo_anterior;
+--
+select 	*
+from 	ejecucion_actividades.inicio_actividad_poa iap
+where 	iap.iap_codigo in (433);---68
+
+--
+  WITH act_mapping AS (
+    select  p.poa_estado,
+    po.poa_codigo , po.pobj_codigo, po.pobj_estado,
+    a.act_codigo, a.act_codigo_anterior , a.act_estado
+    from  estructura_poa.poas p
+      left join estructura_poa.poas_objetivos po on p.poa_codigo = po.poa_codigo
+      left join estructura_poa.actividades a on po.pobj_codigo = a.pobj_codigo
+    where   true
+      --and p.poa_codigo in (2) and po.pobj_estado in (2) and p.poa_estado in (2)
+		and a.act_codigo in (1468)
+      order by a.act_codigo desc
+  )
+  --select * from act_mapping;
+  UPDATE ejecucion_informes.informes_uai
+  SET act_codigo = act_mapping.act_codigo
+  FROM act_mapping
+  WHERE ejecucion_informes.informes_uai.act_codigo = act_mapping.act_codigo_anterior;
+ --
+ select *
+ from 	ejecucion_informes.informes_uai iu ;
+ --
+WITH act_mapping AS (
+    SELECT 
+        p.poa_estado,
+        po.poa_codigo, 
+        po.pobj_codigo, 
+        po.pobj_estado,
+        a.act_codigo, 
+        a.act_codigo_anterior, 
+        a.act_estado
+    FROM 
+        estructura_poa.poas p
+    LEFT JOIN 
+        estructura_poa.poas_objetivos po ON p.poa_codigo = po.poa_codigo
+    LEFT JOIN 
+        estructura_poa.actividades a ON po.pobj_codigo = a.pobj_codigo
+    WHERE 
+        true
+        -- AND p.poa_codigo IN (2) AND po.pobj_estado IN (2) AND p.poa_estado IN (2)
+        AND a.act_codigo IN (1468)
+    ORDER BY 
+        a.act_codigo DESC
+)
+UPDATE 
+    ejecucion_informes.informes_uai
+SET 
+    act_codigo = act_mapping.act_codigo
+FROM 
+    act_mapping
+WHERE 
+    ejecucion_informes.informes_uai.act_codigo = act_mapping.act_codigo_anterior;
+
+
+
+
+
+
+
+
+
+
+
+--
 select 	*
 from 	estructura_organizacional.areas_unidades au ;
+--
+select 	*
+from 	estructura_poa.actividades a
+where 	true 
+		and a.act_codigo_anterior in (1261);
 --TIPOS DE INICIOS DE ACTIVIDADES
 select 	*
 from 	parametricas.tipos_inicios_actividades tia ;
@@ -38,7 +185,7 @@ from 	estructura_poa.actividades_viaticos av
 		left join estructura_organizacional.areas_unidades au on a.aun_codigo_ejecutora = au.aun_codigo
 where 	true 
 --		and av.avi_estado in (1)
-		and p.poa_codigo in (3)
+		and p.poa_codigo in (2)
 order by av.avi_codigo desc; 
 -- ACTIVIDADES
 --select 	*
