@@ -85,9 +85,19 @@ where	true
 --		and a.iac_codigo_apoyo is not null
 --		and a.tipact_codigo in (2)
 --		and a.cac_codigo in (2)
---		and po.pobj_codigo in (1181)
-		and p.poa_codigo in (2)
-order by au.aun_codigo desc;
+--		and po.pobj_codigo in (1361)
+		and p.poa_codigo in (3)
+--order by au.aun_codigo desc;
+order by a.act_codigo desc;
+--BUSCA SI TIENE REFORMULADOS
+with gestion as (
+    select p.ges_codigo 
+    from estructura_poa.poas p
+    where p.poa_codigo in (2)
+)
+select p1.poa_codigo 
+from estructura_poa.poas p1 
+join gestion g on p1.ges_codigo = g.ges_codigo;
 --AREA UNIDAD RESPONSABLES
 select 	aur.aur_codigo , aur.aur_estado ,p.poa_codigo, aur.fecha_registro ,
 		g.ges_anio 
