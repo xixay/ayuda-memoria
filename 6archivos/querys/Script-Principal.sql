@@ -68,7 +68,7 @@ order by av.avi_codigo desc;
 --ACTIVIDADES
 --select 	*
 --select 	a.act_codigo ,a.act_numero ,a.act_descripcion ,a.act_fecha_inicio ,a.act_fecha_fin ,a.act_objeto ,a.ttr_codigo ,a.tipact_codigo,a.cac_codigo 
-select 	a.act_codigo ,a.act_numero ,a.cac_codigo ,a.iac_codigo_apoyo, a.act_estado, a.act_descripcion , a.aun_codigo_ejecutora, a.tipact_codigo, a.fecha_registro, 
+select 	a.act_codigo , a.act_ejecucion_conaud,a.act_numero ,a.cac_codigo ,a.iac_codigo_apoyo, a.act_estado, a.act_descripcion , a.aun_codigo_ejecutora, a.tipact_codigo, a.fecha_registro, 
 		au.aun_nombre, au.aun_sigla, au.aun_estado,
 		po.pobj_codigo ,po.pobj_nombre, po.pobj_estado,
 		p.poa_codigo 
@@ -80,15 +80,29 @@ where	true
 --		and a.act_numero = '530.0022.15.1.24'
 --		and a.act_codigo in (1121)
 --		and au.aun_sigla like 'GPA-GA3'
---		and a.act_estado not in (2,9,0,13)
+--		and a.act_estado not in (2,7,9,0,13)
 --		and a.act_estado in (1)
 --		and a.iac_codigo_apoyo is not null
 --		and a.tipact_codigo in (2)
 --		and a.cac_codigo in (2)
---		and po.pobj_codigo in (1361)
-		and p.poa_codigo in (3)
+		and po.pobj_codigo in (842)
+--		and p.poa_codigo in (2)
 --order by au.aun_codigo desc;
 order by a.act_codigo desc;
+--
+select 	iap.iap_codigo ,a.*
+from 	ejecucion_actividades.inicio_actividad_poa iap
+		left join estructura_poa.actividades a on iap.act_codigo = a.act_codigo ;
+--
+select 	*
+from 	ejecucion_poa.asignaciones_cargos_item;
+--
+select 	*
+from 	estructura_poa.actividades a
+order by a.act_codigo desc;
+--AGREGAR COLUMNA A ACTIVIDADES
+ALTER TABLE estructura_poa.actividades
+ADD COLUMN act_ejecucion_conaud BOOLEAN DEFAULT FALSE;
 --BUSCA SI TIENE REFORMULADOS
 with gestion as (
     select p.ges_codigo 
@@ -99,15 +113,20 @@ select p1.poa_codigo
 from estructura_poa.poas p1 
 join gestion g on p1.ges_codigo = g.ges_codigo;
 --AREA UNIDAD RESPONSABLES
-select 	aur.aur_codigo , aur.aur_estado ,p.poa_codigo, aur.fecha_registro ,
+select 	aur.aur_codigo , aur.per_codigo, aur.rol_codigo, aur.aur_estado ,p.poa_codigo, aur.fecha_registro ,
 		g.ges_anio 
 from 	estructura_poa.area_unidad_responsables aur
 		left join estructura_poa.poas p on aur.poa_codigo = p.poa_codigo 
 		left join parametricas.gestiones g on p.ges_codigo = g.ges_codigo 
 where 	true
-		and aur.aur_estado in (1)
-		and aur.poa_codigo in (3)
+--		and aur.aur_estado in (1)
+--		and aur.poa_codigo in (3)
+--		and aur.per_codigo in (1914)
 order by aur.aur_codigo desc;
+--CAMBIA LOS ROLES EN TODAS LAS AREAS EJECUTORAS
+UPDATE estructura_poa.area_unidad_responsables
+SET per_codigo = 1914
+WHERE rol_codigo IN (1, 2, 3);
 --OBJETIVO AREA UNIDAD
 select 	oau.oau_codigo , oau.oau_estado, oau.pobj_codigo, oau.fecha_registro, 
 		au.aun_sigla,
@@ -156,7 +175,7 @@ where 	ia.iac_codigo_control = 'K3IP15Y19';
 select 	*
 from 	control_estados.flujos_tablas ft
 where 	true 
-		and ft.tab_codigo in (64)
+		and ft.tab_codigo in (1)
 order by ft.fta_codigo asc;
 --ACTIVIDADES CONTINUIDAD
 select 	*
