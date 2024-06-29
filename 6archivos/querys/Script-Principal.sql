@@ -51,7 +51,9 @@ from 	estructura_poa.poas_objetivos po
 where 	true 
 --		and po.pobj_estado not in (2,9,0,13)
 --		and po.pobj_estado in (0)
-		and po.pobj_codigo in (1181)
+--		and po.pobj_codigo in (1181)
+--		and po.poa_codigo in (3)
+--		and po.pobj_numero in (62)
 order by	po.pobj_codigo desc;
 --VIATICOS
 select 	av.avi_codigo ,av.act_codigo, av.avi_estado, av.fecha_registro ,
@@ -64,11 +66,12 @@ from 	estructura_poa.actividades_viaticos av
 where 	true 
 --		and av.avi_estado in (1)
 		and p.poa_codigo in (2)
+--		and av.act_codigo in (1663)
 order by av.avi_codigo desc; 
 --ACTIVIDADES
 --select 	*
 --select 	a.act_codigo ,a.act_numero ,a.act_descripcion ,a.act_fecha_inicio ,a.act_fecha_fin ,a.act_objeto ,a.ttr_codigo ,a.tipact_codigo,a.cac_codigo 
-select 	a.act_codigo , a.act_ejecucion_conaud,a.act_numero ,a.cac_codigo ,a.iac_codigo_apoyo, a.act_estado, a.act_descripcion , a.aun_codigo_ejecutora, a.tipact_codigo, a.fecha_registro, 
+select 	a.act_codigo , a.act_codigo_anterior ,a.act_ejecucion_conaud,a.act_numero ,a.cac_codigo ,a.iac_codigo_apoyo, a.act_estado, a.act_descripcion , a.aun_codigo_ejecutora, a.tipact_codigo, a.fecha_registro, 
 		au.aun_nombre, au.aun_sigla, au.aun_estado,
 		po.pobj_codigo ,po.pobj_nombre, po.pobj_estado,
 		p.poa_codigo 
@@ -78,28 +81,95 @@ from 	estructura_poa.actividades a
 		left join estructura_poa.poas p on p.poa_codigo = po.poa_codigo 
 where	true 	
 --		and a.act_numero = '530.0022.15.1.24'
---		and a.act_codigo in (1121)
+--		and a.act_codigo in (1219)
 --		and au.aun_sigla like 'GPA-GA3'
 --		and a.act_estado not in (2,7,9,0,13)
---		and a.act_estado in (1)
+		and a.act_estado not in (9)
 --		and a.iac_codigo_apoyo is not null
 --		and a.tipact_codigo in (2)
 --		and a.cac_codigo in (2)
-		and po.pobj_codigo in (842)
---		and p.poa_codigo in (2)
+--		and po.pobj_codigo in (1279)
+--		and po.pobj_codigo in (842)
+		and p.poa_codigo in (3)
+		and a.act_ejecucion_conaud in (true)
+--		and au.aun_sigla = 'GDB-GAM'
 --order by au.aun_codigo desc;
 order by a.act_codigo desc;
 --
-select 	iap.iap_codigo ,a.*
-from 	ejecucion_actividades.inicio_actividad_poa iap
-		left join estructura_poa.actividades a on iap.act_codigo = a.act_codigo ;
---
+SELECT iap.act_codigo, iap.* FROM ejecucion_actividades.inicio_actividad_poa iap where iap.act_codigo in (124);
+SELECT iu.act_codigo, iu.* FROM ejecucion_informes.informes_uai iu where iu.act_codigo in (124);
+SELECT ia.act_codigo, ia.* FROM ejecucion_administrativas.inicios_administrativas ia where ia.act_codigo in (124);
+--HORAS ASIGNADAS INFORMES UAI
+with horasUAI as (
+select 	iu.act_codigo,
+		aci.aci_horas 
+from 	ejecucion_informes.informes_uai iu
+		left join estructura_poa.actividades a on iu.act_codigo = a.act_codigo
+		left join ejecucion_informes.inicio_evaluacion_informe iei on iu.iua_codigo = iei.iua_codigo
+		left join ejecucion_informes.inicio_evaluacion_informe_asignaciones ieia on iei.iei_codigo = ieia.iei_codigo 
+		left join ejecucion_poa.asignaciones_cargos_item aci on ieia.asi_codigo = aci.asi_codigo 
+where 	true 
+		and iu.act_codigo in (1305)
+)
+--select 	* from horasUAI
+SELECT act_codigo, SUM(aci_horas) AS suma_total
+FROM horasUAI
+--where rs.id_usuario =1
+GROUP BY act_codigo;
+--HORAS ASIGNADAS INICIO ACTIVIDAD POA
+with horasIAP as (
+select 	iap.act_codigo, 
+		aci.aci_horas 
+from 	ejecucion_actividades.inicio_actividad_poa iap 
+		left join estructura_poa.actividades a on iap.act_codigo = a.act_codigo
+		left join ejecucion_actividades.inicio_actividad_poa_asignaciones iapa on iap.iap_codigo = iapa.iapa_codigo 
+		left join ejecucion_poa.asignaciones_cargos_item aci on iapa.asi_codigo = aci.asi_codigo
+where 	true 
+		and iap.act_codigo in (124)
+)
+--select 	* from horasIAP;
+SELECT act_codigo, SUM(aci_horas) AS suma_total
+FROM horasIAP
+--where rs.id_usuario =1
+GROUP BY act_codigo;
 select 	*
-from 	ejecucion_poa.asignaciones_cargos_item;
+from 	ejecucion_actividades.inicio_actividad_poa iap 
+		left join estructura_poa.actividades a on iap.act_codigo = a.act_codigo 
+where 	true 
+		and iap.act_codigo in (1391) and a.act_estado in (2);
 --
-select 	*
-from 	estructura_poa.actividades a
-order by a.act_codigo desc;
+select 	ia.act_codigo, a.act_horas_planificadas 
+from 	ejecucion_administrativas.inicios_administrativas ia 
+		left join estructura_poa.actividades a on ia.act_codigo = a.act_codigo 
+where 	true 
+		and ia.act_codigo in (1391) and a.act_estado in (2);
+--
+with buscaIAP as (
+select 	a.*
+from 	ejecucion_informes.informes_uai iu
+		left join estructura_poa.actividades a on iu.act_codigo = a.act_codigo 
+where 	true 
+		and iu.act_codigo in (1391) and a.act_estado in (2)
+)
+select * from buscaIAP
+--
+--###  INICIO ACT POA - AMPLIACION JUSTIFICACION - CAMBIO GLOBAL DE ESTADOS, POR ROL
+	select iap.iap_codigo,iap.iac_codigo,iap.iap_observaciones ,iap.ges_codigo ,iap.iap_estado  from ejecucion_actividades.inicio_actividad_poa iap where iap.iap_codigo in (147)
+	select ia.iac_codigo,ia.iac_observaciones ,ia.iac_estado ,ia.ges_codigo  from ejecucion_actividades.inicios_actividades ia where ia.iac_codigo in (93) 
+	select iaa.iaa_codigo ,iaa.iac_codigo ,iaa.iaa_estado  from ejecucion_actividades.inicios_actividades_adicional iaa where iaa.iac_codigo in (93)
+	select *  from ejecucion_actividades.inicio_actividad_poa_asignaciones iapa where iapa.iap_codigo in (147) 
+	select *  from ejecucion_poa.asignaciones a where a.asi_codigo in (149)
+	select * from ejecucion_poa.asignaciones_cargos_item aci where aci.asi_codigo in (149)
+	-- obtiene los estados de cada uno
+	select * from control_estados.estados_inicio_actividad_poa eiap where eiap.iap_codigo in (147) order by eiap.eiap_codigo desc
+	select * from control_estados.estados_inicios_actividades eia where eia.iac_codigo in (93) order by eia.eia_codigo desc
+	--select * from control_estados.estados_inicios_actividades_adicional eiaa where eiaa.iaa_codigo in (2) order by eiaa.eiaa_codigo desc
+	select * from control_estados.estados_asignaciones ea  where ea.asi_codigo in (149) order by ea.asi_codigo desc
+	select * from control_estados.estados_asignaciones_cargos_item eaci  where eaci.aci_codigo in (667) order by eaci.eaci_codigo desc
+	select * from control_estados.estados_asignaciones_cargos_item eaci  where eaci.aci_codigo in (649) order by eaci.eaci_codigo desc
+	select * from control_estados.estados_asignaciones_cargos_item eaci  where eaci.aci_codigo in (650) order by eaci.eaci_codigo desc
+;
+--
 --AGREGAR COLUMNA A ACTIVIDADES
 ALTER TABLE estructura_poa.actividades
 ADD COLUMN act_ejecucion_conaud BOOLEAN DEFAULT FALSE;
