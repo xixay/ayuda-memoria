@@ -1,10 +1,10 @@
 #!/bin/bash
 remote_host="172.16.22.234"
 remote_port="5432"
-remote_db="db_poa_update_b"
+remote_db="db_poa_update_e"
 remote_user="postgres"
 remote_password="postgres"
-local_db="bd_cge_poa_conaud_administracion_local"
+local_db="bd_cge_poa_conaud_local"
 local_user="postgres"
 local_password="postgres"
 backup_file="backup_$(date '+%Y%m%d_%H%M%S').sql"
