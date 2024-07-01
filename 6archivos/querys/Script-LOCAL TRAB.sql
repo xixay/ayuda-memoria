@@ -52,7 +52,7 @@ where 	true
 --		and po.pobj_estado not in (2,9,0,13)
 --		and po.pobj_estado in (0)
 --		and po.pobj_codigo in (1181)
-		and po.pobj_codigo in (401)
+		and po.pobj_codigo in (1146,1145)
 --		and po.pobj_numero in (62)
 order by	po.pobj_codigo desc;
 --######################
@@ -114,10 +114,11 @@ where	true
 --		and a.tipact_codigo in (2)
 		and a.cac_codigo in (1)
 		and po.pobj_codigo in (1145)
+--		and po.pobj_codigo in (842)
 		and p.poa_codigo in (3)
 --		and a.act_ejecucion_conaud in (true)
-order by au.aun_estado asc;
---order by a.act_codigo desc;
+--order by au.aun_codigo desc;
+order by a.act_codigo desc;
 --HORAS ASIGNADAS INFORMES UAI
 with horasUAI as (
 select 	iu.act_codigo,
@@ -190,10 +191,6 @@ select * from buscaIAP;
 --AGREGAR COLUMNA A ACTIVIDADES
 ALTER TABLE estructura_poa.actividades
 ADD COLUMN act_ejecucion_conaud BOOLEAN DEFAULT FALSE;
---AGREGAR FLUJO PARA CAMBIO DE CONSOLIDADO, donde el antiguo cambia a HISTORICO
-INSERT INTO control_estados.flujos_tablas
-(fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
-VALUES((select max(fta_codigo)+1 from control_estados.flujos_tablas), 51, '', 1, 5, 1, 2022, 0, 0, now(), '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
 --BUSCA SI TIENE REFORMULADOS
 with gestion as (
     select p.ges_codigo 
@@ -234,18 +231,9 @@ order by oau.oau_codigo desc;
 select 	*
 from 	control_estados.flujos_tablas ft
 where 	true 
-		and ft.tab_codigo in (51)
+		and ft.tab_codigo in (39)
 ;
---
-SELECT	a.*
-FROM	estructura_poa.actividades a
-		LEFT JOIN estructura_poa.poas_objetivos po ON a.pobj_codigo = po.pobj_codigo
-		LEFT JOIN estructura_poa.poas p ON po.poa_codigo = p.poa_codigo
-WHERE	TRUE
-		AND p.poa_codigo IN (2)
-		AND a.act_estado NOT IN (0, 5)
-ORDER BY a.act_codigo ASC
-;
+
 --########## INICIOS ACTIVIDADES ################
 
 --INICIOS ACTIVIDADES
