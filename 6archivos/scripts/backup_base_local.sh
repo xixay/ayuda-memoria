@@ -1,11 +1,17 @@
 #!/bin/bash
 
-# Variables de configuración para la base de datos local
-local_host="localhost"
-local_port="5432"
-local_db="bd_cge_poa_conaud_local_b"
-local_user="postgres"
-local_password="postgres"
+# Solicitar al usuario los detalles de la base de datos utilizando zenity
+local_db=$(zenity --entry --title="Detalles de la base de datos local" --text="Ingrese el nombre de la base de datos:")
+local_port=$(zenity --entry --title="Detalles de la base de datos local" --text="Ingrese el puerto de la base de datos:" --entry-text="5432")
+local_host=$(zenity --entry --title="Detalles de la base de datos local" --text="Ingrese la dirección del host local:" --entry-text="localhost")
+local_user=$(zenity --entry --title="Detalles de la base de datos local" --text="Ingrese el usuario de la base de datos:")
+local_password=$(zenity --password --title="Detalles de la base de datos local" --text="Ingrese la contraseña del usuario:")
+
+if [ -z "$local_db" ] || [ -z "$local_port" ] || [ -z "$local_host" ] || [ -z "$local_user" ] || [ -z "$local_password" ]; then
+    zenity --error --title="Error" --text="Debe completar todos los campos."
+    exit 1
+fi
+
 backup_file="backup_$(date '+%Y%m%d_%H%M%S').sql"
 
 # Especificar la ruta completa de pg_dump y pg_restore para PostgreSQL 16
@@ -14,7 +20,7 @@ pg_restore_path="/usr/bin/pg_restore"  # Asegúrate de que esta es la ruta corre
 
 # Verificar si pg_dump existe en la ruta especificada
 if [ ! -f "$pg_dump_path" ]; then
-    echo "Error: $pg_dump_path no existe."
+    zenity --error --title="Error" --text="$pg_dump_path no existe."
     exit 1
 fi
 
@@ -23,11 +29,9 @@ PGPASSWORD=$local_password $pg_dump_path -h $local_host -p $local_port -U $local
 
 # Verificar si el archivo de respaldo se creó correctamente
 if [ ! -f "$backup_file" ]; then
-    echo "Error: No se pudo crear el archivo de respaldo $backup_file."
-    notify-send "Error en la copia de seguridad" "No se pudo crear el archivo de respaldo."
+    zenity --error --title="Error" --text="No se pudo crear el archivo de respaldo $backup_file."
     exit 1
 fi
 
 # Notificar que la copia de seguridad fue exitosa
-echo "Copia de seguridad realizada correctamente. Archivo: $backup_file"
-notify-send "Copia de seguridad exitosa" "Se ha creado el archivo de respaldo: $backup_file."
+zenity --info --title="Copia de seguridad exitosa" --text="Se ha creado el archivo de respaldo:\n$backup_file"
