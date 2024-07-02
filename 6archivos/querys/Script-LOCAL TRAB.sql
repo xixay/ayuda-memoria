@@ -57,25 +57,22 @@ where 	true
 order by	po.pobj_codigo desc;
 --######################
 SELECT
-      po.pobj_codigo, po.pobj_estado, pr.pro_numero, au.aun_numero, po.pobj_numero,
-      CONCAT(pr.pro_numero, '.', au.aun_numero, '.', po.pobj_numero) AS pobj_codigo_sigla,
-      po.pobj_nombre, po.pro_codigo
-FROM	estructura_poa.poas_objetivos po
-      LEFT JOIN pei.programas pr ON po.pro_codigo = pr.pro_codigo
-      LEFT JOIN (
-        SELECT	oau.pobj_codigo, COALESCE((COALESCE(ARRAY_AGG(oau.aun_codigo_ejecutora ORDER BY oau.oau_codigo ASC), '{}'))[1], 0) AS aun_codigo_ejecutora_principal
-        FROM	estructura_poa.objetivos_area_unidad oau
-              LEFT JOIN estructura_poa.poas_objetivos po ON oau.pobj_codigo = po.pobj_codigo
-        WHERE	oau.oau_estado NOT IN (0)
-              AND po.poa_codigo IN (3) -- POA SELECCIONADO
-        GROUP BY oau.pobj_codigo
-      ) temporal ON po.pobj_codigo = temporal.pobj_codigo
-      LEFT JOIN estructura_organizacional.areas_unidades au ON temporal.aun_codigo_ejecutora_principal = au.aun_codigo
-      LEFT JOIN estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo AND oau.oau_estado NOT IN (0)
+		p.poa_codigo, p.poa_estado,
+		po.pobj_codigo, po.pobj_estado,
+		aur.aur_codigo, aur.aur_estado,
+		oau.oau_codigo, oau.oau_estado,
+		a.act_codigo, a.act_estado,
+		av.avi_codigo, av.avi_estado
+FROM	estructura_poa.poas p
+		LEFT JOIN estructura_poa.poas_objetivos po ON p.poa_codigo = po.poa_codigo
+		LEFT JOIN estructura_poa.area_unidad_responsables aur ON p.poa_codigo = aur.poa_codigo
+		LEFT JOIN estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo
+		LEFT JOIN estructura_poa.actividades a ON po.pobj_codigo = a.pobj_codigo
+		LEFT JOIN estructura_poa.actividades_viaticos av ON a.act_codigo = av.act_codigo
 WHERE	TRUE
-      AND po.poa_codigo IN (3) -- POA SELECCIONADO
-      AND oau.aun_codigo_ejecutora IN (76) -- ESTADOS
-GROUP BY po.pobj_codigo, pr.pro_numero, po.pobj_numero, po.pobj_nombre, au.aun_numero
+		AND po.pobj_estado NOT IN (0)
+		AND a.act_estado NOT IN (0)
+		and p.poa_codigo in (2)
 ;
 --######################
 --VIATICOS
