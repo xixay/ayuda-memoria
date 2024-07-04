@@ -1,3 +1,5 @@
+src/components/sispoa-actividades-formularios/component/sispoa-actividades.table.jsx
+
 SELECT	a.act_codigo, iap.iap_codigo, ia.iac_codigo, iapa.iapa_codigo, asi.asi_codigo, aci.aci_codigo
 FROM	estructura_poa.actividades a
 		LEFT JOIN ejecucion_actividades.inicio_actividad_poa iap ON a.act_codigo = iap.act_codigo
