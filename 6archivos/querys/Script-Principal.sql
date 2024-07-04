@@ -104,20 +104,20 @@ from 	estructura_poa.actividades a
 --		left join estructura_poa.objetivos_area_unidad oau on po.pobj_codigo = oau.pobj_codigo 
 where	true 	
 --		and a.act_numero = '530.0022.15.1.24'
---		and a.act_codigo in (613,609,592,585,580,478,396,219,217,198)
+--		and a.act_codigo in (446)
 --		and a.act_codigo_anterior in (613,609,592,585,580,478,396,219,217,198)
 --		and a.act_codigo_anterior in (396,219,217)
-		and au.aun_sigla like 'GPA-GA2'
+--		and au.aun_sigla like 'GPA-GA2'
 --		and a.act_estado not in (2,7,9,0,13)
 --		and a.act_estado not in (9)
 --		and a.iac_codigo_apoyo is not null
 --		and a.tipact_codigo in (2)
-		and a.cac_codigo in (1)
-		and po.pobj_codigo in (1145)
-		and p.poa_codigo in (3)
+--		and a.cac_codigo in (1)
+--		and po.pobj_codigo in (1145)
+--		and p.poa_codigo in (3)
 --		and a.act_ejecucion_conaud in (true)
-order by au.aun_estado asc;
---order by a.act_codigo desc;
+--order by au.aun_estado asc;
+order by a.act_codigo desc;
 --HORAS ASIGNADAS INFORMES UAI
 with horasUAI as (
 select 	iu.act_codigo,
@@ -247,12 +247,31 @@ WHERE	TRUE
 ORDER BY a.act_codigo ASC
 ;
 --########## INICIOS ACTIVIDADES ################
-
+--###############
+SELECT	a.act_codigo, a.act_numero, a.ttr_codigo, 
+		po.pobj_nombre, 
+		iap.iap_codigo, iap.iap_estado,
+		ia.iac_codigo, iap.iap_estado,
+		iapa.iapa_codigo, iapa.iapa_estado,
+		asi.asi_codigo, asi.asi_estado,
+		aci.aci_codigo, aci.aci_estado 
+FROM	estructura_poa.actividades a
+		left join estructura_poa.poas_objetivos po on a.pobj_codigo = po.pobj_codigo 
+		LEFT JOIN ejecucion_actividades.inicio_actividad_poa iap ON a.act_codigo = iap.act_codigo
+		LEFT JOIN ejecucion_actividades.inicios_actividades ia ON iap.iac_codigo = ia.iac_codigo
+		LEFT JOIN ejecucion_actividades.inicio_actividad_poa_asignaciones iapa ON iap.iap_codigo = iapa.iap_codigo
+		LEFT JOIN ejecucion_poa.asignaciones asi ON iapa.asi_codigo = asi.asi_codigo
+		LEFT JOIN ejecucion_poa.asignaciones_cargos_item aci ON asi.asi_codigo = aci.asi_codigo
+WHERE	true 
+--		and iap.iap_codigo = 154
+		and iap.act_codigo in (1501)
+;
+--###############
 --INICIOS ACTIVIDADES
 select	*
 FROM 	ejecucion_actividades.inicios_actividades t
 --where 	t.iac_codigo_control in ('EHEN26Y00')
-where 	t.iac_codigo in (207)
+--where 	t.iac_codigo in (207)
 --where 	t.iac_estado in (22)
 order by t.iac_codigo desc ;
 --INICIO ACTIVIDAD POA
@@ -260,10 +279,15 @@ select 	*
 from 	ejecucion_actividades.inicio_actividad_poa iap
 		left join ejecucion_actividades.inicios_actividades ia on iap.iac_codigo =ia.iac_codigo 
 where 	true 
-		and iap.iap_codigo in (516)
+		and iap.iac_codigo in (511)
 --where 	iap.act_codigo in (711)
 --limit 5;
 order 	by iap.iap_codigo desc;
+--ACTIVIDADES CONTINUIDAD
+select 	*
+from 	estructura_poa.actividades_continuidad ac
+where 	ac.iac_codigo in (511)
+order by ac.aco_codigo desc;
 --BUSCA EL ESPECIFICACION TIPO TRABAJO ACTIVIDAD
 select 	tt.ett_codigo 
 from 	ejecucion_actividades.inicios_actividades ia
@@ -277,11 +301,6 @@ from 	control_estados.flujos_tablas ft
 where 	true 
 		and ft.tab_codigo in (1)
 order by ft.fta_codigo asc;
---ACTIVIDADES CONTINUIDAD
-select 	*
-from 	estructura_poa.actividades_continuidad ac
---where 	ac.iac_codigo in (397)
-order by ac.aco_codigo desc;
 --ACTIVIDADES HORAS PLANIFICADAS
 select 	*
 from 	estructura_poa.actividades_horas_planificadas ahp 

@@ -1,0 +1,17 @@
+##SISPOA##
+510.1903.34
+act_continuo
+act_codigo=1501
+510.1903.34.2.24
+sigla=GDB-GAD
+
+###CONAUD###
+iac_codigo=511
+iac_codigo_control=LSXP06J11
+iac_estado=1
+iap_codigo   ===> no tiene
+correlativo_codigo=A04743
+http://172.16.75.100:3002/conaud/inicios-actividades?ges_codigo=2&act_codigo=1501
+PARA INICIAR osea que tenga un iap que se lo hace con su formulador gerente
+
+{"act_codigo":1501,"act_descripcion":"PRUEBA CONTINUIDAD 1","act_cantidad":11,"act_fecha_inicio":"01/07/2024","act_fecha_fin":"31/07/2024","act_objeto":"PRUEBA CONTINUIDAD 1","act_objetivo":"PRUEBA CONTINUIDAD 1","act_alcance":"PRUEBA CONTINUIDAD 1","act_horas_planificadas":11,"act_estado":2,"act_no_planificado":true,"act_codigo_anterior":null,"act_codigo_bolsa":115,"ges_codigo":2,"pobj_numero":34,"aun_numero":"1903","aun_estado":2,"pro_numero":"510","act_correlativo":2,"ges_anio":2024,"act_numero":"510.1903.34.2.24","act_num_desc":"510.1903.34.2.24 - PRUEBA CONTINUIDAD 1","est_color":"#43A047","act_estado_descripcion":"CONSOLIDADO","ttr_codigo":4,"ttr_sigla":"AUFIN","ttr_inicial":"F","ett_codigo":1,"ett_nombre":"AUDITORÍA","ume_codigo":6,"ume_descripcion":"INFORMES REVISADOS","ent_codigo":592,"fob_codigo":1,"tipact_codigo":2,"act_tipact_descripcion":"CONTINUIDAD","cac_codigo":2,"sec_codigo":3,"sec_descripcion":"COMERCIO Y FINANZAS","act_cac_descripcion":"INCORPORACIÓN","aun_codigo_supervisora":5,"aun_sigla_supervisora":"SCGM","aun_inicial_supervisora":"G","aun_nombre_supervisora":"Subcontraloría de Gobiernos Municipales y Universidades - SCGM","aun_codigo_ejecutora":79,"aun_codigo_ejecutora_actividad":79,"pobj_codigo":636,"aun_sigla_ejecutora":"GDB-GAD","aun_inicial_ejecutora":"B","lug_codigo":8,"aun_nombre_ejecutora":"Gerencia Departamental de Auditoría en Gobiernos Departamentales - GDB-GAD","act_codigo_apoyo":0,"act_codigo_ejecucion":0,"act_justificacion":"PRUEBA CONTINUIDAD 1","iac_codigo_apoyo":null,"iac_concatenado":"","iac_codigo_control":"","avi_estado":null,"fecha_registro":"19:00 pm 03/07/2024","act_denuncia":null,"poa_codigo":2,"cau_codigo":1,"caa_codigo":1,"caa_nombre":"AUDITORÍA","cfa_codigo":2,"cfa_nombre":"SUSTANTIVO","cga_codigo":0,"cga_nombre":"NO APLICA","cca_codigo":0,"cca_nombre":"NO APLICA","conaud":"LSXP06J11","actividad_object":{"aco_codigo":146,"aco_descripcion":"","conaud_gestion":2011,"conaud_codigo":"010.01.24.03","conaud_correlativo":"A04743","conaud_detalle":{"correlativo_codigo":"A04743","trabajo_codigo":"LSXP06J11","trabajo_codigo_f":"LS/XP6/J11","actividad_codigo":"010.01.24.03","actividad_correlativo":"014","actividad_gestion":2011,"entidad_codigo":14123,"entidad_descripcion":"BATALLON DE SEGURIDAD FÍSICA - SANTA CRUZ","actividad_fecha_inicio":"01/06/2011","actividad_fecha_fin":"30/06/2011","auditoria_fecha_inicio":"06/06/2011","auditoria_dias_habiles":10,"auditoria_dias_calendario":12,"auditoria_fecha_entrega":"17/06/2011","auditoria_fecha_emision":"19/08/2011","auditoria_objeto":"APOYO LEGAL A LA SCAE/ BATALLON DE SEGURIDAD FÍSICA SANTA CRUZ","auditoria_objetivo":"INFORME DE APOYO LEGAL Nº ES/EP07/O08 C2","auditoria_periodo":"01/01/07 AL 11/06/07"},"act_codigo":1501,"iac_codigo":511,"aco_act_objetivo":"PRUEBA CONTINUIDAD 1","aco_estado":1,"est_color":"#54bebe","aco_estado_descripcion":"EDICION","fecha_registro":"19:00 pm 03/07/2024"},"flagInformes":false,"iac_codigo_control_vista":"","inicio_actividad_poa":{},"array_inicio_actividad_poa":[]}
