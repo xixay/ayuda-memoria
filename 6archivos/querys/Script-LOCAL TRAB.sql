@@ -248,7 +248,8 @@ ORDER BY a.act_codigo ASC
 ;
 --########## INICIOS ACTIVIDADES ################
 --###############
-SELECT	a.act_codigo, a.act_numero, a.ttr_codigo, 
+SELECT	a.act_codigo, a.act_numero, a.ttr_codigo, a.tipact_codigo,
+		ac.aco_codigo, ac.aco_estado, ac.iac_codigo, 
 		po.pobj_nombre, 
 		iap.iap_codigo, iap.iap_estado,
 		ia.iac_codigo, ia.iac_estado,
@@ -257,7 +258,8 @@ SELECT	a.act_codigo, a.act_numero, a.ttr_codigo,
 		asi.asi_codigo, asi.asi_estado,
 		aci.aci_codigo, aci.aci_estado 
 FROM	estructura_poa.actividades a
-		left join estructura_poa.poas_objetivos po on a.pobj_codigo = po.pobj_codigo 
+		left join estructura_poa.poas_objetivos po on a.pobj_codigo = po.pobj_codigo
+		left join estructura_poa.actividades_continuidad ac on a.act_codigo = ac.act_codigo 
 		LEFT JOIN ejecucion_actividades.inicio_actividad_poa iap ON a.act_codigo = iap.act_codigo
 		LEFT JOIN ejecucion_actividades.inicios_actividades ia ON iap.iac_codigo = ia.iac_codigo
 		left join ejecucion_actividades.inicios_actividades_adicional iaa on iaa.iac_codigo = ia.iac_codigo 
@@ -265,8 +267,9 @@ FROM	estructura_poa.actividades a
 		LEFT JOIN ejecucion_poa.asignaciones asi ON iapa.asi_codigo = asi.asi_codigo
 		LEFT JOIN ejecucion_poa.asignaciones_cargos_item aci ON asi.asi_codigo = aci.asi_codigo
 WHERE	true 
---		and iap.iap_codigo = 154
-		and iap.act_codigo in (446)
+		and iap.iap_codigo = 512
+--		and iap.act_codigo in (446)--NORMAL
+--		and iap.act_codigo in (1501)--CONTINUO
 --		and a.act_numero = '510.1902.34.1.24'
 ;
 --###############
@@ -282,7 +285,7 @@ select 	*
 from 	ejecucion_actividades.inicio_actividad_poa iap
 		left join ejecucion_actividades.inicios_actividades ia on iap.iac_codigo =ia.iac_codigo 
 where 	true 
-		and iap.iac_codigo in (511)
+		and iap.iac_codigo in (512)
 --where 	iap.act_codigo in (711)
 --limit 5;
 order 	by iap.iap_codigo desc;

@@ -1,4 +1,5 @@
 src/components/sispoa-actividades-formularios/component/sispoa-actividades.table.jsx
+base=bd_cge_poa_conaud_local_b
 
 #GESTION INSTITUCIONAL
 act_numero=510.1902.34.1.24
