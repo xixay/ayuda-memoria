@@ -52,27 +52,30 @@ where 	true
 --		and po.pobj_estado not in (2,9,0,13)
 --		and po.pobj_estado in (0)
 --		and po.pobj_codigo in (1181)
-		and po.pobj_codigo in (1146,1145)
+		and po.pobj_codigo in (401)
 --		and po.pobj_numero in (62)
 order by	po.pobj_codigo desc;
 --######################
 SELECT
-		p.poa_codigo, p.poa_estado,
-		po.pobj_codigo, po.pobj_estado,
-		aur.aur_codigo, aur.aur_estado,
-		oau.oau_codigo, oau.oau_estado,
-		a.act_codigo, a.act_estado,
-		av.avi_codigo, av.avi_estado
-FROM	estructura_poa.poas p
-		LEFT JOIN estructura_poa.poas_objetivos po ON p.poa_codigo = po.poa_codigo
-		LEFT JOIN estructura_poa.area_unidad_responsables aur ON p.poa_codigo = aur.poa_codigo
-		LEFT JOIN estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo
-		LEFT JOIN estructura_poa.actividades a ON po.pobj_codigo = a.pobj_codigo
-		LEFT JOIN estructura_poa.actividades_viaticos av ON a.act_codigo = av.act_codigo
+      po.pobj_codigo, po.pobj_estado, pr.pro_numero, au.aun_numero, po.pobj_numero,
+      CONCAT(pr.pro_numero, '.', au.aun_numero, '.', po.pobj_numero) AS pobj_codigo_sigla,
+      po.pobj_nombre, po.pro_codigo
+FROM	estructura_poa.poas_objetivos po
+      LEFT JOIN pei.programas pr ON po.pro_codigo = pr.pro_codigo
+      LEFT JOIN (
+        SELECT	oau.pobj_codigo, COALESCE((COALESCE(ARRAY_AGG(oau.aun_codigo_ejecutora ORDER BY oau.oau_codigo ASC), '{}'))[1], 0) AS aun_codigo_ejecutora_principal
+        FROM	estructura_poa.objetivos_area_unidad oau
+              LEFT JOIN estructura_poa.poas_objetivos po ON oau.pobj_codigo = po.pobj_codigo
+        WHERE	oau.oau_estado NOT IN (0)
+              AND po.poa_codigo IN (3) -- POA SELECCIONADO
+        GROUP BY oau.pobj_codigo
+      ) temporal ON po.pobj_codigo = temporal.pobj_codigo
+      LEFT JOIN estructura_organizacional.areas_unidades au ON temporal.aun_codigo_ejecutora_principal = au.aun_codigo
+      LEFT JOIN estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo AND oau.oau_estado NOT IN (0)
 WHERE	TRUE
-		AND po.pobj_estado NOT IN (0)
-		AND a.act_estado NOT IN (0)
-		and p.poa_codigo in (2)
+      AND po.poa_codigo IN (3) -- POA SELECCIONADO
+      AND oau.aun_codigo_ejecutora IN (76) -- ESTADOS
+GROUP BY po.pobj_codigo, pr.pro_numero, po.pobj_numero, po.pobj_nombre, au.aun_numero
 ;
 --######################
 --VIATICOS
@@ -101,20 +104,19 @@ from 	estructura_poa.actividades a
 --		left join estructura_poa.objetivos_area_unidad oau on po.pobj_codigo = oau.pobj_codigo 
 where	true 	
 --		and a.act_numero = '530.0022.15.1.24'
---		and a.act_codigo in (613,609,592,585,580,478,396,219,217,198)
+--		and a.act_codigo in (446)
 --		and a.act_codigo_anterior in (613,609,592,585,580,478,396,219,217,198)
 --		and a.act_codigo_anterior in (396,219,217)
-		and au.aun_sigla like 'GPA-GA2'
+--		and au.aun_sigla like 'GPA-GA2'
 --		and a.act_estado not in (2,7,9,0,13)
 --		and a.act_estado not in (9)
 --		and a.iac_codigo_apoyo is not null
 --		and a.tipact_codigo in (2)
-		and a.cac_codigo in (1)
-		and po.pobj_codigo in (1145)
---		and po.pobj_codigo in (842)
-		and p.poa_codigo in (3)
+--		and a.cac_codigo in (1)
+--		and po.pobj_codigo in (1145)
+--		and p.poa_codigo in (3)
 --		and a.act_ejecucion_conaud in (true)
---order by au.aun_codigo desc;
+--order by au.aun_estado asc;
 order by a.act_codigo desc;
 --HORAS ASIGNADAS INFORMES UAI
 with horasUAI as (
@@ -188,6 +190,10 @@ select * from buscaIAP;
 --AGREGAR COLUMNA A ACTIVIDADES
 ALTER TABLE estructura_poa.actividades
 ADD COLUMN act_ejecucion_conaud BOOLEAN DEFAULT FALSE;
+--AGREGAR FLUJO PARA CAMBIO DE CONSOLIDADO, donde el antiguo cambia a HISTORICO
+INSERT INTO control_estados.flujos_tablas
+(fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
+VALUES((select max(fta_codigo)+1 from control_estados.flujos_tablas), 51, '', 1, 5, 1, 2022, 0, 0, now(), '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
 --BUSCA SI TIENE REFORMULADOS
 with gestion as (
     select p.ges_codigo 
@@ -228,16 +234,47 @@ order by oau.oau_codigo desc;
 select 	*
 from 	control_estados.flujos_tablas ft
 where 	true 
-		and ft.tab_codigo in (39)
+		and ft.tab_codigo in (51)
 ;
-
+--
+SELECT	a.*
+FROM	estructura_poa.actividades a
+		LEFT JOIN estructura_poa.poas_objetivos po ON a.pobj_codigo = po.pobj_codigo
+		LEFT JOIN estructura_poa.poas p ON po.poa_codigo = p.poa_codigo
+WHERE	TRUE
+		AND p.poa_codigo IN (2)
+		AND a.act_estado NOT IN (0, 5)
+ORDER BY a.act_codigo ASC
+;
 --########## INICIOS ACTIVIDADES ################
-
+--###############
+SELECT	a.act_codigo, a.act_numero, a.ttr_codigo, 
+		po.pobj_nombre, 
+		iap.iap_codigo, iap.iap_estado,
+		ia.iac_codigo, ia.iac_estado,
+		iaa.iaa_codigo, iaa.iaa_estado, 
+		iapa.iapa_codigo, iapa.iapa_estado,
+		asi.asi_codigo, asi.asi_estado,
+		aci.aci_codigo, aci.aci_estado 
+FROM	estructura_poa.actividades a
+		left join estructura_poa.poas_objetivos po on a.pobj_codigo = po.pobj_codigo 
+		LEFT JOIN ejecucion_actividades.inicio_actividad_poa iap ON a.act_codigo = iap.act_codigo
+		LEFT JOIN ejecucion_actividades.inicios_actividades ia ON iap.iac_codigo = ia.iac_codigo
+		left join ejecucion_actividades.inicios_actividades_adicional iaa on iaa.iac_codigo = ia.iac_codigo 
+		LEFT JOIN ejecucion_actividades.inicio_actividad_poa_asignaciones iapa ON iap.iap_codigo = iapa.iap_codigo
+		LEFT JOIN ejecucion_poa.asignaciones asi ON iapa.asi_codigo = asi.asi_codigo
+		LEFT JOIN ejecucion_poa.asignaciones_cargos_item aci ON asi.asi_codigo = aci.asi_codigo
+WHERE	true 
+--		and iap.iap_codigo = 154
+		and iap.act_codigo in (446)
+--		and a.act_numero = '510.1902.34.1.24'
+;
+--###############
 --INICIOS ACTIVIDADES
 select	*
 FROM 	ejecucion_actividades.inicios_actividades t
 --where 	t.iac_codigo_control in ('EHEN26Y00')
-where 	t.iac_codigo in (207)
+--where 	t.iac_codigo in (207)
 --where 	t.iac_estado in (22)
 order by t.iac_codigo desc ;
 --INICIO ACTIVIDAD POA
@@ -245,10 +282,15 @@ select 	*
 from 	ejecucion_actividades.inicio_actividad_poa iap
 		left join ejecucion_actividades.inicios_actividades ia on iap.iac_codigo =ia.iac_codigo 
 where 	true 
-		and iap.iap_codigo in (516)
+		and iap.iac_codigo in (511)
 --where 	iap.act_codigo in (711)
 --limit 5;
 order 	by iap.iap_codigo desc;
+--ACTIVIDADES CONTINUIDAD
+select 	*
+from 	estructura_poa.actividades_continuidad ac
+where 	ac.iac_codigo in (511)
+order by ac.aco_codigo desc;
 --BUSCA EL ESPECIFICACION TIPO TRABAJO ACTIVIDAD
 select 	tt.ett_codigo 
 from 	ejecucion_actividades.inicios_actividades ia
@@ -262,11 +304,6 @@ from 	control_estados.flujos_tablas ft
 where 	true 
 		and ft.tab_codigo in (1)
 order by ft.fta_codigo asc;
---ACTIVIDADES CONTINUIDAD
-select 	*
-from 	estructura_poa.actividades_continuidad ac
---where 	ac.iac_codigo in (397)
-order by ac.aco_codigo desc;
 --ACTIVIDADES HORAS PLANIFICADAS
 select 	*
 from 	estructura_poa.actividades_horas_planificadas ahp 
