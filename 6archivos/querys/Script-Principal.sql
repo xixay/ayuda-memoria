@@ -35,7 +35,6 @@ select 	*
 from 	parametricas.tipos_actividades ta ;
 
 --###### ACTIVIDADES ##################
-
 --POAS
 select 	po.poa_codigo , po.pobj_codigo, po.pobj_estado, 
 		a.act_codigo, a.act_codigo_anterior , a.act_estado 
@@ -94,8 +93,8 @@ order by av.avi_codigo desc;
 --ACTIVIDADES
 select 	a.act_codigo , a.act_codigo_anterior ,a.act_numero ,a.cac_codigo ,a.iac_codigo_apoyo, a.act_estado, a.act_descripcion , a.aun_codigo_ejecutora, a.tipact_codigo, a.fecha_registro, 
 		au.aun_nombre, au.aun_sigla, au.aun_estado,
-		po.pobj_codigo ,po.pobj_nombre, po.pobj_estado--,
---		p.poa_codigo,
+		po.pobj_codigo ,po.pobj_nombre, po.pobj_estado,
+		p.poa_codigo
 --		oau.oau_codigo, oau.oau_descripcion ,oau.oau_estado 
 from 	estructura_poa.actividades a 
 		left join estructura_organizacional.areas_unidades au on a.aun_codigo_ejecutora = au.aun_codigo 
@@ -104,10 +103,10 @@ from 	estructura_poa.actividades a
 --		left join estructura_poa.objetivos_area_unidad oau on po.pobj_codigo = oau.pobj_codigo 
 where	true 	
 --		and a.act_numero = '530.0022.15.1.24'
---		and a.act_codigo in (446)
+--		and a.act_codigo in (546)
 --		and a.act_codigo_anterior in (613,609,592,585,580,478,396,219,217,198)
 --		and a.act_codigo_anterior in (396,219,217)
---		and au.aun_sigla like 'GPA-GA2'
+		and au.aun_sigla like 'GDB-GAM'
 --		and a.act_estado not in (2,7,9,0,13)
 --		and a.act_estado not in (9)
 --		and a.iac_codigo_apoyo is not null
@@ -118,6 +117,45 @@ where	true
 --		and a.act_ejecucion_conaud in (true)
 --order by au.aun_estado asc;
 order by a.act_codigo desc;
+--REPORTE EXCEL ACTIVIDADES
+SELECT	a.act_codigo, a.act_estado, a.act_numero, au.aun_sigla, a.ent_codigo, a.act_objetivo, a.ttr_codigo, tt.ttr_descripcion, tt.ett_codigo, ett.ett_nombre, a.caa_codigo, caa.caa_nombre
+FROM	estructura_poa.actividades a
+		LEFT JOIN estructura_poa.poas_objetivos po ON a.pobj_codigo = po.pobj_codigo 
+		LEFT JOIN estructura_poa.poas p ON po.poa_codigo = p.poa_codigo 
+		LEFT JOIN estructura_organizacional.areas_unidades au ON a.aun_codigo_ejecutora = au.aun_codigo
+		LEFT JOIN parametricas.tipos_trabajos tt ON a.ttr_codigo = tt.ttr_codigo
+		LEFT JOIN parametricas.especificacion_tipos_trabajo ett ON tt.ett_codigo = ett.ett_codigo
+		LEFT JOIN parametricas.clasificacion_auditoria_actividad caa ON a.caa_codigo = caa.caa_codigo
+WHERE	true 
+		and a.aun_codigo_ejecutora in (79,46,63)
+		and a.act_estado not in (0,9)
+		and p.poa_codigo in (2)
+;
+--
+WITH order_values AS (
+    SELECT unnest(array[79, 46, 63]) AS aun_codigo_ejecutora, generate_series(1, array_length(array[79, 46, 63], 1)) AS orden
+),
+numered_activities AS (
+    SELECT a.act_codigo, a.act_estado, a.act_numero, au.aun_sigla, a.ent_codigo, a.act_objetivo, a.ttr_codigo, tt.ttr_descripcion, tt.ett_codigo, ett.ett_nombre, a.caa_codigo, caa.caa_nombre, ov.orden,
+           row_number() OVER (ORDER BY ov.orden) AS numero_dato
+    FROM estructura_poa.actividades a
+    LEFT JOIN estructura_poa.poas_objetivos po ON a.pobj_codigo = po.pobj_codigo 
+    LEFT JOIN estructura_poa.poas p ON po.poa_codigo = p.poa_codigo 
+    LEFT JOIN estructura_organizacional.areas_unidades au ON a.aun_codigo_ejecutora = au.aun_codigo
+    LEFT JOIN parametricas.tipos_trabajos tt ON a.ttr_codigo = tt.ttr_codigo
+    LEFT JOIN parametricas.especificacion_tipos_trabajo ett ON tt.ett_codigo = ett.ett_codigo
+    LEFT JOIN parametricas.clasificacion_auditoria_actividad caa ON a.caa_codigo = caa.caa_codigo
+    JOIN order_values ov ON a.aun_codigo_ejecutora = ov.aun_codigo_ejecutora
+    WHERE true 
+      AND a.aun_codigo_ejecutora IN (79, 46, 63)
+      AND a.act_estado NOT IN (0, 9)
+      AND p.poa_codigo IN (2)
+)
+SELECT * FROM numered_activities
+ORDER BY orden;
+
+	
+
 --HORAS ASIGNADAS INFORMES UAI
 with horasUAI as (
 select 	iu.act_codigo,
