@@ -267,8 +267,8 @@ FROM	estructura_poa.actividades a
 		LEFT JOIN ejecucion_poa.asignaciones asi ON iapa.asi_codigo = asi.asi_codigo
 		LEFT JOIN ejecucion_poa.asignaciones_cargos_item aci ON asi.asi_codigo = aci.asi_codigo
 WHERE	true 
-		and iap.iap_codigo = 512
---		and iap.act_codigo in (446)--NORMAL
+--		and iap.iap_codigo = 512
+		and iap.act_codigo in (446)--NORMAL
 --		and iap.act_codigo in (1501)--CONTINUO
 --		and a.act_numero = '510.1902.34.1.24'
 ;
