@@ -6,4 +6,7 @@ Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwZXJfY29kaWdvIjoxOTE0LCJzaXN0ZW1h
 
 RptXlsPoasAreasEjecutoras.jrxml
 
-
+###### El estado en el que se encuentra en CONAUD
+			aun_codigo
+area_unidad_padre	13
+area_unidad_hijos	63,64,67

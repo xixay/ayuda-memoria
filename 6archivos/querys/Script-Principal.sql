@@ -106,7 +106,7 @@ where	true
 --		and a.act_codigo in (546)
 --		and a.act_codigo_anterior in (613,609,592,585,580,478,396,219,217,198)
 --		and a.act_codigo_anterior in (396,219,217)
-		and au.aun_sigla like 'GDB-GAM'
+--		and au.aun_sigla like 'GDB-GAM'
 --		and a.act_estado not in (2,7,9,0,13)
 --		and a.act_estado not in (9)
 --		and a.iac_codigo_apoyo is not null
@@ -118,22 +118,8 @@ where	true
 --order by au.aun_estado asc;
 order by a.act_codigo desc;
 --REPORTE EXCEL ACTIVIDADES
-SELECT	a.act_codigo, a.act_estado, a.act_numero, au.aun_sigla, a.ent_codigo, a.act_objetivo, a.ttr_codigo, tt.ttr_descripcion, tt.ett_codigo, ett.ett_nombre, a.caa_codigo, caa.caa_nombre
-FROM	estructura_poa.actividades a
-		LEFT JOIN estructura_poa.poas_objetivos po ON a.pobj_codigo = po.pobj_codigo 
-		LEFT JOIN estructura_poa.poas p ON po.poa_codigo = p.poa_codigo 
-		LEFT JOIN estructura_organizacional.areas_unidades au ON a.aun_codigo_ejecutora = au.aun_codigo
-		LEFT JOIN parametricas.tipos_trabajos tt ON a.ttr_codigo = tt.ttr_codigo
-		LEFT JOIN parametricas.especificacion_tipos_trabajo ett ON tt.ett_codigo = ett.ett_codigo
-		LEFT JOIN parametricas.clasificacion_auditoria_actividad caa ON a.caa_codigo = caa.caa_codigo
-WHERE	true 
-		and a.aun_codigo_ejecutora in (79,46,63)
-		and a.act_estado not in (0,9)
-		and p.poa_codigo in (2)
-;
---
 WITH order_values AS (
-    SELECT unnest(array[79, 46, 63]) AS aun_codigo_ejecutora, generate_series(1, array_length(array[79, 46, 63], 1)) AS orden
+    SELECT unnest(array[63, 64, 67]) AS aun_codigo_ejecutora, generate_series(1, array_length(array[63, 64, 67], 1)) AS orden
 ),
 numered_activities AS (
     SELECT a.act_codigo, a.act_estado, a.act_numero, au.aun_sigla, a.ent_codigo, a.act_objetivo, a.ttr_codigo, tt.ttr_descripcion, tt.ett_codigo, ett.ett_nombre, a.caa_codigo, caa.caa_nombre, ov.orden,
@@ -147,12 +133,33 @@ numered_activities AS (
     LEFT JOIN parametricas.clasificacion_auditoria_actividad caa ON a.caa_codigo = caa.caa_codigo
     JOIN order_values ov ON a.aun_codigo_ejecutora = ov.aun_codigo_ejecutora
     WHERE true 
-      AND a.aun_codigo_ejecutora IN (79, 46, 63)
+      AND a.aun_codigo_ejecutora IN (63, 64, 67)
       AND a.act_estado NOT IN (0, 9)
       AND p.poa_codigo IN (2)
 )
 SELECT * FROM numered_activities
 ORDER BY orden;
+select 	iap.iap_codigo, iap.iap_estado, iap.act_codigo, e.est_nombre	
+from 	ejecucion_actividades.inicio_actividad_poa iap
+		left join parametricas.estados e on iap.iap_estado = e.est_codigo 
+where 	iap.act_codigo in (133); 
+select 	aud.aud_codigo, aud.aun_codigo_padre,au.aun_sigla,au.aun_nombre, aud.aun_codigo_hijo, au2.aun_sigla, au2.aun_nombre ,aud.aud_estado
+from 	estructura_organizacional.areas_unidades_dependencias aud
+		left join estructura_organizacional.areas_unidades au on aud.aun_codigo_padre = au.aun_codigo
+		left join estructura_organizacional.areas_unidades au2 on aud.aun_codigo_hijo = au2.aun_codigo
+where 	true
+		and au.aun_codigo in (13)		
+;
+select 	aud.aud_codigo, aud.aun_codigo_padre,au.aun_sigla,au.aun_nombre, aud.aun_codigo_hijo,aud.aud_estado
+from 	estructura_organizacional.areas_unidades_dependencias aud
+		left join estructura_organizacional.areas_unidades au on aud.aun_codigo_padre = au.aun_codigo
+where 	true
+		and aud.aun_codigo_padre in (13)
+		limit 1
+;
+
+
+
 
 	
 
