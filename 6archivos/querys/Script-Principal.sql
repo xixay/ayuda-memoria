@@ -91,12 +91,15 @@ where 	true
 --		and av.act_codigo in (1663)
 order by av.avi_codigo desc; 
 --ACTIVIDADES
-select 	a.act_codigo , a.act_codigo_anterior ,a.act_numero ,a.cac_codigo ,a.iac_codigo_apoyo, a.act_estado, a.act_descripcion , a.aun_codigo_ejecutora, a.tipact_codigo, a.fecha_registro, 
+select 	a.act_codigo , a.act_codigo_anterior ,a.act_numero ,a.cac_codigo ,a.iac_codigo_apoyo, a.act_estado, a.act_descripcion , a.aun_codigo_ejecutora, a.tipact_codigo, a.fecha_registro, a.ttr_codigo, 
+		ett.ett_codigo, ett.ett_nombre, 
 		au.aun_nombre, au.aun_sigla, au.aun_estado,
 		po.pobj_codigo ,po.pobj_nombre, po.pobj_estado,
 		p.poa_codigo
 --		oau.oau_codigo, oau.oau_descripcion ,oau.oau_estado 
-from 	estructura_poa.actividades a 
+from 	estructura_poa.actividades a
+		left join parametricas.tipos_trabajos tt on a.ttr_codigo = tt.ttr_codigo
+		left join parametricas.especificacion_tipos_trabajo ett on tt.ett_codigo = ett.ett_codigo 
 		left join estructura_organizacional.areas_unidades au on a.aun_codigo_ejecutora = au.aun_codigo 
 		left join estructura_poa.poas_objetivos po on a.pobj_codigo = po.pobj_codigo 
 		left join estructura_poa.poas p on p.poa_codigo = po.poa_codigo
@@ -120,7 +123,7 @@ order by a.act_codigo desc;
 --REPORTE EXCEL ACTIVIDADES
 WITH order_values AS (
 --    SELECT unnest(array[63, 64, 67]) AS aun_codigo_ejecutora, generate_series(1, array_length(array[63, 64, 67], 1)) AS orden
-    SELECT unnest(array[72]) AS aun_codigo_ejecutora, generate_series(1, array_length(array[72], 1)) AS orden
+    SELECT unnest(array[10]) AS aun_codigo_ejecutora, generate_series(1, array_length(array[10], 1)) AS orden
 ),
 numered_activities AS (
     SELECT a.act_codigo, a.act_estado, a.act_numero, au.aun_sigla, a.ent_codigo, a.act_objetivo, a.ttr_codigo, tt.ttr_descripcion, tt.ett_codigo, ett.ett_nombre, a.caa_codigo, caa.caa_nombre, ov.orden,
@@ -134,7 +137,7 @@ numered_activities AS (
     LEFT JOIN parametricas.clasificacion_auditoria_actividad caa ON a.caa_codigo = caa.caa_codigo
     JOIN order_values ov ON a.aun_codigo_ejecutora = ov.aun_codigo_ejecutora
     WHERE true 
-      AND a.aun_codigo_ejecutora IN (72)
+      AND a.aun_codigo_ejecutora IN (10)
       AND a.act_estado NOT IN (0, 9)
       AND p.poa_codigo IN (2)
 )
@@ -142,17 +145,18 @@ SELECT * FROM numered_activities
 ORDER BY orden;
 --
 SELECT 	a.act_codigo, a.act_estado, a.act_numero, au.aun_sigla, a.ent_codigo, a.act_objetivo, a.ttr_codigo, tt.ttr_descripcion, tt.ett_codigo, ett.ett_nombre, a.caa_codigo, caa.caa_nombre
-    FROM estructura_poa.actividades a
-    LEFT JOIN estructura_poa.poas_objetivos po ON a.pobj_codigo = po.pobj_codigo 
-    LEFT JOIN estructura_poa.poas p ON po.poa_codigo = p.poa_codigo 
-    LEFT JOIN estructura_organizacional.areas_unidades au ON a.aun_codigo_ejecutora = au.aun_codigo
-    LEFT JOIN parametricas.tipos_trabajos tt ON a.ttr_codigo = tt.ttr_codigo
-    LEFT JOIN parametricas.especificacion_tipos_trabajo ett ON tt.ett_codigo = ett.ett_codigo
-    LEFT JOIN parametricas.clasificacion_auditoria_actividad caa ON a.caa_codigo = caa.caa_codigo
-    WHERE true 
-      AND a.aun_codigo_ejecutora IN (72)
-      AND a.act_estado NOT IN (0, 9)
-      AND p.poa_codigo IN (2);
+FROM 	estructura_poa.actividades a
+		LEFT JOIN estructura_poa.poas_objetivos po ON a.pobj_codigo = po.pobj_codigo 
+		LEFT JOIN estructura_poa.poas p ON po.poa_codigo = p.poa_codigo 
+		LEFT JOIN estructura_organizacional.areas_unidades au ON a.aun_codigo_ejecutora = au.aun_codigo
+		LEFT JOIN parametricas.tipos_trabajos tt ON a.ttr_codigo = tt.ttr_codigo
+		LEFT JOIN parametricas.especificacion_tipos_trabajo ett ON tt.ett_codigo = ett.ett_codigo
+		LEFT JOIN parametricas.clasificacion_auditoria_actividad caa ON a.caa_codigo = caa.caa_codigo
+WHERE 	true 
+--      AND a.aun_codigo_ejecutora IN (72)
+  		AND a.act_codigo in (14)
+  		AND a.act_estado NOT IN (0, 9)
+  		AND p.poa_codigo IN (2);
 --BUSQUEDA EN IAP
 select 	iap.iap_codigo, iap.iap_estado, iap.act_codigo, a.act_estado	
 from 	ejecucion_actividades.inicio_actividad_poa iap
@@ -176,7 +180,7 @@ where 	true
 		and a.act_codigo in (14) and ia.iad_estado in (22)
 --		and a.act_codigo in (417) and ia.iad_estado in (22)
 )	
---select * from resultAdm;
+select * from resultAdm;
 select 	act_codigo, SUM(pej_ejecutado) as suma
 from resultAdm
 group by	act_codigo;
@@ -361,6 +365,15 @@ where 	true
 --where 	iap.act_codigo in (711)
 --limit 5;
 order 	by iap.iap_codigo desc;
+--
+select 	ia.iac_codigo, ia.iac_codigo_control, ia.iac_estado 
+from ejecucion_actividades.inicios_actividades ia 
+where 	true
+		and ia.iac_codigo_control = 'IXDP16J23';
+;
+--
+select 	*
+from 	estructura_poa.actividades_continuidad ac;
 --ACTIVIDADES CONTINUIDAD
 select 	*
 from 	estructura_poa.actividades_continuidad ac

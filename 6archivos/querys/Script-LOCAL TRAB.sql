@@ -268,24 +268,28 @@ FROM	estructura_poa.actividades a
 		LEFT JOIN ejecucion_poa.asignaciones_cargos_item aci ON asi.asi_codigo = aci.asi_codigo
 WHERE	true 
 --		and iap.iap_codigo = 512
-		and iap.act_codigo in (446)--NORMAL
---		and iap.act_codigo in (1501)--CONTINUO
+--		and iap.act_codigo in (446)--NORMAL
+--		and iap.act_codigo in (1502)--CONTINUO
+		and iap.act_codigo in (1503)--SEGUIMIENTO
 --		and a.act_numero = '510.1902.34.1.24'
 ;
 --###############
 --INICIOS ACTIVIDADES
 select	*
 FROM 	ejecucion_actividades.inicios_actividades t
---where 	t.iac_codigo_control in ('EHEN26Y00')
+--where 	t.iac_codigo_control in ('IXDP16J23')
 --where 	t.iac_codigo in (207)
 --where 	t.iac_estado in (22)
+--where 	t.iac_codigo in (512)
+where 	t.iac_codigo_control like 'ETEP46%'
 order by t.iac_codigo desc ;
 --INICIO ACTIVIDAD POA
 select 	*
 from 	ejecucion_actividades.inicio_actividad_poa iap
 		left join ejecucion_actividades.inicios_actividades ia on iap.iac_codigo =ia.iac_codigo 
 where 	true 
-		and iap.iac_codigo in (512)
+--		and iap.iac_codigo in (512)
+		and iap.iac_codigo in (1)
 --where 	iap.act_codigo in (711)
 --limit 5;
 order 	by iap.iap_codigo desc;
@@ -336,7 +340,7 @@ where 	ie.iem_descripcion = 'Evaluacion de Confiabilidad de Estados Financieros'
 select 	*
 from 	ejecucion_actividades.informes i 
 --where 	i.iac_codigo in (403)
-where 	i.inf_codigo in (78)
+where 	i.inf_codigo in (165)
 order by	i.inf_codigo desc;
 --INICIO ACTIVIDAD INFORME
 select 	*
@@ -345,7 +349,7 @@ order 	by	iai.iai_codigo desc;
 --INFORME RECOMENDACIONES
 select 	*
 from 	ejecucion_actividades.informe_recomendaciones ir
-where 	ir.inf_codigo in (78)
+--where 	ir.inf_codigo in (165)
 order by	ir.ire_codigo desc
 limit 5;
 --FLUJOS ESTADOS EVOLUCION
