@@ -173,6 +173,9 @@ select * from buscaIAP
 --AGREGAR COLUMNA A ACTIVIDADES
 ALTER TABLE estructura_poa.actividades
 ADD COLUMN act_ejecucion_conaud BOOLEAN DEFAULT FALSE;
+--AGREGAR COLUMNA A AREAS UNIDADES
+ALTER TABLE estructura_organizacional.areas_unidades 
+ADD COLUMN aun_reporte_habilitado BOOLEAN DEFAULT FALSE;	
 --BUSCA SI TIENE REFORMULADOS
 with gestion as (
     select p.ges_codigo 
