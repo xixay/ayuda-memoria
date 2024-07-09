@@ -277,11 +277,13 @@ WHERE	true
 --INICIOS ACTIVIDADES
 select	*
 FROM 	ejecucion_actividades.inicios_actividades t
+		left join ejecucion_actividades.informes i on t.iac_codigo = i.iac_codigo
+		left join ejecucion_actividades.inicio_actividad_informe iai on i.inf_codigo = iai.inf_codigo 
 --where 	t.iac_codigo_control in ('IXDP16J23')
 --where 	t.iac_codigo in (207)
 --where 	t.iac_estado in (22)
 --where 	t.iac_codigo in (512)
-where 	t.iac_codigo_control like 'ETEP46%'
+where 	t.iac_codigo_control like 'ETEP46J23%'
 order by t.iac_codigo desc ;
 --INICIO ACTIVIDAD POA
 select 	*
