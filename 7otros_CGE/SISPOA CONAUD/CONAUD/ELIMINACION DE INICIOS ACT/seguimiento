@@ -2,6 +2,8 @@ bd_cge_poa_conaud_local_b
 postgres
 act_codigo= 1503
 500.1903.109.3.24
+ttr_codigo=12
+tipact_codigo=1
 inf_codigo = 165, inf_estado=1 ==>{
 				(iac_codigo=1 , iac_estado =1 CONAUD ANTIGUO), iem_codigo=0=>iap_codigo=359
 				act_codigo=1182,act_numero=520.1702.112.2.24

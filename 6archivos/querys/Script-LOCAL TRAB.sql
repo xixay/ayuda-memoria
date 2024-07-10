@@ -92,6 +92,17 @@ where 	true
 --		and av.act_codigo in (1663)
 order by av.avi_codigo desc; 
 --ACTIVIDADES
+select 	*
+from 	estructura_poa.actividades a
+where 	a.aun_codigo_ejecutora in (28) --and a.act_ejecucion_conaud in (true)
+order by a.act_codigo desc;
+select * from estructura_poa.actividades a where a.act_numero like '510.1503.24.1.24';
+select a.act_codigo, a.act_numero, iap.iap_codigo, a.pobj_codigo,iap.iap_estado
+from estructura_poa.actividades a
+	left join ejecucion_actividades.inicio_actividad_poa iap on a.act_codigo = iap.act_codigo
+where a.pobj_codigo in (274) and a.aun_codigo_ejecutora in (30) and a.act_estado not in (0)
+;
+
 select 	a.act_codigo , a.act_codigo_anterior ,a.act_numero ,a.cac_codigo ,a.iac_codigo_apoyo, a.act_estado, a.act_descripcion , a.aun_codigo_ejecutora, a.tipact_codigo, a.fecha_registro, 
 		au.aun_nombre, au.aun_sigla, au.aun_estado,
 		po.pobj_codigo ,po.pobj_nombre, po.pobj_estado--,
@@ -104,10 +115,10 @@ from 	estructura_poa.actividades a
 --		left join estructura_poa.objetivos_area_unidad oau on po.pobj_codigo = oau.pobj_codigo 
 where	true 	
 --		and a.act_numero = '530.0022.15.1.24'
---		and a.act_codigo in (446)
+--		and a.act_codigo_anterior in (1499)
 --		and a.act_codigo_anterior in (613,609,592,585,580,478,396,219,217,198)
 --		and a.act_codigo_anterior in (396,219,217)
---		and au.aun_sigla like 'GPA-GA2'
+--		and au.aun_sigla like 'GDH-GAD'
 --		and a.act_estado not in (2,7,9,0,13)
 --		and a.act_estado not in (9)
 --		and a.iac_codigo_apoyo is not null
@@ -270,12 +281,13 @@ WHERE	true
 --		and iap.iap_codigo = 512
 --		and iap.act_codigo in (446)--NORMAL
 --		and iap.act_codigo in (1502)--CONTINUO
-		and iap.act_codigo in (1503)--SEGUIMIENTO
+--		and iap.act_codigo in (1503)--SEGUIMIENTO    ####
 --		and a.act_numero = '510.1902.34.1.24'
 ;
---###############
 --INICIOS ACTIVIDADES
-select	*
+select	t.iac_codigo, t.iac_estado, t.iac_codigo_control, t.iac_objeto, t.iac_migrado,
+		i.inf_codigo,i.inf_estado,i.inf_codigo_control,i.inf_nombre, i.iac_codigo as iac_codigo_inf , i.iem_codigo,
+		iai.iai_codigo,iai.iai_estado, iai.inf_codigo,iai.iac_codigo as iac_codigo_iai 
 FROM 	ejecucion_actividades.inicios_actividades t
 		left join ejecucion_actividades.informes i on t.iac_codigo = i.iac_codigo
 		left join ejecucion_actividades.inicio_actividad_informe iai on i.inf_codigo = iai.inf_codigo 
