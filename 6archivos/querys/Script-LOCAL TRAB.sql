@@ -97,7 +97,7 @@ from 	estructura_poa.actividades a
 where 	a.aun_codigo_ejecutora in (28) --and a.act_ejecucion_conaud in (true)
 order by a.act_codigo desc;
 select * from estructura_poa.actividades a where a.act_numero like '510.1503.24.1.24';
-select a.act_codigo, a.act_numero, iap.iap_codigo, a.pobj_codigo,iap.iap_estado
+select a.act_codigo, a.act_numero, iap.iap_codigo, a.aun_codigo_ejecutora ,a.pobj_codigo,iap.iap_estado
 from estructura_poa.actividades a
 	left join ejecucion_actividades.inicio_actividad_poa iap on a.act_codigo = iap.act_codigo
 where a.pobj_codigo in (274) and a.aun_codigo_ejecutora in (30) and a.act_estado not in (0)
