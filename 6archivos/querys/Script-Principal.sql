@@ -90,6 +90,18 @@ where 	true
 		and p.poa_codigo in (2)
 --		and av.act_codigo in (1663)
 order by av.avi_codigo desc; 
+select 	*
+from 	estructura_poa.actividades a
+where 	a.aun_codigo_ejecutora in (28) --and a.act_ejecucion_conaud in (true)
+order by a.act_codigo desc;
+select * from estructura_poa.actividades a where a.act_numero like '510.1503.24.1.24';
+select a.act_codigo, a.act_ejecucion_conaud, a.act_numero, iap.iap_codigo,iap.act_codigo, a.aun_codigo_ejecutora ,a.pobj_codigo,iap.iap_estado,iu.iua_codigo, iu.iua_estado 
+from estructura_poa.actividades a
+	left join ejecucion_actividades.inicio_actividad_poa iap on a.act_codigo = iap.act_codigo
+	left join ejecucion_informes.informes_uai iu on a.act_codigo = iu.act_codigo 
+where a.pobj_codigo in (275) and a.aun_codigo_ejecutora in (64) and a.act_estado not in (0)
+;
+
 --ACTIVIDADES
 select 	a.act_codigo , a.act_ejecucion_conaud, a.act_codigo_anterior ,a.act_numero ,a.cac_codigo ,a.iac_codigo_apoyo, a.act_estado, a.act_descripcion , a.aun_codigo_ejecutora, a.tipact_codigo, a.fecha_registro, a.ttr_codigo, 
 		ett.ett_codigo, ett.ett_nombre, 
@@ -105,7 +117,7 @@ from 	estructura_poa.actividades a
 		left join estructura_poa.poas p on p.poa_codigo = po.poa_codigo
 --		left join estructura_poa.objetivos_area_unidad oau on po.pobj_codigo = oau.pobj_codigo 
 where	true 	
---		and a.act_numero = '500.1402.65.1.24'
+		and a.act_numero = '510.1202.17.14.24'
 --		and a.act_codigo in (14)
 --		and a.act_codigo_anterior in (613,609,592,585,580,478,396,219,217,198)
 --		and a.act_codigo_anterior in (396,219,217)

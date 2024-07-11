@@ -52,7 +52,7 @@ where 	true
 --		and po.pobj_estado not in (2,9,0,13)
 --		and po.pobj_estado in (0)
 --		and po.pobj_codigo in (1181)
-		and po.pobj_codigo in (401)
+--		and po.pobj_codigo in (401)
 --		and po.pobj_numero in (62)
 order by	po.pobj_codigo desc;
 --######################
@@ -97,9 +97,10 @@ from 	estructura_poa.actividades a
 where 	a.aun_codigo_ejecutora in (28) --and a.act_ejecucion_conaud in (true)
 order by a.act_codigo desc;
 select * from estructura_poa.actividades a where a.act_numero like '510.1503.24.1.24';
-select a.act_codigo, a.act_numero, iap.iap_codigo, a.aun_codigo_ejecutora ,a.pobj_codigo,iap.iap_estado
+select a.act_codigo, a.act_ejecucion_conaud, a.act_numero, iap.iap_codigo,iap.act_codigo, a.aun_codigo_ejecutora ,a.pobj_codigo,iap.iap_estado,iu.iua_codigo, iu.iua_estado 
 from estructura_poa.actividades a
 	left join ejecucion_actividades.inicio_actividad_poa iap on a.act_codigo = iap.act_codigo
+	left join ejecucion_informes.informes_uai iu on a.act_codigo = iu.act_codigo 
 where a.pobj_codigo in (274) and a.aun_codigo_ejecutora in (30) and a.act_estado not in (0)
 ;
 
@@ -114,7 +115,7 @@ from 	estructura_poa.actividades a
 		left join estructura_poa.poas p on p.poa_codigo = po.poa_codigo
 --		left join estructura_poa.objetivos_area_unidad oau on po.pobj_codigo = oau.pobj_codigo 
 where	true 	
---		and a.act_numero = '530.0022.15.1.24'
+		and a.act_numero = '500.0503.36.1.24'
 --		and a.act_codigo_anterior in (1499)
 --		and a.act_codigo_anterior in (613,609,592,585,580,478,396,219,217,198)
 --		and a.act_codigo_anterior in (396,219,217)
@@ -285,18 +286,41 @@ WHERE	true
 --		and a.act_numero = '510.1902.34.1.24'
 ;
 --INICIOS ACTIVIDADES
-select	t.iac_codigo, t.iac_estado, t.iac_codigo_control, t.iac_objeto, t.iac_migrado,
-		i.inf_codigo,i.inf_estado,i.inf_codigo_control,i.inf_nombre, i.iac_codigo as iac_codigo_inf , i.iem_codigo,
-		iai.iai_codigo,iai.iai_estado, iai.inf_codigo,iai.iac_codigo as iac_codigo_iai 
-FROM 	ejecucion_actividades.inicios_actividades t
-		left join ejecucion_actividades.informes i on t.iac_codigo = i.iac_codigo
-		left join ejecucion_actividades.inicio_actividad_informe iai on i.inf_codigo = iai.inf_codigo 
---where 	t.iac_codigo_control in ('IXDP16J23')
---where 	t.iac_codigo in (207)
---where 	t.iac_estado in (22)
---where 	t.iac_codigo in (512)
-where 	t.iac_codigo_control like 'ETEP46J23%'
-order by t.iac_codigo desc ;
+SELECT	a.act_codigo, a.act_numero, a.ttr_codigo, 
+		po.pobj_nombre, 
+		iap.iap_codigo, iap.iap_estado,
+		ia.iac_codigo, iap.iap_estado, ia.iac_codigo_control, 
+		iapa.iapa_codigo, iapa.iapa_estado,
+		asi.asi_codigo, asi.asi_estado,
+		aci.aci_codigo, aci.aci_estado 
+FROM	estructura_poa.actividades a
+		left join estructura_poa.poas_objetivos po on a.pobj_codigo = po.pobj_codigo 
+		LEFT JOIN ejecucion_actividades.inicio_actividad_poa iap ON a.act_codigo = iap.act_codigo
+		LEFT JOIN ejecucion_actividades.inicios_actividades ia ON iap.iac_codigo = ia.iac_codigo
+		LEFT JOIN ejecucion_actividades.inicio_actividad_poa_asignaciones iapa ON iap.iap_codigo = iapa.iap_codigo
+		LEFT JOIN ejecucion_poa.asignaciones asi ON iapa.asi_codigo = asi.asi_codigo
+		LEFT JOIN ejecucion_poa.asignaciones_cargos_item aci ON asi.asi_codigo = aci.asi_codigo
+WHERE	true 
+--		and iap.iap_codigo = 154
+		and iap.act_codigo in (1503)
+;
+
+--BUSCA SEGUIMIENTO
+SELECT
+		ia.iac_codigo, ia.iac_estado, ia.iac_migrado, ia.iac_codigo_control,
+		i.inf_codigo, i.inf_correlativo, i.inf_codigo_control, i.inf_nombre,
+		iai.iai_codigo, iai.iai_estado, iai.iac_codigo,
+		ir.ire_codigo, ir.ire_estado,
+		irs.irs_codigo ,irs.irs_estado,
+		ris.ris_codigo, ris.ris_estado 
+FROM	ejecucion_actividades.informes i
+		left join ejecucion_actividades.inicios_actividades ia on i.iac_codigo = ia.iac_codigo
+		left join ejecucion_actividades.inicio_actividad_informe iai on i.inf_codigo = iai.inf_codigo AND iai.iac_codigo IN (512)
+		LEFT JOIN ejecucion_actividades.informe_recomendaciones ir ON i.inf_codigo = ir.inf_codigo
+		LEFT JOIN ejecucion_actividades.informe_recomendaciones_seguimientos irs ON i.inf_codigo = irs.inf_codigo
+		LEFT JOIN ejecucion_actividades.recomendaciones_inicios_seguimientos ris ON ris.iac_codigo = iai.iac_codigo 
+WHERE	i.inf_codigo in (165)
+;
 --INICIO ACTIVIDAD POA
 select 	*
 from 	ejecucion_actividades.inicio_actividad_poa iap
