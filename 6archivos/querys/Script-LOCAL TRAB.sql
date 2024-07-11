@@ -337,7 +337,26 @@ FROM	estructura_poa.actividades a
 		LEFT JOIN ejecucion_poa.asignaciones asi ON iapa.asi_codigo = asi.asi_codigo
 		LEFT JOIN ejecucion_poa.asignaciones_cargos_item aci ON asi.asi_codigo = aci.asi_codigo
 WHERE	true
-		and iap.act_codigo in (1502)
+--		and iap.act_codigo in (1502)--AUDITORIA AMPLIACION
+--		and iap.act_codigo in (1503)--CONTINUO AMPLIACION
+		and iap.act_codigo in (1504)--SEGUIMIENTO AMPLIACION
+;
+-- su relacion inf recomendaciones
+SELECT
+		ia.iac_codigo, ia.iac_estado, ia.iac_migrado, ia.iac_codigo_control,
+		i.inf_codigo, i.inf_correlativo, i.inf_codigo_control, i.inf_nombre,
+		iai.iai_codigo, iai.iai_estado, iai.iac_codigo,
+		ir.ire_codigo, ir.ire_estado,
+		irs.irs_codigo ,irs.irs_estado,
+		ris.ris_codigo, ris.ris_estado 
+FROM	ejecucion_actividades.informes i
+		left join ejecucion_actividades.inicios_actividades ia on i.iac_codigo = ia.iac_codigo
+		left join ejecucion_actividades.inicio_actividad_informe iai on i.inf_codigo = iai.inf_codigo AND iai.iac_codigo IN (513)
+		LEFT JOIN ejecucion_actividades.informe_recomendaciones ir ON i.inf_codigo = ir.inf_codigo
+		LEFT JOIN ejecucion_actividades.informe_recomendaciones_seguimientos irs ON i.inf_codigo = irs.inf_codigo
+		LEFT JOIN ejecucion_actividades.recomendaciones_inicios_seguimientos ris ON ris.iac_codigo = iai.iac_codigo 
+WHERE	TRUE 
+		AND i.inf_codigo in (165)
 ;
 --AUDITORIA
 

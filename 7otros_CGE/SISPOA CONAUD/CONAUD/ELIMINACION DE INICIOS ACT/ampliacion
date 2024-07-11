@@ -2,17 +2,6 @@ bd_cge_poa_conaud_local_b
 postgres
 GDB-GAD
 500.1903.109
---ANTES AMPLIACION--
-#####AUDITORIA####
-500.1903.109.2.24
-act_codigo=1502
-
-#####CONTINUO####
-500.1903.109.3.24
-
-#####SEGUIMIENTO####
-500.1903.109.4.24
---DESPUES--
 #####AUDITORIA####
 500.1903.109.2.24
 act_codigo=1502
