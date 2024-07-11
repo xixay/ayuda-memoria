@@ -115,7 +115,7 @@ from 	estructura_poa.actividades a
 		left join estructura_poa.poas p on p.poa_codigo = po.poa_codigo
 --		left join estructura_poa.objetivos_area_unidad oau on po.pobj_codigo = oau.pobj_codigo 
 where	true 	
-		and a.act_numero = '500.0503.36.1.24'
+--		and a.act_numero = '500.0503.36.1.24'
 --		and a.act_codigo_anterior in (1499)
 --		and a.act_codigo_anterior in (613,609,592,585,580,478,396,219,217,198)
 --		and a.act_codigo_anterior in (396,219,217)
@@ -286,9 +286,9 @@ WHERE	true
 --		and a.act_numero = '510.1902.34.1.24'
 ;
 --INICIOS ACTIVIDADES
-SELECT	a.act_codigo, a.act_numero, a.ttr_codigo, 
+SELECT	a.act_codigo, a.act_numero, a.tipact_codigo, 
 		po.pobj_nombre, 
-		iap.iap_codigo, iap.iap_estado,
+		iap.iap_codigo, iap.iap_estado,iap.tia_codigo, 
 		ia.iac_codigo, ia.iac_estado, ia.iac_codigo_control,
 		iaa.iaa_codigo, iaa.iaa_estado,
 		iapa.iapa_codigo, iapa.iapa_estado,
@@ -304,11 +304,12 @@ FROM	estructura_poa.actividades a
 		LEFT JOIN ejecucion_poa.asignaciones_cargos_item aci ON asi.asi_codigo = aci.asi_codigo
 WHERE	true
 --		and iap.act_codigo in (1502)--AUDITORIA AMPLIACION
---		and iap.act_codigo in (1503)--CONTINUO AMPLIACION
+		and iap.act_codigo in (1503)--CONTINUO AMPLIACION
 --		and iap.act_codigo in (1504)--SEGUIMIENTO AMPLIACION
 --		and iap.act_codigo in (1505)--AUDITORIA
 --		and iap.act_codigo in (1506)--CONTINUO
-		and iap.act_codigo in (1507)--SEGUIMIENTO
+--		and iap.act_codigo in (1508)--CONTINUO 2
+--		and iap.act_codigo in (1507)--SEGUIMIENTO
 ;
 -- su relacion inf recomendaciones
 SELECT

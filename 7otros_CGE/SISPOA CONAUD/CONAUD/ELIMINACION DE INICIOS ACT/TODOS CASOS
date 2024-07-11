@@ -42,6 +42,14 @@ iap_codigo=519
 iac_codigo=90
 tia_codigo=2
 ett_codigo=1
+#####CONTINUO NORMAL 2 ####
+500.1903.109.8.24
+act_codigo=1508
+iap_codigo=521
+iac_codigo=47
+tia_codigo=2
+ett_codigo=1
+
 
 #####SEGUIMIENTO NORMAL####
 500.1903.109.7.24
