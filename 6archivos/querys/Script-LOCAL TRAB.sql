@@ -302,7 +302,7 @@ FROM	estructura_poa.actividades a
 		LEFT JOIN ejecucion_poa.asignaciones_cargos_item aci ON asi.asi_codigo = aci.asi_codigo
 WHERE	true 
 --		and iap.iap_codigo = 154
-		and iap.act_codigo in (1503)
+		and iap.act_codigo in (1502)
 ;
 
 --BUSCA SEGUIMIENTO
@@ -321,6 +321,26 @@ FROM	ejecucion_actividades.informes i
 		LEFT JOIN ejecucion_actividades.recomendaciones_inicios_seguimientos ris ON ris.iac_codigo = iai.iac_codigo 
 WHERE	i.inf_codigo in (165)
 ;
+--BUSCA AMPLIACION
+SELECT	a.act_codigo, a.act_numero, a.ttr_codigo, 
+		po.pobj_nombre, 
+		iap.iap_codigo, iap.iap_estado,
+		ia.iac_codigo, ia.iac_estado, ia.iac_codigo_control, 
+		iapa.iapa_codigo, iapa.iapa_estado,
+		asi.asi_codigo, asi.asi_estado,
+		aci.aci_codigo, aci.aci_estado 
+FROM	estructura_poa.actividades a
+		left join estructura_poa.poas_objetivos po on a.pobj_codigo = po.pobj_codigo 
+		LEFT JOIN ejecucion_actividades.inicio_actividad_poa iap ON a.act_codigo = iap.act_codigo
+		LEFT JOIN ejecucion_actividades.inicios_actividades ia ON iap.iac_codigo = ia.iac_codigo
+		LEFT JOIN ejecucion_actividades.inicio_actividad_poa_asignaciones iapa ON iap.iap_codigo = iapa.iap_codigo
+		LEFT JOIN ejecucion_poa.asignaciones asi ON iapa.asi_codigo = asi.asi_codigo
+		LEFT JOIN ejecucion_poa.asignaciones_cargos_item aci ON asi.asi_codigo = aci.asi_codigo
+WHERE	true
+		and iap.act_codigo in (1502)
+;
+--AUDITORIA
+
 --INICIO ACTIVIDAD POA
 select 	*
 from 	ejecucion_actividades.inicio_actividad_poa iap
