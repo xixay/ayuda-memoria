@@ -23,6 +23,7 @@ ett_codigo=1
 act_codigo=1504
 iap_codigo=517
 iac_codigo=513
+inf_codigo=165
 tia_codigo=4
 ett_codigo=3
 
@@ -47,8 +48,14 @@ ett_codigo=1
 act_codigo=1507
 iap_codigo=520
 iac_codigo=515
+inf_codigo=165
 tia_codigo=3
 ett_codigo=3
+
+
+
+
+
 
 
 
