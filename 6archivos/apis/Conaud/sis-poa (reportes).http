@@ -43,8 +43,9 @@
     Authorization: {{AuthTokenInterno}}
 ### REPORTE EXCEL 1
 ###  ------------------- OBTENER - REPORTE EXCEL 1
-    # GET {{Host}}/poas/report-poa-areas-unidades-ejec?poa_codigo=(2)&aun_codigo_padre=(13)&aun_codigo_hijos=(63,64,67)
+    GET {{Host}}/poas/report-poa-areas-unidades-ejec?poa_codigo=(2)&aun_codigo_padre=(13)&aun_codigo_hijos=(63,64,67)
     # GET {{Host}}/poas/report-poa-areas-unidades-ejec?poa_codigo=(2)&aun_codigo_padre=(8)&aun_codigo_hijos=(72)
-      GET {{Host}}/poas/report-poa-areas-unidades-ejec?poa_codigo=(2)&aun_codigo_padre=(1)&aun_codigo_hijos=(10)
+    # GET {{Host}}/poas/report-poa-areas-unidades-ejec?poa_codigo=(2)&aun_codigo_padre=(17)&aun_codigo_hijos=(17)
+      # GET {{Host}}/poas/report-poa-areas-unidades-ejec?poa_codigo=(2)&aun_codigo_padre=(1)&aun_codigo_hijos=(10)
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
