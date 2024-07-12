@@ -4,7 +4,14 @@ ELIMINACION INFORMES UAI Y SCAT
 - EN EL AREA EJECUTORA, NO SE DEBEN MOSTRAR LOS ANULADOS
 - EL BOTON SOLO PUEDE REALIZARLO EL FORMULADOR GERENTE Y INSTITUCIONAL
 - TOMAR EN CUENTA INACTIVOS Y ANULADOS
+##TABLAS INTERVIENEN####
+- informes_uai <--informes_evaluaciones(iua_codigo) <--informes_evaluaciones_estados(iev_codigo)
+- informes_uai <--inicio_evaluacion_informe(iua_codigo) <--inicio_evaluacion_informe_asignaciones(iei_codigo)
 
+--inicio_evaluacion_informe_asignaciones(asi_codigo)<--asignaciones
+---asignaciones(asi_codigo)<--asignaciones_cargos_item(asi_codigo)
+
+- informes_uai <--informes_uai_reingreso
 Gerencia Departamental de Cochabamba - GDC 
 00.0013.58
 pobj_codigo=33
