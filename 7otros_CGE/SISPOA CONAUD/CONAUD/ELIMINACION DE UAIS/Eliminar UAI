@@ -17,6 +17,9 @@ Gerencia Departamental de Cochabamba - GDC
 pobj_codigo=33
 poa_codigo=2
 ett_codigo=5
+
+formulador_gerente=5922785
+
 actividad	|codi_poa	|act_codigo	|iua_codigo	|iua_estado	|
 UAI UNO		|00.0013.58.8.24|1512		|796		|1		|
 						|797		|1		|
