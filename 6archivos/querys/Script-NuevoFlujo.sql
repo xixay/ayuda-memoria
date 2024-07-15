@@ -23,10 +23,16 @@ FROM	ejecucion_informes.informes_uai iu
 		LEFT JOIN ejecucion_poa.asignaciones a ON ieia.asi_codigo = a.asi_codigo
 		LEFT JOIN ejecucion_poa.asignaciones_cargos_item aci ON a.asi_codigo = aci.asi_codigo 
 WHERE 	TRUE
---      	AND iu.iua_codigo IN (796)
+--      	AND iu.iua_codigo IN (829,830,831,832,843)--SCAT
+--      	AND iu.iua_codigo IN (833,834,835,836,837)--FIRMAS
+--      	AND iu.iua_codigo IN (838,839,840,841,842)--UAIS
 --      	AND iu.iua_codigo IN (797)
-      	AND iu.act_codigo IN (1525)
+--      	AND iu.act_codigo IN (1525)
 ;
+--ACTIVIDADES
+SELECT 	*
+FROM 	estructura_poa.actividades a 
+WHERE 	a.act_codigo IN (1525);
 SELECT 	*
 FROM 	parametricas.empresas e ;
 --UAI REINGRESO
