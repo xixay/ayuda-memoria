@@ -41,7 +41,7 @@ WHERE 	TRUE
 SELECT 	*
 FROM 	estructura_poa.actividades a 
 ORDER BY a.act_codigo DESC ;
-
+--INSERTAR SCAT
 INSERT INTO parametricas.tipos_trabajos
 (ttr_codigo, ttr_sigla, ttr_descripcion, ttr_bandera_entidad_cge, ett_codigo, ttr_estado, usuario_registro, ttr_inicial)
 VALUES(79, 'SCAT', 'EVALUACIÓN SCAT', true, 5, 1, 1914, 'S');
