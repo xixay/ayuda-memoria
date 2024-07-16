@@ -1,3 +1,13 @@
 bd_cge_poa_conaud_local_b
 postgres
 GDC
+
+"Flujo para que las ejecuciones de Informes UAI, Evaluaciones y Ejecución SCAT, caso oficina central:
+- Flujo Regular:
+  * Paso 1 Formulador Gerente (Registro, Enviar a consolidar)
+  * Paso 2 Aprobador (Consolidar)
+- Flujo Of. Central:
+  * Paso 1 Formulador Gerente (Registro, Enviar a aprobar)
+  * Paso 2 Aprobador (Aprobar)
+  * Paso 3 Supervisor (Consolidar)"
+
