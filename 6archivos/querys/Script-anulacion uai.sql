@@ -23,9 +23,11 @@ FROM	ejecucion_informes.informes_uai iu
 		LEFT JOIN ejecucion_poa.asignaciones a ON ieia.asi_codigo = a.asi_codigo
 		LEFT JOIN ejecucion_poa.asignaciones_cargos_item aci ON a.asi_codigo = aci.asi_codigo 
 WHERE 	TRUE
---      	AND iu.iua_codigo IN (796)
---      	AND iu.iua_codigo IN (797)
-      	AND iu.act_codigo IN (1525)
+--      	AND iu.iua_codigo IN (829,830,831,832,843)--SCAT
+--      	AND iu.iua_codigo IN (833,834,835,836,837)--FIRMAS
+--      	AND iu.iua_codigo IN (838,839,840,841,842)--UAIS
+      	AND iu.iua_codigo IN (838)
+--      	AND iu.act_codigo IN (1525)
 ;
 SELECT 	*
 FROM 	parametricas.empresas e ;
@@ -41,6 +43,16 @@ WHERE 	TRUE
 SELECT 	*
 FROM 	estructura_poa.actividades a 
 ORDER BY a.act_codigo DESC ;
+--FLUJOS
+SELECT	t.tab_nombre, ft.est_codigo_origen, eo.est_nombre, ft.est_codigo_destino, ed.est_nombre
+FROM	control_estados.flujos_tablas ft
+		LEFT JOIN parametricas.tablas t ON ft.tab_codigo = t.tab_codigo
+		LEFT JOIN parametricas.estados eo ON ft.est_codigo_origen = eo.est_codigo
+		LEFT JOIN parametricas.estados ed ON ft.est_codigo_destino = ed.est_codigo
+WHERE	ft.tab_codigo IN (SELECT t.tab_codigo FROM parametricas.tablas t WHERE t.tab_nombre IN ('InformesUai'))
+--WHERE	ft.tab_codigo IN (SELECT t.tab_codigo FROM parametricas.tablas t WHERE t.tab_nombre IN ('InicioEvaluacionInforme'))
+ORDER BY ft.tab_codigo ASC, ft.est_codigo_origen ASC, ft.est_codigo_destino ASC
+;
 --INSERTAR SCAT
 INSERT INTO parametricas.tipos_trabajos
 (ttr_codigo, ttr_sigla, ttr_descripcion, ttr_bandera_entidad_cge, ett_codigo, ttr_estado, usuario_registro, ttr_inicial)

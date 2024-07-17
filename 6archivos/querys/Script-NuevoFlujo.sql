@@ -33,6 +33,7 @@ WHERE 	TRUE
 SELECT 	*
 FROM 	estructura_poa.actividades a 
 ORDER BY a.act_codigo DESC ;
+--FLUJOS
 SELECT	t.tab_nombre, ft.est_codigo_origen, eo.est_nombre, ft.est_codigo_destino, ed.est_nombre
 FROM	control_estados.flujos_tablas ft
 		LEFT JOIN parametricas.tablas t ON ft.tab_codigo = t.tab_codigo
