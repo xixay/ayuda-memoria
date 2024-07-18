@@ -29,7 +29,7 @@ from 	estructura_poa.actividades_viaticos av
 where 	true 
 --		and av.avi_estado in (1)
 		and p.poa_codigo in (2)
-		and av.act_codigo in (1532)
+		and av.act_codigo in (1532)	
 order by av.avi_codigo desc; 
 --ACTIVIDADES
 select 	a.act_codigo , a.act_ejecucion_conaud, a.act_codigo_anterior ,a.act_numero ,a.cac_codigo ,a.iac_codigo_apoyo, a.act_estado, a.act_descripcion , a.aun_codigo_ejecutora, a.tipact_codigo, a.fecha_registro, a.ttr_codigo, 

@@ -105,6 +105,12 @@ VALUES(367, 2, '', 7, 17, 1, 0, 0, 0, '2024-01-16 18:16:56.120', '1900-01-01 00:
 INSERT INTO control_estados.flujos_tablas
 (fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
 VALUES(368, 2, '', 17, 2, 1, 0, 0, 0, '2024-01-16 18:16:56.120', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
-
-
-
+--OBSERVAR FLUJOS
+--ACTIVIDAD AGREGAR EL NUEVO FLUJO(17-4)
+INSERT INTO control_estados.flujos_tablas
+(fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
+VALUES(369, 1, '', 17, 4, 1, 0, 0, 0, '2024-05-09 18:57:05.209', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
+--VIATICOS AGREGAR EL NUEVO FLUJO(17-4)
+INSERT INTO control_estados.flujos_tablas
+(fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
+VALUES(370, 2, '', 17, 4, 1, 0, 0, 0, '2024-01-16 18:16:56.120', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
