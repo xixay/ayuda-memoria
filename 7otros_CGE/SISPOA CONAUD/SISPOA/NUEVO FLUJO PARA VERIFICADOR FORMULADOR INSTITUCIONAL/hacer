@@ -1,15 +1,5 @@
 bd_cge_poa_conaud_local_b
 postgres
---
-<div>
-  <p>rolGestionInstitucional{{ rolGestionInstitucional }}</p>
-  <p>objectPoaObjetivo.pobj_estado{{ objectPoaObjetivo.pobj_estado }}</p>
-  <p>item.cac_codigo{{ item.cac_codigo }}</p>
-  <p>item.act_estado{{ item.act_estado }}</p>
-  <p>item.estados_check{{ item.estados_check }}</p>
- </div>
---Cambio de estado Global FORMULARIO:'SISPOA',`/poas/estado-all`,
----Cambio de estado Global ACCIONES ESTRATEGICAS:'SISPOA',`/poas-objetivos/estado-all`,
  "Gerencia Departamental de Cochabamba - GDC"
 GDC
   * Paso 1 Formulador Gerente (Registro, Enviar a aprobar) 4314752 VIVIAN GRETEL MICHEL ZAMBRANA
@@ -24,6 +14,31 @@ ROL_GESTION_INSTITUCIONAL_FORMULADOR = 196[Verificado Gestion Institucional pasa
 ROL_GESTION_INSTITUCIONAL_APROBADOR = 197[Consolidar pasa de 17 a 2]
 ROL_GESTION_INSTITUCIONAL_VERIFICADOR = 198[Consolidar pasa de 17 a 2]
 530.0013.1
+
+ROLES QUE SOLO CONSOLIDADN
+4813387 = ROL_GESTION_INSTITUCIONAL_APROBADOR
+4385501 = ROL_GESTION_INSTITUCIONAL_VERIFICADOR
+###PARA CAMBIOS DE ESTADO GLOBALES
+--Cambio de estado Global FORMULARIO:'SISPOA',`/poas/estado-all`,
+---Cambio de estado Global ACCIONES ESTRATEGICAS:'SISPOA',`/poas-objetivos/estado-all`,
+###ESTADO GLOBAL
+'SISPOA',
+  'formularios/estado-global-refactor?poa_codigo=(3)'
+##FORMULARIOS
+          <div>
+            <p>rolGestionInstitucional{{ rolGestionInstitucional }}</p>
+            <p>PoaRecordSelected.poa_estado{{ PoaRecordSelected.poa_estado }}</p>
+            <p>CacCodigo{{ CacCodigo }}</p>
+            <p>item.estado_global{{ item.estado_global }}</p>
+          </div>
+####ACTIVIDADES
+<div>
+  <p>rolGestionInstitucional{{ rolGestionInstitucional }}</p>
+  <p>objectPoaObjetivo.pobj_estado{{ objectPoaObjetivo.pobj_estado }}</p>
+  <p>item.cac_codigo{{ item.cac_codigo }}</p>
+  <p>item.act_estado{{ item.act_estado }}</p>
+  <p>item.estados_check{{ item.estados_check }}</p>
+ </div>
 ####QUERYS AGREGAR DE FLUJOS#####
 --ACTIVIDAD AGREGAR EL NUEVO FLUJO(7-17)
 INSERT INTO control_estados.flujos_tablas

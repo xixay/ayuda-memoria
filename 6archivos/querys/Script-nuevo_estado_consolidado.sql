@@ -57,19 +57,21 @@ where	true
 --		and a.tipact_codigo in (2)
 --		and a.cac_codigo in (1)
 --		and po.pobj_codigo in (1145)
---		and p.poa_codigo in (3)
+		and p.poa_codigo in (3)
+		AND a.act_estado IN (1)
 --		and a.act_ejecucion_conaud in (true)
 --order by au.aun_estado asc;
-order by a.act_codigo DESC
-LIMIT 5;
+order by a.act_codigo DESC;
+--LIMIT 5;
 --FLUJOS
 SELECT	t.tab_nombre, ft.est_codigo_origen, eo.est_nombre, ft.est_codigo_destino, ed.est_nombre
 FROM	control_estados.flujos_tablas ft
 		LEFT JOIN parametricas.tablas t ON ft.tab_codigo = t.tab_codigo
 		LEFT JOIN parametricas.estados eo ON ft.est_codigo_origen = eo.est_codigo
 		LEFT JOIN parametricas.estados ed ON ft.est_codigo_destino = ed.est_codigo
-WHERE	ft.tab_codigo IN (SELECT t.tab_codigo FROM parametricas.tablas t WHERE t.tab_nombre IN ('Actividades'))
+--WHERE	ft.tab_codigo IN (SELECT t.tab_codigo FROM parametricas.tablas t WHERE t.tab_nombre IN ('Actividades'))
 --WHERE	ft.tab_codigo IN (SELECT t.tab_codigo FROM parametricas.tablas t WHERE t.tab_nombre IN ('ActividadesViaticos'))
+WHERE	ft.tab_codigo IN (SELECT t.tab_codigo FROM parametricas.tablas t WHERE t.tab_nombre IN ('Poas'))
 ORDER BY ft.tab_codigo ASC, ft.est_codigo_origen ASC, ft.est_codigo_destino ASC
 ;
 SELECT 	*

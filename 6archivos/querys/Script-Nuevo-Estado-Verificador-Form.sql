@@ -44,32 +44,34 @@ where a.pobj_codigo in (275) and a.aun_codigo_ejecutora in (64) and a.act_estado
 ;
 
 --ACTIVIDADES
-select 	a.act_codigo , a.act_ejecucion_conaud, a.act_codigo_anterior ,a.act_numero ,a.cac_codigo ,a.iac_codigo_apoyo, a.act_estado, a.act_descripcion , a.aun_codigo_ejecutora, a.tipact_codigo, a.fecha_registro, a.ttr_codigo, 
+select 	--*
+		a.act_codigo , a.act_ejecucion_conaud, a.act_codigo_anterior ,a.act_numero ,a.cac_codigo ,a.iac_codigo_apoyo, a.act_estado, a.act_descripcion , a.aun_codigo_ejecutora, a.tipact_codigo, a.fecha_registro, a.ttr_codigo, 
 		ett.ett_codigo, ett.ett_nombre, 
 		au.aun_nombre, au.aun_sigla, au.aun_estado,
 		po.pobj_codigo ,po.pobj_nombre, po.pobj_estado,
-		p.poa_codigo
---		oau.oau_codigo, oau.oau_descripcion ,oau.oau_estado 
+		p.poa_codigo,
+		oau.oau_codigo, oau.oau_descripcion ,oau.oau_estado 
 from 	estructura_poa.actividades a
 		left join parametricas.tipos_trabajos tt on a.ttr_codigo = tt.ttr_codigo
 		left join parametricas.especificacion_tipos_trabajo ett on tt.ett_codigo = ett.ett_codigo 
 		left join estructura_organizacional.areas_unidades au on a.aun_codigo_ejecutora = au.aun_codigo 
 		left join estructura_poa.poas_objetivos po on a.pobj_codigo = po.pobj_codigo 
 		left join estructura_poa.poas p on p.poa_codigo = po.poa_codigo
---		left join estructura_poa.objetivos_area_unidad oau on po.pobj_codigo = oau.pobj_codigo 
+		left join estructura_poa.objetivos_area_unidad oau on po.pobj_codigo = oau.pobj_codigo 
 where	true 	
 --		and a.act_numero = '510.1202.17.14.24'
---		and a.act_codigo in (14)
+--		and a.act_codigo in (2755,2753,2752,2751,2462,2460,2459,1889,2166,2165,2164)
 --		and a.act_codigo_anterior in (613,609,592,585,580,478,396,219,217,198)
 --		and a.act_codigo_anterior in (396,219,217)
---		and au.aun_sigla like 'GDB-GAM'
---		and a.act_estado not in (2,7,9,0,13)
+		and au.aun_sigla like 'GDB-GAD'
+--		and a.act_estado not in (2,7,9,0,13,17)
+--		AND au.aun_estado NOT IN (2)
 --		and a.act_estado not in (9)
 --		and a.iac_codigo_apoyo is not null
 --		and a.tipact_codigo in (2)
 --		and a.cac_codigo in (1)
 --		and po.pobj_codigo in (1145)
---		and p.poa_codigo in (3)
+		and p.poa_codigo in (3)
 --		and a.act_ejecucion_conaud in (true)
 --order by au.aun_estado asc;
 order by a.act_codigo desc;
@@ -114,3 +116,31 @@ VALUES(369, 1, '', 17, 4, 1, 0, 0, 0, '2024-05-09 18:57:05.209', '1900-01-01 00:
 INSERT INTO control_estados.flujos_tablas
 (fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
 VALUES(370, 2, '', 17, 4, 1, 0, 0, 0, '2024-01-16 18:16:56.120', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
+--#######ESTADO GLOBAL
+        SELECT
+              t.poa_estado, po.pobj_estado, act.act_estado, avi.avi_estado
+              ,COALESCE(COUNT(DISTINCT act.act_codigo), 0) AS cantidad_actividades
+        FROM	estructura_poa.poas t
+              LEFT JOIN estructura_poa.poas_objetivos po ON
+                t.poa_codigo = po.poa_codigo
+                AND po.pobj_estado IN (4,10,14,11,12,13,1,3,8,7,17,2,5)
+              LEFT JOIN (
+                SELECT	*
+                FROM	estructura_poa.actividades act
+                        LEFT JOIN estructura_organizacional.areas_unidades au ON act.aun_codigo_ejecutora = au.aun_codigo
+                WHERE	TRUE
+                    AND act.act_estado IN (4,10,14,11,12,13,1,3,8,7,17,2,5)
+                    AND au.aun_estado NOT IN (9)
+              ) act ON po.pobj_codigo = act.pobj_codigo
+              LEFT JOIN estructura_poa.actividades_viaticos avi ON
+                act.act_codigo = avi.act_codigo
+                AND avi.avi_estado IN (4,10,14,11,12,13,1,3,8,7,17,2,5)
+        WHERE TRUE
+              AND t.poa_codigo IN (3)
+        GROUP BY t.poa_estado, po.pobj_estado, act.act_estado, avi.avi_estado
+        ORDER BY
+          array_position( array[4,10,14,11,12,13,1,3,8,7,17,2,5], avi.avi_estado ),
+          array_position( array[4,10,14,11,12,13,1,3,8,7,17,2,5], act.act_estado ),
+          array_position( array[4,10,14,11,12,13,1,3,8,7,17,2,5], po.pobj_estado ),
+          array_position( array[4,10,14,11,12,13,1,3,8,7,17,2,5], t.poa_estado )
+        ;
