@@ -64,5 +64,25 @@ act_codigo=1789 			500.1801.104.1.24 	iap_codigo=573
 Gerencia Departamental de Auditoría en Gobiernos Departamentales - GDO-GAD
 act_codigo=1788 			500.2002.120.1.24 	iap_codigo=574
 
+################################################
+REPORTES F1, F1_A, F2, F2_A
+----------------------------------
+Detalles de implementacion:
+Reportes:
+RptPdfActividadF1.jrxml
+RptPdfActividadF1_A.jrxml
+RptPdfActividadF2.jrxml
+RptPdfActividadF2_A.jrxml
+Subreportes:
+------------
+
+Inputs:
+/Data_Source/Input_Control/conaud/s_token
+/Data_Source/Input_Control/conaud/s_iap_codigo
+/Data_Source/Input_Control/conaud/s_i_bandera_borrador (QUITAR)
+/Data_Source/Input_Control/conaud/s_inf_codigo (QUITAR)
+
+Logotipo Institucional: Images/logo_cge.png
+################################################
 
 
