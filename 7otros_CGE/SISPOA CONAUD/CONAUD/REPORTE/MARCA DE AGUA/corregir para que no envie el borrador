@@ -42,8 +42,27 @@ act_codigo=2129 			520.0007.26.3.24 	iap_codigo=536
 ##### F2 #######
 (EDICION)
 Gerencia Departamental de Auditoría en Gobiernos Departamentales - GDS-GAD
-act_codigo=2438 			520.1703.121.2.24 	iap_codigo=560
+act_codigo=1793 			500.1402.64.4.24	iap_codigo=565
+
+(VERIFICADO)
+Gerencia de Auditoría de Empresas Publicas - SCEP-GAEP
+act_codigo=2956 			510.0701.38.1.24 	iap_codigo=513
 
 (EJECUCION)
-Gerencia de Auditoría de Empresas Publicas - SCEP-GAEP
-act_codigo=2129 			520.0007.26.3.24 	iap_codigo=536
+Unidad de Auditoría Interna - UAI
+act_codigo=1743 			00.0023.77.2.24 	iap_codigo=278
+
+Gerencia Departamental de Auditoría en Gobiernos Departamentales - GDO-GAD
+act_codigo=1786 			500.2002.120.3.24 	iap_codigo=40
+
+##### F2-A  #####
+(EDICION)
+Gerencia Departamental de Auditoría en Gobiernos Departamentales - GDN-GAD
+act_codigo=1789 			500.1801.104.1.24 	iap_codigo=573
+
+(EJECUCION)
+Gerencia Departamental de Auditoría en Gobiernos Departamentales - GDO-GAD
+act_codigo=1788 			500.2002.120.1.24 	iap_codigo=574
+
+
+
