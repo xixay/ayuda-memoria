@@ -28,8 +28,8 @@ from 	estructura_poa.actividades_viaticos av
 		left join estructura_organizacional.areas_unidades au on a.aun_codigo_ejecutora = au.aun_codigo
 where 	true 
 --		and av.avi_estado in (1)
-		and p.poa_codigo in (2)
-		and av.act_codigo in (1532)	
+		and p.poa_codigo in (3)
+--		and av.act_codigo in (1532)	
 order by av.avi_codigo desc; 
 --ACTIVIDADES
 select 	--*
@@ -52,8 +52,8 @@ where	true
 --		and a.act_codigo in (2755,2753,2752,2751,2462,2460,2459,1889,2166,2165,2164)
 --		and a.act_codigo_anterior in (613,609,592,585,580,478,396,219,217,198)
 --		and a.act_codigo_anterior in (396,219,217)
-		and au.aun_sigla like 'GDB-GAD'
---		and a.act_estado not in (2,7,9,0,13,17)
+--		and au.aun_sigla like 'GDB-GAD'
+		and a.act_estado not in (2,7,9,0,13,17)
 --		AND au.aun_estado NOT IN (2)
 --		and a.act_estado not in (9)
 --		and a.iac_codigo_apoyo is not null
@@ -71,9 +71,9 @@ FROM	control_estados.flujos_tablas ft
 		LEFT JOIN parametricas.tablas t ON ft.tab_codigo = t.tab_codigo
 		LEFT JOIN parametricas.estados eo ON ft.est_codigo_origen = eo.est_codigo
 		LEFT JOIN parametricas.estados ed ON ft.est_codigo_destino = ed.est_codigo
---WHERE	ft.tab_codigo IN (SELECT t.tab_codigo FROM parametricas.tablas t WHERE t.tab_nombre IN ('Actividades'))
+WHERE	ft.tab_codigo IN (SELECT t.tab_codigo FROM parametricas.tablas t WHERE t.tab_nombre IN ('Actividades'))
 --WHERE	ft.tab_codigo IN (SELECT t.tab_codigo FROM parametricas.tablas t WHERE t.tab_nombre IN ('ActividadesViaticos'))
-WHERE	ft.tab_codigo IN (SELECT t.tab_codigo FROM parametricas.tablas t WHERE t.tab_nombre IN ('Poas'))
+--WHERE	ft.tab_codigo IN (SELECT t.tab_codigo FROM parametricas.tablas t WHERE t.tab_nombre IN ('Poas'))
 ORDER BY ft.tab_codigo ASC, ft.est_codigo_origen ASC, ft.est_codigo_destino ASC
 ;
 SELECT 	*
