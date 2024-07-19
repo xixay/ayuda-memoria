@@ -14,7 +14,7 @@ Gerencia Departamental de Cochabamba - GDC
 4813387 = ROL_GESTION_INSTITUCIONAL_APROBADOR
 4385501 = ROL_GESTION_INSTITUCIONAL_VERIFICADOR
 
-s_poa_codigo=(3)
+s_poa_codigo=(2)
 s_aun_codigo_ejecutora=(17)
 s_cac_codigo=(2)
 s_consolidado=(2)
