@@ -1,11 +1,11 @@
 --
-SELECT 	a.*
---		iap.iap_codigo, iap.iap_estado,
---		ia.iac_codigo, ia.iac_estado
+SELECT 	--a.*
+		iap.iap_codigo, iap.iap_estado,
+		ia.iac_codigo, ia.iac_estado
 FROM 	ejecucion_actividades.inicio_actividad_poa iap
 		LEFT JOIN estructura_poa.actividades a ON iap.act_codigo = a.act_codigo 
 		LEFT JOIN ejecucion_actividades.inicios_actividades ia ON iap.iac_codigo = ia.iac_codigo 
-WHERE 	iap.iap_codigo IN (570)
+WHERE 	iap.iap_codigo IN (574)
 ORDER BY iap.iap_codigo DESC 
 ;
 
@@ -24,8 +24,8 @@ FROM	ejecucion_actividades.inicio_actividad_poa t
 WHERE	TRUE
 --      AND t.iac_codigo IN (1)
 --		AND t.tia_codigo IN (2)--F1-A
---		AND t.tia_codigo IN (3)--F2
-		AND t.tia_codigo IN (4)--F2
+		AND t.tia_codigo IN (3)--F2
+--		AND t.tia_codigo IN (4)--F2
         AND t.iap_estado NOT IN (0)
 ORDER BY t.fecha_registro DESC
 ;
