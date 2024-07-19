@@ -1,0 +1,49 @@
+bd_cge_poa_conaud_local_b
+postgres
+
+Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwZXJfY29kaWdvIjo0NjEsInNpc3RlbWFzIjpbeyJzaXNjZ2VfY29kaWdvIjozMiwic2lzY2dlX3NpZ2xhIjoiY29ycmVzcG9uZGVuY2lhX2ludGVybmEifSx7InNpc2NnZV9jb2RpZ28iOjM0LCJzaXNjZ2Vfc2lnbGEiOiJzaXNwb2EifSx7InNpc2NnZV9jb2RpZ28iOjM3LCJzaXNjZ2Vfc2lnbGEiOiJjb25hdWQifV0sInJvbGVzIjpbeyJzaXNjZ2VfY29kaWdvIjozMiwicm9sX2NvZGlnbyI6MTc2LCJyb2xfZGVzY3JpcGNpb24iOiJBU0lTVEVOVEUgQURNSU5JU1RSQVRJVk8ifSx7InNpc2NnZV9jb2RpZ28iOjM0LCJyb2xfY29kaWdvIjoxOTAsInJvbF9kZXNjcmlwY2lvbiI6Ik9wZXJhZG9yIEZvcm11bGFyaW8ifSx7InNpc2NnZV9jb2RpZ28iOjM3LCJyb2xfY29kaWdvIjoyMDgsInJvbF9kZXNjcmlwY2lvbiI6Ik9wZXJhZG9yIEZvcm11bGFyaW8ifV0sImlkIjoiY2Y0MzIzZGEtZjY3My00NmEzLTllNmYtNjdiNDdiZmIzM2FhIiwidGlwbyI6InVzdWFyaW8iLCJpYXQiOjE3MjE0MTgyMDcsImV4cCI6MTcyMTQ0NzAwNywibW9tZW50IjoiMjAyNC0wNy0xOVQxNTo0MzoyNy0wNDowMCJ9.DURUynlTnE9_9ClK-iAXug3mFi1zWSdFlqO2qPx4CRyeafS-BpuOHMdh5vVBDUtX4_F-Wo_6SRE4PKZI1e53Ug
+
+
+- PARA LOS F1, F1-A, F2, F1-A, hacer que ya no dependa de la bandera que se le envia, que directamente se fije en el estado para agregar la marca de agua en borrador
+- Fijarse el F26B, para ver ahi no le manda una bandera
+
+4813387 = ROL_GESTION_INSTITUCIONAL_APROBADOR
+4385501 = ROL_GESTION_INSTITUCIONAL_VERIFICADOR
+(5922785)JUAN CARLOS FLORES ARIAS = FORMULADOR GERENTE 
+(5922785)JUAN CARLOS FLORES ARIAS = FORMULADOR
+(5922785)JUAN CARLOS FLORES ARIAS = SUPERVISOR
+(5922785)JUAN CARLOS FLORES ARIAS= APROBADOR
+
+4813387 = ROL_GESTION_INSTITUCIONAL_APROBADOR
+4385501 = ROL_GESTION_INSTITUCIONAL_VERIFICADOR
+####  F1  #######
+Gerencia Departamental de Cochabamba - GDC
+570.0013.4
+act_codigo=2959(EDICION) 		570.0013.4.2.24  	iap_codigo=567
+act_codigo=2960(EN VERIFICACIÓN) 	570.0013.4.3.24		iap_codigo=568
+act_codigo=2961(APROBADO) 		570.0013.4.4.24		iap_codigo=569
+act_codigo=2962(VERIFICADO) 		570.0013.4.5.24		iap_codigo=570
+act_codigo=2963(VERIFICADO) 		570.0013.4.6.24		iap_codigo=571
+act_codigo=2964(EDICION) 		570.0013.4.7.24		iap_codigo=572
+
+Gerencia Departamental de Auditoría en Gobiernos Departamentales - GDC- GAD
+(EN EJECUCION)
+act_codigo=2936(EJECUCION) 520.1302.237.1.24		iap_codigo=515
+
+##### F1-A #######
+(APROBADO : AMPLIACIÓN)
+Gerencia Departamental de Auditoría en Gobiernos Municipales y Universidades - GDT-GAM1
+act_codigo=2438 			520.1703.121.2.24 	iap_codigo=560
+
+(EJECUCION)
+Gerencia de Auditoría de Empresas Publicas - SCEP-GAEP
+act_codigo=2129 			520.0007.26.3.24 	iap_codigo=536
+
+##### F2 #######
+(EDICION)
+Gerencia Departamental de Auditoría en Gobiernos Departamentales - GDS-GAD
+act_codigo=2438 			520.1703.121.2.24 	iap_codigo=560
+
+(EJECUCION)
+Gerencia de Auditoría de Empresas Publicas - SCEP-GAEP
+act_codigo=2129 			520.0007.26.3.24 	iap_codigo=536
