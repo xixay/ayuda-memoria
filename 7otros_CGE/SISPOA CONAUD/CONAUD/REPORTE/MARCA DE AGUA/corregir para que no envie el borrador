@@ -35,13 +35,17 @@ GDT-GAM1
 act_codigo=655 				520.1703.118.1.24 	iap_codigo=534
 
 (EJECUCION)
-Gerencia de Auditoría de Empresas Publicas - SCEP-GAEP
-act_codigo=2129 			520.0007.26.3.24 	iap_codigo=536
+SCEP-GAEP
+act_codigo=495 				520.0007.26.3.24 	iap_codigo=536
+
+(HISTORICO)
+SCEP-GAEP
+act_codigo=1457 			520.1702.112.3.24 	iap_codigo=510
 
 ##### F2 #######
 (EDICION)
-Gerencia Departamental de Auditoría en Gobiernos Departamentales - GDS-GAD
-act_codigo=1793 			500.1402.64.4.24	iap_codigo=565
+GDB-GAD
+act_codigo=93 				500.1902.110.2.24	iap_codigo=529
 
 (VERIFICADO)
 Gerencia de Auditoría de Empresas Publicas - SCEP-GAEP
