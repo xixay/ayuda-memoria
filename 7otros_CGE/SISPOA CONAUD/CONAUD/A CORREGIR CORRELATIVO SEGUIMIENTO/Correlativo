@@ -7,7 +7,44 @@ Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwZXJfY29kaWdvIjo0NjEsInNpc3RlbWFz
 - Crear un seguimiento y llevarlo a ejecucion, y ver como se genera ese correlativo
 
  Gerencia Departamental de Cochabamba - GDC 
- 4813387(FORMULADOR)MERY GOMEZ CONDORI (REGISTRA NUEVOS)
- 3403668(FORMULADOR GERENTE )ANA MARIA BRIGGITTE DEL CARMEN ARRAZOLA DURAN
+ 4813387(FORMULADOR)MERY GOMEZ CONDORI (REGISTRA NUEVOS SISPOA)
+ 3403668(FORMULADOR GERENTE )ANA MARIA BRIGGITTE DEL CARMEN ARRAZOLA DURAN(REGISTRA EN CONAUD INICIO ACT)
  4385501(APROBADOR)JULIO CARLOS GUERRA VILLARROEL
- 4755293(SUPERVISOR)NORKA VALERIA CHAVEZ LIMACHI
+ 4755293(SUPERVISOR)NORKA VALERIA CHAVEZ LIMACHI(CONSOLIDA)
+ 
+4813387 = ROL_GESTION_INSTITUCIONAL_APROBADOR
+4385501 = ROL_GESTION_INSTITUCIONAL_VERIFICADOR
+
+##FORMULARIO INICIOS ACTIVIDADES
+-iac_codigo_control=CC
+C=aun_inicial_ejecutora
+C=aun_inicial_supervisora
+-
+P=actividad.cac_codigo == 1 o cualquiera
+
+🐱==xx3==> ~ informeSeguimiento: {
+  iac_codigo: 1,
+  informes: [
+    {
+      iac_codigo: 1,
+      inf_codigo: 239,
+      inf_codigo_control: 'R1',
+      inf_nombre: '8b ',
+      inf_descripcion: 'INFORME PRELIMINAR DE INDICIOS DE RESPONSABILIDADES',
+      inf_observacion: '                                                                                                                                                      ',
+      iem_sigla: '-',
+      tipo_informe: 'NO DEFINIDO (MIGRADO)',
+      fecha_informe: '22/07/2024',
+      estados_evolucion: [],
+      recomendaciones: [],
+      est_nombre: 'EDICION',
+      est_color: '#54bebe'
+    }
+  ]
+}
+##INFORME AL QUE SE LE HACE SEGUIMIENTO
+iac_codigo_control=ETEP46J23
+iac_codigo_control_vista=ET/EP46/J23
+##iac_codigo_control crear
+iac_codigo_control=ETEP46J23+R1=ETEP46J23R1
+iac_codigo_control_vistaET/EP46/J23+R1=ET/EP46/J23R1

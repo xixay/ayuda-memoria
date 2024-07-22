@@ -69,9 +69,7 @@ FROM	estructura_poa.actividades a
 WHERE	TRUE	
 --		AND ia.iac_codigo = 568
 --		AND ia.iac_codigo = 570
---		AND ia.iac_codigo = 571
---		AND ia.iac_codigo = 573
---		AND ia.iac_codigo = 575
+		AND ia.iac_codigo = 572
 ORDER BY a.act_codigo DESC 
 ;
 --
@@ -79,10 +77,8 @@ SELECT 	*
 FROM 	ejecucion_actividades.inicios_actividades ia 
 WHERE  	TRUE 
 --		AND ia.iac_codigo IN (568)
-		AND ia.iac_codigo IN (570)
---		AND ia.iac_codigo IN (571)
---		AND ia.iac_codigo IN (573)
---		AND ia.iac_codigo IN (575)
+--		AND ia.iac_codigo IN (570)
+		AND ia.iac_codigo IN (572)
 ;
 --INICIO ACTIVIDAD INFORME
 SELECT 	*
