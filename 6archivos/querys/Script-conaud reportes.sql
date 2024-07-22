@@ -25,9 +25,16 @@ WHERE	TRUE
 --      AND t.iac_codigo IN (1)
 --		AND t.tia_codigo IN (1)--F1
 --		AND t.tia_codigo IN (2)--F1-A
-		AND t.tia_codigo IN (3)--F2
---		AND t.tia_codigo IN (4)--F2-A
+--		AND t.tia_codigo IN (3)--F2
+		AND t.tia_codigo IN (4)--F2-A
 --		AND t.iap_estado IN (5)
         AND t.iap_estado NOT IN (0)
 ORDER BY t.fecha_registro DESC
 ;
+
+
+
+
+
+
+
