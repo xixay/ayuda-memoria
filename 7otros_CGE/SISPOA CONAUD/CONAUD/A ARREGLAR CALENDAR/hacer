@@ -1,0 +1,21 @@
+3403668 fgerente
+4813387 f
+4385501 a
+4755293 s
+3403668 com
+
+4813387 = ROL_GESTION_INSTITUCIONAL_APROBADOR
+4385501 = ROL_GESTION_INSTITUCIONAL_VERIFICADOR
+570.0013.4
+
+
+EVALUACION
+http://172.16.75.100:7002/sispoa/parametricas/hitos-rutas-criticas?ttr_codigo=(9)&hrc_estado=(1)
+
+AUDITORIA
+http://172.16.75.100:7002/sispoa/parametricas/hitos-rutas-criticas?ttr_codigo=(12)&hrc_estado=(1)
+
+/home/yhamil/Documents/conaud-frontend/src/components/informes-uai/component/tables/informes-uai.table.jsx
+
+AsignacionesHorasUsadasPlanificadorCalendar
+
