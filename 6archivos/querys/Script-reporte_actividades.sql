@@ -32,7 +32,8 @@ WHERE 	tt.ett_codigo IN (5);
 SELECT 	*
 FROM 	parametricas.especificacion_tipos_trabajo ett;
 SELECT 	*
-FROM 	parametricas.hitos_rutas_criticas hrc;
+FROM 	parametricas.hitos_rutas_criticas hrc
+ORDER BY hrc.hrc_codigo ASC;
 
 SELECT 
           t.hrc_codigo, 
@@ -79,7 +80,8 @@ INSERT INTO parametricas.hitos_rutas_criticas (hrc_codigo, hrc_nombre, hrc_descr
  
  
  
- 
+SELECT	*
+FROM	
  
  
  

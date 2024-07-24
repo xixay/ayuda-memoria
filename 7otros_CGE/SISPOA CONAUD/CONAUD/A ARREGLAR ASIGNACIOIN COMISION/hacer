@@ -19,3 +19,5 @@ http://172.16.75.100:7002/sispoa/parametricas/hitos-rutas-criticas?ttr_codigo=(1
 
 AsignacionesHorasUsadasPlanificadorCalendar
 
+
+http://172.16.75.100:3002/conaud/inicio-evaluacion-informe?act_codigo=1537&iua_codigo=841
