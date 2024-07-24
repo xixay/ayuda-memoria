@@ -84,13 +84,82 @@ SELECT	*
 FROM	ejecucion_poa.asignaciones_horas_usadas ahu ;
 SELECT 	*
 FROM 	ejecucion_poa.asignaciones_cargos_item aci ;
---
+--INFORMES UAI
 SELECT 	iu.iua_codigo,iu.iua_cite,iu.iua_estado 
 FROM 	ejecucion_informes.informes_uai iu
 WHERE 	iu.act_codigo IN (1537)
 ;
+--INICIO EVALUACION INFORME
+SELECT 	*
+FROM 	ejecucion_informes.inicio_evaluacion_informe iei
+WHERE 	TRUE 
+		AND iei.iei_codigo IN (747)
+;
+--AREA UNIDAD RESPONSABLES
+ SELECT 
+ 		aur.aur_codigo, aur.per_codigo, aur.poa_codigo, aur.aun_codigo_ejecutora, aur.aun_codigo_rol,aur.rol_codigo, aur.cro_codigo,
+ 		au.aun_sigla 
+ FROM 	estructura_poa.area_unidad_responsables aur
+ 		LEFT JOIN estructura_organizacional.areas_unidades au ON aur.aun_codigo_ejecutora = au.aun_codigo 
+ WHERE 	aur.aun_codigo_ejecutora IN (17)
+ 		AND aur.poa_codigo IN (2)	
+		AND aur.per_codigo IN (1016)
+-- 		AND aur.aun_codigo_rol IN (59)
+;
+--ASIGNACIONES CARGOS ITEM
+SELECT 	*
+FROM 	ejecucion_poa.asignaciones_cargos_item aci 
+WHERE 	TRUE 
+		AND aci.asi_codigo IN (1319);
+--BUSCA AREA UNIDAD EJECUTORA X
+SELECT
+      oau.oau_codigo,
+      oau.pobj_codigo,
+      oau.aun_codigo_ejecutora,
+      oau.aun_codigo_supervisora
+FROM  estructura_poa.objetivos_area_unidad oau
+WHERE oau.oau_codigo IN (
+        SELECT	fo.oau_codigo
+        FROM	estructura_poa.formularios_objetivos fo
+        WHERE	fo.fob_codigo IN (SELECT a.fob_codigo FROM estructura_poa.actividades a WHERE a.act_codigo = 1537)
+      )
+;
+--BUSCA AREA UNIDAD EJECUTORA CORREGIDO
+SELECT
+      oau.oau_codigo,
+      oau.pobj_codigo,
+      oau.aun_codigo_ejecutora,
+      oau.aun_codigo_supervisora
+FROM  estructura_poa.objetivos_area_unidad oau
+WHERE oau.pobj_codigo IN (SELECT a.pobj_codigo FROM estructura_poa.actividades a WHERE a.act_codigo = 1537)
+;
+--BUSCA POA CODIGO X
+SELECT
+      f.poa_codigo
+FROM	estructura_poa.formularios f
+WHERE	f.for_codigo IN (
+        SELECT	fo.for_codigo
+        FROM	estructura_poa.formularios_objetivos fo
+        WHERE	fo.fob_codigo IN (SELECT a.fob_codigo FROM estructura_poa.actividades a WHERE a.act_codigo = 1537)
+      )
+;
+--BUSCA POA CODIGO CORREGIDO
+SELECT
+      p.poa_codigo
+FROM	estructura_poa.poas p
+WHERE	p.poa_codigo IN (
+        SELECT	po.poa_codigo
+        FROM	estructura_poa.poas_objetivos po
+        WHERE	po.pobj_codigo IN (SELECT a.pobj_codigo FROM estructura_poa.actividades a WHERE a.act_codigo = 1537)
+      )
+;
  
- 
+SELECT	a.act_codigo, a.aun_codigo_ejecutora, a.aun_codigo_supervisora, po.poa_codigo
+FROM	estructura_poa.actividades a
+		LEFT JOIN estructura_poa.poas_objetivos po ON a.pobj_codigo = po.pobj_codigo
+WHERE	TRUE
+		AND a.act_codigo IN (1537)
+;
  
  
  
