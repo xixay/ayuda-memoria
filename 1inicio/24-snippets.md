@@ -1,57 +1,63 @@
 [<< INDICE](../README.md)
 - [1. Snippets](#1-snippets)
-  - [1.1. Snippets info](#11-snippets-info)
-    - [1.1.1. React Hooks](#111-react-hooks)
-    - [1.1.2. Métodos básicos](#112-métodos-básicos)
-    - [1.1.3. React](#113-react)
-    - [1.1.4. React Nativo](#114-react-nativo)
-    - [1.1.5. Redux](#115-redux)
-    - [1.1.6. PropTypes](#116-proptypes)
-    - [1.1.7. Console](#117-console)
-    - [1.1.8. React Componentes](#118-react-componentes)
-    - [1.1.9. `rcc`](#119-rcc)
-    - [1.1.10. `rce`](#1110-rce)
-    - [1.1.11. `rcep`](#1111-rcep)
-    - [1.1.12. `rpc`](#1112-rpc)
-    - [1.1.13. `rpcp`](#1113-rpcp)
-    - [1.1.14. `rpce`](#1114-rpce)
-    - [1.1.15. `rccp`](#1115-rccp)
-    - [1.1.16. `rfcp`](#1116-rfcp)
-    - [1.1.17. `rfc`](#1117-rfc)
-    - [1.1.18. `rfce`](#1118-rfce)
-    - [1.1.19. `rafcp`](#1119-rafcp)
-    - [1.1.20. `rafc`](#1120-rafc)
-    - [1.1.21. `rafce`](#1121-rafce)
-    - [1.1.22. `rmc`](#1122-rmc)
-    - [1.1.23. `rmcp`](#1123-rmcp)
-    - [1.1.24. `rcredux`](#1124-rcredux)
-    - [1.1.25. `rcreduxp`](#1125-rcreduxp)
-    - [1.1.26. `rfcredux`](#1126-rfcredux)
-    - [1.1.27. `rfreduxp`](#1127-rfreduxp)
-    - [1.1.28. `reduxmap`](#1128-reduxmap)
-  - [1.2. React Nativo Componentes](#12-react-nativo-componentes)
-    - [1.2.1. `rnc`](#121-rnc)
-    - [1.2.2. `rnf`](#122-rnf)
-    - [1.2.3. `rnfs`](#123-rnfs)
-    - [1.2.4. `rnfe`](#124-rnfe)
-    - [1.2.5. `rnfes`](#125-rnfes)
-    - [1.2.6. `rncs`](#126-rncs)
-    - [1.2.7. `rnce`](#127-rnce)
-  - [1.3. Otros](#13-otros)
-    - [1.3.1. `cmmb`](#131-cmmb)
-    - [1.3.2. `desc`](#132-desc)
-    - [1.3.3. `test`](#133-test)
-    - [1.3.4. `tit`](#134-tit)
-    - [1.3.5. `stest`](#135-stest)
-    - [1.3.6. `srtest`](#136-srtest)
-    - [1.3.7. `sntest`](#137-sntest)
-    - [1.3.8. `snrtest`](#138-snrtest)
-    - [1.3.9. `hocredux`](#139-hocredux)
-    - [1.3.10. `hoc`](#1310-hoc)
+  - [1.1. Comando busqueda](#11-comando-busqueda)
+  - [1.2. Snippets información](#12-snippets-información)
+    - [1.2.1. React Hooks](#121-react-hooks)
+    - [1.2.2. Métodos básicos](#122-métodos-básicos)
+    - [1.2.3. React](#123-react)
+    - [1.2.4. React Nativo](#124-react-nativo)
+    - [1.2.5. Redux](#125-redux)
+    - [1.2.6. PropTypes](#126-proptypes)
+    - [1.2.7. Console](#127-console)
+    - [1.2.8. React Componentes](#128-react-componentes)
+    - [1.2.9. `rcc`](#129-rcc)
+    - [1.2.10. `rce`](#1210-rce)
+    - [1.2.11. `rcep`](#1211-rcep)
+    - [1.2.12. `rpc`](#1212-rpc)
+    - [1.2.13. `rpcp`](#1213-rpcp)
+    - [1.2.14. `rpce`](#1214-rpce)
+    - [1.2.15. `rccp`](#1215-rccp)
+    - [1.2.16. `rfcp`](#1216-rfcp)
+    - [1.2.17. `rfc`](#1217-rfc)
+    - [1.2.18. `rfce`](#1218-rfce)
+    - [1.2.19. `rafcp`](#1219-rafcp)
+    - [1.2.20. `rafc`](#1220-rafc)
+    - [1.2.21. `rafce`](#1221-rafce)
+    - [1.2.22. `rmc`](#1222-rmc)
+    - [1.2.23. `rmcp`](#1223-rmcp)
+    - [1.2.24. `rcredux`](#1224-rcredux)
+    - [1.2.25. `rcreduxp`](#1225-rcreduxp)
+    - [1.2.26. `rfcredux`](#1226-rfcredux)
+    - [1.2.27. `rfreduxp`](#1227-rfreduxp)
+    - [1.2.28. `reduxmap`](#1228-reduxmap)
+  - [1.3. React Nativo Componentes](#13-react-nativo-componentes)
+    - [1.3.1. `rnc`](#131-rnc)
+    - [1.3.2. `rnf`](#132-rnf)
+    - [1.3.3. `rnfs`](#133-rnfs)
+    - [1.3.4. `rnfe`](#134-rnfe)
+    - [1.3.5. `rnfes`](#135-rnfes)
+    - [1.3.6. `rncs`](#136-rncs)
+    - [1.3.7. `rnce`](#137-rnce)
+  - [1.4. Otros](#14-otros)
+    - [1.4.1. `cmmb`](#141-cmmb)
+    - [1.4.2. `desc`](#142-desc)
+    - [1.4.3. `test`](#143-test)
+    - [1.4.4. `tit`](#144-tit)
+    - [1.4.5. `stest`](#145-stest)
+    - [1.4.6. `srtest`](#146-srtest)
+    - [1.4.7. `sntest`](#147-sntest)
+    - [1.4.8. `snrtest`](#148-snrtest)
+    - [1.4.9. `hocredux`](#149-hocredux)
+    - [1.4.10. `hoc`](#1410-hoc)
 
 # 1. Snippets
 
-## 1.1. Snippets info
+## 1.1. Comando busqueda
+Comando de búsqueda
+Puedes buscar fragmentos de código con el comando de búsqueda de fragmentos de código de ES7, que se puede ejecutar con CMD + Shift + P o simplemente usar la combinación de teclas CMD + Shift + R (CTRL + ALT + R para Windows y Linux).
+
+A continuación, se incluye un enlace directo al mercado de fragmentos de código de ES7 React/Redux/React-Native/JS
+## 1.2. Snippets información
 
 Cada espacio dentro de `{ }` y `()` significa que esto se inserta en la siguiente línea :)
 `$` representa cada paso después de `tab`.
@@ -62,11 +68,11 @@ Por ejemplo, `tsrcc`
 
 <br>
 
-### 1.1.1. React Hooks
+### 1.2.1. React Hooks
 
 - Se agregan los ganchos de los [documentos oficiales](https://reactjs.org/docs/hooks-reference.html) con el nombre del gancho como prefijo.
 
-### 1.1.2. Métodos básicos
+### 1.2.2. Métodos básicos
 
 |  Prefijo | Metodo                                              |
 | ------: | --------------------------------------------------- |
@@ -96,7 +102,7 @@ Por ejemplo, `tsrcc`
 |   `cp→` | `const { } = this.props`                            |
 |   `cs→` | `const { } = this.state`                            |
 
-### 1.1.3. React
+### 1.2.3. React
 
 |      Prefijo | Metodo                                                                      |
 | ----------: | --------------------------------------------------------------------------- |
@@ -131,14 +137,14 @@ Por ejemplo, `tsrcc`
 |     `fref→` | `const ref = React.createRef()`                                             |
 |      `bnd→` | `this.methodName = this.methodName.bind(this)`                              |
 
-### 1.1.4. React Nativo
+### 1.2.4. React Nativo
 
 |     Prefijo | Metodo                                 |
 | ---------: | -------------------------------------- |
 |    `imrn→` | `import { $1 } from 'react-native'`    |
 | `rnstyle→` | `const styles = StyleSheet.create({})` |
 
-### 1.1.5. Redux
+### 1.2.5. Redux
 
 |       Prefijo | Metodo                    |
 | -----------: | ------------------------- |
@@ -148,7 +154,7 @@ Por ejemplo, `tsrcc`
 |  `rxselect→` | `redux selector template` |
 |   `rxslice→` | `redux slice template`    |
 
-### 1.1.6. PropTypes
+### 1.2.6. PropTypes
 
 |    Prefijo | Metodo                                   |
 | --------: | ---------------------------------------- |
@@ -183,7 +189,7 @@ Por ejemplo, `tsrcc`
 |  `ptany→` | `PropTypes.any`                          |
 | `ptypes→` | `static propTypes = {}`                  |
 
-### 1.1.7. Console
+### 1.2.7. Console
 
 | Prefijo | Metodo                                                       |
 | ------ | ------------------------------------------------------------ |
@@ -203,9 +209,9 @@ Por ejemplo, `tsrcc`
 | `cwa→` | `console.warn`                                               |
 | `cin→` | `console.info`                                               |
 
-### 1.1.8. React Componentes
+### 1.2.8. React Componentes
 
-### 1.1.9. `rcc`
+### 1.2.9. `rcc`
 
 ```javascript
 import React, { Component } from 'react'
@@ -217,7 +223,7 @@ export default class FileName extends Component {
 }
 ```
 
-### 1.1.10. `rce`
+### 1.2.10. `rce`
 
 ```javascript
 import React, { Component } from 'react'
@@ -231,7 +237,7 @@ export class FileName extends Component {
 export default $1
 ```
 
-### 1.1.11. `rcep`
+### 1.2.11. `rcep`
 
 ```javascript
 import React, { Component } from 'react'
@@ -248,7 +254,7 @@ export class FileName extends Component {
 export default $1
 ```
 
-### 1.1.12. `rpc`
+### 1.2.12. `rpc`
 
 ```javascript
 import React, { PureComponent } from 'react'
@@ -260,7 +266,7 @@ export default class FileName extends PureComponent {
 }
 ```
 
-### 1.1.13. `rpcp`
+### 1.2.13. `rpcp`
 
 ```javascript
 import React, { PureComponent } from 'react'
@@ -275,7 +281,7 @@ export default class FileName extends PureComponent {
 }
 ```
 
-### 1.1.14. `rpce`
+### 1.2.14. `rpce`
 
 ```javascript
 import React, { PureComponent } from 'react'
@@ -292,7 +298,7 @@ export class FileName extends PureComponent {
 export default FileName
 ```
 
-### 1.1.15. `rccp`
+### 1.2.15. `rccp`
 
 ```javascript
 import React, { Component } from 'react'
@@ -309,7 +315,7 @@ export default class FileName extends Component {
 }
 ```
 
-### 1.1.16. `rfcp`
+### 1.2.16. `rfcp`
 
 ```javascript
 import React from 'react'
@@ -324,7 +330,7 @@ $1.propTypes = {}
 export default $1
 ```
 
-### 1.1.17. `rfc`
+### 1.2.17. `rfc`
 
 ```javascript
 import React from 'react'
@@ -334,7 +340,7 @@ export default function $1() {
 }
 ```
 
-### 1.1.18. `rfce`
+### 1.2.18. `rfce`
 
 ```javascript
 import React from 'react'
@@ -346,7 +352,7 @@ function $1() {
 export default $1
 ```
 
-### 1.1.19. `rafcp`
+### 1.2.19. `rafcp`
 
 ```javascript
 import React from 'react'
@@ -361,7 +367,7 @@ $1.propTypes = {}
 export default $1
 ```
 
-### 1.1.20. `rafc`
+### 1.2.20. `rafc`
 
 ```javascript
 import React from 'react'
@@ -371,7 +377,7 @@ export const $1 = () => {
 }
 ```
 
-### 1.1.21. `rafce`
+### 1.2.21. `rafce`
 
 ```javascript
 import React from 'react'
@@ -383,7 +389,7 @@ const $1 = () => {
 export default $1
 ```
 
-### 1.1.22. `rmc`
+### 1.2.22. `rmc`
 
 ```javascript
 import React, { memo } from 'react'
@@ -393,7 +399,7 @@ export default memo(function $1() {
 })
 ```
 
-### 1.1.23. `rmcp`
+### 1.2.23. `rmcp`
 
 ```javascript
 import React, { memo } from 'react'
@@ -408,7 +414,7 @@ $1.propTypes = {}
 export default $1
 ```
 
-### 1.1.24. `rcredux`
+### 1.2.24. `rcredux`
 
 ```javascript
 import React, { Component } from 'react'
@@ -427,7 +433,7 @@ const mapDispatchToProps = {}
 export default connect(mapStateToProps, mapDispatchToProps)(FileName)
 ```
 
-### 1.1.25. `rcreduxp`
+### 1.2.25. `rcreduxp`
 
 ```javascript
 import React, { Component } from 'react'
@@ -451,7 +457,7 @@ const mapDispatchToProps = {}
 export default connect(mapStateToProps, mapDispatchToProps)(FileName)
 ```
 
-### 1.1.26. `rfcredux`
+### 1.2.26. `rfcredux`
 
 ```javascript
 import React, { Component } from 'react'
@@ -468,7 +474,7 @@ const mapDispatchToProps = {}
 export default connect(mapStateToProps, mapDispatchToProps)(FileName)
 ```
 
-### 1.1.27. `rfreduxp`
+### 1.2.27. `rfreduxp`
 
 ```javascript
 import React, { Component } from 'react'
@@ -490,7 +496,7 @@ const mapDispatchToProps = {}
 export default connect(mapStateToProps, mapDispatchToProps)(FileName)
 ```
 
-### 1.1.28. `reduxmap`
+### 1.2.28. `reduxmap`
 
 ```javascript
 const mapStateToProps = (state) => ({})
@@ -498,9 +504,9 @@ const mapStateToProps = (state) => ({})
 const mapDispatchToProps = {}
 ```
 
-## 1.2. React Nativo Componentes
+## 1.3. React Nativo Componentes
 
-### 1.2.1. `rnc`
+### 1.3.1. `rnc`
 
 ```javascript
 import React, { Component } from 'react'
@@ -517,7 +523,7 @@ export default class FileName extends Component {
 }
 ```
 
-### 1.2.2. `rnf`
+### 1.3.2. `rnf`
 
 ```javascript
 import React from 'react'
@@ -532,7 +538,7 @@ export default function $1() {
 }
 ```
 
-### 1.2.3. `rnfs`
+### 1.3.3. `rnfs`
 
 ```javascript
 import React from 'react'
@@ -549,7 +555,7 @@ export default function $1() {
 const styles = StyleSheet.create({})
 ```
 
-### 1.2.4. `rnfe`
+### 1.3.4. `rnfe`
 
 ```javascript
 import React from 'react'
@@ -566,7 +572,7 @@ const $1 = () => {
 export default $1
 ```
 
-### 1.2.5. `rnfes`
+### 1.3.5. `rnfes`
 
 ```javascript
 import React from 'react'
@@ -585,7 +591,7 @@ export default $1
 const styles = StyleSheet.create({})
 ```
 
-### 1.2.6. `rncs`
+### 1.3.6. `rncs`
 
 ```javascript
 import React, { Component } from 'react'
@@ -604,7 +610,7 @@ export default class FileName extends Component {
 const styles = StyleSheet.create({})
 ```
 
-### 1.2.7. `rnce`
+### 1.3.7. `rnce`
 
 ```javascript
 import React, { Component } from 'react'
@@ -623,9 +629,9 @@ export class FileName extends Component {
 export default $1
 ```
 
-## 1.3. Otros
+## 1.4. Otros
 
-### 1.3.1. `cmmb`
+### 1.4.1. `cmmb`
 
 ```JS
 /**
@@ -635,7 +641,7 @@ export default $1
 */
 ```
 
-### 1.3.2. `desc`
+### 1.4.2. `desc`
 
 ```javascript
 describe('$1', () => {
@@ -643,7 +649,7 @@ describe('$1', () => {
 })
 ```
 
-### 1.3.3. `test`
+### 1.4.3. `test`
 
 ```javascript
 test('should $1', () => {
@@ -651,7 +657,7 @@ test('should $1', () => {
 })
 ```
 
-### 1.3.4. `tit`
+### 1.4.4. `tit`
 
 ```javascript
 it('should $1', () => {
@@ -659,7 +665,7 @@ it('should $1', () => {
 })
 ```
 
-### 1.3.5. `stest`
+### 1.4.5. `stest`
 
 ```javascript
 import React from 'react'
@@ -677,7 +683,7 @@ describe('<$1 />', () => {
 })
 ```
 
-### 1.3.6. `srtest`
+### 1.4.6. `srtest`
 
 ```javascript
 import React from 'react'
@@ -701,7 +707,7 @@ describe('<$1 />', () => {
 })
 ```
 
-### 1.3.7. `sntest`
+### 1.4.7. `sntest`
 
 ```javascript
 import 'react-native'
@@ -721,7 +727,7 @@ describe('<$1 />', () => {
 })
 ```
 
-### 1.3.8. `snrtest`
+### 1.4.8. `snrtest`
 
 ```javascript
 import 'react-native'
@@ -746,7 +752,7 @@ describe('<$1 />', () => {
 })
 ```
 
-### 1.3.9. `hocredux`
+### 1.4.9. `hocredux`
 
 ```javascript
 import React from 'react'
@@ -769,7 +775,7 @@ export default (WrapperComponent) =>
   connect(mapStateToProps, mapDispatchToProps)($1(WrapperComponent))
 ```
 
-### 1.3.10. `hoc`
+### 1.4.10. `hoc`
 
 ```javascript
 import React from 'react'
