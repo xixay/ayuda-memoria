@@ -3,7 +3,7 @@
     GET {{Host}}/estado
 ### AUTH INTERNO
   # @name login_interno
-  POST http://172.16.80.32:4002/api/v1/auth_cge HTTP/1.1
+  POST http://172.16.80.82:4003/api/v1/auth_cge HTTP/1.1
   Content-type: application/json
 
   # {
