@@ -1,0 +1,24 @@
+bd_cge_poa_conaud_local_b
+postgres
+
+###ANTES REFORMULAR
+backup_20240805_150221.sql
+
+#ANTES
+		consolidado
+poas		1
+		consolidado	inactivados	edicion
+poas_objetivos	749		5		-
+		todos_estados	consolidados	anulados	inactivados	estado(47)	edicion
+actividad	1554		1460		13		80		-		1
+
+###DESPUES REFORMULAR
+backup_20240805_153946.sql
+#DESPUES
+		consolidado	edicion
+poas		-		1
+		consolidado	inactivados	edicion
+poas_objetivos	-		-		749
+		todos_estados	consolidados	anulados	inactivados	estado(47)	edicion
+actividad	1473		-		-		-		13		1460		
+

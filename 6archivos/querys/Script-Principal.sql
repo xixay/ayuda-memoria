@@ -117,7 +117,7 @@ from 	estructura_poa.actividades a
 		left join estructura_poa.poas p on p.poa_codigo = po.poa_codigo
 --		left join estructura_poa.objetivos_area_unidad oau on po.pobj_codigo = oau.pobj_codigo 
 where	true 	
-		and a.act_numero = '510.1202.17.14.24'
+--		and a.act_numero = '510.1202.17.14.24'
 --		and a.act_codigo in (14)
 --		and a.act_codigo_anterior in (613,609,592,585,580,478,396,219,217,198)
 --		and a.act_codigo_anterior in (396,219,217)
