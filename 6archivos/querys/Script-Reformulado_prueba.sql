@@ -38,15 +38,16 @@ from 	estructura_poa.actividades_viaticos av
 		left join estructura_poa.poas p on po.poa_codigo = p.poa_codigo 
 		left join estructura_organizacional.areas_unidades au on a.aun_codigo_ejecutora = au.aun_codigo
 where 	true 
---		and av.avi_estado in (1)
-		and p.poa_codigo in (2)
+		and av.avi_estado in (1)
+		and p.poa_codigo in (3)
 --		and av.act_codigo in (1663)
-order by av.avi_codigo desc; 
+order by av.avi_estado desc;
 --POAS
-SELECT 	*
+SELECT 	p.poa_codigo, p.poa_estado
 FROM 	estructura_poa.poas p 
 WHERE 	TRUE 
 --		AND p.poa_estado IN (2)
+		AND p.poa_codigo IN (3)
 ;
 --POA OBJETIVOS
 SELECT 	p.poa_codigo, p.poa_estado,
@@ -54,7 +55,24 @@ SELECT 	p.poa_codigo, p.poa_estado,
 FROM 	estructura_poa.poas p 
 		LEFT JOIN	estructura_poa.poas_objetivos po ON p.poa_codigo = po.poa_codigo
 WHERE	TRUE 
-		AND p.poa_codigo IN (2)
-		AND po.pobj_estado IN (0)
+		AND p.poa_codigo IN (3)
+		AND po.pobj_estado IN (8)
 ORDER BY po.pobj_estado DESC
 ;
+--OBJETIVOS AREA UNIDAD
+SELECT 	oau.oau_codigo, oau.oau_estado, oau.pobj_codigo, oau.aun_codigo_ejecutora,
+		po.pobj_codigo, po.pobj_estado,
+		p.poa_codigo, p.poa_estado
+FROM 	estructura_poa.poas p
+		LEFT JOIN   estructura_poa.poas_objetivos po ON p.poa_codigo = po.poa_codigo
+		LEFT JOIN	estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo
+WHERE 	TRUE 
+		AND p.poa_codigo IN (3)
+		AND oau.oau_estado IN (8)
+--ORDER BY oau.oau_estado DESC 
+;
+
+
+
+
+

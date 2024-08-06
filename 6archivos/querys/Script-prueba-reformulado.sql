@@ -38,10 +38,10 @@ from 	estructura_poa.actividades_viaticos av
 		left join estructura_poa.poas p on po.poa_codigo = p.poa_codigo 
 		left join estructura_organizacional.areas_unidades au on a.aun_codigo_ejecutora = au.aun_codigo
 where 	true 
---		and av.avi_estado in (1)
+		and av.avi_estado in (7)
 		and p.poa_codigo in (2)
 --		and av.act_codigo in (1663)
-order by av.avi_codigo desc; 
+order by av.avi_estado desc; 
 --POAS
 SELECT 	*
 FROM 	estructura_poa.poas p 
@@ -58,6 +58,33 @@ WHERE	TRUE
 		AND po.pobj_estado IN (0)
 ORDER BY po.pobj_estado DESC
 ;
+--FLUJOS
+select 	*
+from 	control_estados.flujos_tablas ft
+where 	true 
+--		and ft.tab_codigo in (1)
+--		and ft.tab_codigo in (2)
+		and ft.tab_codigo in (42)
+;
+--OBJETIVOS AREA UNIDAD
+SELECT 	oau.oau_codigo, oau.oau_estado, oau.pobj_codigo, oau.aun_codigo_ejecutora,
+		po.pobj_codigo, po.pobj_estado,
+		p.poa_codigo, p.poa_estado
+FROM 	estructura_poa.poas p
+		LEFT JOIN   estructura_poa.poas_objetivos po ON p.poa_codigo = po.poa_codigo
+		LEFT JOIN	estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo
+WHERE 	TRUE 
+		AND p.poa_codigo IN (2)
+--		AND oau.oau_estado IN (1)
+--ORDER BY oau.oau_estado DESC 
+;
+
+
+
+
+
+
+
 
 
 
