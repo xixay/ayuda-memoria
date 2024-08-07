@@ -57,6 +57,33 @@ viaticos	268		-		-		-		-		268		-
 		todos_estados	consolidado	anulados	inactivos	edicion		verificacion	aprobacion
 objetivo_area_u	873		-		-		-		-		873
 
+###LISTA PARA ENVIAR A CONSOLIDAR LAS ACTIVIDADES
+backup_20240807_094214.sql
+		todos_estados	consolidados	anulados	inactivados	estado(47)	edicion		estado(17)
+actividad	1473		-		-		-		13		6		1451
+		todos_estados	consolidados	anulados	inactivados	estado(8)	edicion		estado(17)	estado(7)
+viaticos	268										1		267		
+
+GDB-GAD
+pobj_codigo=1051
+act_codigo=2199,2200,2201
+aun_codigo_ejecutora=79
+
+pobj_codigo=1059
+act_codigo=2213,2214,2215
+aun_codigo_ejecutora=79
+
+GPA-GA2
+pobj_codigo=1149
+act_codigo=2494,2495
+aun_codigo_ejecutora=76
+
+pobj_codigo=1050
+act_codigo=2497
+aun_codigo_ejecutora=76
+
+
+
 
 
 
