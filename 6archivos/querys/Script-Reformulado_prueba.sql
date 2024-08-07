@@ -75,19 +75,17 @@ WHERE 	TRUE
 ;
 --
 SELECT 	a.act_codigo, a.aun_codigo_ejecutora, oau.aun_codigo_ejecutora, a.act_numero, a.act_estado,
-		au.aun_sigla, au.aun_estado, 
 		po.pobj_codigo, po.pobj_numero, po.pobj_estado,
 		oau.oau_codigo, oau.oau_estado 
-FROM 	estructura_poa.actividades a
-		LEFT JOIN estructura_organizacional.areas_unidades au ON a.aun_codigo_ejecutora = au.aun_codigo 
+FROM 	estructura_poa.actividades a 
 		LEFT JOIN estructura_poa.poas_objetivos po ON a.pobj_codigo = po.pobj_codigo
-		LEFT JOIN estructura_poa.poas p ON po.poa_codigo = p.poa_codigo 
 		LEFT JOIN estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo 
 WHERE 	TRUE 
 		AND a.act_estado IN (1)
-		AND p.poa_codigo IN (3)
---		AND a.aun_codigo_ejecutora NOT IN (oau.aun_codigo_ejecutora)
+		AND oau.oau_estado NOT IN (0)
+ORDER BY po.pobj_codigo ASC 
 ;
+
 SELECT 	*
 FROM 	estructura_poa.poas_objetivos po 
 WHERE 	TRUE 
