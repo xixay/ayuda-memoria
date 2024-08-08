@@ -3,11 +3,11 @@ FROM	ejecucion_poa.asignaciones_cargos_item aci
 		LEFT JOIN estructura_organizacional.cargos_items_persona cip ON aci.cit_codigo = cip.cit_codigo
 WHERE	TRUE
 --		AND aci.asi_codigo = 1384
-		AND aci.asi_codigo = 162
+--		AND aci.asi_codigo = 162
 --		AND aci.asi_codigo = 1385
 --		AND cip.per_codigo IN (216)
 --		AND aci.cit_codigo IN (564)
---		AND aci.persona_detalle NOTNULL 
+		AND aci.persona_detalle NOTNULL 
 ;
 
 

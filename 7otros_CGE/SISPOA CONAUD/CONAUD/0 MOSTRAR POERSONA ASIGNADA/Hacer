@@ -1,16 +1,15 @@
 bd_cge_poa_conaud_local_b
 postgres
-backup_20240807_111005.sql
+backup_20240807_155902.sql
 
 
 - QUE SE MUESTRE SUS DATOS; AUNQUE SE LE HAYA DADO DE BAJA A LA PERSONA EN EL AUTH
-
+###YA EN EJECUCION
 GDB-GAD
 formulador_gerente=5491571
 510.1903.32.4.24
 Gerencia Departamental de Auditoría en Gobiernos Departamentales - GDB-GAD
 src/components/inicios-actividades/component/inicios-actividades.view.jsx
-
 iap_codigo=155
 asi_codigo=162
 iac_codigo=259
@@ -21,10 +20,23 @@ formulador_gerente=2890573
 ANULADO:
     per_codigo: 216
     descripcion: RUTH TARCAYA GALLARDO
+
+###SE CREO NUEVO    
+GDC- GAD
+formulador_gerente=2890573
 http://172.16.75.100:3002/conaud/inicios-actividades?ges_codigo=2&act_codigo=504
 520.1302.60.3.24
 Gerencia Departamental de Auditoría en Gobiernos Departamentales - GDC- GAD
 src/components/asignaciones-cargos-item/component/asignaciones-cargos-item.table.jsx
+
+
+
+http://172.16.75.100:3002/conaud/inicios-actividades?ges_codigo=2&act_codigo=499
+asi_codigo=1385
+
+
+
+
 
 
 
