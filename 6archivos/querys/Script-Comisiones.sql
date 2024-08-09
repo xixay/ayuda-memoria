@@ -3,14 +3,19 @@ FROM	ejecucion_poa.asignaciones_cargos_item aci
 		LEFT JOIN estructura_organizacional.cargos_items_persona cip ON aci.cit_codigo = cip.cit_codigo
 WHERE	TRUE
 --		AND cip.cip_estado NOT IN (5)
---		AND aci.asi_codigo = 1384--ELIMINO CLAUDIA VERONICA AILLON CRESPO aci_codigo=5121
+		AND aci.asi_codigo = 1384--ELIMINO CLAUDIA VERONICA AILLON CRESPO aci_codigo=5121
 --		AND aci.asi_codigo = 1387--520.1302.61.9.24 ELIMINO MARCELO MATEO GARCIA ESCOBAR aci_codigo=5131, LIDIA MENECES GABRIEL aci_codigo=5130, JOSUE ROYO SORIA aci_codigo=5132 
 --		AND aci.asi_codigo = 162
 --		AND aci.asi_codigo = 1385
-		AND aci.asi_codigo = 1358
+--		AND aci.asi_codigo = 1358
 --		AND cip.per_codigo IN (216)
 --		AND aci.cit_codigo IN (564)
 --		AND aci.persona_detalle NOTNULL 
+;
+--CARGOS ITEM
+SELECT 	*
+FROM 	estructura_organizacional.cargos_items ci
+WHERE 	ci.cit_codigo IN (556,477,493,439,393,108)
 ;
 --
 SELECT 	*
@@ -50,6 +55,44 @@ WHERE	TRUE
 --		AND aci.asi_codigo = 162
 		AND aci.per_codigo NOTNULL 
 ;
+  WITH tmp_cargo_item_persona as ( -- Filtro de cargos items persona
+    SELECT cip.cip_codigo, cip.cip_estado, cip.cit_codigo, cip.per_codigo
+    FROM estructura_organizacional.cargos_items_persona cip
+    WHERE cip_estado NOT IN (0)
+  )
+  SELECT
+    t.cit_codigo,
+    t.cit_descripcion,
+    t.car_codigo,
+    t.ite_codigo,
+    t.aun_codigo,
+    t.cit_estado,
+    au.aun_nombre,
+    au.aun_sigla,
+    CONCAT_WS(' - ', au.aun_sigla, au.aun_nombre) AS aun_concatenado,
+    CONCAT_WS(' - ', au.aun_nombre, au.aun_sigla) AS aun_concatenado_invert,
+    au.aun_numero,
+    ( CASE WHEN (t.cit_estado = 42) THEN CONCAT( c.car_nombre, ' (', e.est_nombre,')' ) ELSE c.car_nombre END ) AS car_nombre,
+    c.car_alias,
+    tc.tca_nombre,
+    i.ite_descripcion,
+    i.ite_numero,
+    CONCAT_WS(' - ', i.ite_numero, c.car_nombre) car_nombre_item,
+    cip.cip_codigo,
+    cip.cip_estado,
+    cip.per_codigo,
+    e.est_color,
+    e.est_nombre AS cit_estado_descripcion
+  FROM estructura_organizacional.cargos_items t
+  LEFT JOIN parametricas.estados e ON e.est_codigo = t.cit_estado
+  LEFT JOIN estructura_organizacional.areas_unidades au ON au.aun_codigo = t.aun_codigo
+  LEFT JOIN estructura_organizacional.cargos c ON c.car_codigo = t.car_codigo
+  LEFT JOIN parametricas.tipos_cargos tc ON tc.tca_codigo = c.tca_codigo
+  LEFT JOIN estructura_organizacional.items i  ON i.ite_codigo = t.ite_codigo
+  LEFT JOIN tmp_cargo_item_persona cip  ON cip.cit_codigo = t.cit_codigo
+  WHERE TRUE
+  AND t.cit_codigo IN (56,416,452,63,564,208)
+  ORDER BY t.fecha_registro;
 		
 		
 		
