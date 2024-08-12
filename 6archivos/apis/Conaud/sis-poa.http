@@ -296,3 +296,8 @@
     "s_aun_codigo":"(2)",
     "s_poa_codigo":"(2)"
   }
+### USUARIOS COMPLETO
+###  ------------------- OBTENER - USUARIOS ACTIVO Y INACTIVOS
+  GET {{Host}}/_autenticacion/usuarios_completo
+  Content-Type: application/json
+  Authorization: {{AuthTokenInterno}}

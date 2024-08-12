@@ -70,7 +70,7 @@
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
 ###  ------------------- OBTENER - zzz
-    GET {{Host}}/poas-objetivos/excel_obj?pobj_codigo=(1365,1366)&aun_codigo=(1)
+    GET {{Host}}/poas-objetivos/excel_obj?pobj_codigo=(760,774,875,1319,1320,1321,1322,1323,1324,1325,1326,1327,1374,1375,1513,1517,1527)&aun_codigo=(57)
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
 ###  ------------------- OBTENER - zzz

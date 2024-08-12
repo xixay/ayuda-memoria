@@ -137,7 +137,7 @@ FROM ejecucion_actividades.inicio_actividad_poa t
 		LEFT JOIN ejecucion_actividades.inicio_actividad_poa_asignaciones iapa on t.iap_codigo = iapa.iap_codigo
 		LEFT JOIN ejecucion_poa.asignaciones a on iapa.asi_codigo = a.asi_codigo
 where	true
-		and t.tia_codigo in (2)
+		and t.tia_codigo in (3)
 --		and t.act_codigo in (1121)
 --		and	t.act_codigo = 1448
 --		and t.act_codigo = 1200
