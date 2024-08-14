@@ -1,36 +1,36 @@
 --############ UAI #########################
 
---INFORMES UAI
+--INFORMES UAI(act_codigo,ent_codigo,ttr_codigo,ges_codigo)
 SELECT 	iu.act_codigo, iu.* 
 FROM 	ejecucion_informes.informes_uai iu;
---INFORMES UAI REINGRESO
+--INFORMES UAI REINGRESO(iua_codigo)
 select 	*
 from 	ejecucion_informes.informes_uai_reingreso iur;
---INFORME EVALUACIONES
+--INFORME EVALUACIONES(iua_codigo)
 select 	*
 from 	ejecucion_informes.informes_evaluaciones ie;
---INFORME EVALUACIONES ESTADOS
+--INFORME EVALUACIONES ESTADOS(iev_codigo,eev_codigo)
 select 	*
 from 	ejecucion_informes.informes_evaluaciones_estados iee;
---INICIO EVALUACION INFORME
+--INICIO EVALUACION INFORME(iua_codigo,per_codigo_gerente,per_codigo_responsable,tia_codigo,ges_codigo)
 select 	*
 from 	ejecucion_informes.inicio_evaluacion_informe iei;
---INICIO EVALUACION INFORME ASIGNACIONES
+--INICIO EVALUACION INFORME ASIGNACIONES(asi_codigo,iei_codigo)
 select 	*
 from 	ejecucion_informes.inicio_evaluacion_informe_asignaciones ieia ;
---INICIOS ADMINISTRATIVAS
+--INICIOS ADMINISTRATIVAS(act_codigo,ges_codigo,)
 SELECT 	ia.act_codigo, ia.* 
 FROM 	ejecucion_administrativas.inicios_administrativas ia;
 --TIPOS DE INICIOS DE ACTIVIDADES
 select 	*
 from 	parametricas.tipos_inicios_actividades tia ;
---TIPOS DE TRABAJO
+--TIPOS DE TRABAJO(ett_codigo)
 select	*
 from 	parametricas.tipos_trabajos tt ;
 --ESPECIFICACION TIPOS DE TRABAJO
 select 	*
 from 	parametricas.especificacion_tipos_trabajo ett;
---TIPO DE ACTIVIDAD
+--TIPO DE ACTIVIDAD(tipact_codigo)
 select 	*
 from 	parametricas.tipos_actividades ta ;
 

@@ -29,9 +29,14 @@ WHERE 	aud.aun_codigo_padre IN (44)
 
 SELECT 	*
 FROM 	estructura_poa.objetivos_area_unidad oau
-WHERE 	oau.aun_codigo_ejecutora IN (17)
+WHERE 	oau.aun_codigo_ejecutora IN (44,79,45,46)
 ;
 
+SELECT 	*
+FROM 	estructura_poa.poas_objetivos po 
+WHERE 	po.poa_codigo IN (3)
+ORDER BY po.pobj_codigo DESC
+;
 SELECT *
 FROM estructura_organizacional.autoridades_funcionales af
 WHERE 	af.aun_codigo_supervisor IN (2)
