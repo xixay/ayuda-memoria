@@ -24,7 +24,7 @@ SELECT 	aud.aud_codigo ,aud.aun_codigo_padre, au2.aun_estado,au2.aun_numero ,au2
 FROM 	estructura_organizacional.areas_unidades_dependencias aud 
 		LEFT JOIN estructura_organizacional.areas_unidades au ON aud.aun_codigo_hijo = au.aun_codigo
 		LEFT JOIN estructura_organizacional.areas_unidades au2 ON aud.aun_codigo_padre = au2.aun_codigo 
-WHERE 	aud.aun_codigo_padre IN (17)
+WHERE 	aud.aun_codigo_padre IN (44)
 ;
 
 SELECT 	*
@@ -291,7 +291,7 @@ WHERE 	a.act_codigo IN (2864,2862,2453,2388,1984,1983,1982,1981,1980,1979,1978,1
               AND t.pobj_codigo IN (1540,998,1001,1005,995,1007,1377,1006)
 			  AND t.cac_codigo IN (1,3)
               AND t.aun_codigo_ejecutora IN (55) -- PARA FILTRO DE AREA UNIDAD EJECUTORA VIA ACTIVIDAD
-              --AND t.act_codigo NOT IN (2864,2862,2453,2388,1984,1983,1982,1981,1980,1979,1978,1977,1976,1975,1974,1971,1970,1969,1967,1966,1965,1963,1962,1961,1958,1956,1955,1954,1953,1952,1951,1950,1949,2863,2992,2175,2178,2381)
+              AND t.act_codigo NOT IN (2864,2862,2453,2388,1984,1983,1982,1981,1980,1979,1978,1977,1976,1975,1974,1971,1970,1969,1967,1966,1965,1963,1962,1961,1958,1956,1955,1954,1953,1952,1951,1950,1949,2863,2992,2175,2178,2381)
         ORDER BY t.act_codigo DESC
       ;
 
