@@ -7,40 +7,38 @@ Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwZXJfY29kaWdvIjoxOTE0LCJzaXN0ZW1h
 }
 
 
---
-SELECT 
-    row_number() OVER (ORDER BY au.aun_sigla) AS numero_dato, 
-    a.act_numero AS numero_actividad,
-    au.aun_sigla AS area_unidad_sigla,
-    au2.aun_sigla AS area_unidad_sigla_supervisor, 
-    a.ent_codigo, 
-    a.act_codigo, 
-    a.act_descripcion AS descripcion_actividad,
-    a.act_objetivo AS objetivo_actividad,
-    caa.caa_nombre AS nombre_auditoria_actividad,
-    cfa.cfa_nombre AS nombre_funcion_actividad,
-    cga.cga_nombre AS nombre_grupo_actividad,
-    cca.cca_nombre AS nombre_control_calidad,
-    ett.ett_codigo,
-    ett.ett_nombre AS especificacion_tipo_trab_nombre,
-    tt.ttr_descripcion AS tipo_trab_descripcion,
-    CASE WHEN a.act_estado = 0 AND a.act_codigo_anterior IS NOT NULL THEN 'inhabilitado' ELSE '' END AS inhabilitado
-FROM 
-    estructura_poa.actividades a
-LEFT JOIN estructura_poa.poas_objetivos po ON a.pobj_codigo = po.pobj_codigo
-LEFT JOIN estructura_poa.poas p ON po.poa_codigo = p.poa_codigo
-LEFT JOIN estructura_organizacional.areas_unidades au ON a.aun_codigo_ejecutora = au.aun_codigo
-LEFT JOIN parametricas.tipos_trabajos tt ON a.ttr_codigo = tt.ttr_codigo
-LEFT JOIN parametricas.especificacion_tipos_trabajo ett ON tt.ett_codigo = ett.ett_codigo
-LEFT JOIN parametricas.clasificacion_auditoria_actividad caa ON a.caa_codigo = caa.caa_codigo
-LEFT JOIN parametricas.clasificacion_funcion_actividad cfa ON a.cfa_codigo = cfa.cfa_codigo
-LEFT JOIN parametricas.clasificacion_grupo_actividad cga ON a.cga_codigo = cga.cga_codigo
-LEFT JOIN parametricas.clasificacion_control_actividad cca ON a.cca_codigo = cca.cca_codigo
-LEFT JOIN estructura_organizacional.autoridades_funcionales af ON au.aun_codigo = af.aun_codigo_supervisado
-LEFT JOIN estructura_organizacional.areas_unidades au2 ON af.aun_codigo_supervisor = au2.aun_codigo 
-WHERE 
---    a.aun_codigo_ejecutora IN (2, 59)
-    a.act_estado NOT IN (9)
-    AND p.poa_codigo IN (3)
-ORDER BY 
-    au.aun_sigla;
+-- POSIBLE SUSTITUCION DE CODIGO
+SELECT	 
+    	row_number() OVER (ORDER BY au.aun_sigla, a.act_numero) AS numero_dato, 
+    	a.act_numero AS numero_actividad,
+    	au.aun_sigla AS area_unidad_sigla,
+    	au2.aun_sigla AS area_unidad_sigla_supervisor, 
+    	a.ent_codigo, 
+    	a.act_codigo, 
+    	a.act_descripcion AS descripcion_actividad,
+    	a.act_objetivo AS objetivo_actividad,
+    	caa.caa_nombre AS nombre_auditoria_actividad,
+    	cfa.cfa_nombre AS nombre_funcion_actividad,
+    	cga.cga_nombre AS nombre_grupo_actividad,
+    	cca.cca_nombre AS nombre_control_calidad,
+    	ett.ett_codigo,
+    	ett.ett_nombre AS especificacion_tipo_trab_nombre,
+    	tt.ttr_descripcion AS tipo_trab_descripcion,
+    	CASE WHEN a.act_estado = 0 AND a.act_codigo_anterior IS NOT NULL THEN 'inhabilitado' ELSE '' END AS inhabilitado
+FROM 	estructura_poa.actividades a
+		LEFT JOIN estructura_poa.poas_objetivos po ON a.pobj_codigo = po.pobj_codigo
+		LEFT JOIN estructura_poa.poas p ON po.poa_codigo = p.poa_codigo
+		LEFT JOIN estructura_organizacional.areas_unidades au ON a.aun_codigo_ejecutora = au.aun_codigo
+		LEFT JOIN parametricas.tipos_trabajos tt ON a.ttr_codigo = tt.ttr_codigo
+		LEFT JOIN parametricas.especificacion_tipos_trabajo ett ON tt.ett_codigo = ett.ett_codigo
+		LEFT JOIN parametricas.clasificacion_auditoria_actividad caa ON a.caa_codigo = caa.caa_codigo
+		LEFT JOIN parametricas.clasificacion_funcion_actividad cfa ON a.cfa_codigo = cfa.cfa_codigo
+		LEFT JOIN parametricas.clasificacion_grupo_actividad cga ON a.cga_codigo = cga.cga_codigo
+		LEFT JOIN parametricas.clasificacion_control_actividad cca ON a.cca_codigo = cca.cca_codigo
+		LEFT JOIN estructura_organizacional.autoridades_funcionales af ON au.aun_codigo = af.aun_codigo_supervisado
+		LEFT JOIN estructura_organizacional.areas_unidades au2 ON af.aun_codigo_supervisor = au2.aun_codigo 
+WHERE 	TRUE 
+		AND a.aun_codigo_ejecutora IN (2, 59)
+    	AND a.act_estado NOT IN (9)
+    	AND p.poa_codigo IN (3)
+ORDER BY au.aun_sigla, a.act_numero;
