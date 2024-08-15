@@ -1,0 +1,22 @@
+trabajo_codigo= iac_codigo_control
+correlativo_codigo=iac_correlativo
+entidad_descripcion=no hay
+actividad_codigo=act_numero
+
+
+
+  @LoggerMethod
+  async findAllConaudNuevo(query: GetAllAuditoriasInformesDto, manager: EntityManager) {
+    try {
+      let sql = `
+        SELECT 	ia.iac_codigo, ia.iac_correlativo AS correlativo_codigo, ia.iac_codigo_control AS trabajo_codigo
+        FROM 	ejecucion_actividades.inicios_actividades ia
+        WHERE 	ia.iac_codigo_control LIKE '%${query.auditoria_codigo}'
+        ;
+      `;
+      const resultQuery = await manager.query(sql);
+      return CustomService.verifyingDataResult(resultQuery, this.message_custom);
+    } catch (error) {
+      throwError(400, error.message);
+    }
+  }

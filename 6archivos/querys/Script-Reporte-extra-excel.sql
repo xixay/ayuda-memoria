@@ -24,7 +24,7 @@ SELECT 	aud.aud_codigo ,aud.aun_codigo_padre, au2.aun_estado,au2.aun_numero ,au2
 FROM 	estructura_organizacional.areas_unidades_dependencias aud 
 		LEFT JOIN estructura_organizacional.areas_unidades au ON aud.aun_codigo_hijo = au.aun_codigo
 		LEFT JOIN estructura_organizacional.areas_unidades au2 ON aud.aun_codigo_padre = au2.aun_codigo 
-WHERE 	aud.aun_codigo_padre IN (44)
+WHERE 	aud.aun_codigo_padre IN (21)
 ;
 
 SELECT 	*
