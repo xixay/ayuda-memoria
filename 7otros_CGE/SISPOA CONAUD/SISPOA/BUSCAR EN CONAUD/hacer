@@ -3,49 +3,13 @@ correlativo_codigo=iac_correlativo
 entidad_descripcion=no hay
 actividad_codigo=act_numero
 
- 3755032
+SCG
 
-
-
-    if (ActividadObject.ent_codigo) {
-      let resultEntidades: any = [];
-      try {
-        const getAllEntidadesDto = new GetAllEntidadesDto()
-        resultEntidades = await this.entidadesService.findAllProvider(getAllEntidadesDto, manager)
-        console.log("🐱==ee0==> ~ resultEntidades:", resultEntidades)
-      } catch (error) { }
-      if (resultEntidades.length > 0) {
-        let entidad = resultEntidades.find(entidad => {
-          console.log("🐱==ee1==> ~ entidad:", entidad)
-          return entidad.ent_codigo == ActividadObject.ent_codigo
-        })
-        createActividadContinuidadDto.entidad_descripcion = entidad?.ent_descripcion || '';
-        console.log("🐱==ee2==> ~ createActividadContinuidadDto:", createActividadContinuidadDto)
-      }
-  
-25,74,117,513,624
-
-codigo_conaud,entidad,correlativo(si se puede),objeto, objetivo
-
-###NO EXISTE EN LA BASE
-SPGP32Y22	
-UNIVERSIDAD NACIONAL SIGLO XX	PLAN IMPLEM.GOBIERNO ELECTRÓNICO Y PLAN IMPLEM.DE SOFTWARE LIBRE Y ESTANDARES AB	
-EMITIR UN INFORME SOBRE LA ARTICULACIÓN Y CONCORDANCIA DE LOS PLANES PIGE Y PISLEA
-
-
-
-
-
-IXDP12J23 
-
-
-P5DP37J23
-
-P5DP36J23
-
-
-LSXP51J23
-
+FORMULADOR= 3755032
+APROBADOR= 4281948
+SUPERVISOR =4281948
+FORMULADOR GERENTE =4281948
+ETEP46J23
 
 {
   "correlativo_codigo": "A09189",
@@ -67,6 +31,37 @@ LSXP51J23
   "auditoria_objetivo": "INFORME DE APOYO LEGAL GS/TP52/M23  X1",
   "auditoria_periodo": "31/10/2022 AL 29/11/2022"
 }
+
+|iac_codigo|iac_correlativo|iac_codigo_control|
+|----------|---------------|------------------|
+|513       |0              |P5FP41Y22         |xx
+|117       |0              |GCEP69Y22         |
+|74        |0              |GNEP43Y22         |
+|25        |0              |GPEP66Y22         |
+
+ELDP48Y22 nuevo
+#########ANTES
+{
+"SELECT \t*\nFROM \testructura_poa.actividades_continuidad ac\nORDER BY ac.aco_codigo DESC\nlimit 1\n": [
+	{
+		"aco_codigo" : 319,
+		"aco_descripcion" : "",
+		"conaud_gestion" : 2022,
+		"conaud_codigo" : "49.11102.116.02",
+		"conaud_correlativo" : "A08502",
+		"conaud_detalle" : "{\"correlativo_codigo\":\"A08502\",\"trabajo_codigo\":\"ELDP48Y22\",\"trabajo_codigo_f\":\"EL\/DP48\/Y22\",\"actividad_codigo\":\"49.11102.116.02\",\"actividad_correlativo\":\"003\",\"actividad_gestion\":2022,\"entidad_codigo\":283,\"entidad_descripcion\":\"DIRECCION DEPARTAMENTAL DE EDUCACION (LA PAZ)\",\"actividad_fecha_inicio\":\"03\/05\/2022\",\"actividad_fecha_fin\":\"30\/06\/2022\",\"auditoria_fecha_inicio\":\"25\/05\/2022\",\"auditoria_dias_habiles\":20,\"auditoria_dias_calendario\":28,\"auditoria_fecha_entrega\":\"21\/06\/2022\",\"auditoria_fecha_emision\":\"22\/08\/2022\",\"auditoria_objeto\":\"LO CONST LA OPI SOBRE LOS REG Y EEFF, LAS REC PARA MEJ EL SIST DE CI Y LOS PAPEL\",\"auditoria_objetivo\":\"EMIT UN CRIT RESP A SI LAS NAG Y NOR SEC, FUERON APLI EN EL EXAM DE CONFIABILIDAD DE LOS REG Y EEFF\",\"auditoria_periodo\":\"GESTIÓN 2021\"}",
+		"act_codigo" : 3293,
+		"aco_estado" : 1,
+		"usuario_registro" : 1889,
+		"usuario_modificacion" : 0,
+		"usuario_baja" : 0,
+		"fecha_registro" : "2024-08-15T23:52:02.962Z",
+		"fecha_modificacion" : "1900-01-01T04:32:36.000Z",
+		"fecha_baja" : "1900-01-01T04:32:36.000Z",
+		"iac_codigo" : 625
+	}
+]}
+######DESPUES
 
 
 
