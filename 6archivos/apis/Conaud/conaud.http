@@ -579,3 +579,9 @@
   GET {{Host}}/inicio-actividad-poa/summary-report?iap_codigo=(15)&i_bandera_borrador=(0) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
+### ASIGNACIONES CARGOS ITEMS
+###  ------- OBTENER - ASIGNACIONES CARGOS ITEMS
+  GET {{Host}}/asignaciones-cargos-item?aci_codigo=(38) HTTP/1.1
+  # GET {{Host}}/asignaciones-cargos-item HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
