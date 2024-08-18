@@ -21,7 +21,7 @@
 
 | Tema | Enlace |
 |------|--------|
-| **2.1. Express (Backend)** | [Ver](/2backend/express/1-articulo.md) |
+| **2.1. Express (Backend)** | [Ver]([/2backend/express/1-articulo.md](https://github.com/xixay/articulo-repositorio-express-backend/blob/main/documentacion/1-articulo.md)) |
 | **2.1.1. Rutas api rest** | [Ver](/2backend/express/1.1-articuloRutas.md) |
 | **2.2. TypeOrm Guia Inicio rápido (Backend)** | [Ver](/2backend/typeorm/1-inicioRapido.md) |
 | **2.2.1. Guia Paso a paso** | [Ver](/2backend/typeorm/2-pasoAPaso.md) |
