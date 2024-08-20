@@ -47,9 +47,10 @@ WHERE 	ia.iac_estado NOT IN (0)
 --		AND ia.iac_codigo_control LIKE 'GCEP69Y22';
 		AND ia.iac_codigo IN (631);
 	
-SELECT 	ac.aco_codigo , ac.conaud_codigo , ac.conaud_correlativo, ac.conaud_detalle,ac.iac_codigo 
-FROM 	estructura_poa.actividades_continuidad ac
-WHERE 	ac.aco_codigo IN (320)
+SELECT *--	ac.aco_codigo , ac.aco_estado ,ac.conaud_codigo , ac.conaud_correlativo, ac.conaud_detalle,ac.iac_codigo 
+FROM 	estructura_poa.actividades_continuidad ac 
+--WHERE 	ac.act_codigo IN (2975)
+--WHERE 	ac.act_codigo NOTNULL 
 ORDER BY ac.aco_codigo DESC
 ;
 
@@ -61,58 +62,26 @@ WHERE 	TRUE
 ORDER BY ia.iac_codigo DESC
 ;
 
-SELECT 	*
-FROM 	estructura_poa.actividades a 
+SELECT 	a.act_codigo, a.act_numero ,a.cac_codigo ,au.aun_sigla ,a.act_estado, a.tipact_codigo, a.aun_codigo_ejecutora,a.pobj_codigo,a.act_ejecucion_conaud, 
+		po.pobj_estado,po.pobj_numero,
+		p.poa_codigo 
+FROM 	estructura_poa.actividades a
+		LEFT JOIN estructura_poa.poas_objetivos po ON a.pobj_codigo = po.pobj_codigo
+		LEFT JOIN estructura_poa.poas p ON po.poa_codigo = p.poa_codigo 
+		LEFT JOIN estructura_organizacional.areas_unidades au ON a.aun_codigo_ejecutora = au.aun_codigo
+		LEFT JOIN estructura_poa.actividades_continuidad ac ON a.act_codigo = ac.act_codigo 
+WHERE 	TRUE
+--		AND a.act_codigo IN (1639)
+		AND ac.iac_codigo NOTNULL 
+		AND a.tipact_codigo IN (2)
+		AND a.act_estado IN (17)
+--		AND a.cac_codigo IN (3)
+		AND a.act_ejecucion_conaud IN (true)
 ORDER BY a.act_codigo DESC ;
+SELECT * FROM estructura_poa.actividades a WHERE a.act_codigo = 1639;
 
 SELECT 	*
-FROM 	ejecucion_poa.asignaciones_cargos_item aci
-WHERE 	aci.aci_codigo IN (38);
-
-
-        SELECT
-              t.iac_codigo,
-              t.iac_correlativo,
-              t.iac_codigo_control,
-              t.iac_codigo_control_vista,
-              t.iac_objeto,
-              t.iac_objetivo,
-              t.iac_alcance,
-              t.iac_migrado,
-              t.iac_observaciones,
-              TO_CHAR(t.iac_fecha_inicio, 'dd/mm/yyyy') AS iac_fecha_inicio,
-              t.ttr_codigo, tt.ttr_sigla, tt.ttr_descripcion,
-              t.iac_dias_habiles,
-              t.iac_dias_calendario,
-              TO_CHAR(t.iac_fecha_fin, 'dd/mm/yyyy') AS iac_fecha_fin,
-              t.ttr_codigo,
-              TO_CHAR(t.iac_mes_inicio, 'dd/mm/yyyy') AS iac_mes_inicio,
-              TO_CHAR(t.iac_mes_fin, 'dd/mm/yyyy') AS iac_mes_fin,
-              TO_CHAR(t.iac_mes_inicio, 'mm/yyyy') AS mes_inicio,
-              TO_CHAR(t.iac_mes_fin, 'mm/yyyy') AS mes_fin,
-              TO_CHAR(t.iac_fecha_borrador, 'dd/mm/yyyy') AS iac_fecha_borrador,
-              TO_CHAR(t.iac_fecha_emision, 'dd/mm/yyyy') AS iac_fecha_emision,
-              t.ges_codigo,
-              g.ges_anio,
-              t.iac_estado,
-              e.est_color,
-              e.est_nombre AS iac_estado_descripcion,
-              TO_CHAR(t.iac_fecha_inicio_historico, 'dd/mm/yyyy') AS iac_fecha_inicio_historico,
-              TO_CHAR(t.fecha_registro, 'HH24:MI am dd/mm/yyyy') AS fecha_registro,
-              COALESCE(iaa.iaa_codigo, 0) iaa_codigo,
-              t.iac_recomendacion_seguir,
-              t.usuario_registro,
-              t.usuario_modificacion,
-              TO_CHAR(t.fecha_modificacion, 'HH24:MI am dd/mm/yyyy') AS fecha_modificacion
-        FROM	ejecucion_actividades.inicios_actividades t
-              LEFT JOIN ejecucion_actividades.inicios_actividades_adicional iaa ON t.iac_codigo = iaa.iac_codigo
-              LEFT JOIN parametricas.estados e ON t.iac_estado = e.est_codigo
-              LEFT JOIN parametricas.gestiones g ON t.ges_codigo = g.ges_codigo
-              LEFT JOIN parametricas.tipos_trabajos tt ON t.ttr_codigo = tt.ttr_codigo
-        WHERE	TRUE
-              AND t.iac_codigo IN (631)
-        ORDER BY t.fecha_registro DESC
-        ;
-
+FROM 	ejecucion_actividades.inicios_actividades ia 
+;
 
 

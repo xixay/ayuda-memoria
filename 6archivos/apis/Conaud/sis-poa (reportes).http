@@ -75,6 +75,9 @@
     Authorization: {{AuthTokenInterno}}
 ###  ------------------- OBTENER - zzz
     # GET http://172.16.0.104:11000/poas-objetivos/excel_obj?pobj_codigo=(1365,1366)&aun_codigo=(1)
-    GET {{Host}}/poas-objetivos/excel_no_consolidados
+    GET {{Host}}/poas-objetivos/formularios-objetivos-unidad?poa_codigo=(3)&cac_codigo=(1)&aun_codigo=(1)
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
+
+    ###  ------------------- OBTENER - zzz
+    # GET http://172.16.0.104:11000/poas-objetivos/excel_obj?pobj_codigo=(1365,1366)&aun_codigo=(1)
