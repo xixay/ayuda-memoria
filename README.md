@@ -60,6 +60,7 @@
 | **3.1.7. Checkbox vuetify** | [Ver](/3frontend/vuetify/1.7-checkBox.md) |
 | **3.1.8. Emit y On vuetify** | [Ver](/3frontend/vuetify/1.8-emitYOn.md) |
 | **3.1.9. Centrar el contenido de una fila** | [Ver](/3frontend/vuetify/1.9-centrarFila.md) |
+| **3.1.10. V-DataTable** | [Ver](/3frontend/vuetify/1.10-dataTable.md) |
 | **3.2. Nuxt (Frontend)** | [Ver](/3frontend/vuetify/2-nuxt.md) |
 | **3.3. ReactMui (Frontend)** | [Ver](/3frontend/reactMui/1-reactMui.md) |
 | **3.3.1. Componente** | [Ver](/3frontend/reactMui/1.1-componente.md) |
