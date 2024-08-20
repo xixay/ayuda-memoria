@@ -301,3 +301,8 @@
   GET {{Host}}/_autenticacion/usuarios_completo
   Content-Type: application/json
   Authorization: {{AuthTokenInterno}}
+### POAS OBJETIVOS UNIDADES
+###  ------------------- OBTENER - USUARIOS ACTIVO Y INACTIVOS
+  GET {{Host}}/poas-objetivos/unidades?poa_codigo=(3)
+  Content-Type: application/json
+  Authorization: {{AuthTokenInterno}}
