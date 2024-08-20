@@ -24,13 +24,13 @@
 | **2.1. Express (Backend)** | [Ver](https://github.com/xixay/articulo-repositorio-express-backend/blob/main/documentacion/1-articulo.md) |
 | **2.1.1. Rutas api rest** | [Ver](https://github.com/xixay/articulo-repositorio-express-backend/blob/main/documentacion/1.1-articuloRutas.md) |
 | **2.1.2. Relaciòn 1 a 1** | [Ver](https://github.com/xixay/articulo-repositorio-express-backend/blob/main/documentacion/1.2-relacion_1_a_1.md) |
-| **2.2. TypeOrm Guia Inicio rápido (Backend)** | [Ver](/2backend/typeorm/1-inicioRapido.md) |
-| **2.2.1. Guia Paso a paso** | [Ver](/2backend/typeorm/2-pasoAPaso.md) |
-| **2.2.2. Crear Artículo Builder** | [Ver](/2backend/typeorm/3-articuloBuilder.md) |
-| **2.2.2.1. Rutas api rest Builder** | [Ver](/2backend/typeorm/3.1-articuloRutasBuilder.md) |
-| **2.2.3. Crear Artículo Mejor** | [Ver](/2backend/typeorm/4-articulo.md) |
-| **2.2.3.1. Rutas api rest Mejor** | [Ver](/2backend/typeorm/4.1-articuloRutas.md) |
-| **2.2.4. Comandos TypeOrm** | [Ver](/2backend/typeorm/5-comandosTypeOrm.md) |
+| **2.2. TypeOrm Guia Inicio rápido (Backend)** | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/1-inicioRapido.md) |
+| **2.2.1. Guia Paso a paso** | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/2-pasoAPaso.md) |
+| **2.2.2. Crear Artículo Builder** | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/3-articuloBuilder.md) |
+| **2.2.2.1. Rutas api rest Builder** | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/3.1-articuloRutasBuilder.md) |
+| **2.2.3. Crear Artículo Mejor** | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/4-articulo.md) |
+| **2.2.3.1. Rutas api rest Mejor** | [Ver]([/2backend/typeorm/4.1-articuloRutas.md](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/4.1-articuloRutas.md)) |
+| **2.2.4. Comandos TypeOrm** | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/5-comandosTypeOrm.md) |
 | **2.3. NestJs (Backend)** | [Ver](/2backend/nestJs/1-articulo.md) |
 | **2.3.1. Rutas api rest** | [Ver](/2backend/nestJs/1.1-articuloRutas.md) |
 | **2.3.2. Variables de entorno** | [Ver](/2backend/nestJs/1.2-Env.md) |
