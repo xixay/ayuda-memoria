@@ -1,0 +1,5 @@
+text={`Gestión: ${objGes.ges_anio}`}
+
+const objGes = gestiones.find(f => f.ges_ejecucion === true);
+src/components/common/CustomBreadCrumb.jsx
+
