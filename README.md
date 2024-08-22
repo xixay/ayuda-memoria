@@ -19,8 +19,8 @@
 
 ## 2. Backend
 
-| Tema | Enlace | Tema | Enlace |
-|------|--------|------|--------|
+| Tema | Enlace | Proyecto | Enlace |
+|------|--------|----------|--------|
 | **2.1. x1** | [Ver](xx1) |**2.1. Express (Backend)** | [Ver](https://github.com/xixay/articulo-repositorio-express-backend/blob/main/documentacion/1-articulo.md) |
 | **2.1.1. x2** | [Ver](xx2) |**2.1.1. Rutas api rest** | [Ver](https://github.com/xixay/articulo-repositorio-express-backend/blob/main/documentacion/1.1-articuloRutas.md) |
 | **2.1.2. x3** | [Ver](xx3) |**2.1.2. Relaciòn 1 a 1** | [Ver](https://github.com/xixay/articulo-repositorio-express-backend/blob/main/documentacion/1.2-relacion_1_a_1.md) |
@@ -48,28 +48,28 @@
 
 ## 3. Frontend
 
-| Tema | Enlace |
-|------|--------|
-| **3.1. Vuetify (Frontend)** | [Ver](/3frontend/vuetify/1-vuetify.md) |
-| **3.1.1. Instalando vue y vuetify** | [Ver](/3frontend/vuetify/1.1-instalar.md) |
-| **3.1.2. Componente vuetify** | [Ver](/3frontend/vuetify/1.2-componente.md) |
-| **3.1.3. Lienzo vuetify** | [Ver](/3frontend/vuetify/1.3-lienzo.md) |
-| **3.1.4. Select vuetify** | [Ver](/3frontend/vuetify/1.4-select.md) |
-| **3.1.5. Estilos con Variables vuetify** | [Ver](/3frontend/vuetify/1.5-estilos%20como%20variables.md) |
-| **3.1.6. TextField vuetify** | [Ver](/3frontend/vuetify/1.6-textField.md) |
-| **3.1.7. Checkbox vuetify** | [Ver](/3frontend/vuetify/1.7-checkBox.md) |
-| **3.1.8. Emit y On vuetify** | [Ver](/3frontend/vuetify/1.8-emitYOn.md) |
-| **3.1.9. Centrar el contenido de una fila** | [Ver](/3frontend/vuetify/1.9-centrarFila.md) |
-| **3.1.10. V-DataTable** | [Ver](/3frontend/vuetify/1.10-dataTable.md) |
-| **3.2. Nuxt (Frontend)** | [Ver](/3frontend/vuetify/2-nuxt.md) |
-| **3.3. ReactMui (Frontend)** | [Ver](/3frontend/reactMui/1-reactMui.md) |
-| **3.3.1. Componente** | [Ver](/3frontend/reactMui/1.1-componente.md) |
-| **3.4. PrimeReact (Frontend)** | |
-| **3.4.1. Alineación** | [Ver](/3frontend/primereact/1.1alineaciones.md) |
-| **3.4.2. Responsividad** | [Ver](/3frontend/primereact/1.2responsivo.md) |
-| **3.4.3. Estilos** | [Ver](/3frontend/primereact/1.3estilos.md) |
-| **3.4.4. Mostrar u ocultar** | [Ver](/3frontend/primereact/1.4-visibilidad.md) |
-| **3.4.5. Select** | [Ver](/3frontend/primereact/1.5-select.md) |
+| Tema | Enlace | Proyecto | Enlace |
+|------|--------|----------|--------|
+| **3.1. Vuetify (Frontend)** | [Ver](/3frontend/vuetify/1-vuetify.md) | **3.1. Vuetify (Frontend)** | [Ver](/3frontend/vuetify/1-vuetify.md) |
+| **3.1.1. Instalando vue y vuetify** | [Ver](/3frontend/vuetify/1.1-instalar.md) | **3.1.1. Instalando vue y vuetify** | [Ver](/3frontend/vuetify/1.1-instalar.md) |
+| **3.1.2. Componente vuetify** | [Ver](/3frontend/vuetify/1.2-componente.md) | **3.1.2. Componente vuetify** | [Ver](/3frontend/vuetify/1.2-componente.md) |
+| **3.1.3. Lienzo vuetify** | [Ver](/3frontend/vuetify/1.3-lienzo.md) | **3.1.3. Lienzo vuetify** | [Ver](/3frontend/vuetify/1.3-lienzo.md) |
+| **3.1.4. Select vuetify** | [Ver](/3frontend/vuetify/1.4-select.md) | **3.1.4. Select vuetify** | [Ver](/3frontend/vuetify/1.4-select.md) |
+| **3.1.5. Estilos con Variables vuetify** | [Ver](/3frontend/vuetify/1.5-estilos%20como%20variables.md) | **3.1.5. Estilos con Variables vuetify** | [Ver](/3frontend/vuetify/1.5-estilos%20como%20variables.md) |
+| **3.1.6. TextField vuetify** | [Ver](/3frontend/vuetify/1.6-textField.md) | **3.1.6. TextField vuetify** | [Ver](/3frontend/vuetify/1.6-textField.md) |
+| **3.1.7. Checkbox vuetify** | [Ver](/3frontend/vuetify/1.7-checkBox.md) | **3.1.7. Checkbox vuetify** | [Ver](/3frontend/vuetify/1.7-checkBox.md) |
+| **3.1.8. Emit y On vuetify** | [Ver](/3frontend/vuetify/1.8-emitYOn.md) | **3.1.8. Emit y On vuetify** | [Ver](/3frontend/vuetify/1.8-emitYOn.md) |
+| **3.1.9. Centrar el contenido de una fila** | [Ver](/3frontend/vuetify/1.9-centrarFila.md) | **3.1.9. Centrar el contenido de una fila** | [Ver](/3frontend/vuetify/1.9-centrarFila.md) |
+| **3.1.10. V-DataTable** | [Ver](/3frontend/vuetify/1.10-dataTable.md) | **3.1.10. V-DataTable** | [Ver](/3frontend/vuetify/1.10-dataTable.md) |
+| **3.2. Nuxt (Frontend)** | [Ver](/3frontend/vuetify/2-nuxt.md) | **3.2. Nuxt (Frontend)** | [Ver](/3frontend/vuetify/2-nuxt.md) |
+| **3.3. ReactMui (Frontend)** | [Ver](/3frontend/reactMui/1-reactMui.md) | **3.3. ReactMui (Frontend)** | [Ver](/3frontend/reactMui/1-reactMui.md) |
+| **3.3.1. Componente** | [Ver](/3frontend/reactMui/1.1-componente.md) | **3.3.1. Componente** | [Ver](/3frontend/reactMui/1.1-componente.md) |
+| **3.4. PrimeReact (Frontend)** | |**3.4. PrimeReact (Frontend)** | |
+| **3.4.1. Alineación** | [Ver](/3frontend/primereact/1.1alineaciones.md) | **3.4.1. Alineación** | [Ver](/3frontend/primereact/1.1alineaciones.md) |
+| **3.4.2. Responsividad** | [Ver](/3frontend/primereact/1.2responsivo.md) | **3.4.2. Responsividad** | [Ver](/3frontend/primereact/1.2responsivo.md) |
+| **3.4.3. Estilos** | [Ver](/3frontend/primereact/1.3estilos.md) | **3.4.3. Estilos** | [Ver](/3frontend/primereact/1.3estilos.md) |
+| **3.4.4. Mostrar u ocultar** | [Ver](/3frontend/primereact/1.4-visibilidad.md) | **3.4.4. Mostrar u ocultar** | [Ver](/3frontend/primereact/1.4-visibilidad.md) |
+| **3.4.5. Select** | [Ver](/3frontend/primereact/1.5-select.md) | **3.4.5. Select** | [Ver](/3frontend/primereact/1.5-select.md) |
 
 ## 4. Extras
 
