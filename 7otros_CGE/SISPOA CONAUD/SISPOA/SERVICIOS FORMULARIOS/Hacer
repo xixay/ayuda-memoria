@@ -201,6 +201,24 @@ mm3==>
 globalStatus = 17
 --busca el estado caracteristicas:this.estadosService.findAll
 nn1==>
+{
+est_codigo:17,
+est_nombre:'VERIFICADO GI',
+est_descripcion:'Estado de verificacion por parte de Gestión Institucional',
+est_color:'#3390FF',
+}
+tt1= for => obtener cantidad actividades:1
+tt2= for => obtener cantidad viaticos:1
+--envia el objeto con el estado global
+{
+cantidad_actividades:1,
+cantidad_viaticos:1,
+estado_global:17,
+estado_descripcion_global:'VERIFICADO GI',
+estado_color_global:'#3390FF',
+flagFormulado:true
+}
+
 
 
 
