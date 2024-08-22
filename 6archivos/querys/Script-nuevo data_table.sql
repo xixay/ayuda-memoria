@@ -44,3 +44,8 @@ FROM 	ejecucion_actividades.inicios_actividades ia
 		LEFT JOIN parametricas.especificacion_tipos_trabajo ett ON tt.ett_codigo = ett.ett_codigo 
 --WHERE 	ett.ett_codigo IN (5)
 ;
+
+SELECT 	aur.aun_codigo_rol, count(aur.aur_codigo) 
+FROM 	estructura_poa.area_unidad_responsables aur
+GROUP BY aur.aun_codigo_rol 
+;

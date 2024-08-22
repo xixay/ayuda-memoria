@@ -1,0 +1,107 @@
+#####ACCIONES CORTO PLAZO  GNAF
+GET
+http://172.16.75.100:7091/poas-objetivos/formularios-objetivos?aun_codigo=(9)&poa_codigo=(3)&cac_codigo=(1,3)
+--findAllPoasObjetivosOfAunCodigo
+--entra
+==xX1==>
+aun_codigo: '(9)',
+poa_codigo: '(3)', cac_codigo: '(1,3)',
+middint_roles:.......
+middint_per_codigo: 1914,
+
+--obtiene poa
+==xX2==>
+poas: {
+poa_codigo: 3,
+poa_descripcion: null,
+ges_codigo: 2,
+poa_ges_anio: 2024,
+tpo_codigo: 2,
+poa_tpo_nombre:
+'Reformulación',
+}
+poa_tpo_nombre_number: 'Reformulación (1)',
+poa_estado: 1,
+est_color: '#54bebe',
+poa_estado_descripcion: 'EDICION', fecha_registro: '11:14 am 08/08/2024'
+
+--aumenta variables entrada
+
+==xx3==> query: GetAllAunEjecutoras { 
+aun_codigo: '(9)',
+poa_codigo: '(3)',
+cac_codigo: (1,3)',
+middint_per_codigo: 1914,
+usuario: 1914,
+pobj_estado: '(2,8)'
+
+--obtiene los poas-objetivos con sus programa, pbjetivo area unidad
+
+{
+resultQuery: [
+pobj_codigo: 757,
+pobj_estado: 8,
+pro_numero: '00', aun_numero: '0008',
+pobj_numero: 26,
+pobj_codigo_sigla: '00.0008.26',
+pobj_nombre: 'Mantener en un 100% la tasa de eficacia de los servicios administrativos de la CGE a nivel nacional en la ge stión 2024',
+pro_codigo: 10
+},
+{
+pobj_codigo: 775,
+pobj_estado: 8,
+pro_numero: '00',
+aun_numero: '0008',
+pobj_numero: 27,
+pobj_codigo_sigla: '00.0008.27',
+pobj_nombre: 'Cumplir con la coordinación y ejecución de actividades gerenciales y administrativas vinculadas al control g ubernamental en la gestión 2024.',
+pro_codigo: 10
+}
+]
+
+--obtiene su global status:checkFormularioGlobalStatusRefactor  talvez?????
+cantidad_actividades:1,
+cantidad_viaticos:1,
+estado_global:17,
+estado_descripcion_global:'VERIFICADO GI',
+estado_color_global: '#3390FF',
+flagFormulado:true
+
+--Obtiene totalHorasPlanificadas
+==ss3==> ~ horas:{pobj_codigo:775, total_horas_planificadas: '7272'}"
+
+--adiciona a cada objetivo area unidad los datos del globalStatus
+
+==yy1==>
+
+resultQuery: [
+{
+pobj_codigo: 757,
+pobj_estado: 8,
+pro_numero: '00', aun_numero: '0008',
+pobj_numero: 26,
+pobj_codigo_sigla: '00.0008.26',
+pobj_nombre: 'Mantener en un 100% la tasa de eficacia de los servicios administrativos de la CGE a nivel nacional en la ge stión 2024',
+pro_codigo: 10,
+cantidad_actividades: 0,
+cantidad_viaticos: 0,
+estado_global: 2,
+estado_global_descripcion: 'CONSOLIDADO',
+estado_global_color: '#43A047'
+},
+{
+pobj_codigo: 775,
+pobj_estado: 8,
+pro_numero: '00', aun_numero: '0008',
+pobj_numero: 27,
+pobj_codigo_sigla: '00.0008.27',
+pobj_nombre: 'Cumplir con la coordinación y ejecución de actividades gerenciales y administrativas vinculadas al control g ubernamental en la gestión 2024.',
+pro_codigo: 10,
+cantidad_actividades: 1,
+cantidad_viaticos: 1,
+estado_global: 17,
+estado_global_descripcion: 'VERIFICADO GI',
+estado_global_color: '#3390FF',
+total_horas_planificadas: '7272'
+}
+

@@ -1,0 +1,57 @@
+#######checkFormularioGlobalStatusRefactor
+--allFormularioStatus (findAllAunEjecutoraStatusModule)
+entra 1:
+mm1==>
+{
+poa_codigo:'(3)',
+cac_codigo:'(1,3)',
+aun_codigo_ejecutora:'(9)',
+pobj_estado:'(2,8)',
+pobj_codigo:'(757)'
+}
+
+--busca acciones a corto plazo:findAllAunEjecutoraStatusModule
+no tiene 
+
+entra 2:
+mm1==>
+{
+poa_codigo:'(3)',
+cac_codigo:'(1,3)',
+aun_codigo_ejecutora:'(9)',
+pobj_estado:'(2,8)',
+pobj_codigo:'(775)'
+}
+--busca acciones a corto plazo:findAllAunEjecutoraStatusModule
+mm2==>
+{
+act_estado:17,
+act_codigo_anterior:84,
+avi_estado:17,
+cantidad_actividades:'1',
+cantidad_viaticos:'1',
+}
+
+--obtiene el global status:checkLevelStatus
+mm3==>
+globalStatus = 17
+--busca el estado caracteristicas:this.estadosService.findAll
+nn1==>
+{
+est_codigo:17,
+est_nombre:'VERIFICADO GI',
+est_descripcion:'Estado de verificacion por parte de Gestión Institucional',
+est_color:'#3390FF',
+}
+tt1= for => obtener cantidad actividades:1
+tt2= for => obtener cantidad viaticos:1
+--envia el objeto con el estado global
+{
+cantidad_actividades:1,
+cantidad_viaticos:1,
+estado_global:17,
+estado_descripcion_global:'VERIFICADO GI',
+estado_color_global:'#3390FF',
+flagFormulado:true
+}
+

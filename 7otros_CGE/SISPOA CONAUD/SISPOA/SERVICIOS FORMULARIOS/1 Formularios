@@ -1,0 +1,58 @@
+####FORMULARIOS####
+GET
+http://172.16.75.100:7091/poas-objetivos/formularios?poa_codigo=(3)&cac_codigo=(1,3,4)&with_rol_formulario=0
+-src/feature/poas-objetivos/poas-objetivos.controller.ts
+--findAllAunEjecutorasOfPerCodigo
+poa_codigo=3
+cac_codigo=1,3,4
+pobj_estado=2,8
+rol_codigo=1,2,3,4
+middint_roles:.......
+middint_per_codigo=2030
+--verifica si tiene el rol de Gestion Institucional, busca en middint_roles:checkIfUserGestionInstitucional
+==ZZ0==>
+
+--trae areas unidades responsables por per_codigo
+=>resultQuery
+
+==ZZ1==> ~ resultQuery: [
+{
+aun_codigo_ejecutora: 72,
+aun_nombre: 'Gerencia de Auditoría de Empresas Publicas',
+aun_sigla: 'SCEP-GAEP',
+cau_codigo: 1,
+aun_numero: '0701',
+nom_ejecutora: 'Gerencia de Auditoría de Empresas Publicas SCEP-GAEP',
+aun_reporte_habilitado: false,
+roles: [1],
+cantidad roles: '1'
+}
+]
+--obtiene su global status:checkFormularioGlobalStatusRefactor  talvez?????
+==zz2==>
+globalStatus: {
+cantidad_actividades: 100,
+cantidad_viaticos: 20,
+estado_global: 17,
+estado_descripcion_global: 'VERIFICADO GI', estado_color_global: '#3390FF',
+flagFormulado: true
+}
+--adiciona a cada area unidad los datos del globalStatus
+
+==ZZ3==>~ resultQuery: [
+{
+aun_codigo_ejecutora: 72,
+aun_nombre: 'Gerencia de Auditoría de Empresas Publicas', aun_sigla: 'SCEP-GAEP',
+cau_codigo: 1,
+aun_numero: '0701',
+nom_ejecutora: 'Gerencia de Auditoría de Empresas Publicas SCEP-GAEP',
+aun_reporte_habilitado: false,
+roles: [ 1 ],
+cantidad roles: '1',
+cantidad_actividades: 100,
+cantidad_viaticos: 20,
+estado_global: 17,
+estado_global_descripcion: 'VERIFICADO GI',
+estado_global_color: '#3390FF',
+flagFormulado: true
+}
