@@ -6,7 +6,7 @@ SELECT
       COALESCE(
         ARRAY_AGG(
           DISTINCT aur.rol_codigo ORDER BY aur.rol_codigo ASC
-        ) FILTER (WHERE aur.per_codigo = 1914),
+        ) FILTER (WHERE aur.per_codigo = 1262),
         '{}'
       ) AS roles,
       COUNT(DISTINCT aur.rol_codigo) AS cantidad_roles
@@ -60,6 +60,22 @@ FROM estructura_poa.area_unidad_responsables aur
 LEFT JOIN estructura_organizacional.areas_unidades au ON aur.aun_codigo_ejecutora = au.aun_codigo
 WHERE aur.aur_estado != 0 AND au.aun_estado IN (2)
 GROUP BY au.aun_codigo, au.aun_nombre;
+--&&&&&&&&&&&&&&&&&&&&&&
+SELECT
+      po.pobj_codigo, po.pobj_estado, pr.pro_numero, au.aun_numero, po.pobj_numero,
+      CONCAT(pr.pro_numero, '.', au.aun_numero, '.', po.pobj_numero) AS pobj_codigo_sigla,
+      po.pobj_nombre, po.pro_codigo
+FROM	estructura_poa.poas_objetivos po
+      LEFT JOIN pei.programas pr ON po.pro_codigo = pr.pro_codigo
+      LEFT JOIN estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo AND oau.oau_estado NOT IN (0)
+      LEFT JOIN estructura_organizacional.areas_unidades au ON oau.aun_codigo_ejecutora = au.aun_codigo
+WHERE	TRUE
+      AND po.poa_codigo IN (3) -- POA-SELECCIONADO
+      AND po.pobj_estado IN (2,8) -- ESTADOS
+      AND oau.oau_estado IN (2,8) -- ESTADOS
+      AND oau.aun_codigo_ejecutora IN (2) -- UNIDAD-EJECUTORA
+GROUP BY po.pobj_codigo, pr.pro_numero, po.pobj_numero, po.pobj_nombre, au.aun_numero
+;
 
 --##########################
 SELECT
@@ -120,7 +136,10 @@ SELECT 	*
 FROM 	pei.plan_estrategico_institucional pei 
 ;
 
-SELECT 	po.pobj_codigo, po.pobj_nombre, po.pobj_estado ,po.poa_codigo,
+SELECT 	*
+FROM 	estructura_poa.area_unidad_responsables aur ;
+
+SELECT 	po.pobj_codigo, po.pobj_nombre, po.pobj_estado ,po.poa_codigo,p2.tpo_codigo ,
 		po.cpr_codigo, cp.cpr_numero , 
 		cp.pro_codigo AS pro_codigo_cat_pro, cp.cpr_estado,
 		po.pro_codigo AS pro_codigo_pobj, p.pro_numero AS pro_numero_pobj,
@@ -132,6 +151,7 @@ SELECT 	po.pobj_codigo, po.pobj_nombre, po.pobj_estado ,po.poa_codigo,
 		oe.dim_codigo ,d.dim_numero ,d.dim_estado ,
 		d.pei_codigo, pei.pei_descripcion, pei.ges_codigo_inicio, pei.ges_codigo_final , pei.pei_estado 
 FROM 	estructura_poa.poas_objetivos po
+		LEFT JOIN estructura_poa.poas p2 ON po.poa_codigo =p2.poa_codigo 
 		LEFT JOIN pei.categorias_programaticas cp ON po.cpr_codigo = cp.cpr_codigo 
 		LEFT JOIN pei.programas p ON po.pro_codigo = p.pro_codigo 
 		LEFT JOIN parametricas.tipo_accion_corto_plazo tacp ON po.tacp_codigo = tacp.tacp_codigo 
@@ -141,6 +161,7 @@ FROM 	estructura_poa.poas_objetivos po
 		LEFT JOIN pei.objetivos_estrategicos oe ON e.oes_codigo = oe.oes_codigo 
 		LEFT JOIN pei.dimensiones d ON oe.dim_codigo = d.dim_codigo 
 		LEFT JOIN pei.plan_estrategico_institucional pei ON d.pei_codigo = pei.pei_codigo
+WHERE 	po.poa_codigo IN (3)
 ;
 
 SELECT 	*

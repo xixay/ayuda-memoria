@@ -5,9 +5,11 @@ http://172.16.75.100:7091/poas-objetivos/formularios-objetivos?aun_codigo=(9)&po
 --entra
 ==xX1==>
 aun_codigo: '(9)',
-poa_codigo: '(3)', cac_codigo: '(1,3)',
+poa_codigo: '(3)', 
+cac_codigo: '(1,3)',
 middint_roles:.......
 middint_per_codigo: 1914,
+pobj_estado=2,8(USA)
 
 --obtiene poa:this.poasService.findAll
 ==xX2==>

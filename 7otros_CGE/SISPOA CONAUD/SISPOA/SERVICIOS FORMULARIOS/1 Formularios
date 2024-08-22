@@ -5,7 +5,7 @@ http://172.16.75.100:7091/poas-objetivos/formularios?poa_codigo=(3)&cac_codigo=(
 --findAllAunEjecutorasOfPerCodigo
 poa_codigo=3
 cac_codigo=1,3,4
-pobj_estado=2,8
+pobj_estado=2,8(NO USA)
 rol_codigo=1,2,3,4
 middint_roles:.......
 middint_per_codigo=2030
