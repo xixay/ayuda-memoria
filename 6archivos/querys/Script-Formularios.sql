@@ -16,6 +16,7 @@ WHERE	aur.aur_estado != 0 -- ESTADO ROL-RESPONSABLE
       AND au.aun_estado IN (2) -- ESTADO AREA-UNIDAD (CONSOLIDADO)
       AND aur.rol_codigo IN (1,2,3,4) -- ROL SELECCIONADO
       AND aur.poa_codigo IN (3) -- POA SELECCIONADO
+      AND aur.per_codigo = 1262 --PER CODIGO SELECCIONADO
 GROUP BY au.aun_codigo, au.aun_nombre, au.aun_sigla, au.cau_codigo, au.aun_numero, au.aun_reporte_habilitado
 ORDER BY au.aun_sigla ASC, au.aun_nombre ASC
 ;
