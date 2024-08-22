@@ -43,8 +43,8 @@ est_nombre:'VERIFICADO GI',
 est_descripcion:'Estado de verificacion por parte de Gestión Institucional',
 est_color:'#3390FF',
 }
-tt1= for => obtener cantidad actividades:1
-tt2= for => obtener cantidad viaticos:1
+tt1= itera en un for => obtener cantidad actividades:1
+tt2= itera en un for => obtener cantidad viaticos:1
 --envia el objeto con el estado global
 {
 cantidad_actividades:1,

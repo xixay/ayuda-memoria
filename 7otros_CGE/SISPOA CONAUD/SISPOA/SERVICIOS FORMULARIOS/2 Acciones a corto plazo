@@ -59,7 +59,7 @@ pro_codigo: 10
 }
 ]
 
---obtiene su global status:checkFormularioGlobalStatusRefactor  talvez?????
+--obtiene su global status:checkFormularioGlobalStatusRefactor
 cantidad_actividades:1,
 cantidad_viaticos:1,
 estado_global:17,

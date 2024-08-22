@@ -10,7 +10,7 @@ rol_codigo=1,2,3,4
 middint_roles:.......
 middint_per_codigo=2030
 --verifica si tiene el rol de Gestion Institucional, busca en middint_roles:checkIfUserGestionInstitucional
-==ZZ0==>
+==ZZ0==>true (si encuentra)
 
 --trae areas unidades responsables por per_codigo
 =>resultQuery
@@ -28,7 +28,7 @@ roles: [1],
 cantidad roles: '1'
 }
 ]
---obtiene su global status:checkFormularioGlobalStatusRefactor  talvez?????
+--obtiene su global status:checkFormularioGlobalStatusRefactor
 ==zz2==>
 globalStatus: {
 cantidad_actividades: 100,
