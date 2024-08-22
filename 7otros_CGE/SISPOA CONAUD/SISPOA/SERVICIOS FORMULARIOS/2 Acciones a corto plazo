@@ -9,7 +9,7 @@ poa_codigo: '(3)', cac_codigo: '(1,3)',
 middint_roles:.......
 middint_per_codigo: 1914,
 
---obtiene poa
+--obtiene poa:this.poasService.findAll
 ==xX2==>
 poas: {
 poa_codigo: 3,
@@ -19,12 +19,11 @@ poa_ges_anio: 2024,
 tpo_codigo: 2,
 poa_tpo_nombre:
 'Reformulación',
-}
 poa_tpo_nombre_number: 'Reformulación (1)',
 poa_estado: 1,
 est_color: '#54bebe',
 poa_estado_descripcion: 'EDICION', fecha_registro: '11:14 am 08/08/2024'
-
+}
 --aumenta variables entrada
 
 ==xx3==> query: GetAllAunEjecutoras { 
@@ -35,7 +34,7 @@ middint_per_codigo: 1914,
 usuario: 1914,
 pobj_estado: '(2,8)'
 
---obtiene los poas-objetivos con sus programa, pbjetivo area unidad
+--obtiene los poas-objetivos con sus programa, objetivo area unidad:poa_codigo(3),pobj_estado(2,8),oau_estado(2,8),aun_codigo_ejecutora(2)
 
 {
 resultQuery: [

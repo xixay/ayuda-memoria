@@ -12,7 +12,7 @@ middint_per_codigo=2030
 --verifica si tiene el rol de Gestion Institucional, busca en middint_roles:checkIfUserGestionInstitucional
 ==ZZ0==>true (si encuentra)
 
---trae areas unidades responsables por per_codigo
+--trae areas unidades responsables por per_codigo(1262),rol_codigo(1,2,3,4),poa_codigo(3),aun_estado(2)
 =>resultQuery
 
 ==ZZ1==> ~ resultQuery: [

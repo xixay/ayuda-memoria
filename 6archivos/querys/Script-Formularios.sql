@@ -116,8 +116,72 @@ GROUP BY a.act_estado, av.avi_estado
 ORDER BY array_position(array[4,10,14,11,12,13,45,1,3,8,7,17,2,5], av.avi_estado),
          array_position(array[4,10,14,11,12,13,45,1,3,8,7,17,2,5], a.act_estado);
 
+SELECT 	*
+FROM 	pei.plan_estrategico_institucional pei 
+;
 
+SELECT 	po.pobj_codigo, po.pobj_nombre, po.pobj_estado ,po.poa_codigo,
+		po.cpr_codigo, cp.cpr_numero , 
+		cp.pro_codigo AS pro_codigo_cat_pro, cp.cpr_estado,
+		po.pro_codigo AS pro_codigo_pobj, p.pro_numero AS pro_numero_pobj,
+		po.tacp_codigo, tacp.tacp_descripcion ,tacp.tacp_estado ,
+		po.aeg_codigo, aeg.aeg_indicador ,aeg.ges_codigo ,aeg.aeg_estado,
+		aeg.aes_codigo, ae.aes_numero ,ae.pro_codigo AS pro_codigo_aes,
+		ae.est_codigo , e.est_numero, e.est_estado,
+		e.oes_codigo , oe.oes_numero ,oe.oes_estado ,
+		oe.dim_codigo ,d.dim_numero ,d.dim_estado ,
+		d.pei_codigo, pei.pei_descripcion, pei.ges_codigo_inicio, pei.ges_codigo_final , pei.pei_estado 
+FROM 	estructura_poa.poas_objetivos po
+		LEFT JOIN pei.categorias_programaticas cp ON po.cpr_codigo = cp.cpr_codigo 
+		LEFT JOIN pei.programas p ON po.pro_codigo = p.pro_codigo 
+		LEFT JOIN parametricas.tipo_accion_corto_plazo tacp ON po.tacp_codigo = tacp.tacp_codigo 
+		LEFT JOIN pei.acciones_estrategicas_gestiones aeg ON po.aeg_codigo = aeg.aeg_codigo 
+		LEFT JOIN pei.acciones_estrategicas ae ON aeg.aes_codigo = ae.aes_codigo
+		LEFT JOIN pei.estrategias e ON ae.est_codigo = e.est_codigo 
+		LEFT JOIN pei.objetivos_estrategicos oe ON e.oes_codigo = oe.oes_codigo 
+		LEFT JOIN pei.dimensiones d ON oe.dim_codigo = d.dim_codigo 
+		LEFT JOIN pei.plan_estrategico_institucional pei ON d.pei_codigo = pei.pei_codigo
+;
 
+SELECT 	*
+FROM 	pei.categorias_programaticas cp 
+;
 
+SELECT 	*
+FROM 	pei.programas p ;
+
+SELECT 	*
+FROM 	parametricas.tipo_accion_corto_plazo tacp ;
+
+SELECT 	*
+FROM 	pei.acciones_estrategicas_gestiones aeg ;
+
+SELECT 	*
+FROM 	pei.acciones_estrategicas ae ;
+
+SELECT 	*
+FROM 	pei.estrategias e ;
+
+SELECT 	*
+FROM 	pei.objetivos_estrategicos oe ;
+
+SELECT 	*
+FROM 	pei.dimensiones d ;
+
+SELECT 	*
+FROM 	pei.plan_estrategico_institucional pei ;
+
+po.pobj_codigo, po.pobj_nombre, po.pobj_estado ,po.poa_codigo,
+		po.cpr_codigo, cp.cpr_numero , 
+		cp.pro_codigo AS pro_codigo_cat_pro, cp.cpr_estado,
+		p2.pro_numero AS pro_numero_cat_pro ,p2.pro_estado AS pro_estado_cat_pro,
+		po.pro_codigo AS pro_codigo_pobj, p.pro_numero AS pro_numero_pobj,
+		po.tacp_codigo, tacp.tacp_descripcion ,tacp.tacp_estado ,
+		po.aeg_codigo, aeg.aeg_indicador ,aeg.ges_codigo ,aeg.aeg_estado,
+		aeg.aes_codigo, ae.aes_numero ,ae.pro_codigo AS pro_codigo_aes,
+		ae.est_codigo , e.est_numero, e.est_estado,
+		e.oes_codigo , oe.oes_numero ,oe.oes_estado ,
+		oe.dim_codigo ,d.dim_numero ,d.dim_estado ,
+		d.pei_codigo, pei.pei_descripcion, pei.ges_codigo_inicio, pei.ges_codigo_final , pei.pei_estado 
 
 
