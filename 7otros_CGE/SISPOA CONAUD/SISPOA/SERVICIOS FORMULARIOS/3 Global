@@ -9,7 +9,7 @@ pobj_estado:'(2,8)',
 pobj_codigo:'(1685)'//solo llega cuando viene de findAllPoasObjetivosOfAunCodigo
 }
 
---busca acciones a corto plazo:findAllAunEjecutoraStatusModule:poa_codigo(4),pobj_estado(2,8),pobj_codigo(1685),aun_codigo_ejecutora(8)
+--busca poa_objetivos(relacionado obj_area_unidad,actividades y viaticos) plazo:findAllAunEjecutoraStatusModule:poa_codigo(4),pobj_estado(2,8),pobj_codigo(1685),aun_codigo_ejecutora(8)
 cac_codigo(1)
 {
 act_estado:1,
