@@ -21,13 +21,13 @@
 
 | Tema | Enlace | Proyecto | Enlace |
 |------|--------|----------|--------|
-| **2.1. x1** | [Ver](xx1) |**2.1. Express (Backend)** | [Ver](https://github.com/xixay/articulo-repositorio-express-backend/blob/main/documentacion/1-articulo.md) |
-| **2.1.1. x2** | [Ver](xx2) |**2.1.1. Rutas api rest** | [Ver](https://github.com/xixay/articulo-repositorio-express-backend/blob/main/documentacion/1.1-articuloRutas.md) |
-| **2.1.2. x3** | [Ver](xx3) |**2.1.2. Relaciòn 1 a 1** | [Ver](https://github.com/xixay/articulo-repositorio-express-backend/blob/main/documentacion/1.2-relacion_1_a_1.md) |
-| **2.2. xx4** | [Ver](xx4) |**2.2. TypeOrm Guia Inicio rápido (Backend)** | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/1-inicioRapido.md) |
-| **2.2.1. xx5** | [Ver](xx5) |**2.2.1. Guia Paso a paso** | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/2-pasoAPaso.md) |
-| **2.2.2. xx6** | [Ver](xx6) |**2.2.2. Crear Artículo Builder** | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/3-articuloBuilder.md) |
-| **2.2.2.1. xx7** | [Ver](xx7) |**2.2.2.1. Rutas api rest Builder** | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/3.1-articuloRutasBuilder.md) |
+| **A.1. Variables de entorno** | [Ver](/2backend/nestJs/A.1-Env.md) |**2.1. Express (Backend)** | [Ver](https://github.com/xixay/articulo-repositorio-express-backend/blob/main/documentacion/1-articulo.md) |
+| **B.1. Encriptación** | [Ver](/2backend/nestJs/B.1-encriptadoBackendNestJS.md) |**2.1.1. Rutas api rest** | [Ver](https://github.com/xixay/articulo-repositorio-express-backend/blob/main/documentacion/1.1-articuloRutas.md) |
+| **C.1. Sacar un backup de BD (Backend, Nestjs)** | [Ver](/2backend/nestJs/C.1-backupsRestore.md) |**2.1.2. Relaciòn 1 a 1** | [Ver](https://github.com/xixay/articulo-repositorio-express-backend/blob/main/documentacion/1.2-relacion_1_a_1.md) |
+| **D.1. Agregar Seeders (Backend)** | [Ver](/2backend/nestJs/D.1-seeders.md) |**2.2. TypeOrm Guia Inicio rápido (Backend)** | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/1-inicioRapido.md) |
+| **E.1. Generar Crud SISPOA Backend**** | [Ver](/2backend/nestJs/E.1-generarCrudsoloSispoa.md) |**2.2.1. Guia Paso a paso** | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/2-pasoAPaso.md) |
+| **F.1. Entidades** | [Ver](/2backend/nestJs/F.1-entidadSispoa.md) |**2.2.2. Crear Artículo Builder** | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/3-articuloBuilder.md) |
+| **G.1. Decoradores** | [Ver](/2backend/nestJs/G.1-decoradores.md) |**2.2.2.1. Rutas api rest Builder** | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/3.1-articuloRutasBuilder.md) |
 | **2.2.3. xx8** | [Ver](xx8) | **2.2.3. Crear Artículo Mejor** | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/4-articulo.md) |
 | **2.2.3.1. xx9** | [Ver](xx9)) |**2.2.3.1. Rutas api rest Mejor** | [Ver]([/2backend/typeorm/4.1-articuloRutas.md](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/4.1-articuloRutas.md)) |
 | **2.2.4. xx10** | [Ver](xx10) |**2.2.4. Comandos TypeOrm** | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/5-comandosTypeOrm.md) |
@@ -36,13 +36,13 @@
 | **2.3.2. Variables de entorno** | [Ver](/2backend/nestJs/1.2-Env.md) |**2.3.2. Variables de entorno** | [Ver](/2backend/nestJs/1.2-Env.md) |
 | **2.3.3. Relación 1 a 1** | [Ver](/2backend/nestJs/1.3-relacion_1_a_1.md) |**2.3.3. Relación 1 a 1** | [Ver](/2backend/nestJs/1.3-relacion_1_a_1.md) |
 | **2.3.3.1. Relación 1 a N** | [Ver](/2backend/nestJs/1.3.1-relacion_1_a_N.md) | **2.3.3.1. Relación 1 a N** | [Ver](/2backend/nestJs/1.3.1-relacion_1_a_N.md) |
-| **2.3.4. Encriptación** | [Ver](/2backend/nestJs/1.4-encriptadoBackendNestJS.md) | **2.3.4. Encriptación** | [Ver](/2backend/nestJs/1.4-encriptadoBackendNestJS.md) |
-| **2.3.5. Sacar un backup de BD (Backend, Nestjs)** | [Ver](/2backend/nestJs/1.5-backupBD.md) |**2.3.5. Sacar un backup de BD (Backend, Nestjs)** | [Ver](/2backend/nestJs/1.5-backupBD.md) |
-| **2.3.6. Agregar Seeders (Backend)** | [Ver](/2backend/nestJs/1.6-seeders.md) |**2.3.6. Agregar Seeders (Backend)** | [Ver](/2backend/nestJs/1.6-seeders.md) |
-| **2.3.7. Generar Crud SISPOA Backend** | [Ver](/2backend/nestJs/1.7-generarCrudsoloSispoa.md) | **2.3.7. Generar Crud SISPOA Backend** | [Ver](/2backend/nestJs/1.7-generarCrudsoloSispoa.md) |
+| | [Ver]() | | [Ver]() |
+|  | [Ver]() | | [Ver]() |
+|  | [Ver]() | | [Ver]() |
+|  | [Ver]() |  | [Ver]() |
 | **2.3.8. Consultas SQL (Backend, BD)** | [Ver](/2backend/nestJs/1.8-consultaSqlBackend.md) |**2.3.8. Consultas SQL (Backend, BD)** | [Ver](/2backend/nestJs/1.8-consultaSqlBackend.md) |
-| **2.3.9. Entidades** | [Ver](/2backend/nestJs/1.9-entidad.md) |**2.3.9. Entidades** | [Ver](/2backend/nestJs/1.9-entidad.md) |
-| **2.3.10. Decoradores** | [Ver](/2backend/nestJs/1.10-decoradores.md) |**2.3.10. Decoradores** | [Ver](/2backend/nestJs/1.10-decoradores.md) |
+|  | [Ver]() | | [Ver]() |
+|  | [Ver]() | | [Ver]() |
 | **2.4. MongoDb (Backend)** | [Ver](/2backend/monodb/1-mongodb.md) |**2.4. MongoDb (Backend)** | [Ver](/2backend/monodb/1-mongodb.md) |
 | **2.5. Rabbitmq (Backend)** | [Ver](/2backend/rabbitmq/1-rabbit.md) |**2.5. Rabbitmq (Backend)** | [Ver](/2backend/rabbitmq/1-rabbit.md) |
 

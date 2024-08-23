@@ -240,21 +240,37 @@ FROM core.usuarios u,portafolio.habilidades h ,core.usuarios_habilidades uh
 WHERE u.id_usuario=uh.id_usuario AND h.id_habilidad=uh.id_habilidad  AND (u.id_usuario =1 OR u.id_usuario=2) ;
 --INNER JOIN:
 --Recupera las habilidades de los usuarios que tienen habilidades registradas.
-SELECT u.id_usuario, u.nombre as nombre_usuario, h.nombre AS habilidad_nombre
-FROM core.usuarios u
-INNER JOIN core.usuarios_habilidades uh ON u.id_usuario = uh.id_usuario
-INNER JOIN portafolio.habilidades h ON uh.id_habilidad = h.id_habilidad
+SELECT 	u.id_usuario, u.nombre as nombre_usuario,
+		h.nombre AS habilidad_nombre
+FROM 	core.usuarios u
+		INNER JOIN core.usuarios_habilidades uh ON u.id_usuario = uh.id_usuario
+		INNER JOIN portafolio.habilidades h ON uh.id_habilidad = h.id_habilidad
 order by u.id_usuario ;
 --LEFT JOIN
 --Obtener todos los usuarios y sus proyectos (si tienen alguno)
 SELECT u.*, p.nombre AS proyecto_nombre
 FROM core.usuarios u
 LEFT JOIN core.proyectos p ON u.id_usuario = p.id_usuario;
+--A-B
+SELECT
+    u.*,
+    t.id_tecnologia,
+    t.nombre AS tecnologia_nombre,
+    t.foto AS tecnologia_foto
+FROM core.usuarios u
+LEFT JOIN portafolio.tecnologias t ON u.id_usuario = t.id_usuario
+WHERE t.id_usuario IS NULL;
 --RIGHT JOIN
 -- Obtener todos los proyectos y sus usuarios (incluso si no tienen un usuario asociado)
 SELECT p.*, u.nombre AS usuario_nombre
 FROM core.proyectos p
 RIGHT JOIN core.usuarios u ON p.id_usuario = u.id_usuario;
+--B-A
+SELECT p.*,
+       u.nombre AS usuario_nombre
+FROM core.proyectos p
+RIGHT JOIN core.usuarios u ON p.id_usuario = u.id_usuario
+WHERE p.id_proyecto IS NULL;
 --View
 -- Crear una vista que muestre la información del usuario y sus habilidades
 CREATE VIEW vw_usuario_habilidades AS
@@ -326,13 +342,16 @@ SELECT rs.id_usuario, SUM(rs.id_usuario) AS suma_id_usuarios
 FROM core.redes_sociales rs
 where rs.id_usuario =1
 GROUP BY rs.id_usuario;
+-- Calcular la suma de los id_usuario agrupada por usuario que tiene más de una red social
+SELECT rs.id_usuario, SUM(rs.id_usuario) AS suma_id_usuarios
+FROM core.redes_sociales rs
+GROUP BY rs.id_usuario
+HAVING COUNT(rs.id_red_social) > 1;
 --COUNT
 -- Contar la cantidad de usuarios agrupada por nombre
 SELECT nombre, COUNT(*) AS cantidad_usuarios
 FROM core.usuarios
 GROUP BY nombre;
-
-
 -- Calcular la cantidad de habilidades por usuario
 SELECT u.id_usuario, COUNT(h.id_habilidad) AS cantidad_habilidades
 FROM core.usuarios u
@@ -340,6 +359,50 @@ LEFT JOIN core.usuarios_habilidades uh ON u.id_usuario = uh.id_usuario
 LEFT JOIN portafolio.habilidades h ON uh.id_habilidad = h.id_habilidad
 GROUP BY u.id_usuario
 order by u.id_usuario ;
+--WITH
+-- Ejemplo simple de uso de WITH para contar usuarios
+WITH usuarios_cte AS (
+     SELECT COUNT(*) AS cantidad_usuarios
+     FROM core.usuarios
+)
+SELECT cantidad_usuarios
+FROM usuarios_cte;
+-- Ejemplo de uso de WITH para contar habilidades por usuario
+WITH habilidades_por_usuario AS (
+    SELECT u.id_usuario, COUNT(h.id_habilidad) AS cantidad_habilidades
+    FROM core.usuarios u
+    LEFT JOIN core.usuarios_habilidades uh ON u.id_usuario = uh.id_usuario
+    LEFT JOIN portafolio.habilidades h ON uh.id_habilidad = h.id_habilidad
+    GROUP BY u.id_usuario
+)
+SELECT id_usuario, cantidad_habilidades
+FROM habilidades_por_usuario
+ORDER BY id_usuario;
+-- Ejemplo complejo de uso de WITH para obtener detalles de usuarios
+WITH proyectos_cte AS (
+    SELECT u.id_usuario, p.id_proyecto, p.nombre AS nombre_proyecto
+    FROM core.usuarios u
+    LEFT JOIN core.proyectos p ON u.id_usuario = p.id_usuario
+),
+habilidades_cte AS (
+    SELECT u.id_usuario, COUNT(h.id_habilidad) AS cantidad_habilidades
+    FROM core.usuarios u
+    LEFT JOIN core.usuarios_habilidades uh ON u.id_usuario = uh.id_usuario
+    LEFT JOIN portafolio.habilidades h ON uh.id_habilidad = h.id_habilidad
+    GROUP BY u.id_usuario
+),
+redes_sociales_cte AS (
+    SELECT u.id_usuario, COUNT(rs.id_red_social) AS cantidad_redes_sociales
+    FROM core.usuarios u
+    LEFT JOIN core.redes_sociales rs ON u.id_usuario = rs.id_usuario
+    GROUP BY u.id_usuario
+)
+SELECT u.id_usuario, u.nombre, p.nombre_proyecto, h.cantidad_habilidades, r.cantidad_redes_sociales
+FROM core.usuarios u
+LEFT JOIN proyectos_cte p ON u.id_usuario = p.id_usuario
+LEFT JOIN habilidades_cte h ON u.id_usuario = h.id_usuario
+LEFT JOIN redes_sociales_cte r ON u.id_usuario = r.id_usuario
+ORDER BY u.id_usuario;
 
 
 
