@@ -72,6 +72,10 @@ estado_color_global: '#54bebe',
 flagFormulado: false
 }
 
+--Si no encuentra ningun registro de accion a corto plazo
+estado_global: 2
+estado_global_descripcion:'CONSOLIDADO'
+
 ==>checkFormularioGlobalStatusRefactor:poa_codigo(4),cac_codigo(1),aun_codigo_ejecutora(72),pobj_estado(2,8)
 globalStatus: {
 cantidad_actividades: 1,

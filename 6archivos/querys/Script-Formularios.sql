@@ -6,7 +6,7 @@ SELECT
       COALESCE(
         ARRAY_AGG(
           DISTINCT aur.rol_codigo ORDER BY aur.rol_codigo ASC
-        ) FILTER (WHERE aur.per_codigo = 1262),
+        ) FILTER (WHERE aur.per_codigo = 2030),
         '{}'
       ) AS roles,
       COUNT(DISTINCT aur.rol_codigo) AS cantidad_roles
@@ -15,8 +15,8 @@ FROM	estructura_poa.area_unidad_responsables aur
 WHERE	aur.aur_estado != 0 -- ESTADO ROL-RESPONSABLE
       AND au.aun_estado IN (2) -- ESTADO AREA-UNIDAD (CONSOLIDADO)
       AND aur.rol_codigo IN (1,2,3,4) -- ROL SELECCIONADO
-      AND aur.poa_codigo IN (3) -- POA SELECCIONADO
-      AND aur.per_codigo = 1262 --PER CODIGO SELECCIONADO
+      AND aur.poa_codigo IN (4) -- POA SELECCIONADO
+      AND aur.per_codigo = 2030 --PER CODIGO SELECCIONADO 1914NORKA
 GROUP BY au.aun_codigo, au.aun_nombre, au.aun_sigla, au.cau_codigo, au.aun_numero, au.aun_reporte_habilitado
 ORDER BY au.aun_sigla ASC, au.aun_nombre ASC
 ;

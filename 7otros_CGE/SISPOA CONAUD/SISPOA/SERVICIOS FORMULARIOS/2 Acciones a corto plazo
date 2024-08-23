@@ -62,6 +62,11 @@ estado_descripcion_global:'EDICIÓN',
 estado_color_global: '#54bebe',
 flagFormulado:false
 
+--Si no encuentra ningun registro de accion a corto plazo
+poas.poa_estado !==5 -->estado_global: 2
+poas.poa_estado ==5 -->estado_global: 5
+estado_global_descripcion:'CONSOLIDADO'
+
 --Obtiene totalHorasPlanificadas
 ==horas==> ~ horas:{pobj_codigo:1685, total_horas_planificadas: '4'}"
 
