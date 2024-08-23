@@ -72,11 +72,44 @@ FROM	estructura_poa.poas_objetivos po
       LEFT JOIN estructura_organizacional.areas_unidades au ON oau.aun_codigo_ejecutora = au.aun_codigo
 WHERE	TRUE
       AND po.poa_codigo IN (4) -- POA-SELECCIONADO
-      --AND po.pobj_estado IN (2,8) -- ESTADOS
-      AND oau.oau_estado IN (2,8) -- ESTADOS
+--      AND po.pobj_estado IN (2,8) -- ESTADOS
+--      AND oau.oau_estado IN (2,8) -- ESTADOS
       AND oau.aun_codigo_ejecutora IN (65) -- UNIDAD-EJECUTORA
 GROUP BY po.pobj_codigo, pr.pro_numero, po.pobj_numero, po.pobj_nombre, au.aun_numero, oau.oau_estado 
 ;
+
+SELECT
+		po.pobj_codigo, 
+    	po.pobj_estado, 
+    	oau.oau_estado,
+    	pr.pro_numero, 
+    	au.aun_numero, 
+    	po.pobj_numero,
+    	CONCAT(pr.pro_numero, '.', au.aun_numero, '.', po.pobj_numero) AS pobj_codigo_sigla,
+    	po.pobj_nombre, 
+    	po.pro_codigo
+FROM 	estructura_poa.poas_objetivos po
+		LEFT JOIN pei.programas pr ON po.pro_codigo = pr.pro_codigo
+		LEFT JOIN estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo AND oau.oau_estado NOT IN (0)
+		LEFT JOIN estructura_organizacional.areas_unidades au ON oau.aun_codigo_ejecutora = au.aun_codigo
+WHERE 	TRUE
+    	AND po.poa_codigo IN (4) -- POA-SELECCIONADO
+    	AND oau.aun_codigo_ejecutora IN (2) -- UNIDAD-EJECUTORA
+    	AND po.pobj_codigo NOT IN (
+        	SELECT 	oau_sub.pobj_codigo 
+        	FROM 	estructura_poa.objetivos_area_unidad oau_sub 
+        	WHERE 	oau_sub.oau_estado != 8
+    )
+GROUP BY po.pobj_codigo, pr.pro_numero, po.pobj_numero, po.pobj_nombre, au.aun_numero, oau.oau_estado, po.pobj_estado, po.pro_codigo
+ORDER BY pobj_codigo_sigla;
+
+
+
+
+
+
+
+
 
 
     SELECT
@@ -106,8 +139,9 @@ FROM	estructura_poa.poas_objetivos po
 WHERE	TRUE
       AND oau.oau_estado != 0
       AND po.poa_codigo IN (4)
+      AND po.pobj_estado IN (2,8)
       AND oau.oau_estado IN (2,8)
-      AND po.pobj_codigo IN (1679)
+--      AND po.pobj_codigo IN (1679)
       AND oau.aun_codigo_ejecutora IN (65)
       AND a.aun_codigo_ejecutora IN (65)
       AND a.cac_codigo IN (1)
