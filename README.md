@@ -28,23 +28,17 @@
 | **E.1. Generar Crud SISPOA Backend**** | [Ver](/2backend/nestJs/E.1-generarCrudsoloSispoa.md) |**2.2.1. Guia Paso a paso** | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/2-pasoAPaso.md) |
 | **F.1. Entidades** | [Ver](/2backend/nestJs/F.1-entidadSispoa.md) |**2.2.2. Crear Artículo Builder** | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/3-articuloBuilder.md) |
 | **G.1. Decoradores** | [Ver](/2backend/nestJs/G.1-decoradores.md) |**2.2.2.1. Rutas api rest Builder** | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/3.1-articuloRutasBuilder.md) |
-| **2.2.3. xx8** | [Ver](xx8) | **2.2.3. Crear Artículo Mejor** | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/4-articulo.md) |
-| **2.2.3.1. xx9** | [Ver](xx9)) |**2.2.3.1. Rutas api rest Mejor** | [Ver]([/2backend/typeorm/4.1-articuloRutas.md](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/4.1-articuloRutas.md)) |
-| **2.2.4. xx10** | [Ver](xx10) |**2.2.4. Comandos TypeOrm** | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/5-comandosTypeOrm.md) |
-| **2.3. NestJs (Backend)** | [Ver](/2backend/nestJs/1-articulo.md) |**2.3. NestJs (Backend)** | [Ver](/2backend/nestJs/1-articulo.md) |
+| **H.1. Consultas SQL (Backend, BD)** | [Ver](/2backend/nestJs/H.1-consultaSqlBackend.md) | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/4-articulo.md) |
+| **I.1. Formateador** | [Ver](/2backend/nestJs/I.1-lintingFormat.md)) |**2.2.3.1. Rutas api rest Mejor** | [Ver]([/2backend/typeorm/4.1-articuloRutas.md](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/4.1-articuloRutas.md)) |
+| | [Ver]() |**2.2.4. Comandos TypeOrm** | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/5-comandosTypeOrm.md) |
+| | [Ver]() |**2.3. NestJs (Backend)** | [Ver](/2backend/nestJs/1-articulo.md) |
 | **2.3.1. Rutas api rest** | [Ver](/2backend/nestJs/1.1-articuloRutas.md) |**2.3.1. Rutas api rest** | [Ver](/2backend/nestJs/1.1-articuloRutas.md) |
 | **2.3.2. Variables de entorno** | [Ver](/2backend/nestJs/1.2-Env.md) |**2.3.2. Variables de entorno** | [Ver](/2backend/nestJs/1.2-Env.md) |
 | **2.3.3. Relación 1 a 1** | [Ver](/2backend/nestJs/1.3-relacion_1_a_1.md) |**2.3.3. Relación 1 a 1** | [Ver](/2backend/nestJs/1.3-relacion_1_a_1.md) |
 | **2.3.3.1. Relación 1 a N** | [Ver](/2backend/nestJs/1.3.1-relacion_1_a_N.md) | **2.3.3.1. Relación 1 a N** | [Ver](/2backend/nestJs/1.3.1-relacion_1_a_N.md) |
-| | [Ver]() | | [Ver]() |
-|  | [Ver]() | | [Ver]() |
-|  | [Ver]() | | [Ver]() |
-|  | [Ver]() |  | [Ver]() |
-| **2.3.8. Consultas SQL (Backend, BD)** | [Ver](/2backend/nestJs/1.8-consultaSqlBackend.md) |**2.3.8. Consultas SQL (Backend, BD)** | [Ver](/2backend/nestJs/1.8-consultaSqlBackend.md) |
-|  | [Ver]() | | [Ver]() |
-|  | [Ver]() | | [Ver]() |
-| **2.4. MongoDb (Backend)** | [Ver](/2backend/monodb/1-mongodb.md) |**2.4. MongoDb (Backend)** | [Ver](/2backend/monodb/1-mongodb.md) |
-| **2.5. Rabbitmq (Backend)** | [Ver](/2backend/rabbitmq/1-rabbit.md) |**2.5. Rabbitmq (Backend)** | [Ver](/2backend/rabbitmq/1-rabbit.md) |
+| | [Ver]() |**2.3.8. Consultas SQL (Backend, BD)** | [Ver](/2backend/nestJs/1.8-consultaSqlBackend.md) |
+| | [Ver]() |**2.4. MongoDb (Backend)** | [Ver](/2backend/monodb/1-mongodb.md) |
+| | [Ver]() |**2.5. Rabbitmq (Backend)** | [Ver](/2backend/rabbitmq/1-rabbit.md) |
 
 ## 3. Frontend
 
