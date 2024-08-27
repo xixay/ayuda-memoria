@@ -229,4 +229,44 @@ SELECT 	*
 FROM 	estructura_poa.poas_objetivos po
 WHERE 	po.pobj_codigo IN (1687,1688,1689,1690,1691,1692,1693,1694,1695,1696,1697,1707)
 ;
-       
+   
+--
+        SELECT
+        	  po.aun_codigo_padre, 
+              t.oau_codigo,
+              t.oau_descripcion,
+              t.pobj_codigo,
+              po.pobj_nombre AS oau_pobj_nombre,
+              t.aun_codigo_ejecutora,
+              CONCAT_WS(' - ', au1.aun_nombre, au1.aun_sigla) AS oau_aun_nombre_ejecutora,
+              au1.aun_sigla AS oau_aun_sigla_ejecutora,
+              au1.aun_inicial AS aun_inicial_ejecutora,
+              au1.cau_codigo,
+              t.aun_codigo_supervisora,
+              CONCAT_WS(' - ', au2.aun_nombre, au2.aun_sigla) AS oau_aun_nombre_supervisora,
+              au2.aun_sigla AS oau_aun_sigla_supervisora,
+              au2.aun_inicial AS aun_inicial_supervisora,
+              t.oau_estado,
+              e.est_color,
+              e.est_nombre AS oau_estado_descripcion,
+              TO_CHAR(t.fecha_registro, 'HH24:MI am dd/mm/yyyy') as fecha_registro,
+              po.poa_codigo, poa.ges_codigo,
+              --CONCAT(pr.pro_numero, '.', au1.aun_numero,'.',po.pobj_numero) AS poa_pobj_oau_codigo,
+              (CASE WHEN po.aun_codigo_padre IS NOT NULL 
+              THEN CONCAT(pr.pro_numero, '.', au3.aun_numero, '.', po.pobj_numero) 
+              ELSE CONCAT(pr.pro_numero, '.', au1.aun_numero, '.', po.pobj_numero)  END) AS poa_pobj_oau_codigo,
+              t.oau_indicador
+        FROM	estructura_poa.objetivos_area_unidad t
+              LEFT JOIN parametricas.estados e ON e.est_codigo = t.oau_estado
+              LEFT JOIN estructura_poa.poas_objetivos po ON po.pobj_codigo = t.pobj_codigo
+              LEFT JOIN estructura_poa.poas poa ON po.poa_codigo = poa.poa_codigo
+              LEFT JOIN pei.programas pr ON pr.pro_codigo = po.pro_codigo
+              LEFT JOIN estructura_organizacional.areas_unidades au1 ON au1.aun_codigo = t.aun_codigo_ejecutora
+              LEFT JOIN estructura_organizacional.areas_unidades au2 ON au2.aun_codigo = t.aun_codigo_supervisora
+              LEFT JOIN estructura_organizacional.areas_unidades au3 ON po.aun_codigo_padre = au3.aun_codigo
+        WHERE	TRUE
+              AND t.pobj_codigo IN (1672)
+              AND poa.poa_codigo IN (4)
+        ORDER BY pr.pro_numero ASC ,au1.aun_numero ASC ,au2.aun_numero ASC 
+        ;
+

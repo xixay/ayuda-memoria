@@ -38,7 +38,8 @@ SELECT 	po.pobj_codigo, po.pobj_nombre, po.pobj_estado, oau.oau_codigo,oau.oau_d
 FROM 	estructura_poa.objetivos_area_unidad oau
 		LEFT JOIN estructura_poa.poas_objetivos po ON oau.pobj_codigo = po.pobj_codigo 
 WHERE 	TRUE 
-		AND po.pobj_estado IN (8)
+--		AND po.pobj_estado IN (8)
+		AND po.pobj_estado NOT IN (0)
 		AND oau.aun_codigo_ejecutora IN (14,17,18,19,20)
 ;
 SELECT 	*
