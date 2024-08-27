@@ -1,5 +1,6 @@
 --POAS OBJ PARA LA FAMILIA AREAS
-SELECT 	po.pobj_codigo, po.pobj_nombre, po.pobj_estado, oau.oau_codigo,oau.oau_descripcion, oau.oau_estado, oau.aun_codigo_ejecutora 
+SELECT 	--po.pobj_codigo ,po.pobj_estado
+		po.pobj_codigo, po.pobj_nombre, po.pobj_estado, oau.oau_codigo,oau.oau_descripcion, oau.oau_estado, oau.aun_codigo_ejecutora 
 FROM 	estructura_poa.objetivos_area_unidad oau
 		LEFT JOIN estructura_poa.poas_objetivos po ON oau.pobj_codigo = po.pobj_codigo 
 WHERE 	TRUE 
@@ -9,8 +10,43 @@ WHERE 	TRUE
 		AND oau.aun_codigo_ejecutora IN (14,17,18,19,20)
 ORDER BY oau.aun_codigo_ejecutora ASC 
 ;
+--POA
+SELECT 	*
+FROM 	estructura_poa.poas p ;
+
+select 	*
+from 	control_estados.flujos_tablas ft
+where 	true 
+--		and ft.tab_codigo in (41)--poa_obj
+--		and ft.tab_codigo in (39)--obj_area
+		and ft.tab_codigo in (1)--act
+--		and ft.tab_codigo in (2)--via
+;
+--ESTADO
+INSERT INTO parametricas.estados
+(est_codigo, est_nombre, est_color, est_descripcion, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
+VALUES(48, 'APROBADO 48', '#ea5545', '', 0, 0, 0, '2024-08-05 23:23:39.911', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
+
+--ACTIVIDADES
+INSERT INTO control_estados.flujos_tablas
+(fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
+VALUES(380, 1, '', 7, 48, 1, 0, 0, 0, '2024-08-23 14:09:46.726', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
+
+INSERT INTO control_estados.flujos_tablas
+(fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
+VALUES(381, 1, '', 48, 17, 1, 0, 0, 0, '2024-08-23 14:09:46.726', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
+--VIATICOS
+INSERT INTO control_estados.flujos_tablas
+(fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
+VALUES(382, 2, '', 7, 48, 1, 0, 0, 0, '2024-08-23 14:09:46.726', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
+
+INSERT INTO control_estados.flujos_tablas
+(fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
+VALUES(383, 2, '', 48, 17, 1, 0, 0, 0, '2024-08-23 14:09:46.726', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
+
+
 --POA OBJ AREA PADRE
-SELECT 	po.pobj_codigo ,po.pobj_nombre ,po.pobj_estado,
+SELECT 	po.poa_codigo ,po.pobj_codigo ,po.pobj_nombre ,po.pobj_estado,
 		oau.oau_codigo ,oau.oau_descripcion ,oau.aun_codigo_ejecutora ,oau.aun_codigo_supervisora ,oau.oau_estado 
 FROM 	estructura_poa.poas_objetivos po 
 		LEFT JOIN estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo 
