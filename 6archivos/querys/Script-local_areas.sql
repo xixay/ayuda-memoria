@@ -1,50 +1,38 @@
---
-SELECT 	
-		aud.aud_codigo, aud.aud_estado,
-		au.aun_codigo AS aun_codigo_padre, au.aun_sigla AS aun_sigla_padre, au.aun_estado AS aun_estado_padre,
-		au2.aun_codigo AS aun_codigo_hijos, au2.aun_sigla AS aun_sigla_hijo, au2.aun_estado AS aun_estado_hijo
-FROM 	estructura_organizacional.areas_unidades_dependencias aud
-		LEFT JOIN estructura_organizacional.areas_unidades au ON aud.aun_codigo_padre = au.aun_codigo 
-		LEFT JOIN estructura_organizacional.areas_unidades au2 ON aud.aun_codigo_hijo = au2.aun_codigo 
-WHERE 	TRUE 
-		AND aud.aun_codigo_padre IN (17);
-;
-
---CERO
-WITH unidades AS (
-	SELECT 	
-		aud.aud_codigo, aud.aud_estado,
-		au.aun_codigo AS aun_codigo_padre, au.aun_sigla AS aun_sigla_padre, au.aun_estado AS aun_estado_padre,
-		au2.aun_codigo AS aun_codigo_hijos, au2.aun_sigla AS aun_sigla_hijo, au2.aun_estado AS aun_estado_hijo
-	FROM 	estructura_organizacional.areas_unidades_dependencias aud
-			LEFT JOIN estructura_organizacional.areas_unidades au ON aud.aun_codigo_padre = au.aun_codigo 
-			LEFT JOIN estructura_organizacional.areas_unidades au2 ON aud.aun_codigo_hijo = au2.aun_codigo 
-	WHERE 	TRUE 
-			AND aud.aun_codigo_padre IN (17)   
-	UNION 
-	SELECT  0 aud_codigo,  0 aud_estado,
-		 0 aun_codigo_padre, '' AS aun_sigla_padre, 0 AS aun_estado_padre,
-		aud.aun_codigo_padre AS aun_codigo_hijos, '' AS aun_sigla_hijo, 0 AS aun_estado_hijo
-	fROM estructura_organizacional.areas_unidades_dependencias aud 
-	WHERE aun_codigo_padre IN (17)
-	---condideracion especial para DC aun_codigo = 1
-)
-SELECT u.aun_codigo_hijos, oau.oau_codigo, oau.pobj_codigo, po.pobj_codigo, po.pobj_nombre  FROM unidades u 
-LEFT JOIN estructura_poa.objetivos_area_unidad oau ON u.aun_codigo_hijos = oau.aun_codigo_ejecutora --AND estado validos 7
-LEFT JOIN estructura_poa.poas_objetivos po ON po.pobj_codigo = oau.pobj_codigo;
-----preguntar si se condiderar estado de POA
-----preguntar si se condiderar estado de POA
-SELECT 	po.pobj_codigo, po.pobj_nombre, po.pobj_estado, oau.oau_codigo,oau.oau_descripcion, oau.oau_estado 
+--POAS OBJ PARA LA FAMILIA AREAS
+SELECT 	po.pobj_codigo, po.pobj_nombre, po.pobj_estado, oau.oau_codigo,oau.oau_descripcion, oau.oau_estado, oau.aun_codigo_ejecutora 
 FROM 	estructura_poa.objetivos_area_unidad oau
 		LEFT JOIN estructura_poa.poas_objetivos po ON oau.pobj_codigo = po.pobj_codigo 
 WHERE 	TRUE 
 --		AND po.pobj_estado IN (8)
+		AND po.poa_codigo IN (4)
 		AND po.pobj_estado NOT IN (0)
 		AND oau.aun_codigo_ejecutora IN (14,17,18,19,20)
+ORDER BY oau.aun_codigo_ejecutora ASC 
 ;
-SELECT 	*
+--POA OBJ AREA PADRE
+SELECT 	po.pobj_codigo ,po.pobj_nombre ,po.pobj_estado,
+		oau.oau_codigo ,oau.oau_descripcion ,oau.aun_codigo_ejecutora ,oau.aun_codigo_supervisora ,oau.oau_estado 
+FROM 	estructura_poa.poas_objetivos po 
+		LEFT JOIN estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo 
+WHERE 	po.pobj_codigo IN (1937,1756,1752,1731,1728,1726,1668)
+;
+
+--ACT PADRE
+SELECT 	a.pobj_codigo, a.act_codigo,a.act_numero ,a.act_descripcion ,a.act_estado 
 FROM 	estructura_poa.actividades a 
-WHERE 	a.pobj_codigo IN (1712);
+WHERE 	a.pobj_codigo IN (1937,1756,1752,1731,1728,1726,1668)
+;
+--VIAT PADRE
+SELECT 	av.act_codigo,av.avi_codigo, av.avi_estado 
+FROM 	estructura_poa.actividades_viaticos av
+WHERE 	av.act_codigo IN (3556,3557,3558,3559,3560,3561,3555,3554)
+;
+
+
+
+
+
+
 --
 WITH tmp_area_unidad AS (
         SELECT
