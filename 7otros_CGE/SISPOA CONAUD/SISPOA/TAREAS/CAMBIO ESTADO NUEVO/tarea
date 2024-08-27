@@ -1,0 +1,42 @@
+ ANTES
+ backup_20240826_142729.sql
+ 
+ CON ACTIVIDADES
+backup_20240826_170032.sql
+
+GDC-APROBAD SUP
+backup_20240826_182740.sql
+
+3792170 leticia GDC
+
+ 9864651 NOEMI SCEP
+ 
+      async submitFormChangeStatus () {
+        let data = {}
+        data.pobj_codigo = this.formChangeStatusData.pobj_codigo
+        data.pobj_estado = this.newEstados
+        data.aun_codigo_ejecutora = this.dataFormulario.aun_codigo_ejecutora
+        data.cac_codigo = this.cacCodigo
+
+        this.dialogButtonLoading = true
+        await this.$service.put(
+          'SISPOA',
+          `/poas-objetivos/estado-all`,
+          data
+        ).then(async (response) => {
+          if (response) {
+            this.$toast.clear()
+            this.$toast.success(response.err_mensaje)
+            this.closeModalDialogChangeStatus()
+            this.getAllFormulariosObjetivos()
+            this.$nuxt.$emit('actualizadorActividad', true)
+            this.$nuxt.$emit('ActualizarFormularioActual',true)
+          }
+        }).catch(error => {
+          this.$toast.error(error.error_mensaje)
+        }).finally( () => this.dialogButtonLoading = false )
+
+      },
+      
+pobj_codigo=1668,1712,1713,1714
+
