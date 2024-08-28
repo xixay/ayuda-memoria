@@ -15,7 +15,10 @@ SELECT 	*
 FROM 	parametricas.roles r ;
 INSERT INTO parametricas.roles
 (rol_codigo, rol_nombre, rol_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
-VALUES(8, 'CONSOLIDACION GERENTE', 1, 0, 0, 0, '2024-08-27 15:38:21.677', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
+VALUES(8, 'GERENTE CONSOLIDADOR', 1, 0, 0, 0, '2024-08-27 15:38:21.677', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
+--ESTADOS
+SELECT 	*
+FROM 	parametricas.estados e ;
 --VALIDADOR
 SELECT 	
 		au.aun_sigla,
@@ -101,27 +104,14 @@ where 	true
 --		and ft.tab_codigo in (1)--act
 		and ft.tab_codigo in (2)--via
 ;
---ESTADO
-INSERT INTO parametricas.estados
-(est_codigo, est_nombre, est_color, est_descripcion, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
-VALUES(48, 'APROBADO 48', '#ea5545', '', 0, 0, 0, '2024-08-05 23:23:39.911', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
+--------- ESTADO NUEVO
+INSERT INTO parametricas.estados (est_codigo, est_nombre, est_color, est_descripcion, usuario_registro) VALUES(48, 'CONSOLIDADO GERENTE', '#69e0b7', '', 0);
+--------- FLUJOS ADICIONADOS
+INSERT INTO control_estados.flujos_tablas (fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro) VALUES((select max(fta_codigo)+1 from control_estados.flujos_tablas), 1, '', 7, 48, 1, 0);
+INSERT INTO control_estados.flujos_tablas (fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro) VALUES((select max(fta_codigo)+1 from control_estados.flujos_tablas), 1, '', 48, 17, 1, 0);
+INSERT INTO control_estados.flujos_tablas (fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro) VALUES((select max(fta_codigo)+1 from control_estados.flujos_tablas), 2, '', 7, 48, 1, 0);
+INSERT INTO control_estados.flujos_tablas (fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro) VALUES((select max(fta_codigo)+1 from control_estados.flujos_tablas), 2, '', 48, 17, 1, 0);
 
---ACTIVIDADES
-INSERT INTO control_estados.flujos_tablas
-(fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
-VALUES(380, 1, '', 7, 48, 1, 0, 0, 0, '2024-08-23 14:09:46.726', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
-
-INSERT INTO control_estados.flujos_tablas
-(fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
-VALUES(381, 1, '', 48, 17, 1, 0, 0, 0, '2024-08-23 14:09:46.726', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
---VIATICOS
-INSERT INTO control_estados.flujos_tablas
-(fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
-VALUES(382, 2, '', 7, 48, 1, 0, 0, 0, '2024-08-23 14:09:46.726', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
-
-INSERT INTO control_estados.flujos_tablas
-(fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
-VALUES(383, 2, '', 48, 17, 1, 0, 0, 0, '2024-08-23 14:09:46.726', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
 
 
 --POA OBJ AREA PADRE

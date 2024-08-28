@@ -3,7 +3,7 @@ CONSOLIDADO GERENTE
 
 INSERT INTO parametricas.roles
 (rol_codigo, rol_nombre, rol_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
-VALUES(8, 'CONSOLIDACION GERENTE', 1, 0, 0, 0, '2024-08-27 15:38:21.677', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
+VALUES(8, 'GERENTE CONSOLIDADOR', 1, 0, 0, 0, '2024-08-27 15:38:21.677', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
 
 VALIDADOR
 validatorStatusGlobalAreasDependientes
@@ -24,10 +24,10 @@ GDC-GAD
 	1397469	RUTH TARCAYA GALLARDO			FORMULADOR GERENTE 	EDICION
 	1397469	RUTH TARCAYA GALLARDO			FORMULADOR 		EDICION
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ M1:ANTES
-backup_20240827_135501.sql
+backup_20240828_112103.sql
  
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& M2: CON ACTIVIDADES
-backup_20240827_150214.sql
+backup_20240828_112850.sql
 
 
 sigla		aun_codigo	existe
@@ -65,7 +65,7 @@ pobj_codigo	pobj_nombre	aun_codigo_ejecutora
 |3.556     |742       |1         |
 
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& M3: GDC-APROBAD SUP(ALGUNOS)
-backup_20240827_154018.sql
+backup_20240828_113151.sql
 |pobj_codigo|pobj_nombre|pobj_estado|oau_codigo|oau_descripcion|aun_codigo_ejecutora|aun_codigo_supervisora|oau_estado|
 |-----------|-----------|-----------|----------|---------------|--------------------|----------------------|----------|
 |1.668      |Prueba x7  |8          |1.917     |               |17                  |17                    |8         |
@@ -94,11 +94,11 @@ backup_20240827_154018.sql
 |3.554     |740       |7         |
 |3.554     |739       |7         |
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% M4:TODAS LAS AREAS PADRE E HIJOS EN APROB SUPERVISOR
-backup_20240827_173937.sql
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% M4:TODAS LAS AREAS PADRE E HIJOS EN ESTADO_48
-backup_20240827_202809.sql
+backup_20240828_113925.sql
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% M4:TODAS LAS AREAS PADRE E HIJOS EN ESTADO_48  
+backup_20240828_114157.sql
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% M4:TODAS LAS AREAS PADRE E HIJOS EN ESTADO_17
-backup_20240827_203005.sql
+backup_20240828_114353.sql
 
         let data = {}
         data.poa_codigo = this.poaCodigo
