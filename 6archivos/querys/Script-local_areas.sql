@@ -19,8 +19,8 @@ from 	control_estados.flujos_tablas ft
 where 	true 
 --		and ft.tab_codigo in (41)--poa_obj
 --		and ft.tab_codigo in (39)--obj_area
-		and ft.tab_codigo in (1)--act
---		and ft.tab_codigo in (2)--via
+--		and ft.tab_codigo in (1)--act
+		and ft.tab_codigo in (2)--via
 ;
 --ESTADO
 INSERT INTO parametricas.estados
@@ -65,7 +65,13 @@ WHERE 	av.act_codigo IN (3556,3557,3558,3559,3560,3561,3555,3554)
 ;
 
 
-
+--------- ESTADO NUEVO
+INSERT INTO parametricas.estados (est_codigo, est_nombre, est_color, est_descripcion, usuario_registro) VALUES(48, 'CONSOLIDADO GERENTE', '#69e0b7', '', 0);
+--------- FLUJOS ADICIONADOS
+INSERT INTO control_estados.flujos_tablas (fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro) VALUES((select max(fta_codigo)+1 from control_estados.flujos_tablas), 1, '', 7, 48, 1, 0);
+INSERT INTO control_estados.flujos_tablas (fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro) VALUES((select max(fta_codigo)+1 from control_estados.flujos_tablas), 1, '', 48, 17, 1, 0);
+INSERT INTO control_estados.flujos_tablas (fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro) VALUES((select max(fta_codigo)+1 from control_estados.flujos_tablas), 2, '', 7, 48, 1, 0);
+INSERT INTO control_estados.flujos_tablas (fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro) VALUES((select max(fta_codigo)+1 from control_estados.flujos_tablas), 2, '', 48, 17, 1, 0);
 
 
 
