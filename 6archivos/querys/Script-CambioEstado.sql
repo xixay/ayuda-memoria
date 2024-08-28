@@ -270,3 +270,4 @@ WHERE 	po.pobj_codigo IN (1687,1688,1689,1690,1691,1692,1693,1694,1695,1696,1697
         ORDER BY pr.pro_numero ASC ,au1.aun_numero ASC ,au2.aun_numero ASC 
         ;
 
+SELECT 	* FROM parametricas.roles r ;

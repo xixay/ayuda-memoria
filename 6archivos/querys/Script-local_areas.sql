@@ -10,6 +10,12 @@ WHERE 	TRUE
 		AND oau.aun_codigo_ejecutora IN (14,17,18,19,20)
 ORDER BY oau.aun_codigo_ejecutora ASC 
 ;
+--ROL NUEVO
+SELECT 	*
+FROM 	parametricas.roles r ;
+INSERT INTO parametricas.roles
+(rol_codigo, rol_nombre, rol_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
+VALUES(8, 'CONSOLIDACION GERENTE', 1, 0, 0, 0, '2024-08-27 15:38:21.677', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
 --VALIDADOR
 SELECT 	
 		au.aun_sigla,
