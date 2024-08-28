@@ -10,9 +10,82 @@ WHERE 	TRUE
 		AND oau.aun_codigo_ejecutora IN (14,17,18,19,20)
 ORDER BY oau.aun_codigo_ejecutora ASC 
 ;
---POA
+--VALIDADOR
+SELECT 	
+		au.aun_sigla,
+		oau.oau_codigo, oau.oau_estado,oau.aun_codigo_ejecutora,
+		oau.pobj_codigo, po.pobj_estado, po.poa_codigo,
+		a.act_codigo ,a.act_estado,
+		av.avi_codigo ,av.avi_estado 
+FROM 	estructura_poa.objetivos_area_unidad oau
+		LEFT JOIN estructura_organizacional.areas_unidades au ON oau.aun_codigo_ejecutora = au.aun_codigo 
+		LEFT JOIN estructura_poa.poas_objetivos po ON oau.pobj_codigo = po.pobj_codigo
+		LEFT JOIN estructura_poa.actividades a ON po.pobj_codigo = a.pobj_codigo
+		LEFT JOIN estructura_poa.actividades_viaticos av ON a.act_codigo = av.act_codigo 
+WHERE 	TRUE
+		AND oau.oau_estado NOT IN (0)
+		AND po.poa_codigo IN (4)
+		AND oau.aun_codigo_ejecutora IN (14,17,18,19,20)
+		AND a.act_estado NOT IN (0,5,9)
+ORDER BY oau.aun_codigo_ejecutora ASC 
+;
+WITH todos AS (
+	SELECT 	
+			au.aun_sigla,
+			oau.oau_codigo, oau.oau_estado,oau.aun_codigo_ejecutora,
+			oau.pobj_codigo, po.pobj_estado, po.poa_codigo,
+			a.act_codigo ,a.act_estado,
+			av.avi_codigo ,av.avi_estado 
+	FROM 	estructura_poa.objetivos_area_unidad oau
+			LEFT JOIN estructura_organizacional.areas_unidades au ON oau.aun_codigo_ejecutora = au.aun_codigo 
+			LEFT JOIN estructura_poa.poas_objetivos po ON oau.pobj_codigo = po.pobj_codigo
+			LEFT JOIN estructura_poa.actividades a ON po.pobj_codigo = a.pobj_codigo
+			LEFT JOIN estructura_poa.actividades_viaticos av ON a.act_codigo = av.act_codigo 
+	WHERE 	TRUE
+			AND oau.oau_estado NOT IN (0)
+			AND po.poa_codigo IN (4)
+			AND oau.aun_codigo_ejecutora IN (14,17,18,19,20)
+			AND a.act_estado NOT IN (0,5,9)
+	ORDER BY oau.aun_codigo_ejecutora ASC 
+)
+SELECT 	*	FROM todos;
+--quiero que de este query, me diga un unico TRUE, cuando todos los a.act_Estado son 7 o 48, y los av.avi_estado son 7 o 48
+--y me devuelva falso si es que por lo menos un a.act_estado NO sea 7 o 48, o un av.avi_estado NO sea 7 o 48, puede haber av.av_estado en valor 0 ó 5 ó 9
+--op 2
+WITH todos AS (
+    SELECT 	
+	        au.aun_sigla,oau.aun_codigo_ejecutora,po.poa_codigo,
+	        oau.oau_codigo, oau.oau_estado, 
+	        oau.pobj_codigo, po.pobj_estado, 
+	        a.act_codigo, a.act_estado,
+	        av.avi_codigo, av.avi_estado 
+    FROM 	estructura_poa.objetivos_area_unidad oau
+	        LEFT JOIN estructura_organizacional.areas_unidades au ON oau.aun_codigo_ejecutora = au.aun_codigo 
+	        LEFT JOIN estructura_poa.poas_objetivos po ON oau.pobj_codigo = po.pobj_codigo
+	        LEFT JOIN estructura_poa.actividades a ON po.pobj_codigo = a.pobj_codigo
+	        LEFT JOIN estructura_poa.actividades_viaticos av ON a.act_codigo = av.act_codigo 
+    WHERE 	
+        	TRUE
+	        AND oau.oau_estado NOT IN (0,9,5)
+	        AND a.act_estado NOT IN (0,5,9)
+	        AND po.poa_codigo IN (4)--params
+	        AND oau.aun_codigo_ejecutora IN (14,17,18,19,20)--params
+    ORDER BY 
+        oau.aun_codigo_ejecutora ASC 
+)
+SELECT 
+    	CASE 
+        WHEN COUNT(*) = SUM(CASE WHEN (act_estado IN (7, 48) AND (avi_estado IS NULL OR avi_estado IN (0, 5, 9, 7, 48))) THEN 1 ELSE 0 END)
+        THEN TRUE
+        ELSE FALSE
+    	END AS result
+FROM 	todos;
+
+
+
+--ESTADO
 SELECT 	*
-FROM 	estructura_poa.poas p ;
+FROM 	parametricas.estados e ;
 
 select 	*
 from 	control_estados.flujos_tablas ft
@@ -85,9 +158,12 @@ WITH tmp_area_unidad AS (
         FROM estructura_organizacional.areas_unidades au
         INNER JOIN estructura_organizacional.organigramas o ON o.org_codigo = au.org_codigo
         INNER JOIN estructura_organizacional.gestiones_organigramas go2 ON go2.org_codigo = o.org_codigo
+        INNER JOIN parametricas.gestiones g on go2.ges_codigo = g.ges_codigo 
+        INNER JOIN estructura_poa.poas p on p.ges_codigo = g.ges_codigo
         WHERE TRUE
-        AND au.aun_estado not in (0,9)
+        AND au.aun_estado not in (0,9,5)
         AND go2.gor_estado > 0
+        AND p.poa_codigo IN (4)
       ),
       tmp_dependientes_area AS (---los q son hijos
       SELECT
@@ -139,9 +215,12 @@ WITH tmp_area_unidad AS (
         FROM estructura_organizacional.areas_unidades au
         INNER JOIN estructura_organizacional.organigramas o ON o.org_codigo = au.org_codigo
         INNER JOIN estructura_organizacional.gestiones_organigramas go2 ON go2.org_codigo = o.org_codigo
+        INNER JOIN parametricas.gestiones g on go2.ges_codigo = g.ges_codigo 
+        INNER JOIN estructura_poa.poas p on p.ges_codigo = g.ges_codigo
         WHERE TRUE
-        AND au.aun_estado not in (0,9)
+        AND au.aun_estado not in (0,9,5)
         AND go2.gor_estado > 0
+        AND p.poa_codigo IN (4)
       ),
       tmp_dependientes_area AS (---los q son hijos
       SELECT
