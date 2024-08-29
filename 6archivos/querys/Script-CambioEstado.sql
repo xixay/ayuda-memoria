@@ -1,46 +1,130 @@
---
-SELECT 	
-		aud.aud_codigo, aud.aud_estado,
-		au.aun_codigo AS aun_codigo_padre, au.aun_sigla AS aun_sigla_padre, au.aun_estado AS aun_estado_padre,
-		au2.aun_codigo AS aun_codigo_hijos, au2.aun_sigla AS aun_sigla_hijo, au2.aun_estado AS aun_estado_hijo
-FROM 	estructura_organizacional.areas_unidades_dependencias aud
-		LEFT JOIN estructura_organizacional.areas_unidades au ON aud.aun_codigo_padre = au.aun_codigo 
-		LEFT JOIN estructura_organizacional.areas_unidades au2 ON aud.aun_codigo_hijo = au2.aun_codigo 
-WHERE 	TRUE 
-		AND aud.aun_codigo_padre IN (17);
-;
-
---CERO
-WITH unidades AS (
-	SELECT 	
-		aud.aud_codigo, aud.aud_estado,
-		au.aun_codigo AS aun_codigo_padre, au.aun_sigla AS aun_sigla_padre, au.aun_estado AS aun_estado_padre,
-		au2.aun_codigo AS aun_codigo_hijos, au2.aun_sigla AS aun_sigla_hijo, au2.aun_estado AS aun_estado_hijo
-	FROM 	estructura_organizacional.areas_unidades_dependencias aud
-			LEFT JOIN estructura_organizacional.areas_unidades au ON aud.aun_codigo_padre = au.aun_codigo 
-			LEFT JOIN estructura_organizacional.areas_unidades au2 ON aud.aun_codigo_hijo = au2.aun_codigo 
-	WHERE 	TRUE 
-			AND aud.aun_codigo_padre IN (17)   
-	UNION 
-	SELECT  0 aud_codigo,  0 aud_estado,
-		 0 aun_codigo_padre, '' AS aun_sigla_padre, 0 AS aun_estado_padre,
-		aud.aun_codigo_padre AS aun_codigo_hijos, '' AS aun_sigla_hijo, 0 AS aun_estado_hijo
-	fROM estructura_organizacional.areas_unidades_dependencias aud 
-	WHERE aun_codigo_padre IN (17)
-	---condideracion especial para DC aun_codigo = 1
-)
-SELECT u.aun_codigo_hijos, oau.oau_codigo, oau.pobj_codigo, po.pobj_codigo, po.pobj_nombre  FROM unidades u 
-LEFT JOIN estructura_poa.objetivos_area_unidad oau ON u.aun_codigo_hijos = oau.aun_codigo_ejecutora --AND estado validos 7
-LEFT JOIN estructura_poa.poas_objetivos po ON po.pobj_codigo = oau.pobj_codigo;
-----preguntar si se condiderar estado de POA
-----preguntar si se condiderar estado de POA
-SELECT 	po.pobj_codigo, po.pobj_nombre, po.pobj_estado, oau.oau_codigo,oau.oau_descripcion, oau.oau_estado 
+--POAS OBJ PARA LA FAMILIA AREAS
+SELECT 	--po.pobj_codigo ,po.pobj_estado
+		po.pobj_codigo, po.pobj_nombre, po.pobj_estado, oau.oau_codigo,oau.oau_descripcion, oau.oau_estado, oau.aun_codigo_ejecutora 
 FROM 	estructura_poa.objetivos_area_unidad oau
 		LEFT JOIN estructura_poa.poas_objetivos po ON oau.pobj_codigo = po.pobj_codigo 
 WHERE 	TRUE 
---		AND po.pobj_estado IN (7)
-		AND oau.aun_codigo_ejecutora IN (14,17,18,19,20)
+--		AND po.pobj_estado IN (8)
+		AND po.poa_codigo IN (4)
+		AND po.pobj_estado NOT IN (0)
+		AND oau.aun_codigo_ejecutora IN (9.65,66)
+ORDER BY oau.aun_codigo_ejecutora ASC 
 ;
+--ROL NUEVO
+SELECT 	*
+FROM 	parametricas.roles r ;
+INSERT INTO parametricas.roles
+(rol_codigo, rol_nombre, rol_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
+VALUES(8, 'GERENTE CONSOLIDADOR', 1, 0, 0, 0, '2024-08-27 15:38:21.677', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
+--ESTADOS
+SELECT 	*
+FROM 	parametricas.estados e ;
+
+SELECT 	*
+FROM 	estructura_organizacional.areas_unidades au 
+WHERE 	au.aun_sigla LIKE 'GNAF'
+;
+--VALIDADOR
+SELECT 	
+		au.aun_sigla,
+		oau.oau_codigo, oau.oau_estado,oau.aun_codigo_ejecutora,
+		oau.pobj_codigo, po.pobj_estado, po.poa_codigo,
+		a.act_codigo ,a.act_estado,
+		av.avi_codigo ,av.avi_estado 
+FROM 	estructura_poa.objetivos_area_unidad oau
+		LEFT JOIN estructura_organizacional.areas_unidades au ON oau.aun_codigo_ejecutora = au.aun_codigo 
+		LEFT JOIN estructura_poa.poas_objetivos po ON oau.pobj_codigo = po.pobj_codigo
+		LEFT JOIN estructura_poa.actividades a ON po.pobj_codigo = a.pobj_codigo
+		LEFT JOIN estructura_poa.actividades_viaticos av ON a.act_codigo = av.act_codigo 
+WHERE 	TRUE
+		AND oau.oau_estado NOT IN (0)
+		AND po.poa_codigo IN (4)
+		AND oau.aun_codigo_ejecutora IN (14,17,18,19,20)
+		AND a.act_estado NOT IN (0,5,9)
+ORDER BY oau.aun_codigo_ejecutora ASC 
+;
+WITH todos AS (
+	SELECT 	
+			a.cac_codigo,au.aun_sigla,
+			oau.oau_codigo, oau.oau_estado,oau.aun_codigo_ejecutora,
+			oau.pobj_codigo, po.pobj_estado, po.poa_codigo,
+			a.act_codigo ,a.act_estado,
+			av.avi_codigo ,av.avi_estado 
+	FROM 	estructura_poa.poas_objetivos po
+	        LEFT JOIN pei.programas pr ON po.pro_codigo = pr.pro_codigo
+	        LEFT JOIN estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo AND oau.oau_estado NOT IN (0)
+	        LEFT JOIN estructura_organizacional.areas_unidades au ON oau.aun_codigo_ejecutora = au.aun_codigo
+	        LEFT JOIN estructura_organizacional.areas_unidades au2 ON po.aun_codigo_padre = au2.aun_codigo
+			LEFT JOIN estructura_poa.actividades a ON po.pobj_codigo = a.pobj_codigo
+			LEFT JOIN estructura_poa.actividades_viaticos av ON a.act_codigo = av.act_codigo 
+	WHERE 	TRUE
+			AND po.poa_codigo IN (4)
+			AND po.pobj_estado IN (2,8)
+	        AND oau.oau_estado IN (2,8)
+			--AND oau.aun_codigo_ejecutora IN (14,17,18,19,20)
+			--AND oau.aun_codigo_ejecutora IN (9.65,66)
+			AND oau.aun_codigo_ejecutora IN (66)
+			AND a.act_estado NOT IN (0,5,9)
+	ORDER BY oau.aun_codigo_ejecutora ASC 
+)
+SELECT 	*	FROM todos;
+
+--ESTADO
+SELECT 	*
+FROM 	parametricas.estados e ;
+
+select 	*
+from 	control_estados.flujos_tablas ft
+where 	true 
+--		and ft.tab_codigo in (41)--poa_obj
+--		and ft.tab_codigo in (39)--obj_area
+		and ft.tab_codigo in (1)--act
+--		and ft.tab_codigo in (2)--via
+;
+
+SELECT 	*
+FROM 	control_estados.flujos_tablas ft 
+		LEFT JOIN parametricas.tablas t ON t.tab_codigo = ft.ft.tab_codigo ;
+--------- ESTADO NUEVO
+INSERT INTO parametricas.estados (est_codigo, est_nombre, est_color, est_descripcion, usuario_registro) VALUES(48, 'CONSOLIDADO GERENTE', '#69e0b7', '', 0);
+--------- FLUJOS ADICIONADOS
+INSERT INTO control_estados.flujos_tablas (fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro) VALUES((select max(fta_codigo)+1 from control_estados.flujos_tablas), 1, '', 7, 48, 1, 0);
+INSERT INTO control_estados.flujos_tablas (fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro) VALUES((select max(fta_codigo)+1 from control_estados.flujos_tablas), 1, '', 48, 17, 1, 0);
+INSERT INTO control_estados.flujos_tablas (fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro) VALUES((select max(fta_codigo)+1 from control_estados.flujos_tablas), 2, '', 7, 48, 1, 0);
+INSERT INTO control_estados.flujos_tablas (fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro) VALUES((select max(fta_codigo)+1 from control_estados.flujos_tablas), 2, '', 48, 17, 1, 0);
+
+
+
+--POA OBJ AREA PADRE
+SELECT 	po.poa_codigo ,po.pobj_codigo ,po.pobj_nombre ,po.pobj_estado,
+		oau.oau_codigo ,oau.oau_descripcion ,oau.aun_codigo_ejecutora ,oau.aun_codigo_supervisora ,oau.oau_estado 
+FROM 	estructura_poa.poas_objetivos po 
+		LEFT JOIN estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo 
+WHERE 	po.pobj_codigo IN (1937,1756,1752,1731,1728,1726,1668)
+;
+
+--ACT PADRE
+SELECT 	a.pobj_codigo, a.act_codigo,a.act_numero ,a.act_descripcion ,a.act_estado 
+FROM 	estructura_poa.actividades a 
+WHERE 	a.pobj_codigo IN (1937,1756,1752,1731,1728,1726,1668)
+;
+--VIAT PADRE
+SELECT 	av.act_codigo,av.avi_codigo, av.avi_estado 
+FROM 	estructura_poa.actividades_viaticos av
+WHERE 	av.act_codigo IN (3556,3557,3558,3559,3560,3561,3555,3554)
+;
+
+
+--------- ESTADO NUEVO
+INSERT INTO parametricas.estados (est_codigo, est_nombre, est_color, est_descripcion, usuario_registro) VALUES(48, 'CONSOLIDADO GERENTE', '#69e0b7', '', 0);
+--------- FLUJOS ADICIONADOS
+INSERT INTO control_estados.flujos_tablas (fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro) VALUES((select max(fta_codigo)+1 from control_estados.flujos_tablas), 1, '', 7, 48, 1, 0);
+INSERT INTO control_estados.flujos_tablas (fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro) VALUES((select max(fta_codigo)+1 from control_estados.flujos_tablas), 1, '', 48, 17, 1, 0);
+INSERT INTO control_estados.flujos_tablas (fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro) VALUES((select max(fta_codigo)+1 from control_estados.flujos_tablas), 2, '', 7, 48, 1, 0);
+INSERT INTO control_estados.flujos_tablas (fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro) VALUES((select max(fta_codigo)+1 from control_estados.flujos_tablas), 2, '', 48, 17, 1, 0);
+
+
+
 --
 WITH tmp_area_unidad AS (
         SELECT
@@ -51,9 +135,12 @@ WITH tmp_area_unidad AS (
         FROM estructura_organizacional.areas_unidades au
         INNER JOIN estructura_organizacional.organigramas o ON o.org_codigo = au.org_codigo
         INNER JOIN estructura_organizacional.gestiones_organigramas go2 ON go2.org_codigo = o.org_codigo
+        INNER JOIN parametricas.gestiones g on go2.ges_codigo = g.ges_codigo 
+        INNER JOIN estructura_poa.poas p on p.ges_codigo = g.ges_codigo
         WHERE TRUE
-        AND au.aun_estado not in (0,9)
+        AND au.aun_estado not in (0,9,5)
         AND go2.gor_estado > 0
+        AND p.poa_codigo IN (4)
       ),
       tmp_dependientes_area AS (---los q son hijos
       SELECT
@@ -105,9 +192,12 @@ WITH tmp_area_unidad AS (
         FROM estructura_organizacional.areas_unidades au
         INNER JOIN estructura_organizacional.organigramas o ON o.org_codigo = au.org_codigo
         INNER JOIN estructura_organizacional.gestiones_organigramas go2 ON go2.org_codigo = o.org_codigo
+        INNER JOIN parametricas.gestiones g on go2.ges_codigo = g.ges_codigo 
+        INNER JOIN estructura_poa.poas p on p.ges_codigo = g.ges_codigo
         WHERE TRUE
-        AND au.aun_estado not in (0,9)
+        AND au.aun_estado not in (0,9,5)
         AND go2.gor_estado > 0
+        AND p.poa_codigo IN (4)
       ),
       tmp_dependientes_area AS (---los q son hijos
       SELECT
@@ -154,120 +244,64 @@ WITH tmp_area_unidad AS (
 	    FROM tmp_area_unidad
 	    WHERE case when aun_codigo not in (1) then aun_codigo IN (17) else false end	
 	    ORDER BY aun_codigo asc;
-	   
-	   
-	   
-	   SELECT 	*
-	   FROM 	estructura_poa.poas_objetivos po 
-	   ;
-	   
-	   
-	   
-	   
-	   
-        SELECT
-              po.aun_codigo_padre ,po.pobj_codigo, po.pobj_estado, pr.pro_numero, au.aun_numero, po.pobj_numero,
-              (CASE WHEN po.aun_codigo_padre IS NOT NULL 
-              THEN CONCAT(pr.pro_numero, '.', au2.aun_numero, '.', po.pobj_numero) ELSE CONCAT(pr.pro_numero, '.', au.aun_numero, '.', po.pobj_numero)  END) AS pobj_codigo_sigla,
-              po.pobj_nombre, po.pro_codigo
-        FROM	estructura_poa.poas_objetivos po
-              LEFT JOIN pei.programas pr ON po.pro_codigo = pr.pro_codigo
-              LEFT JOIN estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo AND oau.oau_estado NOT IN (0)
-              LEFT JOIN estructura_organizacional.areas_unidades au ON oau.aun_codigo_ejecutora = au.aun_codigo
-              LEFT JOIN estructura_organizacional.areas_unidades au2 ON po.aun_codigo_padre = au2.aun_codigo 
-        WHERE	TRUE
-              AND po.poa_codigo IN (4) -- POA-SELECCIONADO
-              AND po.pobj_estado IN (2,8)  -- ESTADOS
-              AND oau.oau_estado IN (2,8) -- ESTADOS
-              AND oau.aun_codigo_ejecutora IN (18) -- UNIDAD-EJECUTORA
-        GROUP BY po.pobj_codigo, pr.pro_numero, po.pobj_numero, po.pobj_nombre, au.aun_numero, au.aun_codigo, au2.aun_numero
-        ;
-       
-         SELECT
-                po.pobj_codigo, po.pobj_nombre, po.pro_codigo, po.pobj_numero, po.pobj_estado,
-                pr.pro_numero,
-                oau.oau_codigo, oau.aun_codigo_ejecutora, oau.oau_indicador, oau.oau_estado,
-                au.aun_numero, au.aun_sigla,
-                (CASE WHEN po.aun_codigo_padre IS NOT NULL
-              THEN CONCAT(pr.pro_numero, '.', au2.aun_numero, '.', po.pobj_numero) ELSE CONCAT(pr.pro_numero, '.', au.aun_numero, '.', po.pobj_numero)  END) AS pobj_codigo_sigla
-          FROM	estructura_poa.poas_objetivos po
-                LEFT JOIN pei.programas pr ON po.pro_codigo = pr.pro_codigo
-                LEFT JOIN estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo --AND oau.oau_estado NOT IN (0)
-                LEFT JOIN estructura_organizacional.areas_unidades au ON oau.aun_codigo_ejecutora = au.aun_codigo
-                LEFT JOIN estructura_organizacional.areas_unidades au2 ON po.aun_codigo_padre = au2.aun_codigo
-          WHERE	TRUE
-                AND po.poa_codigo IN (4) -- POA-SELECCIONADO
-                AND oau.aun_codigo_ejecutora IN (18) -- UNIDAD-EJECUTORA
-          GROUP BY
-                po.pobj_codigo,
-                pr.pro_numero,
-                oau.oau_codigo, oau.aun_codigo_ejecutora, oau.oau_indicador, oau.oau_estado,
-                au.aun_numero, au.aun_sigla, au2.aun_numero
-          ORDER BY po.pobj_codigo DESC
-          ;
-       
-         
-            SELECT 	au.aun_codigo, au.aun_numero
-            FROM 	estructura_organizacional.areas_unidades au
-            WHERE 	au.aun_codigo IN (18);
- --888888888888888888888888888888888888
-            SELECT	po.pobj_codigo,pr.pro_numero,po.pobj_nombre, po.pobj_indicador, po.pobj_numero, oau.aun_codigo_ejecutora,
-            		(CASE WHEN po.aun_codigo_padre IS NOT NULL 
-              		THEN CONCAT(pr.pro_numero, '.', au2.aun_numero, '.', po.pobj_numero) 
-              		ELSE CONCAT(pr.pro_numero, '.', au.aun_numero, '.', po.pobj_numero)  END) AS pobj_codigo_sigla
-            FROM 	estructura_poa.poas_objetivos po
-                    LEFT JOIN estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo 
-                    LEFT JOIN estructura_organizacional.areas_unidades au ON oau.aun_codigo_ejecutora = au.aun_codigo
-                    LEFT JOIN estructura_organizacional.areas_unidades au2 ON po.aun_codigo_padre = au2.aun_codigo
-                    LEFT JOIN pei.programas pr on po.pro_codigo = pr.pro_codigo
-            WHERE   TRUE
-                    AND po.pobj_codigo IN (1687,1688,1689,1690,1691,1692,1693,1694,1695,1696,1697,1707);  
-SELECT 	*
-FROM 	estructura_poa.actividades a ;
-
-SELECT 	*
-FROM 	estructura_poa.poas_objetivos po
-WHERE 	po.pobj_codigo IN (1687,1688,1689,1690,1691,1692,1693,1694,1695,1696,1697,1707)
-;
+--validador    
    
---
-        SELECT
-        	  po.aun_codigo_padre, 
-              t.oau_codigo,
-              t.oau_descripcion,
-              t.pobj_codigo,
-              po.pobj_nombre AS oau_pobj_nombre,
-              t.aun_codigo_ejecutora,
-              CONCAT_WS(' - ', au1.aun_nombre, au1.aun_sigla) AS oau_aun_nombre_ejecutora,
-              au1.aun_sigla AS oau_aun_sigla_ejecutora,
-              au1.aun_inicial AS aun_inicial_ejecutora,
-              au1.cau_codigo,
-              t.aun_codigo_supervisora,
-              CONCAT_WS(' - ', au2.aun_nombre, au2.aun_sigla) AS oau_aun_nombre_supervisora,
-              au2.aun_sigla AS oau_aun_sigla_supervisora,
-              au2.aun_inicial AS aun_inicial_supervisora,
-              t.oau_estado,
-              e.est_color,
-              e.est_nombre AS oau_estado_descripcion,
-              TO_CHAR(t.fecha_registro, 'HH24:MI am dd/mm/yyyy') as fecha_registro,
-              po.poa_codigo, poa.ges_codigo,
-              --CONCAT(pr.pro_numero, '.', au1.aun_numero,'.',po.pobj_numero) AS poa_pobj_oau_codigo,
-              (CASE WHEN po.aun_codigo_padre IS NOT NULL 
-              THEN CONCAT(pr.pro_numero, '.', au3.aun_numero, '.', po.pobj_numero) 
-              ELSE CONCAT(pr.pro_numero, '.', au1.aun_numero, '.', po.pobj_numero)  END) AS poa_pobj_oau_codigo,
-              t.oau_indicador
-        FROM	estructura_poa.objetivos_area_unidad t
-              LEFT JOIN parametricas.estados e ON e.est_codigo = t.oau_estado
-              LEFT JOIN estructura_poa.poas_objetivos po ON po.pobj_codigo = t.pobj_codigo
-              LEFT JOIN estructura_poa.poas poa ON po.poa_codigo = poa.poa_codigo
-              LEFT JOIN pei.programas pr ON pr.pro_codigo = po.pro_codigo
-              LEFT JOIN estructura_organizacional.areas_unidades au1 ON au1.aun_codigo = t.aun_codigo_ejecutora
-              LEFT JOIN estructura_organizacional.areas_unidades au2 ON au2.aun_codigo = t.aun_codigo_supervisora
-              LEFT JOIN estructura_organizacional.areas_unidades au3 ON po.aun_codigo_padre = au3.aun_codigo
-        WHERE	TRUE
-              AND t.pobj_codigo IN (1672)
-              AND poa.poa_codigo IN (4)
-        ORDER BY pr.pro_numero ASC ,au1.aun_numero ASC ,au2.aun_numero ASC 
-        ;
+   WITH areas_dependientes AS (
+    SELECT
+          au.aun_sigla,po.poa_codigo,
+          oau.oau_codigo, oau.oau_estado,
+          oau.pobj_codigo, po.pobj_estado,
+          a.act_codigo, a.act_estado,
+          av.avi_codigo, av.avi_estado
+    FROM 	estructura_poa.objetivos_area_unidad oau
+          LEFT JOIN estructura_organizacional.areas_unidades au ON oau.aun_codigo_ejecutora = au.aun_codigo
+          LEFT JOIN estructura_poa.poas_objetivos po ON oau.pobj_codigo = po.pobj_codigo
+          LEFT JOIN estructura_poa.actividades a ON po.pobj_codigo = a.pobj_codigo
+          LEFT JOIN estructura_poa.actividades_viaticos av ON a.act_codigo = av.act_codigo
+    WHERE
+          TRUE
+          AND oau.oau_estado NOT IN (0,9,5)
+          AND po.poa_codigo IN (4)
+          AND oau.aun_codigo_ejecutora IN (14,17,18,19,20)
+  ),
+  estados AS (
+    SELECT DISTINCT ad.oau_estado, ad.pobj_estado, ad.act_estado, ad.avi_estado
+    FROM areas_dependientes ad
+  )
+  SELECT
+    COUNT(*) AS contador,
+    SUM(CASE WHEN act_estado IN (7,0,9,5,47) OR act_estado IS NULL THEN 1 ELSE 0 END) AS act_estado_count,
+    SUM(CASE WHEN avi_estado IN (7,0,9,5,47) OR avi_estado IS NULL THEN 1 ELSE 0 END) AS avi_estado_count,
+    CASE WHEN
+    COUNT(*) = SUM(CASE WHEN act_estado IN (7,0,9,5,47) OR act_estado IS NULL THEN 1 ELSE 0 END)
+    AND COUNT(*) = SUM(CASE WHEN avi_estado IN (7,0,9,5,47) OR avi_estado IS NULL THEN 1 ELSE 0 END)
+    THEN TRUE ELSE FALSE END AS validador
+  FROM estados;
+   
+--   contador=17
+--   act_estado_count=6
+--   avi_estado_count=10
+--   validaador=false
+ SELECT	*
+ FROM 	estructura_organizacional.areas_unidades au 
+ WHERE 	au.aun_sigla LIKE 'DC'
+ ;
 
-SELECT 	* FROM parametricas.roles r ;
+      SELECT 
+        t.fta_codigo, 
+		    t.est_codigo_origen,
+		    eo.est_nombre AS est_codigo_origen_descripcion,
+		    t.est_codigo_destino,
+		    ed.est_nombre AS est_codigo_destino_descripcion,
+        t.fta_estado,
+		    t.tab_codigo,
+        e.est_color, 
+        e.est_nombre AS fta_estado_descripcion 
+      FROM control_estados.flujos_tablas t
+        LEFT JOIN parametricas.estados e ON e.est_codigo = t.fta_estado
+        LEFT JOIN parametricas.tablas tab ON tab.tab_codigo = t.tab_codigo
+        LEFT JOIN parametricas.estados eo ON eo.est_codigo = t.est_codigo_origen
+        LEFT JOIN parametricas.estados ed ON ed.est_codigo = t.est_codigo_destino
+      WHERE TRUE
+        AND tab.tab_nombre IN ('Actividades')
+       	;
