@@ -305,3 +305,6 @@ WITH tmp_area_unidad AS (
       WHERE TRUE
         AND tab.tab_nombre IN ('Actividades')
        	;
+       
+SELECT 	*
+FROM 	estructura_poa.area_unidad_responsables aur ;
