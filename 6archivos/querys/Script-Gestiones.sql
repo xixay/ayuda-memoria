@@ -47,3 +47,44 @@ VALUES(386, 2, '', 48, 4, 1, 0, 0, 0, '2024-08-29 09:51:40.955', '1900-01-01 00:
 INSERT INTO control_estados.flujos_tablas
 (fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
 VALUES(387, 2, '', 17, 4, 1, 0, 0, 0, '2024-08-29 09:51:40.955', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
+
+--unidad a volver  a 48
+SELECT 	*
+FROM 	estructura_organizacional.areas_unidades au 
+WHERE 	au.aun_codigo IN (41);
+
+SELECT 	*
+FROM 	estructura_organizacional.areas_unidades au 
+WHERE 	au.aun_codigo IN (1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
