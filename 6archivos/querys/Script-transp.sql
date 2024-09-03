@@ -186,3 +186,40 @@ SELECT 	*
 FROM 	estructura_poa.poas p 
 ;
 
+SELECT
+		t.fta_codigo,
+	    t.est_codigo_origen,
+	    eo.est_nombre AS est_codigo_origen_descripcion,
+	    t.est_codigo_destino,
+	    ed.est_nombre AS est_codigo_destino_descripcion,
+    	t.fta_estado,
+	    t.tab_codigo,
+    	e.est_color,
+    	e.est_nombre AS fta_estado_descripcion
+FROM 	control_estados.flujos_tablas t
+    	LEFT JOIN parametricas.estados e ON e.est_codigo = t.fta_estado
+    	LEFT JOIN parametricas.tablas tab ON tab.tab_codigo = t.tab_codigo
+    	LEFT JOIN parametricas.estados eo ON eo.est_codigo = t.est_codigo_origen
+    	LEFT JOIN parametricas.estados ed ON ed.est_codigo = t.est_codigo_destino
+WHERE TRUE
+      --AND t.fta_estado IN (1)
+	  --AND t.est_codigo_destino IN (5)       
+	    AND tab.tab_nombre IN ('Actividades')
+;
+--POA
+SELECT	 	
+		p.poa_codigo ,p.tpo_codigo ,p.poa_estado ,p.ges_codigo,p.poa_actualizado_conaud	,p.poa_ejecucion_conaud 
+FROM 	estructura_poa.poas p
+--WHERE 	p.poa_codigo != 1
+ORDER 	BY p.poa_codigo DESC ;
+--GESTIONES
+SELECT 	*
+FROM 	parametricas.gestiones g ;
+
+--
+----------- ADD COLUMN estructura_poa.poas -----------
+ALTER TABLE estructura_poa.poas
+ADD COLUMN poa_actualizado_conaud BOOLEAN DEFAULT FALSE;
+COMMENT ON COLUMN estructura_poa.poas.poa_actualizado_conaud IS 'Valor para verificar si el registro de POA, fue actualizado o enviado a ejecución en sistema CONAUD';
+
+COMMENT ON COLUMN estructura_poa.poas.poa_ejecucion_conaud IS 'Valor para especificar el registro de POA, que se encuentra en ejecución en el sistema CONAUD';
