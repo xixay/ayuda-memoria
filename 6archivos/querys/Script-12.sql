@@ -100,6 +100,57 @@ SELECT 	aur.aur_codigo ,aur.aur_estado
 FROM 	estructura_poa.area_unidad_responsables aur
 WHERE 	aur.poa_codigo IN (2);
 
+WITH poa_tres AS (
+	SELECT po.poa_codigo, a.act_codigo, A.act_numero,  a.act_estado, a.aun_codigo_ejecutora, pob.pro_codigo, a.act_codigo_anterior 
+	FROM estructura_poa.actividades a 
+	LEFT JOIN estructura_poa.poas_objetivos pob ON a.pobj_codigo = pob.pobj_codigo
+	LEFT JOIN estructura_poa.poas po ON pob.poa_codigo = po.poa_codigo
+	WHERE true
+--	AND a.act_estado NOT IN (0,5,9, 47)
+	--AND a.act_codigo_anterior IS NOT NULL
+	AND po.poa_codigo IN (3)
+	ORDER BY pob.pro_codigo
+),
+poa_dos AS
+(
+	SELECT po.poa_codigo, a.act_codigo, A.act_numero,  a.act_estado, a.aun_codigo_ejecutora, pob.pro_codigo , pob.pobj_codigo 
+	FROM estructura_poa.actividades a 
+	LEFT JOIN estructura_poa.poas_objetivos pob ON a.pobj_codigo = pob.pobj_codigo
+	LEFT JOIN estructura_poa.poas po ON pob.poa_codigo = po.poa_codigo
+	--WHERE a.act_estado NOT IN (0,5,9, 47)
+	AND po.poa_codigo IN (2)
+	ORDER BY pob.pro_codigo
+),
+conaud AS (
+SELECT poa_tres.act_codigo_anterior, iap.act_codigo AS act_codigo
+FROM poa_tres
+LEFT JOIN ejecucion_actividades.inicio_actividad_poa iap ON iap.act_codigo = poa_tres.act_codigo--poa_tres.act_codigo_anterior
+WHERE iap.iap_estado NOT IN (0,5,9, 47)
+UNION
+SELECT DISTINCT  poa_tres.act_codigo_anterior, uai.act_codigo 
+FROM poa_tres
+LEFT JOIN ejecucion_informes.informes_uai uai ON uai.act_codigo = poa_tres.act_codigo--poa_tres.act_codigo_anterior
+WHERE uai.iua_estado NOT IN (0,5,9,47)
+UNION
+SELECT poa_tres.act_codigo_anterior, ia.act_codigo 
+FROM poa_tres
+LEFT JOIN ejecucion_administrativas.inicios_administrativas ia ON ia.act_codigo = poa_tres.act_codigo--poa_tres.act_codigo_anterior
+WHERE IA.iad_estado NOT IN (0,5,9,47)
+)
+--SELECT * FROM conaud WHERE act_codigo IS NOT null
+SELECT p3.act_numero,p3.act_codigo, p3.act_codigo_anterior, p3.act_estado,  p2.act_codigo act_codigo_for , p2.act_estado estado_for,
+po2.pobj_codigo, po2.pobj_estado, aa.aun_codigo_ejecutora ,  conaud.act_codigo AS conaud
+FROM poa_tres p3
+LEFT JOIN poa_dos p2 ON p3.act_codigo_anterior = p2.act_codigo
+-----
+LEFT JOIN conaud ON conaud.act_codigo = p3.act_codigo-- p3.act_codigo_anterior
+LEFT JOIN estructura_poa.actividades aa ON aa.act_codigo = p3.act_codigo
+LEFT JOIN estructura_poa.poas_objetivos po2 ON po2.pobj_codigo = aa.pobj_codigo 
+WHERE conaud.act_codigo IS NOT NULL
+ORDER BY 3 ASC
+LIMIT 112
+;
+
 
 
 
