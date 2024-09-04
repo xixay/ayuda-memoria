@@ -66,5 +66,46 @@ WHERE conaud.act_codigo IS NOT NULL
 	  --AND aa.aun_codigo_ejecutora IN (14)
 ORDER BY 3 ASC;
 
-SELECT 	p.poa_codigo, p.poa_estado,p.poa_ejecucion_conaud
-FROM 	estructura_poa.poas p;
+SELECT 	p.poa_codigo, p.poa_estado,p.tpo_codigo, tf.tpo_nombre ,p.poa_ejecucion_conaud,p.poa_actualizado_conaud 
+FROM 	estructura_poa.poas p
+		LEFT JOIN parametricas.tipos_formulaciones tf ON p.tpo_codigo = tf.tpo_codigo 
+;
+       
+SELECT	
+		p.poa_codigo ,p.poa_estado,
+		po.pobj_codigo , po.pobj_estado,
+		oau.oau_codigo ,oau.oau_estado ,
+		aur.aur_codigo ,aur.aur_estado ,
+		a.act_codigo ,a.act_estado ,
+		av.avi_codigo ,av.avi_estado 
+FROM 	estructura_poa.poas p 
+		LEFT JOIN estructura_poa.poas_objetivos po ON p.poa_codigo = po.poa_codigo 
+		LEFT JOIN estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo 
+		LEFT JOIN estructura_poa.area_unidad_responsables aur ON p.poa_codigo = aur.poa_codigo 
+		LEFT JOIN estructura_poa.actividades a ON po.pobj_codigo = a.pobj_codigo
+		LEFT JOIN estructura_poa.actividades_viaticos av ON a.act_codigo = av.act_codigo 
+WHERE 	TRUE 
+		AND p.poa_codigo IN (3)
+;
+
+SELECT 	*
+FROM 	control_estados.flujos_tablas t
+WHERE 	t.tab_codigo IN (51);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

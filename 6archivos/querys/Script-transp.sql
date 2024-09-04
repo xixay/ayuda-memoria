@@ -114,8 +114,8 @@ ORDER BY aur.aun_codigo_ejecutora DESC;
       WHERE TRUE
         AND t.fta_estado IN (1)
  --       AND t.est_codigo_destino IN (17)       
-        AND tab.tab_nombre IN ('Actividades');
-        
+ --       AND tab.tab_nombre IN ('Actividades');
+   ;     
        
 SELECT 	t.oau_codigo , t.pobj_codigo , t.aun_codigo_ejecutora ,t.oau_estado,po.pobj_nombre, po.pobj_estado 
 FROM 	estructura_poa.objetivos_area_unidad t
