@@ -41,15 +41,41 @@ backup_20240903_181548.sql
 COPIA COPIA
 backup_20240903_195929.sql
 
+backup_20240903_195929.sql
+
 
 
 AL INICIAR poa_codigo=3 REFORMULADO
+backup_20240904_084640.sql
 |poa_codigo|poa_estado|tpo_codigo|tpo_nombre   |poa_ejecucion_conaud|poa_actualizado_conaud|
 |----------|----------|----------|-------------|--------------------|----------------------|
 |3         |2         |2         |Reformulación|true                |true                  |
 |4         |1         |1         |Formulación  |false               |false                 |
 |1         |1         |1         |Formulación  |true                |false                 |
 |2         |5         |1         |Formulación  |true                |false                 |
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ANTES DE CONSOLIDAR
+backup_20240904_095628.sql
+|poa_codigo|poa_estado|tpo_codigo|tpo_nombre   |poa_ejecucion_conaud|poa_actualizado_conaud|
+|----------|----------|----------|-------------|--------------------|----------------------|
+|4         |1         |1         |Formulación  |false               |false                 |
+|3         |8         |2         |Reformulación|false               |false                 |
+|2         |2         |1         |Formulación  |true                |true                  |
+|1         |1         |1         |Formulación  |false               |true                  |
+
+DESPUES DE CONSOLIDAR
+backup_20240904_092416.sql
+|poa_codigo|poa_estado|tpo_codigo|tpo_nombre   |poa_ejecucion_conaud|poa_actualizado_conaud|
+|----------|----------|----------|-------------|--------------------|----------------------|
+|4         |1         |1         |Formulación  |false               |false                 |
+|3         |2         |2         |Reformulación|false               |false                 |
+|2         |2         |1         |Formulación  |true                |true                  |
+|1         |1         |1         |Formulación  |false               |true                  |
+
+
+
 
 
 

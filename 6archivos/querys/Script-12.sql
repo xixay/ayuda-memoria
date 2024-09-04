@@ -68,8 +68,12 @@ ORDER BY 3 ASC;
 
 SELECT 	p.poa_codigo, p.poa_estado,p.tpo_codigo, tf.tpo_nombre ,p.poa_ejecucion_conaud,p.poa_actualizado_conaud 
 FROM 	estructura_poa.poas p
-		LEFT JOIN parametricas.tipos_formulaciones tf ON p.tpo_codigo = tf.tpo_codigo 
-;
+		LEFT JOIN parametricas.tipos_formulaciones tf ON p.tpo_codigo = tf.tpo_codigo
+--WHERE 	p.poa_codigo NOT IN (1)
+ORDER 	BY p.poa_codigo DESC
+;		
+SELECT 	*
+FROM 	estructura_poa.poas p ;
        
 SELECT	
 		p.poa_codigo ,p.poa_estado,
@@ -85,7 +89,7 @@ FROM 	estructura_poa.poas p
 		LEFT JOIN estructura_poa.actividades a ON po.pobj_codigo = a.pobj_codigo
 		LEFT JOIN estructura_poa.actividades_viaticos av ON a.act_codigo = av.act_codigo 
 WHERE 	TRUE 
-		AND p.poa_codigo IN (3)
+		AND p.poa_codigo IN (2)
 ;
 
 SELECT 	*
