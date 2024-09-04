@@ -83,7 +83,37 @@ backup_20240904_101615.sql
 |1         |1         |1         |Formulación  |false               |true                  |
 
 COPIA NUEVA DE A
+backup_20240904_101922.sql
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ANTES DE CONSOLIDAR
+backup_20240904_134504.sql
+|poa_codigo|poa_estado|tpo_codigo|tpo_nombre   |poa_ejecucion_conaud|poa_actualizado_conaud|
+|----------|----------|----------|-------------|--------------------|----------------------|
+|4         |1         |1         |Formulación  |false               |false                 |
+|3         |8         |2         |Reformulación|false               |false                 |
+|2         |2         |1         |Formulación  |true                |true                  |
+|1         |1         |1         |Formulación  |false               |true                  |
+
+
+DESPUES DE CONSOLIDAR
+backup_20240904_135504.sql
+|poa_codigo|poa_estado|tpo_codigo|tpo_nombre   |poa_ejecucion_conaud|poa_actualizado_conaud|
+|----------|----------|----------|-------------|--------------------|----------------------|
+|4         |1         |1         |Formulación  |false               |false                 |
+|3         |2         |2         |Reformulación|false               |false                 |
+|2         |2         |1         |Formulación  |true                |true                  |
+|1         |1         |1         |Formulación  |false               |true                  |
+
+DESPUES DE INICIAR
+backup_20240904_135907.sql
+|poa_codigo|poa_estado|tpo_codigo|tpo_nombre   |poa_ejecucion_conaud|poa_actualizado_conaud|
+|----------|----------|----------|-------------|--------------------|----------------------|
+|4         |1         |1         |Formulación  |false               |false                 |
+|3         |2         |2         |Reformulación|true                |true                  |
+|2         |5         |1         |Formulación  |false               |true                  |
+|1         |1         |1         |Formulación  |false               |true                  |
 
 
 

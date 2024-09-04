@@ -207,11 +207,12 @@ WHERE TRUE
 	    AND tab.tab_nombre IN ('Actividades')
 ;
 --POA
-SELECT	 	
-		p.poa_codigo ,p.tpo_codigo ,p.poa_estado ,p.ges_codigo,p.poa_actualizado_conaud	,p.poa_ejecucion_conaud 
+SELECT 	p.poa_codigo, p.poa_estado,p.tpo_codigo, tf.tpo_nombre ,p.poa_ejecucion_conaud,p.poa_actualizado_conaud 
 FROM 	estructura_poa.poas p
---WHERE 	p.poa_codigo != 1
-ORDER 	BY p.poa_codigo DESC ;
+		LEFT JOIN parametricas.tipos_formulaciones tf ON p.tpo_codigo = tf.tpo_codigo
+--WHERE 	p.poa_codigo NOT IN (1)
+ORDER 	BY p.poa_codigo DESC
+;	
 --GESTIONES
 SELECT 	*
 FROM 	parametricas.gestiones g ;

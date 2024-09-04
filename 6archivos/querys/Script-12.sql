@@ -96,6 +96,9 @@ SELECT 	*
 FROM 	control_estados.flujos_tablas t
 WHERE 	t.tab_codigo IN (51);
 
+SELECT 	aur.aur_codigo ,aur.aur_estado 
+FROM 	estructura_poa.area_unidad_responsables aur
+WHERE 	aur.poa_codigo IN (2);
 
 
 
