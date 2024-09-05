@@ -581,7 +581,7 @@ WHERE conaud.act_codigo IS NOT NULL
 --AND aa.aun_codigo_ejecutora IN (65)
 --AND aa.act_numero != aa2.act_numero
 ORDER BY 3 ASC;
---%%%%%%%%%%%%%%%%%%%%%%%EXCEL%%%%%%%%%%%%%%%%%%%%%%%
+--%%%%%%%%%%%%%%%%%%%%%%% EXCEL %%%%%%%%%%%%%%%%%%%%%%%
 WITH poa_tres AS (
 	SELECT po.poa_codigo, a.act_codigo, A.act_numero,  a.act_estado, a.aun_codigo_ejecutora, pob.pro_codigo, a.act_codigo_anterior 
 	FROM estructura_poa.actividades a 
@@ -636,3 +636,53 @@ WHERE conaud.act_codigo IS NOT NULL
 --AND aa.act_numero != aa2.act_numero
 AND aa.act_correlativo != aa2.act_correlativo 
 ORDER BY 3 ASC;
+
+SELECT 	a.act_numero, a.act_correlativo, a.act_codigo, a.act_codigo_anterior 
+FROM 	estructura_poa.actividades a
+--WHERE 	
+;
+SELECT	DISTINCT 
+		au.aun_sigla,a.act_numero, a.act_codigo, a.act_codigo_anterior,a.act_correlativo, a.act_estado,
+		av.avi_codigo ,av.avi_estado, 
+		p.poa_codigo, p.poa_estado,
+		po.pobj_nombre ,po.fecha_modificacion ,po.pobj_codigo ,po.pobj_estado,
+		oau.oau_codigo ,oau.oau_estado
+FROM 	estructura_poa.poas p
+		LEFT JOIN estructura_poa.poas_objetivos po ON p.poa_codigo = po.poa_codigo
+		LEFT JOIN estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo
+		LEFT JOIN estructura_poa.actividades a ON po.pobj_codigo = a.pobj_codigo
+		LEFT JOIN estructura_organizacional.areas_unidades au ON a.aun_codigo_ejecutora = au.aun_codigo 
+		LEFT JOIN estructura_poa.actividades_viaticos av ON a.act_codigo = av.act_codigo 
+WHERE 	TRUE 
+		AND p.poa_codigo IN (3)
+--		AND a.act_estado NOT IN (17)
+--		AND a.act_codigo_anterior IN (785)
+--		AND a.act_codigo IN (1949)
+--		AND av.avi_estado NOTNULL
+--		AND oau.oau_estado NOT IN (0)
+		AND oau.oau_estado IN (0)
+ORDER BY au.aun_sigla DESC
+;
+
+SELECT	DISTINCT 
+		au.aun_sigla,a.act_numero, a.act_codigo, a.act_codigo_anterior,a.act_correlativo, a.act_estado,
+		av.avi_codigo ,av.avi_estado, 
+		p.poa_codigo, p.poa_estado,
+		po.pobj_nombre ,po.fecha_modificacion ,po.pobj_codigo ,po.pobj_estado,
+		oau.oau_codigo ,oau.oau_estado
+FROM 	estructura_poa.poas p
+		LEFT JOIN estructura_poa.poas_objetivos po ON p.poa_codigo = po.poa_codigo
+		LEFT JOIN estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo
+		LEFT JOIN estructura_poa.actividades a ON po.pobj_codigo = a.pobj_codigo
+		LEFT JOIN estructura_organizacional.areas_unidades au ON a.aun_codigo_ejecutora = au.aun_codigo 
+		LEFT JOIN estructura_poa.actividades_viaticos av ON a.act_codigo = av.act_codigo 
+WHERE 	TRUE 
+		AND p.poa_codigo IN (3)
+--		AND a.act_estado NOT IN (17)
+--		AND a.act_codigo_anterior IN (785)
+--		AND a.act_codigo IN (1949)
+--		AND av.avi_estado NOTNULL
+--		AND oau.oau_estado NOT IN (0)
+		AND oau.oau_estado IN (0)
+ORDER BY au.aun_sigla DESC
+;
