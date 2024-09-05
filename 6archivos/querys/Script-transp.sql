@@ -231,7 +231,38 @@ WHERE	a.act_codigo IN (4,5,6,7,8,9,11,14,15,16,17,21,22,23,24,25,26,27,28,29,30,
 ;
 	
 
-
+-------------------------------------------------------------
+SELECT	distinct 
+		a.act_numero, a.aun_codigo_ejecutora ,
+		p.poa_codigo ,p.poa_estado, a.act_codigo_anterior, a.act_codigo, a.act_estado 
+FROM 	estructura_poa.poas p 
+		LEFT JOIN estructura_poa.poas_objetivos po ON p.poa_codigo = po.poa_codigo 
+		LEFT JOIN estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo 
+		LEFT JOIN estructura_poa.area_unidad_responsables aur ON p.poa_codigo = aur.poa_codigo 
+		LEFT JOIN estructura_poa.actividades a ON po.pobj_codigo = a.pobj_codigo
+		LEFT JOIN estructura_poa.actividades_viaticos av ON a.act_codigo = av.act_codigo 
+WHERE 	TRUE 
+		AND p.poa_codigo IN (3)
+		and a.act_estado NOT IN (0,5,9,47)
+		and a.aun_codigo_ejecutora in (65)
+		order by a.act_codigo_anterior asc
+;
+-------------------------------------------------------------
+SELECT	distinct 
+		a.act_numero, a.aun_codigo_ejecutora ,
+		p.poa_codigo ,p.poa_estado, a.act_codigo_anterior, a.act_codigo, a.act_estado 
+FROM 	estructura_poa.poas p 
+		LEFT JOIN estructura_poa.poas_objetivos po ON p.poa_codigo = po.poa_codigo 
+		LEFT JOIN estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo 
+		LEFT JOIN estructura_poa.area_unidad_responsables aur ON p.poa_codigo = aur.poa_codigo 
+		LEFT JOIN estructura_poa.actividades a ON po.pobj_codigo = a.pobj_codigo
+		LEFT JOIN estructura_poa.actividades_viaticos av ON a.act_codigo = av.act_codigo 
+WHERE 	TRUE 
+		AND p.poa_codigo IN (2)
+		and a.act_estado NOT IN (0,5,9,47)
+		and a.aun_codigo_ejecutora in (65)
+		order by a.act_codigo asc
+;	
 
 
 

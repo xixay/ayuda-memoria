@@ -167,6 +167,84 @@ WHERE 	TRUE
 		order by a.act_codigo_anterior asc
 ;
 
+SELECT 	
+		a.act_codigo ,a.act_numero ,a.act_estado,
+		po.pobj_codigo, po.poa_codigo
+FROM 	estructura_poa.actividades a 
+		LEFT JOIN estructura_poa.poas_objetivos po ON a.pobj_codigo = po.pobj_codigo  
+WHERE 	a.act_codigo IN (76)
+;
+SELECT 	
+		a.act_codigo ,a.act_numero ,a.act_estado,
+		po.pobj_codigo, po.poa_codigo 
+FROM 	estructura_poa.actividades a 
+		LEFT JOIN estructura_poa.poas_objetivos po ON a.pobj_codigo = po.pobj_codigo  
+WHERE 	a.act_codigo_anterior IN (76)
+;
+
+SELECT 	*
+FROM 	estructura_poa.actividades a 
+WHERE 	a.act_numero = '00.0801.84.6.24'
+;
+
+
+SELECT	distinct 
+		a.act_numero,a.act_correlativo, a.act_codigo,a.act_codigo_anterior,
+		au.aun_sigla,p.poa_codigo
+FROM 	estructura_poa.poas p 
+		LEFT JOIN estructura_poa.poas_objetivos po ON p.poa_codigo = po.poa_codigo 
+		LEFT JOIN estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo 
+		LEFT JOIN estructura_poa.area_unidad_responsables aur ON p.poa_codigo = aur.poa_codigo 
+		LEFT JOIN estructura_poa.actividades a ON po.pobj_codigo = a.pobj_codigo
+		LEFT JOIN estructura_organizacional.areas_unidades au ON a.aun_codigo_ejecutora = au.aun_codigo
+		LEFT JOIN estructura_poa.actividades_viaticos av ON a.act_codigo = av.act_codigo 
+WHERE 	TRUE 
+		AND p.poa_codigo IN (2)
+		and a.act_estado NOT IN (0,5,9,47)
+--		and a.aun_codigo_ejecutora in (65)
+		ORDER BY a.act_numero ASC
+;
+
+SELECT 	a.act_numero ,a.act_correlativo, a.act_codigo, a.act_codigo_anterior 
+FROM 	estructura_poa.actividades a
+WHERE 	
+;
+WITH poa_anterior AS (
+SELECT	distinct 
+		a.act_numero,a.act_correlativo, a.act_codigo,a.act_codigo_anterior,
+		au.aun_sigla,p.poa_codigo
+FROM 	estructura_poa.poas p 
+		LEFT JOIN estructura_poa.poas_objetivos po ON p.poa_codigo = po.poa_codigo 
+		LEFT JOIN estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo 
+		LEFT JOIN estructura_poa.area_unidad_responsables aur ON p.poa_codigo = aur.poa_codigo 
+		LEFT JOIN estructura_poa.actividades a ON po.pobj_codigo = a.pobj_codigo
+		LEFT JOIN estructura_organizacional.areas_unidades au ON a.aun_codigo_ejecutora = au.aun_codigo
+		LEFT JOIN estructura_poa.actividades_viaticos av ON a.act_codigo = av.act_codigo 
+WHERE 	TRUE 
+		AND p.poa_codigo IN (2)
+		and a.act_estado NOT IN (0,5,9,47)
+--		and a.aun_codigo_ejecutora in (65)
+		ORDER BY a.act_numero ASC
+)
+--SELECT 	*	FROM poa_anterior;
+WITH poa_despues AS (
+SELECT	distinct 
+		a.act_numero,a.act_correlativo, a.act_codigo,a.act_codigo_anterior,
+		au.aun_sigla,p.poa_codigo
+FROM 	estructura_poa.poas p 
+		LEFT JOIN estructura_poa.poas_objetivos po ON p.poa_codigo = po.poa_codigo 
+		LEFT JOIN estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo 
+		LEFT JOIN estructura_poa.area_unidad_responsables aur ON p.poa_codigo = aur.poa_codigo 
+		LEFT JOIN estructura_poa.actividades a ON po.pobj_codigo = a.pobj_codigo
+		LEFT JOIN estructura_organizacional.areas_unidades au ON a.aun_codigo_ejecutora = au.aun_codigo
+		LEFT JOIN estructura_poa.actividades_viaticos av ON a.act_codigo = av.act_codigo 
+WHERE 	TRUE 
+		AND p.poa_codigo IN (2)
+		and a.act_estado NOT IN (0,5,9,47)
+--		and a.aun_codigo_ejecutora in (65)
+		ORDER BY a.act_numero ASC
+)
+SELECT 	*	FROM poa_despues;
 
 
 
