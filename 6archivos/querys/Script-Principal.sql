@@ -655,12 +655,12 @@ FROM 	estructura_poa.poas p
 		LEFT JOIN estructura_poa.actividades_viaticos av ON a.act_codigo = av.act_codigo 
 WHERE 	TRUE 
 		AND p.poa_codigo IN (3)
---		AND a.act_estado NOT IN (17)
---		AND a.act_codigo_anterior IN (785)
---		AND a.act_codigo IN (1949)
---		AND av.avi_estado NOTNULL
---		AND oau.oau_estado NOT IN (0)
-		AND oau.oau_estado IN (0)
+		AND a.act_estado IN (0)
+		AND oau.oau_estado NOT IN (0)
+--		AND oau.oau_estado IN (0)
+		AND av.avi_codigo NOTNULL 
+--		AND a.act_codigo NOTNULL 
+--		AND a.act_estado IN (0)
 ORDER BY au.aun_sigla DESC
 ;
 
@@ -677,12 +677,12 @@ FROM 	estructura_poa.poas p
 		LEFT JOIN estructura_organizacional.areas_unidades au ON a.aun_codigo_ejecutora = au.aun_codigo 
 		LEFT JOIN estructura_poa.actividades_viaticos av ON a.act_codigo = av.act_codigo 
 WHERE 	TRUE 
-		AND p.poa_codigo IN (3)
---		AND a.act_estado NOT IN (17)
+		AND p.poa_codigo IN (2)
+		AND a.act_estado NOT IN (17)
 --		AND a.act_codigo_anterior IN (785)
---		AND a.act_codigo IN (1949)
+		AND a.act_codigo NOTNULL 
 --		AND av.avi_estado NOTNULL
---		AND oau.oau_estado NOT IN (0)
-		AND oau.oau_estado IN (0)
+		AND oau.oau_estado NOT IN (0)
+--		AND oau.oau_estado IN (0)
 ORDER BY au.aun_sigla DESC
 ;

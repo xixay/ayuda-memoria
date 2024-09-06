@@ -1,0 +1,17 @@
+## ANTES DE EFECTUAR LOS CAMBIOS DE ESTADOS
+backup_20240905_181206.sql
+
+EN ACTIVIDADES VERIFICAR
+        <!-- ENVIA A VERIFICADO POR GI DE 7 - 17 -->
+        <!-- F - 21 -->
+        <!-- <global-icon-tool-tip
+          v-if="([2,8].includes(objectPoaObjetivo.pobj_estado) && [1,2,3].includes(item.cac_codigo))
+            && item.estados_check != 4 && item.act_estado === 7 && rolGestionInstitucional.formulador== 1 "
+          @click="sendComponentChangeStatusInd(17, item)"
+          tooltip="Aprobar Gestión Institucional"
+          prepend-icon="mdi-file-send"
+          iconColor="#a250e3"
+          toolTipColor="#a250e3"
+        ></global-icon-tool-tip> -->
+        
+        
