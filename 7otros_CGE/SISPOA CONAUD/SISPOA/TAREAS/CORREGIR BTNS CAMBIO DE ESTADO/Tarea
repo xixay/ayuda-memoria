@@ -42,9 +42,10 @@ disabled="PoaRecordSelected && PoaRecordSelected.poa_estado !== 2"
         item.act_estado{{item.act_estado}}
         
 con una nueva actividad
-ackup_20240906_151625.sql
+backup_20240906_151625.sql
 
-
+PARA PROBAR RETIROS
+backup_20240909_121314.sql
 
 
 

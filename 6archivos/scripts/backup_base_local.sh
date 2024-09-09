@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Solicitar al usuario los detalles de la base de datos utilizando zenity
-local_db=$(zenity --entry --title="Detalles de la base de datos local" --text="Ingrese el nombre de la base de datos:")
+local_db=$(zenity --entry --title="Detalles de la base de datos local" --text="Ingrese el nombre de la base de datos:" --entry-text="bd_cge_poa_conaud_local_b")
 local_port=$(zenity --entry --title="Detalles de la base de datos local" --text="Ingrese el puerto de la base de datos:" --entry-text="5432")
 local_host=$(zenity --entry --title="Detalles de la base de datos local" --text="Ingrese la dirección del host local:" --entry-text="localhost")
-local_user=$(zenity --entry --title="Detalles de la base de datos local" --text="Ingrese el usuario de la base de datos:")
-local_password=$(zenity --password --title="Detalles de la base de datos local" --text="Ingrese la contraseña del usuario:")
+local_user=$(zenity --entry --title="Detalles de la base de datos local" --text="Ingrese el usuario de la base de datos:" --entry-text="postgres")
+local_password=$(zenity --entry --title="Detalles de la base de datos local" --text="Ingrese la contraseña del usuario:" --entry-text="postgres")
 
 if [ -z "$local_db" ] || [ -z "$local_port" ] || [ -z "$local_host" ] || [ -z "$local_user" ] || [ -z "$local_password" ]; then
     zenity --error --title="Error" --text="Debe completar todos los campos."
