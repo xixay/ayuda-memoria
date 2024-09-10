@@ -24,15 +24,16 @@
 | **A.1. Variables de entorno** | [Ver](/2backend/nestJs/A.1-Env.md) |**2.1. Express (Backend)** | [Ver](https://github.com/xixay/articulo-repositorio-express-backend/blob/main/documentacion/1-articulo.md) |
 | **B.1. Encriptación** | [Ver](/2backend/nestJs/B.1-encriptadoBackendNestJS.md) |**2.1.1. Rutas api rest** | [Ver](https://github.com/xixay/articulo-repositorio-express-backend/blob/main/documentacion/1.1-articuloRutas.md) |
 | **C.1. Sacar un backup de BD (Backend, Nestjs)** | [Ver](/2backend/nestJs/C.1-backupsRestore.md) |**2.1.2. Relaciòn 1 a 1** | [Ver](https://github.com/xixay/articulo-repositorio-express-backend/blob/main/documentacion/1.2-relacion_1_a_1.md) |
-| **D.1. Agregar Seeders (Backend)** | [Ver](/2backend/nestJs/D.1-seeders.md) |**2.2. TypeOrm Guia Inicio rápido (Backend)** | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/1-inicioRapido.md) |
+| **D.1. Agregar Seeders (Backend)** | [Ver](/2backend/nestJs/D.1-seeders.md) |**2.2. TypeOrm Guia (Backend)** | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/1-inicioRapido.md) |
 | **E.1. Generar Crud SISPOA Backend**** | [Ver](/2backend/nestJs/E.1-generarCrudsoloSispoa.md) |**2.2.1. Guia Paso a paso** | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/2-pasoAPaso.md) |
 | **F.1. Entidades** | [Ver](/2backend/nestJs/F.1-entidadSispoa.md) |**2.2.2. Crear Artículo Builder** | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/3-articuloBuilder.md) |
 | **G.1. Decoradores** | [Ver](/2backend/nestJs/G.1-decoradores.md) |**2.2.2.1. Rutas api rest Builder** | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/3.1-articuloRutasBuilder.md) |
-| **H.1. Consultas SQL (Backend, BD)** | [Ver](/2backend/nestJs/H.1-consultaSqlBackend.md) | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/4-articulo.md) |
+| **H.1. Consultas SQL (Backend, BD)** | [Ver](/2backend/nestJs/H.1-consultaSqlBackend.md) |**2.2.3. Crear Articulo(Modo SISPOA)** | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/4-articulo.md) |
 | **I.1. Formateador** | [Ver](/2backend/nestJs/I.1-lintingFormat.md)) |**2.2.3.1. Rutas api rest Mejor** | [Ver]([/2backend/typeorm/4.1-articuloRutas.md](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/4.1-articuloRutas.md)) |
 | **J.1. Rabbitmq (Backend)** | [Ver](/2backend/rabbitmq/J.1-rabbit.md) |**2.2.4. Comandos TypeOrm** | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/5-comandosTypeOrm.md) |
 | **K.1. MongoDb (Backend)** | [Ver](/2backend/monodb/K.1-mongodb.md) |**2.3. NestJs (Backend)** | [Ver](https://github.com/xixay/articulo-repositorio-NestJS-backend/blob/main/documentacion/1-articulo.md) |
 | | [Ver]() |**2.3.1. Rutas api rest** | [Ver](https://github.com/xixay/articulo-repositorio-NestJS-backend/blob/main/documentacion/1.1-articuloRutas.md) |
+| | [Ver]() |**2.3.2. Usar Query en lugar de typeorm** | [Ver](https://github.com/xixay/articulo-repositorio-NestJS-backend/blob/main/documentacion/1.2-getAllQuery.md) |
 | | [Ver]() |**2.4. node MongoDb (Backend)** | [Ver](https://github.com/xixay/node-mongoDB) |
 | | [Ver]() |**2.5. node Rabbitmq (Backend)** | [Ver](/2backend/rabbitmq/1-rabbit.md) |
 
