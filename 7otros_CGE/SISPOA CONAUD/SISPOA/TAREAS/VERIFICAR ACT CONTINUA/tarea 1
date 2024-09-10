@@ -1,0 +1,121 @@
+BASE LOCAL: YA CONSOLIDADA
+backup_20240902_183544.sql
+
+## ANTES DE EFECTUAR LOS CAMBIOS DE ESTADOS
+backup_20240905_181206.sql
+
+SIN IDENTIFICAR						FORMULADOR 	EDICION
+3457029		RAFAEL MARTIN PORCEL DE LA BARRA	SUPERVISOR 	EDICION
+SIN IDENTIFICAR						FORMULADOR 	EDICION
+SIN IDENTIFICAR						FORMULADOR 	EDICION
+2468864		NORA HERMINIA MAMANI CABRERA		SUPERVISOR 	EDICION
+2468864		NORA HERMINIA MAMANI CABRERA		APROBADOR 	EDICION
+2573781		ERIKA CAROLINA CARDENAS SALAS		FORMULADOR 	EDICION
+4755293		NORKA VALERIA CHAVEZ LIMACHI		FORMULADOR 	EDICION 
+-PARA PROBAR CAMBIOS DE ESTADOS ACTIVIDADES
+backup_20240906_090626.sql
+
+con una nueva actividad
+backup_20240906_151625.sql
+
+PARA PROBAR RETIROS
+backup_20240909_121314.sql
+
+PARA PROBAR CAMBIOS EN VIATICOS
+backup_20240909_151657.sql
+
+#### CREA EL INICIO ACTIVIDAD DEL ANTIGUO CONAUD
+POST
+	http://172.16.22.243:7091/sispoa-conaud/verifica
+
+{
+	"actividad_object": {
+		"actividad_codigo": null,
+		"actividad_correlativo": null,
+		"actividad_fecha_fin": null,
+		"actividad_fecha_inicio": null,
+		"actividad_gestion": null,
+		"auditoria_dias_calendario": 16,
+		"auditoria_dias_habiles": 12,
+		"auditoria_fecha_emision": null,
+		"auditoria_fecha_entrega": "18/10/1999",
+		"auditoria_fecha_inicio": "30/09/1999",
+		"auditoria_objetivo": "EVALUACION DE LA UNIDAD JURIDICA",
+		"auditoria_objeto": "MINISTERIO DE COMERCIO EXTERIOR",
+		"auditoria_periodo": "01/01/98 AL 31/08/99",
+		"correlativo_codigo": "A00640",
+		"entidad_codigo": null,
+		"entidad_descripcion": null,
+		"trabajo_codigo": "LXVP14O99",
+		"trabajo_codigo_f": "LX/VP14/O99"
+	}
+}
+
+
+	
+act_alcance	"act 5"
+act_cantidad	"111"
+act_codigo_bolsa	3200
+act_descripcion	"act 5"
+act_fecha_fin	"12/09/2024"
+act_fecha_inicio	"01/09/2024"
+act_horas_planificadas	"1"
+act_justificacion	"act 5"
+act_no_planificado	false
+act_objetivo	"act 5"
+act_objeto	"act 5"
+actividad_object	{…}
+act_codigo	0
+conaud_codigo	null
+conaud_correlativo	"A00640"
+conaud_detalle	{…}
+actividad_codigo	null
+actividad_correlativo	null
+actividad_fecha_fin	null
+actividad_fecha_inicio	null
+actividad_gestion	null
+auditoria_dias_calendario	16
+auditoria_dias_habiles	12
+auditoria_fecha_emision	null
+auditoria_fecha_entrega	"18/10/1999"
+auditoria_fecha_inicio	"30/09/1999"
+auditoria_objetivo	"EVALUACION DE LA UNIDAD JURIDICA"
+auditoria_objeto	"MINISTERIO DE COMERCIO EXTERIOR"
+auditoria_periodo	"01/01/98 AL 31/08/99"
+correlativo_codigo	"A00640"
+entidad_codigo	null
+entidad_descripcion	null
+trabajo_codigo	"LXVP14O99"
+trabajo_codigo_f	"LX/VP14/O99"
+conaud_gestion	null
+aun_codigo_ejecutora	1
+aun_codigo_supervisora	1
+caa_codigo	1
+cac_codigo	2
+cca_codigo	1
+cfa_codigo	1
+cga_codigo	1
+ent_codigo	64
+flag_iac_codigo_apoyo	false
+fob_codigo	1
+iac_codigo	0
+iac_codigo_continuo	636
+pobj_codigo	1365
+sec_codigo	1
+tin_codigo	2
+tipact_codigo	2
+ttr_codigo	64
+ume_codigo	3
+
+
+LXVP14O99 
+
+&&&& DA
+GET
+	http://172.16.22.243:7091/tipos-trabajos/clasificacion-area-unidad?ttr_estado=(1)&cau_codigo=(2)
+	
+&&&& NO DA	
+GET
+	http://172.16.22.243:7091/tipos-trabajos/clasificacion-area-unidad?ttr_estado=(1)&cau_codigo=(2)&ett_codigo=(2)
+	
+
