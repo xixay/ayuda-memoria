@@ -6,6 +6,11 @@ WHERE 	TRUE
 ORDER BY ia.iac_codigo DESC
 ;
 
+----------- ADD COLUMN estructura_poa.poas -----------
+ALTER TABLE estructura_poa.poas
+ADD COLUMN poa_actualizado_conaud BOOLEAN DEFAULT FALSE;
+COMMENT ON COLUMN estructura_poa.poas.poa_actualizado_conaud IS 'Valor para verificar si el registro de POA, fue actualizado o enviado a ejecución en sistema CONAUD';
+----------- ADD FLUJOS estructura_poa.actividades RETIROS-----------
 INSERT INTO control_estados.flujos_tablas (fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro) VALUES((select max(fta_codigo)+1 from control_estados.flujos_tablas), 2, '', 13, 45, 1, 0);
 INSERT INTO control_estados.flujos_tablas (fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro) VALUES((select max(fta_codigo)+1 from control_estados.flujos_tablas), 2, '', 45, 14, 1, 0);
 INSERT INTO control_estados.flujos_tablas (fta_codigo, tab_codigo, fta_descripcion, est_codigo_origen, est_codigo_destino, fta_estado, usuario_registro) VALUES((select max(fta_codigo)+1 from control_estados.flujos_tablas), 2, '', 45, 9, 1, 0);
@@ -57,21 +62,44 @@ INSERT INTO control_estados.flujos_tablas (fta_codigo, tab_codigo, fta_descripci
         WHERE TRUE
               AND t.ttr_estado IN (1)
               AND ct.cau_codigo IN (2)
-              AND t.ett_codigo IN (2)
+--              AND t.ett_codigo IN (2)
         ORDER BY t.fecha_registro DESC;
 
        
-SELECT 	*
-FROM 	parametricas.clasificaciones_areas_unidades ca
+SELECT 	
+		t.ttr_codigo,
+        t.ett_codigo,
+        t.ttr_sigla,
+		t.ttr_descripcion,
+		CONCAT(t.ttr_sigla, ' - ', t.ttr_descripcion) AS ttr_sigla_descripcion,
+		t.ttr_bandera_entidad_cge,
+  		t.ttr_estado,
+  		e.est_color,
+  		e.est_nombre AS ttr_estado_descripcion,
+  		ct.ctt_codigo,
+  		ct.ctt_descripcion,
+  		cau.cau_codigo,
+  		cau.cau_nombre,
+  		ett.ett_codigo,
+  		ett.ett_nombre 
+FROM 	parametricas.tipos_trabajos t
+		LEFT JOIN parametricas.estados e ON t.ttr_estado = e.est_codigo
+		LEFT JOIN parametricas.clasificacion_tipos_trabajos ct ON t.ttr_codigo = ct.ttr_codigo 
+		LEFT JOIN parametricas.clasificaciones_areas_unidades cau ON ct.cau_codigo = cau.cau_codigo 
+		LEFT JOIN parametricas.especificacion_tipos_trabajo ett ON t.ett_codigo = ett.ett_codigo 
+WHERE 	TRUE 
+		AND t.ttr_estado IN (1)
+--		AND ct.cau_codigo IN (2)
+ORDER BY t.ett_codigo ASC
 ;
 
 SELECT 	*
-FROM 	parametricas.clasificacion_tipos_trabajos ct
-		LEFT JOIN parametricas.clasificaciones_areas_unidades ca ON ca.cau_codigo = ct.cau_codigo
-WHERE 	ct.cau_codigo IN (2)
+FROM 	parametricas.clasificaciones_areas_unidades cau 
 ;
        
-       
-       
+
+SELECT 	*
+FROM 	estructura_poa.actividades a 
+;
        
        
