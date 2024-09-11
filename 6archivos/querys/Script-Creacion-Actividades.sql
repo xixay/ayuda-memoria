@@ -94,12 +94,16 @@ ORDER BY t.ett_codigo ASC
 ;
 
 SELECT 	*
-FROM 	parametricas.clasificaciones_areas_unidades cau 
+FROM 	ejecucion_actividades.inicios_actividades ia
+WHERE 	TRUE 
+--		AND ia.iac_codigo_control LIKE 'LX%'
+ORDER BY ia.iac_codigo DESC
 ;
        
 
 SELECT 	*
-FROM 	estructura_poa.actividades a 
+FROM 	estructura_poa.actividades a
+ORDER BY a.act_codigo  DESC
 ;
        
        
