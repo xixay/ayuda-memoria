@@ -1,5 +1,5 @@
 ## BASE YA CONSOLIDADA ##
-backup_20240912_104148.sql
+backup_20240913_085557.sql
 
 # Efectuar los cambios en "Inicio Actividad Formularios" del CONAUD
 src/components/sispoa-actividades-formularios/component/sispoa-actividades.table.jsx
@@ -28,10 +28,55 @@ GDC-GAD
 el primero de la lista en SISPOA:
 500.1302.54.4.24
 
+#### ACTIVIDADES EN EDICION
+backup_20240913_105549.sql
+
+## ACT CONSOLIDADAS
+backup_20240913_105852.sql
+
+- PARA INICIAR ACTIVIDAD SE USA EL FORMULADOR GERENTE
+
+# INICIADO CONAUD SOLO AUDITORIAS
+backup_20240913_111639.sql
+
+- PARA ENVIAR A VERIFICAR FORMULADOR GERENTE 
+
+#ANTES DE RETIRAR VERIFICAR GI
+backup_20240913_123515.sql
+
+#CASO PARA ANULAR
+backup_20240913_155356.sql
+
+#CASO PARA ANULAR 16
+backup_20240913_161146.sql
+
+#CASO PARA ANULAR 17
+backup_20240913_161427.sql
+
+#CASO EN EJECUCION:500.1302.55.4.24
+backup_20240913_161743.sql
+
+
+#CASO NO CAMBIA DE ESTADO
+backup_20240913_162401.sql:500.1302.55.4.24
+
+# NO ACTUALIZA AL CREAR ADICIONALES EN INICIOS ACTIVIDADES
+backup_20240913_174729.sql:500.1302.56.2.24 , GDC-GAD auditoria continuo 4
+
+edicion		1 x
+verificado	3 x
+aprobado	8 x
+aprob sup	16x
+ver adm conaud	17x
+
+
 NO APARECE EN LOCAL
 520.1302.237.1.24
 
 NUEVO
 500.1302.54.5.24
 backup_20240912_204325.sql
+
+
+
 
