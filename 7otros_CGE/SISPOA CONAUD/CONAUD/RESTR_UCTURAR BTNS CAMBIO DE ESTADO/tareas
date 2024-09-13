@@ -1,0 +1,37 @@
+## BASE YA CONSOLIDADA ##
+backup_20240912_104148.sql
+
+# Efectuar los cambios en "Inicio Actividad Formularios" del CONAUD
+src/components/sispoa-actividades-formularios/component/sispoa-actividades.table.jsx
+console.log('ROWDATA', rowData);
+    console.log('===================================================================================================');
+    
+
+## vericar el flag_formulado
+
+## no debe haber mucho codigo
+
+## borrar console.log('rowData.flagInformes::::', rowData.flagInformes);
+
+EstadoType
+
+Gerencia Departamental de Auditoría en Gobiernos Departamentales - GDC-GAD
+
+GDC-GAD
+
+	3403668	ANA MARIA BRIGGITTE DEL CARMEN ARRAZOLA DURAN	FORMULADOR 		EDICION
+	2389409	OLGA EDITH SUAREZ JIMENEZ			SUPERVISOR 		EDICION
+	4385501	JULIO CARLOS GUERRA VILLARROEL			APROBADOR 		EDICION
+	1397469	RUTH TARCAYA GALLARDO				FORMULADOR GERENTE 	EDICION
+	1397469	RUTH TARCAYA GALLARDO				FORMULADOR 		EDICION 
+	
+el primero de la lista en SISPOA:
+500.1302.54.4.24
+
+NO APARECE EN LOCAL
+520.1302.237.1.24
+
+NUEVO
+500.1302.54.5.24
+backup_20240912_204325.sql
+

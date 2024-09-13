@@ -1,0 +1,37 @@
+# CONFIG 2023
+# PORT=3002
+# HOST=http://localhost
+# NEXT_PUBLIC_ENVIROMENT='DESARROLLO'
+# SISCGE_CODIGO=37
+# SISCGE_SIGLA='conaud'
+
+# #===== BACKEND-CONFIG
+# AUTH_URL=http://172.16.80.32:4002/api/v1/
+
+# #===== BACKEND-CONFIG   CON MI "IP de mi Maquina"
+# BACKEND_URL=http://172.16.22.230:7001
+# #======IDLE TIME (minutes) IDLE MODAL (seconds) =========
+# IDLE_TIME=30
+# IDLE_MODAL=20
+# CONFIG 2024
+PORT=3002
+HOST=http://localhost
+NEXT_PUBLIC_ENVIROMENT='DESARROLLO'
+SISCGE_CODIGO=37
+SISCGE_SIGLA='conaud'
+
+#===== BACKEND-CONFIG
+AUTH_URL=http://172.16.80.82:4003/api/v1/
+
+#===== BACKEND-CONFIG
+# BACKEND_URL=http://172.16.0.0:7001
+
+# #===== BACKEND-CONFIG
+# AUTH_URL=http://172.16.80.32:4002/api/v1/
+
+# #===== BACKEND-CONFIG   CON MI "IP de mi Maquina"
+BACKEND_URL=http://172.16.22.243:7002
+
+#======IDLE TIME (minutes) IDLE MODAL (seconds) =========
+IDLE_TIME=30
+IDLE_MODAL=20
