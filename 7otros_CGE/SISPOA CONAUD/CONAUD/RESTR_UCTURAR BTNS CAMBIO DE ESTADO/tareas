@@ -39,6 +39,11 @@ backup_20240913_105852.sql
 # INICIADO CONAUD SOLO AUDITORIAS
 backup_20240913_111639.sql
 
+# EN EJECUCION LOS 3 PRIMEROS****
+backup_20240915_152708.sql
+
+
+
 - PARA ENVIAR A VERIFICAR FORMULADOR GERENTE 
 
 #ANTES DE RETIRAR VERIFICAR GI
@@ -78,5 +83,38 @@ NUEVO
 backup_20240912_204325.sql
 
 
+
+
+
+
+
+
+    if (verificador == 1) {
+      // VERIFICADOR
+      //INICIO ACTIVIDAD POA
+      // if (origenIAPoa == 17) {
+      //   elemts.push(
+      //     <div key={`accionCambioEstado`}>
+      //       <Button
+      //         className='p-button-rounded border-none p-button-secondary'
+      //         severity='success'
+      //         icon='pi pi-check'
+      //         tooltip='APROBAR'
+      //         onClick={() => showFormCambioEstadoDialog('VERIFICACION POR ROL VERIFICADOR', iapCodigo, 18, 1)}
+      //         outlined
+      //       />{' '}
+      //       {/* (de 17 => 18) */}
+      //       <Button
+      //         className='p-button-rounded border-none p-button-secondary'
+      //         severity='warning'
+      //         icon='pi pi-eye'
+      //         tooltip='OBSERVAR APROBACION'
+      //         onClick={() => showFormCambioEstadoDialog('OBSERVACION POR INST VERIFICADOR', iapCodigo, 4, 1)}
+      //         outlined
+      //       />{' '}
+      //       {/* (de 17 => 4)  */}
+      //     </div>
+      //   );
+      // }
 
 
