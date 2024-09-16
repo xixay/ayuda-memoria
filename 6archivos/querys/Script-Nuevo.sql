@@ -102,6 +102,8 @@ WHERE 	TRUE
 ORDER BY iap.iap_codigo DESC
 ;
 
-
+--
+SELECT 	*
+FROM	parametricas.especificacion_tipos_trabajo ett 
 
 
