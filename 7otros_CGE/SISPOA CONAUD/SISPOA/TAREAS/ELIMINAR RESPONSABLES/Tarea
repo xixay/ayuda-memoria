@@ -1,0 +1,25 @@
+
+ 
+
+'area-unidad-responsables/7727/591'
+
+BASE:
+backup_20240917_171138.sql
+
+http://172.16.22.243:7091/area-unidad-responsables/personas_responsables?aur_estado=(1,2)&poa_codigo=(3)&aun_codigo_ejecutora=(53)&rol_codigo=(1,2,3,4,6,7,8)
+
+
+SOLO UNO
+-SCAT-GAPIP
+per_codigo=234
+486424	LUIS FERNANDO SAAVEDRA MORATO    
+
+d14c3e (un poco más oscuro)
+#b94337 (más oscuro)
+#a03a30 (todavía más oscuro)
+#88322a (mucho más oscuro)
+#702923 (muy oscuro)
+
+
+
+486424

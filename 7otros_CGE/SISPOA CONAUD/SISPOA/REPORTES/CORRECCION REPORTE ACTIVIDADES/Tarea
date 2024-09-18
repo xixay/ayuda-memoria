@@ -1,229 +1,88 @@
-## BASE YA CONSOLIDADA ##
-backup_20240913_085557.sql
-
-# Efectuar los cambios en "Inicio Actividad Formularios" del CONAUD
-src/components/sispoa-actividades-formularios/component/sispoa-actividades.table.jsx
-console.log('ROWDATA', rowData);
-    console.log('===================================================================================================');
-    
-
-## vericar el flag_formulado
-
-## no debe haber mucho codigo
-
-## borrar console.log('rowData.flagInformes::::', rowData.flagInformes);
-
-EstadoType
-
-Gerencia Departamental de Auditoría en Gobiernos Departamentales - GDC-GAD
-
-GDC-GAD
-
-	3403668	ANA MARIA BRIGGITTE DEL CARMEN ARRAZOLA DURAN	FORMULADOR 		EDICION
-	2389409	OLGA EDITH SUAREZ JIMENEZ			SUPERVISOR 		EDICION
-	4385501	JULIO CARLOS GUERRA VILLARROEL			APROBADOR 		EDICION
-	1397469	RUTH TARCAYA GALLARDO				FORMULADOR GERENTE 	EDICION
-	1397469	RUTH TARCAYA GALLARDO				FORMULADOR 		EDICION 
-	
-el primero de la lista en SISPOA:
-500.1302.54.4.24
-
-#### ACTIVIDADES EN EDICION
-backup_20240913_105549.sql
-
-## ACT CONSOLIDADAS
-backup_20240913_105852.sql
-
-- PARA INICIAR ACTIVIDAD SE USA EL FORMULADOR GERENTE
-
-# INICIADO CONAUD SOLO AUDITORIAS
-backup_20240913_111639.sql
-
-# EN EJECUCION LOS 3 PRIMEROS****
-backup_20240915_152708.sql
-
-
-
-- PARA ENVIAR A VERIFICAR FORMULADOR GERENTE 
-
-#ANTES DE RETIRAR VERIFICAR GI
-backup_20240913_123515.sql
-
-#CASO PARA ANULAR
-backup_20240913_155356.sql
-
-#CASO PARA ANULAR 16
-backup_20240913_161146.sql
-
-#CASO PARA ANULAR 17
-backup_20240913_161427.sql
-
-#CASO EN EJECUCION:500.1302.55.4.24
-backup_20240913_161743.sql
-
-
-#CASO NO CAMBIA DE ESTADO
-backup_20240913_162401.sql:500.1302.55.4.24
-
-# NO ACTUALIZA AL CREAR ADICIONALES EN INICIOS ACTIVIDADES
-backup_20240913_174729.sql:500.1302.56.2.24 , GDC-GAD auditoria continuo 4
-
-edicion		1 x
-verificado	3 x
-aprobado	8 x
-aprob sup	16x
-ver adm conaud	17x
-
-
-NO APARECE EN LOCAL
-520.1302.237.1.24
-
-NUEVO
-500.1302.54.5.24
-backup_20240912_204325.sql
-
-
-
-
-
-
-
-
-    if (verificador == 1) {
-      // VERIFICADOR
-      //INICIO ACTIVIDAD POA
-      // if (origenIAPoa == 17) {
-      //   elemts.push(
-      //     <div key={`accionCambioEstado`}>
-      //       <Button
-      //         className='p-button-rounded border-none p-button-secondary'
-      //         severity='success'
-      //         icon='pi pi-check'
-      //         tooltip='APROBAR'
-      //         onClick={() => showFormCambioEstadoDialog('VERIFICACION POR ROL VERIFICADOR', iapCodigo, 18, 1)}
-      //         outlined
-      //       />{' '}
-      //       {/* (de 17 => 18) */}
-      //       <Button
-      //         className='p-button-rounded border-none p-button-secondary'
-      //         severity='warning'
-      //         icon='pi pi-eye'
-      //         tooltip='OBSERVAR APROBACION'
-      //         onClick={() => showFormCambioEstadoDialog('OBSERVACION POR INST VERIFICADOR', iapCodigo, 4, 1)}
-      //         outlined
-      //       />{' '}
-      //       {/* (de 17 => 4)  */}
-      //     </div>
-      //   );
-      // }
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-GDO-GAD
- 	2748422	DAYSI NORKA REQUENA RODAS	FORMULADOR 		EDICION
-	2389409	OLGA EDITH SUAREZ JIMENEZ	SUPERVISOR 		EDICION
-		SIN IDENTIFICAR			APROBADOR 		EDICION
-	2748422	DAYSI NORKA REQUENA RODAS	FORMULADOR GERENTE 	EDICION
-
-
-2 INFORMES UAIs INICIADAS
-backup_20240916_110142.sql
+######### DC #################
 {
-"--#########################################################################################################\n--INICIO EVALUACION INFORME\nSELECT \t*\n--\t\tiei.iei_codigo , iei.iei_estado, iei.iua_codigo,\n--\t\tiu.iua_estado, iu.act_codigo \nFROM \tejecucion_informes.inicio_evaluacion_informe iei\n\t\tLEFT JOIN ejecucion_informes.informes_uai iu ON iei.iua_codigo = iu.iua_codigo \nWHERE \tTRUE \n--\t\tAND iu.iua_codigo IN (47)\nORDER BY iei.iei_codigo DESC\n": [
-	{
-		"iei_codigo" : 776,
-		"iei_oficina_central" : 0,
-		"iei_descripcion" : "GDC-GAD evaluacion nuevo 1",
-		"iei_observaciones" : "GDC-GAD evaluacion nuevo 1",
-		"per_codigo_gerente" : 1016,
-		"per_codigo_responsable" : 216,
-		"iua_codigo" : 846,
-		"tia_codigo" : 5,
-		"ges_codigo" : 2,
-		"iei_estado" : 1,
-		"usuario_registro" : 216,
-		"usuario_modificacion" : 0,
-		"usuario_baja" : 0,
-		"fecha_registro" : "2024-09-16T14:56:26.232Z",
-		"fecha_modificacion" : "1900-01-01T04:32:36.000Z",
-		"fecha_baja" : "1900-01-01T04:32:36.000Z",
-		"iei_objeto" : "GDC-GAD evaluacion nuevo 1",
-		"iei_objetivo" : "GDC-GAD evaluacion nuevo 1",
-		"iei_alcance" : "GDC-GAD evaluacion nuevo 1",
-		"iua_codigo" : 846,
-		"iua_correlativo" : 0,
-		"iua_codigo_control" : "UAIEC\/-",
-		"iua_cite" : "GDC-GAD evaluacion nuevo 1",
-		"iua_referencia" : "GDC-GAD evaluacion nuevo 1",
-		"iua_hoja_ruta" : "GDC-GAD evaluacion nuevo 1",
-		"iua_fecha" : "2024-09-16",
-		"iua_fecha_inicio_evaluacion" : "2024-09-16",
-		"iua_fecha_fin_evaluacion" : "2024-09-16",
-		"ent_codigo" : 896,
-		"act_codigo" : 4744,
-		"ttr_codigo" : 32,
-		"ges_codigo" : 2,
-		"iua_estado" : 1,
-		"usuario_registro" : 216,
-		"usuario_modificacion" : 0,
-		"usuario_baja" : 0,
-		"fecha_registro" : "2024-09-16T14:54:09.287Z",
-		"fecha_modificacion" : "2024-09-16T14:56:26.533Z",
-		"fecha_baja" : "1900-01-01T04:32:36.000Z",
-		"emp_codigo" : null
-	},
-	{
-		"iei_codigo" : 775,
-		"iei_oficina_central" : 0,
-		"iei_descripcion" : "GDC-GAD evaluacion nuevo 1",
-		"iei_observaciones" : "GDC-GAD evaluacion nuevo 1",
-		"per_codigo_gerente" : 1016,
-		"per_codigo_responsable" : 216,
-		"iua_codigo" : 847,
-		"tia_codigo" : 5,
-		"ges_codigo" : 2,
-		"iei_estado" : 1,
-		"usuario_registro" : 216,
-		"usuario_modificacion" : 0,
-		"usuario_baja" : 0,
-		"fecha_registro" : "2024-09-16T14:55:42.940Z",
-		"fecha_modificacion" : "1900-01-01T04:32:36.000Z",
-		"fecha_baja" : "1900-01-01T04:32:36.000Z",
-		"iei_objeto" : "GDC-GAD evaluacion nuevo 1",
-		"iei_objetivo" : "GDC-GAD evaluacion nuevo 1",
-		"iei_alcance" : "GDC-GAD evaluacion nuevo 1",
-		"iua_codigo" : 847,
-		"iua_correlativo" : 0,
-		"iua_codigo_control" : "UAIEC\/-",
-		"iua_cite" : "GDC-GAD evaluacion nuevo 1",
-		"iua_referencia" : "GDC-GAD evaluacion nuevo 1",
-		"iua_hoja_ruta" : "GDC-GAD evaluacion nuevo 1",
-		"iua_fecha" : "2024-09-16",
-		"iua_fecha_inicio_evaluacion" : "2024-09-16",
-		"iua_fecha_fin_evaluacion" : "2024-09-16",
-		"ent_codigo" : 614,
-		"act_codigo" : 4744,
-		"ttr_codigo" : 32,
-		"ges_codigo" : 2,
-		"iua_estado" : 1,
-		"usuario_registro" : 216,
-		"usuario_modificacion" : 0,
-		"usuario_baja" : 0,
-		"fecha_registro" : "2024-09-16T14:54:53.665Z",
-		"fecha_modificacion" : "2024-09-16T14:55:43.381Z",
-		"fecha_baja" : "1900-01-01T04:32:36.000Z",
-		"emp_codigo" : null
-	}
-]}
+	"s_aun_codigo": "(1)",
+	"s_pobj_codigo": "(1365,1366,1603,1604,1608,1654)"
+	"s_cac_codigo": "(1,3)"
+}
 
-########### ADMINISTRATIVAS #################
-GNAF
- 	3492371	DEMETRIA LUCY CHACOLLA VARGAS	RESPONSABLE 	EDICION
-	4421594	JOSE ALEJANDRO SALVADOR ACHA	FORMULADOR GERENTE 	EDICION
-	4823710	ROSA PAOLA LEONOR BURGOA BELTRAN	SUPERVISOR 	EDICION
-	4823710	ROSA PAOLA LEONOR BURGOA BELTRAN	APROBADOR 	EDICION
-	4421594	JOSE ALEJANDRO SALVADOR ACHA	FORMULADOR 	EDICION
-	4421594	JOSE ALEJANDRO SALVADOR ACHA	OFICIAL ADMINISTRATIVO 	EDICION 
-4421594
+{
+	"s_aun_codigo": "(1)",
+	"s_pobj_codigo": "(1365,1366)"
+	"s_cac_codigo": "(2)"
+}
 
-backup_20240916_175801.sql
+
+DC ROLES
+		SIN IDENTIFICAR	FORMULADOR 	EDICION
+	3457029	RAFAEL MARTIN PORCEL DE LA BARRA	SUPERVISOR 	EDICION
+	2468864	NORA HERMINIA MAMANI CABRERA	FORMULADOR 	EDICION
+	2468864	NORA HERMINIA MAMANI CABRERA	FORMULADOR GERENTE 	EDICION
+	2468864	NORA HERMINIA MAMANI CABRERA	SUPERVISOR 	EDICION
+	2468864	NORA HERMINIA MAMANI CABRERA	APROBADOR 	EDICION
+	2573781	ERIKA CAROLINA CARDENAS SALAS	FORMULADOR 	EDICION
+	4755293	NORKA VALERIA CHAVEZ LIMACHI	FORMULADOR 	EDICION 
+
+Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwZXJfY29kaWdvIjoxOTE0LCJzaXN0ZW1hcyI6W3sic2lzY2dlX2NvZGlnbyI6MjUsInNpc2NnZV9zaWdsYSI6InVhaSJ9LHsic2lzY2dlX2NvZGlnbyI6MjksInNpc2NnZV9zaWdsYSI6InBvYWkifSx7InNpc2NnZV9jb2RpZ28iOjMyLCJzaXNjZ2Vfc2lnbGEiOiJjb3JyZXNwb25kZW5jaWFfaW50ZXJuYSJ9LHsic2lzY2dlX2NvZGlnbyI6MzQsInNpc2NnZV9zaWdsYSI6InNpc3BvYSJ9LHsic2lzY2dlX2NvZGlnbyI6MzUsInNpc2NnZV9zaWdsYSI6ImZpX2NvbmF1ZCJ9LHsic2lzY2dlX2NvZGlnbyI6MzcsInNpc2NnZV9zaWdsYSI6ImNvbmF1ZCJ9XSwicm9sZXMiOlt7InNpc2NnZV9jb2RpZ28iOjI1LCJyb2xfY29kaWdvIjoxNTAsInJvbF9kZXNjcmlwY2lvbiI6IlJFVklTT1IgVUFJIn0seyJzaXNjZ2VfY29kaWdvIjoyOSwicm9sX2NvZGlnbyI6MTU4LCJyb2xfZGVzY3JpcGNpb24iOiJST0wgU1VQRVJWSVNJT04ifSx7InNpc2NnZV9jb2RpZ28iOjI5LCJyb2xfY29kaWdvIjoxNTcsInJvbF9kZXNjcmlwY2lvbiI6IlJPTCBSRUdJU1RSTyBSRUNVUlNPUyBIVU1BTk9TIn0seyJzaXNjZ2VfY29kaWdvIjoyOSwicm9sX2NvZGlnbyI6MTU2LCJyb2xfZGVzY3JpcGNpb24iOiJBRE1JTklTVFJBRE9SIFBPQUkifSx7InNpc2NnZV9jb2RpZ28iOjI5LCJyb2xfY29kaWdvIjoxNzMsInJvbF9kZXNjcmlwY2lvbiI6IlJPTCBQTEFOSUZJQ0FDScOTTiJ9LHsic2lzY2dlX2NvZGlnbyI6MzUsInJvbF9jb2RpZ28iOjE5Miwicm9sX2Rlc2NyaXBjaW9uIjoiVkFMSURBRE9SIn0seyJzaXNjZ2VfY29kaWdvIjozNCwicm9sX2NvZGlnbyI6MTk2LCJyb2xfZGVzY3JpcGNpb24iOiJHZXN0acOzbiBJbnN0aXR1Y2lvbmFsIn0seyJzaXNjZ2VfY29kaWdvIjozNCwicm9sX2NvZGlnbyI6MTkwLCJyb2xfZGVzY3JpcGNpb24iOiJPcGVyYWRvciBGb3JtdWxhcmlvIn0seyJzaXNjZ2VfY29kaWdvIjozNywicm9sX2NvZGlnbyI6MjAyLCJyb2xfZGVzY3JpcGNpb24iOiJBZG1pbmlzdHJhZG9yIENPTkFVRCJ9LHsic2lzY2dlX2NvZGlnbyI6MzcsInJvbF9jb2RpZ28iOjIwOCwicm9sX2Rlc2NyaXBjaW9uIjoiT3BlcmFkb3IgRm9ybXVsYXJpbyJ9LHsic2lzY2dlX2NvZGlnbyI6MzIsInJvbF9jb2RpZ28iOjE3NSwicm9sX2Rlc2NyaXBjaW9uIjoiRlVOQ0lPTkFSSU8ifSx7InNpc2NnZV9jb2RpZ28iOjM3LCJyb2xfY29kaWdvIjoyMTksInJvbF9kZXNjcmlwY2lvbiI6IkFwb3lvIn0seyJzaXNjZ2VfY29kaWdvIjozNywicm9sX2NvZGlnbyI6MjA5LCJyb2xfZGVzY3JpcGNpb24iOiJHZXN0acOzbiBJbnN0aXR1Y2lvbmFsIn0seyJzaXNjZ2VfY29kaWdvIjozNCwicm9sX2NvZGlnbyI6MTk4LCJyb2xfZGVzY3JpcGNpb24iOiJWZXJpZmljYWRvciBGb3JtdWxhcmlvIn0seyJzaXNjZ2VfY29kaWdvIjozNCwicm9sX2NvZGlnbyI6MTk3LCJyb2xfZGVzY3JpcGNpb24iOiJHZXN0acOzbiBJbnN0aXR1Y2lvbmFsIEFwcm9iYWRvciJ9LHsic2lzY2dlX2NvZGlnbyI6MzcsInJvbF9jb2RpZ28iOjIxMSwicm9sX2Rlc2NyaXBjaW9uIjoiVmVyaWZpY2Fkb3IgRm9ybXVsYXJpbyJ9XSwiaWQiOiI1NGUxMzBhNy1mMWFkLTQ2M2UtYTkxNS1lNTY1MWRlMjZjYWUiLCJ0aXBvIjoidXN1YXJpbyIsImlhdCI6MTcyNjU3NjQ5OCwiZXhwIjoxNzI2NjA1Mjk4LCJtb21lbnQiOiIyMDI0LTA5LTE3VDA4OjM0OjU4LTA0OjAwIn0.rSp0UfkkQCSygLpI405sGJ77LI7oLu3RU2R0KoMT273FfHeKnt3p3myvxLoRPSOtyXr3DPeK9K7RoDOYcMo1Ng
+
+backup_20240916_184400.sql
+
+
+cac_codigo	pobj_codigo
+1		1604
+1		1608
+1		1365
+1		1366
+1		1603
+1		1654
+
+2		1365
+2		1366
+
+
+po.pobj_codigo, pr.pro_numero, po.pobj_numero, po.pobj_nombre, au.aun_numero, au2.aun_numero
+
+
+
+
+
+        SELECT
+              po.pobj_codigo, po.pobj_estado, pr.pro_numero, au.aun_numero, po.pobj_numero,
+              (CASE WHEN po.aun_codigo_padre IS NOT NULL
+              THEN CONCAT(pr.pro_numero, '.', au2.aun_numero, '.', po.pobj_numero)
+              ELSE CONCAT(pr.pro_numero, '.', au.aun_numero, '.', po.pobj_numero)  END) AS pobj_codigo_sigla,
+              po.pobj_nombre, po.pro_codigo
+        FROM	estructura_poa.poas_objetivos po
+              LEFT JOIN pei.programas pr ON po.pro_codigo = pr.pro_codigo
+              LEFT JOIN estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo AND oau.oau_estado NOT IN (0)
+              LEFT JOIN estructura_organizacional.areas_unidades au ON oau.aun_codigo_ejecutora = au.aun_codigo
+              LEFT JOIN estructura_organizacional.areas_unidades au2 ON po.aun_codigo_padre = au2.aun_codigo
+        WHERE	TRUE
+              ${query.poa_codigo ? `AND po.poa_codigo IN ${query.poa_codigo}` : ''} -- POA-SELECCIONADO
+              ${query.pobj_estado ? `AND po.pobj_estado IN ${query.pobj_estado}` : ''} -- ESTADOS
+              ${query.pobj_estado ? `AND oau.oau_estado IN ${query.pobj_estado}` : ''} -- ESTADOS
+              ${query.aun_codigo ? `AND oau.aun_codigo_ejecutora IN ${query.aun_codigo}` : ''} -- UNIDAD-EJECUTORA
+        GROUP BY po.pobj_codigo, pr.pro_numero, po.pobj_numero, po.pobj_nombre, au.aun_numero, au2.aun_numero
+
+    
+(34)
+(1,3)       
+(961,965,975,985,1024,1032,1096,1108,1118,1123,1137,1174,1428,1552)
+        
+        
+  
+################################################
+REPORTE AREA UNIDAD/ACCIONES ESTRATEGICAS/ACTIVIDAD
+
+Reporte: SE MODIFICO
+---------------------
+RptXlsAccionesAct.jasper.jrxml
+
+Sub Reportes: NO SE MODIFICO NADA
+---------------------
+
+Inputs: SE AGREGO
+------
+s_cac_codigo: /Data_Source/Input_Control/sispoa/s_cac_codigo (NUEVO)
+
+Logotipo Institucional: NO SE MODIFICO
+################################################

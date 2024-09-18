@@ -344,3 +344,18 @@
     {
       "poa_codigo": 2
     }
+### FORMULARIOS OBJETIVOS
+###  ------------------- OBTENER - FORMULARIOS OBJETIVOS
+  GET {{Host}}/poas-objetivos/formularios?poa_codigo=(3)&cac_codigo=(1,3)
+  Content-Type: application/json
+  Authorization: {{AuthTokenInterno}}
+### DEPENDIENTES
+###  ------------------- OBTENER - UNIDADES DEPENDIENTES CON SU ESTADO GLOBAL
+  GET {{Host}}/objetivos-area-unidad/dependientes?poa_codigo=(3)&cac_codigo=(1,3)&aun_codigo_ejecutora=1
+  Content-Type: application/json
+  Authorization: {{AuthTokenInterno}}
+### GLOBAL STATUS
+###  ------------------- OBTENER - GLOBAL STATUS, CANT ACT, CANT VIAT
+  GET {{Host}}/poas-objetivos/estado-global-refactor?poa_codigo=(3)&cac_codigo=(1,3)&aun_codigo_ejecutora=(1)&pobj_codigo=(1365)&pobj_estado=(2,8)
+  Content-Type: application/json
+  Authorization: {{AuthTokenInterno}}
