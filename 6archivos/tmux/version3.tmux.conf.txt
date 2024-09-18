@@ -25,14 +25,11 @@ run '~/.tmux/plugins/tpm/tpm'
 set -g @plugin 'tmux-plugins/tmux-yank'
 set -g @override_copy_command 'xclip -selection clipboard'
 
-# Seleccionar paneles con el mouse
+# Seleccionar y redimensionar paneles con el mouse
 set -g mouse on
 
-# Redimensionar paneles con el mouse
-set -g mouse-resize-pane on
-
-# Agregar desplazamiento con el mouse en modo de copia
-set -g @plugin 'noscript/tmux-mighty-scroll'
+# Elimina temporalmente el plugin de desplazamiento
+# set -g @plugin 'noscript/tmux-mighty-scroll'
 
 # ========== Busqueda, Modos de Teclas, y Resaltado ==========
 
@@ -42,17 +39,14 @@ set -g @plugin 'tmux-plugins/tmux-copycat'
 # Agregar modo de copia de Tmux con teclas vi
 setw -g mode-keys vi
 
+# Activar modo de selección vi
+set-option -g status-keys vi
+
 # Resaltar el prefijo al estar activo
 set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
 
 # Resaltado de prefijo personalizado
 set -g @prefix_highlight_fg 'yellow'
-
-# Buscar texto con barra espaciadora y tecla Enter para copiar
-setw -g mode-keys vi
-
-# Activar modo de selección vi
-set-option -g status-keys vi
 
 # ========== Navegación entre Paneles y Ventanas ==========
 
@@ -101,4 +95,9 @@ set -g bell-action none
 
 # Tema personalizado
 set -g @plugin 'erikw/tmux-powerline'
+
+# ========== Mejoras para Desplazamiento y Terminal ==========
+
+# Añade la siguiente línea para mejorar el soporte de desplazamiento
+set -g terminal-overrides 'xterm*:smcup@:rmcup@'
 
