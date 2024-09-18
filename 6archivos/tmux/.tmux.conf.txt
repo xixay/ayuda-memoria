@@ -1,0 +1,38 @@
+# Esto ayuda a que se recupere
+run-shell /home/xixay/tmux-resurrect/resurrect.tmux
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+# -----------------
+set -g @plugin 'tmux-plugins/tmux-continuum'
+# Este es el instalador ctrl+B | I
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+# Seleccionar manteniendo apretado la barra espaciadora, para copiar apretar la tecla enter, para pegar apretar ctrl+B | ], para llevarlo al porta papeles del sistema "tmux show-buffer | xclip -selection clipboard" y pegar con ctfl + v
+set -g @plugin 'tmux-plugins/tmux-yank'
+# selecciona paneles con el mouse
+set -g mouse on
+# redimensiona paneles con el mouse
+set -g mouse-resize-pane on
+set -ga terminal-overrides
+# Ayuda a buscar el palabras ctrl+B | /
+set -g @plugin 'tmux-plugins/tmux-copycat'
+set -g @override_copy_command 'my-clipboard-copy --some-arg'
+# Agregar modo de copia de Tmux
+set -g mode-keys vi
+# Ayuda a desplazarse con el mouse
+set -g @plugin 'noscript/tmux-mighty-scroll'
+set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
+# Es el tema personalizado
+set -g @plugin 'erikw/tmux-powerline'
+# Movimientos de Vi para moverse entre paneles
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+# Ayuda hacer zoom con la rueda del mouse
+set -g @plugin 'jaclu/tmux-power-zoom'
+# Menús emergentes de Tmux, usar (ctrl + B | \), desplazarse con las flechas, enter para seleccionar
+set -g @plugin 'jaclu/tmux-menus'
+# ayuda a correr el instalador de complementos
+run '~/.tmux/plugins/tpm/tpm'
+
+

@@ -1,0 +1,104 @@
+# ========== Resurrección y Continuidad de Sesiones ==========
+
+# Esto ayuda a que se recuperen las sesiones
+run-shell /home/xixay/tmux-resurrect/resurrect.tmux
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+
+# Plugin para la continuidad de sesiones
+set -g @plugin 'tmux-plugins/tmux-continuum'
+
+# Recuperación automática de sesiones al iniciar tmux
+set -g @continuum-restore 'on'
+
+# ========== Instalador de Plugins ==========
+
+# Este es el instalador ctrl+B | I para instalar plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
+# Correr el instalador de complementos
+run '~/.tmux/plugins/tpm/tpm'
+
+# ========== Copiado y Manipulación con el Mouse ==========
+
+# Copiar con el mouse y usar tmux-yank para enviar al portapapeles
+set -g @plugin 'tmux-plugins/tmux-yank'
+set -g @override_copy_command 'xclip -selection clipboard'
+
+# Seleccionar paneles con el mouse
+set -g mouse on
+
+# Redimensionar paneles con el mouse
+set -g mouse-resize-pane on
+
+# Agregar desplazamiento con el mouse en modo de copia
+set -g @plugin 'noscript/tmux-mighty-scroll'
+
+# ========== Busqueda, Modos de Teclas, y Resaltado ==========
+
+# Buscar palabras en el buffer
+set -g @plugin 'tmux-plugins/tmux-copycat'
+
+# Agregar modo de copia de Tmux con teclas vi
+setw -g mode-keys vi
+
+# Resaltar el prefijo al estar activo
+set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
+
+# Resaltado de prefijo personalizado
+set -g @prefix_highlight_fg 'yellow'
+
+# Buscar texto con barra espaciadora y tecla Enter para copiar
+setw -g mode-keys vi
+
+# Activar modo de selección vi
+set-option -g status-keys vi
+
+# ========== Navegación entre Paneles y Ventanas ==========
+
+# Movimientos de Vi para moverse entre paneles
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# Atajos rápidos para cambiar entre ventanas usando Alt + izquierda/derecha
+bind -n M-Left previous-window
+bind -n M-Right next-window
+
+# ========== Zoom y Menús Emergentes ==========
+
+# Zoom en el panel con la rueda del mouse
+set -g @plugin 'jaclu/tmux-power-zoom'
+
+# Menús emergentes de Tmux, usar (ctrl + B | \)
+set -g @plugin 'jaclu/tmux-menus'
+
+# ========== Otras Configuraciones Útiles ==========
+
+# Aumentar el límite de historial a 10,000 líneas
+set -g history-limit 10000
+
+# Evitar que tmux renombre automáticamente las ventanas
+set-option -g allow-rename off
+
+# Recargar la configuración sin reiniciar Tmux
+bind r source-file ~/.tmux.conf \; display "Configuración recargada!"
+
+# Centrarse automáticamente en el pane activo después de dividir ventanas
+set -g focus-events on
+
+# Mostrar el número de ventanas activas en la barra de estado
+set -g status-right "#[fg=green] #W #[fg=yellow]#I"
+
+# Mantener eventos de enfoque activo para actualizar los paneles
+setw -g focus-events on
+
+# Desactiva el sonido del timbre
+set -g bell-action none
+
+# ========== Plugins y Temas ==========
+
+# Tema personalizado
+set -g @plugin 'erikw/tmux-powerline'
+

@@ -1,0 +1,63 @@
+# Esto ayuda a que se recupere
+run-shell /home/xixay/tmux-resurrect/resurrect.tmux
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+
+# Plugin para la continuidad de sesiones
+set -g @plugin 'tmux-plugins/tmux-continuum'
+
+# Este es el instalador ctrl+B | I
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
+# Copiar con el mouse y tmux-yank para enviar al portapapeles
+set -g @plugin 'tmux-plugins/tmux-yank'
+set -g @override_copy_command 'xclip -selection clipboard'
+
+# Seleccionar paneles con el mouse
+set -g mouse on
+
+# Redimensionar paneles con el mouse
+set -g mouse-resize-pane on
+
+# Buscar palabras en el buffer
+set -g @plugin 'tmux-plugins/tmux-copycat'
+
+# Agregar modo de copia de Tmux con teclas vi
+set -g mode-keys vi
+
+# Usar el mouse para desplazarse
+set -g @plugin 'noscript/tmux-mighty-scroll'
+
+# Resaltar el prefijo al estar activo
+set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
+
+# Tema personalizado
+set -g @plugin 'erikw/tmux-powerline'
+
+# Movimientos de Vi para moverse entre paneles
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# Zoom en el panel con la rueda del mouse
+set -g @plugin 'jaclu/tmux-power-zoom'
+
+# Menús emergentes de Tmux, usar (ctrl + B | \)
+set -g @plugin 'jaclu/tmux-menus'
+
+# Correr el instalador de complementos
+run '~/.tmux/plugins/tpm/tpm'
+
+# Otras configuraciones básicas
+set -g history-limit 10000  # Aumenta el límite de historial
+
+# Agrega las siguientes líneas si no las tienes
+setw -g mode-keys vi       # Habilitar teclas vi en modo de copia
+setw -g mouse on           # Activar soporte de mouse para selección y paneo
+
+# Plugins necesarios
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-yank'
+
