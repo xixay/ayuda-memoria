@@ -81,6 +81,7 @@ WHERE 	TRUE
 		AND aur.aur_estado NOT IN (0,5)
 --		AND aur.per_codigo IN (234)--486424 LUIS FERNANDO SAAVEDRA MORATO   
 		AND aur.per_codigo IN (7)--2573781  ERIKA CAROLINA CARDENAS SALAS
+--		AND aur.per_codigo IN (2096)--2468864	NORA HERMINIA MAMANI CABRERA
 ;
 
 
@@ -170,66 +171,68 @@ ORDER BY au.aun_codigo ASC
 
 
 --#######################################################################
+WITH roles AS (
+    SELECT
+        t.per_codigo,
+        SUM(CASE WHEN t.rol_codigo IN (1, 7, 8) THEN 1 ELSE 0 END) AS roles_sispoa,
+        SUM(CASE WHEN t.rol_codigo IN (4, 5, 6) THEN 1 ELSE 0 END) AS roles_conaud,
+        SUM(CASE WHEN t.rol_codigo IN (2, 3) THEN 1 ELSE 0 END) AS roles_compartidos
+    FROM estructura_poa.area_unidad_responsables t
+    WHERE t.aur_estado NOT IN (0, 5)
+    GROUP BY t.per_codigo
+)
 SELECT
-  t.aur_codigo,
-  t.aur_notificacion,
-  t.poa_codigo,
-  po.poa_descripcion,
-  au.cau_codigo,
-  t.aun_codigo_ejecutora,
-  CONCAT_WS(' - ', au.aun_nombre, au.aun_sigla) AS aun_nombre,
-  t.aun_codigo_rol,
-  CONCAT_WS(' - ', au_rol.aun_nombre, au_rol.aun_sigla) AS aun_nombre_rol,
-  t.rol_codigo,
-  ro.rol_nombre,
-  t.per_codigo,
-  t.cro_codigo,
-  cr.cro_descripcion,
-  -- Bandera de eliminación de sispoa (1 = eliminar, 0 = no eliminar)
-  CASE
-    WHEN (SELECT COUNT(*)
-          FROM estructura_poa.area_unidad_responsables aur
-          WHERE aur.per_codigo = t.per_codigo
-            AND aur.aur_estado NOT IN (0, 5)
-            AND aur.rol_codigo IN (1, 7, 8)) = 1 THEN 1
-    ELSE 0
-  END AS flag_eliminar_sispoa,
-  -- Bandera de eliminación de conaud (1 = eliminar, 0 = no eliminar)
-  CASE
-    WHEN (SELECT COUNT(*)
-          FROM estructura_poa.area_unidad_responsables aur
-          WHERE aur.per_codigo = t.per_codigo
-            AND aur.aur_estado NOT IN (0, 5)
-            AND aur.rol_codigo IN (4, 5, 6)) = 1 THEN 1
-    ELSE 0
-  END AS flag_eliminar_conaud,
-  -- Bandera de eliminación en ambos sistemas (1 = eliminar, 0 = no eliminar)
-  CASE
-    WHEN (SELECT COUNT(*)
-          FROM estructura_poa.area_unidad_responsables aur
-          WHERE aur.per_codigo = t.per_codigo
-            AND aur.aur_estado NOT IN (0, 5)
-            AND aur.rol_codigo IN (2, 3)) = 1 THEN 1
-    ELSE 0
-  END AS flag_eliminar_ambos,
-  t.usuario_registro AS usuario,
-  t.aur_estado,
-  e.est_color,
-  e.est_nombre AS aur_estado_descripcion
-FROM  estructura_poa.area_unidad_responsables t
-      LEFT JOIN parametricas.estados e ON e.est_codigo = t.aur_estado
-      LEFT JOIN estructura_poa.poas po ON po.poa_codigo = t.poa_codigo
-      LEFT JOIN estructura_organizacional.areas_unidades au ON au.aun_codigo = t.aun_codigo_ejecutora
-      LEFT JOIN estructura_organizacional.areas_unidades au_rol ON au_rol.aun_codigo = t.aun_codigo_rol
-      LEFT JOIN parametricas.roles ro ON ro.rol_codigo = t.rol_codigo
-      LEFT JOIN parametricas.clasificacion_rol cr ON cr.cro_codigo = t.cro_codigo
-WHERE TRUE
-      AND t.aur_estado IN (1, 2)
-      AND t.poa_codigo IN (3)
-      AND t.aun_codigo_ejecutora IN (1)
-      AND t.rol_codigo IN (1, 2, 3, 4, 5, 6, 7, 8)
-      AND t.per_codigo IN (2096)
+    t.aur_codigo,
+    t.aur_notificacion,
+    t.poa_codigo,
+    po.poa_descripcion,
+    au.cau_codigo,
+    t.aun_codigo_ejecutora,
+    CONCAT_WS(' - ', au.aun_nombre, au.aun_sigla) AS aun_nombre,
+    t.aun_codigo_rol,
+    CONCAT_WS(' - ', au_rol.aun_nombre, au_rol.aun_sigla) AS aun_nombre_rol,
+    t.rol_codigo,
+    ro.rol_nombre,
+    t.per_codigo,
+    t.cro_codigo,
+    cr.cro_descripcion,
+    -- Bandera de eliminación de SISPOA
+    CASE
+        WHEN r.roles_sispoa = 1 AND r.roles_compartidos = 0 THEN 1
+        WHEN r.roles_sispoa = 1 AND r.roles_compartidos = 1 THEN 0
+        ELSE 0
+    END AS flag_eliminar_sispoa,
+    -- Bandera de eliminación de CONAUD
+    CASE
+        WHEN r.roles_conaud = 1 AND r.roles_compartidos = 0 THEN 1
+        WHEN r.roles_conaud = 1 AND r.roles_compartidos = 1 THEN 0
+        ELSE 0
+    END AS flag_eliminar_conaud,
+    -- Bandera de eliminación en ambos sistemas
+    CASE
+        WHEN r.roles_sispoa = 0 AND r.roles_conaud = 1 AND r.roles_compartidos = 1 THEN 1
+        WHEN r.roles_conaud = 1 AND r.roles_compartidos = 1 THEN 1
+        ELSE 0
+    END AS flag_eliminar_ambos,
+    t.usuario_registro AS usuario,
+    t.aur_estado,
+    e.est_color,
+    e.est_nombre AS aur_estado_descripcion
+FROM estructura_poa.area_unidad_responsables t
+LEFT JOIN parametricas.estados e ON e.est_codigo = t.aur_estado
+LEFT JOIN estructura_poa.poas po ON po.poa_codigo = t.poa_codigo
+LEFT JOIN estructura_organizacional.areas_unidades au ON au.aun_codigo = t.aun_codigo_ejecutora
+LEFT JOIN estructura_organizacional.areas_unidades au_rol ON au_rol.aun_codigo = t.aun_codigo_rol
+LEFT JOIN parametricas.roles ro ON ro.rol_codigo = t.rol_codigo
+LEFT JOIN parametricas.clasificacion_rol cr ON cr.cro_codigo = t.cro_codigo
+LEFT JOIN roles r ON r.per_codigo = t.per_codigo
+WHERE t.aur_estado IN (1, 2)
+  AND t.poa_codigo IN (3)
+  AND t.aun_codigo_ejecutora IN (1)
+  AND t.rol_codigo IN (1, 2, 3, 4, 5, 6, 7, 8)
 ORDER BY t.aur_codigo DESC, t.fecha_registro DESC;
+
+
 
 
 --#######################################################################
@@ -275,6 +278,7 @@ ORDER BY t.aur_codigo DESC, t.fecha_registro DESC;
               AND t.poa_codigo IN (3)
               AND t.aun_codigo_ejecutora IN (1)
               AND t.rol_codigo IN (1,2,3,4,6,7,8)
+              AND t.per_codigo IN (2096)
         ORDER BY t.aur_codigo DESC, t.fecha_registro DESC
         ;
 
