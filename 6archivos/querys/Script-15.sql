@@ -286,7 +286,7 @@ ORDER BY t.aur_codigo DESC, t.fecha_registro DESC;
 
 --&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
-
-
+SELECT 	*
+FROM 	ejecucion_informes.informes_uai;
 
 
