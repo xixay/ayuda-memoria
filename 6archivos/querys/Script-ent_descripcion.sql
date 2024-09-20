@@ -22,3 +22,6 @@ SELECT 	*
 FROM 	ejecucion_informes.informes_uai iu 
 ORDER BY iu.iua_codigo DESC
 ;
+
+SELECT 	*
+FROM 	

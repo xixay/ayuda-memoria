@@ -80,9 +80,15 @@ FROM 	estructura_poa.area_unidad_responsables aur
 WHERE 	TRUE
 		AND aur.aur_estado NOT IN (0,5)
 --		AND aur.per_codigo IN (234)--486424 LUIS FERNANDO SAAVEDRA MORATO   
-		AND aur.per_codigo IN (7)--2573781  ERIKA CAROLINA CARDENAS SALAS
+--		AND aur.per_codigo IN (7)--2573781  ERIKA CAROLINA CARDENAS SALAS
 --		AND aur.per_codigo IN (2096)--2468864	NORA HERMINIA MAMANI CABRERA
+		AND aur.per_codigo IN (784)
+		AND aur.
 ;
+
+SELECT 	*
+FROM 	estructura_organizacional.areas_unidades au 
+WHERE 	au.aun_sigla LIKE 'GPA2';
 
 
         SELECT
