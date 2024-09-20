@@ -90,9 +90,22 @@ s_pobj_codigo=(1365,1366,1603,1604,1608,1654)
 
 //CONAUD
 RptPdfActividadF1_A.jrxml	entidad_nombre
+/inicio-actividad-poa/summary-report?iap_codigo=$P{s_iap_codigo}
+findSummaryByIapCodeForReport
+
 RptPdfActividadF1.jrxml         entidad_nombre
+s_iap_codigo=(515)
+/inicio-actividad-poa/summary-report?iap_codigo=$P{s_iap_codigo}
+
+
 RptPdfActividadF2_A		entidad_nombre
-RptPdfActividadF2.jrxml         entidad_nombre
+
+/inicio-actividad-poa/summary-seguimiento-report?iap_codigo=$P{s_iap_codigo}
+
+RptPdfActividadF2		entidad_nombre
+/inicio-actividad-poa/summary-seguimiento-report?iap_codigo=$P{s_iap_codigo}
+
+
 SrptPdfActividadF1_A_Interno.jrxml			entidad_nombre
 SrptPdfActividadF1Interno.jrxml				entidad_nombre
 SrptPdfActividadF2_A_Interno.jrxml			entidad_nombre
@@ -102,7 +115,5 @@ SrptPdfActividadF2Interno.jrxml				entidad_nombre
 
 
 RptPdfActividadFormularioF14.jrxml	talves
-RptPdfReporteF11.jrxml			actividades_entidad talves
-RptPdfReporteF14.jrxml			actividades_entidad  talves
 
 

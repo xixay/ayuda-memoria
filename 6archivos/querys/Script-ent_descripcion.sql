@@ -13,7 +13,8 @@ ADD COLUMN ent_descripcion VARCHAR;
 COMMENT ON COLUMN ejecucion_informes.informes_uai.ent_descripcion IS 'Descripción de la entidad relacionada al informe UAI';
 
 SELECT 	*
-FROM 	estructura_poa.actividades a 
+FROM 	estructura_poa.actividades a
+WHERE 	a.act_codigo IN (2982)
 ORDER BY a.act_codigo DESC
 ;
 
