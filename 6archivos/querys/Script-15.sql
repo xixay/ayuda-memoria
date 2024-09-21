@@ -83,9 +83,11 @@ WHERE 	TRUE
 --		AND aur.per_codigo IN (7)--2573781  ERIKA CAROLINA CARDENAS SALAS
 --		AND aur.per_codigo IN (2096)--2468864	NORA HERMINIA MAMANI CABRERA
 		AND aur.per_codigo IN (784)
-		AND aur.
+		AND aur.aun_codigo_ejecutora IN (13)
 ;
 
+SELECT 	*
+FROM 	estructura_poa.area_unidad_responsables aur ;
 SELECT 	*
 FROM 	estructura_organizacional.areas_unidades au 
 WHERE 	au.aun_sigla LIKE 'GPA2';
@@ -295,4 +297,39 @@ ORDER BY t.aur_codigo DESC, t.fecha_registro DESC;
 SELECT 	*
 FROM 	ejecucion_informes.informes_uai;
 
+--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+SELECT
+		iap.fecha_registro,  iap.fecha_modificacion, iap.usuario_modificacion,
+		iac.iac_codigo, iac_estado, iac.iac_codigo_control ,
+		iap.iap_codigo, iap.iap_estado,
+		iaa.iaa_codigo, iaa.iaa_estado,
+		iapa.iapa_codigo, iapa.iapa_estado,
+		asi.asi_codigo, asi.asi_estado ,
+		aci.aci_codigo , aci.aci_estado
+FROM 	ejecucion_actividades.inicios_actividades iac
+		LEFT JOIN ejecucion_actividades.inicio_actividad_poa iap USING (iac_codigo)
+		left join estructura_poa.actividades a on iap.act_codigo = a.act_codigo
+		LEFT JOIN estructura_poa.poas_objetivos po ON a.pobj_codigo = po.pobj_codigo
+		LEFT JOIN ejecucion_actividades.inicios_actividades_adicional iaa USING (iac_codigo)
+		LEFT JOIN ejecucion_actividades.inicio_actividad_poa_asignaciones iapa USING (iap_codigo)
+		LEFT JOIN ejecucion_poa.asignaciones asi USING (asi_codigo)
+		LEFT JOIN ejecucion_poa.asignaciones_cargos_item aci USING (asi_codigo)
+WHERE 	TRUE
+--		AND po.poa_codigo in (3)
+		AND aci.aci_codigo IN (5146)
+;
+SELECT 	*
+FROM 	ejecucion_poa.asignaciones_cargos_item aci
+		LEFT JOIN ejecucion_poa.asignaciones a ON aci.asi_codigo = a.asi_codigo
+		LEFT JOIN ejecucion_informes.inicio_evaluacion_informe iei ON iei.iei_codigo = 
+WHERE 	aci.per_codigo IS NOT NULL
+		AND aci.per_codigo IN (784)
+		AND aci.aci_codigo IN (5146)
+;
+
+
+
+SELECT 	*
+FROM 	ejecucion_poa.asignaciones
+;
 

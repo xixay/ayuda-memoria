@@ -14,7 +14,8 @@ COMMENT ON COLUMN ejecucion_informes.informes_uai.ent_descripcion IS 'Descripci√
 
 SELECT 	*
 FROM 	estructura_poa.actividades a
-WHERE 	a.act_codigo IN (2982)
+WHERE 	TRUE 
+--		AND a.act_codigo IN (2982)
 ORDER BY a.act_codigo DESC
 ;
 
@@ -24,4 +25,23 @@ ORDER BY iu.iua_codigo DESC
 ;
 
 SELECT 	*
-FROM 	
+FROM 	ejecucion_actividades.inicios_actividades ia ;
+
+SELECT 	*
+FROM 	ejecucion_actividades.inicio_actividad_poa iap
+WHERE 	iap.act_codigo IN (4744)
+;
+
+
+
+SELECT 	*
+FROM 	ejecucion_informes.informes_uai iu
+WHERE 	iu.iua_codigo IN (855)
+ORDER BY iu.iua_codigo DESC
+;
+
+
+SELECT 	*
+FROM 	estructura_poa.area_unidad_responsables aur 
+WHERE 	aur.per_codigo IN (784)
+;
