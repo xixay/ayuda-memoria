@@ -16,9 +16,6 @@ set -g @override_copy_command 'xclip -selection clipboard'
 # Seleccionar paneles con el mouse
 set -g mouse on
 
-# Redimensionar paneles con el mouse
-set -g mouse-resize-pane on
-
 # Buscar palabras en el buffer
 set -g @plugin 'tmux-plugins/tmux-copycat'
 
@@ -50,7 +47,7 @@ set -g @plugin 'jaclu/tmux-menus'
 run '~/.tmux/plugins/tpm/tpm'
 
 # Otras configuraciones básicas
-set -g history-limit 10000  # Aumenta el límite de historial
+set -g history-limit 99999  # Aumenta el límite de historial
 
 # Agrega las siguientes líneas si no las tienes
 setw -g mode-keys vi       # Habilitar teclas vi en modo de copia
