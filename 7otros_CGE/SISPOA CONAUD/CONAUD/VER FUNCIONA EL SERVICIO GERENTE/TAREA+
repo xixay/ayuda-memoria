@@ -1,6 +1,8 @@
-http://172.16.75.100:3002/conaud/sispoa-actividades-formularios/41
+http://172.16.75.100:3002/conaud/inicios-actividades?ges_codigo=2&act_codigo=3213
 
-4755293
+SANTIAGO MAIDANA QUISPE
+2428708
+SUBCONTRALORÍA DE GOBIERNOS MUNICIPALES Y UNIVERSIDADES
 
 src/feature/sispoa-actividades/service/findAll-sispoa-actividades.service.ts
 
