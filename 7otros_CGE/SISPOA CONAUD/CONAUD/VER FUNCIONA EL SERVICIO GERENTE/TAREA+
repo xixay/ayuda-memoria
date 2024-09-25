@@ -16,4 +16,43 @@ GPA2-GAM2
 	2428708	SANTIAGO MAIDANA QUISPE		SUPERVISOR 		EDICION
 	2428708	SANTIAGO MAIDANA QUISPE		FORMULADOR GERENTE 	EDICION
 	4813387	MERY GOMEZ CONDORI		FORMULADOR 		EDICION
-	3386714	GUERY RAMIRO CUENTAS AGUIRRE	APROBADOR 		EDICION 
+	3386714	GUERY RAMIRO CUENTAS AGUIRRE	APROBADOR 		EDICION
+- ENTRA:
+ges_codigo:2
+act_codigo:2961
+usuario:42
+
+-ARRAY:de 1 solo obj:datos act, area ejec,roles,inicio_actividad_poa, array_inicio_actividad_poa(es obj)
+
+### addAsignacionesCargosItem ###
+-ingresa el ARRAY de un solo objeto
+-busca cargos item persona: per_codigo=42, cip_estado=(2,42) 
+	=> encuentra un arrayPer de un solo obj, que ese uno contiene el cit_codigo=398
+
+-recorre el ARRAY, pero solo recorre una ves:
+	-busca su inicio_actividad_poa_asignaciones para iap_codigo = 499 y en edicion:
+	=> encuentra un objeto asi_codigo=960
+	-busca asignaciones para asi_codigo=960 y asi_estado=2
+	=> encuentra un obj
+	- recorre el arrayPer
+		-busca en asignaciones_cargos_item para asi_codigo=960, cit_codigo=398, aci_estado=2 
+		=>obtiene un objeto, de donde solo necesita el aci_codigo=2802, si no lo encontrara sera "0"
+		-agrega el asi_codigo y el cit_codigo a el ARRAY, a los objetos, a su inicio_actividad_poa 				item.inicio_actividad_poa.asi_codigo
+				item.inicio_actividad_poa.aci_codigo
+-retorna el ARRAY	
+	
+### addFormulariosObjetivos ###
+-ingresa el ARRAY de un solo objeto
+-recorre el ARRAY, pero solo recorre una ves:
+	-busca con el unico objeto del ARRAY con el fob_codigo=null
+	=>Si lo encuentra agrega a el unico objeto del ARRAY , formularios_objetivos, pero como el fob_codigo es null no lo encuentra y le agrega ''
+-retorna el ARRAY
+
+
+
+
+
+
+
+	
+	
