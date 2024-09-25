@@ -594,3 +594,9 @@
   # GET {{Host}}/asignaciones-cargos-item HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
+### OBTENER ENTIDADES
+###  ------- OBTENER - ENTIDADES   el 254 es el codigo_entidad
+  GET http://172.16.80.82:7003/api/v1/control_entidad/1/254/-1/ HTTP/1.1
+  # GET http://172.16.80.82:7003/api/v1/?codigo_entidad=1 HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
