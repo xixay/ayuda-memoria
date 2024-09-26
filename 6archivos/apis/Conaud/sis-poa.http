@@ -294,8 +294,8 @@
   Content-Type: application/json
   Authorization: {{AuthTokenInterno}}
 ###  ------------------- OBTENER - CONAUD ANTIGUO
-  # GET http://172.16.75.94:7015/auditorias?auditoria_codigo=EOOP69J22
-  GET http://172.16.75.94:7015/auditorias?auditoria_codigo=EHEN26Y00
+  GET http://172.16.75.94:7015/auditorias?auditoria_codigo=A05653
+  # GET http://172.16.75.94:7015/auditorias?auditoria_codigo=EHEN26Y00
   Content-Type: application/json
   Authorization: {{AuthTokenInterno}}
 ###  ------------------- BUSQUEDA - ACTIVIDADES AUDITORIA
