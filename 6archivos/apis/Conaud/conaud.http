@@ -600,3 +600,9 @@
   # GET http://172.16.80.82:7003/api/v1/?codigo_entidad=1 HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
+
+###  ------------------- OBTENER - CONAUD ANTIGUO
+  # GET http://172.16.75.94:7015/auditorias
+  GET http://172.16.75.94:7015/auditorias?auditoria_codigo=EHEN26Y00
+  Content-Type: application/json
+  Authorization: {{AuthTokenInterno}}

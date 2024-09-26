@@ -359,3 +359,42 @@
   GET {{Host}}/poas-objetivos/estado-global-refactor?poa_codigo=(3)&cac_codigo=(1,3)&aun_codigo_ejecutora=(1)&pobj_codigo=(1365)&pobj_estado=(2,8)
   Content-Type: application/json
   Authorization: {{AuthTokenInterno}}
+###  ------------------- OBTENER - CONAUD ANTIGUO
+  # GET http://172.16.75.94:7015/auditorias?auditoria_codigo=EOOP69J22
+  GET http://172.16.75.94:7015/auditorias?auditoria_codigo=EHEN26Y00
+  Content-Type: application/json
+  Authorization: {{AuthTokenInterno}}
+### EMPRESAS
+###  ------------------- OBTENER - EMPRESAS
+    GET {{Host}}/empresas
+    Content-Type: application/json
+    Authorization: {{AuthTokenInterno}}
+###  ------------------- CREAR - EMPRESAS
+    POST {{Host}}/tipos-permisos
+    Content-Type: application/json
+    Authorization: {{AuthTokenInterno}}
+
+    {
+      "tpe_nombre": "Prueba 9",
+      "tpe_descripcion": "Descripcion prueba 9",
+      "cpe_codigo": 1
+    }
+###  ------------------- MODIFICAR - EMPRESAS
+    PUT {{Host}}/tipos-permisos
+    Content-Type: application/json
+    Authorization: {{AuthTokenInterno}}
+
+    {
+      "tpe_codigo": 4,
+      "tpe_nombre": "Prueba 4-1",
+      "tpe_descripcion": "Descripcion prueba 4",
+      "cpe_codigo": 10
+    }
+###  ------------------- ELIMINAR - EMPRESAS
+    DELETE {{Host}}/tipos-permisos/9
+    Content-Type: application/json
+    Authorization: {{AuthTokenInterno}}
+###  ------------------- ACTIVAR - EMPRESAS
+    PATCH {{Host}}/tipos-permisos/9
+    Content-Type: application/json
+    Authorization: {{AuthTokenInterno}}

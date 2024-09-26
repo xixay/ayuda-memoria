@@ -102,7 +102,9 @@ FROM 	ejecucion_actividades.inicios_actividades ia
 WHERE 	ia.iac_codigo IN (146)
 ;
 
-
+SELECT 	*
+FROM 	parametricas.empresas e
+;
 
 
 
