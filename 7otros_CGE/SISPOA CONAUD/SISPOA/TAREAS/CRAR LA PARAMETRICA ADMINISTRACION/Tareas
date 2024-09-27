@@ -1,4 +1,8 @@
 ## CREAR EN PARAMETRICAS DE SISPOA ##
+
+##COMPONENTE
+http://192.168.0.13:3000/sispoa/parametricas/empresas
+
 ##BACKUP
 backup_20240926_185103.sql
 
@@ -27,6 +31,9 @@ GDC
 
 ##URL CONAUD
 http://172.16.22.243:3002/conaud/evaluacion-firmas?act_codigo=4758&ges_codigo=2&rol=1
+
+##DOS EVALUACIONES DE FIRMAS CREADOS: backup_20240926_235441.sql
+
 
 
 
