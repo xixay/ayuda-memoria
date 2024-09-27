@@ -2,13 +2,48 @@
 ##COMPONENTE
 http://172.16.22.243:3000/sispoa/administracion_acp
 
-##EXISTEN DOS AREAS EJECUTORAS
+##EXISTEN DOS AREAS EJECUTORAS: backup_20240927_170011.sql
 1.-GDT-GAD1
 2.-GDT-GAM1
 
-##
+##GDT-GAD1: TIENE LA ACCION A CORTO PLAZO
+520.1702.113	Emitir 10 informes de supervisiones de Entidades Públicas del nivel departamental en la Gerencia Departamental de Tarija en la gestión 2024.
 
+##GDT-GAM1: NO TIENE LA MISMA
 
-Emitir 2 Informes preliminares de Revisión de Papeles de Trabajo de firmas de auditoría externa en Gobiernos Municipales y Universidades e
+##SE VA ASOCIAR DESDE GDT-GAD1 EL ÁREA EJECUTORA GDT-GAM1, PARA LA ACCION :
+Emitir 10 informes de supervisiones de Entidades Públicas del nivel departamental en la Gerencia Departamental de Tarija en la gestión 2024.
+
+##REALIZA POST:
+http://172.16.22.243:7091/objetivos-area-unidad
+
+##ENVIA
+{
+	"aun_codigo_ejecutora": 39,
+	"aun_codigo_supervisora": 39,
+	"aun_numero": "1702",
+	"aun_sigla": "GDT-GAD1",
+	"estado_global": 2,
+	"estado_global_color": "#43A047",
+	"estado_global_descripcion": "CONSOLIDADO",
+	"estado_global_pobj": 2,
+	"estado_global_pobj_color": "#43A047",
+	"estado_global_pobj_descripcion": "CONSOLIDADO",
+	"oau_codigo": 1255,
+	"oau_descripcion": "prueba",
+	"oau_estado": 2,
+	"oau_indicador": 11,
+	"observacion_detalle": null,
+	"pobj_codigo": 1067,
+	"pobj_codigo_sigla": "520.1702.113",
+	"pobj_estado": 2,
+	"pobj_nombre": "Emitir 10 informes de supervisiones de Entidades Públicas del nivel departamental en la Gerencia Departamental de Tarija en la gestión 2024.",
+	"pobj_numero": 113,
+	"pro_codigo": 3,
+	"pro_numero": "520"
+}
+
+##CUANDO VAMOS A GDT-GAM1, se agrego bien pero DEBERIA ESTAR CON EL ESTADO EN EL QUE ESTA LA ACCION A CORTO PLAZO : backup_20240927_171609.sql
+
   
   
