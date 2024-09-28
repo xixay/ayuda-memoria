@@ -62,5 +62,38 @@ http://172.16.22.243:7091/objetivos-area-unidad
 
 ##AL ENVIAR EL pob_estado, se creara con ese estado : backup_20240927_190026.sql
 
+
+
+  @LoggerMethod
+  async create(createObjetivosAreaUnidadDto: CreateObjetivosAreaUnidadDto, manager: EntityManager): Promise<ObjetivosAreaUnidad> {
+    try {
+      const objetivosAreaUnidad: ObjetivosAreaUnidad = await this.validations(Operation.INSERT, manager, createObjetivosAreaUnidadDto);
+      const sql = 'SELECT COALESCE(MAX(objetivos_area_unidad.oau_codigo), 0) + 1 codigo FROM estructura_poa.objetivos_area_unidad;';
+      const codeResult: any = await manager.query(sql);
+      objetivosAreaUnidad.oau_codigo = codeResult[0].codigo;
+
+      const resultQuery = await manager.save(objetivosAreaUnidad);
+      // ----- (BEGIN) save: Historico
+      const createEstadosTablasDto = new CreateEstadosTablasDto();
+      this.tmpHistoryDetail = objetivosAreaUnidad;
+      createEstadosTablasDto.tab_nombre = ObjetivosAreaUnidad.name;
+      createEstadosTablasDto.tab_codigo = resultQuery.oau_codigo;
+      createEstadosTablasDto.tab_descripcion = DescripcionControlEstados.CREATE;
+      createEstadosTablasDto.tab_detalle = this.tmpHistoryDetail;
+      if (createObjetivosAreaUnidadDto.pobj_estado && createObjetivosAreaUnidadDto.pobj_estado != EstadoPoa.EDICION) {
+        createEstadosTablasDto.tab_estado = createObjetivosAreaUnidadDto.pobj_estado;
+      } else {
+        createEstadosTablasDto.tab_estado = EstadoPoa.EDICION;
+      }
+      createEstadosTablasDto.usuario = objetivosAreaUnidad.usuario_registro;
+      await this.estadosTablasService.create(createEstadosTablasDto, manager);
+      // ----- (END) save: Historico
+      return CustomService.verifyingDataResult(resultQuery, this.message_custom);
+    } catch (error) {
+      this.logger.debug(error);
+      throwError(400, error.message);
+    }
+  }
+
   
   
