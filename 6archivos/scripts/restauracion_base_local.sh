@@ -32,8 +32,11 @@ if [ ! -f "$pg_restore_path" ]; then
     exit 1
 fi
 
-# Realizar la restauración de la base de datos con la contraseña ingresada
-PGPASSWORD="$local_password" $pg_restore_path -h "$local_host" -p "$local_port" -U "$local_user" -d "$local_db" -c -j 4 "$backup_file"
+# Paso previo: Eliminar manualmente los esquemas que podrían causar problemas con dependencias
+PGPASSWORD="$local_password" psql -h "$local_host" -p "$local_port" -U "$local_user" -d "$local_db" -c "DROP SCHEMA IF EXISTS ejecucion_poa CASCADE;"
+
+# Realizar la restauración de la base de datos con las opciones --clean y --if-exists
+PGPASSWORD="$local_password" $pg_restore_path --clean --if-exists -h "$local_host" -p "$local_port" -U "$local_user" -d "$local_db" -c -j 4 "$backup_file"
 
 # Verificar si la restauración fue exitosa
 if [ $? -eq 0 ]; then
