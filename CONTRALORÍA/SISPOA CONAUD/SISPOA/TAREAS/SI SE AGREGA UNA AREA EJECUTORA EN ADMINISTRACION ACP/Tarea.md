@@ -17,7 +17,7 @@ ORDER BY oau.oau_codigo DESC
 ##COMPONENTE
 http://172.16.22.243:3000/sispoa/administracion_acp
 
-##EXISTEN DOS AREAS EJECUTORAS: backup_20240930_084759.sql
+##EXISTEN DOS AREAS EJECUTORAS: backup_20240930_085229.sql
 1.-GDT-GAD1
 2.-GDT-GAM1
 
@@ -59,4 +59,4 @@ http://172.16.22.243:7091/objetivos-area-unidad
 }
 
 ##AL ENVIAR EL pob_estado, se creara con ese estado : backup_20240930_085044.sql
-
+520.1703.112	Emitir 4 Informes Complementarios en Gobiernos Departamentales en la Gerencia Departamental de Tarija en la gestión 2024.
