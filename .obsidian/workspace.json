@@ -11,8 +11,12 @@
             "id": "187e24ce12e052bb",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "1inicio/1-instalarTipoDeb.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "1inicio/1-instalarTipoDeb.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "1inicio/1-instalarTipoDeb.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -119,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Sin título.md"
+                "file": "1inicio/1-instalarTipoDeb.md"
               }
             }
           }
@@ -140,6 +146,8 @@
       "command-palette:Abrir paleta de comandos": false
     }
   },
-  "active": "0afbb69adb070f16",
-  "lastOpenFiles": []
+  "active": "187e24ce12e052bb",
+  "lastOpenFiles": [
+    "Sin título.md"
+  ]
 }
