@@ -1,4 +1,4 @@
-# ACCIONES A CORTO PLAZO
+# QUE SE ASIGNE A LA NUEVA AREA CON EL ESTADO EN EL QUE ESTA LA ACCIONES A CORTO PLAZO
 ## ROL: NORKA
 
 ## QUERY:
@@ -66,6 +66,43 @@ ORDER BY oau.oau_codigo DESC
 
 ## OTRAS PRUEBAS
 - Emitir 2 informes analíticos de Auditorías Operacionales significativos elaborados por las UAI de Entidades Públicas del Nivel Departamental en la Gerencia Departamental de Tarija, recibidos en la gestión 2024.
+
+# CREAR UNA ACTIVIDAD Y CONSOLIDARLA
+- Para comprobar su codigo conaud, para ver a quien se refiere como supervisor
+## Roles
+- GDT-GAM1
+```txt
+	1782324	CLARA MARIA HIZA ZUÑIGA	GERENTE CONSOLIDADOR 	EDICION
+	1078204	OSCAR TORRES LEON	FORMULADOR 	EDICION
+	4876199	OSCAR CALLISAYA MONTOYA	FORMULADOR 	EDICION
+	4813387	MERY GOMEZ CONDORI	FORMULADOR 	EDICION
+	2428708	SANTIAGO MAIDANA QUISPE	SUPERVISOR 	EDICION
+	1782324	CLARA MARIA HIZA ZUÑIGA	APROBADOR 	EDICION
+	1078204	OSCAR TORRES LEON	FORMULADOR GERENTE 	EDICION 
+```
+## Crear la actividad: formulador 4813387
+- Debe ser de auditoria
+- Debe crearse en gdt-gam1, en base a la accion a corto plazo
+- La accion a corto plazo es:
+	- 520.1703.112 Emitir 4 Informes Complementarios en Gobiernos Departamentales en la Gerencia Departamental de Tarija en la gestión 2024.
+- Se creo con la supervisora: Subcontraloría de Gobiernos Municipales y Universidades - SCGM
+### Act creada
+- 520.1703.112.1.24
+- act_codigo = 4763
+### Comprobar que se creo Query
+```sql
+--ACTIVIDAD
+SELECT 	
+		a.act_codigo, a.act_numero, a.act_estado, a.act_descripcion,
+		au1.aun_sigla AS aun_sigla_ejecutora,
+		au2.aun_sigla AS aun_sigla_supervisora
+FROM 	estructura_poa.actividades a
+		LEFT JOIN estructura_organizacional.areas_unidades au1 ON a.aun_codigo_ejecutora = au1.aun_codigo
+		LEFT JOIN estructura_organizacional.areas_unidades au2 ON a.aun_codigo_supervisora = au2.aun_codigo 
+ORDER BY a.act_codigo DESC
+;
+```
+## Llevarlo hasta consolidar :backup_20240930_104921.sql
 
 
 
