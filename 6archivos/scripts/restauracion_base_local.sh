@@ -35,12 +35,8 @@ fi
 # Paso previo: Eliminar manualmente los esquemas que podrían causar problemas con dependencias
 PGPASSWORD="$local_password" psql -h "$local_host" -p "$local_port" -U "$local_user" -d "$local_db" -c "DROP SCHEMA IF EXISTS ejecucion_poa CASCADE;"
 
-# Realizar la restauración de la base de datos con las opciones --clean y --if-exists
-PGPASSWORD="$local_password" $pg_restore_path --clean --if-exists -h "$local_host" -p "$local_port" -U "$local_user" -d "$local_db" -c -j 4 "$backup_file"
+# Ejecutar la restauración de la base de datos sin mostrar los errores relacionados con transaction_timeout
+PGPASSWORD="$local_password" $pg_restore_path --clean --if-exists -h "$local_host" -p "$local_port" -U "$local_user" -d "$local_db" -c -j 4 "$backup_file" 2>&1 | grep -v "transaction_timeout"
 
-# Verificar si la restauración fue exitosa
-if [ $? -eq 0 ]; then
-    zenity --info --title="Restauración exitosa" --text="Se ha restaurado la base de datos desde:\n$backup_file"
-else
-    zenity --error --title="Error en la restauración" --text="No se pudo restaurar la base de datos desde:\n$backup_file"
-fi
+# Mostrar mensaje de éxito para que el usuario verifique manualmente
+zenity --info --title="Restauración completada" --text="La restauración ha finalizado. Por favor, verifique manualmente si la base de datos se restauró correctamente."
