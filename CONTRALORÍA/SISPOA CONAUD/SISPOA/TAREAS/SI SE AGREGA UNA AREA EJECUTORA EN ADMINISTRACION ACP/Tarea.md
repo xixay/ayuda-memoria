@@ -60,3 +60,15 @@ http://172.16.22.243:7091/objetivos-area-unidad
 
 ##AL ENVIAR EL pob_estado, se creara con ese estado : backup_20240930_085044.sql
 520.1703.112	Emitir 4 Informes Complementarios en Gobiernos Departamentales en la Gerencia Departamental de Tarija en la gestión 2024.
+
+## OTRAS PRUEBAS
+Emitir 2 informes analíticos de Auditorías Operacionales significativos elaborados por las UAI de Entidades Públicas del Nivel Departamental en la Gerencia Departamental de Tarija, recibidos en la gestión 2024.
+
+
+
+
+
+
+
+
+
