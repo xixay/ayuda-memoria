@@ -118,6 +118,10 @@ ORDER BY a.act_codigo DESC
 |----------|----------|----------|---------|
 |G|T|F|P|
 
+## Otra prueba
+- Se tendra la supervisora GDC, que tiene a su cargo a GDM y GAD
+- Desde GAD se le asociar una ACP a GAM
+- En Formularios se creara la actividad, pero se la supervisora sera GSL 
 
 
 
