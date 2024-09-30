@@ -118,13 +118,39 @@ ORDER BY a.act_codigo DESC
 |----------|----------|----------|---------|
 |G|T|F|P|
 
-## Otra prueba
-- Se tendra la supervisora GDC, que tiene a su cargo a GDM y GAD
-- Desde GAD se le asociar una ACP a GAM
-- En Formularios se creara la actividad, pero se la supervisora sera GSL 
+## Otra prueba: backup_20240930_142210.sql
+- Se tendra la supervisora GDC, que tiene a su cargo a GDC-GAM1 y GDC-GAD
+- Desde GDC-GAD se le asociar una ACP a GDC-GAM1
+- En Formularios se creara la actividad, pero se la supervisora sera SCSL
+## LA ACP A ASOCIAR DESDE GDC-GAD SERA
+- Emitir 3 informe analítico de Auditoría Operacional significativo sobre el IDH elaborado por las UAI de los Gobiernos Autónomos Departamentales en la Gerencia Departamental de Cochabamba en la gestión 2024.
+## CREAR LA ACTIVIDAD EN GDC-GAM1
+### roles:
+```txt
+GDC-GAM1
+	4385501	JULIO CARLOS GUERRA VILLARROEL	GERENTE CONSOLIDADOR 	EDICION
+	4813387	MERY GOMEZ CONDORI		FORMULADOR 		EDICION
+	2428708	SANTIAGO MAIDANA QUISPE		SUPERVISOR 		EDICION
+	4385501	JULIO CARLOS GUERRA VILLARROEL	APROBADOR 		EDICION
+	1054445	EVELYN FERNANDEZ QUIROGA	FORMULADOR GERENTE 	EDICION
+	1054445	EVELYN FERNANDEZ QUIROGA	FORMULADOR 		EDICION 
+```
+### entrar formulador y crear la act en GDC-GAM1
+- buscar 1054445
+- buscar la ACP
+	- Emitir 3 informe analítico de Auditoría Operacional significativo sobre el IDH elaborado por las UAI de los Gobiernos Autónomos Departamentales en la Gerencia Departamental de Cochabamba en la gestión 2024.
+- crear la actividad con area unidad supervisora: SCSL
+- La act creada :backup_20240930_143400.sql
+- 3 actividades creadas:backup_20240930_144014.sql
 
+|act_codigo|act_numero|act_estado|act_descripcion|aun_sigla_ejecutora|aun_inicial_ejecutora|aun_sigla_supervisora|aun_inicial_supervisora|
+|----------|----------|----------|---------------|-------------------|---------------------|---------------------|-----------------------|
+|4766|500.1303.58.3.24|2|actividad Sup: Subcontraloría del Nivel Central - SCNC|GDC-GAM1|C|SCNC|I|
+|4765|500.1303.58.2.24|2|actividad 2 Sup: Subcontraloría de Servicios Legales - SCSL|GDC-GAM1|C|SCGD|E|
+|4764|500.1303.58.1.24|2|actividad Sup: Subcontraloría de Auditorías Técnicas - SCAT|GDC-GAM1|C|SCAT|K|
 
-
-
-
-
+- De GDC-GAD su aun_inicial es :C
+## Llevar consolidar
+- Se llevo a consolidar: backup_20240930_144353.sql
+## Iniciar la actividad CONAUD :backup_20240930_145228.sql
+- Las 

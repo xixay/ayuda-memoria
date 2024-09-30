@@ -1,8 +1,8 @@
 --ADMINISTRACION ACP
-SELECT 	*
---		oau.oau_codigo,oau_descripcion,oau.aun_codigo_ejecutora, oau.oau_estado,
---		au.aun_sigla, 
---		po.pobj_codigo, po.pobj_estado
+SELECT 	
+		oau.oau_codigo,oau_descripcion,oau.aun_codigo_ejecutora, oau.oau_estado,
+		au.aun_sigla, 
+		po.pobj_codigo, po.pobj_estado
 FROM 	estructura_poa.objetivos_area_unidad oau
 		LEFT JOIN estructura_organizacional.areas_unidades au ON oau.aun_codigo_ejecutora = au.aun_codigo 
 		LEFT JOIN estructura_poa.poas_objetivos po ON oau.pobj_codigo = po.pobj_codigo
@@ -45,8 +45,7 @@ ORDER BY iap.iap_codigo DESC
 SELECT 	au.aun_codigo ,au.aun_nombre ,au.aun_sigla ,au.aun_inicial 
 FROM 	estructura_organizacional.areas_unidades au
 WHERE 	TRUE
-		AND au.aun_sigla LIKE 'GDT-GAD1'--ACCION CORTO PLAZO
---		AND au.aun_sigla LIKE 'SCGM'--CREO ACTIVIDAD
+		AND au.aun_sigla LIKE 'GDC-GAD'
 ;
 
 
