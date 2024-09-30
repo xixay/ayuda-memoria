@@ -1,7 +1,8 @@
-######ACCIONES A CORTO PLAZO
-##ROL: NORKA
+# ACCIONES A CORTO PLAZO
+## ROL: NORKA
 
-##QUERY:
+## QUERY:
+```sql
 SELECT 	
 	oau.oau_codigo,oau_descripcion,oau.aun_codigo_ejecutora, oau.oau_estado,
 	au.aun_sigla, 
@@ -13,26 +14,27 @@ WHERE 	TRUE
 	AND oau.pobj_codigo IN (1067)
 ORDER BY oau.oau_codigo DESC
 ;
+```
+## COMPONENTE
+- http://172.16.22.243:3000/sispoa/administracion_acp
 
-##COMPONENTE
-http://172.16.22.243:3000/sispoa/administracion_acp
+## EXISTEN DOS AREAS EJECUTORAS: backup_20240930_085229.sql
+- 1.-GDT-GAD1
+- 2.-GDT-GAM1
 
-##EXISTEN DOS AREAS EJECUTORAS: backup_20240930_085229.sql
-1.-GDT-GAD1
-2.-GDT-GAM1
+## GDT-GAD1: TIENE LA ACCION A CORTO PLAZO
+- 520.1702.112	Emitir 4 Informes Complementarios en Gobiernos Departamentales en la Gerencia Departamental de Tarija en la gestión 2024.
 
-##GDT-GAD1: TIENE LA ACCION A CORTO PLAZO
-520.1702.112	Emitir 4 Informes Complementarios en Gobiernos Departamentales en la Gerencia Departamental de Tarija en la gestión 2024.
+## GDT-GAM1: NO TIENE LA MISMA
 
-##GDT-GAM1: NO TIENE LA MISMA
+## SE VA ASOCIAR DESDE GDT-GAD1 EL ÁREA EJECUTORA GDT-GAM1, PARA LA ACCION :
+- Emitir 4 Informes Complementarios en Gobiernos Departamentales en la Gerencia Departamental de Tarija en la gestión 2024.
 
-##SE VA ASOCIAR DESDE GDT-GAD1 EL ÁREA EJECUTORA GDT-GAM1, PARA LA ACCION :
-Emitir 4 Informes Complementarios en Gobiernos Departamentales en la Gerencia Departamental de Tarija en la gestión 2024.
+## REALIZA POST:
+- http://172.16.22.243:7091/objetivos-area-unidad
 
-##REALIZA POST:
-http://172.16.22.243:7091/objetivos-area-unidad
-
-##ENVIA
+## ENVIA
+```json
 {
 	"aun_codigo_ejecutora": 39,
 	"aun_codigo_supervisora": 39,
@@ -57,12 +59,13 @@ http://172.16.22.243:7091/objetivos-area-unidad
 	"pro_codigo": 3,
 	"pro_numero": "520"
 }
+```
 
-##AL ENVIAR EL pob_estado, se creara con ese estado : backup_20240930_085044.sql
-520.1703.112	Emitir 4 Informes Complementarios en Gobiernos Departamentales en la Gerencia Departamental de Tarija en la gestión 2024.
+## AL ENVIAR EL pob_estado, se creara con ese estado : backup_20240930_085044.sql
+- 520.1703.112	Emitir 4 Informes Complementarios en Gobiernos Departamentales en la Gerencia Departamental de Tarija en la gestión 2024.
 
 ## OTRAS PRUEBAS
-Emitir 2 informes analíticos de Auditorías Operacionales significativos elaborados por las UAI de Entidades Públicas del Nivel Departamental en la Gerencia Departamental de Tarija, recibidos en la gestión 2024.
+- Emitir 2 informes analíticos de Auditorías Operacionales significativos elaborados por las UAI de Entidades Públicas del Nivel Departamental en la Gerencia Departamental de Tarija, recibidos en la gestión 2024.
 
 
 
