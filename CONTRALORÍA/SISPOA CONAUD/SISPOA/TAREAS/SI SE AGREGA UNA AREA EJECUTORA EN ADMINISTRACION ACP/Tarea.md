@@ -3,12 +3,12 @@
 
 ## QUERY:
 ```sql
-SELECT 	
+SELECT
 	oau.oau_codigo,oau_descripcion,oau.aun_codigo_ejecutora, oau.oau_estado,
-	au.aun_sigla, 
+	au.aun_sigla,
 	po.pobj_codigo, po.pobj_estado
 FROM 	estructura_poa.objetivos_area_unidad oau
-	LEFT JOIN estructura_organizacional.areas_unidades au ON oau.aun_codigo_ejecutora = au.aun_codigo 
+	LEFT JOIN estructura_organizacional.areas_unidades au ON oau.aun_codigo_ejecutora = au.aun_codigo
 	LEFT JOIN estructura_poa.poas_objetivos po ON oau.pobj_codigo = po.pobj_codigo
 WHERE 	TRUE
 	AND oau.pobj_codigo IN (1067)
@@ -92,19 +92,31 @@ ORDER BY oau.oau_codigo DESC
 ### Comprobar que se creo Query
 ```sql
 --ACTIVIDAD
-SELECT 	
+SELECT
 		a.act_codigo, a.act_numero, a.act_estado, a.act_descripcion,
 		au1.aun_sigla AS aun_sigla_ejecutora,
 		au2.aun_sigla AS aun_sigla_supervisora
 FROM 	estructura_poa.actividades a
 		LEFT JOIN estructura_organizacional.areas_unidades au1 ON a.aun_codigo_ejecutora = au1.aun_codigo
-		LEFT JOIN estructura_organizacional.areas_unidades au2 ON a.aun_codigo_supervisora = au2.aun_codigo 
+		LEFT JOIN estructura_organizacional.areas_unidades au2 ON a.aun_codigo_supervisora = au2.aun_codigo
 ORDER BY a.act_codigo DESC
 ;
 ```
 ## Llevarlo hasta consolidar :backup_20240930_104921.sql
+## Iniciar el inicio actividad poa: backup_20240930_111727.sql
+- Existe una parte en inicios actividades, que crea:
+	- const codControl = actividad.aun_inicial_supervisora + '' + actividad.aun_inicial_ejecutora;
+- Para Código Poa: 	520.1703.112.1.24
+- El CONAUD:		GTFP
 
+|quien es|aun_codigo|aun_nombre|aun_sigla|aun_inicial|
+|----------|----------|----------|---------|-----------|
+|SUPERVISORA|5|Subcontraloría de Gobiernos Municipales y Universidades|SCGM|G|
+|EJECUTORA|39|Gerencia Departamental de Auditoría en Gobiernos Municipales y Universidades|GDT-GAM1|T|
 
+|aun_inicial_super|aun_inicial_ejec|tipo_trab|programacion del poa|
+|----------|----------|----------|---------|
+|G|T|F|P|
 
 
 
