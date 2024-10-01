@@ -141,16 +141,28 @@ GDC-GAM1
 	- Emitir 3 informe analítico de Auditoría Operacional significativo sobre el IDH elaborado por las UAI de los Gobiernos Autónomos Departamentales en la Gerencia Departamental de Cochabamba en la gestión 2024.
 - crear la actividad con area unidad supervisora: SCSL
 - La act creada :backup_20240930_143400.sql
-- 3 actividades creadas:backup_20240930_144014.sql
+- 3 actividades creadas:backup_20240930_152008.sql
 
 |act_codigo|act_numero|act_estado|act_descripcion|aun_sigla_ejecutora|aun_inicial_ejecutora|aun_sigla_supervisora|aun_inicial_supervisora|
 |----------|----------|----------|---------------|-------------------|---------------------|---------------------|-----------------------|
-|4766|500.1303.58.3.24|2|actividad Sup: Subcontraloría del Nivel Central - SCNC|GDC-GAM1|C|SCNC|I|
-|4765|500.1303.58.2.24|2|actividad 2 Sup: Subcontraloría de Servicios Legales - SCSL|GDC-GAM1|C|SCGD|E|
-|4764|500.1303.58.1.24|2|actividad Sup: Subcontraloría de Auditorías Técnicas - SCAT|GDC-GAM1|C|SCAT|K|
+|4766|500.1303.58.3.24|1|actividad Sup: Subcontraloría del Nivel Central - SCNC|GDC-GAM1|C|SCNC|I|
+|4765|500.1303.58.2.24|1|actividad Sup: Subcontraloría de Servicios Legales - SCSL|GDC-GAM1|C|SCSL|L|
+|4764|500.1303.58.1.24|1|actividad Sup: Subcontraloría de Auditorías Técnicas - SCAT|GDC-GAM1|C|SCAT|K|
+
 
 - De GDC-GAD su aun_inicial es :C
 ## Llevar consolidar
-- Se llevo a consolidar: backup_20240930_144353.sql
-## Iniciar la actividad CONAUD :backup_20240930_145228.sql
-- Las 
+- Se llevo a consolidar: backup_20240930_152353.sql
+## Iniciar la actividad CONAUD :backup_20240930_150717.sql
+- Las actividades son
+```sql
+SELECT 	
+		a.act_codigo, a.act_numero, a.act_estado, a.act_descripcion,
+		au1.aun_sigla AS aun_sigla_ejecutora, au1.aun_inicial AS aun_inicial_ejecutora,
+		au2.aun_sigla AS aun_sigla_supervisora, au2.aun_inicial AS aun_inicial_supervisora
+FROM 	estructura_poa.actividades a
+		LEFT JOIN estructura_organizacional.areas_unidades au1 ON a.aun_codigo_ejecutora = au1.aun_codigo
+		LEFT JOIN estructura_organizacional.areas_unidades au2 ON a.aun_codigo_supervisora = au2.aun_codigo 
+ORDER BY a.act_codigo DESC
+;
+```

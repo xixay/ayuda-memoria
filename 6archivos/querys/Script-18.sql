@@ -29,6 +29,10 @@ FROM 	estructura_poa.actividades a
 		LEFT JOIN estructura_organizacional.areas_unidades au2 ON a.aun_codigo_supervisora = au2.aun_codigo 
 ORDER BY a.act_codigo DESC
 ;
+SELECT 	*
+FROM 	estructura_poa.actividades a 
+WHERE 	a.act_codigo IN (4765)
+;
 
 
 --INICIO DE ACTIVIDAD
@@ -45,7 +49,7 @@ ORDER BY iap.iap_codigo DESC
 SELECT 	au.aun_codigo ,au.aun_nombre ,au.aun_sigla ,au.aun_inicial 
 FROM 	estructura_organizacional.areas_unidades au
 WHERE 	TRUE
-		AND au.aun_sigla LIKE 'GDC-GAD'
+		AND au.aun_sigla LIKE 'SCGD'
 ;
 
 

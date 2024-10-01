@@ -1,3 +1,8 @@
+## BASE DE PRUEBA
+- backup_20240930_155307.sql
+## COMPONENTE LUGAR
+- components/sispoa/estructura_formulario/RActividades.vue
+
           <!-- <actividades-viaticos
             :codActividadActual="item.act_codigo"
             :actividadEstado="item.act_estado"
