@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/SI SE AGREGA UNA AREA EJECUTORA EN ADMINISTRACION ACP/Tarea.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,7 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 233.5
+    "width": 493.5
   },
   "right": {
     "id": "51bbd9c0b2276e28",
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/SI SE AGREGA UNA AREA EJECUTORA EN ADMINISTRACION ACP/Tarea.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/SI SE AGREGA UNA AREA EJECUTORA EN ADMINISTRACION ACP/Tarea.md",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/SI SE AGREGA UNA AREA EJECUTORA EN ADMINISTRACION ACP/Tarea.md"
+                "file": "README.md"
               }
             }
           }
@@ -148,6 +148,10 @@
   },
   "active": "187e24ce12e052bb",
   "lastOpenFiles": [
+    "Sin título.canvas",
+    "2024-10-01.md",
+    "CONTRALORÍA/espacio.png",
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/SI SE AGREGA UNA AREA EJECUTORA EN ADMINISTRACION ACP/Tarea.md",
     "1inicio/1-instalarTipoDeb.md",
     "Sin título.md"
   ]
