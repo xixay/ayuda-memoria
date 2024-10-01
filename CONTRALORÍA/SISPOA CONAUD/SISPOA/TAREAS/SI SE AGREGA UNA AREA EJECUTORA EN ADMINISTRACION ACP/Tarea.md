@@ -1,7 +1,7 @@
-# QUE SE ASIGNE A LA NUEVA AREA CON EL ESTADO EN EL QUE ESTA LA ACCIONES A CORTO PLAZO
-## ROL: NORKA
-
-## QUERY:
+## Que se asigne a la nueva área con el estado en el que esta la acción a corto plazo
+## Rol 
+- NORKA
+## Query:
 ```sql
 SELECT
 	oau.oau_codigo,oau_descripcion,oau.aun_codigo_ejecutora, oau.oau_estado,
@@ -15,25 +15,23 @@ WHERE 	TRUE
 ORDER BY oau.oau_codigo DESC
 ;
 ```
-## COMPONENTE
+## Ubicación del componente
 - http://172.16.22.243:3000/sispoa/administracion_acp
 
-## EXISTEN DOS AREAS EJECUTORAS: backup_20240930_085229.sql
+## Backup con las 2 áreas ejecutoras: backup_20240930_085229.sql
 - 1.-GDT-GAD1
 - 2.-GDT-GAM1
-
-## GDT-GAD1: TIENE LA ACCION A CORTO PLAZO
+## La acción a corto plazo que esta en el áreas (GDT-GAD1)
 - 520.1702.112	Emitir 4 Informes Complementarios en Gobiernos Departamentales en la Gerencia Departamental de Tarija en la gestión 2024.
 
-## GDT-GAM1: NO TIENE LA MISMA
+## El áreas GDT-GAM1, no tiene la misma ACP
 
-## SE VA ASOCIAR DESDE GDT-GAD1 EL ÁREA EJECUTORA GDT-GAM1, PARA LA ACCION :
+## Se va asociar desde GDT-GAD1 el área  ejecutora GDT-GAM1, para la àcción :
 - Emitir 4 Informes Complementarios en Gobiernos Departamentales en la Gerencia Departamental de Tarija en la gestión 2024.
 
-## REALIZA POST:
+## Crea el objetivo área unidad:
 - http://172.16.22.243:7091/objetivos-area-unidad
-
-## ENVIA
+- Envía los sgtes datos
 ```json
 {
 	"aun_codigo_ejecutora": 39,
@@ -60,14 +58,9 @@ ORDER BY oau.oau_codigo DESC
 	"pro_numero": "520"
 }
 ```
-
-## AL ENVIAR EL pob_estado, se creara con ese estado : backup_20240930_085044.sql
-- 520.1703.112	Emitir 4 Informes Complementarios en Gobiernos Departamentales en la Gerencia Departamental de Tarija en la gestión 2024.
-
-## OTRAS PRUEBAS
+## Otra acción de prueba
 - Emitir 2 informes analíticos de Auditorías Operacionales significativos elaborados por las UAI de Entidades Públicas del Nivel Departamental en la Gerencia Departamental de Tarija, recibidos en la gestión 2024.
-
-# CREAR UNA ACTIVIDAD Y CONSOLIDARLA
+## Crear una actividad y consolidarla
 - Para comprobar su codigo conaud, para ver a quien se refiere como supervisor
 ## Roles
 - GDT-GAM1
@@ -86,7 +79,7 @@ ORDER BY oau.oau_codigo DESC
 - La accion a corto plazo es:
 	- 520.1703.112 Emitir 4 Informes Complementarios en Gobiernos Departamentales en la Gerencia Departamental de Tarija en la gestión 2024.
 - Se creo con la supervisora: Subcontraloría de Gobiernos Municipales y Universidades - SCGM
-### Act creada
+### Actividad creada
 - 520.1703.112.1.24
 - act_codigo = 4763
 ### Comprobar que se creo Query
@@ -102,8 +95,8 @@ FROM 	estructura_poa.actividades a
 ORDER BY a.act_codigo DESC
 ;
 ```
-## Llevarlo hasta consolidar :backup_20240930_104921.sql
-## Iniciar el inicio actividad poa: backup_20240930_111727.sql
+## Backup de actividad consolidada :backup_20240930_104921.sql
+## El backup cuando en Conaud se inicia el inicio actividad poa: backup_20240930_111727.sql
 - Existe una parte en inicios actividades, que crea:
 	- const codControl = actividad.aun_inicial_supervisora + '' + actividad.aun_inicial_ejecutora;
 - Para Código Poa: 	520.1703.112.1.24
@@ -122,10 +115,10 @@ ORDER BY a.act_codigo DESC
 - Se tendra la supervisora GDC, que tiene a su cargo a GDC-GAM1 y GDC-GAD
 - Desde GDC-GAD se le asociar una ACP a GDC-GAM1
 - En Formularios se creara la actividad, pero se la supervisora sera SCSL
-## LA ACP A ASOCIAR DESDE GDC-GAD SERA
+## La ACP a asociar desde GDC-GAD sera
 - Emitir 3 informe analítico de Auditoría Operacional significativo sobre el IDH elaborado por las UAI de los Gobiernos Autónomos Departamentales en la Gerencia Departamental de Cochabamba en la gestión 2024.
-## CREAR LA ACTIVIDAD EN GDC-GAM1
-### roles:
+## Crear la actividad en GDC-GAM1
+### Roles:
 ```txt
 GDC-GAM1
 	4385501	JULIO CARLOS GUERRA VILLARROEL	GERENTE CONSOLIDADOR 	EDICION
@@ -135,7 +128,7 @@ GDC-GAM1
 	1054445	EVELYN FERNANDEZ QUIROGA	FORMULADOR GERENTE 	EDICION
 	1054445	EVELYN FERNANDEZ QUIROGA	FORMULADOR 		EDICION 
 ```
-### entrar formulador y crear la act en GDC-GAM1
+### Entrar formulador y crear la act en GDC-GAM1
 - buscar 1054445
 - buscar la ACP
 	- Emitir 3 informe analítico de Auditoría Operacional significativo sobre el IDH elaborado por las UAI de los Gobiernos Autónomos Departamentales en la Gerencia Departamental de Cochabamba en la gestión 2024.
