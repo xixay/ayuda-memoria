@@ -25,4 +25,27 @@
 SELECT 	*
 FROM 	parametricas.estados e
 ;
+--
+SELECT 	DISTINCT au.aun_sigla
+FROM 	estructura_poa.area_unidad_responsables aur
+		LEFT JOIN estructura_organizacional.areas_unidades au ON aur.aun_codigo_ejecutora = au.aun_codigo 
+WHERE 	aur.per_codigo IN (1914)
+		AND aur.rol_codigo IN (1)
+;
+-- INICIOS ACTIVIDADES
+SELECT 	*
+FROM 	ejecucion_actividades.inicios_actividades ia 
+ORDER BY ia.iac_codigo DESC
+;
+-- ESPECIFICACION TIPOO TRAB
+SELECT 	*
+FROM 	parametricas.especificacion_tipos_trabajo ett 
+WHERE 	TRUE
+--		AND ett_codigo IN (4)
+;
+
+
+
+
+
 
