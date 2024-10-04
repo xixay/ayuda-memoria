@@ -61,20 +61,24 @@ FROM 	parametricas.tipo_indicador ti
 SELECT 	*
 FROM 	parametricas.niveles_areas_unidades nau 
 ;
---activiad
-SELECT 	*
+--actividad
+SELECT 	a.act_codigo, a.act_numero, a.act_descripcion, a.ttr_codigo,
+		a.tipact_codigo, a.cac_codigo, a.act_estado, a.aun_codigo_ejecutora, a.pobj_codigo,
+		a.act_codigo_bolsa, a.iac_codigo_apoyo,
+		a2.act_numero AS act_numero_bolsa
 FROM 	estructura_poa.actividades a
+		LEFT JOIN estructura_poa.actividades a2 ON a.act_codigo_bolsa = a2.act_codigo
 WHERE 	TRUE 
---		AND a.pobj_codigo IN (1365)
+--		AND a.act_codigo IN (1852)
 ORDER BY a.act_codigo DESC
 ;
 -- INICIOS ACTIVIDADES
-SELECT 	*
+SELECT 	ia.iac_codigo, ia.iac_codigo_control, ia.iac_estado 
 FROM 	ejecucion_actividades.inicios_actividades ia 
 ORDER BY ia.iac_codigo DESC
 ;
 --actividad continua
-SELECT 	*
+SELECT 	ac.aco_codigo, ac.conaud_detalle, ac.act_codigo, ac.aco_estado ,ac.iac_codigo 
 FROM 	estructura_poa.actividades_continuidad ac 
 ORDER BY ac.aco_codigo DESC
 ;
@@ -82,6 +86,11 @@ ORDER BY ac.aco_codigo DESC
 SELECT 	*
 FROM 	parametricas.roles
 ;
-
+SELECT  *
+FROM 	estructura_poa.area_unidad_responsables aur 
+WHERE 	aur.poa_codigo IN (3)
+--		AND aur.per_codigo IN (1914)
+		AND aur.rol_codigo IN (7)
+;
 
 
