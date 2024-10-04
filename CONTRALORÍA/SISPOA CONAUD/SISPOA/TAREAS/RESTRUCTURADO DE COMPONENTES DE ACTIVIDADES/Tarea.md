@@ -780,3 +780,50 @@ tipact_codigo: 1
 	"ume_descripcion": "REGISTROS"
 }
 ```
+
+## Rol Gestion Institucional
+
+```json
+/**
+
+* * GET ROLE - GESTIÓN INSTITUCIONAL
+
+*/
+
+async getAllRoleGestionInstitucional() {
+
+await this.$service.get(
+
+'SISPOA',
+
+`_autenticacion/roles-sesion`
+
+).then(response => {
+
+if (response) {
+
+this.rolGestionInstitucional.formulador = response[0].es_ges_ins_formulador
+
+this.rolGestionInstitucional.aprobador = response[0].es_ges_ins_aprobador
+
+this.rolGestionInstitucional.verificador = response[0].es_ges_ins_verificador
+
+}
+
+}).catch(error => {
+
+// this.$toast.info(error.error_mensaje)
+
+this.rolGestionInstitucional = {
+
+formulador: 0,
+
+aprobador: 0,
+
+verificador: 0,
+
+}
+
+})
+},
+```
