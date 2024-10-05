@@ -29,7 +29,7 @@ SELECT
 	       	WHEN (tt.ett_codigo = 2 and t.tia_codigo = 1) THEN 1
 	        WHEN (tt.ett_codigo = 2 and t.tia_codigo = 2) THEN 2
 	       	WHEN (tt.ett_codigo = 3 and t.tia_codigo = 3) THEN 3
-	        WHEN (tt.ett_codigo = 3 and t.tia_codigo = 4) THEN 4
+	        WHEN (tt.ett_codigo = 3 and t.tia_codigo = 4) THEN 1
 	       	WHEN (tt.ett_codigo = 4 and t.tia_codigo = 1) THEN 1
 	        WHEN (tt.ett_codigo = 4 and t.tia_codigo = 2) THEN 2
 	       	WHEN (tt.ett_codigo = 5 and t.tia_codigo = 1) THEN 1
@@ -45,7 +45,10 @@ FROM ejecucion_actividades.inicio_actividad_poa t
 		LEFT JOIN ejecucion_actividades.inicio_actividad_poa_asignaciones iapa on t.iap_codigo = iapa.iap_codigo
 		LEFT JOIN ejecucion_poa.asignaciones a on iapa.asi_codigo = a.asi_codigo
 WHERE	TRUE
-		AND t.tia_codigo IN (2)
+		AND t.iap_estado NOT IN (0)
+--		AND ia.iac_codigo IN ()
+		AND t.tia_codigo IN (4)
+--		AND ia.ttr_codigo IN (0)
 --		AND t.iap_codigo IN (627)
 --		and t.act_codigo in (1121)
 --		and	t.act_codigo = 1448
@@ -56,7 +59,33 @@ WHERE	TRUE
 --ORDER BY t.fecha_registro DESC
 ;
 
+SELECT 	*
+FROM 	ejecucion_actividades.inicio_actividad_poa iap 
+WHERE 	TRUE
+		AND iap.act_codigo IN (3261)
+;
+SELECT 	*
+FROM 	ejecucion_actividades.inicios_actividades ia 
+WHERE 	TRUE 
+--		AND ia.iac_codigo IN (623)
+		AND ia.ttr_codigo IN (0)
+;
 
+SELECT 	*
+FROM 	parametricas.tipos_inicios_actividades tia 
+;
+SELECT 	*
+FROM 	ejecucion_poa.asignaciones_cargos_item aci
+WHERE 	TRUE
+		AND aci.persona_detalle NOTNULL 
+--		AND aci.persona_detalle ISNULL
+--		AND aci.asi_codigo IN (89)
+;
 
-
+SELECT 	*
+		--a.asi_codigo, a.asi_detalle_asignaciones_cargos_items 
+FROM 	ejecucion_poa.asignaciones a
+WHERE 	TRUE 
+		AND a.asi_codigo IN (256)
+;
 

@@ -62,21 +62,46 @@ SELECT 	*
 FROM 	parametricas.niveles_areas_unidades nau 
 ;
 --actividad
-SELECT 	a.act_codigo, a.act_numero, a.act_descripcion, a.ttr_codigo,
+SELECT 	au.aun_sigla, a.act_codigo, a.act_numero, a.act_descripcion, a.ttr_codigo,
 		a.tipact_codigo, a.cac_codigo, a.act_estado, a.aun_codigo_ejecutora, a.pobj_codigo,
 		a.act_codigo_bolsa, a.iac_codigo_apoyo,
 		a2.act_numero AS act_numero_bolsa
 FROM 	estructura_poa.actividades a
 		LEFT JOIN estructura_poa.actividades a2 ON a.act_codigo_bolsa = a2.act_codigo
+		LEFT JOIN estructura_organizacional.areas_unidades au ON a.aun_codigo_ejecutora = au.aun_codigo 
 WHERE 	TRUE 
---		AND a.act_codigo IN (1852)
+		AND a.act_codigo IN (2910)
 ORDER BY a.act_codigo DESC
 ;
 -- INICIOS ACTIVIDADES
-SELECT 	ia.iac_codigo, ia.iac_codigo_control, ia.iac_estado 
-FROM 	ejecucion_actividades.inicios_actividades ia 
+SELECT 	*
+		--ia.iac_codigo, ia.iac_codigo_control, ia.iac_estado 
+FROM 	ejecucion_actividades.inicios_actividades ia
+WHERE 	ia.iac_codigo_control LIKE 'IXDP290Y24'
 ORDER BY ia.iac_codigo DESC
 ;
+
+SELECT 	*
+FROM 	ejecucion_actividades.inicio_actividad_poa_asignaciones iapa 
+WHERE 	TRUE 
+		AND iapa.iap_codigo IN (99)
+;
+SELECT 	*
+FROM 	ejecucion_poa.asignaciones_cargos_item aci
+WHERE 	TRUE
+--		AND aci.persona_detalle NOTNULL 
+		AND aci.persona_detalle ISNULL
+--		AND aci.asi_codigo IN (89)
+;
+SELECT 	*
+FROM 	ejecucion_actividades.inicio_actividad_poa iap
+WHERE 	TRUE
+--		AND iap.iac_codigo IN (443)
+		AND iap.iap_codigo IN (99)
+;
+
+
+
 --actividad continua
 SELECT 	ac.aco_codigo, ac.conaud_detalle, ac.act_codigo, ac.aco_estado ,ac.iac_codigo 
 FROM 	estructura_poa.actividades_continuidad ac 
@@ -85,6 +110,10 @@ ORDER BY ac.aco_codigo DESC
 --roles
 SELECT 	*
 FROM 	parametricas.roles
+;
+--estados
+SELECT 	*
+FROM 	parametricas.estados e 
 ;
 SELECT  *
 FROM 	estructura_poa.area_unidad_responsables aur 

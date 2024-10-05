@@ -364,7 +364,14 @@ tipact_codigo: 1
 - Rol: 3363823 : Formulador
 ## TRES ACTIVIDADES DE PRUEBA 
 - backup_20241002_194348.sql
+## Version postgres Trabajo
+```
+╰─ psql --version
+psql (PostgreSQL) 17.0 (Debian 17.0-1.pgdg110+1)
 
+╰─ pg_dump --version
+pg_dump (PostgreSQL) 13.16 (Debian 13.16-1.pgdg110+1)
+```
 ## Se edita de tipo apoyo antiguo
 ![[editar tipo apoyo.png]]
 ```json
@@ -785,45 +792,25 @@ tipact_codigo: 1
 
 ```json
 /**
-
 * * GET ROLE - GESTIÓN INSTITUCIONAL
-
 */
-
 async getAllRoleGestionInstitucional() {
-
 await this.$service.get(
-
 'SISPOA',
-
 `_autenticacion/roles-sesion`
-
 ).then(response => {
-
 if (response) {
-
 this.rolGestionInstitucional.formulador = response[0].es_ges_ins_formulador
-
 this.rolGestionInstitucional.aprobador = response[0].es_ges_ins_aprobador
-
 this.rolGestionInstitucional.verificador = response[0].es_ges_ins_verificador
-
 }
-
 }).catch(error => {
-
 // this.$toast.info(error.error_mensaje)
-
 this.rolGestionInstitucional = {
-
 formulador: 0,
-
 aprobador: 0,
-
 verificador: 0,
-
 }
-
 })
 },
 ```

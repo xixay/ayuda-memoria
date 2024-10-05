@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/RESTRUCTURADO DE COMPONENTES DE ACTIVIDADES/Tarea.md",
+                "file": "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/Refacturacion de reportes F1,F1-A,F2,F2-A.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 435.5,
-    "collapsed": true
+    "width": 435.5
   },
   "right": {
     "id": "51bbd9c0b2276e28",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/RESTRUCTURADO DE COMPONENTES DE ACTIVIDADES/Tarea.md",
+                "file": "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/Refacturacion de reportes F1,F1-A,F2,F2-A.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/RESTRUCTURADO DE COMPONENTES DE ACTIVIDADES/Tarea.md",
+                "file": "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/Refacturacion de reportes F1,F1-A,F2,F2-A.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/RESTRUCTURADO DE COMPONENTES DE ACTIVIDADES/Tarea.md"
+                "file": "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/Refacturacion de reportes F1,F1-A,F2,F2-A.md"
               }
             }
           }
@@ -139,16 +138,22 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Abrir selector rápido": false,
-      "graph:Abrir vista gráfica": false,
-      "canvas:Crear nuevo lienzo": false,
-      "daily-notes:Abrir la nota de hoy": false,
-      "templates:Insertar plantilla": false,
-      "command-palette:Abrir paleta de comandos": false
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
     }
   },
   "active": "187e24ce12e052bb",
   "lastOpenFiles": [
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/reporte_F1-A.pdf",
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/report3996824816704494629.pdf",
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/RESTRUCTURADO DE COMPONENTES DE ACTIVIDADES/Tarea.md",
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/Refacturacion de reportes F1,F1-A,F2,F2-A.md",
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES",
+    "6archivos/scripts/backup_20241004_091221.sql",
     "6archivos/scripts/backup_20241004_000218.sql",
     "6archivos/scripts/backup_20241003_181516.sql",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/RESTRUCTURADO DE COMPONENTES DE ACTIVIDADES/editar tipo apoyo nuevo.png",
@@ -160,7 +165,6 @@
     "1.png",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/RESTRUCTURADO DE COMPONENTES DE ACTIVIDADES/accion nuevo.png",
     "6archivos/scripts/backup_20241002_140938.sql",
-    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/RESTRUCTURADO DE COMPONENTES DE ACTIVIDADES/Tarea.md",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/RESTRUCTURADO DE COMPONENTES DE ACTIVIDADES/antes de borrar.png",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/RESTRUCTURADO DE COMPONENTES DE ACTIVIDADES/despues de borrar.png",
     "6archivos/scripts/backup_20241001_135955.sql",
@@ -170,10 +174,7 @@
     "CONTRALORÍA/SISPOA CONAUD/QUERYS/evaluaciones.md",
     "README.md",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REPORTES CORREGIR CARGO NOMBRE ITEM/report3374365912544599543.pdf",
-    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REPORTES CORREGIR CARGO NOMBRE ITEM",
-    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REPORTES CORREGIR/report3374365912544599543.pdf",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REPORTES CORREGIR/corregir.md",
-    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REPORTES CORREGIR",
     "Sin título.canvas",
     "2024-10-01.md",
     "CONTRALORÍA/espacio.png",
