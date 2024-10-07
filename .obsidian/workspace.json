@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 435.5
+    "width": 435.5,
+    "collapsed": true
   },
   "right": {
     "id": "51bbd9c0b2276e28",
@@ -138,20 +139,20 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Open quick switcher": false,
-      "graph:Open graph view": false,
-      "canvas:Create new canvas": false,
-      "daily-notes:Open today's daily note": false,
-      "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "switcher:Abrir selector rápido": false,
+      "graph:Abrir vista gráfica": false,
+      "canvas:Crear nuevo lienzo": false,
+      "daily-notes:Abrir la nota de hoy": false,
+      "templates:Insertar plantilla": false,
+      "command-palette:Abrir paleta de comandos": false
     }
   },
   "active": "187e24ce12e052bb",
   "lastOpenFiles": [
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/reporte_F1-A.pdf",
-    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/report3996824816704494629.pdf",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/RESTRUCTURADO DE COMPONENTES DE ACTIVIDADES/Tarea.md",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/Refacturacion de reportes F1,F1-A,F2,F2-A.md",
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/report3996824816704494629.pdf",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES",
     "6archivos/scripts/backup_20241004_091221.sql",
     "6archivos/scripts/backup_20241004_000218.sql",
@@ -173,7 +174,6 @@
     "CONTRALORÍA/SISPOA CONAUD/QUERYS/tipos reporte F1, F1A,F2,F2A.md",
     "CONTRALORÍA/SISPOA CONAUD/QUERYS/evaluaciones.md",
     "README.md",
-    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REPORTES CORREGIR CARGO NOMBRE ITEM/report3374365912544599543.pdf",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REPORTES CORREGIR/corregir.md",
     "Sin título.canvas",
     "2024-10-01.md",
