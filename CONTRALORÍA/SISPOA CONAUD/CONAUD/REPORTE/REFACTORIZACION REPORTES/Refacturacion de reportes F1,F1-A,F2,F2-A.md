@@ -504,3 +504,106 @@ WHERE   TRUE
 | 242        |                                    |
 | 241        |                                    |
 | 389        |                                    |
+
+Codigo Sugerido
+```ts
+@LoggerMethod
+async findSummaryByIapCodeForReportNuevo(query: GetAllInicioActividadPoaSummaryDto, manager: EntityManager) {
+  const moment = require('moment');
+  console.log("🐱==xx0==>  GetAllInicioActividadPoaService  query:", query);
+
+  // -------- FUNCIONES AUXILIARES --------
+  const getEntidadDescripcion = async (resultInicial) => {
+    if ([null, ''].includes(resultInicial.entidad_nombre)) {
+      const actividadObject = { ent_descripcion: resultInicial.entidad_nombre, ent_codigo: resultInicial.ent_codigo };
+      resultInicial.entidad_nombre = await this.obtenerNombreEntidadPorEval(actividadObject);
+      console.log("🐱==xx4==> ~ entidadDescripcion:", resultInicial.entidad_nombre);
+    }
+  };
+
+  const getUsuarios = async (resultInicial, manager) => {
+    const usuarios = await this.authenticationService.findAllUserUnit({}, manager);
+    resultInicial.per_nombre_gerente = usuarios.find(p => p.per_codigo === resultInicial.per_codigo_gerente)?.per_nombre_completo || '';
+    resultInicial.per_nombre_responsable = usuarios.find(p => p.per_codigo === resultInicial.per_codigo_responsable)?.per_nombre_completo || '';
+    console.log("🐱==xx5==> ~ per_nombre_gerente:", resultInicial.per_nombre_gerente);
+    console.log("🐱==xx6==> ~ per_nombre_responsable:", resultInicial.per_nombre_responsable);
+  };
+
+  const getFechaAprobacion = async (resultInicial, manager) => {
+    let fecha_aprobacion = null;
+    try {
+      const fechaResult = await this.findDateOfStateInicioActividadPoa(resultInicial.iap_codigo, manager);
+      fecha_aprobacion = moment(fechaResult[0].eiap_detalle?.iap_fecha_aprobacion || fechaResult[0].fecha_registro_format, 'YYYY-MM-DD').format('DD/MM/YYYY');
+    } catch (error) { }
+    resultInicial.fecha_aprobacion = fecha_aprobacion;
+    console.log("🐱==xx7==> ~ fecha_aprobacion:", fecha_aprobacion);
+  };
+
+  // --------- DATOS INICIALES DE ENTRADA ---------
+  let resultInicial: any = {};
+  try {
+    const sql = `
+      SELECT
+        iap.iap_codigo, iap.per_codigo_gerente, iap.per_codigo_responsable,
+        iap.iap_justificacion_ampliacion, iap.iap_observaciones, iap.tia_codigo,
+        ia.iac_codigo, ia.iac_codigo_control_vista AS iac_codigo_control,
+        ia.iac_objeto, ia.iac_objetivo, ia.iac_alcance, ia.iac_dias_habiles,
+        ia.iac_dias_calendario, TO_CHAR(ia.iac_fecha_inicio, 'dd/mm/yyyy') AS iac_fecha_inicio,
+        TO_CHAR(ia.iac_mes_inicio, 'MM/YYYY') AS mes_inicio, TO_CHAR(ia.iac_fecha_borrador, 'dd/mm/yyyy') AS iac_fecha_borrador,
+        TO_CHAR(ia.iac_fecha_emision, 'dd/mm/yyyy') AS iac_fecha_emision, TO_CHAR(ia.iac_mes_fin, 'MM/YYYY') AS mes_fin,
+        ia.iac_observaciones, ia.iac_recomendacion_seguir, ia.iac_migrado,
+        a.act_codigo, a.act_numero, CONCAT_WS('.', split_part(a.act_numero, '.', 1), split_part(a.act_numero, '.', 2), split_part(a.act_numero, '.', 3)) AS cod_areas,
+        split_part(a.act_numero, '.', 4) AS cod_correlativo, split_part(a.act_numero, '.', 5) AS cod_gestion,
+        a.ent_codigo, a.ent_descripcion AS entidad_nombre, a.act_denuncia, a.act_horas_planificadas,
+        g.ges_anio, tt.ttr_sigla, CASE WHEN a.tipact_codigo = 2 THEN 1 ELSE 0 END AS bandera_continuidad,
+        tt.ttr_descripcion, tt.ett_codigo, iap.iap_estado
+      FROM  ejecucion_actividades.inicio_actividad_poa iap
+      LEFT JOIN ejecucion_actividades.inicios_actividades ia ON iap.iac_codigo = ia.iac_codigo
+      LEFT JOIN estructura_poa.actividades a ON iap.act_codigo = a.act_codigo
+      LEFT JOIN parametricas.gestiones g ON ia.ges_codigo = g.ges_codigo
+      LEFT JOIN parametricas.tipos_trabajos tt ON a.ttr_codigo = tt.ttr_codigo
+      WHERE TRUE ${query.iap_codigo ? `AND iap.iap_codigo IN ${query.iap_codigo}` : ''}
+    `;
+    resultInicial = (await manager.query(sql))[0];
+    console.log("🐱==xx1==> ~ resultInicial:", resultInicial);
+  } catch (error) {
+    throwError(400, 'NO SE ENCONTRÓ EL INICIO DE ACTIVIDAD POA');
+  }
+
+  // ------------- ESPECIFICACION TIPO TRABAJO ---------
+  if (resultInicial.ett_codigo === EspecificacionTiposTrabajo.APOYO) {
+    try {
+      const cod_trabajo_apoyar = (await this.findCodigoControlByIapCodigo(query.iap_codigo, manager))[0].iac_codigo_control_vista;
+      const cod_po_apoyo = (await this.findByIapCodigo(query.iap_codigo, manager))[0].act_numero || '';
+      Object.assign(resultInicial, { cod_trabajo_apoyar, cod_po_apoyo });
+      console.log("🐱==xx2==> ~ cod_trabajo_apoyar:", cod_trabajo_apoyar);
+      console.log("🐱==xx3==> ~ cod_po_apoyo:", cod_po_apoyo);
+    } catch (error) { }
+  }
+
+  // -------- PROCESO PARA OBTENER INFORMACIÓN --------
+  await Promise.all([
+    getEntidadDescripcion(resultInicial),
+    getUsuarios(resultInicial, manager),
+    getFechaAprobacion(resultInicial, manager)
+  ]);
+
+  // -------- CORRECCIONES Y FORMATEOS --------------
+  if (resultInicial.iac_migrado) {
+    resultInicial.iap_justificacion_ampliacion = resultInicial.iac_observaciones;
+  }
+  resultInicial = this.corregirStringParaInicioActividades(resultInicial);
+  resultInicial.entidad_nombre = this.corregirStringParaJSON(resultInicial.entidad_nombre);
+
+  // ------------- ASIGNACIONES ----------------
+  if (resultInicial.iap_estado != EstadoPoa.HISTORICO) {
+    // Manejando asignaciones
+    await this.procesarAsignaciones(resultInicial, query, manager);
+  } else {
+    await this.procesarAsignacionesHistoricas(resultInicial, query, manager);
+  }
+
+  return resultInicial;
+}
+
+```
