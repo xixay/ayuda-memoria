@@ -46,8 +46,9 @@ FROM ejecucion_actividades.inicio_actividad_poa t
 		LEFT JOIN ejecucion_poa.asignaciones a on iapa.asi_codigo = a.asi_codigo
 WHERE	TRUE
 		AND t.iap_estado NOT IN (0)
+--		AND t.iap_estado IN (2)
 --		AND ia.iac_codigo IN ()
-		AND t.tia_codigo IN (4)
+		AND t.tia_codigo IN (2)
 --		AND ia.ttr_codigo IN (0)
 --		AND t.iap_codigo IN (627)
 --		and t.act_codigo in (1121)

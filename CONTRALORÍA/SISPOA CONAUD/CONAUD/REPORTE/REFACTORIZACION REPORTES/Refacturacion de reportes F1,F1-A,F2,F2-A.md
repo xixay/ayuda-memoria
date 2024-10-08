@@ -21,7 +21,7 @@ findSummaryByIapCodeForReport
 - busca la entidad de la descripcion, en la actividad encontrada, si no tiene encontrar con el provider entidad
 - busca el persona gerente con el per_nombre_gerente, de inicio actividad_poa, con el provider
 -  busca el persona responsable con el per_nombre_responsable, de inicio actividad_poa, con el provider
-- pregunta si el iap_estado = 5 y tia_codigo es 1 o 2, si cumple buscara los inicio actividadPoaAsignaciones con estado = 0, para este caso no cumple busca los de estado en 1
+- pregunta si el ==iap_estado = 5== y tia_codigo es 1 o 2, si cumple buscara los inicio actividadPoaAsignaciones con estado = 0, para este caso no cumple busca los de estado en 1
 	- encuentra el inicioActividadPoa con:
 
 | iapa_codigo | asi_codigo | iap_codigo | iac_codigo | iapa_estado |
@@ -356,11 +356,16 @@ findSummaryByIapCodeSeguimientoforReport
 - src/feature/inicio-actividad-poa/service/findAll-inicio-actividad-poa.service.ts
 ## Nuevo servicio de reportes
 - findSummaryByIapCodeForReportNuevo
-## Reporte a imprimir
-![[reporte_F1-A.pdf]]
 ## Datos de entrada:
-```
+```c
+F1:
+iap_codigo= 152
+F1-A:
 iap_codigo= 262
+F2:
+iap_codigo= 678
+F2-A:
+iap_codigo= 750
 ```
 ## Propuesta de query para obtener los valores iniciales
 ```sql
@@ -376,6 +381,7 @@ SELECT  iap.iap_codigo,
         ) AS cod_areas,
         CAST(split_part(a.act_numero, '.', 4) AS INTEGER) AS cod_correlativo,  -- Convertido a entero
         split_part(a.act_numero, '.', 5) AS cod_gestion,
+        a.ent_codigo,
         a.ent_descripcion AS entidad_nombre,
         a.act_denuncia,
         ia.iac_objeto,
@@ -395,10 +401,12 @@ SELECT  iap.iap_codigo,
 	        	WHEN (a.tipact_codigo = 2 ) THEN 1
 	        	ELSE 0 END
         ) AS bandera_continuidad,
-        tt.ttr_descripcion, 
+        tt.ttr_descripcion,
+        tt.ett_codigo, 
         iap.iap_justificacion_ampliacion,
         iap.iap_observaciones,
-        ia.iac_observaciones, 
+        ia.iac_observaciones,
+        iap.tia_codigo,
         iap.iap_estado
 FROM    ejecucion_actividades.inicio_actividad_poa iap
         LEFT JOIN ejecucion_actividades.inicios_actividades ia ON iap.iac_codigo = ia.iac_codigo
@@ -415,7 +423,7 @@ WHERE   TRUE
 |262|330|EPDP200A24|EP/DP200/A24|2068|510.1602.25.2.24|401|240|510.1602.25|2|24|||EL INFORME DE CONFIABILIDAD DE REGISTROS, INFORME DE CONFIABILIDAD DE ESTADOS FINANCIEROS Y PAPELES DE TRABAJO DE AUDITORÍA DE CONFIABILIDAD DE REGISTROS Y ESTADOS FINANCIEROS EN LO QUE CORRESPONDA|EVALUAR SI LOS INFORMES DE AUDITORÍA DE CONFIABILIDAD DE REGISTROS Y ESTADOS FINANCIEROS SE AJUSTAN A LAS NORMAS DE AUDITORÍA DE CONFIABILIDAD DE REGISTROS Y ESTADOS FINANCIEROS|AL 31 DE DICIEMBRE DE 2023|20/03/2024|30|42|04/2024|18/04/2024|03/05/2024|07/2024|2024|EVINF|0|EVALUACIÓN EEFF - UNIDADES DE AUDITORÍA INTERNA|PARA INCORPORAR HORAS A LA GERENTE DE ÁREA|||2|
 
 ## Servicio de prueba jasper
-- Antes(F1-A)
+- Antes(F1 y F1-A)
 ```c
 /inicio-actividad-poa/summary-report?iap_codigo=$P{s_iap_codigo}
 ```
@@ -423,3 +431,76 @@ WHERE   TRUE
 ```c
 /inicio-actividad-poa/summary-report-nuevo?iap_codigo=$P{s_iap_codigo}
 ```
+
+## Reporte a imprimir F1 (Edicion iap_codigo = 20)
+![[F1_edicion.pdf]]
+## Reporte a imprimir F1 (Consolidado iap_codigo =494 )
+![[F1_consolidado.pdf]]
+## Reporte a imprimir F1 (Historico iap_codigo =179 )
+![[F1_historico.pdf]]
+## Codigos de prueba para Historicos
+
+| iap_codigo |                                    |
+| ---------- | ---------------------------------- |
+| 70         | no da                              |
+| 282        | su marca de agua no dice historico |
+| 179        | su marca de agua no dice historico |
+| 101        |                                    |
+| 104        |                                    |
+| 123        |                                    |
+| 120        |                                    |
+| 108        |                                    |
+| 122        |                                    |
+| 118        |                                    |
+| 124        |                                    |
+| 114        |                                    |
+| 147        |                                    |
+| 85         |                                    |
+| 96         |                                    |
+| 96         |                                    |
+| 242        |                                    |
+| 246        |                                    |
+| 246        |                                    |
+| 242        |                                    |
+| 241        |                                    |
+| 389        |                                    |
+
+## Reporte a imprimir F2 (Edicion iap_codigo = 25)
+![[F2_edicion.pdf]]
+
+## Reporte a imprimir F2 (Consolidado iap_codigo =24 )
+![[F2_consolidado.pdf]]
+## Reporte a imprimir F1-A (Edicion iap_codigo =734 )
+![[F1-A_edicion.pdf]]
+## Reporte a imprimir F1-A (Consolidado iap_codigo =293 )
+![[F1-A_consolidado.pdf]]
+## Reporte a imprimir F1-A (Consolidado especial iap_codigo =518 )
+![[F1-A_consolidado_especial.pdf.pdf]]
+## Reporte a imprimir F1-A (Historico iap_codigo =508 )
+![[F1-A_historico.pdf]]
+## Codigos de prueba para Historicos
+
+| iap_codigo |                                    |
+| ---------- | ---------------------------------- |
+| 70         | no da                              |
+| 282        | su marca de agua no dice historico |
+| 179        | su marca de agua no dice historico |
+| 101        |                                    |
+| 104        |                                    |
+| 123        |                                    |
+| 120        |                                    |
+| 108        |                                    |
+| 122        |                                    |
+| 118        |                                    |
+| 124        |                                    |
+| 114        |                                    |
+| 147        |                                    |
+| 85         |                                    |
+| 96         |                                    |
+| 96         |                                    |
+| 242        |                                    |
+| 246        |                                    |
+| 246        |                                    |
+| 242        |                                    |
+| 241        |                                    |
+| 389        |                                    |
