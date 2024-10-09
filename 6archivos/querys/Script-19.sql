@@ -35,7 +35,8 @@ SELECT
 	       	WHEN (tt.ett_codigo = 5 and t.tia_codigo = 1) THEN 1
 	        WHEN (tt.ett_codigo = 5 and t.tia_codigo = 2) THEN 2
 	        ELSE 0 END
-	  ) AS tipo_reporte
+	  ) AS tipo_reporte,
+	iapa.asi_codigo 
 FROM ejecucion_actividades.inicio_actividad_poa t
 		LEFT JOIN ejecucion_actividades.inicios_actividades ia on t.iac_codigo = ia.iac_codigo
 		LEFT JOIN parametricas.tipos_trabajos tt on ia.ttr_codigo = tt.ttr_codigo
@@ -46,11 +47,13 @@ FROM ejecucion_actividades.inicio_actividad_poa t
 		LEFT JOIN ejecucion_poa.asignaciones a on iapa.asi_codigo = a.asi_codigo
 WHERE	TRUE
 		AND t.iap_estado NOT IN (0)
---		AND t.iap_estado IN (2)
+--		AND tt.ett_codigo IN (2)
+		AND t.iap_estado IN (5)
 --		AND ia.iac_codigo IN ()
-		AND t.tia_codigo IN (2)
+		AND t.tia_codigo IN (1)
+--		AND t.iap_estado IN (16)
 --		AND ia.ttr_codigo IN (0)
---		AND t.iap_codigo IN (627)
+--		AND t.iap_codigo IN (70)
 --		and t.act_codigo in (1121)
 --		and	t.act_codigo = 1448
 --		and t.act_codigo = 1200
@@ -89,4 +92,17 @@ FROM 	ejecucion_poa.asignaciones a
 WHERE 	TRUE 
 		AND a.asi_codigo IN (256)
 ;
-
+--
+SELECT 	
+		au.aun_sigla,
+		ia.iac_codigo, ia.iac_estado,
+		iap.iap_codigo, iap.iap_estado, iap.tia_codigo,
+		a.act_codigo, a.act_estado, a.act_numero 
+FROM 	ejecucion_actividades.inicios_actividades ia
+		LEFT JOIN ejecucion_actividades.inicio_actividad_poa iap ON ia.iac_codigo = iap.iac_codigo 
+		LEFT JOIN estructura_poa.actividades a ON iap.act_codigo = a.act_codigo 
+		LEFT JOIN estructura_organizacional.areas_unidades au ON a.aun_codigo_ejecutora = au.aun_codigo 
+WHERE 	TRUE 
+--		AND ia.iac_codigo_control LIKE 'IXDP290Y24'
+		AND ia.iac_codigo_control LIKE 'ECTP346J24'
+;

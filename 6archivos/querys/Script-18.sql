@@ -51,6 +51,10 @@ FROM 	estructura_organizacional.areas_unidades au
 WHERE 	TRUE
 		AND au.aun_sigla LIKE 'SCGD'
 ;
+-- ESTADOS
+SELECT 	*
+FROM 	parametricas.estados e
+;
 
 
 

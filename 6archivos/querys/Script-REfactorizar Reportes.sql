@@ -49,7 +49,10 @@ FROM    ejecucion_actividades.inicio_actividad_poa iap
         LEFT JOIN parametricas.gestiones g ON ia.ges_codigo = g.ges_codigo
         LEFT JOIN parametricas.tipos_trabajos tt ON a.ttr_codigo = tt.ttr_codigo 
 WHERE   TRUE
-        AND iap.iap_codigo IN (262);
+		AND ia.iac_migrado IN (true)
+		AND iap.tia_codigo IN (1)
+--        AND iap.iap_codigo IN (262)
+;
 
 
 
@@ -99,9 +102,58 @@ WHERE 	TRUE
 
 
 
+        SELECT
+              t.aci_codigo,
+              t.aci_horas,
+              t.aci_descripcion,
+              t.cit_codigo,
+              t.asi_codigo,
+              t.aci_estado,
+              t.aci_responsable,
+              e.est_color,
+              e.est_nombre AS aci_estado_descripcion,
+              TO_CHAR(t.fecha_registro, 'HH24:MI am dd/mm/yyyy') as fecha_registro,
+              t.per_codigo,
+              t.per_docidentidad,
+              t.per_nombre_completo,
+              t.per_nombre_cargo,
+              t.per_nivel,
+              t.persona_detalle
+        FROM  ejecucion_poa.asignaciones_cargos_item t
+              LEFT JOIN parametricas.estados e ON e.est_codigo = t.aci_estado
+        WHERE TRUE
+              AND t.asi_codigo IN (186)
+              AND t.aci_estado IN (1,2,5,9,21)
+        ORDER BY t.fecha_registro DESC
+      ;
+  SELECT
+        a.iac_codigo_apoyo, ia.iac_codigo_control_vista, ia.iac_codigo_control
+  FROM      ejecucion_actividades.inicio_actividad_poa iap
+      LEFT JOIN estructura_poa.actividades a ON iap.act_codigo = a.act_codigo
+      LEFT JOIN ejecucion_actividades.inicios_actividades ia ON a.iac_codigo_apoyo = ia.iac_codigo
+  WHERE     TRUE
+  AND iap.iap_codigo IN (735)
+;
+--
+SELECT 	iap.iap_codigo , a2.act_codigo  , a2.act_numero
+FROM 	ejecucion_actividades.inicio_actividad_poa iap
+		LEFT JOIN estructura_poa.actividades a ON iap.act_codigo = a.act_codigo
+		LEFT JOIN estructura_poa.actividades_apoyo aa ON aa.act_codigo = a.act_codigo
+		lEFT JOIN estructura_poa.actividades a2 ON aa.act_codigo_ejecucion = a2.act_codigo
+WHERE 	TRUE
+		AND iap.iap_codigo IN (735)
+;
 
 
-
+SELECT
+      eiap.eiap_codigo, eiap.eiap_descripcion, eiap.eiap_detalle, eiap.iap_codigo, eiap.eiap_estado,
+      eiap.usuario_registro, eiap.fecha_registro, TO_CHAR(eiap.fecha_registro, 'dd/mm/yyyy') AS fecha_registro_format
+FROM	control_estados.estados_inicio_actividad_poa eiap
+WHERE	TRUE
+--      AND eiap.iap_codigo IN (70)
+      AND eiap.eiap_estado IN (18)
+ORDER BY eiap.fecha_registro DESC
+;
 
 
 
