@@ -52,7 +52,7 @@ FROM    ejecucion_actividades.inicio_actividad_poa iap
 WHERE   TRUE
 --		AND ia.iac_migrado IN (true)
 --		AND iap.tia_codigo IN (1)
-        AND iap.iap_codigo IN (709)
+        AND iap.iap_codigo IN (785)
 --		AND iap.iap_fecha_aprobacion NOTNULL 
 ;
 SELECT 	*
@@ -70,70 +70,43 @@ WHERE 	iap.act_codigo IN (2939)
 --		AND iap_estado IN (5)
 --		AND iap.tia_codigo IN (1)
 ;
-SELECT 	*
-FROM 	ejecucion_actividades.inicio_actividad_poa iap
-WHERE 	iap.act_codigo IN (4754)
---		AND iap_estado IN (5)
---		AND iap.tia_codigo IN (1)
-;
 --***********************
 SELECT 	*
 FROM 	ejecucion_actividades.inicio_actividad_poa_asignaciones iapa 
 WHERE 	TRUE 
---		AND iapa.asi_codigo IN (1534)
-		AND iapa.iap_codigo IN (691)
+--		AND iapa.asi_codigo IN (637)
+--		AND iapa.iap_codigo IN (393)
+--		AND iapa.iap_codigo IN (707)
+		AND iapa.iap_codigo IN (695)
 ;
---
+--asignaciones
 SELECT 	*
-FROM 	ejecucion_poa.asignaciones_cargos_item aci 
-WHERE 	aci.asi_codigo IN (1514)
-;
-SELECT 	*
-FROM 	estructura_poa.actividades a 
-WHERE 	a.act_codigo IN (2939)
-;
-SELECT 	*
-FROM 	parametricas.especificacion_tipos_trabajo ett 
-;
-SELECT 	*
-FROM 	parametricas.tipos_trabajos tt 
-;
-SELECT 	*
-FROM 	parametricas.tipos_inicios_actividades tia 
-;
---
-SELECT
-      eiap.eiap_codigo, eiap.eiap_descripcion, eiap.eiap_detalle, eiap.iap_codigo, eiap.eiap_estado,
-      eiap.usuario_registro, eiap.fecha_registro, TO_CHAR(eiap.fecha_registro, 'dd/mm/yyyy') AS fecha_registro_format
-FROM	control_estados.estados_inicio_actividad_poa eiap
-WHERE	TRUE
-      AND eiap.iap_codigo IN (262)
-      AND eiap.eiap_estado IN (18)
-ORDER BY eiap.fecha_registro DESC;
---
-SELECT 	
-		a.asi_codigo , a.asi_detalle_asignaciones_cargos_items, a.asi_estado,
-		aci.aci_codigo, aci.aci_horas, aci.cit_codigo, aci.aci_estado,
-		iapa.iapa_codigo, iapa.iapa_estado,
-		iap.iap_codigo ,iap.iap_estado, iap.iac_codigo, iap.act_codigo, iap.tia_codigo 
 FROM 	ejecucion_poa.asignaciones a
-		LEFT JOIN ejecucion_poa.asignaciones_cargos_item aci ON a.asi_codigo = aci.asi_codigo
-		LEFT JOIN ejecucion_actividades.inicio_actividad_poa_asignaciones iapa ON a.asi_codigo = iapa.asi_codigo 
-		LEFT JOIN ejecucion_actividades.inicio_actividad_poa iap ON iapa.iap_codigo = iap.iap_codigo 
 WHERE 	TRUE 
 --		AND a.asi_estado IN (5)
---		AND iap.iap_codigo NOTNULL
---		AND iap.tia_codigo IN (1)
-		AND aci.aci_codigo IN (2536)
+--		AND a.asi_codigo IN (637)
+--		AND a.asi_codigo IN (1534)
+		AND a.asi_codigo IN (1518)	
+ORDER BY a.asi_codigo DESC
 ;
 --asignacion cargos item
 SELECT 	*
 FROM 	ejecucion_poa.asignaciones_cargos_item aci 
 WHERE 	aci.aci_codigo IN (2536)
 ;
---asignaciones
 SELECT 	*
-FROM 	ejecucion_poa.asignaciones a
-WHERE 	a.asi_estado IN (5)
-ORDER BY a.asi_codigo DESC
+FROM 	estructura_poa.actividades a 
+WHERE 	a.act_codigo IN (2939)
 ;
+--asignaciones horas usadas
+SELECT 	*
+FROM 	ejecucion_poa.asignaciones_horas_usadas ahu
+WHERE 	ahu.aci_codigo IN (5704)
+;
+--reposicion
+SELECT 	*
+FROM 	ejecucion_poa.reposicion_cargos_item rci
+WHERE 	rci.aci_codigo IN (5704)
+;
+
+

@@ -50,7 +50,7 @@ WHERE	TRUE
 --		AND tt.ett_codigo IN (2)
 --		AND t.iap_estado IN (5)
 --		AND ia.iac_codigo IN ()
-		AND t.tia_codigo IN (2)
+		AND t.tia_codigo IN (1)
 --		AND t.iap_estado IN (16)
 --		AND ia.ttr_codigo IN (0)
 --		AND t.iap_codigo IN (70)
@@ -66,7 +66,8 @@ WHERE	TRUE
 SELECT 	*
 FROM 	ejecucion_actividades.inicio_actividad_poa iap 
 WHERE 	TRUE
-		AND iap.act_codigo IN (3261)
+--		AND iap.act_codigo IN (3261)
+		AND iap.iap_codigo IN (695)	
 ;
 SELECT 	*
 FROM 	ejecucion_actividades.inicios_actividades ia 
@@ -90,7 +91,8 @@ SELECT 	*
 		--a.asi_codigo, a.asi_detalle_asignaciones_cargos_items 
 FROM 	ejecucion_poa.asignaciones a
 WHERE 	TRUE 
-		AND a.asi_codigo IN (256)
+		AND a.asi_codigo IN (637)
+--		AND a.asi_detalle_asignaciones_horas_usadas NOTNULL 
 ;
 --
 SELECT 	
