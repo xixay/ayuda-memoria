@@ -20,16 +20,6 @@
             }
           },
           {
-            "id": "08db857b0af3aab2",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/F_1_1A_11_26.pdf"
-              }
-            }
-          },
-          {
             "id": "9bdc1b5f5f5411a2",
             "type": "leaf",
             "state": {
@@ -41,7 +31,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -108,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/Refacturacion de reportes F1,F1-A,F2,F2-A.md",
+                "file": "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/RESTRUCTURADO DE COMPONENTES DE ACTIVIDADES/Tarea.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,7 +116,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/Refacturacion de reportes F1,F1-A,F2,F2-A.md",
+                "file": "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/RESTRUCTURADO DE COMPONENTES DE ACTIVIDADES/Tarea.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -148,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/Refacturacion de reportes F1,F1-A,F2,F2-A.md"
+                "file": "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/RESTRUCTURADO DE COMPONENTES DE ACTIVIDADES/Tarea.md"
               }
             }
           }
@@ -169,8 +160,16 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "187e24ce12e052bb",
+  "active": "9bdc1b5f5f5411a2",
   "lastOpenFiles": [
+    "6archivos/scripts/backup_20241010_134325.sql",
+    "6archivos/scripts/backup_20241010_134312.sql",
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/RESTRUCTURADO DE COMPONENTES DE ACTIVIDADES/ejemplo con viaticos.png",
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/Refacturacion de reportes F1,F1-A,F2,F2-A.md",
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/F_1_1A_11_26.pdf",
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/RESTRUCTURADO DE COMPONENTES DE ACTIVIDADES/Tarea.md",
+    "6archivos/scripts/backup_20241010_094124.sql",
+    "6archivos/scripts/backup_20241010_092609.sql",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/F1/F1_antes.png",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/F1-A/REPORTE F1-A-28_borrado_sandra.pdf",
     "6archivos/scripts/backup_20241009_202306.sql",
@@ -178,12 +177,6 @@
     "6archivos/scripts/backup_20241009_202152.sql",
     "6archivos/scripts/backup_20241009_201942.sql",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/F1-A/REPORTE F1-A-27.pdf",
-    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/F1/F1_historico_problema.pdf",
-    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/F1/report8435772275893530231.pdf",
-    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/F_1_1A_11_26.pdf",
-    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/Refacturacion de reportes F1,F1-A,F2,F2-A.md",
-    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/RESTRUCTURADO DE COMPONENTES DE ACTIVIDADES/Tarea.md",
-    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/F1-A/F1-A_ampliado_3.pdf",
     "CONTRALORÍA/SISPOA CONAUD/FLUJOS/ejecucion actividades POA-flujo estados conaud.drawio.png",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/F1/F1_problema.png",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/F1/problema ejm .png",
@@ -192,8 +185,6 @@
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/RESTRUCTURADO DE COMPONENTES DE ACTIVIDADES/inactiva lo que muestra.png",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/RESTRUCTURADO DE COMPONENTES DE ACTIVIDADES/accion nuevo tin_codigo 1.png",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/RESTRUCTURADO DE COMPONENTES DE ACTIVIDADES/accion nuevo tin_codigo 2.png",
-    "1.png",
-    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/RESTRUCTURADO DE COMPONENTES DE ACTIVIDADES/accion nuevo.png",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REPORTES CORREGIR CARGO NOMBRE ITEM/corregir.md",
     "CONTRALORÍA/SISPOA CONAUD/QUERYS/tipos reporte F1, F1A,F2,F2A.md",
     "CONTRALORÍA/SISPOA CONAUD/QUERYS/evaluaciones.md",

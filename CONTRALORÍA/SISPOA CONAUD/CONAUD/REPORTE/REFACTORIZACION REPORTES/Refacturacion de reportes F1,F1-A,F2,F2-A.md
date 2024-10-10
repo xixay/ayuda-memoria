@@ -625,6 +625,10 @@ resultInicial.asignaciones_cargos_item_ampliacion = asignacionesCargosItemCombin
 - IXDP287Y24
 -  510.1101.15.8.24
 - act_codigo = (2939)
+
+
+
+510.1101.15.7.24
 ### Roles
 
 |     |         |                             |                      |         |

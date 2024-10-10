@@ -364,6 +364,15 @@ tipact_codigo: 1
 - Rol: 3363823 : Formulador
 ## TRES ACTIVIDADES DE PRUEBA 
 - backup_20241002_194348.sql
+### Roles GPA2-GAD
+
+|     | 3386714 | GUERY RAMIRO CUENTAS AGUIRRE | GERENTE CONSOLIDADOR | EDICION |
+| --- | ------- | ---------------------------- | -------------------- | ------- |
+|     | 3363823 | JUAN JOSE CHUQUIMIA          | FORMULADOR           | EDICION |
+|     | 2389409 | OLGA EDITH SUAREZ JIMENEZ    | SUPERVISOR           | EDICION |
+|     | 3386714 | GUERY RAMIRO CUENTAS AGUIRRE | APROBADOR            | EDICION |
+|     | 3363823 | JUAN JOSE CHUQUIMIA          | FORMULADOR GERENTE   | EDICION |
+
 ## Version postgres Trabajo
 ```
 ╰─ psql --version
@@ -814,3 +823,17 @@ verificador: 0,
 })
 },
 ```
+## Actividades de Prueba con viaticos
+![[ejemplo con viaticos.png]]
+### Roles
+
+|     | 3386714 | GUERY RAMIRO CUENTAS AGUIRRE | GERENTE CONSOLIDADOR | EDICION |
+| --- | ------- | ---------------------------- | -------------------- | ------- |
+|     | 3363823 | JUAN JOSE CHUQUIMIA          | FORMULADOR           | EDICION |
+|     | 2389409 | OLGA EDITH SUAREZ JIMENEZ    | SUPERVISOR           | EDICION |
+|     | 3386714 | GUERY RAMIRO CUENTAS AGUIRRE | APROBADOR            | EDICION |
+|     | 3363823 | JUAN JOSE CHUQUIMIA          | FORMULADOR GERENTE   | EDICION |
+
+### Actividad De Prueba backup_20241010_134325.sql
+- Accion Corto Plazo: 500.1201.46
+- GPA2-GAD
