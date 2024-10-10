@@ -48,9 +48,9 @@ FROM ejecucion_actividades.inicio_actividad_poa t
 WHERE	TRUE
 		AND t.iap_estado NOT IN (0)
 --		AND tt.ett_codigo IN (2)
-		AND t.iap_estado IN (5)
+--		AND t.iap_estado IN (5)
 --		AND ia.iac_codigo IN ()
-		AND t.tia_codigo IN (1)
+		AND t.tia_codigo IN (2)
 --		AND t.iap_estado IN (16)
 --		AND ia.ttr_codigo IN (0)
 --		AND t.iap_codigo IN (70)
@@ -105,4 +105,9 @@ FROM 	ejecucion_actividades.inicios_actividades ia
 WHERE 	TRUE 
 --		AND ia.iac_codigo_control LIKE 'IXDP290Y24'
 		AND ia.iac_codigo_control LIKE 'ECTP346J24'
+;
+SELECT	*
+FROM 	ejecucion_actividades.inicio_actividad_poa iap 
+ORDER BY iap.iap_fecha_aprobacion DESC
+;
 ;

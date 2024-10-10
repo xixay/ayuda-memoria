@@ -1,5 +1,5 @@
-Token
-- Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwZXJfY29kaWdvIjo0NjEsInNpc3RlbWFzIjpbeyJzaXNjZ2VfY29kaWdvIjozMiwic2lzY2dlX3NpZ2xhIjoiY29ycmVzcG9uZGVuY2lhX2ludGVybmEifSx7InNpc2NnZV9jb2RpZ28iOjM0LCJzaXNjZ2Vfc2lnbGEiOiJzaXNwb2EifSx7InNpc2NnZV9jb2RpZ28iOjM3LCJzaXNjZ2Vfc2lnbGEiOiJjb25hdWQifV0sInJvbGVzIjpbeyJzaXNjZ2VfY29kaWdvIjozMiwicm9sX2NvZGlnbyI6MTc2LCJyb2xfZGVzY3JpcGNpb24iOiJBU0lTVEVOVEUgQURNSU5JU1RSQVRJVk8ifSx7InNpc2NnZV9jb2RpZ28iOjM0LCJyb2xfY29kaWdvIjoxOTAsInJvbF9kZXNjcmlwY2lvbiI6Ik9wZXJhZG9yIEZvcm11bGFyaW8ifSx7InNpc2NnZV9jb2RpZ28iOjM3LCJyb2xfY29kaWdvIjoyMDgsInJvbF9kZXNjcmlwY2lvbiI6Ik9wZXJhZG9yIEZvcm11bGFyaW8ifV0sImlkIjoiZjZkMTA0ZmYtMTM2YS00N2ZhLThlOTYtZWU2MjNiMDliNDAzIiwidGlwbyI6InVzdWFyaW8iLCJpYXQiOjE3MjgyNTgxMDMsImV4cCI6MTcyODI4NjkwMywibW9tZW50IjoiMjAyNC0xMC0wNlQxOTo0MTo0My0wNDowMCJ9.fbMmaZg-wk_EAbfuJ6OM4gqwOU_wPbA_sbzWBhcP8BqUUo-QQx_SIAg5W2Q3GIg5dtaA6hNjvZkTZdJ6H7zYbg
+## Documentación
+![[F_1_1A_11_26.pdf]]
 ## F1 y F1-A
 - Servicio jasper ambos
 ```c
@@ -618,3 +618,163 @@ resultInicial.asignaciones_cargos_item_ampliacion = asignacionesCargosItemCombin
 
 
 ```
+
+## Pruebas de ampliacion
+- iap_codigo antes de ampliar iap_codigo= (393) F1
+- GPA-GA1
+- IXDP287Y24
+-  510.1101.15.8.24
+- act_codigo = (2939)
+### Roles
+
+|     |         |                             |                      |         |
+| --- | ------- | --------------------------- | -------------------- | ------- |
+|     | 4148565 | RUBEN DARIO CARDOZO MARAÑON | SUPERVISOR           | EDICION |
+|     | 3427342 | JUAN JOSE PALACIOS NOGALES  | GERENTE CONSOLIDADOR | EDICION |
+|     | 5555542 | ELENA MALLON MARTINEZ       | FORMULADOR           | EDICION |
+|     | 1799497 | SANDRA QUIROGA SOLANO       | SUPERVISOR           | EDICION |
+|     | 5555542 | ELENA MALLON MARTINEZ       | FORMULADOR GERENTE   | EDICION |
+|     | 3427342 | JUAN JOSE PALACIOS NOGALES  | APROBADOR            | EDICION |
+
+### Ampliado 1 ves (ap_codigo = 707)
+- base: backup_20241009_100318.sql
+- iap_codigo = 707
+#### reporte: 
+![[F1-A_ampliado_1.pdf]]
+#### Horas antes
+
+|         |         |                            |                                |      |     |             |
+| ------- | ------- | -------------------------- | ------------------------------ | ---- | --- | ----------- |
+| EDICION |         |                            | GERENTE DE AUDITORIA           | 0250 | 8   | Responsable |
+| EDICION | 3427342 | JUAN JOSE PALACIOS NOGALES | GERENTE PRINCIPAL DE AUDITORIA | 0248 | 1   |             |
+| EDICION | 1799497 | SANDRA QUIROGA SOLANO      | SUBCONTRALOR DEL NIVEL CENTRAL | 0191 | 1   |             |
+| EDICION | 4742933 | GUERY LOAYZA PLATA         | SUPERVISOR A                   | 0252 | 70  |             |
+#### Horas despues
+|         |         |                              |                                |      |     |             |
+| ------- | ------- | ---------------------------- | ------------------------------ | ---- | --- | ----------- |
+| EDICION |         |                              | GERENTE DE AUDITORIA           | 0250 | 10  | Responsable |
+| EDICION | 3427342 | JUAN JOSE PALACIOS NOGALES   | GERENTE PRINCIPAL DE AUDITORIA | 0248 | 2   |             |
+| EDICION | 1799497 | SANDRA QUIROGA SOLANO        | SUBCONTRALOR DEL NIVEL CENTRAL | 0191 | 2   |             |
+| EDICION | 4742933 | GUERY LOAYZA PLATA           | SUPERVISOR A                   | 0252 | 35  |             |
+| EDICION | 4296571 | PATRICIA QUISBERT VILLARROEL | ASISTENTE ADMINISTRATIVO       | 0285 | 12  |             |
+
+### Ampliado 2 ves (ap_codigo = 708)
+- base: backup_20241009_103016.sql
+- iap_codigo = 708
+#### reporte: 
+![[F1-A_ampliado_2.pdf]]
+#### Horas antes
+
+|         |         |                              |                                |      |     |             |
+| ------- | ------- | ---------------------------- | ------------------------------ | ---- | --- | ----------- |
+| EDICION |         |                              | GERENTE DE AUDITORIA           | 0250 | 10  | Responsable |
+| EDICION | 3427342 | JUAN JOSE PALACIOS NOGALES   | GERENTE PRINCIPAL DE AUDITORIA | 0248 | 2   |             |
+| EDICION | 1799497 | SANDRA QUIROGA SOLANO        | SUBCONTRALOR DEL NIVEL CENTRAL | 0191 | 2   |             |
+| EDICION | 4742933 | GUERY LOAYZA PLATA           | SUPERVISOR A                   | 0252 | 35  |             |
+| EDICION | 4296571 | PATRICIA QUISBERT VILLARROEL | ASISTENTE ADMINISTRATIVO       | 0285 | 12  |             |
+#### Horas despues
+
+|         |         |                                 |                                |      |     |             |
+| ------- | ------- | ------------------------------- | ------------------------------ | ---- | --- | ----------- |
+| EDICION |         |                                 | GERENTE DE AUDITORIA           | 0250 | 12  | Responsable |
+| EDICION | 3427342 | JUAN JOSE PALACIOS NOGALES      | GERENTE PRINCIPAL DE AUDITORIA | 0248 | 4   |             |
+| EDICION | 1799497 | SANDRA QUIROGA SOLANO           | SUBCONTRALOR DEL NIVEL CENTRAL | 0191 | 4   |             |
+| EDICION | 4742933 | GUERY LOAYZA PLATA              | SUPERVISOR A                   | 0252 | 36  |             |
+| EDICION | 4296571 | PATRICIA QUISBERT VILLARROEL    | ASISTENTE ADMINISTRATIVO       | 0285 | 12  |             |
+| EDICION | 8352809 | SILVANA DANIELA GUACHALLA YUCRA | ASISTENTE ADMINISTRATIVO       | 0272 | 12  |             |
+### Ampliado 3 ves (iap_codigo = 709)
+- base: backup_20241009_104448.sql
+- iap_codigo = 709
+#### reporte: 
+![[F1-A_ampliado_3.pdf]]
+#### Horas antes
+
+|         |         |                                 |                                |      |     |             |
+| ------- | ------- | ------------------------------- | ------------------------------ | ---- | --- | ----------- |
+| EDICION |         |                                 | GERENTE DE AUDITORIA           | 0250 | 12  | Responsable |
+| EDICION | 3427342 | JUAN JOSE PALACIOS NOGALES      | GERENTE PRINCIPAL DE AUDITORIA | 0248 | 4   |             |
+| EDICION | 1799497 | SANDRA QUIROGA SOLANO           | SUBCONTRALOR DEL NIVEL CENTRAL | 0191 | 4   |             |
+| EDICION | 4742933 | GUERY LOAYZA PLATA              | SUPERVISOR A                   | 0252 | 36  |             |
+| EDICION | 4296571 | PATRICIA QUISBERT VILLARROEL    | ASISTENTE ADMINISTRATIVO       | 0285 | 12  |             |
+| EDICION | 8352809 | SILVANA DANIELA GUACHALLA YUCRA | ASISTENTE ADMINISTRATIVO       | 0272 | 12  |             |
+#### Horas despues
+## Propuesta asi_codigo antiguo = 637
+```js
+Array(6) [
+  {
+    aci_codigo: 5704,
+    aci_horas: 12,
+    per_nombre_completo: 'SILVANA DANIELA GUACHALLA YUCRA',
+  },
+  {
+    aci_codigo: 5703,
+    aci_horas: 12,
+    per_nombre_completo: 'PATRICIA QUISBERT VILLARROEL',
+  },
+  {
+    aci_codigo: 2539,
+    aci_horas: 36,
+    per_nombre_completo: 'GUERY LOAYZA PLATA',
+  },
+  {
+    aci_codigo: 2538,
+    aci_horas: 4,
+    per_nombre_completo: 'SANDRA QUIROGA SOLANO',
+  },
+  {
+    aci_codigo: 2536,
+    aci_horas: 12,
+    car_nombre_item: '0250 - GERENTE DE AUDITORIA',
+  }
+]
+//ANTIGUO
+[
+  {
+    aci_codigo: 2539,
+    aci_horas: 70,
+    per_nombre_completo: 'GUERY LOAYZA PLATA',
+
+    horas_asignadas_acumuladas: 70,
+    horas_planificadas: 80,
+  },
+  {
+    aci_codigo: 2538,
+    aci_horas: 1,
+    nombre_persona_asignada: 'SANDRA QUIROGA SOLANO',
+    
+    horas_asignadas_acumuladas: 71,
+    horas_planificadas: 80,
+
+  },
+  {
+    aci_codigo: 2536,
+    aci_horas: 8,
+    car_nombre_item: '0250 - GERENTE DE AUDITORIA',
+	cit_codigo = 153
+	per_codigo = 1149
+
+    horas_asignadas_acumuladas: 79,
+    horas_planificadas: 80,
+
+  },
+  {
+    aci_codigo: 2537,
+    aci_horas: 1,
+    per_nombre_completo: 'JUAN JOSE PALACIOS NOGALES',
+
+    horas_asignadas_acumuladas: 80,
+    horas_planificadas: 80,
+  }
+]
+```
+#### reporte F1 historico mal iap_codigo =282: 
+- iap_codigo = 282
+![[F1_historico_problema.pdf]]
+
+## Maquinar -Rolando iap_codigo=785:
+- http://172.16.22.234:3000/conaud/inicios-actividades?ges_codigo=2&act_codigo=2940
+![[REPORTE F1-A-27.pdf]]
+## Mi maquina el mismo iap_codigo = 785 backup_20241009_202306.sql
+![[REPORTE F1-A-28_borrado_sandra.pdf]]
+- url : http://172.16.22.243:3002/conaud/inicios-actividades?ges_codigo=2&act_codigo=2940
+- rol 5555542 , ELENA MALLON MARTINEZ
