@@ -48,7 +48,7 @@ FROM ejecucion_actividades.inicio_actividad_poa t
 WHERE	TRUE
 		AND t.iap_estado NOT IN (0)
 --		AND tt.ett_codigo IN (2)
---		AND t.iap_estado IN (5)
+		AND t.iap_estado IN (5)
 --		AND ia.iac_codigo IN ()
 		AND t.tia_codigo IN (1)
 --		AND t.iap_estado IN (16)
