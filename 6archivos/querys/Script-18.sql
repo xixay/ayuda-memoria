@@ -21,26 +21,29 @@ ORDER BY eoau.eoau_codigo DESC
 ;
 --ACTIVIDAD
 SELECT 	
-		a.act_codigo, a.act_numero, a.act_estado, a.act_descripcion, a.act_justificacion, a.act_observacion,
+		a.act_codigo, a.act_numero, a.act_estado, a.act_descripcion, a.act_justificacion,
 		au1.aun_sigla AS aun_sigla_ejecutora, au1.aun_inicial AS aun_inicial_ejecutora,
 		au2.aun_sigla AS aun_sigla_supervisora, au2.aun_inicial AS aun_inicial_supervisora
 FROM 	estructura_poa.actividades a
 		LEFT JOIN estructura_organizacional.areas_unidades au1 ON a.aun_codigo_ejecutora = au1.aun_codigo
 		LEFT JOIN estructura_organizacional.areas_unidades au2 ON a.aun_codigo_supervisora = au2.aun_codigo
 WHERE 	TRUE
-		AND a.act_codigo IN (4789)
+--		AND a.act_codigo IN (4789)
 ORDER BY a.act_codigo DESC
 ;
 SELECT 	*
 FROM 	estructura_poa.actividades a 
 WHERE 	a.act_codigo IN (4765)
 ;
-
-
 --INICIO DE ACTIVIDAD
 SELECT 	*
 FROM 	ejecucion_actividades.inicios_actividades ia 
 ORDER BY ia.iac_codigo DESC
+;
+--ACTIVIDAD CONTINUIDAD
+SELECT 	*
+FROM 	estructura_poa.actividades_continuidad ac 
+ORDER BY ac.aco_codigo DESC
 ;
 --INICIO ACTIVIDAD POA
 SELECT 	*
@@ -57,7 +60,11 @@ WHERE 	TRUE
 SELECT 	*
 FROM 	parametricas.estados e
 ;
-
+--FLUJOS
+SELECT 	*
+FROM 	control_estados.flujos_tablas ft
+WHERE 	ft.tab_codigo IN (1)
+;
 
 
 
