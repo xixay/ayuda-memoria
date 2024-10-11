@@ -359,11 +359,11 @@ tipact_codigo: 1
 ## No puede ser de apoyo y de tipo continuo a la vez
 - Si esta tickeado Continuo no debe aparecer el de apoyo
 - Si esta tickeado el de apoyo si osi va ser nuevo, no habra la opcion de condinuidad
-## Se creo una actividad
+## Backup 11 de octubre
 - La base local: backup_20241002_140938.sql
 - Rol: 3363823 : Formulador
 ## TRES ACTIVIDADES DE PRUEBA 
-- backup_20241002_194348.sql
+- backup_20241011_161611.sql
 ### Roles GPA2-GAD
 
 |     | 3386714 | GUERY RAMIRO CUENTAS AGUIRRE | GERENTE CONSOLIDADOR | EDICION |
@@ -852,5 +852,18 @@ verificador: 0,
 ![[metodos ya usados.png]]
 ![[metodos ya usados 2.png]]
 ## EN 2025 PROBAR EDICION F26 backup_20241011_093732.sql
-- Area = DC
-- 
+## Ajustes Nuevos
+- De que accion estrtategica viene, el numero
+- Arriba debe estar la clasificacion de la actividad
+- verificar que el indicador, concuerde con la accion a corto plazo de donde viene
+- volver a textArea : Actividad/Sujeto, act-objeto y act_objetivo
+- Bolsa cambio su informacion, actualizar
+- quitar de la tabla de los headers: viativos observados
+- quitar de la tabla de los headers: sigla supervisora, y colocar arriba el are supervisora
+- quitar de la tabla de los headers: sector
+- en la tabla debe estar unidad de medida y el indicador, en conaud hay el ejm
+- en la tabla debe estar tipo de trabajo
+- reformular una base para que se muestre una tabla de ejecutoras
+- de la tabla quitar el ordenamiento ascendente y descendente de los btns de accion
+- averiguar si se puede tener un btn solamente para las acciones en lugar de muchos
+- quitar el espácio de la informacion en general
