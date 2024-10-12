@@ -854,7 +854,7 @@ verificador: 0,
 ## EN 2025 PROBAR EDICION F26 backup_20241011_093732.sql
 ## Ajustes Nuevos
 - De que accion estrtategica viene, el numero
-- Arriba debe estar la clasificacion de la actividad
+- Arriba debe estar la clasificacion de la actividad(x)
 - verificar que el indicador, concuerde con la accion a corto plazo de donde viene
 - volver a textArea : Actividad/Sujeto, act-objeto y act_objetivo
 - Bolsa cambio su informacion, actualizar
