@@ -853,17 +853,114 @@ verificador: 0,
 ![[metodos ya usados 2.png]]
 ## EN 2025 PROBAR EDICION F26 backup_20241011_093732.sql
 ## Ajustes Nuevos
-- De que accion estrtategica viene, el numero
+- De que accion estrtategica viene, el numero(x)
 - Arriba debe estar la clasificacion de la actividad(x)
 - verificar que el indicador, concuerde con la accion a corto plazo de donde viene
-- volver a textArea : Actividad/Sujeto, act-objeto y act_objetivo
-- Bolsa cambio su informacion, actualizar
-- quitar de la tabla de los headers: viativos observados
-- quitar de la tabla de los headers: sigla supervisora, y colocar arriba el are supervisora
-- quitar de la tabla de los headers: sector
+- volver a textArea : Actividad/Sujeto, act-objeto y act_objetivo(x)
+- Bolsa cambio su informacion, actualizar(x)
+- quitar de la tabla de los headers: viativos observados(x)
+- quitar de la tabla de los headers: sigla supervisora, y colocar arriba el are supervisora(x)
+- quitar de la tabla de los headers: sector(x)
 - en la tabla debe estar unidad de medida y el indicador, en conaud hay el ejm
-- en la tabla debe estar tipo de trabajo
+- en la tabla debe estar tipo de trabajo(x)
 - reformular una base para que se muestre una tabla de ejecutoras
-- de la tabla quitar el ordenamiento ascendente y descendente de los btns de accion
+- de la tabla quitar el ordenamiento ascendente y descendente de los btns de accion(x)
 - averiguar si se puede tener un btn solamente para las acciones en lugar de muchos
 - quitar el espácio de la informacion en general
+## Actividad response
+
+```json
+{
+	"codigo": 0,
+	"error_existente": 0,
+	"error_mensaje": "SE OBTUVIERON DATOS DE FORMA CORRECTA.",
+	"error_codigo": 2001,
+	"trace_id": "35f076d1-8290-461c-8f9d-4ae13b6c4056",
+	"datos": [
+		{
+			"act_codigo": 4745,
+			"act_descripcion": "SERVICIO DEPARTAMENTAL DE SALUD LA PAZ",
+			"act_cantidad": 1,
+			"act_fecha_inicio": "24/09/2024",
+			"act_fecha_fin": "31/12/2024",
+			"act_objeto": "INFORME U.A.I. N°005/2024 AUDITORIA OPERACIONAL AL PROCESO DE DIAGNOSTICO, TRATAMIENTO, SEGUIMIENTO Y MONITOREO LLEVADOS A CABO POR EL PROGRAMA DPTAL DE TUBERCULOSIS",
+			"act_objetivo": "ESTABLECER LA CONFORMIDAD DEL TRABAJO DE AUDITORÍA INTERNA CON LAS NORMAS DE AUDITORÍA GUBERNAMENTAL, OTRAS DISPOSICIONES LEGALES Y PRONUNCIAMIENTOS TÉCNICOS VIGENTES.",
+			"act_alcance": "2023",
+			"act_horas_planificadas": 24,
+			"act_horas_real": "24",
+			"act_estado": 3,
+			"act_no_planificado": false,
+			"act_codigo_anterior": null,
+			"act_codigo_bolsa": 1852,
+			"ges_codigo": 2,
+			"pobj_numero": 47,
+			"aun_numero": "1201",
+			"aun_estado": 2,
+			"pro_numero": "500",
+			"act_correlativo": 2,
+			"ges_anio": 2024,
+			"act_numero": "500.1201.47.2.24",
+			"act_num_desc": "500.1201.47.2.24 - SERVICIO DEPARTAMENTAL DE SALUD LA PAZ",
+			"est_color": "#3390FF",
+			"act_estado_descripcion": "EN VERIFICACIÓN",
+			"ttr_codigo": 34,
+			"ttr_sigla": "EIUAIS",
+			"ttr_inicial": "O",
+			"ett_codigo": 5,
+			"ttr_descripcion": "Evaluación de Informes de Auditoría Operativa remitidos por las UA1s",
+			"ett_nombre": "EVALUACIÓN",
+			"ume_codigo": 12,
+			"ume_descripcion": "INFORME",
+			"ent_codigo": 758,
+			"ent_descripcion": null,
+			"fob_codigo": 1,
+			"tipact_codigo": 1,
+			"act_tipact_descripcion": "NUEVO",
+			"cac_codigo": 2,
+			"sec_codigo": 19,
+			"sec_descripcion": "SALUD",
+			"act_cac_descripcion": "INCORPORACIÓN",
+			"aun_codigo_supervisora": 4,
+			"aun_sigla_supervisora": "SCGD",
+			"aun_inicial_supervisora": "E",
+			"aun_nombre_supervisora": "Subcontraloría de Gobiernos Departamentales - SCGD",
+			"act_ejecucion_conaud": false,
+			"aun_codigo_ejecutora": 63,
+			"aun_codigo_ejecutora_actividad": 63,
+			"pobj_codigo": 930,
+			"aun_sigla_ejecutora": "GPA2-GAD",
+			"aun_inicial_ejecutora": "L",
+			"lug_codigo": 2,
+			"aun_nombre_ejecutora": "Gerencia Departamental de Auditoría en Gobiernos Departamentales - GPA2-GAD",
+			"act_codigo_apoyo": 0,
+			"act_codigo_ejecucion": 0,
+			"act_justificacion": "EVALUACIÓN DE INFORME DE AUDITORIA EMITIDAS POR LAS UAIS",
+			"iac_codigo_apoyo": null,
+			"iac_concatenado": "",
+			"iac_codigo_control": null,
+			"avi_estado": null,
+			"fecha_registro": "11:31 am 24/09/2024",
+			"act_denuncia": null,
+			"poa_codigo": 3,
+			"cau_codigo": 1,
+			"caa_codigo": 0,
+			"caa_nombre": "NO APLICA",
+			"cfa_codigo": 2,
+			"cfa_nombre": "SUSTANTIVO",
+			"cga_codigo": 0,
+			"cga_nombre": "NO APLICA",
+			"cca_codigo": 2,
+			"cca_nombre": "CONTROL EXTERNO",
+			"cant_viaticos": 0,
+			"desc_observacion": "",
+			"fech_registro": "",
+			"desc_nombre": "",
+			"bandera_unidad_supervisora_asignada": 0,
+			"actividad_object": {},
+			"conaud": "",
+			"total_horas_presupuestadas": "0",
+			"horas_saldo": "24"
+		}
+	]
+}
+```
