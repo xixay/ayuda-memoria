@@ -18,6 +18,14 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "d4ef613a8efc01d1",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
           }
         ]
       }
@@ -149,8 +157,20 @@
   },
   "active": "b5ecf2a4c3055894",
   "lastOpenFiles": [
-    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/RESTRUCTURADO DE COMPONENTES DE ACTIVIDADES/Tarea.md",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/Actividades Bolsas.md",
+    "6archivos/scripts/backup_20241015_152820.sql",
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/bolsa0.png",
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/despues de crear comision y añadir horas.png",
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/actividad despues de crear comision y añadir horas.png",
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/antes de crear comision.png",
+    "6archivos/scripts/backup_20241015_114157.sql",
+    "6archivos/scripts/backup_20241015_113322.sql",
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/bolsa.png",
+    "6archivos/scripts/backup_20241015_104808.sql",
+    "6archivos/scripts/backup_20241015_102529.sql",
+    "6archivos/scripts/backup_20241015_091007.sql",
+    "6archivos/scripts/backup_20241015_085628.sql",
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/RESTRUCTURADO DE COMPONENTES DE ACTIVIDADES/Tarea.md",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/Untitled.canvas",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/Refacturacion de reportes F1,F1-A,F2,F2-A.md",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/base.png",
@@ -160,21 +180,9 @@
     "6archivos/scripts/backup_20241014_115834.sql",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/CORREGIDO ANULADO/ejm.png",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/RESTRUCTURADO DE COMPONENTES DE ACTIVIDADES/retiroGi.png",
-    "6archivos/scripts/backup_20241014_104513.sql",
-    "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/CORREGIDO ANULADO",
     "Untitled.md",
-    "6archivos/querys/Script-refactorizacion_actividad.sql",
-    "6archivos/scripts/backup_20241013_220008.sql",
-    "6archivos/scripts/backup_20241013_212320.sql",
-    "6archivos/scripts/backup_20241011_161611.sql",
-    "6archivos/scripts/backup_20241011_160703.sql",
     "CONTRALORÍA/SISPOA CONAUD/FLUJOS/estados globales SISPOA.jpg",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/RESTRUCTURADO DE COMPONENTES DE ACTIVIDADES/metodos ya usados 2.png",
-    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/RESTRUCTURADO DE COMPONENTES DE ACTIVIDADES/metodos ya usados.png",
-    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/RESTRUCTURADO DE COMPONENTES DE ACTIVIDADES/ejemplo con viaticos.png",
-    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/F1/F1_antes.png",
-    "CONTRALORÍA/SISPOA CONAUD/FLUJOS/ejecucion actividades POA-flujo estados conaud.drawio.png",
-    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/F1/F1_problema.png",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REPORTES CORREGIR CARGO NOMBRE ITEM/corregir.md",
     "CONTRALORÍA/SISPOA CONAUD/QUERYS/tipos reporte F1, F1A,F2,F2A.md",
     "CONTRALORÍA/SISPOA CONAUD/QUERYS/evaluaciones.md",
