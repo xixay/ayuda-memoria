@@ -68,6 +68,19 @@ WHERE 	ft.tab_codigo IN (1)
 ;
 
 
+SELECT 	oau.oau_codigo ,oau.oau_estado ,oau.aun_codigo_ejecutora ,oau.aun_codigo_supervisora 
+FROM 	estructura_poa.objetivos_area_unidad oau 
+WHERE 	oau.pobj_codigo IN (1365)
+;
+
+SELECT 	*
+FROM 	estructura_poa.poas_objetivos po 
+WHERE 	po.pobj_codigo IN (1365)
+;
+
+SELECT 	*
+FROM 	estructura_poa.actividades a 
+;
 
 
 
