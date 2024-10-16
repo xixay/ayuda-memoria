@@ -295,8 +295,9 @@ WHERE 	au.aun_codigo IN (27)
 SELECT 	*
 FROM 	estructura_poa.actividades a 
 WHERE 	TRUE 
-		AND a.act_codigo IN (2606)
+--		AND a.act_codigo IN (2606)
 --		AND a.act_codigo IN (4787)
+ORDER BY a.act_codigo DESC  
 ;
 SELECT 	*
 FROM 	ejecucion_actividades.inicio_actividad_poa iap 
@@ -352,7 +353,7 @@ WHERE 	iap.act_codigo IN (4787)
         WHERE   TRUE
               AND t.act_codigo IN (2606)
               AND t.act_estado IN (1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18)
-        ;
+        ;    
        
        
 
