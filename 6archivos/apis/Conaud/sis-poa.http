@@ -374,7 +374,7 @@
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
 ###  ------------------- CREAR - EMPRESAS
-    POST {{Host}}/tipos-permisos
+    POST {{Host}}/empresas
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
 
@@ -384,7 +384,7 @@
       "cpe_codigo": 1
     }
 ###  ------------------- MODIFICAR - EMPRESAS
-    PUT {{Host}}/tipos-permisos
+    PUT {{Host}}/empresas
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
 
@@ -395,10 +395,51 @@
       "cpe_codigo": 10
     }
 ###  ------------------- ELIMINAR - EMPRESAS
-    DELETE {{Host}}/tipos-permisos/9
+    DELETE {{Host}}/empresas/9
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
 ###  ------------------- ACTIVAR - EMPRESAS
-    PATCH {{Host}}/tipos-permisos/9
+    PATCH {{Host}}/empresas/9
+    Content-Type: application/json
+    Authorization: {{AuthTokenInterno}}
+
+### ACTIVIDAD BOLSa
+###  ------------------- OBTENER - ACTIVIDAD BOLSA
+    GET {{Host}}/actividades/actividad-bolsa?act_codigo_bolsa=(2606)&act_estado=(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18)
+    Content-Type: application/json
+    Authorization: {{AuthTokenInterno}}
+### ACTIVIDAD MOVIMIENTO HORAS
+###  ------------------- OBTENER - ACTIVIDAD MOVIMIENTO HORAS
+    GET {{Host}}/actividades-movimientos-horas
+    Content-Type: application/json
+    Authorization: {{AuthTokenInterno}}
+###  ------------------- CREAR - ACTIVIDAD MOVIMIENTO HORAS
+    POST {{Host}}/actividades-movimientos-horas
+    Content-Type: application/json
+    Authorization: {{AuthTokenInterno}}
+
+    {
+      "act_codigo_adicion": 1,
+      "act_codigo_disminucion": 1,
+      "amh_horas": 1,
+      "tmh_codigo": 1
+    }
+###  ------------------- MODIFICAR - ACTIVIDAD MOVIMIENTO HORAS
+    PUT {{Host}}/actividades-movimientos-horas
+    Content-Type: application/json
+    Authorization: {{AuthTokenInterno}}
+
+    {
+      "tpe_codigo": 4,
+      "tpe_nombre": "Prueba 4-1",
+      "tpe_descripcion": "Descripcion prueba 4",
+      "cpe_codigo": 10
+    }
+###  ------------------- ELIMINAR - ACTIVIDAD MOVIMIENTO HORAS
+    DELETE {{Host}}/actividades-movimientos-horas/9
+    Content-Type: application/json
+    Authorization: {{AuthTokenInterno}}
+###  ------------------- ACTIVAR - ACTIVIDAD MOVIMIENTO HORAS
+    PATCH {{Host}}/actividades-movimientos-horas/9
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}

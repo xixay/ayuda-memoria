@@ -1,81 +1,176 @@
-## Opción nueva tabla backup_20241015_091007.sql
+## Opción nueva tabla backup_20241016_122056.sql
 ### Crear Tabla
 ```sql
 /*
 Autor: Richard Teran Funez
-Fecha: 15/10/2024
-Descripcion: Tabla para registro de horas disponibles por comisión
+Fecha: 16/10/2024
+Descripcion: Tabla para registro de movimiento de horas
 */
--- object: estructura_poa.actividades_bolsas | type: TABLE --
-DROP TABLE IF EXISTS estructura_poa.actividades_bolsas CASCADE;
-CREATE TABLE estructura_poa.actividades_bolsas (
-    abo_codigo integer NOT NULL,
-    act_codigo integer NOT NULL,
-    abo_suma_horas_planificadas integer NOT NULL DEFAULT 0,
-    abo_horas_auditorias integer NOT NULL DEFAULT 0,
-    abo_horas_evaluaciones integer NOT NULL DEFAULT 0,
-    abo_horas_disponibles_comision integer NOT NULL DEFAULT 0,
-    act_codigo_bolsa integer NOT NULL,
-    abo_estado integer NOT NULL DEFAULT 1,
+-- object: estructura_poa.tipo_movimientos_horas | type: TABLE --
+DROP TABLE IF EXISTS parametricas.tipo_movimientos_horas CASCADE;
+CREATE TABLE parametricas.tipo_movimientos_horas (
+    tmh_codigo integer NOT NULL,
+    tmh_descripcion varchar,
+    tmh_estado integer NOT NULL DEFAULT 1,
     usuario_registro integer NOT NULL,
     usuario_modificacion integer NOT NULL DEFAULT 0,
     usuario_baja integer NOT NULL DEFAULT 0,
     fecha_registro timestamp NOT NULL DEFAULT (now())::timestamp without time zone,
     fecha_modificacion timestamp NOT NULL DEFAULT '1900-01-01 00:00:00'::timestamp without time zone,
     fecha_baja timestamp NOT NULL DEFAULT '1900-01-01 00:00:00'::timestamp without time zone,
-    CONSTRAINT actividades_bolsas_pkey PRIMARY KEY (abo_codigo),
-    -- Aquí defines la clave foránea
-    CONSTRAINT fk_actividades_bolsas FOREIGN KEY (act_codigo) 
-        REFERENCES estructura_poa.actividades (act_codigo) 
+    CONSTRAINT actividades_movimientos_horas_pkey PRIMARY KEY (tmh_codigo)
 );
 -- ddl-end --
-COMMENT ON TABLE estructura_poa.actividades_bolsas IS E'Registra la cantidad de horas disponibles en auditoria y evaluacion';
+COMMENT ON TABLE parametricas.tipo_movimientos_horas IS E'Registra el tipo de movimiento de horas';
 -- ddl-end --
-COMMENT ON COLUMN estructura_poa.actividades_bolsas.abo_codigo IS E'Identificador primario, generado por el <sistema>';
+COMMENT ON COLUMN parametricas.tipo_movimientos_horas.tmh_codigo IS E'Identificador primario, generado por el <sistema>';
 -- ddl-end --
-COMMENT ON COLUMN estructura_poa.actividades_bolsas.act_codigo IS E'Identificador referencial tabla <estructura_poa.actividades>, se registra relacion actividades';
+COMMENT ON COLUMN parametricas.tipo_movimientos_horas.tmh_descripcion IS E'Registra descripcion, Ej: F21, F24';
 -- ddl-end --
-COMMENT ON COLUMN estructura_poa.actividades_bolsas.act_codigo_bolsa IS E'Identificador referencial tabla <estructura_poa.actividades>, se registra relacion actividades de tipo bolsa';
+COMMENT ON COLUMN parametricas.tipo_movimientos_horas.tmh_estado IS E'Identificador referencial tabla <parametricas.estados>';
 -- ddl-end --
-COMMENT ON COLUMN estructura_poa.actividades_bolsas.abo_horas_auditorias IS E'Calculo de horas de utilizadas en auditorias, para una actividad';
+COMMENT ON COLUMN parametricas.tipo_movimientos_horas.usuario_registro IS E'Identificador referencial, es el per_codigo del sistema de autenticacion para el registro';
 -- ddl-end --
-COMMENT ON COLUMN estructura_poa.actividades_bolsas.abo_horas_evaluaciones IS E'Calculo de horas de utilizadas en evaluaciones, para una actividad';
+COMMENT ON COLUMN parametricas.tipo_movimientos_horas.usuario_modificacion IS E'Identificador referencial, es el per_codigo del sistema de autenticacion para la modificacion';
 -- ddl-end --
-COMMENT ON COLUMN estructura_poa.actividades_bolsas.abo_horas_disponibles_comision IS E'Calculo de horas disponibles para ser utilizadas por comision';
+COMMENT ON COLUMN parametricas.tipo_movimientos_horas.usuario_baja IS E'Identificador referencial, es el per_codigo del sistema de autenticacion para la baja logica';
 -- ddl-end --
-COMMENT ON COLUMN estructura_poa.actividades_bolsas.abo_estado IS E'Identificador referencial tabla <parametricas.estados>';
+COMMENT ON COLUMN parametricas.tipo_movimientos_horas.fecha_registro IS E'Fecha registro';
 -- ddl-end --
-COMMENT ON COLUMN estructura_poa.actividades_bolsas.usuario_registro IS E'Identificador referencial, es el per_codigo del sistema de autenticacion para el registro';
+COMMENT ON COLUMN parametricas.tipo_movimientos_horas.fecha_modificacion IS E'Fecha modificacion';
 -- ddl-end --
-COMMENT ON COLUMN estructura_poa.actividades_bolsas.usuario_modificacion IS E'Identificador referencial, es el per_codigo del sistema de autenticacion para la modificacion';
+COMMENT ON COLUMN parametricas.tipo_movimientos_horas.fecha_baja IS E'Fecha baja';
 -- ddl-end --
-COMMENT ON COLUMN estructura_poa.actividades_bolsas.usuario_baja IS E'Identificador referencial, es el per_codigo del sistema de autenticacion para la baja logica';
--- ddl-end --
-COMMENT ON COLUMN estructura_poa.actividades_bolsas.fecha_registro IS E'Fecha registro';
--- ddl-end --
-COMMENT ON COLUMN estructura_poa.actividades_bolsas.fecha_modificacion IS E'Fecha modificacion';
--- ddl-end --
-COMMENT ON COLUMN estructura_poa.actividades_bolsas.fecha_baja IS E'Fecha baja';
--- ddl-end --
-ALTER TABLE estructura_poa.actividades_bolsas OWNER TO postgres;
+ALTER TABLE parametricas.tipo_movimientos_horas OWNER TO usr_poa;
 -- ddl-end --
 
--- object: fk_act_codigo | type: CONSTRAINT --
--- ALTER TABLE estructura_poa.actividades_bolsas DROP CONSTRAINT IF EXISTS fk_act_codigo CASCADE;
-ALTER TABLE estructura_poa.actividades_bolsas ADD CONSTRAINT fk_act_codigo FOREIGN KEY (act_codigo)
-REFERENCES estructura_poa.actividades (act_codigo) MATCH SIMPLE
+-- object: estado_fk | type: CONSTRAINT --
+-- ALTER TABLE parametricas.tipo_movimientos_horas DROP CONSTRAINT IF EXISTS estado_fk CASCADE;
+ALTER TABLE parametricas.tipo_movimientos_horas ADD CONSTRAINT estado_fk FOREIGN KEY (tmh_estado)
+REFERENCES parametricas.estados (est_codigo) MATCH SIMPLE
 ON DELETE NO ACTION ON UPDATE NO ACTION;
 -- ddl-end --
 
 -- object: "grant_rawdDxt_4c137bd291" | type: PERMISSION --
 GRANT SELECT,INSERT,UPDATE,DELETE,TRUNCATE,REFERENCES,TRIGGER
-ON TABLE estructura_poa.actividades_bolsas
-TO postgres;
+ON TABLE parametricas.tipo_movimientos_horas
+TO usr_app_poa;
+
+-- object: estructura_poa.actividades_movimientos_horas | type: TABLE --
+DROP TABLE IF EXISTS estructura_poa.actividades_movimientos_horas CASCADE;
+CREATE TABLE estructura_poa.actividades_movimientos_horas (
+    amh_codigo integer NOT NULL,
+    act_codigo_adicion integer NOT NULL,
+    act_codigo_disminucion integer NOT NULL,
+    amh_horas integer NOT NULL DEFAULT 0,
+    tmh_codigo integer NOT NULL,
+    amh_estado integer NOT NULL DEFAULT 1,
+    usuario_registro integer NOT NULL,
+    usuario_modificacion integer NOT NULL DEFAULT 0,
+    usuario_baja integer NOT NULL DEFAULT 0,
+    fecha_registro timestamp NOT NULL DEFAULT (now())::timestamp without time zone,
+    fecha_modificacion timestamp NOT NULL DEFAULT '1900-01-01 00:00:00'::timestamp without time zone,
+    fecha_baja timestamp NOT NULL DEFAULT '1900-01-01 00:00:00'::timestamp without time zone,
+    CONSTRAINT actividades_movimientos_horas_pkey PRIMARY KEY (amh_codigo)
+);
+-- ddl-end --
+COMMENT ON TABLE estructura_poa.actividades_movimientos_horas IS E'Registra la cantidad de horas disponibles';
+-- ddl-end --
+COMMENT ON COLUMN estructura_poa.actividades_movimientos_horas.amh_codigo IS E'Identificador primario, generado por el <sistema>';
+-- ddl-end --
+COMMENT ON COLUMN estructura_poa.actividades_movimientos_horas.act_codigo_adicion IS E'Identificador referencial tabla <estructura_poa.actividades>, se registra la actividad a la cual se le adicionara horas';
+-- ddl-end --
+COMMENT ON COLUMN estructura_poa.actividades_movimientos_horas.act_codigo_disminucion IS E'Identificador referencial tabla <estructura_poa.actividades>, se registra la actividad a la cual se le adicionara horas';
+-- ddl-end --
+COMMENT ON COLUMN estructura_poa.actividades_movimientos_horas.amh_horas IS E'Calculo de horas disponibles, para una actividad';
+-- ddl-end --
+COMMENT ON COLUMN estructura_poa.actividades_movimientos_horas.tmh_codigo IS E'Identificador referencial tabla <parametricas.tipo_movimientos_horas>, se registra el tipo de movimiento de horas de la actividad';
+-- ddl-end --
+COMMENT ON COLUMN estructura_poa.actividades_movimientos_horas.amh_estado IS E'Identificador referencial tabla <parametricas.estados>';
+-- ddl-end --
+COMMENT ON COLUMN estructura_poa.actividades_movimientos_horas.usuario_registro IS E'Identificador referencial, es el per_codigo del sistema de autenticacion para el registro';
+-- ddl-end --
+COMMENT ON COLUMN estructura_poa.actividades_movimientos_horas.usuario_modificacion IS E'Identificador referencial, es el per_codigo del sistema de autenticacion para la modificacion';
+-- ddl-end --
+COMMENT ON COLUMN estructura_poa.actividades_movimientos_horas.usuario_baja IS E'Identificador referencial, es el per_codigo del sistema de autenticacion para la baja logica';
+-- ddl-end --
+COMMENT ON COLUMN estructura_poa.actividades_movimientos_horas.fecha_registro IS E'Fecha registro';
+-- ddl-end --
+COMMENT ON COLUMN estructura_poa.actividades_movimientos_horas.fecha_modificacion IS E'Fecha modificacion';
+-- ddl-end --
+COMMENT ON COLUMN estructura_poa.actividades_movimientos_horas.fecha_baja IS E'Fecha baja';
+-- ddl-end --
+ALTER TABLE estructura_poa.actividades_movimientos_horas OWNER TO postgres;
+-- ddl-end --
+
+-- object: fk_act_codigo_adicion | type: CONSTRAINT --
+-- ALTER TABLE estructura_poa.actividades_movimientos_horas DROP CONSTRAINT IF EXISTS fk_act_codigo_adicion CASCADE;
+ALTER TABLE estructura_poa.actividades_movimientos_horas ADD CONSTRAINT fk_act_codigo_adicion FOREIGN KEY (act_codigo_adicion)
+REFERENCES estructura_poa.actividades (act_codigo) MATCH SIMPLE
+ON DELETE NO ACTION ON UPDATE NO ACTION;
+-- ddl-end --
+
+-- object: fk_fk_act_codigo_disminucion | type: CONSTRAINT --
+-- ALTER TABLE estructura_poa.actividades_movimientos_horas DROP CONSTRAINT IF EXISTS fk_act_codigo_disminucion CASCADE;
+ALTER TABLE estructura_poa.actividades_movimientos_horas ADD CONSTRAINT fk_act_codigo_disminucion FOREIGN KEY (act_codigo_disminucion)
+REFERENCES estructura_poa.actividades (act_codigo) MATCH SIMPLE
+ON DELETE NO ACTION ON UPDATE NO ACTION;
+-- ddl-end --
+
+-- object: fk_tmh_codigo | type: CONSTRAINT --
+-- ALTER TABLE estructura_poa.actividades_movimientos_horas DROP CONSTRAINT IF EXISTS fk_tmh_codigo CASCADE;
+ALTER TABLE estructura_poa.actividades_movimientos_horas ADD CONSTRAINT fk_tmh_codigo FOREIGN KEY (tmh_codigo)
+REFERENCES parametricas.tipo_movimientos_horas (tmh_codigo) MATCH SIMPLE
+ON DELETE NO ACTION ON UPDATE NO ACTION;
+-- ddl-end --
+
+-- object: estado_fk | type: CONSTRAINT --
+-- ALTER TABLE estructura_poa.actividades_movimientos_horas DROP CONSTRAINT IF EXISTS estado_fk CASCADE;
+ALTER TABLE estructura_poa.actividades_movimientos_horas ADD CONSTRAINT estado_fk FOREIGN KEY (amh_estado)
+REFERENCES parametricas.estados (est_codigo) MATCH SIMPLE
+ON DELETE NO ACTION ON UPDATE NO ACTION;
+-- ddl-end --
+
+-- object: "grant_rawdDxt_4c137bd291" | type: PERMISSION --
+GRANT SELECT,INSERT,UPDATE,DELETE,TRUNCATE,REFERENCES,TRIGGER
+ON TABLE estructura_poa.actividades_movimientos_horas
+TO usr_app_poa;
+--
+SELECT 	*
+FROM 	parametricas.tipo_movimientos_horas;
+
+INSERT INTO parametricas.tipo_movimientos_horas
+(tmh_codigo, tmh_descripcion, usuario_registro)
+VALUES(1, 'F21', 0);
+
+INSERT INTO parametricas.tipo_movimientos_horas
+(tmh_codigo, tmh_descripcion, usuario_registro)
+VALUES(2, 'F26', 0);
+
+INSERT INTO parametricas.tipo_movimientos_horas
+(tmh_codigo, tmh_descripcion, usuario_registro)
+VALUES(3, 'F21-F24', 0);
+
+INSERT INTO parametricas.tipo_movimientos_horas
+(tmh_codigo, tmh_descripcion, usuario_registro)
+VALUES(4, 'F26-F24', 0);
+
+INSERT INTO parametricas.tipo_movimientos_horas
+(tmh_codigo, tmh_descripcion, usuario_registro)
+VALUES(5, 'F24', 0);
+
+SELECT 	*
+FROM 	estructura_poa.actividades_movimientos_horas;
+
+INSERT INTO estructura_poa.actividades_movimientos_horas
+(amh_codigo, act_codigo_adicion, act_codigo_disminucion, amh_horas, tmh_codigo, amh_estado, usuario_registro)
+VALUES(1, 4787, 2606, 950, 1, 1, 0);
 ```
 ### Crear los cruds
 ```c
-npx ts-node src/common/scripts/feature.generator.ts ActividadesBolsas estructura_poa
+npx ts-node src/common/scripts/feature.generator.ts ActividadesMovimientosHoras estructura_poa
 ```
+## Acciones a Realizar
 ### Crea la actividad bolsa
 - Se registra en la tabla actividad_bolsa:
 	- se obtiene de que acción estratégica que se selecciono
@@ -106,7 +201,7 @@ npx ts-node src/common/scripts/feature.generator.ts ActividadesBolsas estructura
 #### reformulación
 - Se debe considerar en la reformulación, para que considere las muchas bolsas,  y ya no solo uno
 - Revisar el servicio : createNewActividad, donde usa checkBolsa, solo considera una bolsa para la reformulacion
-## Opción array de actividades bolsa
+### Opción array de actividades bolsa
 - Se agrega un nuevo campo que tiene act_codigo_bolsa, que representa las actividades bolsa que tiene
 ```
 [2,3,4,5,22,45]
@@ -259,6 +354,18 @@ npx ts-node src/common/scripts/feature.generator.ts ActividadesBolsas estructura
 - lo que dice en el sistema
 	- horas iniciales = 1074(es lo mismo horas planificadas)
 	- horas disponibles comision = 1074
+lo que trae el servicio
+```json
+{ "codigo": 0, "error_existente": 0, "error_mensaje": "SE OBTUVIERON DATOS DE FORMA CORRECTA.", "error_codigo": 2001, "trace_id": "1527b3cd-5ad1-4bfe-ac1a-689c36a8c76a", 
+ "datos": 
+ { "act_codigo": 1539, 
+ "act_numero": "520.1202.270.1.24", 
+ "act_descripcion": "GOBIERNO AUTÓNOMO MUNICIPAL DE ACHACACHI", "horas_iniciales": 400, 
+ "suma_horas": 0, 
+ "horas_disponibles": 400, 
+ "horas_disponibles_comision": 400, 
+ "aun_sigla": "GPA2-GAM1" } }
+```
 #### query que trae los datos de la bolsa
 ```sql
         WITH tmp_actividad AS (
@@ -318,8 +425,8 @@ npx ts-node src/common/scripts/feature.generator.ts ActividadesBolsas estructura
 ![[bolsa.png]]
 
 
-### Inicio Actividad Poa
-#### antes de agregar comision
+### Inicio Actividad Poa 00.1501.105.9.24
+#### antes de agregar comision  00.1501.105.9.24
 ![[antes de crear comision.png]]
 #### Inicio act poa despues de agregar comision
 ![[actividad despues de crear comision y añadir horas.png]]
@@ -335,122 +442,7 @@ npx ts-node src/common/scripts/feature.generator.ts ActividadesBolsas estructura
 	- horas iniciales = 1074(es lo mismo horas planificadas)
 	- horas disponibles comision = 954
 ### me creo otra actividad backup_20241015_152820.sql
-```sql
-        SELECT
-              t.act_codigo,
-              t.act_descripcion,
-              t.act_cantidad,
-              TO_CHAR(t.act_fecha_inicio, 'dd/mm/yyyy') as act_fecha_inicio,
-              TO_CHAR(t.act_fecha_fin, 'dd/mm/yyyy') as act_fecha_fin,
-              t.act_objeto,
-              t.act_objetivo,
-              t.act_alcance,
-              t.act_horas_planificadas,
-              t.act_horas_real, -- ADICIONADO HORAS REALES SI TIENE BOLSA
-              t.act_estado,
-              t.act_no_planificado,
-              t.act_codigo_anterior,
-              t.act_codigo_bolsa,
-              --fo.for_codigo, -- COMENTADO PORQUE YA NO SE UTILIZARA LA RELACIÓN
-              ge.ges_codigo,
-              pobj.pobj_numero,
-              aune.aun_numero,
-              aune.aun_estado,
-              pr.pro_numero,
-              t.act_correlativo,
-              ge.ges_anio,
-              t.act_numero,
-              CONCAT_WS(' - ', t.act_numero, t.act_descripcion)AS act_num_desc,
-              e.est_color,
-              e.est_nombre AS act_estado_descripcion,
-              t.ttr_codigo,
-              tt.ttr_sigla,
-              tt.ttr_inicial,
-              tt.ett_codigo,
-              tt.ttr_descripcion,
-              ett.ett_nombre,
-              t.ume_codigo,
-              um.ume_descripcion,
-              CONCAT_WS(' - ', um.ume_sigla, t.act_cantidad)AS ume_sigla_act_indicador,
-              t.ent_codigo,
-              t.ent_descripcion,
-              t.fob_codigo,
-              t.tipact_codigo,
-              ta.tipact_descripcion AS act_tipact_descripcion,
-              t.cac_codigo,
-              t.sec_codigo,
-              se.sec_descripcion,
-              ca.cac_descripcion AS act_cac_descripcion,
-              t.aun_codigo_supervisora,
-              auns.aun_sigla AS aun_sigla_supervisora,
-              auns.aun_inicial AS aun_inicial_supervisora,
-              CONCAT_WS(' - ', auns.aun_nombre, auns.aun_sigla)AS aun_nombre_supervisora,
-              t.act_ejecucion_conaud,
-              t.aun_codigo_ejecutora,
-              t.aun_codigo_ejecutora AS aun_codigo_ejecutora_actividad,
-              t.pobj_codigo,
-              aune.aun_sigla AS aun_sigla_ejecutora,
-              aune.aun_inicial AS aun_inicial_ejecutora,
-              aune.lug_codigo,
-              CONCAT_WS(' - ', aune.aun_nombre, aune.aun_sigla)AS aun_nombre_ejecutora,
-              COALESCE(aa.act_codigo_apoyo, 0) AS act_codigo_apoyo,
-              COALESCE(aa.act_codigo_ejecucion, 0) AS act_codigo_ejecucion,
-              t.act_justificacion,
-              t.iac_codigo_apoyo,
-              CONCAT_WS(' | ', ge2.ges_anio, ia.iac_codigo_control, ia.iac_objetivo) AS iac_concatenado,
-              ia.iac_codigo_control,
-              actv.avi_estado,
-              TO_CHAR(t.fecha_registro, 'HH24:MI am dd/mm/yyyy') as fecha_registro,
-              t.act_denuncia,
-              pobj.poa_codigo,
-              aune.cau_codigo,
-              t.act_codigo,
-              t.caa_codigo,
-              caa.caa_nombre,
-              t.cfa_codigo,
-              cfa.cfa_nombre,
-              t.cga_codigo,
-              cga.cga_nombre,
-              t.cca_codigo,
-              cca.cca_nombre
-        FROM  (
-                SELECT  act.*, act.act_horas_planificadas - COALESCE(SUM(actbolsa.act_horas_planificadas), 0) AS act_horas_real
-                FROM  estructura_poa.actividades act
-                      LEFT JOIN estructura_poa.actividades actbolsa ON act.act_codigo = actbolsa.act_codigo_bolsa AND actbolsa.act_estado NOT IN (0, 9, 46, 47)
-                WHERE   TRUE
-                GROUP BY act.act_codigo
-              ) t ------------ ADICIONADO PARA CASOS DE ACTIVIDADES CON ACTIVIDADES BOLSA
-              LEFT JOIN parametricas.estados e ON e.est_codigo = t.act_estado
-              LEFT JOIN parametricas.unidades_medidas um ON t.ume_codigo = um.ume_codigo
-              LEFT JOIN parametricas.tipos_actividades ta ON t.tipact_codigo = ta.tipact_codigo
-              LEFT JOIN parametricas.clasificacion_actividades ca ON t.cac_codigo = ca.cac_codigo
-              LEFT JOIN parametricas.sector se ON t.sec_codigo = se.sec_codigo
-              LEFT JOIN parametricas.tipos_trabajos tt ON t.ttr_codigo = tt.ttr_codigo
-              LEFT JOIN parametricas.especificacion_tipos_trabajo ett ON tt.ett_codigo = ett.ett_codigo
-              LEFT JOIN parametricas.clasificacion_auditoria_actividad caa ON t.caa_codigo = caa.caa_codigo
-              LEFT JOIN parametricas.clasificacion_funcion_actividad cfa ON t.cfa_codigo = cfa.cfa_codigo
-              LEFT JOIN parametricas.clasificacion_grupo_actividad cga ON t.cga_codigo = cga.cga_codigo
-              LEFT JOIN parametricas.clasificacion_control_actividad cca ON t.cca_codigo = cca.cca_codigo
-              LEFT JOIN estructura_organizacional.areas_unidades aune ON t.aun_codigo_ejecutora = aune.aun_codigo
-              LEFT JOIN estructura_organizacional.areas_unidades auns ON t.aun_codigo_supervisora = auns.aun_codigo
-              LEFT JOIN estructura_poa.actividades_viaticos actv ON t.act_codigo = actv.avi_codigo
-              LEFT JOIN estructura_poa.actividades_apoyo aa ON t.act_codigo = aa.act_codigo AND aa.aap_estado = 1
-              LEFT JOIN estructura_poa.poas_objetivos pobj ON t.pobj_codigo = pobj.pobj_codigo
-              LEFT JOIN pei.programas pr ON pobj.pro_codigo = pr.pro_codigo
-              LEFT JOIN estructura_poa.poas po ON pobj.poa_codigo = po.poa_codigo
-              LEFT JOIN parametricas.gestiones ge ON po.ges_codigo = ge.ges_codigo
-              LEFT JOIN ejecucion_actividades.inicios_actividades ia ON t.iac_codigo_apoyo = ia.iac_codigo
-              LEFT JOIN parametricas.gestiones ge2 ON ge2.ges_codigo = ia.ges_codigo
-        WHERE TRUE
-              AND t.act_codigo IN (4787)
-              AND t.act_estado IN (2)
-              AND t.aun_codigo_ejecutora IN (27) -- PARA FILTRO DE AREA UNIDAD EJECUTORA VIA ACTIVIDAD
-               -- PARA FILTRO DE AREA UNIDAD EJECUTORA QUE NO ESTE EN ESTADO 9
-              AND po.poa_codigo IN (3)
-        ORDER BY t.act_codigo DESC
-        ;
-```
-
+![[bolsa0.png]]
 
 |           | Unidad x       |                 |
 | --------- | -------------- | --------------- |

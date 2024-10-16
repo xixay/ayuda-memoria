@@ -82,84 +82,176 @@ SELECT 	*
 FROM 	estructura_poa.actividades a 
 ;
 
-
+SELECT 	*
+FROM 	parametricas.tipo_areas ta 
+;
 /*
 Autor: Richard Teran Funez
-Fecha: 15/10/2024
-Descripcion: Tabla para registro de horas disponibles por comisión
+Fecha: 16/10/2024
+Descripcion: Tabla para registro de movimiento de horas
 */
--- object: estructura_poa.actividades_bolsas | type: TABLE --
-DROP TABLE IF EXISTS estructura_poa.actividades_bolsas CASCADE;
-CREATE TABLE estructura_poa.actividades_bolsas (
-    abo_codigo integer NOT NULL,
-    act_codigo integer NOT NULL,
-    abo_suma_horas_planificadas integer NOT NULL DEFAULT 0,
-    abo_horas_auditorias integer NOT NULL DEFAULT 0,
-    abo_horas_evaluaciones integer NOT NULL DEFAULT 0,
-    abo_horas_disponibles_comision integer NOT NULL DEFAULT 0,
-    act_codigo_bolsa integer NOT NULL,
-    abo_estado integer NOT NULL DEFAULT 1,
+-- object: estructura_poa.tipo_movimientos_horas | type: TABLE --
+DROP TABLE IF EXISTS parametricas.tipo_movimientos_horas CASCADE;
+CREATE TABLE parametricas.tipo_movimientos_horas (
+    tmh_codigo integer NOT NULL,
+    tmh_descripcion varchar,
+    tmh_estado integer NOT NULL DEFAULT 1,
     usuario_registro integer NOT NULL,
     usuario_modificacion integer NOT NULL DEFAULT 0,
     usuario_baja integer NOT NULL DEFAULT 0,
     fecha_registro timestamp NOT NULL DEFAULT (now())::timestamp without time zone,
     fecha_modificacion timestamp NOT NULL DEFAULT '1900-01-01 00:00:00'::timestamp without time zone,
     fecha_baja timestamp NOT NULL DEFAULT '1900-01-01 00:00:00'::timestamp without time zone,
-    CONSTRAINT actividades_bolsas_pkey PRIMARY KEY (abo_codigo)
+    CONSTRAINT actividades_movimientos_horas_pkey PRIMARY KEY (tmh_codigo)
 );
 -- ddl-end --
-COMMENT ON TABLE estructura_poa.actividades_bolsas IS E'Registra la cantidad de horas disponibles en auditoria y evaluacion';
+COMMENT ON TABLE parametricas.tipo_movimientos_horas IS E'Registra el tipo de movimiento de horas';
 -- ddl-end --
-COMMENT ON COLUMN estructura_poa.actividades_bolsas.abo_codigo IS E'Identificador primario, generado por el <sistema>';
+COMMENT ON COLUMN parametricas.tipo_movimientos_horas.tmh_codigo IS E'Identificador primario, generado por el <sistema>';
 -- ddl-end --
-COMMENT ON COLUMN estructura_poa.actividades_bolsas.act_codigo IS E'Identificador referencial tabla <estructura_poa.actividades>, se registra relacion actividades';
+COMMENT ON COLUMN parametricas.tipo_movimientos_horas.tmh_descripcion IS E'Registra descripcion, Ej: F21, F24';
 -- ddl-end --
-COMMENT ON COLUMN estructura_poa.actividades_bolsas.act_codigo_bolsa IS E'Identificador referencial tabla <estructura_poa.actividades>, se registra relacion actividades de tipo bolsa';
+COMMENT ON COLUMN parametricas.tipo_movimientos_horas.tmh_estado IS E'Identificador referencial tabla <parametricas.estados>';
 -- ddl-end --
-COMMENT ON COLUMN estructura_poa.actividades_bolsas.abo_horas_auditorias IS E'Calculo de horas de utilizadas en auditorias, para una actividad';
+COMMENT ON COLUMN parametricas.tipo_movimientos_horas.usuario_registro IS E'Identificador referencial, es el per_codigo del sistema de autenticacion para el registro';
 -- ddl-end --
-COMMENT ON COLUMN estructura_poa.actividades_bolsas.abo_horas_evaluaciones IS E'Calculo de horas de utilizadas en evaluaciones, para una actividad';
+COMMENT ON COLUMN parametricas.tipo_movimientos_horas.usuario_modificacion IS E'Identificador referencial, es el per_codigo del sistema de autenticacion para la modificacion';
 -- ddl-end --
-COMMENT ON COLUMN estructura_poa.actividades_bolsas.abo_horas_disponibles_comision IS E'Calculo de horas disponibles para ser utilizadas por comision';
+COMMENT ON COLUMN parametricas.tipo_movimientos_horas.usuario_baja IS E'Identificador referencial, es el per_codigo del sistema de autenticacion para la baja logica';
 -- ddl-end --
-COMMENT ON COLUMN estructura_poa.actividades_bolsas.abo_estado IS E'Identificador referencial tabla <parametricas.estados>';
+COMMENT ON COLUMN parametricas.tipo_movimientos_horas.fecha_registro IS E'Fecha registro';
 -- ddl-end --
-COMMENT ON COLUMN estructura_poa.actividades_bolsas.usuario_registro IS E'Identificador referencial, es el per_codigo del sistema de autenticacion para el registro';
+COMMENT ON COLUMN parametricas.tipo_movimientos_horas.fecha_modificacion IS E'Fecha modificacion';
 -- ddl-end --
-COMMENT ON COLUMN estructura_poa.actividades_bolsas.usuario_modificacion IS E'Identificador referencial, es el per_codigo del sistema de autenticacion para la modificacion';
+COMMENT ON COLUMN parametricas.tipo_movimientos_horas.fecha_baja IS E'Fecha baja';
 -- ddl-end --
-COMMENT ON COLUMN estructura_poa.actividades_bolsas.usuario_baja IS E'Identificador referencial, es el per_codigo del sistema de autenticacion para la baja logica';
--- ddl-end --
-COMMENT ON COLUMN estructura_poa.actividades_bolsas.fecha_registro IS E'Fecha registro';
--- ddl-end --
-COMMENT ON COLUMN estructura_poa.actividades_bolsas.fecha_modificacion IS E'Fecha modificacion';
--- ddl-end --
-COMMENT ON COLUMN estructura_poa.actividades_bolsas.fecha_baja IS E'Fecha baja';
--- ddl-end --
-ALTER TABLE estructura_poa.actividades_bolsas OWNER TO postgres;
+ALTER TABLE parametricas.tipo_movimientos_horas OWNER TO postgres;
 -- ddl-end --
 
--- object: fk_act_codigo | type: CONSTRAINT --
--- ALTER TABLE estructura_poa.actividades_bolsas DROP CONSTRAINT IF EXISTS fk_act_codigo CASCADE;
-ALTER TABLE estructura_poa.actividades_bolsas ADD CONSTRAINT fk_act_codigo FOREIGN KEY (act_codigo)
-REFERENCES estructura_poa.actividades (act_codigo) MATCH SIMPLE
-ON DELETE NO ACTION ON UPDATE NO ACTION;
--- ddl-end --
-
--- object: fk_act_codigo_bolsa | type: CONSTRAINT --
--- ALTER TABLE estructura_poa.actividades_bolsas DROP CONSTRAINT IF EXISTS fk_act_codigo_bolsa CASCADE;
-ALTER TABLE estructura_poa.actividades_bolsas ADD CONSTRAINT fk_act_codigo_bolsa FOREIGN KEY (act_codigo_bolsa)
-REFERENCES estructura_poa.actividades (act_codigo) MATCH SIMPLE
+-- object: estado_fk | type: CONSTRAINT --
+-- ALTER TABLE parametricas.tipo_movimientos_horas DROP CONSTRAINT IF EXISTS estado_fk CASCADE;
+ALTER TABLE parametricas.tipo_movimientos_horas ADD CONSTRAINT estado_fk FOREIGN KEY (tmh_estado)
+REFERENCES parametricas.estados (est_codigo) MATCH SIMPLE
 ON DELETE NO ACTION ON UPDATE NO ACTION;
 -- ddl-end --
 
 -- object: "grant_rawdDxt_4c137bd291" | type: PERMISSION --
 GRANT SELECT,INSERT,UPDATE,DELETE,TRUNCATE,REFERENCES,TRIGGER
-ON TABLE estructura_poa.actividades_bolsas
+ON TABLE parametricas.tipo_movimientos_horas
 TO postgres;
 
+-- object: estructura_poa.actividades_movimientos_horas | type: TABLE --
+DROP TABLE IF EXISTS estructura_poa.actividades_movimientos_horas CASCADE;
+CREATE TABLE estructura_poa.actividades_movimientos_horas (
+    amh_codigo integer NOT NULL,
+    act_codigo_adicion integer NOT NULL,
+    act_codigo_disminucion integer NOT NULL,
+    amh_horas integer NOT NULL DEFAULT 0,
+    tmh_codigo integer NOT NULL,
+    amh_estado integer NOT NULL DEFAULT 1,
+    usuario_registro integer NOT NULL,
+    usuario_modificacion integer NOT NULL DEFAULT 0,
+    usuario_baja integer NOT NULL DEFAULT 0,
+    fecha_registro timestamp NOT NULL DEFAULT (now())::timestamp without time zone,
+    fecha_modificacion timestamp NOT NULL DEFAULT '1900-01-01 00:00:00'::timestamp without time zone,
+    fecha_baja timestamp NOT NULL DEFAULT '1900-01-01 00:00:00'::timestamp without time zone,
+    CONSTRAINT actividades_movimientos_horas_pkey PRIMARY KEY (amh_codigo)
+);
+-- ddl-end --
+COMMENT ON TABLE estructura_poa.actividades_movimientos_horas IS E'Registra la cantidad de horas disponibles';
+-- ddl-end --
+COMMENT ON COLUMN estructura_poa.actividades_movimientos_horas.amh_codigo IS E'Identificador primario, generado por el <sistema>';
+-- ddl-end --
+COMMENT ON COLUMN estructura_poa.actividades_movimientos_horas.act_codigo_adicion IS E'Identificador referencial tabla <estructura_poa.actividades>, se registra la actividad a la cual se le adicionara horas';
+-- ddl-end --
+COMMENT ON COLUMN estructura_poa.actividades_movimientos_horas.act_codigo_disminucion IS E'Identificador referencial tabla <estructura_poa.actividades>, se registra la actividad a la cual se le adicionara horas';
+-- ddl-end --
+COMMENT ON COLUMN estructura_poa.actividades_movimientos_horas.amh_horas IS E'Calculo de horas disponibles, para una actividad';
+-- ddl-end --
+COMMENT ON COLUMN estructura_poa.actividades_movimientos_horas.tmh_codigo IS E'Identificador referencial tabla <parametricas.tipo_movimientos_horas>, se registra el tipo de movimiento de horas de la actividad';
+-- ddl-end --
+COMMENT ON COLUMN estructura_poa.actividades_movimientos_horas.amh_estado IS E'Identificador referencial tabla <parametricas.estados>';
+-- ddl-end --
+COMMENT ON COLUMN estructura_poa.actividades_movimientos_horas.usuario_registro IS E'Identificador referencial, es el per_codigo del sistema de autenticacion para el registro';
+-- ddl-end --
+COMMENT ON COLUMN estructura_poa.actividades_movimientos_horas.usuario_modificacion IS E'Identificador referencial, es el per_codigo del sistema de autenticacion para la modificacion';
+-- ddl-end --
+COMMENT ON COLUMN estructura_poa.actividades_movimientos_horas.usuario_baja IS E'Identificador referencial, es el per_codigo del sistema de autenticacion para la baja logica';
+-- ddl-end --
+COMMENT ON COLUMN estructura_poa.actividades_movimientos_horas.fecha_registro IS E'Fecha registro';
+-- ddl-end --
+COMMENT ON COLUMN estructura_poa.actividades_movimientos_horas.fecha_modificacion IS E'Fecha modificacion';
+-- ddl-end --
+COMMENT ON COLUMN estructura_poa.actividades_movimientos_horas.fecha_baja IS E'Fecha baja';
+-- ddl-end --
+ALTER TABLE estructura_poa.actividades_movimientos_horas OWNER TO postgres;
+-- ddl-end --
+
+-- object: fk_act_codigo_adicion | type: CONSTRAINT --
+-- ALTER TABLE estructura_poa.actividades_movimientos_horas DROP CONSTRAINT IF EXISTS fk_act_codigo_adicion CASCADE;
+ALTER TABLE estructura_poa.actividades_movimientos_horas ADD CONSTRAINT fk_act_codigo_adicion FOREIGN KEY (act_codigo_adicion)
+REFERENCES estructura_poa.actividades (act_codigo) MATCH SIMPLE
+ON DELETE NO ACTION ON UPDATE NO ACTION;
+-- ddl-end --
+
+-- object: fk_fk_act_codigo_disminucion | type: CONSTRAINT --
+-- ALTER TABLE estructura_poa.actividades_movimientos_horas DROP CONSTRAINT IF EXISTS fk_act_codigo_disminucion CASCADE;
+ALTER TABLE estructura_poa.actividades_movimientos_horas ADD CONSTRAINT fk_act_codigo_disminucion FOREIGN KEY (act_codigo_disminucion)
+REFERENCES estructura_poa.actividades (act_codigo) MATCH SIMPLE
+ON DELETE NO ACTION ON UPDATE NO ACTION;
+-- ddl-end --
+
+-- object: fk_tmh_codigo | type: CONSTRAINT --
+-- ALTER TABLE estructura_poa.actividades_movimientos_horas DROP CONSTRAINT IF EXISTS fk_tmh_codigo CASCADE;
+ALTER TABLE estructura_poa.actividades_movimientos_horas ADD CONSTRAINT fk_tmh_codigo FOREIGN KEY (tmh_codigo)
+REFERENCES parametricas.tipo_movimientos_horas (tmh_codigo) MATCH SIMPLE
+ON DELETE NO ACTION ON UPDATE NO ACTION;
+-- ddl-end --
+
+-- object: estado_fk | type: CONSTRAINT --
+-- ALTER TABLE estructura_poa.actividades_movimientos_horas DROP CONSTRAINT IF EXISTS estado_fk CASCADE;
+ALTER TABLE estructura_poa.actividades_movimientos_horas ADD CONSTRAINT estado_fk FOREIGN KEY (amh_estado)
+REFERENCES parametricas.estados (est_codigo) MATCH SIMPLE
+ON DELETE NO ACTION ON UPDATE NO ACTION;
+-- ddl-end --
+
+-- object: "grant_rawdDxt_4c137bd291" | type: PERMISSION --
+GRANT SELECT,INSERT,UPDATE,DELETE,TRUNCATE,REFERENCES,TRIGGER
+ON TABLE estructura_poa.actividades_movimientos_horas
+TO postgres;
+--
+SELECT 	*
+FROM 	parametricas.tipo_movimientos_horas;
+
+INSERT INTO parametricas.tipo_movimientos_horas
+(tmh_codigo, tmh_descripcion, usuario_registro)
+VALUES(1, 'F21', 0);
+
+INSERT INTO parametricas.tipo_movimientos_horas
+(tmh_codigo, tmh_descripcion, usuario_registro)
+VALUES(2, 'F26', 0);
+
+INSERT INTO parametricas.tipo_movimientos_horas
+(tmh_codigo, tmh_descripcion, usuario_registro)
+VALUES(3, 'F21-F24', 0);
+
+INSERT INTO parametricas.tipo_movimientos_horas
+(tmh_codigo, tmh_descripcion, usuario_registro)
+VALUES(4, 'F26-F24', 0);
+
+INSERT INTO parametricas.tipo_movimientos_horas
+(tmh_codigo, tmh_descripcion, usuario_registro)
+VALUES(5, 'F24', 0);
+
+SELECT 	*
+FROM 	estructura_poa.actividades_movimientos_horas;
+
+INSERT INTO estructura_poa.actividades_movimientos_horas
+(amh_codigo, act_codigo_adicion, act_codigo_disminucion, amh_horas, tmh_codigo, amh_estado, usuario_registro)
+VALUES(1, 4787, 2606, 950, 1, 1, 0);
+
 INSERT INTO estructura_poa.actividades_bolsas
-(abo_codigo, act_codigo, abo_suma_horas_planificadas, abo_horas_auditorias, abo_horas_evaluaciones, abo_horas_disponibles_comision, act_codigo_bolsa, abo_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
+(amh_codigo, act_codigo, abo_suma_horas_planificadas, abo_horas_auditorias, abo_horas_evaluaciones, abo_horas_disponibles_comision, act_codigo_bolsa, abo_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
 VALUES(1, 4787, 1454, 120, 0, 954, 2606, 1, 1954, 1954, 1954, now()::timestamp without time zone, '1900-01-01 00:00:00'::timestamp without time zone, '1900-01-01 00:00:00'::timestamp without time zone);
 
 INSERT INTO estructura_poa.actividades_bolsas
