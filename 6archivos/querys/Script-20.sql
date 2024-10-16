@@ -22,6 +22,8 @@ FROM 	estructura_poa.actividades_movimientos_horas amh
 SELECT 	*
 FROM 	estructura_poa.actividades_movimientos_horas amh 
 ;
+SELECT 	*
+FROM 	parametricas.tipo_movimientos_horas tmh ;	
 
 INSERT INTO estructura_poa.actividades_movimientos_horas
 (amh_codigo, act_codigo_adicion, act_codigo_disminucion, amh_horas, tmh_codigo, amh_estado, usuario_registro)
