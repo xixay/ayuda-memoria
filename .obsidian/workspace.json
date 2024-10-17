@@ -147,16 +147,19 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Open quick switcher": false,
-      "graph:Open graph view": false,
-      "canvas:Create new canvas": false,
-      "daily-notes:Open today's daily note": false,
-      "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "switcher:Abrir selector rápido": false,
+      "graph:Abrir vista gráfica": false,
+      "canvas:Crear nuevo lienzo": false,
+      "daily-notes:Abrir la nota de hoy": false,
+      "templates:Insertar plantilla": false,
+      "command-palette:Abrir paleta de comandos": false
     }
   },
   "active": "b5ecf2a4c3055894",
   "lastOpenFiles": [
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/HORAS-DISPONIBLES.ods",
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/lu3558401fwhx.tmp",
+    "6archivos/scripts/backup_20241016_230605.sql",
     "6archivos/querys/Script-20.sql",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/SISPOA-CONAUD - LOGICA HORAS DISPONIBLES.pdf",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/pregunta.png",
@@ -175,10 +178,7 @@
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/actividad despues de crear comision y añadir horas.png",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/antes de crear comision.png",
     "6archivos/scripts/backup_20241015_114157.sql",
-    "6archivos/scripts/backup_20241015_113322.sql",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/bolsa.png",
-    "6archivos/scripts/backup_20241015_104808.sql",
-    "6archivos/scripts/backup_20241015_102529.sql",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/RESTRUCTURADO DE COMPONENTES DE ACTIVIDADES/Tarea.md",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/Untitled.canvas",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/Refacturacion de reportes F1,F1-A,F2,F2-A.md",
