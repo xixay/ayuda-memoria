@@ -515,3 +515,7 @@ Act4 esta iniciada en conaud, tiene 50 horas disponibles
 que logica debo seguir o debo crearme otra tabla, o como haria pero tandria que ser en el mismo esquema
 
 ```
+
+hacer un componente nuevo
+se debe buscar uno y agregarle las horas
+para F21 debe estar bloqueado esas horas
