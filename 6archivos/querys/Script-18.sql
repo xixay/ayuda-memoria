@@ -387,7 +387,7 @@ WHERE 	au.aun_codigo IN (27)
 SELECT 	*
 FROM 	estructura_poa.actividades a 
 WHERE 	TRUE 
---		AND a.act_codigo IN (2606)
+		AND a.act_codigo IN (2606)
 --		AND a.act_codigo IN (4787)
 ORDER BY a.act_codigo DESC  
 ;
