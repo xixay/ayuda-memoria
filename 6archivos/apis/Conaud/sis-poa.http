@@ -404,13 +404,21 @@
     Authorization: {{AuthTokenInterno}}
 
 ### ACTIVIDAD BOLSa
-###  ------------------- OBTENER - ACTIVIDAD BOLSA
-    GET {{Host}}/actividades/actividad-bolsa?act_codigo_bolsa=(2606)&act_estado=(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18)
+###  ------------------- OBTENER - BOLSA
+    # GET {{Host}}/actividades/actividad-bolsa?act_codigo_bolsa=(2840)&act_estado=(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18)
+    # GET {{Host}}/actividades/actividad-bolsa?act_codigo_bolsa=(2839)&act_estado=(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18)
+    GET {{Host}}/actividades/actividad-bolsa?act_codigo_bolsa=(2838)&act_estado=(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18)
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
 ### ACTIVIDAD MOVIMIENTO HORAS
 ###  ------------------- OBTENER - ACTIVIDAD MOVIMIENTO HORAS
     GET {{Host}}/actividades-movimientos-horas
+    Content-Type: application/json
+    Authorization: {{AuthTokenInterno}}
+###  ------------------- OBTENER - HORAS CALC MOIVIMIENTO
+    GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo_bolsa=(2840)&amh_horas=(100)
+    # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo_bolsa=(2839)&amh_horas=(100)
+    # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo_bolsa=(2838)&amh_horas=(100)
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
 ###  ------------------- CREAR - ACTIVIDAD MOVIMIENTO HORAS
