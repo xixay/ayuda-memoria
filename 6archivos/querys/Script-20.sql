@@ -1,8 +1,8 @@
 SELECT 	*
 FROM 	estructura_poa.actividades a 
 WHERE 	TRUE 
-		AND a.act_codigo IN (2840)
---		AND a.act_codigo IN (2839)
+--		AND a.act_codigo IN (2840)
+		AND a.act_codigo IN (2839)
 --		AND a.act_codigo IN (2838)
 ORDER BY a.act_codigo DESC  
 ;
@@ -23,7 +23,19 @@ FROM 	parametricas.tipo_movimientos_horas tmh ;
 
 INSERT INTO estructura_poa.actividades_movimientos_horas
 (amh_codigo, act_codigo_adicion, act_codigo_disminucion, amh_horas, tmh_codigo, amh_estado, usuario_registro)
-VALUES(1, 4793, 2840, 100, 1, 1, 0);
+VALUES(1, 4793, 2839, 100, 1, 1, 0);
+
+INSERT INTO estructura_poa.actividades_movimientos_horas
+(amh_codigo, act_codigo_adicion, act_codigo_disminucion, amh_horas, tmh_codigo, amh_estado, usuario_registro)
+VALUES(2, 4792, 2839, 100, 1, 1, 0);
+
+INSERT INTO estructura_poa.actividades_movimientos_horas
+(amh_codigo, act_codigo_adicion, act_codigo_disminucion, amh_horas, tmh_codigo, amh_estado, usuario_registro)
+VALUES(3, 4791, 2839, 100, 1, 1, 0);
+
+INSERT INTO estructura_poa.actividades_movimientos_horas
+(amh_codigo, act_codigo_adicion, act_codigo_disminucion, amh_horas, tmh_codigo, amh_estado, usuario_registro)
+VALUES(3, 4791, 2839, 100, 1, 1, 0);
 
 SELECT 	*
 FROM 	estructura_poa.actividades a 
@@ -108,32 +120,46 @@ FROM 	estructura_poa.actividades_movimientos_horas amh
     	LEFT JOIN parametricas.estados e ON e.est_codigo = amh.amh_estado
 WHERE 	amh.amh_estado IN (1)
 ;
---========================================
-SELECT
-DISTINCT
-        fk_tco.table_schema, fk_tco.table_name
-FROM information_schema.referential_constraints rco
-        INNER JOIN information_schema.table_constraints fk_tco ON rco.constraint_name = fk_tco.constraint_name AND rco.constraint_schema = fk_tco.table_schema
-INNER JOIN information_schema.table_constraints pk_tco ON rco.unique_constraint_name = pk_tco.constraint_name AND rco.unique_constraint_schema = pk_tco.table_schema
-WHERE   TRUE
-AND fk_tco.table_schema = 'control_estados'
-        AND pk_tco.table_name IN ('actividades')
-        AND pk_tco.table_schema IN ('estructura_poa')
-ORDER BY fk_tco.table_name;
-
 --&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 SELECT	*
 FROM 	information_schema.referential_constraints rco
 ;
 
+SELECT 	*
+FROM 	estructura_poa.actividades_movimientos_horas amh 
+;
 
-
-
-
-
-
-
-
+--#########################################################################################
+WITH 
+-- CTE para calcular horas_adicion (excluyendo act_codigo_adicion con tmh_codigo = 1)
+tmp_adicion AS (
+	SELECT 	amh.act_codigo_adicion AS act_codigo,
+			COALESCE(SUM(amh.amh_horas), 0) AS horas_adicion
+	FROM 	estructura_poa.actividades_movimientos_horas amh 
+	WHERE 	amh.amh_estado NOT IN (0,5,9)
+			AND amh.act_codigo_adicion IN (2839)
+			AND amh.tmh_codigo != 1 -- Excluir cuando tmh_codigo es 1 en act_codigo_adicion
+	GROUP BY amh.act_codigo_adicion
+),
+-- CTE para calcular horas_disminucion
+tmp_disminucion AS (
+	SELECT 	amh.act_codigo_disminucion AS act_codigo,
+			COALESCE(SUM(amh.amh_horas), 0) AS horas_disminucion
+	FROM 	estructura_poa.actividades_movimientos_horas amh 
+	WHERE 	amh.amh_estado NOT IN (0,5,9)
+			AND amh.act_codigo_disminucion IN (2839)
+	GROUP BY amh.act_codigo_disminucion
+)
+-- Consulta final
+SELECT	
+	COALESCE(tmp_adicion.act_codigo, tmp_disminucion.act_codigo) AS act_codigo,
+	COALESCE(tmp_adicion.horas_adicion, 0)::INT AS horas_adicion,
+	COALESCE(tmp_disminucion.horas_disminucion, 0)::INT AS horas_disminucion,
+	COALESCE(tmp_adicion.horas_adicion, 0)::INT - COALESCE(tmp_disminucion.horas_disminucion, 0)::INT AS horas_calculo_movimiento
+FROM 
+	tmp_adicion
+	FULL OUTER JOIN tmp_disminucion
+ON tmp_adicion.act_codigo = tmp_disminucion.act_codigo;
 
 
 

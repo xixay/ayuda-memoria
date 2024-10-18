@@ -25,10 +25,6 @@ INSERT INTO estructura_poa.actividades_movimientos_horas
 (amh_codigo, act_codigo_adicion, act_codigo_disminucion, amh_horas, tmh_codigo, amh_estado, usuario_registro)
 VALUES(1, 4793, 2840, 100, 1, 1, 0);
 
-SELECT 	*
-FROM 	estructura_poa.actividades a 
-ORDER BY a.act_codigo DESC;
-
 --######################################################################################################
 WITH tmp_actividad AS (
 	SELECT
@@ -89,6 +85,7 @@ WHERE	TRUE
 		AND t.act_estado IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18)
 ;
 --&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+WITH tmp_actividad AS (
 SELECT 
 	    amh.amh_codigo,
 	    amh.act_codigo_adicion,
@@ -99,8 +96,27 @@ SELECT
 	    e.est_color,
 	    e.est_nombre AS amh_estado_descripcion,
 	    CASE 
-	        WHEN amh.act_codigo_adicion = 2840 THEN 1
-	        WHEN amh.act_codigo_disminucion = 2840 THEN 2
+	        WHEN amh.act_codigo_adicion = 2839 THEN 1
+	        WHEN amh.act_codigo_disminucion = 2839 THEN 2
+	        ELSE 0
+	    END AS ubicacion_codigo
+FROM 	estructura_poa.actividades_movimientos_horas amh
+    	LEFT JOIN parametricas.tipo_movimientos_horas tmh ON amh.tmh_codigo = tmh.tmh_codigo
+    	LEFT JOIN parametricas.estados e ON e.est_codigo = amh.amh_estado
+WHERE 	amh.amh_estado IN (1)
+)
+SELECT 
+	    amh.amh_codigo,
+	    amh.act_codigo_adicion,
+	    amh.act_codigo_disminucion,
+	    amh.amh_horas,
+	    amh.amh_estado,
+	    tmh.tmh_descripcion,
+	    e.est_color,
+	    e.est_nombre AS amh_estado_descripcion,
+	    CASE 
+	        WHEN amh.act_codigo_adicion = 2839 THEN 1
+	        WHEN amh.act_codigo_disminucion = 2839 THEN 2
 	        ELSE 0
 	    END AS ubicacion_codigo
 FROM 	estructura_poa.actividades_movimientos_horas amh
@@ -120,18 +136,29 @@ AND fk_tco.table_schema = 'control_estados'
         AND pk_tco.table_name IN ('actividades')
         AND pk_tco.table_schema IN ('estructura_poa')
 ORDER BY fk_tco.table_name;
-
 --&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-SELECT	*
-FROM 	information_schema.referential_constraints rco
-;
 SELECT 	*
 FROM 	estructura_poa.actividades a 
 ORDER BY a.act_codigo DESC
 ;
 
-
-
+--????????????????????????????????????????????????????????????????????
+  SELECT
+	    amh.amh_codigo, amh.act_codigo_adicion, amh.act_codigo_disminucion, amh.amh_horas,amh.amh_estado,
+	    tmh.tmh_descripcion,
+	    e.est_color,
+    	e.est_nombre AS amh_estado_descripcion
+  FROM 	estructura_poa.actividades_movimientos_horas amh
+	        LEFT JOIN parametricas.tipo_movimientos_horas tmh ON amh.tmh_codigo = tmh.tmh_codigo
+	        LEFT JOIN parametricas.estados e ON e.est_codigo = amh.amh_estado
+  WHERE TRUE
+		AND amh.act_codigo_adicion IN (4819)
+		OR amh.act_codigo_disminucion IN (4819)
+		AND amh.amh_estado IN (1)
+  ;
+SELECT 	*
+FROM 	estructura_poa.actividades_movimientos_horas amh 
+;
 
 
 
