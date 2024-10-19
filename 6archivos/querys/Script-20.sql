@@ -19,32 +19,48 @@ SELECT 	*
 FROM 	estructura_poa.actividades_movimientos_horas amh 
 ;
 SELECT 	*
-FROM 	parametricas.tipo_movimientos_horas tmh ;	
-
+FROM 	parametricas.tipo_movimientos_horas tmh ;
+--##############################################################################################
+--$$$$ M1 $$$$
+--Act4	Act2	100	F21
 INSERT INTO estructura_poa.actividades_movimientos_horas
 (amh_codigo, act_codigo_adicion, act_codigo_disminucion, amh_horas, tmh_codigo, amh_estado, usuario_registro)
 VALUES(1, 4793, 2839, 100, 1, 1, 0);
-
+--Act5	Act2	100	F21
 INSERT INTO estructura_poa.actividades_movimientos_horas
 (amh_codigo, act_codigo_adicion, act_codigo_disminucion, amh_horas, tmh_codigo, amh_estado, usuario_registro)
 VALUES(2, 4792, 2839, 100, 1, 1, 0);
-
+--Act6	Act2	100	F21
 INSERT INTO estructura_poa.actividades_movimientos_horas
 (amh_codigo, act_codigo_adicion, act_codigo_disminucion, amh_horas, tmh_codigo, amh_estado, usuario_registro)
 VALUES(3, 4791, 2839, 100, 1, 1, 0);
-
+--$$$$ M2 $$$$
+--Act7	Act3	50	F21
 INSERT INTO estructura_poa.actividades_movimientos_horas
 (amh_codigo, act_codigo_adicion, act_codigo_disminucion, amh_horas, tmh_codigo, amh_estado, usuario_registro)
 VALUES(4, 4790, 2838, 50, 1, 1, 0);
-
+--Act7	Act1	50	F21
 INSERT INTO estructura_poa.actividades_movimientos_horas
 (amh_codigo, act_codigo_adicion, act_codigo_disminucion, amh_horas, tmh_codigo, amh_estado, usuario_registro)
 VALUES(5, 4790, 2840, 120, 1, 1, 0);
-
+--$$$$ M3 $$$$
+--Act8	Act1	200	F21
 INSERT INTO estructura_poa.actividades_movimientos_horas
 (amh_codigo, act_codigo_adicion, act_codigo_disminucion, amh_horas, tmh_codigo, amh_estado, usuario_registro)
-VALUES(6, 4789, 2840, 120, 1, 1, 0);
-
+VALUES(6, 4789, 2840, 200, 1, 1, 0);
+--Act8	Act3	30	F21
+INSERT INTO estructura_poa.actividades_movimientos_horas
+(amh_codigo, act_codigo_adicion, act_codigo_disminucion, amh_horas, tmh_codigo, amh_estado, usuario_registro)
+VALUES(7, 4789, 2838, 30, 1, 1, 0);
+--Act8	Act5	100	F21
+INSERT INTO estructura_poa.actividades_movimientos_horas
+(amh_codigo, act_codigo_adicion, act_codigo_disminucion, amh_horas, tmh_codigo, amh_estado, usuario_registro)
+VALUES(8, 4789, 4792, 100, 1, 1, 0);
+--Act8	Act6	20	F21
+INSERT INTO estructura_poa.actividades_movimientos_horas
+(amh_codigo, act_codigo_adicion, act_codigo_disminucion, amh_horas, tmh_codigo, amh_estado, usuario_registro)
+VALUES(9, 4789, 4791, 20, 1, 1, 0);
+--#########################################################################
 SELECT 	*
 FROM 	estructura_poa.actividades a 
 ORDER BY a.act_codigo DESC;
