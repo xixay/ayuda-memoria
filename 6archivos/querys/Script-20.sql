@@ -37,6 +37,14 @@ INSERT INTO estructura_poa.actividades_movimientos_horas
 (amh_codigo, act_codigo_adicion, act_codigo_disminucion, amh_horas, tmh_codigo, amh_estado, usuario_registro)
 VALUES(4, 4790, 2838, 50, 1, 1, 0);
 
+INSERT INTO estructura_poa.actividades_movimientos_horas
+(amh_codigo, act_codigo_adicion, act_codigo_disminucion, amh_horas, tmh_codigo, amh_estado, usuario_registro)
+VALUES(5, 4790, 2840, 120, 1, 1, 0);
+
+INSERT INTO estructura_poa.actividades_movimientos_horas
+(amh_codigo, act_codigo_adicion, act_codigo_disminucion, amh_horas, tmh_codigo, amh_estado, usuario_registro)
+VALUES(6, 4789, 2840, 120, 1, 1, 0);
+
 SELECT 	*
 FROM 	estructura_poa.actividades a 
 ORDER BY a.act_codigo DESC;
@@ -51,7 +59,7 @@ WHERE 	TRUE
 		AND a.cac_codigo IN (2)
 		AND a.act_estado NOT IN (0,5,9)
 --		AND a.act_horas_planificadas IN (100)
-ORDER BY a.act_codigo DESC
+ORDER BY a.act_codigo DESC	
 ;
 
 
