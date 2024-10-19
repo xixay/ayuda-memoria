@@ -35,11 +35,24 @@ VALUES(3, 4791, 2839, 100, 1, 1, 0);
 
 INSERT INTO estructura_poa.actividades_movimientos_horas
 (amh_codigo, act_codigo_adicion, act_codigo_disminucion, amh_horas, tmh_codigo, amh_estado, usuario_registro)
-VALUES(3, 4791, 2839, 100, 1, 1, 0);
+VALUES(4, 4790, 2839, 100, 1, 1, 0);
 
 SELECT 	*
 FROM 	estructura_poa.actividades a 
 ORDER BY a.act_codigo DESC;
+
+SELECT 	*
+FROM 	estructura_poa.actividades a 
+		LEFT JOIN estructura_poa.poas_objetivos po ON a.pobj_codigo = po.pobj_codigo 
+		LEFT JOIN estructura_poa.poas p ON po.poa_codigo = p.poa_codigo 
+WHERE 	TRUE
+		AND p.poa_codigo IN (3)
+		AND a.cac_codigo IN (1,3)
+		AND a.act_estado NOT IN (0,5,9)
+		AND a.act_horas_planificadas IN (100)
+ORDER BY a.act_codigo DESC
+;
+
 
 --######################################################################################################
 WITH tmp_actividad AS (

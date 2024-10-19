@@ -458,10 +458,13 @@ se debe buscar uno y agregarle las horas
 para F21 debe estar bloqueado esas horas
 ### bolsas sin comisiones: backup_20241017_105934.sql
 
-| Actividades | numero           | act_codigo |
-| ----------- | ---------------- | ---------- |
-| Act1        | 00.1501.105.4.24 | 2840       |
-| Act2        | 00.1501.105.3.24 | 2839       |
-| Act3        | 00.1501.105.2.24 | 2838       |
+| Actividades | numero            | act_codigo |
+| ----------- | ----------------- | ---------- |
+| Act1        | 00.1501.105.4.24  | 2840       |
+| Act2        | 00.1501.105.3.24  | 2839       |
+| Act3        | 00.1501.105.2.24  | 2838       |
+| Act4        | 00.1501.105.10.24 | 4793       |
+| Act5        | 00.0202.19.6.24   | 4792       |
+| Act6        | 00.1601.110.17.24 | 4791       |
 
 ### bolsas con comisiones: backup_20241017_135434.sql

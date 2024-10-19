@@ -418,8 +418,9 @@
 ###  ------------------- OBTENER - HORAS CALC MOIVIMIENTO
     # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo_bolsa=(2840)&amh_horas=(100)
     # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo_bolsa=(2839)
-    GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo_bolsa=(2839)&amh_horas=(100)
+    # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo_bolsa=(2839)&amh_horas=(0)
     # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo_bolsa=(2838)&amh_horas=(100)
+    GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo_bolsa=(4793)
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
 ###  ------------------- CREAR - ACTIVIDAD MOVIMIENTO HORAS
