@@ -35,7 +35,7 @@ VALUES(3, 4791, 2839, 100, 1, 1, 0);
 
 INSERT INTO estructura_poa.actividades_movimientos_horas
 (amh_codigo, act_codigo_adicion, act_codigo_disminucion, amh_horas, tmh_codigo, amh_estado, usuario_registro)
-VALUES(4, 4790, 2839, 100, 1, 1, 0);
+VALUES(4, 4790, 2838, 50, 1, 1, 0);
 
 SELECT 	*
 FROM 	estructura_poa.actividades a 
@@ -47,9 +47,10 @@ FROM 	estructura_poa.actividades a
 		LEFT JOIN estructura_poa.poas p ON po.poa_codigo = p.poa_codigo 
 WHERE 	TRUE
 		AND p.poa_codigo IN (3)
-		AND a.cac_codigo IN (1,3)
+--		AND a.cac_codigo IN (1,3)
+		AND a.cac_codigo IN (2)
 		AND a.act_estado NOT IN (0,5,9)
-		AND a.act_horas_planificadas IN (100)
+--		AND a.act_horas_planificadas IN (100)
 ORDER BY a.act_codigo DESC
 ;
 
@@ -175,5 +176,36 @@ FROM
 ON tmp_adicion.act_codigo = tmp_disminucion.act_codigo;
 
 
-
+--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+        WITH
+        -- CTE para calcular horas_adicion
+        tmp_adicion AS (
+          SELECT        amh.act_codigo_adicion AS act_codigo,
+                  COALESCE(SUM(amh.amh_horas), 0) AS horas_adicion
+          FROM    estructura_poa.actividades_movimientos_horas amh
+          WHERE         amh.amh_estado NOT IN (0,5,9)
+                  AND amh.act_codigo_adicion IN (4793)
+                  AND amh.tmh_codigo != 1 -- Excluir cuando tmh_codigo es 1 en act_codigo_adicion
+          GROUP BY amh.act_codigo_adicion
+        ),
+        -- CTE para calcular horas_disminucion
+        tmp_disminucion AS (
+          SELECT        amh.act_codigo_disminucion AS act_codigo,
+                  COALESCE(SUM(amh.amh_horas), 0) AS horas_disminucion
+          FROM    estructura_poa.actividades_movimientos_horas amh
+          WHERE         amh.amh_estado NOT IN (0,5,9)
+                  AND amh.act_codigo_disminucion IN (4793)
+          GROUP BY amh.act_codigo_disminucion
+        )
+        -- Consulta final
+        SELECT
+          COALESCE(tmp_adicion.act_codigo, tmp_disminucion.act_codigo) AS act_codigo,
+                COALESCE(tmp_adicion.horas_adicion, 0)::INT AS horas_adicion,
+                COALESCE(tmp_disminucion.horas_disminucion, 0)::INT AS horas_disminucion,
+                COALESCE(tmp_adicion.horas_adicion, 0)::INT - COALESCE(tmp_disminucion.horas_disminucion, 0)::INT AS horas_calculo_movimiento
+        FROM
+          tmp_adicion
+          FULL OUTER JOIN tmp_disminucion
+        ON tmp_adicion.act_codigo = tmp_disminucion.act_codigo
+      ;
 

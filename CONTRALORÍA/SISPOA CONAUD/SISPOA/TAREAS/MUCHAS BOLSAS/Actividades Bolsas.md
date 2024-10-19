@@ -466,5 +466,6 @@ para F21 debe estar bloqueado esas horas
 | Act4        | 00.1501.105.10.24 | 4793       |
 | Act5        | 00.0202.19.6.24   | 4792       |
 | Act6        | 00.1601.110.17.24 | 4791       |
+| Act7        | 00.1301.95.13.24  | 4790       |
 
 ### bolsas con comisiones: backup_20241017_135434.sql
