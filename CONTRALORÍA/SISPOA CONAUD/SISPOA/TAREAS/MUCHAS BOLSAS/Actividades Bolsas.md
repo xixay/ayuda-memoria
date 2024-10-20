@@ -724,3 +724,61 @@ GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo_bolsa=(4789)
 Content-Type: application/json
 Authorization: {{AuthTokenInterno}}
 ```
+
+### metodo
+```js
+    async adicionar (booleanEnviarEmit = false) {
+      this.accionLoading = true
+      console.log("🐱==xx1==> ~ this.formActividadHoras:", this.formActividadHoras)
+      await this.$service.get(
+        'SISPOA',
+        `${this.componentServicePath}/calculo-horas?act_codigo=(${this.formActividadHoras.act_codigo})${this.formActividadHoras.amh_horas?`&amh_horas=(${this.formActividadHoras.amh_horas})`:''}&amh_estado=(${Status.EDICION})`
+      ).then(async response => {
+        if (response) {
+          console.log("🐱==xx2==> ~ response:", response)
+          response.amh_horas = Number(this.formActividadHoras.amh_horas)
+          response.act_codigo = this.formActividadHoras.act_codigo
+          if (this.ArrayActividadesBolsas.length > 0) {
+            if (this.ArrayActividadesBolsas.some(e => e.act_codigo == this.formActividadHoras.act_codigo)) {
+              // Encontrar el índice del objeto que deseas reemplazar
+              const index = this.ArrayActividadesBolsas.findIndex(actividad => actividad.act_codigo === response.act_codigo)
+              console.log("🐱==xx3==> ~ index:", index)
+              // Si el objeto existe en el array, lo reemplazas
+              if (index !== -1) {
+                console.log('entro')
+                this.ArrayActividadesBolsas[index] = response
+                console.log("🐱==xx4==> ~ this.ArrayActividadesBolsas:", this.ArrayActividadesBolsas)
+                this.ArrayActividadesBolsas = [...this.ArrayActividadesBolsas]
+              }
+            } else {
+              this.ArrayActividadesBolsas.push(response)
+            }
+          } else {
+            this.ArrayActividadesBolsas.push(response)
+          }
+          if (booleanEnviarEmit) {
+            const totalHoras = this.ArrayActividadesBolsas.reduce((acumulador, actividad) => {
+              return acumulador + (actividad.amh_horas || 0)
+            }, 0)
+            console.log("🐱==xx5==> ~ totalHoras:", totalHoras)
+            const arrayCodigosDisminucion = this.ArrayActividadesBolsas.map(e => e.act_codigo)
+            const arrayTmhCodigos = this.ArrayActividadesBolsas.map(e => e.tmh_codigo)
+            const arrayAmhHoras = this.ArrayActividadesBolsas.map(e => e.amh_horas)
+            let objBolsa = {
+              arrayCodigosDisminucion: arrayCodigosDisminucion,
+              arrayTmhCodigos: arrayTmhCodigos,
+              arrayAmhHoras: arrayAmhHoras,
+              totalHoras: totalHoras
+            }
+            this.$nuxt.$emit('UpdateBolsas', objBolsa)
+          }
+        }
+      }).catch(error => {
+        this.$toast.clear()
+        this.$toast.info(error.error_mensaje)
+        // this.AllActividades = []
+      }).finally(() => {
+        this.accionLoading = false
+      })
+    },
+```
