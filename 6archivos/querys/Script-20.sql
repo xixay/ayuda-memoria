@@ -2,7 +2,7 @@ SELECT 	*
 FROM 	estructura_poa.actividades a 
 WHERE 	TRUE 
 --		AND a.act_codigo IN (2840)
-		AND a.act_codigo IN (2839)
+--		AND a.act_codigo IN (2839)
 --		AND a.act_codigo IN (2838)
 ORDER BY a.act_codigo DESC  
 ;
@@ -18,6 +18,10 @@ FROM 	estructura_poa.actividades_movimientos_horas amh
 SELECT 	*
 FROM 	estructura_poa.actividades_movimientos_horas amh 
 ;
+ALTER TABLE estructura_poa.actividades_movimientos_horas ADD amh_detalle json NULL;
+-- ddl-end --
+COMMENT ON COLUMN estructura_poa.actividades_movimientos_horas.amh_detalle IS E'Registra los datos con los que se calculo el movimiento de horas';
+-- ddl-end --
 SELECT 	*
 FROM 	parametricas.tipo_movimientos_horas tmh ;
 --##############################################################################################

@@ -416,15 +416,21 @@
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
 ###  ------------------- OBTENER - HORAS CALC MOIVIMIENTO
-    # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo_bolsa=(2840)&amh_horas=(100)
-    # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo_bolsa=(2840)
-    # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo_bolsa=(2839)
-    # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo_bolsa=(2838)
-    # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo_bolsa=(4793)
-    # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo_bolsa=(4792)
-    # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo_bolsa=(4791)
-    # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo_bolsa=(4790)
-    GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo_bolsa=(4789)
+###  ------------------- OBTENER - HORAS CALC MOIVIMIENTO
+    # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(2840)&amh_horas=(100)
+    GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(2840)
+    # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(2839)&amh_horas=(301)
+    # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(2838)
+    # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(4793)
+    # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(4792)
+    # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(4791)
+    # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(4790)
+    # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(4789)
+    Content-Type: application/json
+    Authorization: {{AuthTokenInterno}}
+###  ------------------- OBTENER - ACTIVIDADES SUS HORAS
+    GET {{Host}}/actividades-movimientos-horas/actividades-horas?act_codigo=(4796)
+    # GET {{Host}}/actividades-movimientos-horas/actividades-horas?act_codigo=(4797)
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
 ###  ------------------- CREAR - ACTIVIDAD MOVIMIENTO HORAS
