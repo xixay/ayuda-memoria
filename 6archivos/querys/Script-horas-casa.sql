@@ -2,7 +2,7 @@ SELECT 	*
 FROM 	estructura_poa.actividades a 
 WHERE 	TRUE 
 --		AND a.act_codigo IN (2840)
-		AND a.act_codigo IN (2839)
+--		AND a.act_codigo IN (2839)
 --		AND a.act_codigo IN (2838)
 ORDER BY a.act_codigo DESC  
 ;
