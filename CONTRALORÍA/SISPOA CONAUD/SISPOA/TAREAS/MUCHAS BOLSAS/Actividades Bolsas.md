@@ -1027,3 +1027,10 @@ ON tmp_adicion.act_codigo = tmp_disminucion.act_codigo;
 ```
 
 ### base con amh_detalle, hasta Momento 2 backup_20241021_152831.sql
+### base inactivar backup_20241022_161725.sql
+
+### base para anular 1 backup_20241022_162211.sql
+### base para anular 2 backup_20241022_162211.sql
+
+### Base para retiros backup_20241022_152252.sql
+### lista retirar backup_20241022_153244.sql
