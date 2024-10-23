@@ -783,6 +783,8 @@ Authorization: {{AuthTokenInterno}}
     },
 ```
 ### base con amh_detalle, hasta Momento 1    backup_20241021_123326.sql    otro backup_20241021_174534.sql
+### base de prueba para inactivar backup_20241023_171602.sql
+
 ```sql
 SELECT 	*
 FROM 	estructura_poa.actividades a 
