@@ -302,7 +302,27 @@ para F21 debe estar bloqueado esas horas
 | Act8        | 500.1201.46.3.24  | 4789       |
 
 
-### 2-
+### 2- Quitar actividad
+
+#### Datos
+
+|                      | base inicial   | backup_20241024_105334.sql |                      |                   |
+| -------------------- | -------------- | -------------------------- | -------------------- | ----------------- |
+|                      | base con datos | backup_20241024_133843.sql | 00.1501.105          | 00.1501.105.13.24 |
+|                      | validacion     | backup_20241024_141103.sql | 00.1501.105          | 00.1501.105.13.24 |
+| **SCGD**<br>**SCGM** |                | ROLES                      |                      |                   |
+|                      | 2389409        | OLGA EDITH SUAREZ JIMENEZ  | GERENTE CONSOLIDADOR | EDICION           |
+|                      | 2389409        | OLGA EDITH SUAREZ JIMENEZ  | SUPERVISOR           | EDICION           |
+|                      | 2389409        | OLGA EDITH SUAREZ JIMENEZ  | APROBADOR            | EDICION           |
+|                      | 2389409        | OLGA EDITH SUAREZ JIMENEZ  | FORMULADOR           | EDICION           |
+|                      |                |                            |                      |                   |
+### 3 Para varios
+#### Servicio
+```http
+GET {{Host}}/actividades/calculo-horas-varios?act_codigos=(2839,2838)
+Content-Type: application/json
+Authorization: {{AuthTokenInterno}}
+```
 ## SERVICIOS
 ### Calculo de horas
 ```http
