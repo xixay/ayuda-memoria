@@ -209,8 +209,10 @@ npx ts-node src/common/scripts/feature.generator.ts ActividadesMovimientosHoras 
 - cada ves que se agrega o modifica una actividad bolsa, se actualiza el array
 - osea se filtra, o se elimina cada ves.
 ## Pruebas
-### Área de Prueba GDH-GSL
-### Roles 
+
+### 1- Agregado inicial
+#### Área de Prueba GDH-GSL
+#### Roles 
 
 | 4374363 | EDINO CLAUDIO CLAVIJO PONCE | GERENTE CONSOLIDADOR | EDICION |
 | ------- | --------------------------- | -------------------- | ------- |
@@ -219,7 +221,7 @@ npx ts-node src/common/scripts/feature.generator.ts ActividadesMovimientosHoras 
 | 4088924 | MARY JHOANNA ACUÑA ANIBARRO | APROBADOR            | EDICION |
 | 5244166 | FLADIMIR HUARACHI HUARACHI  | FORMULADOR GERENTE   | EDICION |
 
-### Actividad de Prueba 00.1501.105.9.24
+#### Actividad de Prueba 00.1501.105.9.24
 - área unidad = Gerencia Departamental de Servicios Legales - GDH-GSL
 - act_codigo = 4787
 - accion_estrategica = 00.1501.105
@@ -228,7 +230,7 @@ npx ts-node src/common/scripts/feature.generator.ts ActividadesMovimientosHoras 
 - act_horas_real = 500
 - lo que dice en el sistema
 	- horas hombre planificadas = 500
-### Datos Actividad Bolsa
+#### Datos Actividad Bolsa
 - area unidad = Gerencia Departamental de Servicios Legales - GDH-GSL
 - act_codigo = 2606
 - accion_estrategica = 540.1501.51
@@ -250,20 +252,20 @@ lo que trae el servicio
  "aun_sigla": "GPA2-GAM1" } }
 ```
 
-### La bolsa escogida
+#### La bolsa escogida
 ![[bolsa0.png]]
-#### Bolsa
+##### Bolsa
 ![[bolsa.png]]
 
 
-### Inicio Actividad Poa 00.1501.105.9.24
+#### Inicio Actividad Poa 00.1501.105.9.24
 #### antes de agregar comision  00.1501.105.9.24
 ![[antes de crear comision.png]]
 #### Inicio act poa despues de agregar comision
 ![[actividad despues de crear comision y añadir horas.png]]
 #### Despues de agregar comision actividad
 ![[despues de crear comision y añadir horas.png]]
-### Datos Actividad Bolsa despues de agregar comisoines
+#### Datos Actividad Bolsa despues de agregar comisoines
 - area unidad = Gerencia Departamental de Servicios Legales - GDH-GSL
 - act_codigo = 2606
 - accion_estrategica = 540.1501.51
@@ -272,7 +274,7 @@ lo que trae el servicio
 - lo que dice en el sistema
 	- horas iniciales = 1074(es lo mismo horas planificadas)
 	- horas disponibles comision = 954
-### me creo otra actividad backup_20241015_152820.sql
+#### me creo otra actividad backup_20241015_152820.sql
 ![[bolsa0.png]]
 
 |           | Unidad x       |                 |
@@ -300,6 +302,7 @@ para F21 debe estar bloqueado esas horas
 | Act8        | 500.1201.46.3.24  | 4789       |
 
 
+### 2-
 ## SERVICIOS
 ### Calculo de horas
 ```http
@@ -578,7 +581,7 @@ ON tmp_adicion.act_codigo = tmp_disminucion.act_codigo;
 | bolsas sin comisiones                 | backup_20241017_105934.sql |
 | bolsas sin comisiones                 | backup_20241017_105934.sql |
 | base con amh_detalle, hasta Momento 1 | backup_20241021_123326.sql |
-| base de mucho uso                     | backup_20241021_174534.sql |
+| base de mucho uso (PRINCIPAL)         | backup_20241021_174534.sql |
 | base de prueba para inactivar         | backup_20241023_171602.sql |
 | base con amh_detalle                  | backup_20241021_152831.sql |
 | base inactivar actividad              | backup_20241022_161725.sql |
