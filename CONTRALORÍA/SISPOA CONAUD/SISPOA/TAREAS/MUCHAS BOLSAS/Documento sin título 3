@@ -1,0 +1,30 @@
+  @LoggerMethod
+  async findAllActividadesHoras(query: GetAllCalculoHorasDto, manager: EntityManager) {
+    try {
+      let resultQuery = [];
+      const getAllActividadesMovimientosHorasDto = new GetAllActividadesMovimientosHorasDto();
+      getAllActividadesMovimientosHorasDto.act_codigo_adicion = query.act_codigo;
+      getAllActividadesMovimientosHorasDto.amh_estado = `(${EstadoPoa.EDICION}, ${EstadoPoa.INACTIVO}, ${EstadoPoa.CONSOLIDADO})`;
+      let resultActividadesMovimientosHoras = await this.findAll(getAllActividadesMovimientosHorasDto, manager);
+      console.log("🐱==mm0==> ~ resultActividadesMovimientosHoras:", resultActividadesMovimientosHoras)
+      console.log("🐱==mm1==>  ActividadesMovimientosHorasService  resultActividadesMovimientosHoras:", resultActividadesMovimientosHoras)
+      for (const item of resultActividadesMovimientosHoras) {
+        const getAllCalculoHorasDto = new GetAllCalculoHorasDto();
+        getAllCalculoHorasDto.act_codigo = `(${item.act_codigo_disminucion})`;
+        let actividadHoras = await this.findAllCalculoHoras(getAllCalculoHorasDto, manager);
+        console.log("🐱==mm2==>  ActividadesMovimientosHorasService  actividadHoras:", actividadHoras)
+        if (Object.keys(actividadHoras).length > 0) {
+          actividadHoras.amh_codigo = item.amh_codigo;
+          actividadHoras.amh_horas = item.amh_horas;
+          actividadHoras.amh_estado = item.amh_estado;
+          actividadHoras.est_color = item.est_color;
+          actividadHoras.amh_estado_descripcion = item.amh_estado_descripcion;
+          resultQuery.push(actividadHoras);
+        }
+
+      }
+      return CustomService.verifyingDataResult(resultQuery, this.message_custom);
+    } catch (error) {
+      throwError(400, error.message);
+    }
+  }

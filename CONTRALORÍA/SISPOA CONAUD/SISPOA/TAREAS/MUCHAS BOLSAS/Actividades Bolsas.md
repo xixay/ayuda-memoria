@@ -361,6 +361,17 @@ Authorization: {{AuthTokenInterno}}
 #### prueba Rol backup_20241025_190008.sql
 - debe mostrar los datos con los que se creo, no volver a calcular las filas
 ![[pr1.png]]
+#### prueba viernes
+![[v1.png]]
+![[v2.png]]
+
+| prueba x1        | backup_20241025_191931.sql |
+| ---------------- | -------------------------- |
+| 00.1501.109.1.24 |                            |
+| 540.1501.49.1.24 |                            |
+| prueba x2        | backup_20241025_192243.sql |
+| 00.1501.109.1.24 |                            |
+
 #### casos de prueba
 - base de prueba backup_20241024_233315.sql
 
