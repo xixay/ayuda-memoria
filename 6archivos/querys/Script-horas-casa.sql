@@ -16,7 +16,8 @@ FROM 	estructura_poa.actividades_movimientos_horas amh
 		LEFT JOIN parametricas.estados e ON e.est_codigo = amh.amh_estado
 ;
 SELECT 	*
-FROM 	estructura_poa.actividades_movimientos_horas amh 
+FROM 	estructura_poa.actividades_movimientos_horas amh
+ORDER BY amh.amh_codigo ASC
 ;
 SELECT 	*
 FROM 	parametricas.tipo_movimientos_horas tmh ;
