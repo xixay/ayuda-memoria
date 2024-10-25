@@ -27,15 +27,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/Refacturacion de reportes F1,F1-A,F2,F2-A.md",
+                "file": "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/Reportes Seguimientos.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Refacturacion de reportes F1,F1-A,F2,F2-A"
+              "title": "Reportes Seguimientos"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -57,7 +58,7 @@
                 "sortOrder": "alphabetical"
               },
               "icon": "lucide-folder-closed",
-              "title": "Files"
+              "title": "Explorador de archivos"
             }
           },
           {
@@ -177,8 +178,20 @@
       "command-palette:Abrir paleta de comandos": false
     }
   },
-  "active": "b5ecf2a4c3055894",
+  "active": "2a1032353bfc5b36",
   "lastOpenFiles": [
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/Reportes Seguimientos.md",
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/img2.jpg",
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/img0.jpg",
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/IMG_20241025_183700_662.jpg",
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/Actividades Bolsas.md",
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/img1.jpg",
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/IMG_20241025_183656_303.jpg",
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/pr1.png",
+    "6archivos/scripts/backup_20241025_190008.sql",
+    "Sin título.md",
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME",
+    "Untitled.md",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/nuevo 5.png",
     "6archivos/scripts/backup_20241025_163148.sql",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/nuevo 4.png",
@@ -189,23 +202,12 @@
     "6archivos/scripts/backup_20241025_085614.sql",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/nuevo 2.png",
     "6archivos/scripts/backup_20241025_083220.sql",
-    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/nuevo.png",
     "6archivos/scripts/backup_20241024_233315.sql",
     "6archivos/scripts/backup_20241024_230635.sql",
-    "6archivos/scripts/backup_20241024_215947.sql",
-    "6archivos/scripts/backup_20241024_141103.sql",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REFACTORIZACION REPORTES/Refacturacion de reportes F1,F1-A,F2,F2-A.md",
-    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/Actividades Bolsas.md",
-    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/pregunta.png",
-    "CONTRALORÍA/espacio.png",
-    "1.png",
-    "CONTRALORÍA/SISPOA CONAUD/GENERADOR/Proyecto base Frontend-BACKEND generador.drawio.png",
-    "CONTRALORÍA/SISPOA CONAUD/GENERADOR/Proyecto base Frontend-FRONTED generador.drawio.png",
-    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/bolsa0.png",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/RESTRUCTURADO DE COMPONENTES DE ACTIVIDADES/Tarea.md",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/Untitled.canvas",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/CORREGIDO ANULADO/Correccion mostrar anulados.md",
-    "Untitled.md",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/REPORTES CORREGIR CARGO NOMBRE ITEM/corregir.md",
     "CONTRALORÍA/SISPOA CONAUD/QUERYS/tipos reporte F1, F1A,F2,F2A.md",
     "CONTRALORÍA/SISPOA CONAUD/QUERYS/evaluaciones.md",
@@ -214,7 +216,6 @@
     "Sin título.canvas",
     "2024-10-01.md",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/SI SE AGREGA UNA AREA EJECUTORA EN ADMINISTRACION ACP/Tarea.md",
-    "1inicio/1-instalarTipoDeb.md",
-    "Sin título.md"
+    "1inicio/1-instalarTipoDeb.md"
   ]
 }

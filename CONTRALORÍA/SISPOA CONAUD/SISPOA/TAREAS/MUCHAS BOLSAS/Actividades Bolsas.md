@@ -358,6 +358,9 @@ Authorization: {{AuthTokenInterno}}
 ![[nuevo 4.png]]
 #### inactivar  backup_20241025_163148.sql
 ![[nuevo 5.png]]
+#### prueba Rol backup_20241025_190008.sql
+- debe mostrar los datos con los que se creo, no volver a calcular las filas
+![[pr1.png]]
 #### casos de prueba
 - base de prueba backup_20241024_233315.sql
 
