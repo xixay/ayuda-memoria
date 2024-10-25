@@ -418,15 +418,27 @@
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
 ###  ------------------- OBTENER - HORAS CALC MOIVIMIENTO
+###  ------------------- OBTENER - HORAS CALC MOIVIMIENTO VARIOS
+    GET {{Host}}/actividades/calculo-horas-varios?act_codigos=(2839,2839,2882828)
+    Content-Type: application/json
+    Authorization: {{AuthTokenInterno}}
+###  ------------------- OBTENER - HORAS CALC MOIVIMIENTO
     # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(2840)&amh_horas=(100)
     # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(2840)
-    # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(2839)&amh_horas=(301)
+    # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(2839)
     # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(2838)
     # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(4793)
     # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(4792)
     # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(4791)
     # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(4790)
     # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(4789)
+    # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(1706)
+    GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(2835)
+    Content-Type: application/json
+    Authorization: {{AuthTokenInterno}}
+###  ------------------- OBTENER - ACTIVIDADES SUS HORAS
+    # GET {{Host}}/actividades-movimientos-horas/actividades-horas?act_codigo=(4796)
+    GET {{Host}}/actividades-movimientos-horas/actividades-horas?act_codigo=(4797)
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
 ###  ------------------- CREAR - ACTIVIDAD MOVIMIENTO HORAS
@@ -456,6 +468,9 @@
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
 ###  ------------------- ACTIVAR - ACTIVIDAD MOVIMIENTO HORAS
+    PATCH {{Host}}/actividades-movimientos-horas/9
+    Content-Type: application/json
+    Authorization: {{AuthTokenInterno}}
     PATCH {{Host}}/actividades-movimientos-horas/9
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}

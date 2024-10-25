@@ -323,6 +323,35 @@ GET {{Host}}/actividades/calculo-horas-varios?act_codigos=(2839,2838)
 Content-Type: application/json
 Authorization: {{AuthTokenInterno}}
 ```
+### 4 corregir la tabla
+#### envia al resumen
+```json
+{"act_codigo":1706,
+"amh_horas":"20",
+"act_descripcion":"MANTENER EN 100% LA TASA DE EVALUACIÓN A INFORMES LEGALES DE AUDITORÍA INTERNA A NIVEL DEPARTAMENTAL AL 2024",
+"act_numero":"00.1501.106.1.24",
+"aun_sigla":"GDH-GSL",
+"horas_planificadas":580,
+"horas_comision":0,
+"horas_calculo_movimiento":500,
+"horas_disponibles":500,
+"flagNuevo":true,
+"amh_estado":1,
+"est_color":"#54bebe",
+"amh_estado_descripcion":"EDICION"}
+```
+#### casos de prueba
+- base de prueba backup_20241024_233315.sql
+
+|                  |                    | act_codigo |
+| ---------------- | ------------------ | ---------- |
+| 00.1501.106.1.24 | 580,0,500,500,80   | 1706       |
+| 00.1501.105.7.24 | 120,120,100,-20,20 | 2835       |
+
+| disp  | 500 | 0   |
+| ----- | --- | --- |
+| modif | 4   | 100 |
+
 ## SERVICIOS
 ### Calculo de horas
 ```http
@@ -595,17 +624,17 @@ ON tmp_adicion.act_codigo = tmp_disminucion.act_codigo;
 
 ## Bases de Prueba
 
-| en edicion:                           | backup_20241015_113322.sql |
-| ------------------------------------- | -------------------------- |
-| ya consolidado                        | backup_20241015_114157.sql |
-| bolsas sin comisiones                 | backup_20241017_105934.sql |
-| bolsas sin comisiones                 | backup_20241017_105934.sql |
-| base con amh_detalle, hasta Momento 1 | backup_20241021_123326.sql |
-| base de mucho uso (PRINCIPAL)         | backup_20241021_174534.sql |
-| base de prueba para inactivar         | backup_20241023_171602.sql |
-| base con amh_detalle                  | backup_20241021_152831.sql |
-| base inactivar actividad              | backup_20241022_161725.sql |
-| base para anular 2 actividad          | backup_20241022_162211.sql |
-| Base para retiros actividad           | backup_20241022_152252.sql |
-| lista retirar actividad               | backup_20241022_153244.sql |
-| base inactivar horas                  | backup_20241023_223728.sql |
+| en edicion:                                              | backup_20241015_113322.sql                                   |
+| -------------------------------------------------------- | ------------------------------------------------------------ |
+| ya consolidado                                           | backup_20241015_114157.sql                                   |
+| bolsas sin comisiones                                    | backup_20241017_105934.sql                                   |
+| bolsas sin comisiones                                    | backup_20241017_105934.sql                                   |
+| base con amh_detalle, hasta Momento 1                    | backup_20241021_123326.sql                                   |
+| base de mucho uso (PRINCIPAL)<br><br>(DETALLE CORREGIDO) | backup_20241021_174534.sql<br><br>backup_20241024_215947.sql |
+| base de prueba para inactivar                            | backup_20241023_171602.sql                                   |
+| base con amh_detalle                                     | backup_20241021_152831.sql                                   |
+| base inactivar actividad                                 | backup_20241022_161725.sql                                   |
+| base para anular 2 actividad                             | backup_20241022_162211.sql                                   |
+| Base para retiros actividad                              | backup_20241022_152252.sql                                   |
+| lista retirar actividad                                  | backup_20241022_153244.sql                                   |
+| base inactivar horas                                     | backup_20241023_223728.sql                                   |
