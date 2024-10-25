@@ -340,6 +340,24 @@ Authorization: {{AuthTokenInterno}}
 "est_color":"#54bebe",
 "amh_estado_descripcion":"EDICION"}
 ```
+
+#### act x backup_20241025_103004.sql
+
+|                  |                                                                                                                                                  |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 00.1501.109.1.24 | MANTENER EN 100% LA TASA DE SERVICIO DE NOTIFICACIÓN CON INFORMES DE AUDITORÍA A NIVEL DEPARTAMENTAL AL 2024                                     |
+| 00.1501.105.2.24 | Mantener en 100% la Tasa de emisión de apoyo legal a Informes de auditoría externa en la Gerencia Departamental de Chuquisaca en la gestión 2024 |
+
+![[nuevo.png]]
+#### ActY backup_20241025_112059.sql
+- se creo otro usando de base 00.1501.105.2.24, el de arriba a los 150 le quito 50, y sobraria 50, como sobro 50, le quito 20
+![[nuevo 2.png]]
+#### ACT 3 donde esta
+![[nuevo3.png]]
+#### Act3 backup_202410
+![[nuevo 4.png]]
+#### inactivar  backup_20241025_163148.sql
+![[nuevo 5.png]]
 #### casos de prueba
 - base de prueba backup_20241024_233315.sql
 
