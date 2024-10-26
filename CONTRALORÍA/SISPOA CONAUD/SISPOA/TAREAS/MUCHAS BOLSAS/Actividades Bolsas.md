@@ -365,12 +365,13 @@ Authorization: {{AuthTokenInterno}}
 ![[v1.png]]
 ![[v2.png]]
 
-| prueba x1        | backup_20241025_191931.sql |
-| ---------------- | -------------------------- |
-| 00.1501.109.1.24 |                            |
-| 540.1501.49.1.24 |                            |
-| prueba x2        | backup_20241025_192243.sql |
-| 00.1501.109.1.24 |                            |
+| prueba x1                            | backup_20241025_191931.sql |
+| ------------------------------------ | -------------------------- |
+| 00.1501.109.1.24                     |                            |
+| 540.1501.49.1.24                     |                            |
+| prueba x2                            | backup_20241025_192243.sql |
+| 00.1501.109.1.24                     |                            |
+| algunas *inact*ivaciones o ediciones | backup_20241026_142931.sql |
 
 #### casos de prueba
 - base de prueba backup_20241024_233315.sql
