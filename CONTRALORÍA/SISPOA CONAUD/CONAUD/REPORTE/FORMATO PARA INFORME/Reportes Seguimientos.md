@@ -19,3 +19,40 @@
 - Texto justificado
 - Debe aceptar cualquier tipo de caracter
 - Es una nueva tabla, Sushy lo esta haciendo
+### Servidor
+```
+npm install -g json-server
+```
+- reporte.json
+```json
+{
+  "data": [
+    {
+      "tipo": "example1",
+      "items": [
+        {"name": "item1", "value": "100"},
+        {"name": "item2", "value": "200"}
+      ]
+    },
+    {
+      "tipo": "example2",
+      "items": [
+        {"name": "item3", "value": "300"},
+        {"name": "item4", "value": "400"}
+      ]
+    }
+  ]
+}
+
+```
+- dsdsd
+```
+json-server --watch reporte.json --port 7008  
+```
+
+- acceder
+```
+GET http://localhost:7008/data HTTP/1.1
+
+Content-Type: application/json
+```

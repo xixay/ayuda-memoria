@@ -1,0 +1,113 @@
+{
+  "data": {
+    "ent_descripcion": "CONTRALORIA GENERAL DEL ESTADO",
+    "nro_informe_auditoria": "UU/CP01/E24 V1",
+    "inf_tipo": "INFORME DE CONFIABILIDAD DE LOS REGISTROS Y DEFICIENCIAS DE CONTROL INTERNO DE LA CONTRALORIA GENERAL DEL ESTADO, POR LA GESTION 2023 dsdssd dsds ds sds sd sds ds dsd sdsd sdsdsdsdsdsdsdsdsd  ds dsd sd  dsd sdsd sdsdsd  dsd sdsdsdsdsd  dsdsdsdsdsdsdsd dsdsdsdsdsd",
+    "reportes": [
+      {
+        "tipo": 1,
+        "recomendaciones": [
+          {
+            "nro_recomendacion": "2.1",
+            "desc_recomendacion": "Falta de verificación física de los items ejecutados en la obra, previo a la emisión del informe de Conformidad del Responsable de Recepción. Esto afecta la integridad del control interno.",
+            "aceptacion": "SI",
+            "justificacion_no_aceptacion": "",
+            "tareas_implantacion": "Se designará personal encargado de realizar verificaciones físicas mensuales, y el gerente emitirá un memorandum para asegurar que estas prácticas sean implementadas adecuadamente."
+          },
+          {
+            "nro_recomendacion": "2.2",
+            "desc_recomendacion": "Ausencia de registro documentado de los procedimientos de control interno en las adquisiciones menores. Recomendamos incluir registros detallados para evitar discrepancias futuras.",
+            "aceptacion": "NO",
+            "justificacion_no_aceptacion": "Los registros actuales ya cumplen con los requisitos establecidos por la normativa vigente, y no se considera necesario agregar detalles adicionales.",
+            "tareas_implantacion": "Evaluación trimestral de los procedimientos de documentación y propuesta de mejoras para optimizar el control interno."
+          },
+          {
+            "nro_recomendacion": "2.3",
+            "desc_recomendacion": "Se recomienda la actualización periódica de las políticas de control interno, para que sean acordes con los cambios normativos.",
+            "aceptacion": "SI",
+            "justificacion_no_aceptacion": "",
+            "tareas_implantacion": "La Gerencia emitirá directrices que establecen revisiones anuales obligatorias de las políticas de control interno."
+          }
+        ]
+      },
+      {
+        "tipo": 2,
+        "recomendaciones": [
+          {
+            "nro_recomendacion": "3.1",
+            "desc_recomendacion": "Recomendamos a la Contralora General instruir a la Gerencia Nacional Financiera para la implementación de actividades de control en la recepción de obras menores.",
+            "periodo_implantacion": "Del 26/01/2024 Al 31/01/2024",
+            "responsable": "Lic Betsabé Flores Soliz, Subgerente de Administración y Finanzas.",
+            "tareas_implantacion": "El Gerente emitirá instrucciones para incluir en los nuevos contratos actividades de control relativas a la verificación física de los materiales recibidos."
+          },
+          {
+            "nro_recomendacion": "3.2",
+            "desc_recomendacion": "Instruir a la Gerencia de Logística la inclusión de cláusulas que especifican controles de calidad en todos los contratos de adquisición de materiales.",
+            "periodo_implantacion": "Del 01/02/2024 Al 28/02/2024",
+            "responsable": "Ing. Mario Vásquez, Jefe de Logística.",
+            "tareas_implantacion": "Desde enero de 2024, incluir en los contratos una sección que detalle controles de calidad y auditoría de entrega de materiales en coordinación con Logística."
+          },
+          {
+            "nro_recomendacion": "3.3",
+            "desc_recomendacion": "Fortalecer la supervisión en la cadena de suministro para asegurar la calidad en los materiales adquiridos y entregados.",
+            "periodo_implantacion": "Del 05/03/2024 Al 10/03/2024",
+            "responsable": "Licenciado José Pérez, Jefe de Supervisión.",
+            "tareas_implantacion": "Implementar un sistema de revisión trimestral de los proveedores, evaluando la calidad de los materiales y la consistencia en las entregas. Esto debe documentarse en reportes detallados."
+          }
+        ]
+      },
+      {
+        "tipo": 1,
+        "recomendaciones": [
+          {
+            "nro_recomendacion": "4.1",
+            "desc_recomendacion": "Falta de seguimiento en los procesos administrativos, lo cual afecta la transparencia de los reportes generados.",
+            "aceptacion": "SI",
+            "justificacion_no_aceptacion": "",
+            "tareas_implantacion": "Se establecerán reportes mensuales detallados para cada proceso administrativo con el fin de identificar y corregir desviaciones en tiempo real."
+          },
+          {
+            "nro_recomendacion": "4.2",
+            "desc_recomendacion": "Ajustar los indicadores de desempeño para reflejar adecuadamente la eficiencia en el uso de los recursos.",
+            "aceptacion": "NO",
+            "justificacion_no_aceptacion": "Los indicadores actuales ya cubren los objetivos básicos del área, y se considera innecesario realizar ajustes que compliquen el proceso de reporte.",
+            "tareas_implantacion": "Realizar una evaluación trimestral para verificar que los indicadores reflejen de manera adecuada el desempeño del área de administración."
+          },
+          {
+            "nro_recomendacion": "4.3",
+            "desc_recomendacion": "Se recomienda implementar un sistema de revisión continua de los procedimientos de control interno.",
+            "aceptacion": "SI",
+            "justificacion_no_aceptacion": "",
+            "tareas_implantacion": "Crear un comité de auditoría interna que evalúe de manera continua los procesos de control y presente recomendaciones de mejora cada trimestre."
+          }
+        ]
+      },
+      {
+        "tipo": 2,
+        "recomendaciones": [
+          {
+            "nro_recomendacion": "5.1",
+            "desc_recomendacion": "Solicitamos la implementación de políticas de capacitación continua para el personal administrativo, especialmente en áreas clave de control interno.",
+            "periodo_implantacion": "Del 15/04/2024 Al 20/04/2024",
+            "responsable": "Lic. Carolina Martínez, Jefe de Recursos Humanos.",
+            "tareas_implantacion": "Elaborar y ejecutar un plan de capacitación anual que cubra temas de control interno y eficiencia operativa para todo el personal administrativo."
+          },
+          {
+            "nro_recomendacion": "5.2",
+            "desc_recomendacion": "Instruir al área de administración para que realice evaluaciones periódicas del control interno en las diferentes dependencias.",
+            "periodo_implantacion": "Del 21/04/2024 Al 25/04/2024",
+            "responsable": "Dr. Luis García, Subgerente de Control Interno.",
+            "tareas_implantacion": "Se deben implementar auditorías internas semestrales para evaluar el cumplimiento de los controles en todas las áreas. Un equipo de supervisores se encargará de elaborar los informes correspondientes."
+          },
+          {
+            "nro_recomendacion": "5.3",
+            "desc_recomendacion": "Mejorar los mecanismos de comunicación interna para asegurar que las políticas de control sean comprendidas y aplicadas.",
+            "periodo_implantacion": "Del 01/05/2024 Al 15/05/2024",
+            "responsable": "Ing. Laura Ortiz, Directora de Comunicación Interna.",
+            "tareas_implantacion": "Desarrollar campañas de sensibilización y capacitación para todo el personal sobre las políticas de control, asegurando su conocimiento y correcta aplicación en todas las áreas."
+          }
+        ]
+      }
+    ]
+  }
+}
