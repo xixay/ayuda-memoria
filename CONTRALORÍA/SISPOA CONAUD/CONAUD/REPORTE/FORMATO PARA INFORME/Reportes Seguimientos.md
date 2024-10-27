@@ -11,6 +11,7 @@
 # Ejms
 ## Formato 1
 ![[img0.jpg]]
+![[inicial.pdf]]
 ## Formato 2
 ![[img1.jpg]]
 ## Resumen

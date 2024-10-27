@@ -1,0 +1,39 @@
+estoy usando jaspersoft, la cosa es que quiero recivir informacion , estoy usando un Data Adapter Wizard, que tiene un Data Adapter que dice Web Service, que te pide un Server URI: http://192.168.0.13:7002, connection Type:get Language:json, Authentication none, la cosa es que no tengo un backend, quiero simular que le envio, un Array de objetos, en la que cada objeto tiene un tipo, y un array de objetos, como hago todo esto, en linux, me instalo otro programa, o uso alguna extension en vscode
+
+voy a ser mas especifico, quiero que me lo crees json llamado datos que tenga que tiene los siguientes atributos:
+ent_descripcion = CONTRALORIA GENERAL DEL ESTADO
+nro_informe_auditoria= UU/CP01/E24 V1
+inf_tipo= INFORME DE CONFIABILIDAD DE LOS REGISTROS Y DEFICIENCIAS DE CONTROL INTERNO DE LA CONTRALORIA GENERAL DEL ESTADO, POR LA GESTION 2023
+
+los datos de arriba son suposicion
+Aparte tiene un array de objetos, donde cada objeto tiene 2 atributos:
+tipo que es un numero, 1 o 2
+recomendaciones que es un array de objetos
+
+cada objeto del array de recomendaciones tiene como atributo, dependiendo del tipo:
+si es de tipo 1:
+nro_recomendacion= 2.1
+
+desc_recomendacion = Falta de verificacion fisica de los items ejecutados en la obra, previo a la emision del informe de Conformidad del Responsable de Recepción. ..........(texto muy largo)
+
+aceptacion: SI
+
+justificacion_no_aceptacion: ....(texto largo)
+
+tareas_implantacion: El Gerente Nacional Administrativo Financiero, emitira memomarandum......(texto muy largo existen enters)
+si es de tipo 2:
+nro_recomendacion= 2.1
+
+desc_recomendacion = Recomendamos a la Señora Contralora Generaal del Estado a.i instruir a la Gerente Nacional 											Administrativa Financiera:
+- La inclusión de actividades de control relativo a la recepción de Obras(en contratación menor), para que el Responsable de Recepcion, previa a la emisión.......(texto muy largo)
+
+periodo_implantacion: Del 26/01/2024 Al 31/01/2024
+
+responsable: Lic Betsabé Flores Soliz Subgerente de Administración y Finanzas.
+
+tareas_implantacion: El Gerente Nacional Administrativo Financiero, emitira memomarandum......(texto muy largo existen enters)
+
+
+
+quiero que me des con muchos ejemplos el json, es lo que va recibir el jaspersoft
+

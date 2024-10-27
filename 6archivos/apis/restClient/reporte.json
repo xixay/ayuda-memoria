@@ -9,7 +9,7 @@
         "recomendaciones": [
           {
             "nro_recomendacion": "2.1",
-            "desc_recomendacion": "Falta de verificación física de los items ejecutados en la obra, previo a la emisión del informe de Conformidad del Responsable de Recepción. Esto afecta la integridad del control interno.",
+            "desc_recomendacion": "Falta de verificación física de los items ejecutados en la obra, \n previo a la emisión del informe de Conformidad del Responsable de Recepción. Esto afecta la integridad del control interno.",
             "aceptacion": "SI",
             "justificacion_no_aceptacion": "",
             "tareas_implantacion": "Se designará personal encargado de realizar verificaciones físicas mensuales, y el gerente emitirá un memorandum para asegurar que estas prácticas sean implementadas adecuadamente."
