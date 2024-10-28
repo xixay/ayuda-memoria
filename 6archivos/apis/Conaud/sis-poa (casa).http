@@ -433,7 +433,8 @@
     # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(4790)
     # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(4789)
     # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(1706)
-    GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(2835)
+    # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(2835)
+    GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(2282)
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
 ###  ------------------- OBTENER - ACTIVIDADES SUS HORAS

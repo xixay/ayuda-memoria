@@ -385,6 +385,13 @@ Authorization: {{AuthTokenInterno}}
 | ----- | --- | --- |
 | modif | 4   | 100 |
 
+### 5 tipo evaluacion backup_20241027_211308.sql
+#### url act_codigo = 2282
+- http://192.168.0.13:3002/conaud/evaluaciones/2282
+#### evaluacion
+![[evaluacion.png]]
+#### Gerencia Departamental de Auditoría en Gobiernos Departamentales - GDH-GAD
+
 ## SERVICIOS
 ### Calculo de horas
 ```http

@@ -57,3 +57,34 @@ GET http://localhost:7008/data HTTP/1.1
 
 Content-Type: application/json
 ```
+- CONAUD
+- Las acciones sobre Registro de Informes aún no pueden ser utilizados.
+- El usuario debe contar con el rol adecuado
+- La actividad debe estar consolidada
+- La actividad no cuenta con un inicio actividad POA
+- http://192.168.0.13:3002/conaud/inicios-actividades?ges_codigo=2&act_codigo=2837
+  
+### ejm
+- act_codigo=2054
+- act_numero=510.1502.23.3.24
+
+|     | **GDH-GAD** |                                 |                      |         |
+| --- | ----------- | ------------------------------- | -------------------- | ------- |
+|     | 4088924     | MARY JHOANNA ACUÑA ANIBARRO     | GERENTE CONSOLIDADOR | EDICION |
+|     | 1054869     | CARMEN LUANA ARANCIBIA VALVERDE | FORMULADOR           | EDICION |
+|     | 2389409     | OLGA EDITH SUAREZ JIMENEZ       | SUPERVISOR           | EDICION |
+|     | 4088924     | MARY JHOANNA ACUÑA ANIBARRO     | APROBADOR            | EDICION |
+|     | 1054869     | CARMEN LUANA ARANCIBIA VALVERDE | FORMULADOR GERENTE   | EDICION |
+
+![[conau.png]]
+### Con formulador gerente se crea el informe
+![[conau2.png]]
+
+### Con Gestion institucional
+- http://192.168.0.13:3002/conaud/sispoa-actividades-formularios-informes?act_codigo=2054&ges_codigo=2&iac_codigo=187&ges_inst=1&ges_verf=1&aun_codigo_ejecutora=28
+- se registra su estado a emision
+![[conau3.png]]
+![[conau4.png]]
+  ### Deberia poderse registrar recomendaciones en formulador gerente
+  ![[conau6.png]]
+  
