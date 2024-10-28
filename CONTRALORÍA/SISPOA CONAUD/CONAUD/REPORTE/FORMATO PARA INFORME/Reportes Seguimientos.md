@@ -64,9 +64,26 @@ Content-Type: application/json
 - La actividad no cuenta con un inicio actividad POA
 - http://192.168.0.13:3002/conaud/inicios-actividades?ges_codigo=2&act_codigo=2837
   
-### ejm
+### ejm backup_20241027_211308.sql
 - act_codigo=2054
 - act_numero=510.1502.23.3.24
+#### query
+```sql
+SELECT 	*
+FROM 	ejecucion_actividades.informes_estados ie
+WHERE 	ie.eev_codigo IN (38)
+;
+SELECT 	*
+FROM 	ejecucion_actividades.inicio_actividad_poa iap 
+WHERE 	iap.iac_codigo IN (187)
+;
+
+--tipo evaluacion
+SELECT 	*
+FROM 	estructura_poa.actividades a 
+WHERE 	a.act_numero LIKE 	'520.1502.90.1.24'
+;
+```
 
 |     | **GDH-GAD** |                                 |                      |         |
 | --- | ----------- | ------------------------------- | -------------------- | ------- |
