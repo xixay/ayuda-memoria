@@ -145,6 +145,8 @@ WHERE 	a.act_numero LIKE 	'520.1502.90.1.24'
 ;
 ```
 
+#### Roles
+
 |     | **GDH-GAD** |                                 |                      |         |
 | --- | ----------- | ------------------------------- | -------------------- | ------- |
 |     | 4088924     | MARY JHOANNA ACUÑA ANIBARRO     | GERENTE CONSOLIDADOR | EDICION |
@@ -153,10 +155,11 @@ WHERE 	a.act_numero LIKE 	'520.1502.90.1.24'
 |     | 4088924     | MARY JHOANNA ACUÑA ANIBARRO     | APROBADOR            | EDICION |
 |     | 1054869     | CARMEN LUANA ARANCIBIA VALVERDE | FORMULADOR GERENTE   | EDICION |
 
-- http://172.16.22.243:7002/informe-recomendaciones?inf_codigo=(375)&iac_codigo=(undefined)
+#### http://172.16.22.243:7002/informe-recomendaciones?inf_codigo=(375)&iac_codigo=(undefined)
+#### base
 ![[db_poa_update_b_-_ejecucion_actividades.png]]
 
-- api
+#### api
 ```http
 #### LOGIN
 # @name login_interno
@@ -218,7 +221,7 @@ Content-Type: application/json
 Authorization: {{token}}
 ```
 
-- query
+#### query
 ```sql
 SELECT 	*
 FROM 	ejecucion_actividades.informes_estados ie
