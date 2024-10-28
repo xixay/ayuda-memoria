@@ -61,6 +61,6 @@
   GET http://localhost:7009/data HTTP/1.1
   Content-Type: application/json
 ###  ------- OBTENER - REPORTE INFORME RECOMENDACIONES
-  GET {{Host}}/informes/reporte-recomendaciones?inf_codigo=(375)&flag_imprimir=(1) HTTP/1.1
+  GET {{Host}}/informes/reporte-recomendaciones?inf_codigo=(375)&flag_imprimir=(2) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
