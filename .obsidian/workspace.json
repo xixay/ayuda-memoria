@@ -35,8 +35,7 @@
               "title": "Reportes Seguimientos"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -178,12 +177,12 @@
       "command-palette:Abrir paleta de comandos": false
     }
   },
-  "active": "2a1032353bfc5b36",
+  "active": "b5ecf2a4c3055894",
   "lastOpenFiles": [
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/Reportes Seguimientos.md",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/Actividades Bolsas.md",
     "6archivos/scripts/backup_20241027_211308.sql",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/evaluacion.png",
-    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/Reportes Seguimientos.md",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/conau6.png",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/conau5.png",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/conau4.png",
