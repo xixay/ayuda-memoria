@@ -156,7 +156,7 @@ WHERE 	a.act_numero LIKE 	'520.1502.90.1.24'
 |     | 1054869     | CARMEN LUANA ARANCIBIA VALVERDE | FORMULADOR GERENTE   | EDICION |
 
 #### http://172.16.22.243:7002/informe-recomendaciones?inf_codigo=(375)&iac_codigo=(undefined)
-#### base
+#### base backup_20241028_175029.sql
 ![[db_poa_update_b_-_ejecucion_actividades.png]]
 
 #### api
