@@ -220,7 +220,6 @@ PUT {{host}}{{path}}/informe-recomendaciones-seguimientos HTTP/1.1
 Content-Type: application/json
 Authorization: {{token}}
 ```
-
 #### query
 ```sql
 SELECT 	*
@@ -466,8 +465,9 @@ FROM 	ejecucion_actividades.informe_recomendaciones_seguimientos irs
 WHERE 	TRUE
 		AND irs.inf_codigo IN (375);
 --WHERE 	irs.inf_codigo IN (374);
-
-
+```
+#### Api Rolando
+```http
 #### LOGIN
 # @name login_interno
 POST [http://172.16.80.32:4002/api/v1/auth_cge](http://172.16.80.32:4002/api/v1/auth_cge) HTTP/1.1
@@ -526,13 +526,4 @@ Authorization: {{token}}
 PUT {{host}}{{path}}/informe-recomendaciones-seguimientos HTTP/1.1
 Content-Type: application/json
 Authorization: {{token}}
-
-
-
 ```
-
-
-
-
-
-
