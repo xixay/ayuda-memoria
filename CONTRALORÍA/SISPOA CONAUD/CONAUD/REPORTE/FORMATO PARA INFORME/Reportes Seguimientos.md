@@ -16,6 +16,18 @@
 ![[img1.jpg]]
 ## Resumen
 ![[img2.jpg]]
+#### query
+```sql
+INSERT INTO ejecucion_actividades.informes_resumen_ejecutivo
+(rei_codigo, inf_codigo, ent_codigo, ent_descripcion, rei_referencia, rei_numero_informe, rei_objetivo, rei_objeto, rei_periodo_auditado, rei_resultado_uno, rei_resultado_dos, rei_resultado_tres, rei_conclusion, rei_observacion, rei_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
+VALUES(1, 372, 729, 'ADMINISTRACIÓN REGIONAL TARIJA - CPS', 'Auditoria de cumplimiento sobre el proyecto "Construcción oficinas y residencia área protegida Monte Villca"', 'GH/EP09/G22 C1, Complementario al Informe Preliminar de Ausitoría N° GH/EP09/G22 R1', 'Emitir una opinión independiente sobre el cumplimiento del ordenamiento jurídico administrativo y cumplimiento del objetivo del proyecto "Construcción oficinas y residencia área protegida Monte Villca".', 'Lo constituyo el proyecto "Construcción oficinas y residencia áerea protegida Monte Villca" y la documentación relacionada con el mismo, consistente en:
+- Informe Técnico de condiciones Previas.
+- Estudio de Diseño Técnico de Preinversión.
+- Contrato Administrativo N° 048/2017 por la ejecución del proyecto.
+- Comprobantes de registros de ejecución de gastos (C - 31), y su documentación de respaldo.
+- Actas de entrega provisional y definitiva.
+- Otra documentación relacionada con el objetivo del examen.', 'Del 9 de septiembre de 2016 al 27 de abril de 2022.', 'Como resultado de la auditoría y en relación al objetivo expuesto procedentemente, se ha establecido el hallazgo que se describe a continuación, sobre el cual se emite la siguiente conclusión', 'Como resultado de la auditoría y en relación al objetivo expuesto procedentemente, se ha establecido el hallazgo que se describe a continuación, sobre el cual se emite la siguiente conclusión', 'Como resultado de la auditoría y en relación al objetivo expuesto procedentemente, se ha establecido el hallazgo que se describe a continuación, sobre el cual se emite la siguiente conclusión', 'Conclusion', NULL, 1, 1349, 1349, 0, '2024-10-28 12:48:58.297', '2024-10-28 17:00:02.630', '1900-01-01 00:00:00.000');
+```
 ### Tomar en cuenta
 - Texto justificado
 - Debe aceptar cualquier tipo de caracter
