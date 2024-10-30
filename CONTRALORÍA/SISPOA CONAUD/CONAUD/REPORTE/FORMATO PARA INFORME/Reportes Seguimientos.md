@@ -10,13 +10,45 @@
 - los informes solo se visualizaran si estan emitidos, en la cuarta pestaña
 # Ejms
 ## Formato 1
+### Muestra
 ![[img0.jpg]]
+### Resultado
 ![[inicial.pdf]]
 ## Formato 2
+### Muestra
 ![[img1.jpg]]
-## Resumen
+### Servicio
+```http
+### ------- OBTENER - REPORTE INFORME RECOMENDACIONES
+
+GET {{Host}}/informe-recomendaciones/reporte-recomendaciones?inf_codigo=(372)&flag_formato=(1,2) HTTP/1.1
+
+Authorization: {{AuthTokenInterno}}
+
+Content-Type: application/json
+```
+
+## Resumen Ejecutivo
 ![[img2.jpg]]
-#### query
+### roles
+SCAT-GAAPIP
+	9945262	CLAUDIA PARRA MAMANI	RESPONSABLE 	EDICION
+	486424	LUIS FERNANDO SAAVEDRA MORATO	GERENTE CONSOLIDADOR 	EDICION
+		SIN IDENTIFICAR	FORMULADOR GERENTE 	EDICION
+		SIN IDENTIFICAR	FORMULADOR 	EDICION
+	486424	LUIS FERNANDO SAAVEDRA MORATO	SUPERVISOR 	EDICION
+		SIN IDENTIFICAR	APROBADOR 	EDICION
+	3445997	CAROLINA LEA RODRIGUEZ BONIVENTO	FORMULADOR 	EDICION
+	3445997	CAROLINA LEA RODRIGUEZ BONIVENTO	FORMULADOR GERENTE 	EDICION
+	3445997	CAROLINA LEA RODRIGUEZ BONIVENTO	APROBADOR 	EDICION 
+- actividad : 520.0504.38.10.24
+- ruta: http://172.16.22.243:3002/conaud/inicios-actividades?ges_codigo=2&act_codigo=3167
+- componente: src/components/informes/component/informes.table.jsx
+- Servicio Sushy: 
+```http
+http://172.16.22.232:7008/informes-resumen-ejecutivo?inf_codigo=(377)&rei_estado=(1)
+```
+### query
 ```sql
 INSERT INTO ejecucion_actividades.informes_resumen_ejecutivo
 (rei_codigo, inf_codigo, ent_codigo, ent_descripcion, rei_referencia, rei_numero_informe, rei_objetivo, rei_objeto, rei_periodo_auditado, rei_resultado_uno, rei_resultado_dos, rei_resultado_tres, rei_conclusion, rei_observacion, rei_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
@@ -171,67 +203,6 @@ WHERE 	a.act_numero LIKE 	'520.1502.90.1.24'
 #### base backup_20241028_175029.sql
 ![[db_poa_update_b_-_ejecucion_actividades.png]]
 
-#### api
-```http
-#### LOGIN
-# @name login_interno
-POST [http://172.16.80.32:4002/api/v1/auth_cge](http://172.16.80.32:4002/api/v1/auth_cge) HTTP/1.1
-Content-type: application/json
-
-{
-    "usuario": "4755293",
-    "password": "Pruebas"
-}
-
-
-#### SERVICES OBJETIVOS-AREA-UNIDAD
-@token = {{login_interno.response.body.datos.token}}
-@host = [http://172.16.22.234:7001/](http://172.16.22.234:7001/)
-@path = informe-recomendaciones
-
-### FindAll
-GET {{host}}{{path}}/informe-recomendaciones-seguimientos?ire_estado=(1)&irs_estado=(1)&inf_codigo=(365) HTTP/1.1
-Content-Type: application/json
-Authorization: {{token}}
-
-### FindOne
-GET {{host}}{{path}}/informe-recomendaciones-seguimientos?ire_codigo=(213) HTTP/1.1
-Content-Type: application/json
-Authorization: {{token}}
-
-### CREATE
-POST {{host}}{{path}}/informe-recomendaciones-seguimientos HTTP/1.1
-Content-Type: application/json
-Authorization: {{token}}
-
-{
-    "ire_numero_recomendacion": "1.1",
-    "ire_nombre": "Incorporar procedimientos de detección de necesidades referidas a mantenimiento, mejora, conservación de los bienes, ambientes y otros requerimientos para el buen funcionamiento de los hogares y albergues.",
-    "ire_descripcion": "Incorporar procedimientos de detección de necesidades referidas a mantenimiento, mejora, conservación de los bienes, ambientes y otros requerimientos para el buen funcionamiento de los hogares y albergues, incorporando actividades de control que garantice la programación anual de los recursos financieros necesarios y se efectúen el mantenimiento, mejora y conservación de la infraestructura y mobiliario de los hogares y albergues de acogida administrados por el Servicio Regional de Gestión Social (SEREGES) - Yacuiba de manera oportuna, a efectos de que se brinde condiciones de habitabilidad para un desarrollo adecuado y una mejor estadía de las niñas, niños y adolescentes que se encuentran en dichos centros de acogida.",
-    "inf_codigo": 372,
-    "tre_codigo": 2,
-    "eir_codigo": 1,
-    "irs_fecha_inicio": "28/05/2024",
-    "irs_fecha_fin": "01/12/2024",
-    "irs_responsables": [
-        {
-            "per_nombre_completo": "JUAN PEREZ",
-            "per_cargo": "CARGO 1"
-        },
-        {
-            "per_nombre_completo": "PEDRO PEREZ",
-            "per_cargo": "CARGO 2"
-        }
-    ],
-    "irs_tareas_desarrollar": "El gerente nacional administratvio financiero, emitira ..."
-}
-
-
-### UPDATE
-PUT {{host}}{{path}}/informe-recomendaciones-seguimientos HTTP/1.1
-Content-Type: application/json
-Authorization: {{token}}
-```
 #### query
 ```sql
 SELECT 	*
@@ -478,7 +449,7 @@ WHERE 	TRUE
 		AND irs.inf_codigo IN (375);
 --WHERE 	irs.inf_codigo IN (374);
 ```
-#### Api Rolando
+#### Api recomendaciones seguimientos
 ```http
 #### LOGIN
 # @name login_interno
@@ -538,4 +509,33 @@ Authorization: {{token}}
 PUT {{host}}{{path}}/informe-recomendaciones-seguimientos HTTP/1.1
 Content-Type: application/json
 Authorization: {{token}}
+```
+#### 
+```
+--- REPORTES FORMATOS ---
+RptPdfRecomendaciones.jrxml
+SrptPdfRecomendacionesFormato1.jrxml
+SrptPdfRecomendacionesFormato2.jrxml
+
+s_token
+s_inf_codigo
+s_flag_formato
+--------------------------
+###  ------- OBTENER - REPORTE INFORME RECOMENDACIONES
+  GET {{Host}}/informe-recomendaciones/reporte-recomendaciones?inf_codigo=(372)&flag_formato=(1,2) HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+
+
+
+--- RESUMEN --------------
+RptPdfResumen.jrxml
+
+s_token
+s_inf_codigo
+-------------------------
+###  ------- OBTENER - REPORTE RESUMEN EJECUTIVO
+  GET {{Host}}/informes-resumen-ejecutivo/resumen?inf_codigo=(372) HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
 ```
