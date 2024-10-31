@@ -30,6 +30,660 @@ Content-Type: application/json
 
 ## Resumen Ejecutivo
 ![[img2.jpg]]
+### 
+```jsx
+'use client';
+// ----------- IMPORTS REACT LIB
+import React, { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+// ----------- IMPORTS THIRD-PARTY LIB
+import { Card } from 'primereact/card';
+import { Panel } from 'primereact/panel';
+import { DataTable } from 'primereact/datatable';
+import { InputText } from 'primereact/inputtext';
+import { Dialog } from 'primereact/dialog';
+import { Column } from 'primereact/column';
+import { Button } from 'primereact/button';
+import { ButtonGroup } from 'primereact/buttongroup';
+import { RadioButtonController } from '@/components/common/ControllerRadioButton';
+import { IconField } from 'primereact/iconfield';
+import { InputIcon } from 'primereact/inputicon';
+import { ConfirmDialog, confirmDialog } from 'primereact/confirmdialog';
+// ----------- IMPORTS CUSTOM COMPONENTS
+import CustomView from '@/components/common/CustomView';
+import CustomBadge from '@/components/common/CustomBadge';
+import CustomActions from '@/components/common/CustomActions';
+import InformeRecomendacionesForm from '@/components/informe_recomendaciones/component/informe-recomendaciones.form';
+// ----------- IMPORTS OTHERS
+import { t } from '@/utils/textos';
+import { useValidationRules } from '@/utils/validationRules';
+import { useToast } from '@/plugins/Notification/toast';
+import {
+  EstadoType,
+  ActionType,
+  ButtonActionType,
+  FilterMatchMode,
+  TipoRecomendaciones,
+} from '@/constants/environment.enum';
+import { InformeRecomendacionesSeguimientosMethod } from '@/components/informe_recomendaciones/method/informe-recomendaciones-seguimientos.method';
+// ------------- IMPORT STATE -----------------------
+import { useReduxSessionData } from '@/hooks/redux-session-data.hook';
+// ----------- IMPORTS CUSTOM HOOKS
+import { useInformesRecomendaciones } from '../hook/informe-recomendaciones.hook';
+import { useInicioActividadPoa } from '@/hooks/inicio-actividad-poa.hook';
+import { useInformes } from '@/components/informes/hook/informes.hook';
+import { useGenerateReporte } from '../../reportes/hook/reportes.hook';
+// ----------- IMPORTS METHODS
+import { InformeDetailMethod } from '@/components/informes/method/informes-detail.method';
+
+/**
+ * @description Componente Tabla de INFORME-RECOMENDACIONES con 'INFORME-RECOMENDACIONES-SEGUIMIENTOS'
+ * @param PropTitle (Opcional) Titulo
+ * @param PropInfCodigo (Opcional) Unidad Ejecutora
+ * @returns <component></component>
+ */
+const IrInformeRecomendacionesSeguimientosTable = (Props) => {
+  // ----------- PROPS
+  const { PropTitle = 'Recomendaciones', PropIapCodigoSeguimiento = 0, PropInfCodigo = 0 } = Props;
+  // ----------- REDUX
+  const { ReduxGesCodigo, ReduxPoaCodigo } = useReduxSessionData();
+  // ----------- CONSTANTS
+  const PathMainTable = `/informe-recomendaciones-seguimientos?ire_estado=(1,2)&irs_estado=(1,2)`;
+  // ----------- STATE VARIABLES
+  const [globalFilterValue, setGlobalFilterValue] = useState('');
+  const [flagAction, setFlagAction] = useState(0);
+  const [valuesForm, setValuesForm] = useState({});
+  const [filters, setFilters] = useState({
+    global: { value: null, matchMode: FilterMatchMode.CONTAINS },
+    aad_descripcion: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+    aad_horas: { value: null, matchMode: FilterMatchMode.IN },
+    aad_estado_descripcion: { value: null, matchMode: FilterMatchMode.EQUALS },
+    tpe_nombre: { value: null, matchMode: FilterMatchMode.CONTAINS },
+  });
+  const [flagRecomendacionesForm, setFlagRecomendacionesForm] = useState(false);
+  // ------ REPORTES ----
+  const { fetchGetReport } = useGenerateReporte();
+  const [flagReporteRecomendaciones, setFlagReporteRecomendaciones] = useState(false);
+  // ----------- CUSTOM HOOKS VARIABLES
+  const toast = useToast();
+  const { ToastComponent } = useToast();
+  const {
+    informesRecomendaciones,
+    loadingInformesRecomendaciones,
+    errorInformesRecomendaciones,
+    fetchFindAllInformesRecomendacionesCorregido,
+  } = useInformesRecomendaciones();
+  const { informes, loadingInformes, errorInformes, fetchFindAllInformes } = useInformes();
+  const { inicioActividadPoa, loadingInicioActividadPoa, errorInicioActividadPoa, fetchFindAllInicioActividadPoa } =
+    useInicioActividadPoa();
+  const rules = useValidationRules();
+  const {
+    control,
+    setValue,
+    getValues,
+    formState: { errors },
+    handleSubmit,
+    watch,
+    reset,
+  } = useForm({});
+  // ----------- SECTION METHODS
+  const onGlobalFilterChange = (e) => {
+    const value = e.target.value;
+    let _filters = { ...filters };
+    _filters['global'].value = value;
+    setFilters(_filters);
+    setGlobalFilterValue(value);
+  };
+  const closeRecomendacionesForm = async (refreshTable = false) => {
+    setFlagRecomendacionesForm(false);
+    if (refreshTable) {
+      await initComponent();
+    }
+  };
+  const showRecomendacionesForm = (flag = 0, dataRow = {}) => {
+    setFlagRecomendacionesForm(true);
+    setFlagReporteRecomendaciones(false);
+    setFlagAction(flag);
+    setValuesForm(dataRow);
+  };
+  const showReportesForm = () => {
+    setFlagReporteRecomendaciones(true);
+    setValue('tre_codigo', 1);
+  };
+  const onCancelButtonReporte = () => {
+    setFlagReporteRecomendaciones(false);
+    reset();
+  };
+  const onSubmitForm = async (dataForm) => {
+    let flagFormato = '';
+    switch (dataForm.tre_codigo) {
+      case 1:
+        flagFormato = '(1)'
+        break;
+      case 2:
+        flagFormato = '(2)'
+        break;
+      case 3:
+        flagFormato = '(1,2)'
+        break;
+      default:
+        break;
+    }
+    let nameReport = '';
+    let requestBase64 = '';
+    const bodyRequest = {
+      s_inf_codigo: `(${PropInfCodigo})`,
+      s_iap_codigo: `(${informes[0]?.iap_codigo})`,
+      s_flag_formato: flagFormato
+    };
+    if (informes[0].iap_codigo) {
+      try {
+        requestBase64 = await fetchGetReport('/reporte-recomendaciones', bodyRequest);
+        nameReport = `Reporte Recomendaciones`;
+        let optionsPdf = {
+          file: `data:application/pdf;base64,${requestBase64}`,
+          file_name: `${nameReport}`,
+        };
+        const pdfLink = `${optionsPdf.file}`;
+        const anchorElement = document.createElement('a');
+        const fileName = `${optionsPdf.file_name}.pdf`;
+        anchorElement.href = pdfLink;
+        anchorElement.download = fileName;
+        anchorElement.click();
+      } catch (error) { }
+    }
+  }
+  // ----------- SECTION FRAGMENTS
+  const PanelHeaderHtml = () => {
+    return <>{PropTitle}</>;
+  };
+  // ----------- SECTION FRAGMENTS
+  const TableColumnAccion = (rowData) => {
+    // ----------- NEW ARRAY OF ACTIONS
+    let actionsArray = [];
+    // ----------- ARRAY OF ACTIONS
+    switch (parseInt(rowData.ire_estado)) {
+      case EstadoType.EDICION:
+        actionsArray.push(ActionType.UPDATE, ActionType.DISABLE);
+        // -----------
+        if (PropIapCodigoSeguimiento && PropIapCodigoSeguimiento > 0 && rowData?.ris_codigo == 0) {
+          let createRecomendacionInicioSeguimiento = {
+            flag: ActionType.CREATE,
+            icon: 'pi pi-check-circle',
+            severity: 'success',
+            tooltip: `Adicionar al seguimiento`,
+            outlined: true,
+            onClick: ConfirmDialogRecomendacionInicioSeguimiento,
+          };
+          actionsArray.push(createRecomendacionInicioSeguimiento);
+        }
+        break;
+      case EstadoType.INACTIVO:
+        actionsArray.push(ActionType.ENABLE);
+        break;
+      default:
+        break;
+    }
+    // ----------- RETURN
+    return (
+      <>
+        {!flagRecomendacionesForm && (
+          <CustomActions
+            rowData={rowData}
+            onButtonClickDefault={showRecomendacionesForm}
+            actionsArray={actionsArray}
+          ></CustomActions>
+        )}
+      </>
+    );
+  };
+  const TableColumnIrsAceptacion = (rowData) => {
+    if (rowData?.tre_codigo && rowData.tre_codigo == TipoRecomendaciones.FORMATO_1) {
+      return (
+        <>
+          <div>
+            <b>Aceptación:</b>{' '}
+            {rowData?.irs_aceptacion && (rowData.irs_aceptacion == 1 || rowData.irs_aceptacion == '1') ? `SI` : `NO`}
+          </div>
+          {rowData?.irs_aceptacion && (rowData.irs_aceptacion == 1 || rowData.irs_aceptacion == '1') ? (
+            ''
+          ) : (
+            <div>
+              <b>Justificación:</b> {rowData?.irs_justificacion ? rowData.irs_justificacion : ''}
+            </div>
+          )}
+        </>
+      );
+    } else {
+      return <></>;
+    }
+  };
+  const TableColumnIrsPeriodoImplantacion = (rowData) => {
+    if (rowData?.tre_codigo && rowData.tre_codigo == TipoRecomendaciones.FORMATO_2) {
+      let periodoImplantacion = `Del ${rowData.irs_fecha_inicio} Al ${rowData.irs_fecha_fin}`;
+      return <>{periodoImplantacion}</>;
+    } else {
+      return <></>;
+    }
+  };
+  const TableColumnIrsResponsables = (rowData) => {
+    if (rowData?.tre_codigo && rowData.tre_codigo == TipoRecomendaciones.FORMATO_2) {
+      let irsResponsables = rowData?.irs_responsables ? rowData.irs_responsables : [];
+      return (
+        <>
+          <ul className='pl-2'>
+            {irsResponsables.map((item, index) => {
+              return (
+                <li key={`responsables-${index}`}>
+                  <div>{item?.per_nombre_completo}</div>
+                  <div>
+                    <b>Cargo:</b> {item?.per_cargo}
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </>
+      );
+    } else {
+      return <></>;
+    }
+  };
+  const TableHeaderColumnsMain = [
+    {
+      field: 'ire_codigo',
+      header: 'Acción',
+      body: TableColumnAccion,
+      frozen: true,
+    },
+    {
+      field: 'ire_numero_recomendacion',
+      header: 'N° Recomendación',
+      sortable: true,
+      className: 'text-center uppercase',
+    },
+    {
+      field: 'ire_nombre',
+      header: 'Titulo Recomendación',
+      sortable: true,
+      className: 'text-justify uppercase',
+    },
+    {
+      field: 'ire_descripcion',
+      header: 'Descripción Recomendación',
+      sortable: true,
+      className: 'text-justify uppercase',
+    },
+    {
+      field: 'tre_nombre',
+      header: 'Formato',
+      sortable: true,
+      className: 'text-center uppercase',
+    },
+    {
+      field: 'irs_aceptacion',
+      header: 'Aceptación Justificación',
+      sortable: true,
+      className: 'text-justify',
+      body: TableColumnIrsAceptacion,
+    },
+    {
+      field: 'irs_fecha_inicio',
+      header: 'Periodo Implantación',
+      sortable: true,
+      className: 'text-center',
+      body: TableColumnIrsPeriodoImplantacion,
+    },
+    {
+      field: 'irs_responsables',
+      header: 'Responsable',
+      sortable: true,
+      className: 'text-justify',
+      body: TableColumnIrsResponsables,
+    },
+    {
+      field: 'irs_tareas_desarrollar',
+      header: 'Tareas a Desarrollar',
+      sortable: true,
+      className: 'text-justify uppercase',
+    },
+  ];
+  const RenderTableHeader = () => {
+    const value = filters['global'] ? filters['global'].value : '';
+    return (
+      <>
+        <div className='flex flex-wrap align-items-center justify-content-between gap-2'>
+        <div className="flex gap-2">
+          {!flagRecomendacionesForm && (
+            <Button
+              type='button'
+              onClick={() => showRecomendacionesForm(ActionType.CREATE, {})}
+              size='small'
+              icon='pi pi-plus'
+              severity='secondary'
+              label={t.conaud.nuevo}
+              className='px-2'
+            />
+          )}
+          {!flagReporteRecomendaciones && informesRecomendaciones.length >0 && (
+            <Button
+              type='button'
+              onClick={() => showReportesForm()}
+              size='small'
+              disabled={flagRecomendacionesForm}
+              icon='pi pi-file-pdf'
+              severity='warning'
+              label='Reportes'
+              className='px-2'
+            />
+          )}
+        </div>
+          <IconField iconPosition='left' className='p-input-icon-left mr-2'>
+            <InputIcon className='pi pi-search' />
+            <InputText
+              type='search'
+              value={value || ''}
+              onChange={(e) => onGlobalFilterChange(e)}
+              placeholder={t.conaud.busqueda}
+            />
+          </IconField>
+        </div>
+      </>
+    );
+  };
+  const TableHeaderHtml = RenderTableHeader();
+  // ---
+  const TableRisColumnAccion = (rowData) => {
+    // ----------- RETURN
+    return (
+      <>
+        {!flagRecomendacionesForm && (
+          <>
+            <Button
+              key={`buttonAction-delete`}
+              outlined={true}
+              size={'small'}
+              icon={'pi pi-times-circle'}
+              severity={'danger'}
+              className={'border-none border-0'}
+              onClick={() => ConfirmDialogRecomendacionInicioSeguimiento(ActionType.DISABLE, rowData)}
+              tooltip={'Quitar seguimiento'}
+              tooltipOptions={{
+                position: 'right',
+                event: 'hover',
+                mouseTrack: true,
+                autoHide: true,
+                showDelay: 300,
+              }}
+            />
+          </>
+        )}
+      </>
+    );
+  };
+  const TableRisHeaderColumnsMain = [
+    {
+      field: 'ris_codigo',
+      header: 'Acción',
+      body: TableRisColumnAccion,
+      frozen: true,
+    },
+    {
+      field: 'ire_numero_recomendacion',
+      header: 'N° Recomendación',
+      sortable: true,
+      className: 'text-center uppercase',
+    },
+    {
+      field: 'ire_nombre',
+      header: 'Titulo Recomendación',
+      sortable: true,
+      className: 'text-center uppercase',
+    },
+    {
+      field: 'ire_descripcion',
+      header: 'Descripción Recomendación',
+      sortable: true,
+      className: 'text-center uppercase',
+    },
+    {
+      field: 'tre_nombre',
+      header: 'Formato',
+      sortable: true,
+      className: 'text-center uppercase',
+    },
+  ];
+  // ----------- SECTION INIT
+  const initComponent = async () => {
+    setFlagAction(0);
+    // ----------- FINDALL-DATA-TABLE
+    try {
+      await fetchFindAllInformes(
+        `/full-join${PropInfCodigo > 0 ? `?inf_codigo=(${PropInfCodigo})` : '?inf_estado=(2)'}`
+      );
+      await fetchFindAllInformesRecomendacionesCorregido(
+        `${PathMainTable}${PropInfCodigo > 0 ? `&inf_codigo=(${PropInfCodigo})` : ''}${PropIapCodigoSeguimiento > 0 ? `&iap_codigo=(${PropIapCodigoSeguimiento})` : ''}`
+      );
+    } catch (error) {
+      toast.error(error.error_mensaje);
+    }
+    // ----------- CHECK IF SEGUIMIENTO
+    await initSeguimiento();
+  };
+  const initSeguimiento = async () => {
+    if (PropIapCodigoSeguimiento && PropIapCodigoSeguimiento > 0) {
+      try {
+        await fetchFindAllInicioActividadPoa(`/full-join?iap_codigo=(${PropIapCodigoSeguimiento})`);
+        await fetchFindAllRecomendacionesIniciosSeguimientos(
+          `?ris_estado=(1)&iap_codigo=(${PropIapCodigoSeguimiento})`
+        );
+      } catch (error) {
+        toast.error(error.error_mensaje);
+      }
+    }
+  };
+
+  // ----------- useEffects
+  useEffect(() => {
+    initComponent();
+  }, []);
+
+  return (
+    <>
+      {ToastComponent}
+      <ConfirmDialog />
+      {!loadingInformes && (
+        <div className='mt-4 px-2'>
+          <CustomView title='RESUMEN INFORME:' detailObject={InformeDetailMethod(informes[0])} />
+        </div>
+      )}
+      {flagRecomendacionesForm && (
+        <div className='mt-2'>
+          <InformeRecomendacionesForm
+            infCodigo={PropInfCodigo}
+            closeRecomendacionesForm={closeRecomendacionesForm}
+            flagAction={flagAction}
+            setFlagAction={setFlagAction}
+            valuesForm={valuesForm}
+            toast={toast}
+          ></InformeRecomendacionesForm>
+        </div>
+      )}
+      {flagReporteRecomendaciones && (
+        <>
+          <form
+            onSubmit={handleSubmit(onSubmitForm)}
+            className='mt-4 border-1 border-solid border-round surface-border p-3'
+          >
+            <div className='flex flex-wrap'>
+              <strong className='text-primary font-medium'>IMPRIMIR REPORTES</strong>
+            </div>
+            <div className='flex justify-content-center mb-4'>
+              <RadioButtonController
+                name='tre_codigo'
+                control={control}
+                errors={errors}
+                rules={rules.required()}
+                radioBtnsData={[
+                  { id: 'uno', name: 'FORMATO 1', value: 1 },
+                  { id: 'dos', name: 'FORMATO 2', value: 2 },
+                  { id: 'tres', name: 'AMBOS FORMATOS', value: 3 }
+                ]}
+              />
+            </div>
+            <div className='flex align-items-end justify-content-end'>
+              <div className='flex gap-2'>
+                <Button
+                  type='submit'
+                  size='small'
+                  label='IMPRIMIR'
+                  loading={loadingInformesRecomendaciones}
+                  // disabled={
+                  //   flagAction == ActionType.CREATE ? true : false
+                  // }
+                  icon='pi pi-check'
+                  severity='warning'
+                />
+                <Button
+                  type='button'
+                  onClick={onCancelButtonReporte}
+                  label={t.botones.cancelar}
+                  loading={loadingInformes}
+                  icon='pi pi-times'
+                  severity='danger'
+                  size='small'
+                />
+              </div>
+            </div>
+          </form>
+        </>
+      )}
+      <div className='mt-2'></div>
+      <DataTable
+        dataKey='ire_codigo'
+        value={informesRecomendaciones}
+        loading={loadingInformesRecomendaciones}
+        header={TableHeaderHtml}
+        rows={5}
+        rowsPerPageOptions={[5, 10, 20, informesRecomendaciones?.length]}
+        filters={filters}
+        filterDisplay='menu'
+        globalFilterFields={[
+          'ire_codigo',
+          'ire_numero_recomendacion',
+          'ire_nombre',
+          'ire_descripcion',
+          'tre_nombre',
+          'irs_aceptacion',
+          'irs_fecha_inicio',
+          'irs_responsables',
+          'irs_tareas_desarrollar',
+        ]}
+        className='p-datatable-gridlines'
+        rowHover
+        scrollable
+        scrollHeight='590px'
+        paginator
+        size='small'
+        showGridlines
+        removableSort
+        tableStyle={{ minWidth: '50rem' }}
+        paginatorTemplate='FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown CurrentPageReport'
+        currentPageReportTemplate='{first} a {last} de {totalRecords}'
+        emptyMessage='NO EXISTE NINGUNA INFORMACIÓN REGISTRADA'
+        tableClassName='text-700 font-light text-sm align-middle'
+        paginatorClassName='text-100 font-light text-sm'
+        pt={{
+          header: { className: 'bg-gray-200 my-0' },
+        }}
+      >
+        {TableHeaderColumnsMain.map((col, index) => {
+          return (
+            <Column
+              key={`recomendacion-${index}`}
+              field={col.field}
+              header={col.header}
+              body={col.body ? col.body : col.value}
+              sortable={col.sortable ? col.sortable : false}
+              align={col.align ? col.align : 'center'}
+              frozen={col.frozen ? col.frozen : false}
+              style={{ fontSize: '10px' }}
+              className={col.className ? col.className : ''}
+            />
+          );
+        })}
+      </DataTable>
+      {PropIapCodigoSeguimiento > 0 && inicioActividadPoa.length > 0 && (
+        <div className='mt-4 px-2'>
+          {!loadingInicioActividadPoa && (
+            <CustomView
+              title='DATOS DE ACTIVIDAD QUE REALIZARÁ EL SEGUIMIENTO:'
+              detailObject={InformeRecomendacionesSeguimientosMethod(inicioActividadPoa[0])}
+            />
+          )}
+          <DataTable
+            dataKey='ris_codigo'
+            value={recomendacionesIniciosSeguimientos}
+            loading={loadingRecomendacionesIniciosSeguimientos}
+            // header={TableHeaderHtml}
+            rows={5}
+            rowsPerPageOptions={[5, 10, 20, recomendacionesIniciosSeguimientos?.length]}
+            filters={filters}
+            filterDisplay='menu'
+            globalFilterFields={[
+              'ire_codigo',
+              'ire_numero_recomendacion',
+              'ire_nombre',
+              'ire_descripcion',
+              'tre_nombre',
+              'irs_aceptacion',
+              'irs_fecha_inicio',
+              'irs_responsables',
+              'irs_tareas_desarrollar',
+            ]}
+            className='p-datatable-gridlines mt-2'
+            rowHover
+            scrollable
+            scrollHeight='590px'
+            paginator
+            size='small'
+            showGridlines
+            removableSort
+            tableStyle={{ minWidth: '50rem' }}
+            paginatorTemplate='FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown CurrentPageReport'
+            currentPageReportTemplate='{first} a {last} de {totalRecords}'
+            emptyMessage='NO EXISTE NINGUNA INFORMACIÓN REGISTRADA'
+            tableClassName='text-700 font-light text-sm align-middle'
+            paginatorClassName='text-100 font-light text-sm'
+            pt={{
+              header: { className: 'bg-gray-200 my-0' },
+            }}
+          >
+            {TableRisHeaderColumnsMain.map((col, index) => {
+              return (
+                <Column
+                  key={`recomendacion-inicio-${index}`}
+                  field={col.field}
+                  header={col.header}
+                  body={col.body ? col.body : col.value}
+                  sortable={col.sortable ? col.sortable : false}
+                  align={col.align ? col.align : 'center'}
+                  frozen={col.frozen ? col.frozen : false}
+                  style={{ fontSize: '10px' }}
+                  className={col.className ? col.className : ''}
+                />
+              );
+            })}
+          </DataTable>
+        </div>
+      )}
+    </>
+  );
+};
+
+export default IrInformeRecomendacionesSeguimientosTable;
+
+```
 ### roles
 SCAT-GAAPIP
 	9945262	CLAUDIA PARRA MAMANI	RESPONSABLE 	EDICION
