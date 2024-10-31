@@ -723,6 +723,7 @@ ON tmp_adicion.act_codigo = tmp_disminucion.act_codigo;
 
 ## Bases de Prueba
 
+<<<<<<< Updated upstream
 | en edicion:                                              | backup_20241015_113322.sql                                   |
 | -------------------------------------------------------- | ------------------------------------------------------------ |
 | ya consolidado                                           | backup_20241015_114157.sql                                   |
@@ -737,3 +738,18 @@ ON tmp_adicion.act_codigo = tmp_disminucion.act_codigo;
 | Base para retiros actividad                              | backup_20241022_152252.sql                                   |
 | lista retirar actividad                                  | backup_20241022_153244.sql                                   |
 | base inactivar horas                                     | backup_20241023_223728.sql                                   |
+=======
+| en edicion:                           | backup_20241015_113322.sql |
+| ------------------------------------- | -------------------------- |
+| ya consolidado                        | backup_20241015_114157.sql |
+| bolsas sin comisiones                 | backup_20241017_105934.sql |
+| bolsas sin comisiones                 | backup_20241017_105934.sql |
+| base con amh_detalle, hasta Momento 1 | backup_20241021_123326.sql |
+| base de mucho uso                     | backup_20241021_174534.sql |
+| base de prueba para inactivar         | backup_20241023_171602.sql |
+| base con amh_detalle                  | backup_20241021_152831.sql |
+| base inactivar                        | backup_20241022_161725.sql |
+| base para anular 2                    | backup_20241022_162211.sql |
+| Base para retiros                     | backup_20241022_152252.sql |
+| lista retirar                         | backup_20241022_153244.sql |
+>>>>>>> Stashed changes
