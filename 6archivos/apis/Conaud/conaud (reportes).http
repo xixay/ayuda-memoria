@@ -66,7 +66,13 @@
   GET http://localhost:7009/data HTTP/1.1
   Content-Type: application/json
 ###  ------- OBTENER - REPORTE INFORME RECOMENDACIONES
-  GET {{Host}}/informe-recomendaciones/reporte-recomendaciones?inf_codigo=(372)&flag_formato=(1,2) HTTP/1.1
+  # GET {{Host}}/informe-recomendaciones/reporte-recomendaciones?inf_codigo=(274)&iap_codigo=(390)&flag_formato=(1) HTTP/1.1
+  # GET {{Host}}/informe-recomendaciones/reporte-recomendaciones?inf_codigo=(372)&iap_codigo=(671)&flag_formato=(1,2) HTTP/1.1
+  GET {{Host}}/informe-recomendaciones/reporte-recomendaciones?inf_codigo=(112)&iap_codigo=(861)&flag_formato=(1) HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+###  ------- OBTENER - REPORTE RESUMEN EJECUTIVO
+  GET {{Host}}/informes-resumen-ejecutivo/resumen?inf_codigo=(377) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ### ------------------------------------------------------------
@@ -102,11 +108,11 @@ Authorization: {{AuthTokenInterno}}
 Content-Type: application/json
 
 {
-    "ire_numero_recomendacion": "3.15",
+    "ire_numero_recomendacion": "1.1",
     "ire_nombre": "Incorporar procedimientos de detección de necesidades referidas a mantenimiento, mejora, conservación de los bienes, ambientes y otros requerimientos para el buen funcionamiento de los hogares y albergues.",
     "ire_descripcion": "Incorporar procedimientos de detección de necesidades referidas a mantenimiento, mejora, conservación de los bienes, ambientes y otros requerimientos para el buen funcionamiento de los hogares y albergues, incorporando actividades de control que garantice la programación anual de los recursos financieros necesarios y se efectúen el mantenimiento, mejora y conservación de la infraestructura y mobiliario de los hogares y albergues de acogida administrados por el Servicio Regional de Gestión Social (SEREGES) - Yacuiba de manera oportuna, a efectos de que se brinde condiciones de habitabilidad para un desarrollo adecuado y una mejor estadía de las niñas, niños y adolescentes que se encuentran en dichos centros de acogida.",
-    "inf_codigo": 372,
-    "tre_codigo": 1,
+    "inf_codigo": 112,
+    "tre_codigo": 2,
     "eir_codigo": 1,
     "irs_fecha_inicio": "28/05/2024",
     "irs_fecha_fin": "01/12/2024",
@@ -155,5 +161,6 @@ Authorization: {{AuthTokenInterno}}
 Content-Type: application/json
 ###  ------- OBTENER - RESUMEN
   GET {{Host}}/informes-resumen-ejecutivo?rei_codigo=(1) HTTP/1.1
+  GET {{Host}}/informes-resumen-ejecutivo?inf_codigo=(377)&rei_estado=(1) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
