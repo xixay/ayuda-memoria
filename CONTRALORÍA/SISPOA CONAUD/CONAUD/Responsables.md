@@ -12,6 +12,7 @@ tengo un array de objetos, cada objeto tiene atributos, pero tiene un objeto lla
 
 La cosa es que 
 ```
+- 2428708	SANTIAGO MAIDANA QUISPE	SUPERVISOR
 ## Query
 ### Fase 0
 ```sql
