@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/Actividades Bolsas.md",
+                "file": "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/Reportes Seguimientos.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Actividades Bolsas"
+              "title": "Reportes Seguimientos"
             }
           },
           {
@@ -34,7 +34,13 @@
               "icon": "lucide-file",
               "title": "CREACION DE ACTIVIDADES"
             }
-          },
+          }
+        ]
+      },
+      {
+        "id": "e902d7b37b092dca",
+        "type": "tabs",
+        "children": [
           {
             "id": "6f52de5277d417ef",
             "type": "leaf",
@@ -49,8 +55,7 @@
               "title": "Responsables"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -106,7 +111,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 201.5
+    "width": 201.5,
+    "collapsed": true
   },
   "right": {
     "id": "51bbd9c0b2276e28",
@@ -193,10 +199,11 @@
   },
   "active": "6f52de5277d417ef",
   "lastOpenFiles": [
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/Reportes Seguimientos.md",
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/Actividades Bolsas.md",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/Responsables.md",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/CREACION ACTIVIDADES/CREACION DE ACTIVIDADES.md",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/CREACION ACTIVIDADES/seguimiento informes.png",
-    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/Actividades Bolsas.md",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/CREACION ACTIVIDADES/seguimiento.png",
     "CONTRALORÍA/SISPOA CONAUD/RELACIONES/REALACIONES.canvas",
     "6archivos/scripts/backup_20241031_222244.sql",
@@ -209,7 +216,6 @@
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/MENUS POSICION/SERVICIOS FORMULARIOS/3 Global.md",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/MENUS POSICION/SERVICIOS FORMULARIOS/2 Acciones a corto plazo.md",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/MENUS POSICION/SERVICIOS FORMULARIOS/1 Formularios.md",
-    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/Reportes Seguimientos.md",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/s2.png",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/s1.png",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/resumen y otro btn.png",

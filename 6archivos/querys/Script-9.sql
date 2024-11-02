@@ -1,61 +1,87 @@
---ACTIVIDADES
-select 	a.act_codigo , a.act_ejecucion_conaud, a.act_codigo_anterior ,a.act_numero ,a.cac_codigo ,a.iac_codigo_apoyo, a.act_estado, a.act_descripcion , a.aun_codigo_ejecutora, a.tipact_codigo, a.fecha_registro, a.ttr_codigo, 
-		ett.ett_codigo, ett.ett_nombre, 
-		au.aun_nombre, au.aun_sigla, au.aun_estado,
-		po.pobj_codigo ,po.pobj_nombre, po.pobj_estado,
-		p.poa_codigo
---		oau.oau_codigo, oau.oau_descripcion ,oau.oau_estado 
-from 	estructura_poa.actividades a
-		left join parametricas.tipos_trabajos tt on a.ttr_codigo = tt.ttr_codigo
-		left join parametricas.especificacion_tipos_trabajo ett on tt.ett_codigo = ett.ett_codigo 
-		left join estructura_organizacional.areas_unidades au on a.aun_codigo_ejecutora = au.aun_codigo 
-		left join estructura_poa.poas_objetivos po on a.pobj_codigo = po.pobj_codigo 
-		left join estructura_poa.poas p on p.poa_codigo = po.poa_codigo
---		left join estructura_poa.objetivos_area_unidad oau on po.pobj_codigo = oau.pobj_codigo 
-where	true 	
---		and a.act_numero = '510.1202.17.14.24'
---		and a.act_codigo in (14)
---		and a.act_codigo_anterior in (613,609,592,585,580,478,396,219,217,198)
---		and a.act_codigo_anterior in (396,219,217)
---		and au.aun_sigla like 'GDB-GAM'
---		and a.act_estado not in (2,7,9,0,13)
-		and a.act_estado not in (2,7,9,0,13)
---		and a.act_estado not in (9)
---		and a.iac_codigo_apoyo is not null
---		and a.tipact_codigo in (2)
---		and a.cac_codigo in (1)
---		and po.pobj_codigo in (1145)
---		and p.poa_codigo in (3)
---		and a.act_ejecucion_conaud in (true)
---order by au.aun_estado asc;
-order by a.act_codigo desc;
+--##################### FASE 0 ############################
+SELECT 	--*
+		aur.aur_codigo, aur.aur_estado, aur.per_codigo, aur.poa_codigo, p.ges_codigo, 
+		aur.aun_codigo_ejecutora, au.aun_sigla AS aun_sigla_ejecutora, r.rol_nombre,
+		aur.aun_codigo_rol, au2.aun_sigla AS aun_sigla_rol,
+		r.rol_codigo, r.rol_estado,
+		cr.cro_codigo , cr.cro_descripcion 
+FROM 	estructura_poa.area_unidad_responsables aur
+		LEFT JOIN estructura_organizacional.areas_unidades au ON aur.aun_codigo_ejecutora = au.aun_codigo
+		LEFT JOIN estructura_organizacional.areas_unidades au2 ON aur.aun_codigo_rol = au2.aun_codigo
+		LEFT JOIN estructura_poa.poas p ON aur.poa_codigo = p.poa_codigo
+		LEFT JOIN parametricas.roles r ON aur.rol_codigo = r.rol_codigo 
+		LEFT JOIN parametricas.clasificacion_rol cr ON aur.cro_codigo = cr.cro_codigo 
+WHERE 	TRUE
+		AND aur.aur_estado NOT IN (0,5,9)
+		AND aur.per_codigo IN (42)
+--		AND aur.aun_codigo_ejecutora IN (64)
+		AND aur.rol_codigo IN (2,3,4,5,6)
+		AND p.ges_codigo IN (2)
+		AND p.poa_codigo IN (3)
+;
 --
-SELECT 	a.act_codigo, a.act_numero, a.act_estado, a.ent_codigo, CAST(a.act_horas_planificadas AS INTEGER) AS act_horas_planificadas,
-		e.est_nombre, 
-		au.aun_nombre, au.aun_sigla, au.aun_estado, 
-		po.pobj_codigo, po.pobj_numero ,po.pobj_nombre,
-		tt.ttr_descripcion,
-		ett.ett_nombre, a.act_objeto
-FROM 	estructura_poa.actividades a
-		LEFT JOIN parametricas.estados e ON a.act_estado = e.est_codigo 
-		LEFT JOIN estructura_poa.poas_objetivos po ON a.pobj_codigo = po.pobj_codigo
-		LEFT JOIN pei.categorias_programaticas cpr ON po.cpr_codigo = cpr.cpr_codigo
-		LEFT JOIN estructura_organizacional.areas_unidades au ON a.aun_codigo_ejecutora = au.aun_codigo
-		LEFT JOIN parametricas.tipos_trabajos tt ON a.ttr_codigo = tt.ttr_codigo
-		LEFT JOIN parametricas.especificacion_tipos_trabajo ett ON tt.ett_codigo = ett.ett_codigo
-WHERE   TRUE 
-		AND a.act_estado NOT IN (2,9,0,47)
-		AND po.pobj_estado NOT IN (0)
+SELECT 	*
+FROM 	parametricas.roles r 
 ;
-
-
-SELECT 	po.pobj_codigo, po.pobj_estado, po.pobj_numero,
-		oau.oau_codigo, oau.oau_estado, oau.aun_codigo_ejecutora,
-		a.act_codigo, a.act_estado, a.act_numero, a.aun_codigo_ejecutora 
-FROM 	estructura_poa.poas_objetivos po 
-		LEFT JOIN estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo
-		LEFT JOIN estructura_poa.actividades a ON po.pobj_codigo = a.pobj_codigo 
-WHERE 	po.pobj_codigo IN (401)
+--##################### FASE 1 ############################
+SELECT 	--*
+		aur.aur_codigo, aur.aur_estado, aur.per_codigo, aur.poa_codigo, p.ges_codigo, 
+		aur.aun_codigo_ejecutora, au.aun_sigla AS aun_sigla_ejecutora, r.rol_nombre,
+		aur.aun_codigo_rol, au2.aun_sigla AS aun_sigla_rol,
+		r.rol_codigo, r.rol_estado,
+		cr.cro_codigo , cr.cro_descripcion 
+FROM 	estructura_poa.area_unidad_responsables aur
+		LEFT JOIN estructura_organizacional.areas_unidades au ON aur.aun_codigo_ejecutora = au.aun_codigo
+		LEFT JOIN estructura_organizacional.areas_unidades au2 ON aur.aun_codigo_rol = au2.aun_codigo
+		LEFT JOIN estructura_poa.poas p ON aur.poa_codigo = p.poa_codigo
+		LEFT JOIN parametricas.roles r ON aur.rol_codigo = r.rol_codigo 
+		LEFT JOIN parametricas.clasificacion_rol cr ON aur.cro_codigo = cr.cro_codigo 
+WHERE 	TRUE
+		AND aur.aur_estado NOT IN (0,5,9)
+		AND aur.per_codigo IN (42)
+--		AND aur.aun_codigo_ejecutora IN (64)
+		AND aur.rol_codigo IN (2,3,4,5,6)
+		AND p.ges_codigo IN (2)
+		AND p.poa_codigo IN (3)
+ORDER BY au.aun_sigla ASC
 ;
-
-
+--
+SELECT 	*
+FROM 	parametricas.roles r 
+;
+--###################################################3
+        SELECT
+              t.aur_codigo,
+              t.aur_notificacion,
+              t.poa_codigo,
+              po.poa_descripcion,
+              au.cau_codigo,
+              t.aun_codigo_ejecutora,
+              -- au.aun_nombre,
+              CONCAT_WS(' - ', au.aun_nombre, au.aun_sigla) AS aun_nombre,
+              t.aun_codigo_rol,
+              -- au_rol.aun_nombre AS aun_nombre_rol,
+              CONCAT_WS(' - ', au_rol.aun_nombre, au_rol.aun_sigla) AS aun_nombre_rol,
+              t.rol_codigo,
+              ro.rol_nombre,
+              t.per_codigo,
+              t.cro_codigo,
+              cr.cro_descripcion,
+              t.usuario_registro AS usuario,
+              t.aur_estado,
+              e.est_color,
+              e.est_nombre AS aur_estado_descripcion
+        FROM  estructura_poa.area_unidad_responsables t
+              LEFT JOIN parametricas.estados e ON e.est_codigo = t.aur_estado
+              LEFT JOIN estructura_poa.poas po ON po.poa_codigo = t.poa_codigo
+              LEFT JOIN estructura_organizacional.areas_unidades au ON au.aun_codigo = t.aun_codigo_ejecutora
+              LEFT JOIN estructura_organizacional.areas_unidades au_rol ON au_rol.aun_codigo = t.aun_codigo_rol
+              LEFT JOIN parametricas.roles ro ON ro.rol_codigo = t.rol_codigo
+              LEFT JOIN parametricas.clasificacion_rol cr ON cr.cro_codigo = t.cro_codigo
+        WHERE TRUE
+              AND t.aur_estado IN (1,2)
+              AND t.poa_codigo IN (3)
+              AND t.aun_codigo_ejecutora IN (64)
+              AND t.rol_codigo IN (1,2,3,4,6,7,8)
+        ORDER BY t.aur_codigo DESC, t.fecha_registro DESC
+        ;
