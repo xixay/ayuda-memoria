@@ -171,7 +171,7 @@ Content-Type: application/json
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ###  ------- OBTENER - ROL v2
-  GET {{Host}}/sispoa-actividades/roles?ges_codigo=(2)&poa_codigo=(3) HTTP/1.1
+  GET {{Host}}/sispoa-actividades/roles?ges_codigo=(2)&poa_codigo=(3)&per_codigo=(42) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ###

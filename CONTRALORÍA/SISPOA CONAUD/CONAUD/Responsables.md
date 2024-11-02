@@ -12,6 +12,31 @@ tengo un array de objetos, cada objeto tiene atributos, pero tiene un objeto lla
 
 La cosa es que 
 ```
+## Query
+### Fase 0
+```sql
+SELECT 	--*
+		aur.aur_codigo, aur.aur_estado, aur.per_codigo, aur.poa_codigo, p.ges_codigo, 
+		aur.aun_codigo_ejecutora, au.aun_sigla AS aun_sigla_ejecutora, r.rol_nombre,
+		aur.aun_codigo_rol, au2.aun_sigla AS aun_sigla_rol,
+		r.rol_codigo, r.rol_estado,
+		cr.cro_codigo , cr.cro_descripcion 
+FROM 	estructura_poa.area_unidad_responsables aur
+		LEFT JOIN estructura_organizacional.areas_unidades au ON aur.aun_codigo_ejecutora = au.aun_codigo
+		LEFT JOIN estructura_organizacional.areas_unidades au2 ON aur.aun_codigo_rol = au2.aun_codigo
+		LEFT JOIN estructura_poa.poas p ON aur.poa_codigo = p.poa_codigo
+		LEFT JOIN parametricas.roles r ON aur.rol_codigo = r.rol_codigo 
+		LEFT JOIN parametricas.clasificacion_rol cr ON aur.cro_codigo = cr.cro_codigo 
+WHERE 	TRUE
+		AND aur.aur_estado NOT IN (0,5,9)
+		AND aur.per_codigo IN (42)
+--		AND aur.aun_codigo_ejecutora IN (64)
+		AND aur.rol_codigo IN (2,3,4,5,6)
+		AND p.ges_codigo IN (2)
+		AND p.poa_codigo IN (3)
+ORDER BY au.aun_sigla ASC
+;
+```
 ## SISPOA
 ### Servicio
 - Solicitud
