@@ -77,7 +77,7 @@ WITH roles AS (
         LEFT JOIN parametricas.clasificacion_rol cr ON aur.cro_codigo = cr.cro_codigo 
     WHERE 
         aur.aur_estado NOT IN (0, 5, 9)
-        AND aur.per_codigo = 42
+--        AND aur.per_codigo = 42
         -- AND aur.aun_codigo_ejecutora IN (64)
         AND aur.rol_codigo IN (2, 3, 4, 5, 6)
         AND p.ges_codigo = 2
