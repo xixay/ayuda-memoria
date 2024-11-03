@@ -17,9 +17,9 @@ FROM 	estructura_poa.area_unidad_responsables aur
 		LEFT JOIN parametricas.clasificacion_rol cr ON aur.cro_codigo = cr.cro_codigo 
 WHERE 	TRUE
 		AND aur.aur_estado NOT IN (0,5,9)
-		AND aur.per_codigo IN (42)
+		AND aur.per_codigo IN (2034)
 --		AND aur.aun_codigo_ejecutora IN (64)
-		AND aur.rol_codigo IN (2,3,4,5,6)
+		AND aur.rol_codigo NOT IN (2,3,4,5,6)
 		AND p.ges_codigo IN (2)
 		AND p.poa_codigo IN (3)
 ORDER BY au.aun_sigla ASC
@@ -44,11 +44,14 @@ WHERE 	TRUE
 --##################### FASE 2a ############################
 SELECT
     aur.per_codigo,
+    MAX(CASE WHEN aur.rol_codigo = 1 THEN '1' ELSE '0' END) AS es_formulador,
     MAX(CASE WHEN aur.rol_codigo = 2 THEN '1' ELSE '0' END) AS es_aprobador,
     MAX(CASE WHEN aur.rol_codigo = 3 THEN '1' ELSE '0' END) AS es_supervisor,
     MAX(CASE WHEN aur.rol_codigo = 4 THEN '1' ELSE '0' END) AS es_formulador_gerente,
     MAX(CASE WHEN aur.rol_codigo = 5 THEN '1' ELSE '0' END) AS es_comision,
-    MAX(CASE WHEN aur.rol_codigo = 6 THEN '1' ELSE '0' END) AS es_responsable
+    MAX(CASE WHEN aur.rol_codigo = 6 THEN '1' ELSE '0' END) AS es_responsable,
+    MAX(CASE WHEN aur.rol_codigo = 7 THEN '1' ELSE '0' END) AS es_oficial_administrativo,
+    MAX(CASE WHEN aur.rol_codigo = 8 THEN '1' ELSE '0' END) AS es_gerente_consolidador
 FROM
     estructura_poa.area_unidad_responsables aur
     LEFT JOIN estructura_organizacional.areas_unidades au ON aur.aun_codigo_ejecutora = au.aun_codigo
@@ -58,7 +61,9 @@ FROM
     LEFT JOIN parametricas.clasificacion_rol cr ON aur.cro_codigo = cr.cro_codigo 
 WHERE
     aur.aur_estado NOT IN (0, 5, 9)
-    AND aur.per_codigo = 42
+--    AND aur.per_codigo = 42
+--    AND aur.per_codigo = 819
+  	AND aur.per_codigo = 531  
     -- AND aur.aun_codigo_ejecutora IN (64)
     AND aur.rol_codigo IN (2, 3, 4, 5, 6)
     AND p.ges_codigo = 2
@@ -97,7 +102,8 @@ GROUP BY
 
 --
 SELECT 	*
-FROM 	parametricas.roles r 
+FROM 	estructura_poa.area_unidad_responsables aur 
+WHERE 	aur.per_codigo IN (531)
 ;
 --###################################################3
         SELECT
@@ -131,7 +137,7 @@ FROM 	parametricas.roles r
         WHERE TRUE
               AND t.aur_estado IN (1,2)
               AND t.poa_codigo IN (3)
-              AND t.aun_codigo_ejecutora IN (64)
+      --        AND t.aun_codigo_ejecutora IN (64)
               AND t.rol_codigo IN (1,2,3,4,6,7,8)
         ORDER BY t.aur_codigo DESC, t.fecha_registro DESC
         ;
