@@ -78,4 +78,27 @@ GRANT SELECT,INSERT,UPDATE,DELETE,TRUNCATE,REFERENCES,TRIGGER
 ON TABLE parametricas.lugares_gestiones
 TO usr_app_poa;
 ```
-## hacer
+## query
+```sql
+SELECT 	*
+FROM 	parametricas.lugares_gestiones lg 
+;
+SELECT 
+    	t.lge_codigo,
+    	tl.tlu_nombre,
+    	CONCAT(l.lug_nombre, ' ','(',l.lug_sigla,')' ) AS lug_nombre_completo,
+    	g.ges_anio,
+    	t.lge_horas_laborales, 
+    	t.lge_estado, 
+    	e.est_color, 
+    	e.est_nombre AS lge_estado_descripcion,
+    	TO_CHAR(t.fecha_registro, 'dd/mm/yyyy') AS fecha_registro
+FROM 	parametricas.lugares_gestiones t
+		LEFT JOIN parametricas.gestiones g ON t.ges_codigo = g.ges_codigo
+		LEFT JOIN parametricas.lugares l ON t.lug_codigo = l.lug_codigo
+		LEFT JOIN parametricas.tipos_lugares tl ON l.tlu_codigo = tl.tlu_codigo 
+		LEFT JOIN parametricas.estados e ON e.est_codigo = t.lge_estado
+WHERE 	TRUE
+;
+
+```
