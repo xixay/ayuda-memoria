@@ -39,12 +39,20 @@
             "state": {
               "type": "markdown",
               "state": {
+<<<<<<< Updated upstream
                 "file": "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/VARIAS ACT.md",
+=======
+                "file": "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/Actividades Bolsas.md",
+>>>>>>> Stashed changes
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
+<<<<<<< Updated upstream
               "title": "VARIAS ACT"
+=======
+              "title": "Actividades Bolsas"
+>>>>>>> Stashed changes
             }
           }
         ],
@@ -192,13 +200,23 @@
   },
   "active": "6f52de5277d417ef",
   "lastOpenFiles": [
+<<<<<<< Updated upstream
+=======
+    "6archivos/scripts/backup_20241104_224307.sql",
+    "6archivos/scripts/backup_20241104_224121.sql",
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/HORAS POR DEPARTAMENTO/Lugares Gestion.md",
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/CREACION ACTIVIDADES/CREACION DE ACTIVIDADES.md",
+>>>>>>> Stashed changes
     "CONTRALORÍA/SISPOA CONAUD/GENERADOR/Proyecto base Frontend-FRONTED generador.drawio.png",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/CREACION ACTIVIDADES/CREACION DE ACTIVIDADES.md",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/VARIAS ACT.md",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/Actividades Bolsas.md",
+<<<<<<< Updated upstream
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/HORAS POR DEPARTAMENTO/Lugares Gestion.md",
     "CONTRALORÍA/SISPOA CONAUD/GENERADOR/Proyecto base Frontend-BACKEND generador.drawio.png",
+=======
+>>>>>>> Stashed changes
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/MOSTRAR TABLA REPORTES CONAUD/Responsables.md",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/HORAS POR DEPARTAMENTO",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/MOSTRAR TABLA REPORTES CONAUD",
