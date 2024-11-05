@@ -91,6 +91,7 @@ Authorization: {{AuthTokenInterno}}
 ANA MARIA BRIGGITTE DEL CARMEN ARRAZOLA DURAN
 
 _person_  3403668
+Subcontraloría de Gobiernos Departamentales - SCGD
 ```
 ### Listado  de actividades
 #### Servicio
