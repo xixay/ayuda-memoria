@@ -212,6 +212,335 @@ WHERE 	amh.act_codigo_adicion IN (4835)
 ### Listado de ACP
 ### Reportes en excel, reportes PDF
 - Menu reportes
-- Reportes Areas Actividades
+#### reportes
+```json
+Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwZXJfY29kaWdvIjoxOTE0LCJzaXN0ZW1hcyI6W3sic2lzY2dlX2NvZGlnbyI6MjUsInNpc2NnZV9zaWdsYSI6InVhaSJ9LHsic2lzY2dlX2NvZGlnbyI6MjksInNpc2NnZV9zaWdsYSI6InBvYWkifSx7InNpc2NnZV9jb2RpZ28iOjMyLCJzaXNjZ2Vfc2lnbGEiOiJjb3JyZXNwb25kZW5jaWFfaW50ZXJuYSJ9LHsic2lzY2dlX2NvZGlnbyI6MzQsInNpc2NnZV9zaWdsYSI6InNpc3BvYSJ9LHsic2lzY2dlX2NvZGlnbyI6MzUsInNpc2NnZV9zaWdsYSI6ImZpX2NvbmF1ZCJ9LHsic2lzY2dlX2NvZGlnbyI6MzcsInNpc2NnZV9zaWdsYSI6ImNvbmF1ZCJ9XSwicm9sZXMiOlt7InNpc2NnZV9jb2RpZ28iOjI1LCJyb2xfY29kaWdvIjoxNTAsInJvbF9kZXNjcmlwY2lvbiI6IlJFVklTT1IgVUFJIn0seyJzaXNjZ2VfY29kaWdvIjoyOSwicm9sX2NvZGlnbyI6MTU4LCJyb2xfZGVzY3JpcGNpb24iOiJST0wgU1VQRVJWSVNJT04ifSx7InNpc2NnZV9jb2RpZ28iOjI5LCJyb2xfY29kaWdvIjoxNTcsInJvbF9kZXNjcmlwY2lvbiI6IlJPTCBSRUdJU1RSTyBSRUNVUlNPUyBIVU1BTk9TIn0seyJzaXNjZ2VfY29kaWdvIjoyOSwicm9sX2NvZGlnbyI6MTU2LCJyb2xfZGVzY3JpcGNpb24iOiJBRE1JTklTVFJBRE9SIFBPQUkifSx7InNpc2NnZV9jb2RpZ28iOjI5LCJyb2xfY29kaWdvIjoxNzMsInJvbF9kZXNjcmlwY2lvbiI6IlJPTCBQTEFOSUZJQ0FDScOTTiJ9LHsic2lzY2dlX2NvZGlnbyI6MzUsInJvbF9jb2RpZ28iOjE5Miwicm9sX2Rlc2NyaXBjaW9uIjoiVkFMSURBRE9SIn0seyJzaXNjZ2VfY29kaWdvIjozNCwicm9sX2NvZGlnbyI6MTk2LCJyb2xfZGVzY3JpcGNpb24iOiJHZXN0acOzbiBJbnN0aXR1Y2lvbmFsIn0seyJzaXNjZ2VfY29kaWdvIjozNCwicm9sX2NvZGlnbyI6MTkwLCJyb2xfZGVzY3JpcGNpb24iOiJPcGVyYWRvciBGb3JtdWxhcmlvIn0seyJzaXNjZ2VfY29kaWdvIjozNywicm9sX2NvZGlnbyI6MjAyLCJyb2xfZGVzY3JpcGNpb24iOiJBZG1pbmlzdHJhZG9yIENPTkFVRCJ9LHsic2lzY2dlX2NvZGlnbyI6MzcsInJvbF9jb2RpZ28iOjIwOCwicm9sX2Rlc2NyaXBjaW9uIjoiT3BlcmFkb3IgRm9ybXVsYXJpbyJ9LHsic2lzY2dlX2NvZGlnbyI6MzIsInJvbF9jb2RpZ28iOjE3NSwicm9sX2Rlc2NyaXBjaW9uIjoiRlVOQ0lPTkFSSU8ifSx7InNpc2NnZV9jb2RpZ28iOjM3LCJyb2xfY29kaWdvIjoyMTksInJvbF9kZXNjcmlwY2lvbiI6IkFwb3lvIn0seyJzaXNjZ2VfY29kaWdvIjozNywicm9sX2NvZGlnbyI6MjA5LCJyb2xfZGVzY3JpcGNpb24iOiJHZXN0acOzbiBJbnN0aXR1Y2lvbmFsIn0seyJzaXNjZ2VfY29kaWdvIjozNCwicm9sX2NvZGlnbyI6MTk4LCJyb2xfZGVzY3JpcGNpb24iOiJWZXJpZmljYWRvciBGb3JtdWxhcmlvIn0seyJzaXNjZ2VfY29kaWdvIjozNCwicm9sX2NvZGlnbyI6MTk3LCJyb2xfZGVzY3JpcGNpb24iOiJHZXN0acOzbiBJbnN0aXR1Y2lvbmFsIEFwcm9iYWRvciJ9LHsic2lzY2dlX2NvZGlnbyI6MzcsInJvbF9jb2RpZ28iOjIxMSwicm9sX2Rlc2NyaXBjaW9uIjoiVmVyaWZpY2Fkb3IgRm9ybXVsYXJpbyJ9XSwiaWQiOiI0M2EyNjk3NS1mZjY0LTQwN2ItOWE3Ni00MDc2NDZiOGJkNjAiLCJ0aXBvIjoidXN1YXJpbyIsImlhdCI6MTczMDkwMjg4MywiZXhwIjoxNzMwOTMxNjgzLCJtb21lbnQiOiIyMDI0LTExLTA2VDEwOjIxOjIzLTA0OjAwIn0.dlBdcuVsedsMYgRLuu3wp2sw4tCnHjiQ7DkCS8n_Z0OjPOFx-ktzjEGxamgjOzt3AMDbLwKrHJIooRleaArr8A
+
+RptXlsAccionesAct.jrxml
+s_aun_codigo: (44)
+s_cac_codigo: (1,3)
+s_pobj_codigo: (787,1331,1357,1358,1359)
+
+
+RptXlsPoasAreasEjecutoras.jrxml
+{
+	"s_aun_codigo_hijos": "(44)",
+	"s_aun_codigo_padre": "(44)",
+	"s_poa_codigo": "(3)"
+}
+
+RptPdfAreasSustantivas.jrxml
+{
+	"s_aun_codigo": "(44)",
+	"s_poa_codigo": "(3)"
+}
+
+RptXlsSispoaCompleto.jrxml
+
+```
+#### Reportes Areas Actividades
+```json
+{
+
+  total_horas_disponibles: 9333,
+
+  total_horas_planificadas: 9333,
+
+  total_horas_calculo_movimiento: 9333,
+
+  aun_codigo_ejecutora: 44,
+
+  aun_nombre: 
+
+    'Gerencia Departamental de Beni',
+
+  actividades: [
+
+    {
+
+      act_codigo: 1598,
+
+      act_numero: 
+
+        '00.0019.69.5.24',
+
+      act_cantidad: 100,
+
+      act_descripcion: 
+
+        'REUNION NACIONAL DE GERENTES',
+
+      ent_codigo: 54,
+
+      ent_descripcion: null,
+
+      pobj_codigo: 787,
+
+      act_horas_planificadas: 16,
+
+      aun_codigo_ejecutora: 44,
+
+      aun_nombre: 
+
+        'Gerencia Departamental de Beni',
+
+      ttr_descripcion: 
+
+        'Actividades Administrativas',
+
+      ett_nombre: 
+
+        'ADMINISTRACIÓN',
+
+      act_objeto: 
+
+        'REUNION NACIONAL DE GERENTES DEPARTAMENTALES',
+
+      horas_auditorias: 0,
+
+      horas_evaluaciones: 0,
+
+      horas_apoyos: 0,
+
+      horas_planificadas: 16,
+
+      horas_calculo_movimiento: 16,
+
+      horas_comision: 0,
+
+      horas_disponibles: 16
+
+    },
+
+    {
+
+      act_codigo: 1599,
+
+      act_numero: 
+
+        '00.0019.69.4.24',
+
+      act_cantidad: 100,
+
+      act_descripcion: 
+
+        'ACTIVIDADES ADMINISTRATIVAS Y DE GERENCIA',
+
+      ent_codigo: 54,
+
+      ent_descripcion: null,
+
+      pobj_codigo: 787,
+
+      act_horas_planificadas: 8899,
+
+      aun_codigo_ejecutora: 44,
+
+      aun_nombre: 
+
+        'Gerencia Departamental de Beni',
+
+      ttr_descripcion: 
+
+        'Actividades Administrativas',
+
+      ett_nombre: 
+
+        'ADMINISTRACIÓN',
+
+      act_objeto: 
+
+        'COORDINACIÓN CON EL AREA DE GOBIERNOS DEPARTAMENTALES. COORDINACION CON GOBIERNOS MUNICIPALES Y UNIVERSIDADES, COORDINACIÓN CON SERVICIOS  Y ADMINISTRACION',
+
+      horas_auditorias: 0,
+
+      horas_evaluaciones: 0,
+
+      horas_apoyos: 0,
+
+      horas_planificadas: 8899,
+
+      horas_calculo_movimiento: 8899,
+
+      horas_comision: 0,
+
+      horas_disponibles: 8899
+
+    },
+
+    {
+
+      act_codigo: 1601,
+
+      act_numero: 
+
+        '00.0019.69.2.24',
+
+      act_cantidad: 1,
+
+      act_descripcion: 
+
+        'REUNION DE GERENTES DE ÁREAS - SCGD',
+
+      ent_codigo: 54,
+
+      ent_descripcion: null,
+
+      pobj_codigo: 787,
+
+      act_horas_planificadas: 32,
+
+      aun_codigo_ejecutora: 44,
+
+      aun_nombre: 
+
+        'Gerencia Departamental de Beni',
+
+      ttr_descripcion: 
+
+        'Actividades de Gerencia',
+
+      ett_nombre: 
+
+        'ADMINISTRACIÓN',
+
+      act_objeto: 
+
+        'REUNION NACIONAL DE GERENTES',
+
+      horas_auditorias: 0,
+
+      horas_evaluaciones: 0,
+
+      horas_apoyos: 0,
+
+      horas_planificadas: 32,
+
+      horas_calculo_movimiento: 32,
+
+      horas_comision: 0,
+
+      horas_disponibles: 32
+
+    },
+
+    {
+
+      act_codigo: 1600,
+
+      act_numero: 
+
+        '00.0019.69.3.24',
+
+      act_cantidad: 1,
+
+      act_descripcion: 
+
+        'REUNIÓN LEGAL-SCSL',
+
+      ent_codigo: 54,
+
+      ent_descripcion: null,
+
+      pobj_codigo: 787,
+
+      act_horas_planificadas: 16,
+
+      aun_codigo_ejecutora: 44,
+
+      aun_nombre: 
+
+        'Gerencia Departamental de Beni',
+
+      ttr_descripcion: 
+
+        'Actividades Administrativas',
+
+      ett_nombre: 
+
+        'ADMINISTRACIÓN',
+
+      act_objeto: 
+
+        'REUNIÓN  LEGAL',
+
+      horas_auditorias: 0,
+
+      horas_evaluaciones: 0,
+
+      horas_apoyos: 0,
+
+      horas_planificadas: 16,
+
+      horas_calculo_movimiento: 16,
+
+      horas_comision: 0,
+
+      horas_disponibles: 16
+
+    },
+
+    {
+
+      act_codigo: 1602,
+
+      act_numero: 
+
+        '00.0019.69.1.24',
+
+      act_cantidad: 1,
+
+      act_descripcion: 
+
+        'ACTIVIDADES ADMINISTRATIVAS PROPIAS DE LA GERENCIA - SCGD',
+
+      ent_codigo: 54,
+
+      ent_descripcion: null,
+
+      pobj_codigo: 787,
+
+      act_horas_planificadas: 370,
+
+      aun_codigo_ejecutora: 44,
+
+      aun_nombre: 
+
+        'Gerencia Departamental de Beni',
+
+      ttr_descripcion: 
+
+        'Actividades de Gerencia',
+
+      ett_nombre: 
+
+        'ADMINISTRACIÓN',
+
+      act_objeto: 
+
+        'ACTIVIDADES ADMINISTRATIVAS',
+
+      horas_auditorias: 0,
+
+      horas_evaluaciones: 0,
+
+      horas_apoyos: 0,
+
+      horas_planificadas: 370,
+
+      horas_calculo_movimiento: 370,
+
+      horas_comision: 0,
+
+      horas_disponibles: 370
+
+    }
+
+  ]
+
+}
+```
+##### Servicio
+- 
 - Reporte Poa Anual
 - Y en todos los que se vea

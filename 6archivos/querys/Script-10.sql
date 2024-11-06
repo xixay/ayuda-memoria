@@ -1,69 +1,109 @@
-SELECT 	a.act_codigo,a.act_estado  
-FROM 	estructura_poa.actividades a 
-WHERE 	TRUE
-		AND a.pobj_codigo IN (779)
-		AND a.aun_codigo_ejecutora IN (4)
-		AND a.cac_codigo IN (2)
-;
---
+--### 'CREAR AREA UNIDAD'###
+INSERT INTO estructura_organizacional.areas_unidades
+(aun_codigo, 
+aun_nombre, 
+aun_numero, 
+aun_sigla, 
+org_codigo, 
+lug_codigo, 
+tau_codigo, 
+nau_codigo, 
+aau_codigo, 
+ade_codigo, 
+cau_codigo, 
+aun_estado, 
+usuario_registro, 
+fecha_registro, 
+aun_inicial 
+)
+VALUES((select max(aun_codigo)+1 from estructura_organizacional.areas_unidades), 
+'Unidad de Transparencia', 
+'1802', 
+'GDN-GAM',  --aun_sigla
+1, --org_codigo
+2, --lug_codigo
+2, --tau_codigo
+3, --nau_codigo
+1, --aau_codigo
+1, --ade_codigo
+1, --cau_codigo
+2, --aun_estado
+0, 
+'2024-02-05 12:04:53.257', 
+'N');
+--### 'CREAR CARGOS ITEM' EXISTE cargos y item###
+INSERT INTO estructura_organizacional.cargos_items
+(cit_codigo, cit_descripcion, aun_codigo, car_codigo, ite_codigo, cit_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
+VALUES(604, 'Cargo item con interino 2/5/2024, 21:48:42', 81, 114, 204, 2, 1914, 1914, 0, '2024-07-26 21:48:42.900', '2024-07-26 21:48:43.039', '1900-01-01 00:00:00.000');
+
+--$$$ 'CREAR CARGOS ITEM' NO EXISTE cargos y item###
+--CREAR ITEM
+INSERT INTO estructura_organizacional.items
+(ite_codigo, ite_numero, ite_descripcion, ite_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
+VALUES(625, '0625', 'Item 0625', 2, 1914, 1818, 0, '2023-10-25 21:22:10.878', '2023-10-31 19:30:14.647', '1900-01-01 00:00:00.000');
+
+--CREAR CARGO
+INSERT INTO estructura_organizacional.cargos
+(car_codigo, car_nombre, car_alias, tca_codigo, car_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
+VALUES(167, 'GERENTE NUEVO', '', 1, 2, 0, 0, 0, '2024-01-26 12:16:56.196', '1900-01-01 00:00:00.000', '1900-01-01 00:00:00.000');
+
+--RECIEN CREAR EL CARGO ITEM
+INSERT INTO estructura_organizacional.cargos_items
+(cit_codigo, cit_descripcion, aun_codigo, car_codigo, ite_codigo, cit_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja)
+VALUES(604, 'Cargo item con interino 2/5/2024, 21:48:42', 81, 167, 625, 2, 1914, 1914, 0, '2024-07-26 21:48:42.900', '2024-07-26 21:48:43.039', '1900-01-01 00:00:00.000');
+
+--CREAR SU OBJETIVO AREA UNIDAD
+INSERT INTO estructura_poa.objetivos_area_unidad
+(oau_codigo, oau_descripcion, pobj_codigo, aun_codigo_ejecutora, aun_codigo_supervisora, oau_estado, usuario_registro, usuario_modificacion, usuario_baja, fecha_registro, fecha_modificacion, fecha_baja, oau_indicador)
+VALUES(2670, NULL, 2365, 81, 81, 8, 1737, 2228, 0, '2024-08-29 19:56:04.817', '2024-08-30 09:11:25.740', '1900-01-01 00:00:00.000', 3);
+
+
+
+
+
 SELECT 	*
-FROM 	estructura_poa.actividades_movimientos_horas amh 
-WHERE 	amh.act_codigo_adicion IN (4835)
+FROM 	estructura_poa.objetivos_area_unidad oau 
+--WHERE 	oau.aun_codigo_ejecutora IN (81)
+ORDER   BY oau.oau_codigo DESC 
 ;
---##########################################################
-        SELECT
-              po.pobj_codigo,
-              --COALESCE(SUM(a.act_horas_planificadas), 0) AS total_horas_planificadas,
-              COALESCE(SUM(a.horas_total), 0) AS total_horas_planificadas
-        FROM    estructura_poa.poas_objetivos po
-              LEFT JOIN (
-                SELECT  act.*, act.act_horas_planificadas - COALESCE(SUM(actbolsa.act_horas_planificadas), 0) AS horas_total
-                FROM  estructura_poa.actividades act
-                      LEFT JOIN estructura_poa.actividades actbolsa ON act.act_codigo = actbolsa.act_codigo_bolsa
-                                                                        AND actbolsa.act_estado NOT IN (0, 9, 46, 47)
-                WHERE   TRUE
-                GROUP BY act.act_codigo
-              ) a ON po.pobj_codigo = a.pobj_codigo
-        WHERE   TRUE
-              AND po.pobj_codigo IN (779)
-              AND a.aun_codigo_ejecutora IN (4)
-              AND a.act_estado NOT IN (0, 5, 9, 47)
-        GROUP BY po.pobj_codigo
+
+SELECT 	*
+FROM 	estructura_poa.poas p 
+WHERE 	p.ges_codigo IN (2);
+
+SELECT 	*
+FROM 	estructura_organizacional.cargos_item_dependencias cid ;
+
+
+
+SELECT 	*
+FROM 	estructura_organizacional.cargos c 
+ORDER BY c.car_codigo DESC 
 ;
---&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&6
-        WITH
-        tmp_adicion AS (
-          SELECT
-                amh.act_codigo_adicion AS act_codigo,
-                COALESCE(SUM(amh.amh_horas), 0) AS horas_adicion
-          FROM  estructura_poa.actividades_movimientos_horas amh
-          WHERE TRUE
-                AND amh.amh_estado NOT IN (0,5,9)
-                AND amh.tmh_codigo NOT IN (1) -- NO SUMA CUANDO ES F21
-          GROUP BY amh.act_codigo_adicion
-        ),
-        tmp_disminucion AS (
-          SELECT
-                amh.act_codigo_disminucion AS act_codigo,
-                COALESCE(SUM(amh.amh_horas), 0) AS horas_disminucion
-          FROM  estructura_poa.actividades_movimientos_horas amh
-          WHERE TRUE
-                AND amh.amh_estado NOT IN (0,5,9)
-                AND amh.amh_codigo NOT IN (9) -- CASO EDICIÓN DE HORAS, NO TOMAR EN CUENTA
-          GROUP BY amh.act_codigo_disminucion
-        )
-        SELECT
-              t.act_codigo,
-              t.act_numero,
-              t.aun_codigo_ejecutora,
-              au.aun_sigla,
-              t.act_horas_planificadas AS horas_planificadas,
-              (t.act_horas_planificadas + (COALESCE(tmp_adicion.horas_adicion, 0) - COALESCE(tmp_disminucion.horas_disminucion, 0)))::INT AS horas_calculo_movimiento
-        FROM    estructura_poa.actividades t
-              LEFT JOIN estructura_organizacional.areas_unidades au ON t.aun_codigo_ejecutora = au.aun_codigo
-              LEFT JOIN tmp_adicion ON t.act_codigo = tmp_adicion.act_codigo
-              LEFT JOIN tmp_disminucion ON t.act_codigo = tmp_disminucion.act_codigo
-        WHERE   TRUE
-              AND t.act_codigo IN (1797)
-        ORDER BY t.act_codigo
-        ;
+
+SELECT 	*
+FROM 	estructura_organizacional.items i 
+ORDER BY i.ite_codigo  DESC 
+;
+
+SELECT 	*
+FROM 	estructura_organizacional.areas_unidades au 
+ORDER BY au.aun_codigo DESC 
+;
+
+SELECT 	*
+FROM 	estructura_organizacional.cargos_items ci
+ORDER  BY ci.cit_codigo DESC;
+;
+
+SELECT 	*
+FROM 	estructura_poa.area_unidad_responsables aur ;
+
+--actualizar foto
+UPDATE 	estructura_poa.area_unidad_responsables
+SET 	per_codigo = 1914
+WHERE 	poa_codigo = 3
+;
+
+UPDATE 	
+SET 	estructura_poa.area_unidad_responsables aur
