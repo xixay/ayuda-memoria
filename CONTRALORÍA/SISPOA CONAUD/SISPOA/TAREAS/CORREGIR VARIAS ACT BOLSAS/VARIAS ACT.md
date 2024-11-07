@@ -412,6 +412,10 @@ RptXlsSeguimiento.xlsx
 	"s_clasificador": "(1,2,3,4,5)",
 	"s_poa_codigo": "(3)"
 }
+
+//CASO EXTRAÑO
+RptXlsSispoaCompleto.jrxml
+poa_codigo=(3)
 ```
 - RptPdfAreasSustantivas
 ```json
