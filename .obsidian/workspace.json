@@ -13,15 +13,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/VARIAS ACT.md",
+                "file": "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/Reportes Seguimientos.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "VARIAS ACT"
+              "title": "Reportes Seguimientos"
+            }
+          },
+          {
+            "id": "a4fc2f45aee8ecdd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/Observaciones.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Observaciones"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -52,7 +67,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "ir.ire_nombre,             ir.ire_descripcion,             ir.ire_numero_recomendacion,",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -163,17 +178,23 @@
       "command-palette:Abrir paleta de comandos": false
     }
   },
-  "active": "7ba84821cb0b0ac6",
+  "active": "a4fc2f45aee8ecdd",
   "lastOpenFiles": [
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/VARIAS ACT.md",
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/Observaciones.md",
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/Reportes Seguimientos.md",
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/recomendaciones.png",
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/btn imprimir.png",
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/corregido.pdf",
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/report381236277353307009.pdf",
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/RptXlsAccionesAct.jrxml (otro).pdf",
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/report5953991181387892017.pdf",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/Documento sin título 1",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/RptXlsSispoaCompleto.jrxml.pdf",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/report1005892322029380200.pdf",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/RptPdfAreasSustantivas.jrxml.pdf",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/report5128279415659724421.pdf",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/RptXlsPoasAreasEjecutoras.jrxml.pdf",
-    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/report9071783212155124337.pdf",
-    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/RptXlsAccionesAct.jrxml.pdf",
-    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/report1499942089572397678.pdf",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/ACP.png",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/actividades.png"
   ]
