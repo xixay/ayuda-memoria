@@ -10,3 +10,21 @@
 | I                        | C                          | M   | D          |
 | ------------------------ | -------------------------- | --- | ---------- |
 | Cant. Horas Planificadas | Total Horas PAra Ejecucion |     | Salo Horas |
+```sql
+SELECT 	a.act_codigo,a.act_estado  
+FROM 	estructura_poa.actividades a 
+WHERE 	TRUE
+		AND a.pobj_codigo IN (779)
+		AND a.aun_codigo_ejecutora IN (4)
+		AND a.cac_codigo IN (2)
+;
+--
+SELECT 	*
+FROM 	estructura_poa.actividades_movimientos_horas amh 
+WHERE 	TRUE
+--		AND amh.act_codigo_adicion IN (4835)
+--		AND amh.act_codigo_adicion IN (4828)
+--		AND amh.act_codigo_adicion IN (4829)
+--		AND amh.act_codigo_adicion IN (4830)
+;
+```
