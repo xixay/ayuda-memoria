@@ -41,7 +41,7 @@ WHERE 	TRUE
 - Estado Consolidado
 ```
 //Todo: Se agrego el estado consolidado
-getAllCalculoHorasDto.act_estado = `(${EstadoPoa.CONSOLIDADO})`;
+getAllCalculoHorasDto.amh_estado = `(${EstadoPoa.CONSOLIDADO})`;
 ```
 ## Accion Corto Plazo
 ```
@@ -50,7 +50,7 @@ findAllPoasObjetivosOfAunCodigo
 totalHoras
 ```
 ## Reportes
-```
+```ts
 
 // Actividades
 //Horas Movimientos y horas disponibles
@@ -61,17 +61,30 @@ totalHoras
 // HorasMovimientos
 RptXlsAccionesAct.jrxml
 //findAllAccionCorto=====>src/feature/poas-objetivos/poas-objetivos.service.ts
+//F26
 s_pobj_codigo: (787,1331,1357,1358,1359)
 s_cac_codigo: (1,3)
 s_aun_codigo: (44)
+//F21
+s_pobj_codigo: (780)
+s_cac_codigo: (2)
+s_aun_codigo: (5)
+
 
 // Horas Movimientos
 //getReportProgramaOperacionAnual=============>src/feature/poas/poas.service.ts
 RptPdfAreasSustantivas.jrxml
+//F26
 {
 	"s_aun_codigo": "(44)",
 	"s_poa_codigo": "(3)"
 }
+//F21
+{
+	"s_aun_codigo": "(44)",
+	"s_poa_codigo": "(3)"
+}
+
 // Horas Iniciales , Horas disponibles
 //getReporteActividadesPoa========>src/feature/actividades/actividades.service.ts
 RptXlsSispoaCompleto.jrxml
