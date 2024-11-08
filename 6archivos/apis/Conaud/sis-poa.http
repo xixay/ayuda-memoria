@@ -442,7 +442,8 @@
     # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(1880)
     # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(4835,4834)
     # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(1797)
-    GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(4839)&amh_estado=(2)
+    # GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(4839)&amh_estado=(2)
+    GET {{Host}}/actividades-movimientos-horas/calculo-horas?act_codigo=(2404)
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
 ###  ------------------- OBTENER - EDICION ( HORAS CALC MOIVIMIENTO)
