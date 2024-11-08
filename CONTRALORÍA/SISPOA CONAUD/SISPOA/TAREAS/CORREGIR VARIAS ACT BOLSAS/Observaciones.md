@@ -151,14 +151,16 @@ poa_codigo=(3)
 SELECT 	*
 FROM 	estructura_poa.actividades_movimientos_horas amh 
 WHERE 	TRUE
-		AND amh.act_codigo_adicion IN (4846)
+--		AND amh.act_codigo_adicion IN (4846)
+		AND amh.act_codigo_adicion IN (4847)
 --		AND amh_estado IN (1)
 ;
 --%%%%%%%%%%%%%%%% DISMINUCION %%%%%%%%%%%%%%%%%%%%
 SELECT 	*
 FROM 	estructura_poa.actividades_movimientos_horas amh 
 WHERE 	TRUE
-		AND amh.act_codigo_disminucion IN (2404)
+--		AND amh.act_codigo_disminucion IN (2404)
+		AND amh.act_codigo_disminucion IN (3264)
 --		AND amh_estado IN (1)
 ;
 --&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
