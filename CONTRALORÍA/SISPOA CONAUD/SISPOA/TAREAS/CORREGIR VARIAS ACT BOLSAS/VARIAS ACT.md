@@ -1,11 +1,12 @@
 **SCGM**
-|   |   |   |   |
-|---|---|---|---|
-|2428708|SANTIAGO MAIDANA QUISPE|GERENTE CONSOLIDADOR|EDICION|
-||2428708|SANTIAGO MAIDANA QUISPE|SUPERVISOR|EDICION|
-||2428708|SANTIAGO MAIDANA QUISPE|APROBADOR|EDICION|
-||4813387|MERY GOMEZ CONDORI|FORMULADOR|EDICION|
-||4813387|MERY GOMEZ CONDORI|FORMULADOR GERENTE|EDICION|
+
+|         |                         |                         |                    |         |
+| ------- | ----------------------- | ----------------------- | ------------------ | ------- |
+| 2428708 | SANTIAGO MAIDANA QUISPE | GERENTE CONSOLIDADOR    | EDICION            |         |
+|         | 2428708                 | SANTIAGO MAIDANA QUISPE | SUPERVISOR         | EDICION |
+|         | 2428708                 | SANTIAGO MAIDANA QUISPE | APROBADOR          | EDICION |
+|         | 4813387                 | MERY GOMEZ CONDORI      | FORMULADOR         | EDICION |
+|         | 4813387                 | MERY GOMEZ CONDORI      | FORMULADOR GERENTE | EDICION |
 ## Servicio
 ```json
 GET {{Host}}/actividades/calculo-horas-varios?act_codigos=(4828,4829)
