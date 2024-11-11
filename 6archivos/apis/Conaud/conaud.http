@@ -613,7 +613,7 @@
   Authorization: {{AuthTokenInterno}}
 ### ACTIVIDADES INFORMES
 ###  ------- OBTENER - ACTIVIDADES INFORMES
-  GET {{Host}}/actividades-informes?inf_codigo=(380) HTTP/1.1 
+  GET {{Host}}/actividades-informes?inf_codigo=(380) HTTP/1.1
   # GET {{Host}}/actividades-informes HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -624,6 +624,7 @@
 
   {
     "act_codigo": 4841,
+    //"act_codigo": 3282,
     "inf_codigo": 379
   }
 ###  ------- MODIFICAR - ACTIVIDADES INFORMES
