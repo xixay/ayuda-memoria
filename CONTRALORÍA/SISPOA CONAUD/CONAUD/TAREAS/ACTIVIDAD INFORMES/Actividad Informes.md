@@ -78,15 +78,15 @@ TO usr_app_poa;
 ## roles
 ### SCAT-GAAPIP
 
-	9945262	CLAUDIA PARRA MAMANI	RESPONSABLE 	EDICION
-	486424	LUIS FERNANDO SAAVEDRA MORATO	GERENTE CONSOLIDADOR 	EDICION
-		SIN IDENTIFICAR	FORMULADOR GERENTE 	EDICION
-		SIN IDENTIFICAR	FORMULADOR 	EDICION
-	486424	LUIS FERNANDO SAAVEDRA MORATO	SUPERVISOR 	EDICION
-		SIN IDENTIFICAR	APROBADOR 	EDICION
-	3445997	CAROLINA LEA RODRIGUEZ BONIVENTO	FORMULADOR 	EDICION
-	3445997	CAROLINA LEA RODRIGUEZ BONIVENTO	FORMULADOR GERENTE 	EDICION
-	3445997	CAROLINA LEA RODRIGUEZ BONIVENTO	APROBADOR 	EDICION 
+
+| 9945262 | CLAUDIA PARRA MAMANI             | RESPONSABLE          | EDICION |
+| ------- | -------------------------------- | -------------------- | ------- |
+| 486424  | LUIS FERNANDO SAAVEDRA MORATO    | GERENTE CONSOLIDADOR | EDICION |
+| 486424  | LUIS FERNANDO SAAVEDRA MORATO    | SUPERVISOR           | EDICION |
+| 3445997 | CAROLINA LEA RODRIGUEZ BONIVENTO | FORMULADOR           | EDICION |
+| 3445997 | CAROLINA LEA RODRIGUEZ BONIVENTO | FORMULADOR GERENTE   | EDICION |
+| 3445997 | CAROLINA LEA RODRIGUEZ BONIVENTO | APROBADOR            | EDICION |
+
 
 - actividad : 520.0504.38.10.24
 - ruta: http://172.16.22.243:3002/conaud/inicios-actividades?ges_codigo=2&act_codigo=3167
@@ -94,3 +94,18 @@ TO usr_app_poa;
 - Servicio Sushy: 
 ```http
 http://172.16.22.232:7008/informes-resumen-ejecutivo?inf_codigo=(377)&rei_estado=(1)
+```
+
+- Componente donde estan las acciones cambio de estado
+```
+src/app/(main)/conaud/inicios-actividades/page.jsx
+
+- botones de cambio de estado
+{/* TODO: Botones de cambio de estado */}
+```
+- generar crud SONAUD
+```
+npx ts-node src/common/scripts/feature.generatorv2.ts Empresas parametricas
+
+npx ts-node src/common/scripts/feature.generatorv2.ts ActividadesInformes ejecucion_actividades
+```
