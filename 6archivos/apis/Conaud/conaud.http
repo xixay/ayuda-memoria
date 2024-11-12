@@ -613,7 +613,8 @@
   Authorization: {{AuthTokenInterno}}
 ### ACTIVIDADES INFORMES
 ###  ------- OBTENER - ACTIVIDADES INFORMES
-  GET {{Host}}/actividades-informes?inf_codigo=(380) HTTP/1.1
+  # GET {{Host}}/actividades-informes?inf_codigo=(380) HTTP/1.1
+  GET {{Host}}/actividades-informes?iac_codigo=(685)&ain_estado=(1,2) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ###  ------- OBTENER - INFORMES

@@ -248,3 +248,17 @@ ORDER BY inf.inf_codigo ASC;
 - http://172.16.22.243:3002/conaud/inicios-actividades?ges_codigo=2&act_codigo=3176
 ### View Personalizado
 - src/components/actividades-informes/component/actividades-informes.view.jsx
+### Inicios Actividades sin Inicio Actividad POA
+
+| 138 | iac_codigo |     |
+| --- | ---------- | --- |
+| 140 | iac_codigo |     |
+| 155 | iac_codigo |     |
+| 160 | iac_codigo |     |
+| 166 | iac_codigo |     |
+| 203 | iac_codigo |     |
+| 207 | iac_codigo |     |
+| 309 | iac_codigo |     |
+| 314 | iac_codigo |     |
+| 309 | iac_codigo |     |
+| 358 | iac_codigo |     |
