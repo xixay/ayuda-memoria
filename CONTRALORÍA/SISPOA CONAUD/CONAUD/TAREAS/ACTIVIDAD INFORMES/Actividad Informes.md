@@ -155,8 +155,8 @@ SELECT
 		t.ain_estado,
 		t.usuario_registro,
 		t.usuario_modificacion,
-		TO_CHAR(t.fecha_registro, 'HH24:MI am dd/mm/yyyy') AS fecha_registro,
-		TO_CHAR(t.fecha_modificacion, 'HH24:MI am dd/mm/yyyy') AS fecha_modificacion
+		TO_CHAR(t.fecha_registro, 'dd/mm/yyyy') AS fecha_registro,
+		TO_CHAR(t.fecha_modificacion, 'dd/mm/yyyy') AS fecha_modificacion
 FROM 	ejecucion_actividades.actividades_informes t
 		LEFT JOIN estructura_poa.actividades a ON t.act_codigo = a.act_codigo
 		LEFT JOIN estructura_organizacional.areas_unidades au ON a.aun_codigo_ejecutora = au.aun_codigo
@@ -169,19 +169,11 @@ WHERE 	TRUE
 --		AND t.ain_codigo IN (1)
 		AND t.act_codigo IN (3167)
 ;
-SELECT 	*
-FROM 	estructura_poa.actividades a
-WHERE 	TRUE
-		AND a.act_estado IN (2)
-;
---######### INICIO ACTIVIDAD INFORME ##############
-SELECT 	*
-FROM 	ejecucion_actividades.inicio_actividad_informe iai
-ORDER BY iai.iai_codigo DESC
-;
 --######### INICIOS ACTIVIDADES ##############
 SELECT 	*
 FROM 	ejecucion_actividades.inicios_actividades ia
+WHERE 	TRUE
+--		AND ia.iac_codigo IN (685)
 ORDER BY ia.iac_codigo DESC
 ;
 --########## INICIO ACTIVIDAD POA ################
@@ -189,18 +181,62 @@ SELECT 	*
 FROM 	ejecucion_actividades.inicio_actividad_poa iap
 WHERE 	TRUE
 --		AND iap.iac_codigo IN (685)
---ORDER BY iap.iap_codigo DESC
+		AND iap.act_codigo IN (3167)
+ORDER BY iap.iap_codigo DESC
+;--act_codigo=3167
+--########### ACTIVIDADES #############
+SELECT 	a.act_codigo, a.act_numero, a.act_estado, a.aun_codigo_ejecutora
+FROM 	estructura_poa.actividades a
+WHERE 	a.act_codigo IN (3167)
 ;
---######### INFORMES ##############
-SELECT 	i.inf_codigo, i.inf_codigo_control, i.inf_nombre, i.inf_estado,
+--########### INFORMES #############
+SELECT 	*
+FROM 	ejecucion_actividades.informes inf
+WHERE 	TRUE
+--		AND inf.iac_codigo IN (685)
+;
+--######### INFORMES JOIN##############
+SELECT 	i.inf_codigo, i.inf_estado, i.inf_codigo_control, i.inf_nombre, i.inf_estado,
 		ia.iac_codigo, ia.iac_codigo_control_vista, ia.iac_estado
 FROM 	ejecucion_actividades.informes i
 		LEFT JOIN ejecucion_actividades.inicios_actividades ia ON i.iac_codigo = ia.iac_codigo 
 WHERE 	TRUE
-		AND i.inf_estado IN (1)
---		AND i.inf_codigo IN (380)
+--		AND i.inf_estado IN (1)
+		AND i.inf_codigo IN (380)
 ORDER BY i.inf_codigo DESC
 ;--iac_codigo = 685
+-- ########## ACTIVIDADES INFORMES ###############
+SELECT 	*
+FROM 	ejecucion_actividades.actividades_informes ai 
+;
+--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+SELECT 
+	inf.inf_codigo,
+	inf.inf_estado,
+	CONCAT('(',inf.inf_codigo_control, ') - ', inf.inf_nombre) AS informe,
+	inf.iac_codigo,
+	ia.iac_estado,
+	ia.iac_codigo_control_vista
+FROM ejecucion_actividades.informes inf
+    LEFT JOIN ejecucion_actividades.inicio_actividad_poa iap ON inf.iac_codigo = iap.iac_codigo
+    LEFT JOIN ejecucion_actividades.inicios_actividades ia ON inf.iac_codigo = ia.iac_codigo
+WHERE TRUE
+    AND inf.inf_estado NOT IN (0,9)
+    AND (
+        CASE 
+            -- Si existe el act_codigo en inicio_actividad_poa, lo usa para filtrar
+            WHEN EXISTS (
+                SELECT 1
+                FROM ejecucion_actividades.inicio_actividad_poa iap_sub
+                WHERE iap_sub.act_codigo = :act_codigo
+            )
+            THEN iap.act_codigo = :act_codigo
+            -- Si no existe en inicio_actividad_poa, filtra solo por ges_codigo de inicios_actividades
+            ELSE iap.iac_codigo IS NULL AND ia.ges_codigo = :ges_codigo
+        END
+    )
+ORDER BY inf.inf_codigo ASC;
+--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 ```
 ### Servicio Conaud
 - src/feature/sispoa-actividades/controller/sispoa-actividades.controller.ts
