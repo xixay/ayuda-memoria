@@ -620,7 +620,8 @@
 ###  ------- OBTENER - INFORMES
   # GET {{Host}}/actividades-informes/obtener-informes?act_codigo=(9999)&ges_codigo=(2) HTTP/1.1
   # GET {{Host}}/actividades-informes/obtener-informes?act_codigo=(3167)&ges_codigo=(2) HTTP/1.1
-  GET {{Host}}/actividades-informes/obtener-informes?act_codigo=(1562)&ges_codigo=(2) HTTP/1.1
+  # GET {{Host}}/actividades-informes/obtener-informes?act_codigo=(1562)&ges_codigo=(2) HTTP/1.1
+  GET {{Host}}/actividades-informes/obtener-informes?act_codigo=(1562) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ###  ------- CREAR - ACTIVIDADES INFORMES
