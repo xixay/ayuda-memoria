@@ -88,7 +88,7 @@ TO usr_app_poa;
 | 3445997 | CAROLINA LEA RODRIGUEZ BONIVENTO | APROBADOR            | EDICION |
 
 - actividad : 520.0504.38.10.24
-- ruta: http://172.16.22.243:3002/conaud/inicios-actividades?ges_codigo=2&act_codigo=3167
+- http://172.16.22.243:3002/conaud/inicios-actividades?ges_codigo=2&act_codigo=3167
 - componente: src/components/informes/component/informes.table.jsx
 - Servicio Sushy: 
 ```http
@@ -204,3 +204,11 @@ ORDER BY i.inf_codigo DESC
 ```
 ### Servicio Conaud
 - src/feature/sispoa-actividades/controller/sispoa-actividades.controller.ts
+### Componente Con seleccion Areas Ejecutoras y actividades
+- src/components/apoyo-inicio-actividad-poa/component/apoyo-inicio-actividad-poa-comision.form.jsx
+### No tiene informes
+- http://172.16.22.243:3002/conaud/inicios-actividades?ges_codigo=2&act_codigo=2782
+### No esta iniciado y sin informes
+- http://172.16.22.243:3002/conaud/inicios-actividades?ges_codigo=2&act_codigo=3176
+### View Personalizado
+- src/components/actividades-informes/component/actividades-informes.view.jsx
