@@ -494,3 +494,13 @@ ORDER BY t.act_codigo ASC;
 src/feature/actividades-informes/service/update-actividades-informes.service.ts
 src/components/common/ControllerMultiSelectAjusted.jsx
 ```
+### Data Table
+```
+src/feature/actividades-informes/service/findAll-actividades-informes.service.ts
+findAllActividadConInformes
+```
+### Multi Select de Informes
+```
+src/feature/actividades-informes/service/findAll-actividades-informes.service.ts
+findAllInformesPorActividad
+```
