@@ -1,4 +1,4 @@
-## Crear Sql
+### Crear Sql
 ```sql
 /*
 Autor: Richard Teran Funez
@@ -75,9 +75,8 @@ GRANT SELECT,INSERT,UPDATE,DELETE,TRUNCATE,REFERENCES,TRIGGER
 ON TABLE ejecucion_actividades.actividades_informes
 TO usr_app_poa;
 ```
-## roles
-### SCAT-GAAPIP
-
+### roles
+-  SCAT-GAAPIP
 
 | 9945262 | CLAUDIA PARRA MAMANI             | RESPONSABLE          | EDICION |
 | ------- | -------------------------------- | -------------------- | ------- |
