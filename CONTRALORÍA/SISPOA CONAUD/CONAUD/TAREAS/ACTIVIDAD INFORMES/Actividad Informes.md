@@ -489,3 +489,8 @@ ORDER BY t.act_codigo ASC;
 | 314 | iac_codigo |       |
 | 309 | iac_codigo | igual |
 | 358 | iac_codigo |       |
+### Servicios Nuevos
+```
+src/feature/actividades-informes/service/update-actividades-informes.service.ts
+src/components/common/ControllerMultiSelectAjusted.jsx
+```
