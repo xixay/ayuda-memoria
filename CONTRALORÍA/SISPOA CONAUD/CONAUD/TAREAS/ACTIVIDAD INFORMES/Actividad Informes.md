@@ -504,3 +504,4 @@ findAllActividadConInformes
 src/feature/actividades-informes/service/findAll-actividades-informes.service.ts
 findAllInformesPorActividad
 ```
+- Código Informe: iac_codigo_control_vista + inf_codigo_control = K4/GP485/O24 G5

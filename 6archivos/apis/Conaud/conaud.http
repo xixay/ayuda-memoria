@@ -622,11 +622,12 @@
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ###  ------- OBTENER - INFORMES
-  # GET {{Host}}/actividades-informes/obtener-informes?act_codigo=(9999)&ges_codigo=(2) HTTP/1.1
+  GET {{Host}}/actividades-informes/obtener-informes?act_codigo=(9999)&ges_codigo=(2) HTTP/1.1
   # GET {{Host}}/actividades-informes/obtener-informes?act_codigo=(3167)&ges_codigo=(2) HTTP/1.1
   # GET {{Host}}/actividades-informes/obtener-informes?act_codigo=(3152)&ges_codigo=(2) HTTP/1.1
   # GET {{Host}}/actividades-informes/obtener-informes?act_codigo=(2968)&ges_codigo=(2) HTTP/1.1
-  GET {{Host}}/actividades-informes/obtener-informes?act_codigo=(2921)&ges_codigo=(2) HTTP/1.1
+  # GET {{Host}}/actividades-informes/obtener-informes?act_codigo=(2921)&ges_codigo=(2) HTTP/1.1
+  # GET {{Host}}/actividades-informes/obtener-informes?act_codigo=(2016)&ges_codigo=(2) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ###  ------- CREAR - ACTIVIDADES INFORMES
