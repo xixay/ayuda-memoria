@@ -1,3 +1,5 @@
+## Hacer
+- fix: agregando la opcion de cambio de estado solo para actividades apoyo de tipo Scat
 ## Querys
 ```sql
 SELECT 	*
@@ -49,7 +51,8 @@ FROM 	ejecucion_actividades.apoyo_inicio_actividad_poa aiap
 - Servicio Sushy: 
 ## Servicios afectados
 
-| Servicio                                                                                         | lugar                                                                          | Accion        |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------- |
-| // Todo: DESCONSOLIDAR APOYO INICIO ACTIVIDAD POA y sus ASIGNACIONES y ASIGNACIONES CARGOS ITEMS | src/feature/inicios-actividades/service/create-inicios-actividades.service.ts  | desconsolidar |
-| //Todo: Cambio de estado para apoyo inicio actividad poa                                         | src/feature/inicio-actividad-poa/service/state-inicio-actividad-poa.service.ts | cambio estado |
+| Servicio                                                                                         | lugar                                                                                        | Accion                       |
+| ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------- | ---------------------------- |
+| // Todo: DESCONSOLIDAR APOYO INICIO ACTIVIDAD POA y sus ASIGNACIONES y ASIGNACIONES CARGOS ITEMS | src/feature/inicios-actividades/service/create-inicios-actividades.service.ts                | desconsolidar                |
+| //Todo: Cambio de estado para apoyo inicio actividad poa                                         | src/feature/inicio-actividad-poa/service/state-inicio-actividad-poa.service.ts               | cambio estado                |
+| findAll                                                                                          | src/feature/apoyo-inicio-actividad-poa/service/findAll-apoyo-inicio-actividad-poa.service.ts | se añadio el tipo de trabajo |
