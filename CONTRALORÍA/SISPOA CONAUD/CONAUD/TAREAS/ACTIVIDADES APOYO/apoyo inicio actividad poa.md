@@ -27,3 +27,29 @@ SELECT 	*
 FROM 	ejecucion_actividades.apoyo_inicio_actividad_poa aiap 
 ;
 ```
+## Bases
+
+| inicio | backup_20241115_122025.sql |
+| ------ | -------------------------- |
+|        |                            |
+## roles
+-  SCAT-GAAPIP
+
+| 9945262 | CLAUDIA PARRA MAMANI             | RESPONSABLE          | EDICION |
+| ------- | -------------------------------- | -------------------- | ------- |
+| 486424  | LUIS FERNANDO SAAVEDRA MORATO    | GERENTE CONSOLIDADOR | EDICION |
+| 486424  | LUIS FERNANDO SAAVEDRA MORATO    | SUPERVISOR           | EDICION |
+| 3445997 | CAROLINA LEA RODRIGUEZ BONIVENTO | FORMULADOR           | EDICION |
+| 3445997 | CAROLINA LEA RODRIGUEZ BONIVENTO | FORMULADOR GERENTE   | EDICION |
+| 3445997 | CAROLINA LEA RODRIGUEZ BONIVENTO | APROBADOR            | EDICION |
+
+- actividad : 520.0504.38.10.24
+- http://172.16.22.243:3002/conaud/inicios-actividades?ges_codigo=2&act_codigo=3167
+- componente: src/components/informes/component/informes.table.jsx
+- Servicio Sushy: 
+## Servicios afectados
+
+| Servicio                                                                                         | lugar                                                                          | Accion        |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------- |
+| // Todo: DESCONSOLIDAR APOYO INICIO ACTIVIDAD POA y sus ASIGNACIONES y ASIGNACIONES CARGOS ITEMS | src/feature/inicios-actividades/service/create-inicios-actividades.service.ts  | desconsolidar |
+| //Todo: Cambio de estado para apoyo inicio actividad poa                                         | src/feature/inicio-actividad-poa/service/state-inicio-actividad-poa.service.ts | cambio estado |
