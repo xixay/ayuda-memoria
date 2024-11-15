@@ -31,9 +31,9 @@ FROM 	ejecucion_actividades.apoyo_inicio_actividad_poa aiap
 ```
 ## Bases
 
-| inicio | backup_20241115_122025.sql |
-| ------ | -------------------------- |
-|        |                            |
+| inicio      | backup_20241115_122025.sql |
+| ----------- | -------------------------- |
+| consolidada | backup_20241115_164130.sql |
 ## roles
 -  SCAT-GAAPIP
 
