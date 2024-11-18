@@ -62,6 +62,16 @@
               "icon": "lucide-file",
               "title": "Actividad Informes"
             }
+          },
+          {
+            "id": "4dee70ed782db0fa",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "Nueva pestaña"
+            }
           }
         ]
       }
@@ -207,11 +217,11 @@
   },
   "active": "412fe213c7b6deeb",
   "lastOpenFiles": [
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/ACTIVIDADES APOYO/apoyo inicio actividad poa.md",
     "6archivos/scripts/backup_20241115_164130.sql",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/ACTIVIDAD INFORMES/Actividad Informes.md",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/Reportes Seguimientos.md",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/Observaciones.md",
-    "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/ACTIVIDADES APOYO/apoyo inicio actividad poa.md",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/ACTIVIDADES APOYO/2024-11-15_12-30.png",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/ACTIVIDADES APOYO",
     "6archivos/scripts/backup_20241115_122025.sql",
@@ -232,7 +242,6 @@
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/corregido.pdf",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/report381236277353307009.pdf",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/RptXlsAccionesAct.jrxml (otro).pdf",
-    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/report5953991181387892017.pdf",
-    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/Documento sin título 1"
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/report5953991181387892017.pdf"
   ]
 }
