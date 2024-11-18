@@ -1,5 +1,12 @@
 ## Hacer
 - fix: agregando la opcion de cambio de estado solo para actividades apoyo de tipo Scat
+## ramas
+
+
+| back  | fix/cambio_estado_apoyo_inicio_actividad_poa_back  |
+| ----- | -------------------------------------------------- |
+| front | fix/cambio_estado_apoyo_inicio_actividad_poa_front |
+
 ## Querys
 ```sql
 SELECT 	*
@@ -81,13 +88,13 @@ WHERE 	a.asi_codigo IN (2054)
 ## roles
 -  SCAT-GAAPIP
 
-| 9945262 | CLAUDIA PARRA MAMANI             | RESPONSABLE          | EDICION |
-| ------- | -------------------------------- | -------------------- | ------- |
-| 486424  | LUIS FERNANDO SAAVEDRA MORATO    | GERENTE CONSOLIDADOR | EDICION |
-| 486424  | LUIS FERNANDO SAAVEDRA MORATO    | SUPERVISOR           | EDICION |
-| 3445997 | CAROLINA LEA RODRIGUEZ BONIVENTO | FORMULADOR           | EDICION |
-| 3445997 | CAROLINA LEA RODRIGUEZ BONIVENTO | FORMULADOR GERENTE   | EDICION |
-| 3445997 | CAROLINA LEA RODRIGUEZ BONIVENTO | APROBADOR            | EDICION |
+| 9945262 | CLAUDIA PARRA MAMANI             | RESPONSABLE          | aci_codigo |
+| ------- | -------------------------------- | -------------------- | ---------- |
+| 486424  | LUIS FERNANDO SAAVEDRA MORATO    | GERENTE CONSOLIDADOR | -          |
+| 486424  | LUIS FERNANDO SAAVEDRA MORATO    | SUPERVISOR           | -          |
+| 3445997 | CAROLINA LEA RODRIGUEZ BONIVENTO | FORMULADOR           | 5201       |
+| 3445997 | CAROLINA LEA RODRIGUEZ BONIVENTO | FORMULADOR GERENTE   | 5201       |
+| 3445997 | CAROLINA LEA RODRIGUEZ BONIVENTO | APROBADOR            | 5201       |
 
 - actividad : 520.0504.38.10.24
 - http://172.16.22.243:3002/conaud/inicios-actividades?ges_codigo=2&act_codigo=3167
@@ -384,3 +391,11 @@ WHERE 	TRUE
   		)
 ;
 ```
+- hacer un nuevo page
+- hacer un combo te de las areas unidades ejecutoras
+- al seleccionar area obtener cargos item
+- cada cargo tiene un cit_codigo, con ello obtener los aci_codigo, con aci_codigo obtener los asi_codigo
+- con el asi_codigo ver a quien pertenece si es auditoria, evaluacion, apoyo
+- obtener su iac_codigo_control
+- para mostrar en el calendario:
+	(iac_codigo_control)-[ahu_horas] : ahu_descripcion
