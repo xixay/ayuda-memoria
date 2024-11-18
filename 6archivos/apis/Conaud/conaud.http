@@ -682,7 +682,7 @@
   Content-Type: application/json
 ###  ------- CARGOS ITEMS SOLAMENTE
     # GET {{Host}}/asignaciones-cargos-item/solo-datos?asi_codigo=(1409)&aci_estado=(2) HTTP/1.1
-    GET {{Host}}/asignaciones-cargos-item/solo-datos?asi_codigo=(2054)&aci_estado=(2) HTTP/1.1
+    GET {{Host}}/asignaciones-cargos-item/solo-datos?cit_codigo=(5)&aci_estado=(2) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ###  ------- CARGOS ITEMS CON ASIGNACIONES HRS USADAS
