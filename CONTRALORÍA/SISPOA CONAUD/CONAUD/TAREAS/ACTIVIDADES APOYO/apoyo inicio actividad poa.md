@@ -399,7 +399,7 @@ WHERE 	TRUE
 - obtener su iac_codigo_control
 - para mostrar en el calendario:
 	(iac_codigo_control)-[ahu_horas] : ahu_descripcion
-## Query Sushy
+## Query Su
 ```sql
 --################# BASE ########################33
 SELECT	
