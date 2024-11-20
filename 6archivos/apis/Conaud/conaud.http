@@ -686,10 +686,15 @@
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ###  ------- CARGOS ITEMS CON ASIGNACIONES HRS USADAS
-    GET {{Host}}/asignaciones-horas-usadas/todas-horas?cit_codigo=(2) HTTP/1.1
-    # GET {{Host}}/asignaciones-horas-usadas/todas-horas?cit_codigo=(2) HTTP/1.1
-    # GET {{Host}}/asignaciones-horas-usadas/todas-horas?cit_codigo=(66) HTTP/1.1
-    # GET {{Host}}/asignaciones-horas-usadas/todas-horas?cit_codigo=(5) HTTP/1.1
+    GET {{Host}}/asignaciones-horas-usadas/obtener-todas-horas-usadas?cit_codigo=(5) HTTP/1.1
+    # GET {{Host}}/asignaciones-horas-usadas/obtener-todas-horas-usadas?cit_codigo=(2) HTTP/1.1
+    # GET {{Host}}/asignaciones-horas-usadas/obtener-todas-horas-usadas?cit_codigo=(448) HTTP/1.1
+    # GET {{Host}}/asignaciones-horas-usadas/obtener-todas-horas-usadas?cit_codigo=(66) HTTP/1.1
+    # GET {{Host}}/asignaciones-horas-usadas/obtener-todas-horas-usadas?cit_codigo=(426)&tipo_inicio=(2) HTTP/1.1
+    # GET {{Host}}/asignaciones-horas-usadas/obtener-todas-horas-usadas?cit_codigo=(426)&ahu_dia=(2) HTTP/1.1
+    # GET {{Host}}/asignaciones-horas-usadas/obtener-todas-horas-usadas?cit_codigo=(426)&ahu_mes=(9) HTTP/1.1
+    # GET {{Host}}/asignaciones-horas-usadas/obtener-todas-horas-usadas?cit_codigo=(426)&ahu_ano=(2025) HTTP/1.1
+    # GET {{Host}}/asignaciones-horas-usadas/obtener-todas-horas-usadas?ahu_ano=(2025) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ###  ------- INTEF

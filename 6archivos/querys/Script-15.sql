@@ -1,567 +1,335 @@
---################# BASE ########################33
-SELECT	
-		a.act_codigo, a.act_numero, a.ttr_codigo, a.act_estado, -- ACTIVIDAD
-		iap.tia_codigo, iap.iap_codigo,  iap.iap_estado, -- INICIO-ACTIVIDAD-POA
-		ia.iac_codigo, ia.iac_codigo_control, ia.iac_correlativo ,ia.iac_estado, -- INICIOS-ACTIVIDADES
-		asi.asi_codigo, asi.asi_estado,-- asi.asi_detalle_asignaciones_cargos_items, asi.asi_detalle_asignaciones_horas_usadas, asi.asi_detalle_reposicion_cargos_item,  -- ASIGNACION
-		aci.aci_codigo,  aci.aci_estado,aci.aci_horas , -- ASIGNACION-CARGOS-ITEM
-		iai.iai_codigo, iai.iai_estado, ---INICIOS ACTIVIDADES INFORMES 
-		i.inf_codigo, i.inf_estado , i.iac_codigo AS iac_codigo_inf, ---INFORMES
-		iei.iua_codigo, iu.iua_estado 
-FROM	estructura_poa.actividades a
-		LEFT JOIN ejecucion_actividades.inicio_actividad_poa iap ON a.act_codigo = iap.act_codigo --AND iap.iap_estado NOT IN (5)
-		LEFT JOIN ejecucion_actividades.inicios_actividades ia ON iap.iac_codigo = ia.iac_codigo 
-		LEFT JOIN ejecucion_actividades.inicio_actividad_informe iai ON ia.iac_codigo = iai.iac_codigo
-		LEFT JOIN ejecucion_actividades.informes i ON iai.inf_codigo = i.inf_codigo 
-		LEFT JOIN ejecucion_informes.informes_uai iu ON iu.act_codigo = a.act_codigo 
-		LEFT JOIN ejecucion_actividades.inicio_actividad_poa_asignaciones iapa ON iap.iap_codigo = iapa.iap_codigo
-		LEFT JOIN ejecucion_poa.asignaciones asi ON iapa.asi_codigo = asi.asi_codigo
-		LEFT JOIN ejecucion_poa.asignaciones_cargos_item aci ON asi.asi_codigo = aci.asi_codigo 
-		LEFT JOIN ejecucion_informes.inicio_evaluacion_informe iei ON iei.iua_codigo = iu.iua_codigo  
-WHERE	TRUE
-		AND aci.cit_codigo IN (5)
---		AND a.act_codigo IN (1409)
+--####  1  - 3  ####
+SELECT
+      po.pobj_codigo, po.pobj_estado, pr.pro_numero, au.aun_numero, po.pobj_numero,
+      (CASE WHEN po.aun_codigo_padre IS NOT NULL
+      THEN CONCAT(pr.pro_numero, '.', au2.aun_numero, '.', po.pobj_numero)
+      ELSE CONCAT(pr.pro_numero, '.', au.aun_numero, '.', po.pobj_numero)  END) AS poa_pobj_oau_act_codigo,
+      po.pobj_nombre, po.pro_codigo, po.pobj_indicador
+FROM    estructura_poa.poas_objetivos po
+      LEFT JOIN pei.programas pr ON po.pro_codigo = pr.pro_codigo
+      LEFT JOIN estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo AND oau.oau_estado NOT IN (0)
+      LEFT JOIN estructura_organizacional.areas_unidades au ON oau.aun_codigo_ejecutora = au.aun_codigo
+      LEFT JOIN estructura_organizacional.areas_unidades au2 ON po.aun_codigo_padre = au2.aun_codigo
+      LEFT JOIN estructura_poa.actividades a ON po.pobj_codigo = a.pobj_codigo
+WHERE   TRUE
+      AND po.poa_codigo IN (3) -- POA-SELECCIONADO
+       -- POA-SELECCIONADO
+      AND po.pobj_estado IN (2,8) -- ESTADOS
+      AND oau.oau_estado IN (2,8) -- ESTADOS
+      AND oau.aun_codigo_ejecutora IN (1) -- UNIDAD-EJECUTORA
+      AND a.cac_codigo IN (1,3) -- CLASIFICACION-ACTIVIDADES
+GROUP BY po.pobj_codigo, pr.pro_numero, po.pobj_numero, po.pobj_nombre, au.aun_numero, au2.aun_numero
 ;
---############################################################################3333
-	        SELECT
-              a.act_codigo,
-              COALESCE(SUM(inicio_auditoria.horas_auditorias), 0) AS horas_auditorias,
-              COALESCE(SUM(inicio_evaluacion.horas_evaluaciones), 0) AS horas_evaluaciones,
-              COALESCE(SUM(inicio_apoyos.horas_apoyos), 0) AS horas_apoyos,
-              COALESCE(SUM(inicio_auditoria.horas_auditorias), 0) + COALESCE(SUM(inicio_evaluacion.horas_evaluaciones), 0) + COALESCE(SUM(inicio_apoyos.horas_apoyos), 0) AS horas_comision
-        FROM 	estructura_poa.actividades a
-              LEFT JOIN (
-                SELECT
-                      iap.act_codigo,
-                      SUM(aci.aci_horas) AS horas_auditorias
-                FROM	ejecucion_actividades.inicio_actividad_poa iap
-                      LEFT JOIN ejecucion_actividades.inicio_actividad_poa_asignaciones iapa ON iap.iap_codigo = iapa.iap_codigo
-                      LEFT JOIN ejecucion_poa.asignaciones asi ON iapa.asi_codigo = asi.asi_codigo AND asi.asi_estado NOT IN (0, 5, 9)
-                      LEFT JOIN ejecucion_poa.asignaciones_cargos_item aci ON asi.asi_codigo = aci.asi_codigo AND aci.aci_estado NOT IN (0, 5, 9)
-                WHERE	iap.iap_estado NOT IN (0, 5, 9)
-                GROUP BY iap.act_codigo
-              ) inicio_auditoria ON a.act_codigo = inicio_auditoria.act_codigo
-              LEFT JOIN (
-                SELECT
-                      iu.act_codigo,
-                      SUM(aci.aci_horas) AS horas_evaluaciones
-                FROM	ejecucion_informes.informes_uai iu
-                      LEFT JOIN ejecucion_informes.inicio_evaluacion_informe iei ON iu.iua_codigo = iei.iua_codigo AND iei.iei_estado NOT IN (0, 5, 9)
-                      LEFT JOIN ejecucion_informes.inicio_evaluacion_informe_asignaciones ieia ON iei.iei_codigo = ieia.iei_codigo
-                      LEFT JOIN ejecucion_poa.asignaciones asi ON ieia.asi_codigo = asi.asi_codigo AND asi.asi_estado NOT IN (0, 5, 9)
-                      LEFT JOIN ejecucion_poa.asignaciones_cargos_item aci ON asi.asi_codigo = aci.asi_codigo AND aci.aci_estado NOT IN (0, 5, 9)
-                WHERE	iu.iua_estado NOT IN (0, 5, 9)
-                GROUP BY iu.act_codigo
-              ) inicio_evaluacion ON a.act_codigo = inicio_evaluacion.act_codigo
-              LEFT JOIN (
-                SELECT
-                      aiap.act_codigo,
-                      SUM(aci.aci_horas) AS horas_apoyos
-                FROM	ejecucion_actividades.apoyo_inicio_actividad_poa aiap
-                      LEFT JOIN ejecucion_poa.asignaciones asi ON aiap.asi_codigo = asi.asi_codigo
-                      LEFT JOIN ejecucion_poa.asignaciones_cargos_item aci ON asi.asi_codigo = aci.asi_codigo AND aci.aci_estado NOT IN (0, 5, 9)
-                WHERE	TRUE
-                      AND aiap.aiap_estado NOT IN (0,5,9)
-                GROUP BY aiap.act_codigo
-              ) inicio_apoyos ON a.act_codigo = inicio_apoyos.act_codigo
-        WHERE	TRUE
-              AND a.act_codigo IN (:act_codigo)
-        GROUP BY a.act_codigo
-        ;
---UNO
-WITH 
-inicio_auditoria AS 
-(
+--####  2  #####
+SELECT
+      po.pobj_codigo, po.pobj_estado, pr.pro_numero, au.aun_numero, po.pobj_numero,
+      (CASE WHEN po.aun_codigo_padre IS NOT NULL
+      THEN CONCAT(pr.pro_numero, '.', au2.aun_numero, '.', po.pobj_numero)
+      ELSE CONCAT(pr.pro_numero, '.', au.aun_numero, '.', po.pobj_numero)  END) AS poa_pobj_oau_act_codigo,
+      po.pobj_nombre, po.pro_codigo, po.pobj_indicador
+FROM    estructura_poa.poas_objetivos po
+      LEFT JOIN pei.programas pr ON po.pro_codigo = pr.pro_codigo
+      LEFT JOIN estructura_poa.objetivos_area_unidad oau ON po.pobj_codigo = oau.pobj_codigo AND oau.oau_estado NOT IN (0)
+      LEFT JOIN estructura_organizacional.areas_unidades au ON oau.aun_codigo_ejecutora = au.aun_codigo
+      LEFT JOIN estructura_organizacional.areas_unidades au2 ON po.aun_codigo_padre = au2.aun_codigo
+      LEFT JOIN estructura_poa.actividades a ON po.pobj_codigo = a.pobj_codigo
+WHERE   TRUE
+      AND po.poa_codigo IN (3) -- POA-SELECCIONADO
+       -- POA-SELECCIONADO
+      AND po.pobj_estado IN (2,8) -- ESTADOS
+      AND oau.oau_estado IN (2,8) -- ESTADOS
+      AND oau.aun_codigo_ejecutora IN (1) -- UNIDAD-EJECUTORA
+      AND a.cac_codigo IN (2) -- CLASIFICACION-ACTIVIDADES
+GROUP BY po.pobj_codigo, pr.pro_numero, po.pobj_numero, po.pobj_nombre, au.aun_numero, au2.aun_numero
+;
+
+SELECT 	*
+FROM 	estructura_organizacional.areas_unidades au 
+WHERE 	au.aun_codigo IN (19)
+;
+
 SELECT 	
-		iap.iap_codigo, iap.iap_estado,
-		a.act_codigo, a.act_estado,
-		iapa.iapa_codigo, iapa.iapa_estado,
-		asi.asi_codigo, asi.asi_estado
-FROM 	ejecucion_actividades.inicio_actividad_poa iap
-		LEFT JOIN estructura_poa.actividades a ON iap.act_codigo = a.act_codigo
-		LEFT JOIN ejecucion_actividades.inicio_actividad_poa_asignaciones iapa ON iap.iap_codigo = iapa.iap_codigo
-		LEFT JOIN ejec10ucion_poa.asignaciones asi ON iapa.asi_codigo = asi.asi_codigo
-)
-SELECT 	* 
-FROM 	inicio_auditoria
+		COALESCE(
+        	ARRAY_AGG(
+            	DISTINCT aur.rol_codigo ORDER BY aur.rol_codigo ASC
+            ) FILTER (WHERE aur.per_codigo = 1914),
+            '{}'
+        ) AS roles,
+        COUNT(DISTINCT aur.rol_codigo) AS cantidad_roles
+FROM 	estructura_poa.area_unidad_responsables aur
 WHERE 	TRUE
-		AND inicio_auditoria.iap_estado IN (2)
-		--AND inicio_auditoria.asi_codigo IN (7)
-		AND inicio_auditoria.act_codigo IN (3176)
+		AND aur.aur_estado IN (1)
+		AND aur.rol_codigo IN (1,2,3,4,8)
+		AND aur.poa_codigo IN (3)
+		AND aur.aun_codigo_ejecutora IN (1)
+		AND aur.per_codigo IN (1914)
 ;
---################### inicio_auditoria ######################
-SELECT 	
-		asi.asi_codigo, asi.asi_estado,
-		inicio_auditoria.iap_codigo, inicio_auditoria.ttr_codigo
-FROM 	ejecucion_poa.asignaciones asi
-		LEFT JOIN (
-			SELECT 	
-					iap.iap_codigo, iap.iap_estado,
-					iapa.iapa_codigo, iapa.iapa_estado, iapa.asi_codigo,
-					a.ttr_codigo
-			FROM 	ejecucion_actividades.inicio_actividad_poa iap
-					LEFT JOIN ejecucion_actividades.inicio_actividad_poa_asignaciones iapa ON iap.iap_codigo = iapa.iap_codigo
-					LEFT JOIN estructura_poa.actividades a ON iap.act_codigo = a.act_codigo
-			WHERE 	iap.iap_estado IN (2)
-		) inicio_auditoria ON asi.asi_codigo = inicio_auditoria.asi_codigo
-WHERE 	asi.asi_codigo IN (1409)
+SELECT 	au.aun_sigla, 
+		aur.aur_codigo, 
+		aur.aur_estado, 
+		aur.per_codigo,
+		aur.poa_codigo,
+		aur.aun_codigo_ejecutora,
+		aur.rol_codigo,
+		r.rol_nombre,
+		cr.cro_descripcion 
+FROM 	estructura_poa.area_unidad_responsables aur
+		LEFT JOIN estructura_organizacional.areas_unidades au ON aur.aun_codigo_ejecutora = au.aun_codigo
+		LEFT JOIN parametricas.roles r ON aur.rol_codigo = r.rol_codigo
+		LEFT JOIN parametricas.clasificacion_rol cr ON cr.cro_codigo = aur.cro_codigo 
+WHERE 	TRUE
+		AND aur.aur_estado NOT IN (0,5)
+--		AND aur.per_codigo IN (234)--486424 LUIS FERNANDO SAAVEDRA MORATO   
+--		AND aur.per_codigo IN (7)--2573781  ERIKA CAROLINA CARDENAS SALAS
+--		AND aur.per_codigo IN (2096)--2468864	NORA HERMINIA MAMANI CABRERA
+		AND aur.per_codigo IN (784)
+		AND aur.aun_codigo_ejecutora IN (13)
 ;
---################### inicio_evaluacion ######################
-SELECT 	
-		asi.asi_codigo, asi.asi_estado,
-		inicio_evaluacion.iua_codigo, inicio_evaluacion.iua_fecha, inicio_evaluacion.iua_fecha_inicio_evaluacion, inicio_evaluacion.ttr_codigo
-FROM 	ejecucion_poa.asignaciones asi
-		LEFT JOIN (
-			SELECT 	
-					iu.iua_codigo, iu.iua_estado,iu.iua_fecha,iu.iua_fecha_inicio_evaluacion,
-					a.ttr_codigo,	
-					iei.iei_codigo, iei.iei_estado,
-					ieia.ieia_codigo, ieia.ieia_estado, ieia.asi_codigo
-			FROM 	ejecucion_informes.informes_uai iu
-					LEFT JOIN estructura_poa.actividades a ON iu.act_codigo = a.act_codigo
-					LEFT JOIN ejecucion_informes.inicio_evaluacion_informe iei ON iu.iua_codigo = iei.iua_codigo
-					LEFT JOIN ejecucion_informes.inicio_evaluacion_informe_asignaciones ieia ON iei.iei_codigo = ieia.iei_codigo
-			WHERE	iu.iua_estado IN (22)
-		) inicio_evaluacion ON asi.asi_codigo = inicio_evaluacion.asi_codigo
-WHERE 	asi.asi_codigo IN (136)
-;
---################### inicio_apoyos ######################
-SELECT 	asi.asi_codigo, asi.asi_estado,
-		inicio_apoyos.aiap_codigo, inicio_apoyos.ttr_codigo
-FROM	ejecucion_poa.asignaciones asi
-		LEFT JOIN (
-			SELECT	aiap.aiap_codigo, aiap.aiap_estado, aiap.asi_codigo,
-					a.ttr_codigo
-			FROM	ejecucion_actividades.apoyo_inicio_actividad_poa aiap
-					LEFT JOIN estructura_poa.actividades a ON aiap.act_codigo = a.act_codigo
-			WHERE 	aiap.aiap_estado IN (2)
-		) inicio_apoyos ON asi.asi_codigo = inicio_apoyos.asi_codigo
-WHERE 	asi.asi_codigo IN (2055)
-;
---##########################################################3333
-SELECT 	iu.iua_codigo, iu.iua_estado 
-FROM 	ejecucion_informes.informes_uai iu ;
+
+SELECT 	*
+FROM 	estructura_poa.area_unidad_responsables aur ;
+SELECT 	*
+FROM 	estructura_organizacional.areas_unidades au 
+WHERE 	au.aun_sigla LIKE 'GPA2';
+
+
+        SELECT
+              t.aur_codigo,
+              t.aur_notificacion,
+              t.poa_codigo,
+              po.poa_descripcion,
+              au.cau_codigo,
+              t.aun_codigo_ejecutora,
+              -- au.aun_nombre,
+              CONCAT_WS(' - ', au.aun_nombre, au.aun_sigla) AS aun_nombre,
+              t.aun_codigo_rol,
+              -- au_rol.aun_nombre AS aun_nombre_rol,
+              CONCAT_WS(' - ', au_rol.aun_nombre, au_rol.aun_sigla) AS aun_nombre_rol,
+              t.rol_codigo,
+              ro.rol_nombre,
+              t.per_codigo,
+              t.cro_codigo,
+              cr.cro_descripcion,
+              t.usuario_registro AS usuario,
+              t.aur_estado,
+              e.est_color,
+              e.est_nombre AS aur_estado_descripcion
+        FROM  estructura_poa.area_unidad_responsables t
+              LEFT JOIN parametricas.estados e ON e.est_codigo = t.aur_estado
+              LEFT JOIN estructura_poa.poas po ON po.poa_codigo = t.poa_codigo
+              LEFT JOIN estructura_organizacional.areas_unidades au ON au.aun_codigo = t.aun_codigo_ejecutora
+              LEFT JOIN estructura_organizacional.areas_unidades au_rol ON au_rol.aun_codigo = t.aun_codigo_rol
+              LEFT JOIN parametricas.roles ro ON ro.rol_codigo = t.rol_codigo
+              LEFT JOIN parametricas.clasificacion_rol cr ON cr.cro_codigo = t.cro_codigo
+        WHERE TRUE
+              AND t.aur_estado IN (1,2)
+              AND t.poa_codigo IN (3)
+              AND t.aun_codigo_ejecutora IN (53)
+              AND t.rol_codigo IN (1,2,3,4,6,7,8)
+        ORDER BY t.aur_codigo DESC, t.fecha_registro DESC;
+
+
+       
+
+
+
+
 
 SELECT
-		asi.asi_codigo,
-		asi.asi_estado,
-		COALESCE(inicio_auditoria.ttr_codigo, inicio_evaluacion.ttr_codigo, inicio_apoyos.ttr_codigo) AS ttr_codigo,
-		COALESCE(inicio_auditoria.fecha_inicio_po, inicio_evaluacion.fecha_inicio_po, inicio_apoyos.fecha_inicio_po) AS fecha_inicio_po,
-		COALESCE(inicio_auditoria.fecha_inicio, inicio_evaluacion.fecha_inicio, inicio_apoyos.fecha_inicio) AS fecha_inicio		
-FROM 	ejecucion_poa.asignaciones asi
-		LEFT JOIN (
-		    SELECT
-					iap.iap_codigo,
-					iapa.asi_codigo,
-					TO_CHAR(a.act_fecha_inicio, 'dd/mm/yyyy') AS fecha_inicio_po,
-					TO_CHAR(ia.iac_fecha_inicio, 'dd/mm/yyyy') AS fecha_inicio,
-					a.ttr_codigo
-		    FROM 	ejecucion_actividades.inicio_actividad_poa iap
-		    		LEFT JOIN ejecucion_actividades.inicios_actividades ia ON iap.iac_codigo = ia.iac_codigo
-		    		LEFT JOIN ejecucion_actividades.inicio_actividad_poa_asignaciones iapa ON iap.iap_codigo = iapa.iap_codigo
-		    		LEFT JOIN ejecucion_poa.asignaciones_cargos_item aci ON iapa.asi_codigo = aci.asi_codigo AND aci.aci_estado NOT IN (0,5,9)
-		    		LEFT JOIN estructura_poa.actividades a ON iap.act_codigo = a.act_codigo
-		    WHERE 	iap.iap_estado IN (2)
-		) inicio_auditoria ON asi.asi_codigo = inicio_auditoria.asi_codigo
-		LEFT JOIN (
-		    SELECT
-		        	iu.iua_codigo,
-		        	TO_CHAR(iu.iua_fecha, 'dd/mm/yyyy') AS fecha_inicio_po,
-		        	TO_CHAR(iu.iua_fecha_inicio_evaluacion, 'dd/mm/yyyy') AS fecha_inicio,
-			        a.ttr_codigo,
-			        ieia.asi_codigo
-		    FROM 	ejecucion_informes.informes_uai iu
-		    		LEFT JOIN estructura_poa.actividades a ON iu.act_codigo = a.act_codigo
-		    		LEFT JOIN ejecucion_informes.inicio_evaluacion_informe iei ON iu.iua_codigo = iei.iua_codigo
-		    		LEFT JOIN ejecucion_informes.inicio_evaluacion_informe_asignaciones ieia ON iei.iei_codigo = ieia.iei_codigo
-		    WHERE 	iu.iua_estado IN (22)
-		) inicio_evaluacion ON asi.asi_codigo = inicio_evaluacion.asi_codigo
-		LEFT JOIN (
-		    SELECT
-		        	aiap.aiap_codigo,
-		        	aiap.asi_codigo,
-		        	TO_CHAR(a.act_fecha_inicio, 'dd/mm/yyyy') AS fecha_inicio_po,
-					TO_CHAR(ia.iac_fecha_inicio, 'dd/mm/yyyy') AS fecha_inicio,
-		        	a.ttr_codigo
-		    FROM 	ejecucion_actividades.apoyo_inicio_actividad_poa aiap
-		    		LEFT JOIN ejecucion_actividades.inicios_actividades ia ON aiap.iac_codigo = ia.iac_codigo
-		    		LEFT JOIN estructura_poa.actividades a ON aiap.act_codigo = a.act_codigo
-		    WHERE 	aiap.aiap_estado IN (2)
-		) inicio_apoyos ON asi.asi_codigo = inicio_apoyos.asi_codigo
+      au.aun_codigo AS aun_codigo_ejecutora,
+      cau.cau_codigo,
+      cau.cau_nombre,
+      CONCAT_WS(' - ', au.aun_nombre, au.aun_sigla) AS aun_nombre,
+      COALESCE(MAX(aur.n_formulador), 0) AS n_formulador,
+      COALESCE(MAX(aur.n_aprobador), 0) AS n_aprobador,
+      COALESCE(MAX(aur.n_supervisor), 0) AS n_supervisor,
+      COALESCE(MAX(aur.n_comision), 0) AS n_comision,
+      COALESCE(MAX(aur.n_formulador_gerencial), 0) AS n_formulador_gerencial,
+      COALESCE(MAX(aur.n_oficial_administrativo), 0) AS n_oficial_administrativo,
+      COALESCE(MAX(aur.n_gerente_consolidador), 0) AS n_gerente_consolidador,
+      CASE WHEN cau.cau_codigo = 2 THEN COALESCE(MAX(aur.n_responsable), 0) ELSE null END AS n_responsable
+FROM    estructura_poa.poas p
+      LEFT JOIN estructura_organizacional.gestiones_organigramas gor ON p.ges_codigo = gor.ges_codigo
+      LEFT JOIN estructura_organizacional.areas_unidades au ON gor.org_codigo = au.org_codigo AND au.aun_estado IN (2,8)
+      LEFT JOIN parametricas.clasificaciones_areas_unidades cau ON au.cau_codigo = cau.cau_codigo
+      LEFT JOIN (
+        SELECT  aur.aun_codigo_ejecutora,
+            SUM(CASE WHEN aur.rol_codigo = 1 THEN 1 ELSE 0 END) AS n_formulador,
+            SUM(CASE WHEN aur.rol_codigo = 2 THEN 1 ELSE 0 END) AS n_aprobador,
+            SUM(CASE WHEN aur.rol_codigo = 3 THEN 1 ELSE 0 END) AS n_supervisor,
+            SUM(CASE WHEN aur.rol_codigo = 4 THEN 1 ELSE 0 END) AS n_formulador_gerencial,
+            SUM(CASE WHEN aur.rol_codigo = 5 THEN 1 ELSE 0 END) AS n_comision,
+            SUM(CASE WHEN aur.rol_codigo = 6 THEN 1 ELSE 0 END) AS n_responsable,
+            SUM(CASE WHEN aur.rol_codigo = 7 THEN 1 ELSE 0 END) AS n_oficial_administrativo,
+            SUM(CASE WHEN aur.rol_codigo = 8 THEN 1 ELSE 0 END) AS n_gerente_consolidador
+        FROM    estructura_poa.area_unidad_responsables aur
+        WHERE   TRUE
+            AND aur.aur_estado != 0
+            AND aur.poa_codigo IN (3)
+        GROUP BY aur.aun_codigo_ejecutora
+        ORDER BY aur.aun_codigo_ejecutora ASC
+      ) aur ON au.aun_codigo = aur.aun_codigo_ejecutora
+WHERE   TRUE
+      AND p.poa_estado != 0
+      AND au.aun_estado IN (2,8)
+      AND p.poa_codigo IN (3)
+GROUP BY au.aun_codigo, au.aun_nombre, au.aun_sigla, cau.cau_nombre, cau.cau_codigo
+ORDER BY au.aun_codigo ASC
+;
+
+
+--#######################################################################
+WITH roles AS (
+    SELECT
+        t.per_codigo,
+        SUM(CASE WHEN t.rol_codigo IN (1, 7, 8) THEN 1 ELSE 0 END) AS roles_sispoa,
+        SUM(CASE WHEN t.rol_codigo IN (4, 5, 6) THEN 1 ELSE 0 END) AS roles_conaud,
+        SUM(CASE WHEN t.rol_codigo IN (2, 3) THEN 1 ELSE 0 END) AS roles_compartidos
+    FROM estructura_poa.area_unidad_responsables t
+    WHERE t.aur_estado NOT IN (0, 5)
+    GROUP BY t.per_codigo
+)
+SELECT
+    t.aur_codigo,
+    t.aur_notificacion,
+    t.poa_codigo,
+    po.poa_descripcion,
+    au.cau_codigo,
+    t.aun_codigo_ejecutora,
+    CONCAT_WS(' - ', au.aun_nombre, au.aun_sigla) AS aun_nombre,
+    t.aun_codigo_rol,
+    CONCAT_WS(' - ', au_rol.aun_nombre, au_rol.aun_sigla) AS aun_nombre_rol,
+    t.rol_codigo,
+    ro.rol_nombre,
+    t.per_codigo,
+    t.cro_codigo,
+    cr.cro_descripcion,
+    -- Bandera de eliminación de SISPOA
+    CASE
+        WHEN r.roles_sispoa = 1 AND r.roles_compartidos = 0 THEN 1
+        WHEN r.roles_sispoa = 1 AND r.roles_compartidos = 1 THEN 0
+        ELSE 0
+    END AS flag_eliminar_sispoa,
+    -- Bandera de eliminación de CONAUD
+    CASE
+        WHEN r.roles_conaud = 1 AND r.roles_compartidos = 0 THEN 1
+        WHEN r.roles_conaud = 1 AND r.roles_compartidos = 1 THEN 0
+        ELSE 0
+    END AS flag_eliminar_conaud,
+    -- Bandera de eliminación en ambos sistemas
+    CASE
+        WHEN r.roles_sispoa = 0 AND r.roles_conaud = 1 AND r.roles_compartidos = 1 THEN 1
+        WHEN r.roles_conaud = 1 AND r.roles_compartidos = 1 THEN 1
+        ELSE 0
+    END AS flag_eliminar_ambos,
+    t.usuario_registro AS usuario,
+    t.aur_estado,
+    e.est_color,
+    e.est_nombre AS aur_estado_descripcion
+FROM estructura_poa.area_unidad_responsables t
+LEFT JOIN parametricas.estados e ON e.est_codigo = t.aur_estado
+LEFT JOIN estructura_poa.poas po ON po.poa_codigo = t.poa_codigo
+LEFT JOIN estructura_organizacional.areas_unidades au ON au.aun_codigo = t.aun_codigo_ejecutora
+LEFT JOIN estructura_organizacional.areas_unidades au_rol ON au_rol.aun_codigo = t.aun_codigo_rol
+LEFT JOIN parametricas.roles ro ON ro.rol_codigo = t.rol_codigo
+LEFT JOIN parametricas.clasificacion_rol cr ON cr.cro_codigo = t.cro_codigo
+LEFT JOIN roles r ON r.per_codigo = t.per_codigo
+WHERE t.aur_estado IN (1, 2)
+  AND t.poa_codigo IN (3)
+  AND t.aun_codigo_ejecutora IN (1)
+  AND t.rol_codigo IN (1, 2, 3, 4, 5, 6, 7, 8)
+ORDER BY t.aur_codigo DESC, t.fecha_registro DESC;
+
+
+
+
+--#######################################################################
+
+
+--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+        SELECT
+              t.aur_codigo,
+              t.aur_notificacion,
+              t.poa_codigo,
+              po.poa_descripcion,
+              au.cau_codigo,
+              t.aun_codigo_ejecutora,
+              -- au.aun_nombre,
+              CONCAT_WS(' - ', au.aun_nombre, au.aun_sigla) AS aun_nombre,
+              t.aun_codigo_rol,
+              -- au_rol.aun_nombre AS aun_nombre_rol,
+              CONCAT_WS(' - ', au_rol.aun_nombre, au_rol.aun_sigla) AS aun_nombre_rol,
+              t.rol_codigo,
+              ro.rol_nombre,
+              t.per_codigo,
+              t.cro_codigo,
+              cr.cro_descripcion,
+              -- Subconsulta para contar los roles restantes
+              (SELECT COUNT(*)
+              FROM estructura_poa.area_unidad_responsables aur
+              WHERE aur.per_codigo = t.per_codigo
+                AND aur.aur_estado NOT IN (0, 5)
+              ) AS cantidad_roles_restantes, -- Nombre del campo para la cantidad de roles restantes
+              t.usuario_registro AS usuario,
+              t.aur_estado,
+              e.est_color,
+              e.est_nombre AS aur_estado_descripcion
+        FROM  estructura_poa.area_unidad_responsables t
+              LEFT JOIN parametricas.estados e ON e.est_codigo = t.aur_estado
+              LEFT JOIN estructura_poa.poas po ON po.poa_codigo = t.poa_codigo
+              LEFT JOIN estructura_organizacional.areas_unidades au ON au.aun_codigo = t.aun_codigo_ejecutora
+              LEFT JOIN estructura_organizacional.areas_unidades au_rol ON au_rol.aun_codigo = t.aun_codigo_rol
+              LEFT JOIN parametricas.roles ro ON ro.rol_codigo = t.rol_codigo
+              LEFT JOIN parametricas.clasificacion_rol cr ON cr.cro_codigo = t.cro_codigo
+        WHERE TRUE
+              AND t.aur_estado IN (1,2)
+              AND t.poa_codigo IN (3)
+              AND t.aun_codigo_ejecutora IN (1)
+              AND t.rol_codigo IN (1,2,3,4,6,7,8)
+              AND t.per_codigo IN (2096)
+        ORDER BY t.aur_codigo DESC, t.fecha_registro DESC
+        ;
+
+
+
+--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+SELECT 	*
+FROM 	ejecucion_informes.informes_uai;
+
+--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+SELECT
+		iap.fecha_registro,  iap.fecha_modificacion, iap.usuario_modificacion,
+		iac.iac_codigo, iac_estado, iac.iac_codigo_control ,
+		iap.iap_codigo, iap.iap_estado,
+		iaa.iaa_codigo, iaa.iaa_estado,
+		iapa.iapa_codigo, iapa.iapa_estado,
+		asi.asi_codigo, asi.asi_estado ,
+		aci.aci_codigo , aci.aci_estado
+FROM 	ejecucion_actividades.inicios_actividades iac
+		LEFT JOIN ejecucion_actividades.inicio_actividad_poa iap USING (iac_codigo)
+		left join estructura_poa.actividades a on iap.act_codigo = a.act_codigo
+		LEFT JOIN estructura_poa.poas_objetivos po ON a.pobj_codigo = po.pobj_codigo
+		LEFT JOIN ejecucion_actividades.inicios_actividades_adicional iaa USING (iac_codigo)
+		LEFT JOIN ejecucion_actividades.inicio_actividad_poa_asignaciones iapa USING (iap_codigo)
+		LEFT JOIN ejecucion_poa.asignaciones asi USING (asi_codigo)
+		LEFT JOIN ejecucion_poa.asignaciones_cargos_item aci USING (asi_codigo)
 WHERE 	TRUE
-		AND asi.asi_codigo IN (1476)
---		AND asi.asi_codigo IN (1409, 136, 2055); -- Sustituye los códigos por los que desees filtrar
+--		AND po.poa_codigo in (3)
+		AND aci.aci_codigo IN (5146)
 ;
---
-SELECT  a.asi_codigo, a.asi_estado,
-		t.aci_codigo, t.aci_estado,t.aci_horas,t.per_codigo,
-		ci.cit_codigo, ci.cit_estado, ci.aun_codigo,
-		ahu.ahu_codigo,ahu.ahu_estado,ahu.ahu_horas, ahu.ahu_fecha,
-		a2.act_codigo, a2.act_numero, au.aun_sigla
-FROM 	ejecucion_poa.asignaciones a
-		LEFT JOIN ejecucion_actividades.inicio_actividad_poa_asignaciones iapa ON a.asi_codigo = iapa.asi_codigo
-		LEFT JOIN ejecucion_actividades.inicio_actividad_poa iap ON iapa.iap_codigo = iap.iap_codigo
-		LEFT JOIN estructura_poa.actividades a2 ON iap.act_codigo = a2.act_codigo
-		LEFT JOIN estructura_organizacional.areas_unidades au ON a2.aun_codigo_ejecutora = au.aun_codigo
-		LEFT JOIN ejecucion_poa.asignaciones_cargos_item t ON a.asi_codigo = t.asi_codigo AND t.aci_estado NOT IN (0,5,9)
-		LEFT JOIN estructura_organizacional.cargos_items ci ON t.cit_codigo = ci.cit_codigo AND ci.cit_estado NOT IN (0,5,9)
-		LEFT JOIN ejecucion_poa.asignaciones_horas_usadas ahu ON t.aci_codigo = ahu.aci_codigo AND ahu.ahu_estado NOT IN (0,5,9)
-WHERE 	ci.aun_codigo IN (56)
-		AND ci.cit_codigo IN (2)
-		AND a.asi_codigo IN (1476)
-		AND a.asi_estado NOT IN (0,5,9)
-		AND a2.act_codigo IS NOT NULL
-UNION ALL
-SELECT  a.asi_codigo, a.asi_estado,
-		t.aci_codigo, t.aci_estado,t.aci_horas,t.per_codigo,
-		ci.cit_codigo, ci.cit_estado, ci.aun_codigo,
-		ahu.ahu_codigo,ahu.ahu_estado,ahu.ahu_horas, ahu.ahu_fecha,
-		a2.act_codigo, a2.act_numero, au.aun_sigla
-FROM 	ejecucion_poa.asignaciones a
-		LEFT JOIN ejecucion_informes.inicio_evaluacion_informe_asignaciones ieia ON a.asi_codigo = ieia.asi_codigo
-		LEFT JOIN ejecucion_informes.inicio_evaluacion_informe iei ON ieia.iei_codigo = iei.iei_codigo
-		LEFT JOIN ejecucion_informes.informes_uai iu ON iei.iua_codigo = iu.iua_codigo
-		LEFT JOIN estructura_poa.actividades a2 ON iu.act_codigo = a2.act_codigo
-		LEFT JOIN estructura_organizacional.areas_unidades au ON a2.aun_codigo_ejecutora = au.aun_codigo
-		LEFT JOIN ejecucion_poa.asignaciones_cargos_item t ON a.asi_codigo = t.asi_codigo AND t.aci_estado NOT IN (0,5,9)
-		LEFT JOIN estructura_organizacional.cargos_items ci ON t.cit_codigo = ci.cit_codigo AND ci.cit_estado NOT IN (0,5,9)
-		LEFT JOIN ejecucion_poa.asignaciones_horas_usadas ahu ON t.aci_codigo = ahu.aci_codigo AND ahu.ahu_estado NOT IN (0,5,9)
-WHERE 	ci.aun_codigo IN (56)
-		AND ci.cit_codigo IN (2)
-		AND a.asi_codigo IN (1476)
-		AND a.asi_estado NOT IN (0,5,9)
-		AND a2.act_codigo IS NOT NULL
+SELECT 	*
+FROM 	ejecucion_poa.asignaciones_cargos_item aci
+		LEFT JOIN ejecucion_poa.asignaciones a ON aci.asi_codigo = a.asi_codigo
+		LEFT JOIN ejecucion_informes.inicio_evaluacion_informe iei ON iei.iei_codigo = 
+WHERE 	aci.per_codigo IS NOT NULL
+		AND aci.per_codigo IN (784)
+		AND aci.aci_codigo IN (5146)
 ;
---##########################################################################################################
-WITH inicio_auditoria AS (
-    SELECT 
-        a.asi_codigo, 
-        a.asi_estado,
-        t.aci_codigo, 
-        t.aci_estado,
-        t.aci_horas,
-        t.per_codigo,
-        ci.cit_codigo, 
-        ci.cit_estado, 
-        ci.aun_codigo,
-        ahu.ahu_codigo,
-        ahu.ahu_estado, 
-        ahu.ahu_horas, 
-        ahu.ahu_fecha,
-        a2.act_codigo, 
-        a2.act_numero, 
-        au.aun_sigla
-    FROM ejecucion_poa.asignaciones a
-    LEFT JOIN ejecucion_actividades.inicio_actividad_poa_asignaciones iapa ON a.asi_codigo = iapa.asi_codigo
-    LEFT JOIN ejecucion_actividades.inicio_actividad_poa iap ON iapa.iap_codigo = iap.iap_codigo
-    LEFT JOIN estructura_poa.actividades a2 ON iap.act_codigo = a2.act_codigo
-    LEFT JOIN estructura_organizacional.areas_unidades au ON a2.aun_codigo_ejecutora = au.aun_codigo
-    LEFT JOIN ejecucion_poa.asignaciones_cargos_item t ON a.asi_codigo = t.asi_codigo AND t.aci_estado NOT IN (0,5,9)
-    LEFT JOIN estructura_organizacional.cargos_items ci ON t.cit_codigo = ci.cit_codigo AND ci.cit_estado NOT IN (0,5,9)
-    LEFT JOIN ejecucion_poa.asignaciones_horas_usadas ahu ON t.aci_codigo = ahu.aci_codigo AND ahu.ahu_estado NOT IN (0,5,9)
-    WHERE 
-        ci.aun_codigo IN (56)
-        AND ci.cit_codigo IN (2)
-        AND a.asi_codigo IN (1476)
-        AND a.asi_estado NOT IN (0,5,9)
-        AND a2.act_codigo IS NOT NULL
-),
-inicio_evaluacion AS (
-    SELECT 
-        a.asi_codigo, 
-        a.asi_estado,
-        t.aci_codigo, 
-        t.aci_estado,
-        t.aci_horas,
-        t.per_codigo,
-        ci.cit_codigo, 
-        ci.cit_estado, 
-        ci.aun_codigo,
-        ahu.ahu_codigo,
-        ahu.ahu_estado, 
-        ahu.ahu_horas, 
-        ahu.ahu_fecha,
-        a2.act_codigo, 
-        a2.act_numero, 
-        au.aun_sigla
-    FROM ejecucion_poa.asignaciones a
-    LEFT JOIN ejecucion_informes.inicio_evaluacion_informe_asignaciones ieia ON a.asi_codigo = ieia.asi_codigo
-    LEFT JOIN ejecucion_informes.inicio_evaluacion_informe iei ON ieia.iei_codigo = iei.iei_codigo
-    LEFT JOIN ejecucion_informes.informes_uai iu ON iei.iua_codigo = iu.iua_codigo
-    LEFT JOIN estructura_poa.actividades a2 ON iu.act_codigo = a2.act_codigo
-    LEFT JOIN estructura_organizacional.areas_unidades au ON a2.aun_codigo_ejecutora = au.aun_codigo
-    LEFT JOIN ejecucion_poa.asignaciones_cargos_item t ON a.asi_codigo = t.asi_codigo AND t.aci_estado NOT IN (0,5,9)
-    LEFT JOIN estructura_organizacional.cargos_items ci ON t.cit_codigo = ci.cit_codigo AND ci.cit_estado NOT IN (0,5,9)
-    LEFT JOIN ejecucion_poa.asignaciones_horas_usadas ahu ON t.aci_codigo = ahu.aci_codigo AND ahu.ahu_estado NOT IN (0,5,9)
-    WHERE 
-        ci.aun_codigo IN (56)
-        AND ci.cit_codigo IN (2)
-        AND a.asi_codigo IN (1476)
-        AND a.asi_estado NOT IN (0,5,9)
-        AND a2.act_codigo IS NOT NULL
-)
-SELECT 
-    a.asi_codigo, 
-    a.asi_estado,
-    COALESCE(ia.aci_codigo, ie.aci_codigo) AS aci_codigo,
-    COALESCE(ia.aci_estado, ie.aci_estado) AS aci_estado,
-    COALESCE(ia.aci_horas, ie.aci_horas) AS aci_horas,
-    COALESCE(ia.per_codigo, ie.per_codigo) AS per_codigo,
-    COALESCE(ia.cit_codigo, ie.cit_codigo) AS cit_codigo,
-    COALESCE(ia.cit_estado, ie.cit_estado) AS cit_estado,
-    COALESCE(ia.aun_codigo, ie.aun_codigo) AS aun_codigo,
-    COALESCE(ia.ahu_codigo, ie.ahu_codigo) AS ahu_codigo,
-    COALESCE(ia.ahu_estado, ie.ahu_estado) AS ahu_estado,
-    COALESCE(ia.ahu_horas, ie.ahu_horas) AS ahu_horas,
-    COALESCE(ia.ahu_fecha, ie.ahu_fecha) AS ahu_fecha,
-    COALESCE(ia.act_codigo, ie.act_codigo) AS act_codigo,
-    COALESCE(ia.act_numero, ie.act_numero) AS act_numero,
-    COALESCE(ia.aun_sigla, ie.aun_sigla) AS aun_sigla
-FROM ejecucion_poa.asignaciones a
-LEFT JOIN inicio_auditoria ia ON a.asi_codigo = ia.asi_codigo
-LEFT JOIN inicio_evaluacion ie ON a.asi_codigo = ie.asi_codigo
-WHERE TRUE
+
+
+
+SELECT 	*
+FROM 	ejecucion_poa.asignaciones
 ;
-		AND a.asi_codigo IN (1476);
---%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-WITH inicio_auditoria AS (
-    SELECT 
-        a.asi_codigo, 
-        a.asi_estado,
-        t.aci_codigo, 
-        t.aci_estado,
-        t.aci_horas,
-        t.per_codigo,
-        ci.cit_codigo, 
-        ci.cit_estado, 
-        ci.aun_codigo,
-        ahu.ahu_codigo,
-        ahu.ahu_estado, 
-        ahu.ahu_horas, 
-        ahu.ahu_fecha,
-        a2.act_codigo, 
-        a2.act_numero, 
-        au.aun_sigla
-    FROM ejecucion_poa.asignaciones a
-    LEFT JOIN ejecucion_actividades.inicio_actividad_poa_asignaciones iapa ON a.asi_codigo = iapa.asi_codigo
-    LEFT JOIN ejecucion_actividades.inicio_actividad_poa iap ON iapa.iap_codigo = iap.iap_codigo
-    LEFT JOIN estructura_poa.actividades a2 ON iap.act_codigo = a2.act_codigo
-    LEFT JOIN estructura_organizacional.areas_unidades au ON a2.aun_codigo_ejecutora = au.aun_codigo
-    LEFT JOIN ejecucion_poa.asignaciones_cargos_item t ON a.asi_codigo = t.asi_codigo AND t.aci_estado NOT IN (0,5,9)
-    LEFT JOIN estructura_organizacional.cargos_items ci ON t.cit_codigo = ci.cit_codigo AND ci.cit_estado NOT IN (0,5,9)
-    LEFT JOIN ejecucion_poa.asignaciones_horas_usadas ahu ON t.aci_codigo = ahu.aci_codigo AND ahu.ahu_estado NOT IN (0,5,9)
-    WHERE 
-        ci.aun_codigo = 56
-        AND ci.cit_codigo = 2
-        AND a.asi_estado NOT IN (0,5,9)
-        AND a2.act_codigo IS NOT NULL
-),
-inicio_evaluacion AS (
-    SELECT 
-        a.asi_codigo, 
-        a.asi_estado,
-        t.aci_codigo, 
-        t.aci_estado,
-        t.aci_horas,
-        t.per_codigo,
-        ci.cit_codigo, 
-        ci.cit_estado, 
-        ci.aun_codigo,
-        ahu.ahu_codigo,
-        ahu.ahu_estado, 
-        ahu.ahu_horas, 
-        ahu.ahu_fecha,
-        a2.act_codigo, 
-        a2.act_numero, 
-        au.aun_sigla
-    FROM ejecucion_poa.asignaciones a
-    LEFT JOIN ejecucion_informes.inicio_evaluacion_informe_asignaciones ieia ON a.asi_codigo = ieia.asi_codigo
-    LEFT JOIN ejecucion_informes.inicio_evaluacion_informe iei ON ieia.iei_codigo = iei.iei_codigo
-    LEFT JOIN ejecucion_informes.informes_uai iu ON iei.iua_codigo = iu.iua_codigo
-    LEFT JOIN estructura_poa.actividades a2 ON iu.act_codigo = a2.act_codigo
-    LEFT JOIN estructura_organizacional.areas_unidades au ON a2.aun_codigo_ejecutora = au.aun_codigo
-    LEFT JOIN ejecucion_poa.asignaciones_cargos_item t ON a.asi_codigo = t.asi_codigo AND t.aci_estado NOT IN (0,5,9)
-    LEFT JOIN estructura_organizacional.cargos_items ci ON t.cit_codigo = ci.cit_codigo AND ci.cit_estado NOT IN (0,5,9)
-    LEFT JOIN ejecucion_poa.asignaciones_horas_usadas ahu ON t.aci_codigo = ahu.aci_codigo AND ahu.ahu_estado NOT IN (0,5,9)
-    WHERE 
-        ci.aun_codigo = 56
-        AND ci.cit_codigo = 2
-        AND a.asi_estado NOT IN (0,5,9)
-        AND a2.act_codigo IS NOT NULL
-),
-inicio_apoyos AS (
-    SELECT 
-        a.asi_codigo, 
-        a.asi_estado,
-        t.aci_codigo, 
-        t.aci_estado,
-        t.aci_horas,
-        t.per_codigo,
-        ci.cit_codigo, 
-        ci.cit_estado, 
-        ci.aun_codigo,
-        ahu.ahu_codigo,
-        ahu.ahu_estado, 
-        ahu.ahu_horas, 
-        ahu.ahu_fecha,
-        a2.act_codigo, 
-        a2.act_numero, 
-        au.aun_sigla
-    FROM ejecucion_poa.asignaciones a
-    LEFT JOIN ejecucion_actividades.apoyo_inicio_actividad_poa aiap ON aiap.asi_codigo = a.asi_codigo
-    LEFT JOIN ejecucion_actividades.inicios_actividades ia ON aiap.iac_codigo = ia.iac_codigo
-    LEFT JOIN estructura_poa.actividades a2 ON aiap.act_codigo = a2.act_codigo
-	LEFT JOIN estructura_organizacional.areas_unidades au ON a2.aun_codigo_ejecutora = au.aun_codigo
-    LEFT JOIN ejecucion_poa.asignaciones_cargos_item t ON a.asi_codigo = t.asi_codigo AND t.aci_estado NOT IN (0,5,9)
-    LEFT JOIN estructura_organizacional.cargos_items ci ON t.cit_codigo = ci.cit_codigo AND ci.cit_estado NOT IN (0,5,9)
-    LEFT JOIN ejecucion_poa.asignaciones_horas_usadas ahu ON t.aci_codigo = ahu.aci_codigo AND ahu.ahu_estado NOT IN (0,5,9)
-    WHERE 
-        ci.aun_codigo = 56
-        AND ci.cit_codigo = 2
-        AND a.asi_estado NOT IN (0,5,9)
-        AND a2.act_codigo IS NOT NULL
-)
-SELECT 
-    COALESCE(ia.asi_codigo, ie.asi_codigo) AS asi_codigo,
-    COALESCE(ia.asi_estado, ie.asi_estado) AS asi_estado,
-    COALESCE(ia.aci_codigo, ie.aci_codigo) AS aci_codigo,
-    COALESCE(ia.aci_estado, ie.aci_estado) AS aci_estado,
-    COALESCE(ia.aci_horas, ie.aci_horas) AS aci_horas,
-    COALESCE(ia.per_codigo, ie.per_codigo) AS per_codigo,
-    COALESCE(ia.cit_codigo, ie.cit_codigo) AS cit_codigo,
-    COALESCE(ia.cit_estado, ie.cit_estado) AS cit_estado,
-    COALESCE(ia.aun_codigo, ie.aun_codigo) AS aun_codigo,
-    COALESCE(ia.ahu_codigo, ie.ahu_codigo) AS ahu_codigo,
-    COALESCE(ia.ahu_estado, ie.ahu_estado) AS ahu_estado,
-    COALESCE(ia.ahu_horas, ie.ahu_horas) AS ahu_horas,
-    COALESCE(ia.ahu_fecha, ie.ahu_fecha) AS ahu_fecha,
-    COALESCE(ia.act_codigo, ie.act_codigo) AS act_codigo,
-    COALESCE(ia.act_numero, ie.act_numero) AS act_numero,
-    COALESCE(ia.aun_sigla, ie.aun_sigla) AS aun_sigla
-FROM inicio_auditoria ia
-FULL OUTER JOIN inicio_evaluacion ie ON ia.asi_codigo = ie.asi_codigo;
---
-      WITH inicio_auditoria AS (
-          SELECT
-                a.asi_codigo,
-                a.asi_estado,
-                t.aci_codigo,
-                t.aci_estado,
-                t.aci_horas,
-                t.per_codigo,
-                ci.cit_codigo,
-                ci.cit_estado,
-                ci.aun_codigo,
-                ahu.ahu_codigo,
-                ahu.ahu_estado,
-                ahu.ahu_horas,
-                ahu.ahu_fecha,
-                a2.act_codigo,
-                a2.act_numero,
-                au.aun_sigla
-          FROM  ejecucion_poa.asignaciones a
-                LEFT JOIN ejecucion_actividades.inicio_actividad_poa_asignaciones iapa ON a.asi_codigo = iapa.asi_codigo
-                LEFT JOIN ejecucion_actividades.inicio_actividad_poa iap ON iapa.iap_codigo = iap.iap_codigo
-                LEFT JOIN estructura_poa.actividades a2 ON iap.act_codigo = a2.act_codigo
-                LEFT JOIN estructura_organizacional.areas_unidades au ON a2.aun_codigo_ejecutora = au.aun_codigo
-                LEFT JOIN ejecucion_poa.asignaciones_cargos_item t ON a.asi_codigo = t.asi_codigo AND t.aci_estado NOT IN (0,5,9)
-                LEFT JOIN estructura_organizacional.cargos_items ci ON t.cit_codigo = ci.cit_codigo AND ci.cit_estado NOT IN (0,5,9)
-                LEFT JOIN ejecucion_poa.asignaciones_horas_usadas ahu ON t.aci_codigo = ahu.aci_codigo AND ahu.ahu_estado NOT IN (0,5,9)
-          WHERE
-                ci.aun_codigo IN (56)
-                AND ci.cit_codigo IN (2)
-                AND a.asi_estado NOT IN (0,5,9)
-                AND a2.act_codigo IS NOT NULL
-      ),
-      inicio_evaluacion AS (
-          SELECT
-                a.asi_codigo,
-                a.asi_estado,
-                t.aci_codigo,
-                t.aci_estado,
-                t.aci_horas,
-                t.per_codigo,
-                ci.cit_codigo,
-                ci.cit_estado,
-                ci.aun_codigo,
-                ahu.ahu_codigo,
-                ahu.ahu_estado,
-                ahu.ahu_horas,
-                ahu.ahu_fecha,
-                a2.act_codigo,
-                a2.act_numero,
-                au.aun_sigla
-          FROM  ejecucion_poa.asignaciones a
-                LEFT JOIN ejecucion_informes.inicio_evaluacion_informe_asignaciones ieia ON a.asi_codigo = ieia.asi_codigo
-                LEFT JOIN ejecucion_informes.inicio_evaluacion_informe iei ON ieia.iei_codigo = iei.iei_codigo
-                LEFT JOIN ejecucion_informes.informes_uai iu ON iei.iua_codigo = iu.iua_codigo
-                LEFT JOIN estructura_poa.actividades a2 ON iu.act_codigo = a2.act_codigo
-                LEFT JOIN estructura_organizacional.areas_unidades au ON a2.aun_codigo_ejecutora = au.aun_codigo
-                LEFT JOIN ejecucion_poa.asignaciones_cargos_item t ON a.asi_codigo = t.asi_codigo AND t.aci_estado NOT IN (0,5,9)
-                LEFT JOIN estructura_organizacional.cargos_items ci ON t.cit_codigo = ci.cit_codigo AND ci.cit_estado NOT IN (0,5,9)
-                LEFT JOIN ejecucion_poa.asignaciones_horas_usadas ahu ON t.aci_codigo = ahu.aci_codigo AND ahu.ahu_estado NOT IN (0,5,9)
-          WHERE
-                ci.aun_codigo IN (56)
-                AND ci.cit_codigo IN (2)
-                AND a.asi_estado NOT IN (0,5,9)
-                AND a2.act_codigo IS NOT NULL
-      ),
-      inicio_apoyos AS (
-          SELECT
-                a.asi_codigo,
-                a.asi_estado,
-                t.aci_codigo,
-                t.aci_estado,
-                t.aci_horas,
-                t.per_codigo,
-                ci.cit_codigo,
-                ci.cit_estado,
-                ci.aun_codigo,
-                ahu.ahu_codigo,
-                ahu.ahu_estado,
-                ahu.ahu_horas,
-                ahu.ahu_fecha,
-                a2.act_codigo,
-                a2.act_numero,
-                au.aun_sigla
-          FROM  ejecucion_poa.asignaciones a
-                LEFT JOIN ejecucion_actividades.apoyo_inicio_actividad_poa aiap ON aiap.asi_codigo = a.asi_codigo
-                LEFT JOIN ejecucion_actividades.inicios_actividades ia ON aiap.iac_codigo = ia.iac_codigo
-                LEFT JOIN estructura_poa.actividades a2 ON aiap.act_codigo = a2.act_codigo
-                LEFT JOIN estructura_organizacional.areas_unidades au ON a2.aun_codigo_ejecutora = au.aun_codigo
-                LEFT JOIN ejecucion_poa.asignaciones_cargos_item t ON a.asi_codigo = t.asi_codigo AND t.aci_estado NOT IN (0,5,9)
-                LEFT JOIN estructura_organizacional.cargos_items ci ON t.cit_codigo = ci.cit_codigo AND ci.cit_estado NOT IN (0,5,9)
-                LEFT JOIN ejecucion_poa.asignaciones_horas_usadas ahu ON t.aci_codigo = ahu.aci_codigo AND ahu.ahu_estado NOT IN (0,5,9)
-          WHERE
-                ci.aun_codigo IN (56)
-                AND ci.cit_codigo IN (2)
-                AND a.asi_estado NOT IN (0,5,9)
-                AND a2.act_codigo IS NOT NULL
-      )
-      SELECT
-            COALESCE(ia.asi_codigo, ie.asi_codigo) AS asi_codigo,
-            COALESCE(ia.asi_estado, ie.asi_estado) AS asi_estado,
-            COALESCE(ia.aci_codigo, ie.aci_codigo) AS aci_codigo,
-            COALESCE(ia.aci_estado, ie.aci_estado) AS aci_estado,
-            COALESCE(ia.aci_horas, ie.aci_horas) AS aci_horas,
-            COALESCE(ia.per_codigo, ie.per_codigo) AS per_codigo,
-            COALESCE(ia.cit_codigo, ie.cit_codigo) AS cit_codigo,
-            COALESCE(ia.cit_estado, ie.cit_estado) AS cit_estado,
-            COALESCE(ia.aun_codigo, ie.aun_codigo) AS aun_codigo,
-            COALESCE(ia.ahu_codigo, ie.ahu_codigo) AS ahu_codigo,
-            COALESCE(ia.ahu_estado, ie.ahu_estado) AS ahu_estado,
-            COALESCE(ia.ahu_horas, ie.ahu_horas) AS ahu_horas,
-            COALESCE(ia.ahu_fecha, ie.ahu_fecha) AS ahu_fecha,
-            COALESCE(ia.act_codigo, ie.act_codigo) AS act_codigo,
-            COALESCE(ia.act_numero, ie.act_numero) AS act_numero,
-            COALESCE(ia.aun_sigla, ie.aun_sigla) AS aun_sigla
-      FROM  inicio_auditoria ia
-            FULL OUTER JOIN inicio_evaluacion ie ON ia.asi_codigo = ie.asi_codigo;
-
-
-
-
-
-
-
 
