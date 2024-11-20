@@ -973,16 +973,18 @@ FULL OUTER JOIN inicio_evaluacion ie ON ia.asi_codigo = ie.asi_codigo;
 ## Query Ro
 ```sql
 SELECT
-		CASE
+		(CASE
 			WHEN inicio_auditoria.asi_codigo IS NOT NULL THEN 1 -- AUDITORIA
 			WHEN inicio_evaluacion.asi_codigo IS NOT NULL THEN 2 -- EVALUACION
 			WHEN inicio_apoyos.asi_codigo IS NOT NULL THEN 3 -- APOYOS
-		END,
-		inicio_auditoria.iac_codigo_control, aci.*
-		--ahu.ahu_codigo, ahu.ahu_estado, ahu.ahu_horas, ahu.ahu_descripcion, ahu.ahu_fecha, 
+		END) tipo_inicio,
+		inicio_auditoria.iac_codigo_control,
+		inicio_evaluacion.iua_codigo_control,
+		aci.aci_codigo,aci.aci_horas,
+		ahu.ahu_codigo, ahu.ahu_estado, ahu.ahu_horas,ahu.hrc_codigo, ahu.ahu_descripcion, ahu.ahu_fecha 
 		--CONCAT(a2.act_numero,'-(',ia.iac_codigo_control,')-[',ahu.ahu_horas,']:',ahu.ahu_descripcion) AS info_horas
 FROM 	ejecucion_poa.asignaciones_cargos_item aci
-		--LEFT JOIN ejecucion_poa.asignaciones_horas_usadas ahu ON aci.aci_codigo = ahu.aci_codigo AND ahu.ahu_estado NOT IN (0)
+		LEFT JOIN ejecucion_poa.asignaciones_horas_usadas ahu ON aci.aci_codigo = ahu.aci_codigo AND ahu.ahu_estado NOT IN (0)
 		LEFT JOIN ejecucion_poa.asignaciones a ON aci.asi_codigo = a.asi_codigo AND a.asi_estado NOT IN (0)
 		LEFT JOIN (
 			SELECT	iapa.asi_codigo, iap.iap_codigo, iap.act_codigo, iap.tia_codigo, iap.iap_estado,
