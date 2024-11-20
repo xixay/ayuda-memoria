@@ -1060,3 +1060,141 @@ WHERE 	TRUE
 		AND aci.cit_codigo IN (66)--apoyo--aci_codigo=7628, asi_codigo=2055
 ;
 ```
+## Ajuste Miercoles Query
+```sql
+SELECT
+		(CASE
+			WHEN inicio_auditoria.asi_codigo IS NOT NULL THEN 1 -- AUDITORIA
+			WHEN inicio_evaluacion.asi_codigo IS NOT NULL THEN 2 -- EVALUACION
+			WHEN inicio_apoyo.asi_codigo IS NOT NULL THEN 3 -- APOYOS
+			END
+		) tipo_inicio,
+		(
+		  CASE
+		    WHEN inicio_auditoria.asi_codigo IS NOT NULL THEN CONCAT('[', ahu.ahu_horas, 'Hrs](', inicio_auditoria.iac_codigo_control, ')')
+		    WHEN inicio_evaluacion.asi_codigo IS NOT NULL THEN CONCAT('[', ahu.ahu_horas, 'Hrs](', inicio_evaluacion.iua_codigo_control, ')')
+		    WHEN inicio_apoyo.asi_codigo IS NOT NULL THEN CONCAT('[', ahu.ahu_horas, 'Hrs](', inicio_apoyo.iac_codigo_control, ')')
+		    ELSE ''
+		  END
+		) AS informacion_horas,
+		(CASE
+			WHEN inicio_auditoria.asi_codigo IS NOT NULL THEN (inicio_auditoria.ttr_codigo) -- AUDITORIA
+			WHEN inicio_evaluacion.asi_codigo IS NOT NULL THEN (inicio_evaluacion.ttr_codigo) -- EVALUACION
+			WHEN inicio_apoyo.asi_codigo IS NOT NULL THEN (inicio_apoyo.ttr_codigo) -- APOYOS
+			END
+		) ttr_codigo,
+		aci.aci_codigo, aci.cit_codigo, aci.aci_horas, a.asi_codigo, aci.aci_estado,
+		ahu.*,
+		hrc.hrc_nombre
+FROM 	ejecucion_poa.asignaciones_cargos_item aci
+		LEFT JOIN estructura_organizacional.cargos_items_persona cip ON aci.cit_codigo = cip.cit_codigo
+		LEFT JOIN ejecucion_poa.asignaciones_horas_usadas ahu ON aci.aci_codigo = ahu.aci_codigo AND ahu.ahu_estado NOT IN (0)
+		LEFT JOIN parametricas.hitos_rutas_criticas hrc ON ahu.hrc_codigo = hrc.hrc_codigo 
+		LEFT JOIN ejecucion_poa.asignaciones a ON aci.asi_codigo = a.asi_codigo AND a.asi_estado NOT IN (0)
+		LEFT JOIN (
+			SELECT	iapa.asi_codigo, iap.iap_codigo, iap.act_codigo, iap.tia_codigo, iap.iap_estado,
+					ia.iac_codigo, ia.iac_codigo_control, ia.iac_codigo_control_vista, ia.iac_estado,
+					act.ttr_codigo
+			FROM	ejecucion_actividades.inicio_actividad_poa_asignaciones iapa
+					LEFT JOIN ejecucion_actividades.inicio_actividad_poa iap ON iapa.iap_codigo = iap.iap_codigo AND iap.iap_estado NOT IN (0)
+					LEFT JOIN ejecucion_actividades.inicios_actividades ia ON iap.iac_codigo = ia.iac_codigo
+					LEFT JOIN estructura_poa.actividades act ON iap.act_codigo = act.act_codigo
+		) inicio_auditoria ON a.asi_codigo = inicio_auditoria.asi_codigo
+		LEFT JOIN (
+			SELECT 	ieia.asi_codigo, ieia.ieia_codigo, ieia.ieia_estado,
+					iu.iua_codigo,iua_codigo_control, iu.iua_estado,
+					act.ttr_codigo
+			FROM 	ejecucion_informes.inicio_evaluacion_informe_asignaciones ieia
+					LEFT JOIN ejecucion_informes.inicio_evaluacion_informe iei ON ieia.iei_codigo = iei.iei_codigo 
+					LEFT JOIN ejecucion_informes.informes_uai iu ON iei.iua_codigo = iu.iua_codigo AND iu.iua_estado NOT IN (0)
+					LEFT JOIN estructura_poa.actividades act ON iu.act_codigo = act.act_codigo
+		) inicio_evaluacion ON a.asi_codigo = inicio_evaluacion.asi_codigo
+		LEFT JOIN (
+			SELECT 	aiap.asi_codigo, aiap.aiap_codigo, aiap.aiap_estado,
+					ia.iac_codigo, ia.iac_codigo_control, ia.iac_codigo_control_vista, ia.iac_estado,
+					act.act_numero, act.act_codigo, act.ttr_codigo
+			FROM	ejecucion_actividades.apoyo_inicio_actividad_poa aiap
+					LEFT JOIN estructura_poa.actividades act ON aiap.act_codigo = act.act_codigo
+					LEFT JOIN ejecucion_actividades.inicio_actividad_poa iap ON aiap.iap_codigo = iap.iap_codigo
+					LEFT JOIN ejecucion_actividades.inicios_actividades ia ON iap.iac_codigo = ia.iac_codigo
+		) inicio_apoyo ON a.asi_codigo = inicio_apoyo.asi_codigo
+WHERE 	TRUE
+		AND ahu.ahu_codigo NOTNULL
+--	    AND (
+--	        aci.per_codigo = 21 -- Priorizar registros donde per_codigo está en aci
+--	        OR (aci.per_codigo IS NULL AND cip.per_codigo = 21) -- Si no existe, buscar en cip.per_codigo
+--	    )
+		AND aci.cit_codigo IN (426)--5,2(aud),448(ev),66(ap),426
+--		AND EXTRACT(YEAR FROM ahu.ahu_fecha) = 2024  -- Filtrar por año
+--		AND EXTRACT(MONTH FROM ahu.ahu_fecha) IN (7)   -- Filtrar por mes (febrero)
+--		AND EXTRACT(DAY FROM ahu.ahu_fecha) = 24    -- Filtrar por día (20)
+--	    AND (
+--	        (inicio_auditoria.asi_codigo IS NOT NULL AND 1 IN (2)) -- AUDITORIA
+--	        OR (inicio_evaluacion.asi_codigo IS NOT NULL AND 2 IN (2)) -- EVALUACION
+--	        OR (inicio_apoyo.asi_codigo IS NOT NULL AND 3 IN (2)) -- APOYOS
+--	    )
+;
+
+
+
+--
+SELECT 	*
+FROM 	estructura_poa.actividades a
+WHERE 	a.act_codigo IN (3088)
+;
+
+
+--
+SELECT DISTINCT ON (aci.aci_codigo) 
+    aci.aci_codigo, 
+    aci.cit_codigo, 
+    aci.asi_codigo, 
+    aci.per_codigo, 
+    cip.per_codigo
+FROM ejecucion_poa.asignaciones_cargos_item aci
+LEFT JOIN estructura_organizacional.cargos_items_persona cip 
+    ON aci.cit_codigo = cip.cit_codigo
+WHERE TRUE
+  AND (
+    aci.per_codigo = 21 -- Priorizar registros donde per_codigo está en aci
+    OR (aci.per_codigo IS NULL AND cip.per_codigo = 21) -- Si no existe, buscar en cip.per_codigo
+  )
+ORDER BY aci.aci_codigo, aci.per_codigo DESC; -- Priorizar valores en aci.per_codigo
+
+
+SELECT 	*
+FROM 	parametricas.tipos_trabajos tt 
+;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```
