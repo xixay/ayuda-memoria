@@ -675,9 +675,14 @@
     # GET {{Host}}/asignaciones-cargos-item/interinatos-persona?asi_codigo=(1409) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
-###  ------- INTERINATOS PERSONAS 2
-    # GET {{Host}}/asignaciones-cargos-item/all-interinatos-persona?asi_codigo=(1409)&cit_codigo=(5) HTTP/1.1
-    GET {{Host}}/asignaciones-cargos-item/all-interinatos-por-actividad?cit_codigo=(5) HTTP/1.1
+###  ------- INTERINATOS POR ACTIVIDAD
+  # GET {{Host}}/asignaciones-cargos-item/all-interinatos-persona?asi_codigo=(1409)&cit_codigo=(5) HTTP/1.1
+  GET {{Host}}/asignaciones-cargos-item/all-interinatos-por-actividad?cit_codigo=(5)&aci_estado=(1,2,21,9) HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+###  ------- ASIGNACIONES CARGOS ITEMS POR ACTIVIDAD
+  # GET {{Host}}/asignaciones-cargos-item/all-interinatos-persona?asi_codigo=(1409)&cit_codigo=(5) HTTP/1.1
+  GET {{Host}}/asignaciones-cargos-item/asignaciones-cargos-item-por-actividad?cit_codigo=(5)&aci_estado=(1,2,21,9) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ###  ------- ASIGNACIONES CARGOS ITEMS SOLAMENTE
