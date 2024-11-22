@@ -8,20 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "412fe213c7b6deeb",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/ACTIVIDADES APOYO/apoyo inicio actividad poa.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "apoyo inicio actividad poa"
-            }
-          },
-          {
             "id": "a4fc2f45aee8ecdd",
             "type": "leaf",
             "state": {
@@ -55,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/ACTIVIDAD INFORMES/Actividad Informes.md",
+                "file": "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/ACTIVIDADES APOYO/apoyo inicio actividad poa.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Actividad Informes"
+              "title": "apoyo inicio actividad poa"
             }
           },
           {
@@ -73,7 +59,8 @@
               "title": "Nueva pestaña"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -215,17 +202,19 @@
       "command-palette:Abrir paleta de comandos": false
     }
   },
-  "active": "412fe213c7b6deeb",
+  "active": "81e04d3c7df1d196",
   "lastOpenFiles": [
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/ACTIVIDADES APOYO/de ro.png",
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/ACTIVIDAD INFORMES/Actividad Informes.md",
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/Reportes Seguimientos.md",
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/Observaciones.md",
+    "apoyo-inicio-actividad-poa.md",
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/ACTIVIDADES APOYO/apoyo inicio actividad poa.md",
     "6archivos/scripts/backup_20241122_135532.sql",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/ACTIVIDADES APOYO/anterior.png",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/ACTIVIDADES APOYO/2024-11-15_12-30.png",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/ACTIVIDADES APOYO/2024-11-18_15-05.png",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/ACTIVIDADES APOYO/2024-11-20_16-30.png",
-    "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/ACTIVIDAD INFORMES/Actividad Informes.md",
-    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/Reportes Seguimientos.md",
-    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/Observaciones.md",
-    "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/ACTIVIDADES APOYO/apoyo inicio actividad poa.md",
     "'(',.md",
     "6archivos/scripts/backup_20241115_164130.sql",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/ACTIVIDADES APOYO",
@@ -243,7 +232,6 @@
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/actualy1 se prepara cambiar.png",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/corregido.pdf",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/report381236277353307009.pdf",
-    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/RptXlsAccionesAct.jrxml (otro).pdf",
-    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/report5953991181387892017.pdf"
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/RptXlsAccionesAct.jrxml (otro).pdf"
   ]
 }
