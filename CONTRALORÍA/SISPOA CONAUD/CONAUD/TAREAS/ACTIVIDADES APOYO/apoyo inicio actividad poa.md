@@ -88,13 +88,13 @@ WHERE 	a.asi_codigo IN (2054)
 ## roles
 -  SCAT-GAAPIP
 
-| 9945262 | CLAUDIA PARRA MAMANI             | RESPONSABLE          | aci_codigo |
-| ------- | -------------------------------- | -------------------- | ---------- |
-| 486424  | LUIS FERNANDO SAAVEDRA MORATO    | GERENTE CONSOLIDADOR | -          |
-| 486424  | LUIS FERNANDO SAAVEDRA MORATO    | SUPERVISOR           | -          |
-| 3445997 | CAROLINA LEA RODRIGUEZ BONIVENTO | FORMULADOR           | 5201       |
-| 3445997 | CAROLINA LEA RODRIGUEZ BONIVENTO | FORMULADOR GERENTE   | 5201       |
-| 3445997 | CAROLINA LEA RODRIGUEZ BONIVENTO | APROBADOR            | 5201       |
+| 9945262 | CLAUDIA PARRA MAMANI             | RESPONSABLE          | aci_codigo | per_codigo |
+| ------- | -------------------------------- | -------------------- | ---------- | ---------- |
+| 486424  | LUIS FERNANDO SAAVEDRA MORATO    | GERENTE CONSOLIDADOR | -          |            |
+| 486424  | LUIS FERNANDO SAAVEDRA MORATO    | SUPERVISOR           | -          |            |
+| 3445997 | CAROLINA LEA RODRIGUEZ BONIVENTO | FORMULADOR           | 5201       | 1349       |
+| 3445997 | CAROLINA LEA RODRIGUEZ BONIVENTO | FORMULADOR GERENTE   | 5201       | 1349       |
+| 3445997 | CAROLINA LEA RODRIGUEZ BONIVENTO | APROBADOR            | 5201       | 1349       |
 
 - actividad : 520.0504.38.10.24
 - http://172.16.22.243:3002/conaud/inicios-actividades?ges_codigo=2&act_codigo=3167
@@ -1357,7 +1357,7 @@ WHERE   TRUE
 
 | inicio | backup_20241122_135532.sql |
 | ------ | -------------------------- |
-
+## Componente Apoyo
 http://172.16.22.234:3000/conaud/apoyo-inicio-actividad-poa/3091
 
 feature/informes-grupales

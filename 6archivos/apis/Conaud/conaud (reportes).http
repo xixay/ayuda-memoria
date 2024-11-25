@@ -6,20 +6,20 @@
   POST http://172.16.80.32:4002/api/v1/auth_cge HTTP/1.1
   Content-type: application/json
 
-  # {
-  #   "usuario": "4755293",
-  #   "password": "Pruebas"
-  # }
+  {
+    "usuario": "4755293",
+    "password": "Pruebas"
+  }
 
   # {
   #   "usuario": "3386714",
   #   "password": "Pruebas"
   # }
 
-  {
-    "usuario": "3403668",
-    "password": "Pruebas"
-  }
+  # {
+  #   "usuario": "3403668",
+  #   "password": "Pruebas"
+  # }
 
   # {
   #   "usuario": "4876199",
@@ -70,7 +70,7 @@
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ###
-  GET http://localhost:7008/data HTTP/1.1
+  GET http://localhost:7008/datos HTTP/1.1
   Content-Type: application/json
 ###
   GET http://localhost:7009/data HTTP/1.1
@@ -191,4 +191,7 @@ Content-Type: application/json
 ###
   GET {{Host}}/sispoa/area-unidad-responsables?poa_codigo=(3)&per_codigo=(221) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+### OTRO DE PRUEBA
+  GET http://localhost:7008/datos HTTP/1.1
   Content-Type: application/json

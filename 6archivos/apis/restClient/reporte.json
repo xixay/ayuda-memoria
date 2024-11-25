@@ -1,110 +1,329 @@
 {
-  "data": {
-    "ent_descripcion": "CONTRALORIA GENERAL DEL ESTADO",
-    "nro_informe_auditoria": "UU/CP01/E24 V1",
-    "inf_tipo": "INFORME DE CONFIABILIDAD DE LOS REGISTROS Y DEFICIENCIAS DE CONTROL INTERNO DE LA CONTRALORIA GENERAL DEL ESTADO, POR LA GESTION 2023 dsdssd dsds ds sds sd sds ds dsd sdsd sdsdsdsdsdsdsdsdsd  ds dsd sd  dsd sdsd sdsdsd  dsd sdsdsdsdsd  dsdsdsdsdsdsdsd dsdsdsdsdsd",
-    "reportes": [
+  "datos": {
+    "descripcion": "Reporte general de ejecución presupuestaria",
+    "codigo_acp": "ACP2024-001",
+    "cant_prog": 3,
+    "unidad_ejecutora": "Ministerio de Planificación",
+    "total_total": 610,
+    "tipo_trabajo": {
+      "descripcion1": "Mantenimiento de Infraestructura",
+      "total_ejecucion1": 150,
+      "total_en_proc1": 50,
+      "total_cerrado1": 30,
+      "total1": 230,
+      "descripcion2": "Construcción de Nuevos Proyectos",
+      "total_ejecucion2": 200,
+      "total_en_proc2": 60,
+      "total_cerrado2": 40,
+      "total2": 300,
+      "descripcion3": "Rehabilitación de Servicios",
+      "total_ejecucion3": 100,
+      "total_en_proc3": 40,
+      "total_cerrado3": 20,
+      "total3": 160,
+      "descripcion4": "Rehabilitación de Servicios",
+      "total_ejecucion4": 100,
+      "total_en_proc4": 40,
+      "total_cerrado4": 20,
+      "total4": 160,
+      "descripcion5": "Rehabilitación de Servicios",
+      "total_ejecucion5": 100,
+      "total_en_proc5": 40,
+      "total_cerrado5": 20,
+      "total5": 160,
+      "descripcion6": "Rehabilitación de Servicios",
+      "total_ejecucion6": 100,
+      "total_en_proc6": 40,
+      "total_cerrado6": 20,
+      "total6": 160,
+      "descripcion7": "Rehabilitación de Servicios",
+      "total_ejecucion7": 100,
+      "total_en_proc7": 40,
+      "total_cerrado7": 20,
+      "total7": 160,
+      "descripcion8": "Rehabilitación de Servicios",
+      "total_ejecucion8": 100,
+      "total_en_proc8": 40,
+      "total_cerrado8": 20,
+      "total8": 160,
+      "descripcion9": "Rehabilitación de Servicios",
+      "total_ejecucion9": 100,
+      "total_en_proc9": 40,
+      "total_cerrado9": 20,
+      "total9": 160,
+      "descripcion10": "Rehabilitación de Servicios",
+      "total_ejecucion10": 100,
+      "total_en_proc10": 40,
+      "total_cerrado10": 20,
+      "total10": 160,
+      "descripcion11": "Rehabilitación de Servicios",
+      "total_ejecucion11": 100,
+      "total_en_proc11": 40,
+      "total_cerrado11": 20,
+      "total11": 160,
+      "descripcion12": "Rehabilitación de Servicios",
+      "total_ejecucion12": 100,
+      "total_en_proc12": 40,
+      "total_cerrado12": 20,
+      "total12": 160,
+      "descripcion13": "Rehabilitación de Servicios",
+      "total_ejecucion13": 100,
+      "total_en_proc13": 40,
+      "total_cerrado13": 20,
+      "total13": 160,
+      "descripcion14": "Rehabilitación de Servicios",
+      "total_ejecucion14": 100,
+      "total_en_proc14": 40,
+      "total_cerrado14": 20,
+      "total14": 160,
+      "descripcion15": "Rehabilitación de Servicios",
+      "total_ejecucion15": 100,
+      "total_en_proc15": 40,
+      "total_cerrado15": 20,
+      "total15": 160,
+      "descripcion16": "Rehabilitación de Servicios",
+      "total_ejecucion16": 100,
+      "total_en_proc16": 40,
+      "total_cerrado16": 20,
+      "total16": 160,
+      "descripcion17": "Rehabilitación de Servicios",
+      "total_ejecucion17": 100,
+      "total_en_proc17": 40,
+      "total_cerrado17": 20,
+      "total17": 160,
+      "descripcion18": "Rehabilitación de Servicios",
+      "total_ejecucion18": 100,
+      "total_en_proc18": 40,
+      "total_cerrado18": 20,
+      "total18": 160,
+      "descripcion19": "Rehabilitación de Servicios",
+      "total_ejecucion19": 100,
+      "total_en_proc19": 40,
+      "total_cerrado19": 20,
+      "total19": 160,
+      "descripcion20": "Rehabilitación de Servicios",
+      "total_ejecucion20": 100,
+      "total_en_proc20": 40,
+      "total_cerrado20": 20,
+      "total20": 160
+    },
+    "totales": {
+      "total_ejecucion1": 450,
+      "total_en_proc1": 150,
+      "total_cerrado1": 90,
+      "total1": 690,
+      "total_ejecucion2": 300,
+      "total_en_proc2": 100,
+      "total_cerrado2": 50,
+      "total2": 450,
+      "total_ejecucion3": 300,
+      "total_en_proc3": 100,
+      "total_cerrado3": 50,
+      "total3": 450,
+      "total_ejecucion4": 300,
+      "total_en_proc4": 100,
+      "total_cerrado4": 50,
+      "total4": 450,
+      "total_ejecucion5": 300,
+      "total_en_proc5": 100,
+      "total_cerrado5": 50,
+      "total5": 450,
+      "total_ejecucion6": 300,
+      "total_en_proc6": 100,
+      "total_cerrado6": 50,
+      "total6": 450,
+      "total_ejecucion7": 300,
+      "total_en_proc7": 100,
+      "total_cerrado7": 50,
+      "total7": 450,
+      "total_ejecucion8": 300,
+      "total_en_proc8": 100,
+      "total_cerrado8": 50,
+      "total8": 450,
+      "total_ejecucion9": 300,
+      "total_en_proc9": 100,
+      "total_cerrado9": 50,
+      "total9": 450,
+      "total_ejecucion10": 300,
+      "total_en_proc10": 100,
+      "total_cerrado10": 50,
+      "total10": 450,
+      "total_ejecucion11": 300,
+      "total_en_proc11": 100,
+      "total_cerrado11": 50,
+      "total11": 450,
+      "total_ejecucion12": 300,
+      "total_en_proc12": 100,
+      "total_cerrado12": 50,
+      "total12": 450,
+      "total_ejecucion13": 300,
+      "total_en_proc13": 100,
+      "total_cerrado13": 50,
+      "total13": 450,
+      "total_ejecucion14": 300,
+      "total_en_proc14": 100,
+      "total_cerrado14": 50,
+      "total14": 450,
+      "total_ejecucion15": 300,
+      "total_en_proc15": 100,
+      "total_cerrado15": 50,
+      "total15": 450,
+      "total_ejecucion16": 300,
+      "total_en_proc16": 100,
+      "total_cerrado16": 50,
+      "total16": 450,
+      "total_ejecucion17": 300,
+      "total_en_proc17": 100,
+      "total_cerrado17": 50,
+      "total17": 450,
+      "total_ejecucion18": 300,
+      "total_en_proc18": 100,
+      "total_cerrado18": 50,
+      "total18": 450,
+      "total_ejecucion19": 300,
+      "total_en_proc19": 100,
+      "total_cerrado19": 50,
+      "total19": 450,
+      "total_ejecucion20": 300,
+      "total_en_proc20": 100,
+      "total_cerrado20": 50,
+      "total20": 450
+    },
+    "programas": [
       {
-        "tipo": 1,
-        "recomendaciones": [
+        "descripcion": "Programa de Infraestructura Vial",
+        "total_ejecucion": 120,
+        "total_en_proc": 45,
+        "total_cerrado": 20,
+        "total": 185,
+        "areas_principales": [
           {
-            "nro_recomendacion": "2.1",
-            "desc_recomendacion": "Falta de verificación física de los items ejecutados en la obra, \n previo a la emisión del informe de Conformidad del Responsable de Recepción. Esto afecta la integridad del control interno.",
-            "aceptacion": "SI",
-            "justificacion_no_aceptacion": "",
-            "tareas_implantacion": "Se designará personal encargado de realizar verificaciones físicas mensuales, y el gerente emitirá un memorandum para asegurar que estas prácticas sean implementadas adecuadamente."
+            "descripcion": "Construcción de Carreteras",
+            "total_ejecucion": 80,
+            "total_en_proc": 25,
+            "total_cerrado": 15,
+            "total": 120,
+            "acp": [
+              {
+                "descripcion": "Supervisión y Fiscalización",
+                "ejecutoras": [
+                  { "codigo": "EJ001", "cantidad": 5, "sigla": "SFC" },
+                  { "codigo": "EJ002", "cantidad": 10, "sigla": "CONV" }
+                ]
+              },
+              {
+                "descripcion": "Estudios Técnicos",
+                "ejecutoras": [
+                  { "codigo": "EJ003", "cantidad": 3, "sigla": "EST" },
+                  { "codigo": "EJ004", "cantidad": 7, "sigla": "PROY" }
+                ]
+              }
+            ]
           },
           {
-            "nro_recomendacion": "2.2",
-            "desc_recomendacion": "Ausencia de registro documentado de los procedimientos de control interno en las adquisiciones menores. Recomendamos incluir registros detallados para evitar discrepancias futuras.",
-            "aceptacion": "NO",
-            "justificacion_no_aceptacion": "Los registros actuales ya cumplen con los requisitos establecidos por la normativa vigente, y no se considera necesario agregar detalles adicionales.",
-            "tareas_implantacion": "Evaluación trimestral de los procedimientos de documentación y propuesta de mejoras para optimizar el control interno."
-          },
-          {
-            "nro_recomendacion": "2.3",
-            "desc_recomendacion": "Se recomienda la actualización periódica de las políticas de control interno, para que sean acordes con los cambios normativos.",
-            "aceptacion": "SI",
-            "justificacion_no_aceptacion": "",
-            "tareas_implantacion": "La Gerencia emitirá directrices que establecen revisiones anuales obligatorias de las políticas de control interno."
+            "descripcion": "Puentes y Viaductos",
+            "total_ejecucion": 40,
+            "total_en_proc": 20,
+            "total_cerrado": 5,
+            "total": 65,
+            "acp": [
+              {
+                "descripcion": "Diseño y Proyección",
+                "ejecutoras": [
+                  { "codigo": "EJ005", "cantidad": 8, "sigla": "DSP" },
+                  { "codigo": "EJ006", "cantidad": 4, "sigla": "VIA" }
+                ]
+              },
+              {
+                "descripcion": "Construcción de Puentes",
+                "ejecutoras": [
+                  { "codigo": "EJ007", "cantidad": 6, "sigla": "CPR" },
+                  { "codigo": "EJ008", "cantidad": 9, "sigla": "INFR" }
+                ]
+              }
+            ]
           }
         ]
       },
       {
-        "tipo": 2,
-        "recomendaciones": [
+        "descripcion": "Programa de Vivienda Social",
+        "total_ejecucion": 200,
+        "total_en_proc": 50,
+        "total_cerrado": 25,
+        "total": 275,
+        "areas_principales": [
           {
-            "nro_recomendacion": "3.1",
-            "desc_recomendacion": "Recomendamos a la Contralora General instruir a la Gerencia Nacional Financiera para la implementación de actividades de control en la recepción de obras menores.",
-            "periodo_implantacion": "Del 26/01/2024 Al 31/01/2024",
-            "responsable": "Lic Betsabé Flores Soliz, Subgerente de Administración y Finanzas.",
-            "tareas_implantacion": "El Gerente emitirá instrucciones para incluir en los nuevos contratos actividades de control relativas a la verificación física de los materiales recibidos."
+            "descripcion": "Construcción de Viviendas",
+            "total_ejecucion": 150,
+            "total_en_proc": 30,
+            "total_cerrado": 15,
+            "total": 195,
+            "acp": [
+              {
+                "descripcion": "Fiscalización",
+                "ejecutoras": [
+                  { "codigo": "EJ009", "cantidad": 12, "sigla": "FIS" },
+                  { "codigo": "EJ010", "cantidad": 8, "sigla": "AUD" }
+                ]
+              }
+            ]
           },
           {
-            "nro_recomendacion": "3.2",
-            "desc_recomendacion": "Instruir a la Gerencia de Logística la inclusión de cláusulas que especifican controles de calidad en todos los contratos de adquisición de materiales.",
-            "periodo_implantacion": "Del 01/02/2024 Al 28/02/2024",
-            "responsable": "Ing. Mario Vásquez, Jefe de Logística.",
-            "tareas_implantacion": "Desde enero de 2024, incluir en los contratos una sección que detalle controles de calidad y auditoría de entrega de materiales en coordinación con Logística."
-          },
-          {
-            "nro_recomendacion": "3.3",
-            "desc_recomendacion": "Fortalecer la supervisión en la cadena de suministro para asegurar la calidad en los materiales adquiridos y entregados.",
-            "periodo_implantacion": "Del 05/03/2024 Al 10/03/2024",
-            "responsable": "Licenciado José Pérez, Jefe de Supervisión.",
-            "tareas_implantacion": "Implementar un sistema de revisión trimestral de los proveedores, evaluando la calidad de los materiales y la consistencia en las entregas. Esto debe documentarse en reportes detallados."
+            "descripcion": "Remodelaciones",
+            "total_ejecucion": 50,
+            "total_en_proc": 20,
+            "total_cerrado": 10,
+            "total": 80,
+            "acp": [
+              {
+                "descripcion": "Contratación de Servicios",
+                "ejecutoras": [
+                  { "codigo": "EJ011", "cantidad": 5, "sigla": "CTR" },
+                  { "codigo": "EJ012", "cantidad": 6, "sigla": "REM" }
+                ]
+              }
+            ]
           }
         ]
       },
       {
-        "tipo": 1,
-        "recomendaciones": [
+        "descripcion": "Programa de Agua Potable",
+        "total_ejecucion": 100,
+        "total_en_proc": 30,
+        "total_cerrado": 20,
+        "total": 150,
+        "areas_principales": [
           {
-            "nro_recomendacion": "4.1",
-            "desc_recomendacion": "Falta de seguimiento en los procesos administrativos, lo cual afecta la transparencia de los reportes generados.",
-            "aceptacion": "SI",
-            "justificacion_no_aceptacion": "",
-            "tareas_implantacion": "Se establecerán reportes mensuales detallados para cada proceso administrativo con el fin de identificar y corregir desviaciones en tiempo real."
+            "descripcion": "Sistemas de Distribución",
+            "total_ejecucion": 60,
+            "total_en_proc": 15,
+            "total_cerrado": 10,
+            "total": 85,
+            "acp": [
+              {
+                "descripcion": "Rehabilitación de Redes",
+                "ejecutoras": [
+                  { "codigo": "EJ013", "cantidad": 10, "sigla": "RRD" },
+                  { "codigo": "EJ014", "cantidad": 12, "sigla": "OPR" }
+                ]
+              }
+            ]
           },
           {
-            "nro_recomendacion": "4.2",
-            "desc_recomendacion": "Ajustar los indicadores de desempeño para reflejar adecuadamente la eficiencia en el uso de los recursos.",
-            "aceptacion": "NO",
-            "justificacion_no_aceptacion": "Los indicadores actuales ya cubren los objetivos básicos del área, y se considera innecesario realizar ajustes que compliquen el proceso de reporte.",
-            "tareas_implantacion": "Realizar una evaluación trimestral para verificar que los indicadores reflejen de manera adecuada el desempeño del área de administración."
-          },
-          {
-            "nro_recomendacion": "4.3",
-            "desc_recomendacion": "Se recomienda implementar un sistema de revisión continua de los procedimientos de control interno.",
-            "aceptacion": "SI",
-            "justificacion_no_aceptacion": "",
-            "tareas_implantacion": "Crear un comité de auditoría interna que evalúe de manera continua los procesos de control y presente recomendaciones de mejora cada trimestre."
-          }
-        ]
-      },
-      {
-        "tipo": 2,
-        "recomendaciones": [
-          {
-            "nro_recomendacion": "5.1",
-            "desc_recomendacion": "Solicitamos la implementación de políticas de capacitación continua para el personal administrativo, especialmente en áreas clave de control interno.",
-            "periodo_implantacion": "Del 15/04/2024 Al 20/04/2024",
-            "responsable": "Lic. Carolina Martínez, Jefe de Recursos Humanos.",
-            "tareas_implantacion": "Elaborar y ejecutar un plan de capacitación anual que cubra temas de control interno y eficiencia operativa para todo el personal administrativo."
-          },
-          {
-            "nro_recomendacion": "5.2",
-            "desc_recomendacion": "Instruir al área de administración para que realice evaluaciones periódicas del control interno en las diferentes dependencias.",
-            "periodo_implantacion": "Del 21/04/2024 Al 25/04/2024",
-            "responsable": "Dr. Luis García, Subgerente de Control Interno.",
-            "tareas_implantacion": "Se deben implementar auditorías internas semestrales para evaluar el cumplimiento de los controles en todas las áreas. Un equipo de supervisores se encargará de elaborar los informes correspondientes."
-          },
-          {
-            "nro_recomendacion": "5.3",
-            "desc_recomendacion": "Mejorar los mecanismos de comunicación interna para asegurar que las políticas de control sean comprendidas y aplicadas.",
-            "periodo_implantacion": "Del 01/05/2024 Al 15/05/2024",
-            "responsable": "Ing. Laura Ortiz, Directora de Comunicación Interna.",
-            "tareas_implantacion": "Desarrollar campañas de sensibilización y capacitación para todo el personal sobre las políticas de control, asegurando su conocimiento y correcta aplicación en todas las áreas."
+            "descripcion": "Construcción de Plantas",
+            "total_ejecucion": 40,
+            "total_en_proc": 15,
+            "total_cerrado": 10,
+            "total": 65,
+            "acp": [
+              {
+                "descripcion": "Montaje de Infraestructura",
+                "ejecutoras": [
+                  { "codigo": "EJ015", "cantidad": 7, "sigla": "INF" },
+                  { "codigo": "EJ016", "cantidad": 8, "sigla": "PLT" }
+                ]
+              }
+            ]
           }
         ]
       }
