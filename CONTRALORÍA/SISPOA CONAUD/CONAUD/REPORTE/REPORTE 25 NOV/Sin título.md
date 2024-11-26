@@ -22,3 +22,7 @@
 json-server --watch reporte.json --port 7008
 http://172.16.22.243:7008
 RptPdfF15
+```
+"SrptXlsEvaluacionesNumericoAreasPrincipales.jrxml"
+new net.sf.jasperreports.engine.data.JsonDataSource(new ByteArrayInputStream($F{areas_principales}.toString().getBytes()),"")
+```
