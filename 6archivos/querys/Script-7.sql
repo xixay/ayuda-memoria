@@ -1,5 +1,3 @@
+--ASIGNACIONES CARGOS ITEM
 SELECT 	*
-FROM 	estructura_poa.actividades a 
-; 
-FROM	estructura_poa.poas_objetivos po 
-;
+FROM 	ejecucion_poa.asignaciones_cargos_item aci ;

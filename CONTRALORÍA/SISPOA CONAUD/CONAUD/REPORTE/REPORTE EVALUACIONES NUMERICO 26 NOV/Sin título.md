@@ -26,3 +26,8 @@ RptPdfF15
 "SrptXlsEvaluacionesNumericoAreasPrincipales.jrxml"
 new net.sf.jasperreports.engine.data.JsonDataSource(new ByteArrayInputStream($F{areas_principales}.toString().getBytes()),"")
 ```
+## Servicios CONAUD
+```
+src/feature/sispoa-areas-unidades/sispoa-areas-unidades.controller.ts
+findAllUnidadesPrincipales
+```
