@@ -1,27 +1,38 @@
-INSERT INTO estructura_organizacional.areas_unidades
-(aun_codigo, aun_nombre, aun_numero, aun_sigla, aun_copia, aun_supervision_compartida, org_codigo, lug_codigo, tau_codigo, nau_codigo, aau_codigo, ade_codigo, cau_codigo, aun_estado, usuario_registro, aun_inicial)
-VALUES
-(81, 'UNIDAD TÉCNICA DE TRANSPARENCIA Y LUCHA CONTRA LA CORRUPCIÓN', '0024', 'UTTLCC', false, false, 1, 2, 2, 3, 1, 1, 2, 2, 1914, 'Z');
-
-INSERT INTO estructura_organizacional.areas_unidades_dependencias
-(aud_codigo, aud_descripcion, aun_codigo_padre, aun_codigo_hijo, aud_estado, usuario_registro)
-VALUES
-(80, 'El area/unidad: UTTLCC - UNIDAD TÉCNICA DE TRANSPARENCIA Y LUCHA CONTRA LA CORRUPCIÓN, depende de: DC - Despacho del Contralor', 1, 81, 1, 1914);
-
-INSERT INTO estructura_organizacional.autoridades_funcionales (afu_codigo, afu_descripcion, aun_codigo_supervisado, aun_codigo_supervisor, afu_estado, usuario_registro)
-VALUES
-(175, 'El area/unidad: UTTLCC - UNIDAD TÉCNICA DE TRANSPARENCIA Y LUCHA CONTRA LA CORRUPCIÓN, esta supervisado funcionalmente por: UTTLCC - UNIDAD TÉCNICA DE TRANSPARENCIA Y LUCHA CONTRA LA CORRUPCIÓN', 81, 81, 1, 1914);
-
-UPDATE estructura_organizacional.cargos_items
-SET cit_estado = 0
-WHERE cit_codigo = 170;
-
-INSERT INTO estructura_organizacional.cargos
-(car_codigo, car_nombre, car_alias, tca_codigo, car_estado, usuario_registro)
-VALUES
-(167, 'OFICIAL DE TRANSPARENCIA Y LUCHA CONTRA LA CORRUPCIÓN', 'OFICIAL DE TRANSPARENCIA Y LUCHA CONTRA LA CORRUPCIÓN', 1, 2, 1914);
-
-INSERT INTO estructura_organizacional.cargos_items
-(cit_codigo, cit_descripcion, aun_codigo, car_codigo, ite_codigo, cit_estado, usuario_registro)
-VALUES
-(604, 'El cargo: OFICIAL DE TRANSPARENCIA Y LUCHA CONTRA LA CORRUPCIÓN, pertenece al área/unidad: UNIDAD TÉCNICA DE TRANSPARENCIA Y LUCHA CONTRA LA CORRUPCIÓN, con el item: 0039.', 81, 167, 39, 2, 1914);
+        WITH
+        tmp_adicion AS (
+          SELECT
+                amh.act_codigo_adicion AS act_codigo,
+                COALESCE(SUM(amh.amh_horas), 0) AS horas_adicion
+          FROM  estructura_poa.actividades_movimientos_horas amh
+          WHERE TRUE
+                AND amh.amh_estado NOT IN (0,5,9)
+                AND amh.tmh_codigo NOT IN (1) -- NO SUMA CUANDO ES F21
+          GROUP BY amh.act_codigo_adicion
+        ),
+        tmp_disminucion AS (
+          SELECT
+                amh.act_codigo_disminucion AS act_codigo,
+                COALESCE(SUM(amh.amh_horas), 0) AS horas_disminucion
+          FROM  estructura_poa.actividades_movimientos_horas amh
+          WHERE TRUE
+                AND amh.amh_estado NOT IN (0,5,9)
+                 -- CASO EDICIÓN DE HORAS, NO TOMAR EN CUENTA
+          GROUP BY amh.act_codigo_disminucion
+        )
+        SELECT
+              t.act_codigo,
+              t.act_estado,
+              t.act_numero,
+              t.aun_codigo_ejecutora,
+              au.aun_sigla,
+              t.act_horas_planificadas AS horas_planificadas,
+              (t.act_horas_planificadas + (COALESCE(tmp_adicion.horas_adicion, 0) - COALESCE(tmp_disminucion.horas_disminucion, 0)))::INT AS horas_calculo_movimiento
+        FROM    estructura_poa.actividades t
+              LEFT JOIN estructura_organizacional.areas_unidades au ON t.aun_codigo_ejecutora = au.aun_codigo
+              LEFT JOIN tmp_adicion ON t.act_codigo = tmp_adicion.act_codigo
+              LEFT JOIN tmp_disminucion ON t.act_codigo = tmp_disminucion.act_codigo
+        WHERE   TRUE
+              AND t.act_codigo IN (4839)
+              AND t.act_estado IN (2)
+        ORDER BY t.act_codigo
+        ;
