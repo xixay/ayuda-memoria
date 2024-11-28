@@ -1,124 +1,143 @@
 {
   "datos": {
-    "total_ejecucion": 859,
-    "total_emitido": 6,
+    "ejecucion": 859,
+    "cerrado": 6,
     "total": 865,
     "programas": [
       {
-        "descripcion": "500 - AUDITORÍA OPERACIONAL",
-        "total_ejecucion": 423,
-        "total_emitido": 6,
+        "descripcion_programa": "500 - AUDITORÍA OPERACIONAL",
+        "ejecucion": 423,
+        "cerrado": 6,
         "total": 429,
-        "tipo_trabajo": [
+        "tipos_trabajos": [
           {
-            "descripcion": "EEPOA - Evaluación de la Ejecución del Programa de Operaciones Anual de las Unidades de Auditoría Interna",
-            "total_ejecucion": 1,
-            "total_emitido": 3,
+            "descripcion_tipo_trabajo": "EEPOA - Evaluación de la Ejecución del Programa de Operaciones Anual de las Unidades de Auditoría Interna",
+            "ejecucion": 1,
+            "cerrado": 3,
             "total": 4,
             "areas_principales": [
               {
-                "descripcion": "GDB",
-                "total_ejecucion": 1,
-                "total_emitido": 3,
+                "descripcion_area_unidad": "GDB",
+                "ejecucion": 1,
+                "cerrado": 3,
                 "total": 4,
-                "acp": [
+                "acciones_corto_plazo": [
                   {
-                    "descripcion": "ACP 1",
-                    "prog": "Prog 1",
-                    "total_ejecucion": 50000,
-                    "total_emitido": 60000,
+                    "pobj_nombre": "ACP 1",
+                    "programado": 20,
+                    "ejecucion": 50000,
+                    "cerrado": 60000,
                     "total": 110000,
-                    "acp_numero": "ACP001",
-                    "sigla": "ACP1",
-                    "entidades": [
+                    "ejecutoras": [
                       {
-                        "descripcion": "Entidad 1",
-                        "total_ejecucion": 20000,
-                        "total_emitido": 25000,
-                        "total": 45000
+                        "cod_acp": "ACP001",
+                        "unidad_ejecutora": "ACP1",
+                        "ejecucion": 20000,
+                        "cerrado": 25000,
+                        "total": 45000,
+                        "entidades": [
+                          {
+                            "descripcion_entidad": "Entidad 1",
+                            "ejecucion": 20000,
+                            "cerrado": 25000,
+                            "total": 45000
+                          },
+                          {
+                            "descripcion_entidad": "Entidad 2",
+                            "ejecucion": 30000,
+                            "cerrado": 35000,
+                            "total": 65000
+                          }
+                        ]
                       },
                       {
-                        "descripcion": "Entidad 2",
-                        "total_ejecucion": 30000,
-                        "total_emitido": 35000,
-                        "total": 65000
+                        "cod_acp": "ACP002",
+                        "unidad_ejecutora": "ACP2",
+                        "ejecucion": 10000,
+                        "cerrado": 15000,
+                        "total": 25000,
+                        "entidades": [
+                          {
+                            "descripcion_entidad": "Entidad 3",
+                            "ejecucion": 10000,
+                            "cerrado": 15000,
+                            "total": 25000
+                          },
+                          {
+                            "descripcion_entidad": "Entidad 4",
+                            "ejecucion": 5000,
+                            "cerrado": 10000,
+                            "total": 15000
+                          }
+                        ]
                       }
                     ]
                   },
                   {
-                    "descripcion": "ACP 2",
-                    "prog": "Prog 2",
-                    "total_ejecucion": 50000,
-                    "total_emitido": 60000,
-                    "total": 110000,
-                    "acp_numero": "ACP002",
-                    "sigla": "ACP2",
-                    "entidades": [
+                    "pobj_nombre": "ACP 2",
+                    "programado": 30,
+                    "ejecucion": 40000,
+                    "cerrado": 50000,
+                    "total": 90000,
+                    "ejecutoras": [
                       {
-                        "descripcion": "Entidad 3",
-                        "total_ejecucion": 25000,
-                        "total_emitido": 30000,
-                        "total": 55000
-                      },
-                      {
-                        "descripcion": "Entidad 4",
-                        "total_ejecucion": 25000,
-                        "total_emitido": 30000,
-                        "total": 55000
+                        "cod_acp": "ACP003",
+                        "unidad_ejecutora": "ACP3",
+                        "ejecucion": 15000,
+                        "cerrado": 20000,
+                        "total": 35000,
+                        "entidades": [
+                          {
+                            "descripcion_entidad": "Entidad 5",
+                            "ejecucion": 15000,
+                            "cerrado": 20000,
+                            "total": 35000
+                          },
+                          {
+                            "descripcion_entidad": "Entidad 6",
+                            "ejecucion": 20000,
+                            "cerrado": 30000,
+                            "total": 50000
+                          }
+                        ]
                       }
                     ]
                   }
                 ]
               },
               {
-                "descripcion": "Área Principal Y",
-                "total_ejecucion": 100000,
-                "total_emitido": 130000,
-                "total": 230000,
-                "acp": [
+                "descripcion_area_unidad": "FBD",
+                "ejecucion": 2,
+                "cerrado": 4,
+                "total": 6,
+                "acciones_corto_plazo": [
                   {
-                    "descripcion": "ACP 3",
-                    "prog": "Prog 3",
-                    "total_ejecucion": 60000,
-                    "total_emitido": 80000,
-                    "total": 140000,
-                    "acp_numero": "ACP003",
-                    "sigla": "ACP3",
-                    "entidades": [
+                    "pobj_nombre": "ACP 3",
+                    "programado": 25,
+                    "ejecucion": 60000,
+                    "cerrado": 70000,
+                    "total": 130000,
+                    "ejecutoras": [
                       {
-                        "descripcion": "Entidad 5",
-                        "total_ejecucion": 30000,
-                        "total_emitido": 40000,
-                        "total": 70000
-                      },
-                      {
-                        "descripcion": "Entidad 6",
-                        "total_ejecucion": 30000,
-                        "total_emitido": 40000,
-                        "total": 70000
-                      }
-                    ]
-                  },
-                  {
-                    "descripcion": "ACP 4",
-                    "prog": "Prog 4",
-                    "total_ejecucion": 40000,
-                    "total_emitido": 50000,
-                    "total": 90000,
-                    "acp_numero": "ACP004",
-                    "sigla": "ACP4",
-                    "entidades": [
-                      {
-                        "descripcion": "Entidad 7",
-                        "total_ejecucion": 20000,
-                        "total_emitido": 25000,
-                        "total": 45000
-                      },
-                      {
-                        "descripcion": "Entidad 8",
-                        "total_ejecucion": 20000,
-                        "total_emitido": 25000,
-                        "total": 45000
+                        "cod_acp": "ACP004",
+                        "unidad_ejecutora": "ACP4",
+                        "ejecucion": 30000,
+                        "cerrado": 35000,
+                        "total": 65000,
+                        "entidades": [
+                          {
+                            "descripcion_entidad": "Entidad 7",
+                            "ejecucion": 30000,
+                            "cerrado": 35000,
+                            "total": 65000
+                          },
+                          {
+                            "descripcion_entidad": "Entidad 8",
+                            "ejecucion": 30000,
+                            "cerrado": 35000,
+                            "total": 65000
+                          }
+                        ]
                       }
                     ]
                   }
@@ -127,60 +146,38 @@
             ]
           },
           {
-            "descripcion": "Tipo Trabajo B",
-            "total_ejecucion": 200000,
-            "total_emitido": 250000,
-            "total": 450000,
+            "descripcion_tipo_trabajo": "Otras actividades",
+            "ejecucion": 2,
+            "cerrado": 1,
+            "total": 3,
             "areas_principales": [
               {
-                "descripcion": "Área Principal Z",
-                "total_ejecucion": 90000,
-                "total_emitido": 110000,
-                "total": 200000,
-                "acp": [
+                "descripcion_area_unidad": "HRD",
+                "ejecucion": 2,
+                "cerrado": 1,
+                "total": 3,
+                "acciones_corto_plazo": [
                   {
-                    "descripcion": "ACP 5",
-                    "prog": "Prog 5",
-                    "total_ejecucion": 45000,
-                    "total_emitido": 55000,
-                    "total": 100000,
-                    "acp_numero": "ACP005",
-                    "sigla": "ACP5",
-                    "entidades": [
+                    "pobj_nombre": "ACP 4",
+                    "programado": 15,
+                    "ejecucion": 20000,
+                    "cerrado": 25000,
+                    "total": 45000,
+                    "ejecutoras": [
                       {
-                        "descripcion": "Entidad 9",
-                        "total_ejecucion": 20000,
-                        "total_emitido": 25000,
-                        "total": 45000
-                      },
-                      {
-                        "descripcion": "Entidad 10",
-                        "total_ejecucion": 25000,
-                        "total_emitido": 30000,
-                        "total": 55000
-                      }
-                    ]
-                  },
-                  {
-                    "descripcion": "ACP 6",
-                    "prog": "Prog 6",
-                    "total_ejecucion": 45000,
-                    "total_emitido": 50000,
-                    "total": 95000,
-                    "acp_numero": "ACP006",
-                    "sigla": "ACP6",
-                    "entidades": [
-                      {
-                        "descripcion": "Entidad 11",
-                        "total_ejecucion": 20000,
-                        "total_emitido": 25000,
-                        "total": 45000
-                      },
-                      {
-                        "descripcion": "Entidad 12",
-                        "total_ejecucion": 25000,
-                        "total_emitido": 25000,
-                        "total": 50000
+                        "cod_acp": "ACP005",
+                        "unidad_ejecutora": "ACP5",
+                        "ejecucion": 10000,
+                        "cerrado": 15000,
+                        "total": 25000,
+                        "entidades": [
+                          {
+                            "descripcion_entidad": "Entidad 9",
+                            "ejecucion": 10000,
+                            "cerrado": 15000,
+                            "total": 25000
+                          }
+                        ]
                       }
                     ]
                   }
@@ -191,19 +188,11 @@
         ]
       },
       {
-        "descripcion": "Programa 2",
-        "total_ejecucion": 600000,
-        "total_emitido": 700000,
-        "total": 1300000,
-        "tipo_trabajo": [
-          {
-            "descripcion": "Tipo Trabajo C",
-            "total_ejecucion": 300000,
-            "total_emitido": 350000,
-            "total": 650000,
-            "areas_principales": []
-          }
-        ]
+        "descripcion_programa": "600 - CONTROL INTERNO",
+        "ejecucion": 50,
+        "cerrado": 10,
+        "total": 60,
+        "tipos_trabajos": []
       }
     ]
   }
