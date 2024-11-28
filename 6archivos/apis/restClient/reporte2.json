@@ -23,27 +23,27 @@
                 "total": 4,
                 "acciones_corto_plazo": [
                   {
-                    "pobj_nombre": "ACP 1",
+                    "pobj_nombre": "Emitir 6 informes analíticos de los Planes Anuales de Auditoría elaborados por las UAI de Entidades Públicas del Nivel Departamental en la Gerencia Departamental del Beni en la gestión 2024.",
                     "programado": 20,
                     "ejecucion": 50000,
                     "cerrado": 60000,
                     "total": 110000,
                     "ejecutoras": [
                       {
-                        "cod_acp": "ACP001",
-                        "unidad_ejecutora": "ACP1",
+                        "cod_acp": "500.1903.111",
+                        "unidad_ejecutora": "GDB-GAD",
                         "ejecucion": 20000,
                         "cerrado": 25000,
                         "total": 45000,
                         "entidades": [
                           {
-                            "descripcion_entidad": "Entidad 1",
+                            "descripcion_entidad": "SERVICIO NACIONAL DE SANIDAD AGROPECUARIA E INOCUIDAD ALIMENTARIA - BENI: SE ENCARGA DE GARANTIZAR LA CALIDAD SANITARIA Y LA INOCUIDAD DE LOS PRODUCTOS AGROPECUARIOS EN LA REGIÓN DEL BENI, PROMOVIENDO PRACTICAS DE SANIDAD Y SEGURIDAD ALIMENTARIA PARA LA PROTECCIÓN DE LA SALUD PÚBLICA.",
                             "ejecucion": 20000,
                             "cerrado": 25000,
                             "total": 45000
                           },
                           {
-                            "descripcion_entidad": "Entidad 2",
+                            "descripcion_entidad": "SERVICIO NACIONAL DE SANIDAD AGROPECUARIA E INOCUIDAD ALIMENTARIA - BENI: RESPONSABLE DE LA INSPECCIÓN Y CONTROL DE LA CALIDAD DE LOS PRODUCTOS AGROPECUARIOS, GARANTIZANDO LA INOCUIDAD Y EL CUMPLIMIENTO DE LOS ESTÁNDARES SANITARIOS A NIVEL REGIONAL.",
                             "ejecucion": 30000,
                             "cerrado": 35000,
                             "total": 65000
@@ -51,20 +51,20 @@
                         ]
                       },
                       {
-                        "cod_acp": "ACP002",
-                        "unidad_ejecutora": "ACP2",
+                        "cod_acp": "500.1903.111",
+                        "unidad_ejecutora": "GDB-GAD",
                         "ejecucion": 10000,
                         "cerrado": 15000,
                         "total": 25000,
                         "entidades": [
                           {
-                            "descripcion_entidad": "Entidad 3",
+                            "descripcion_entidad": "INSTITUTO NACIONAL DE ESTADÍSTICA - BOLIVIA: ES LA INSTITUCIÓN RESPONSABLE DE GENERAR Y COORDINAR LA PRODUCCIÓN DE LAS ESTADÍSTICAS OFICIALES EN BOLIVIA, QUE SERVIRÁN DE BASE PARA LA PLANIFICACIÓN Y EL DISEÑO DE POLÍTICAS PÚBLICAS.",
                             "ejecucion": 10000,
                             "cerrado": 15000,
                             "total": 25000
                           },
                           {
-                            "descripcion_entidad": "Entidad 4",
+                            "descripcion_entidad": "MINISTERIO DE ECONOMÍA Y FINANZAS PÚBLICAS - BOLIVIA: ADMINISTRA LOS RECURSOS PÚBLICOS NACIONALES, CONTROLANDO Y FISCALIZANDO EL GASTO DEL ESTADO PARA EL CUMPLIMIENTO DE LAS POLÍTICAS ECONÓMICAS Y FINANCIERAS EN EL PAÍS.",
                             "ejecucion": 5000,
                             "cerrado": 10000,
                             "total": 15000
@@ -74,27 +74,27 @@
                     ]
                   },
                   {
-                    "pobj_nombre": "ACP 2",
+                    "pobj_nombre": "Emitir 6 informes analíticos de los Planes Anuales de Auditoría elaborados por las UAI de Entidades Públicas del Nivel Departamental en la Gerencia Departamental del Beni en la gestión 2024.",
                     "programado": 30,
                     "ejecucion": 40000,
                     "cerrado": 50000,
                     "total": 90000,
                     "ejecutoras": [
                       {
-                        "cod_acp": "ACP003",
-                        "unidad_ejecutora": "ACP3",
+                        "cod_acp": "500.1903.111",
+                        "unidad_ejecutora": "GDB-GAD",
                         "ejecucion": 15000,
                         "cerrado": 20000,
                         "total": 35000,
                         "entidades": [
                           {
-                            "descripcion_entidad": "Entidad 5",
+                            "descripcion_entidad": "SERVICIO NACIONAL DE SANIDAD AGROPECUARIA E INOCUIDAD ALIMENTARIA - BENI: SE DEDICA A LA VIGILANCIA Y CONTROL DE LA CALIDAD SANITARIA Y LA INOCUIDAD ALIMENTARIA EN EL DEPARTAMENTO DEL BENI, MEDIANTE EL MONITOREO DE LOS PRODUCTOS AGROPECUARIOS Y ALIMENTARIOS.",
                             "ejecucion": 15000,
                             "cerrado": 20000,
                             "total": 35000
                           },
                           {
-                            "descripcion_entidad": "Entidad 6",
+                            "descripcion_entidad": "SERVICIO NACIONAL DE SANIDAD AGROPECUARIA E INOCUIDAD ALIMENTARIA - BENI: ENCARGADO DE VIGILAR Y CONTROLAR LA CALIDAD DE LOS PRODUCTOS ALIMENTICIOS Y AGROPECUARIOS QUE SE PRODUCEN Y CONSUMEN EN EL DEPARTAMENTO DEL BENI.",
                             "ejecucion": 20000,
                             "cerrado": 30000,
                             "total": 50000
@@ -112,27 +112,27 @@
                 "total": 6,
                 "acciones_corto_plazo": [
                   {
-                    "pobj_nombre": "ACP 3",
+                    "pobj_nombre": "Emitir 6 informes analíticos de los Planes Anuales de Auditoría elaborados por las UAI de Entidades Públicas del Nivel Departamental en la Gerencia Departamental del Beni en la gestión 2024.",
                     "programado": 25,
                     "ejecucion": 60000,
                     "cerrado": 70000,
                     "total": 130000,
                     "ejecutoras": [
                       {
-                        "cod_acp": "ACP004",
-                        "unidad_ejecutora": "ACP4",
+                        "cod_acp": "500.1903.111",
+                        "unidad_ejecutora": "GDB-GAD",
                         "ejecucion": 30000,
                         "cerrado": 35000,
                         "total": 65000,
                         "entidades": [
                           {
-                            "descripcion_entidad": "Entidad 7",
+                            "descripcion_entidad": "SERVICIO NACIONAL DE SANIDAD AGROPECUARIA E INOCUIDAD ALIMENTARIA - BENI: ENCARGADO DE GARANTIZAR LA SANIDAD Y SEGURIDAD DE LOS PRODUCTOS AGROPECUARIOS Y ALIMENTARIOS PRODUCIDOS Y CONSUMIDOS EN EL DEPARTAMENTO DEL BENI.",
                             "ejecucion": 30000,
                             "cerrado": 35000,
                             "total": 65000
                           },
                           {
-                            "descripcion_entidad": "Entidad 8",
+                            "descripcion_entidad": "SERVICIO NACIONAL DE SANIDAD AGROPECUARIA E INOCUIDAD ALIMENTARIA - BENI: VIGILA LA CALIDAD SANITARIA DE LOS PRODUCTOS DE ORIGEN AGROPECUARIO Y ALIMENTARIO EN EL DEPARTAMENTO DEL BENI, CUMPLIENDO CON NORMATIVAS NACIONALES E INTERNACIONALES.",
                             "ejecucion": 30000,
                             "cerrado": 35000,
                             "total": 65000
@@ -158,21 +158,21 @@
                 "total": 3,
                 "acciones_corto_plazo": [
                   {
-                    "pobj_nombre": "ACP 4",
+                    "pobj_nombre": "Emitir 6 informes analíticos de los Planes Anuales de Auditoría elaborados por las UAI de Entidades Públicas del Nivel Departamental en la Gerencia Departamental del Beni en la gestión 2024.",
                     "programado": 15,
                     "ejecucion": 20000,
                     "cerrado": 25000,
                     "total": 45000,
                     "ejecutoras": [
                       {
-                        "cod_acp": "ACP005",
-                        "unidad_ejecutora": "ACP5",
+                        "cod_acp": "500.1903.111",
+                        "unidad_ejecutora": "GDB-GAD",
                         "ejecucion": 10000,
                         "cerrado": 15000,
                         "total": 25000,
                         "entidades": [
                           {
-                            "descripcion_entidad": "Entidad 9",
+                            "descripcion_entidad": "INSTITUTO NACIONAL DE ESTADÍSTICA - BOLIVIA: ORGANISMO RESPONSABLE DE LA PRODUCCIÓN Y COORDINACIÓN DE LAS ESTADÍSTICAS NACIONALES Y DE LA INFORMACIÓN ECONÓMICA, DEMOGRÁFICA Y SOCIAL DEL PAÍS.",
                             "ejecucion": 10000,
                             "cerrado": 15000,
                             "total": 25000
@@ -186,13 +186,6 @@
             ]
           }
         ]
-      },
-      {
-        "descripcion_programa": "600 - CONTROL INTERNO",
-        "ejecucion": 50,
-        "cerrado": 10,
-        "total": 60,
-        "tipos_trabajos": []
       }
     ]
   }
