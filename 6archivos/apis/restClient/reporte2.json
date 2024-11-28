@@ -1,26 +1,26 @@
 {
   "datos": {
-    "total_ejecucion": 1000000,
-    "total_emitido": 1200000,
-    "total": 2200000,
+    "total_ejecucion": 859,
+    "total_emitido": 6,
+    "total": 865,
     "programas": [
       {
-        "descripcion": "Programa 1",
-        "total_ejecucion": 400000,
-        "total_emitido": 500000,
-        "total": 900000,
+        "descripcion": "500 - AUDITORÍA OPERACIONAL",
+        "total_ejecucion": 423,
+        "total_emitido": 6,
+        "total": 429,
         "tipo_trabajo": [
           {
-            "descripcion": "Tipo Trabajo A",
-            "total_ejecucion": 200000,
-            "total_emitido": 250000,
-            "total": 450000,
+            "descripcion": "EEPOA - Evaluación de la Ejecución del Programa de Operaciones Anual de las Unidades de Auditoría Interna",
+            "total_ejecucion": 1,
+            "total_emitido": 3,
+            "total": 4,
             "areas_principales": [
               {
-                "descripcion": "Área Principal X",
-                "total_ejecucion": 100000,
-                "total_emitido": 120000,
-                "total": 220000,
+                "descripcion": "GDB",
+                "total_ejecucion": 1,
+                "total_emitido": 3,
+                "total": 4,
                 "acp": [
                   {
                     "descripcion": "ACP 1",

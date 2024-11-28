@@ -31,3 +31,7 @@ new net.sf.jasperreports.engine.data.JsonDataSource(new ByteArrayInputStream($F{
 src/feature/sispoa-areas-unidades/sispoa-areas-unidades.controller.ts
 findAllUnidadesPrincipales
 ```
+```
+"SrptXlsEvaluacionesNumericoEjecutoras.jrxml"
+new net.sf.jasperreports.engine.data.JsonDataSource(new ByteArrayInputStream($F{ejecutoras}.toString().getBytes()),"")
+```

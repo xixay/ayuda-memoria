@@ -89,8 +89,17 @@
     # GET http://172.16.0.104:11000/poas-objetivos/excel_obj?pobj_codigo=(1365,1366)&aun_codigo=(1)
 
 ### OBTENER EVALUACIONES NUMERICO
-  GET http://localhost:7008/datos HTTP/1.1
-  Content-Type: application/json
+### FAKE
+GET http://localhost:7008/datos HTTP/1.1
+Content-Type: application/json
+### DEVELOP
+GET {{Host}}/reportes/evaluacion/control-interno-numerico?poa_codigo=(3)&pro_codigo=(1,2)&aun_codigo_principal=(17,44) HTTP/1.1
+Content-Type: application/json
+Authorization: {{AuthTokenInterno}}
+### FIND REPORTE
+GET http://172.16.22.234:7000/reportes/evaluacion/control-interno-numerico?poa_codigo=(3)&pro_codigo=(1,2)&aun_codigo_principal=(17,44) HTTP/1.1
+Content-Type: application/json
+Authorization: {{AuthTokenInterno}}
 ### OBTENER EVALUACIONES DETALLADO
   GET http://localhost:7009/datos HTTP/1.1
   Content-Type: application/json
