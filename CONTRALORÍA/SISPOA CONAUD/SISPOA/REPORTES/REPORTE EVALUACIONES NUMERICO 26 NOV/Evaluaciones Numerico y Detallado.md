@@ -508,3 +508,123 @@ new net.sf.jasperreports.engine.data.JsonDataSource(new ByteArrayInputStream($F{
 </jasperReport>
 
 ```
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1980c104-5f43-4575-b994-ea576dbcbef8">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Adapter Conaud JSON SERVER"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="net.sf.jasperreports.export.xls.remove.empty.space.between.rows" value="true"/>
+	<property name="net.sf.jasperreports.export.xls.remove.empty.space.between.columns" value="true"/>
+	<property name="net.sf.jasperreports.export.xls.detect.cell.type" value="true"/>
+	<property name="net.sf.jasperreports.export.xls.ignore.cell.background" value="false"/>
+	<property name="net.sf.jasperreports.export.xls.ignore.graphics" value="false"/>
+	<property name="net.sf.jasperreports.export.xls.collapse.row.span" value="false"/>
+	<property name="net.sf.jasperreports.export.xls.white.page.background" value="false"/>
+	<property name="net.sf.jasperreports.export.xls.one.page.per.sheet" value="false"/>
+	<property name="net.sf.jasperreports.export.xls.ignore.cell.border" value="false"/>
+	<subDataset name="Dataset1" uuid="6de8af30-0ef5-4cb8-9f6a-0671a18ecbd0">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<queryString language="WebServiceQuery">
+		<![CDATA[{
+            "getparameters" : { },
+            "fields" : [
+                { "name" : "pobj_nombre", "expression" : "pobj_nombre" },
+                { "name" : "ejecucion_1", "expression" : "ejecucion_1" },
+                { "name" : "proceso_1", "expression" : "proceso_1" },
+                { "name" : "cerrado_1", "expression" : "cerrado_1" },
+                { "name" : "total_1", "expression" : "total_1" },
+                { "name" : "ejecucion_2", "expression" : "ejecucion_2" },
+                { "name" : "proceso_2", "expression" : "proceso_2" },
+                { "name" : "cerrado_2", "expression" : "cerrado_2" },
+                { "name" : "total_2", "expression" : "total_2" }
+            ],
+            "options" : {
+                "contentType" : "application/json",
+                "rootPath" : "",
+                "baseUrl" : "/datos"
+            },
+            "headersMap" : { },
+            "queryData" : "",
+            "GETParameters" : { }
+        }]]>
+	</queryString>
+	<field name="pobj_nombre" class="java.lang.String"/>
+	<field name="ejecucion_1" class="java.lang.String"/>
+	<field name="proceso_1" class="java.lang.String"/>
+	<field name="cerrado_1" class="java.lang.String"/>
+	<field name="total_1" class="java.lang.String"/>
+	<field name="ejecucion_2" class="java.lang.String"/>
+	<field name="proceso_2" class="java.lang.String"/>
+	<field name="cerrado_2" class="java.lang.String"/>
+	<field name="total_2" class="java.lang.String"/>
+	<group name="GroupPobjNombre">
+		<groupExpression><![CDATA[$F{pobj_nombre}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="218">
+			<componentElement>
+				<reportElement x="328" y="18" width="200" height="200" uuid="24da728f-690e-4f0c-9483-f263a015c5dc">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Dataset1" uuid="1846af6f-faaa-4b89-9a79-c6082b23ba4e">
+						<parametersMapExpression><![CDATA[$F{ejecucion_1}]]></parametersMapExpression>
+					</datasetRun>
+					<jr:column width="100" uuid="a3c1b5b0-d61d-4ed1-b7a7-b9f1587d1b95">
+						<jr:tableHeader style="Table_TH" height="30"/>
+						<jr:columnHeader style="Table_CH" height="30"/>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement style="Table_TD" x="0" y="0" width="100" height="30" uuid="c7c432a5-2171-48ca-8555-484f1048a7c2"/>
+								<textFieldExpression><![CDATA[$F{pobj_nombre}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="80" uuid="b80685a4-639d-4cde-b597-0f8995614425">
+						<jr:tableHeader style="Table_TH" height="30"/>
+						<jr:columnHeader style="Table_CH" height="30"/>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement style="Table_TD" x="0" y="0" width="80" height="30" uuid="0b92cf11-74da-4f6a-97f4-d4330506d3af"/>
+								<textFieldExpression><![CDATA[$F{otro_campo}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="50" uuid="c72d5358-e07a-4c6b-8ed9-3819db75da87">
+						<jr:tableHeader style="Table_TH" height="30"/>
+						<jr:columnHeader style="Table_CH" height="30"/>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement style="Table_TD" x="0" y="0" width="50" height="30" uuid="7a452554-53fe-4147-b89d-777a5f90a31c"/>
+								<textFieldExpression><![CDATA[$F{flag_eliminacion}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>
+
+```
+
+- https://community.jaspersoft.com/knowledgebase/best-practices/how-merge-table-rows-repeated-values/#wiki-header-2
