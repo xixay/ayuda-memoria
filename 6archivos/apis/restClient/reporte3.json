@@ -1,0 +1,121 @@
+{
+  "datos": {
+    "ejecucion": 859,
+    "cerrado": 6,
+    "total": 865,
+    "programas": [
+      {
+        "descripcion_programa": "500 - AUDITORÍA OPERACIONAL",
+        "ejecucion": 423,
+        "cerrado": 6,
+        "total": 429,
+        "tipos_trabajos": [
+          {
+            "descripcion_tipo_trabajo": "EEPOA - Evaluación de la Ejecución del Programa de Operaciones Anual de las Unidades de Auditoría Interna",
+            "ejecucion": 1,
+            "cerrado": 3,
+            "total": 4,
+            "areas_principales": [
+              {
+                "descripcion_area_unidad": "GDB",
+                "ejecucion": 1,
+                "cerrado": 3,
+                "total": 4,
+                "acciones_corto_plazo": [
+                  {
+                    "pobj_nombre": "Emitir 6 informes analíticos de los Planes Anuales de Auditoría elaborados por las UAI de Entidades Públicas del Nivel Departamental en la Gerencia Departamental del Beni en la gestión 2024.",
+                    "programado": 20,
+                    "ejecucion": 50000,
+                    "cerrado": 60000,
+                    "total": 110000,
+                    "ejecutoras": []
+                  },
+                  {
+                    "pobj_nombre": "Emitir informes adicionales de auditoría para las UAI.",
+                    "programado": null,
+                    "ejecucion": null,
+                    "cerrado": null,
+                    "total": null,
+                    "ejecutoras": []
+                  }
+                ]
+              },
+              {
+                "descripcion_area_unidad": "FBD",
+                "ejecucion": 2,
+                "cerrado": 4,
+                "total": 6,
+                "acciones_corto_plazo": [
+                  {
+                    "pobj_nombre": "Generar reportes de impacto financiero para la región.",
+                    "programado": 30,
+                    "ejecucion": 60000,
+                    "cerrado": 70000,
+                    "total": 130000,
+                    "ejecutoras": [
+                      {
+                        "cod_acp": "501.2901.222",
+                        "unidad_ejecutora": "FBD-Region Norte",
+                        "ejecucion": 30000,
+                        "cerrado": 35000,
+                        "total": 65000,
+                        "entidades": null
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "descripcion_tipo_trabajo": "Otras actividades",
+            "ejecucion": 2,
+            "cerrado": 1,
+            "total": 3,
+            "areas_principales": [
+              {
+                "descripcion_area_unidad": "HRD",
+                "ejecucion": 2,
+                "cerrado": 1,
+                "total": 3,
+                "acciones_corto_plazo": [
+                  {
+                    "pobj_nombre": "Supervisión de auditorías de desempeño en entidades gubernamentales.",
+                    "programado": 15,
+                    "ejecucion": 20000,
+                    "cerrado": 25000,
+                    "total": 45000,
+                    "ejecutoras": [
+                      {
+                        "cod_acp": "600.3210.555",
+                        "unidad_ejecutora": "HRD-Central",
+                        "ejecucion": null,
+                        "cerrado": 25000,
+                        "total": 25000,
+                        "entidades": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "descripcion_area_unidad": null,
+                "ejecucion": null,
+                "cerrado": null,
+                "total": null,
+                "acciones_corto_plazo": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "descripcion_programa": "501 - INSPECCIÓN DE PROCESOS",
+        "ejecucion": 0,
+        "cerrado": 0,
+        "total": 0,
+        "tipos_trabajos": []
+      }
+    ]
+  }
+}

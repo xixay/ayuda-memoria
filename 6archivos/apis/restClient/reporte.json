@@ -23,6 +23,17 @@
       "total_2": 370
     },
     {
+      "pobj_nombre": "Proyecto A",
+      "ejecucion_1": 110,
+      "proceso_1": 60,
+      "cerrado_1": 25,
+      "total_1": 195,
+      "ejecucion_2": 210,
+      "proceso_2": 90,
+      "cerrado_2": 60,
+      "total_2": 360
+    },
+    {
       "pobj_nombre": "Proyecto B",
       "ejecucion_1": 80,
       "proceso_1": 30,
@@ -45,6 +56,17 @@
       "total_2": 240
     },
     {
+      "pobj_nombre": "Proyecto B",
+      "ejecucion_1": 85,
+      "proceso_1": 35,
+      "cerrado_1": 20,
+      "total_1": 140,
+      "ejecucion_2": 170,
+      "proceso_2": 65,
+      "cerrado_2": 35,
+      "total_2": 270
+    },
+    {
       "pobj_nombre": "Proyecto C",
       "ejecucion_1": 200,
       "proceso_1": 100,
@@ -54,6 +76,72 @@
       "proceso_2": 150,
       "cerrado_2": 80,
       "total_2": 530
+    },
+    {
+      "pobj_nombre": "Proyecto C",
+      "ejecucion_1": 210,
+      "proceso_1": 90,
+      "cerrado_1": 60,
+      "total_1": 360,
+      "ejecucion_2": 310,
+      "proceso_2": 140,
+      "cerrado_2": 70,
+      "total_2": 520
+    },
+    {
+      "pobj_nombre": "Proyecto C",
+      "ejecucion_1": 190,
+      "proceso_1": 110,
+      "cerrado_1": 40,
+      "total_1": 340,
+      "ejecucion_2": 280,
+      "proceso_2": 160,
+      "cerrado_2": 90,
+      "total_2": 530
+    },
+    {
+      "pobj_nombre": "Proyecto C",
+      "ejecucion_1": 220,
+      "proceso_1": 120,
+      "cerrado_1": 70,
+      "total_1": 410,
+      "ejecucion_2": 320,
+      "proceso_2": 180,
+      "cerrado_2": 100,
+      "total_2": 600
+    },
+    {
+      "pobj_nombre": "Proyecto D",
+      "ejecucion_1": 150,
+      "proceso_1": 70,
+      "cerrado_1": 30,
+      "total_1": 250,
+      "ejecucion_2": 260,
+      "proceso_2": 130,
+      "cerrado_2": 50,
+      "total_2": 440
+    },
+    {
+      "pobj_nombre": "Proyecto D",
+      "ejecucion_1": 160,
+      "proceso_1": 80,
+      "cerrado_1": 40,
+      "total_1": 280,
+      "ejecucion_2": 270,
+      "proceso_2": 140,
+      "cerrado_2": 60,
+      "total_2": 470
+    },
+    {
+      "pobj_nombre": "Proyecto D",
+      "ejecucion_1": 140,
+      "proceso_1": 60,
+      "cerrado_1": 25,
+      "total_1": 225,
+      "ejecucion_2": 250,
+      "proceso_2": 120,
+      "cerrado_2": 40,
+      "total_2": 410
     }
   ]
 }
