@@ -1,0 +1,125 @@
+{
+  "datos": [
+    {
+      "pobj_nombre": "Emitir 3 informes analíticos de los Planes Anuales de Auditoría elaborados por las UAI de Entidades Públicas del Nivel Departamental en la Gerencia Departamental de Cochabamba en la gestión 2024.",
+      "ejecucion_1": 100,
+      "proceso_1": 50,
+      "cerrado_1": 20,
+      "total_1": 170,
+      "ejecucion_2": 200,
+      "proceso_2": 100,
+      "cerrado_2": 50,
+      "total_2": 350
+    },
+    {
+      "pobj_nombre": "Emitir 3 informes analíticos de los Planes Anuales de Auditoría elaborados por las UAI de Entidades Públicas del Nivel Departamental en la Gerencia Departamental de Cochabamba en la gestión 2024.",
+      "ejecucion_1": 120,
+      "proceso_1": 40,
+      "cerrado_1": 30,
+      "total_1": 190,
+      "ejecucion_2": 220,
+      "proceso_2": 80,
+      "cerrado_2": 70,
+      "total_2": 370
+    },
+    {
+      "pobj_nombre": "Emitir 3 informes analíticos de los Planes Anuales de Auditoría elaborados por las UAI de Entidades Públicas del Nivel Departamental en la Gerencia Departamental de Cochabamba en la gestión 2024.",
+      "ejecucion_1": 110,
+      "proceso_1": 60,
+      "cerrado_1": 25,
+      "total_1": 195,
+      "ejecucion_2": 210,
+      "proceso_2": 90,
+      "cerrado_2": 60,
+      "total_2": 360
+    },
+    {
+      "pobj_nombre": "Emitir 4 informes analíticos de los Planes Anuales de Auditoría elaborados por las UAI de Entidades Públicas del Nivel Departamental en la Gerencia Departamental de Cochabamba en la gestión 2024.",
+      "ejecucion_1": 80,
+      "proceso_1": 30,
+      "cerrado_1": 15,
+      "total_1": 125,
+      "ejecucion_2": 150,
+      "proceso_2": 60,
+      "cerrado_2": 25,
+      "total_2": 235
+    },
+    {
+      "pobj_nombre": "Emitir 4 informes analíticos de los Planes Anuales de Auditoría elaborados por las UAI de Entidades Públicas del Nivel Departamental en la Gerencia Departamental de Cochabamba en la gestión 2024.",
+      "ejecucion_1": 90,
+      "proceso_1": 20,
+      "cerrado_1": 10,
+      "total_1": 120,
+      "ejecucion_2": 160,
+      "proceso_2": 50,
+      "cerrado_2": 30,
+      "total_2": 240
+    },
+    {
+      "pobj_nombre": "Emitir 4 informes analíticos de los Planes Anuales de Auditoría elaborados por las UAI de Entidades Públicas del Nivel Departamental en la Gerencia Departamental de Cochabamba en la gestión 2024.",
+      "ejecucion_1": 85,
+      "proceso_1": 35,
+      "cerrado_1": 20,
+      "total_1": 140,
+      "ejecucion_2": 170,
+      "proceso_2": 65,
+      "cerrado_2": 35,
+      "total_2": 270
+    },
+    {
+      "pobj_nombre": "Emitir 55 informes analíticos de los Planes Anuales de Auditoría elaborados por las UAI de Entidades Públicas del Nivel Departamental en la Gerencia Departamental de Cochabamba en la gestión 2024.",
+      "ejecucion_1": 200,
+      "proceso_1": 100,
+      "cerrado_1": 50,
+      "total_1": 350,
+      "ejecucion_2": 300,
+      "proceso_2": 150,
+      "cerrado_2": 80,
+      "total_2": 530
+    },
+    {
+      "pobj_nombre": "Emitir 55 informes analíticos de los Planes Anuales de Auditoría elaborados por las UAI de Entidades Públicas del Nivel Departamental en la Gerencia Departamental de Cochabamba en la gestión 2024.",
+      "ejecucion_1": 210,
+      "proceso_1": 90,
+      "cerrado_1": 60,
+      "total_1": 360,
+      "ejecucion_2": 310,
+      "proceso_2": 140,
+      "cerrado_2": 70,
+      "total_2": 520
+    },
+    {
+      "pobj_nombre": "Emitir 55 informes analíticos de los Planes Anuales de Auditoría elaborados por las UAI de Entidades Públicas del Nivel Departamental en la Gerencia Departamental de Cochabamba en la gestión 2024.",
+      "ejecucion_1": 190,
+      "proceso_1": 110,
+      "cerrado_1": 40,
+      "total_1": 340,
+      "ejecucion_2": 280,
+      "proceso_2": 160,
+      "cerrado_2": 90,
+      "total_2": 530
+    },
+    {
+      "pobj_nombre": "Emitir 55 informes analíticos de los Planes Anuales de Auditoría elaborados por las UAI de Entidades Públicas del Nivel Departamental en la Gerencia Departamental de Cochabamba en la gestión 2024.",
+      "ejecucion_1": 220,
+      "proceso_1": 120,
+      "cerrado_1": 70,
+      "total_1": 410,
+      "ejecucion_2": 320,
+      "proceso_2": 180,
+      "cerrado_2": 100,
+      "total_2": 600
+    },
+    {
+      "pobj_nombre": "Emitir 666 informes analíticos de los Planes Anuales de Auditoría elaborados por las UAI de Entidades Públicas del Nivel Departamental en la Gerencia Departamental de Cochabamba en la gestión 2024.",
+      "ejecucion_1": 150,
+      "proceso_1": 70,
+      "cerrado_1": 30,
+      "total_1": 250,
+      "ejecucion_2": 260,
+      "proceso_2": 130,
+      "cerrado_2": 50,
+      "total_2": 440
+    }
+  ]
+}
