@@ -92,12 +92,24 @@
 ### FAKE
 GET http://localhost:7008/datos HTTP/1.1
 Content-Type: application/json
-### DEVELOP
+### NUMERICO
 GET {{Host}}/reportes/evaluacion/control-interno-numerico
     ?poa_codigo=(3)
-    # &pro_codigo=(1,2)
+    &pro_codigo=(1,2)
     # &ttr_codigo=(31) HTTP/1.1
     &aun_codigo_principal=(17,44) HTTP/1.1
+### DETALLADO
+GET {{Host}}/reportes/evaluacion/control-interno-detallado
+    ?poa_codigo=(3)
+    # &pro_codigo=(9)
+    # &pro_codigo=(1,2)
+    &pro_codigo=(1)
+    # &ttr_codigo=(31) HTTP/1.1
+    # &aun_codigo_principal=(2,3) HTTP/1.1
+    &aun_codigo_principal=(44) HTTP/1.1
+Content-Type: application/json
+Authorization: {{AuthTokenInterno}}
+### OTROSSSSSS
 # GET {{Host}}/reportes/evaluacion/control-interno-numerico?poa_codigo=(3)&aun_codigo_principal=(1)&pro_codigo=(10,9) HTTP/1.1
 Content-Type: application/json
 Authorization: {{AuthTokenInterno}}
