@@ -95,9 +95,10 @@ Content-Type: application/json
 ### NUMERICO
 GET {{Host}}/reportes/evaluacion/control-interno-numerico
     ?poa_codigo=(3)
-    &pro_codigo=(1,2)
-    # &ttr_codigo=(31) HTTP/1.1
-    &aun_codigo_principal=(17,44) HTTP/1.1
+    # &pro_codigo=(1,2)
+    # &aun_codigo_principal=(17,44) HTTP/1.1
+Content-Type: application/json
+Authorization: {{AuthTokenInterno}}
 ### DETALLADO
 GET {{Host}}/reportes/evaluacion/control-interno-detallado
     ?poa_codigo=(3)

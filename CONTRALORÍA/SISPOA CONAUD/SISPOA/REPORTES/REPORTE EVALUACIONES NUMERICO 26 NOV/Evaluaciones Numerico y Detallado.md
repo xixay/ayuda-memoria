@@ -1002,3 +1002,38 @@ $F{ejecucion}!= null && !$F{ejecucion}.equals("0") ? $F{ejecucion} : ""
 $F{cerrado}!= null && !$F{cerrado}.equals("0") ? $F{cerrado} : ""
 $F{total}!= null && !$F{total}.equals("0") ? $F{total} : ""
 ```
+## Reportes Hechos
+```Reportes hechos
+############  Reporte  ###############
+RptXlsEvaluacionesNumerico.jrxml
+
+############  Inputs   #############
+"/Images/logoCge2024.png"
+s_token
+s_query
+
+############ Sub reportes ##############
+SrptXlsEvaluacionesNumericoProgramas.jrxml
+SrptXlsEvaluacionesNumericoAreasPrincipales.jrxml
+SrptXlsEvaluacionesNumericoAcp.jrxml
+SrptXlsEvaluacionesNumericoEjecutoras.jrxml
+
+
+
+
+############  Reporte  6 ###############
+RptXlsEvaluacionesDetallado.jrxml
+
+############  Inputs   #############
+"/Images/logoCge2024.png"
+s_token
+s_query
+
+############ Sub reportes ##############
+SrptXlsEvaluacionesDetalladoProgramas.jrxml
+SrptXlsEvaluacionesDetalladoTipoTrabajo.jrxml
+SrptXlsEvaluacionesDetalladoAreasPrincipales.jrxml
+SrptXlsEvaluacionesDetalladoAcp.jrxml
+SrptXlsEvaluacionesDetalladoEjecutoras.jrxml
+SrptXlsEvaluacionesDetalladoEntidades.jrxml
+```
