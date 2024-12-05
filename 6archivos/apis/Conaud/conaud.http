@@ -706,3 +706,8 @@
     GET {{Host}}/informes/detalle?inf_codigo=(52) HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
+###  ------- AREA UNIDAD FULL JOIN
+GET {{Host}}/sispoa/areas-unidades/full-join/for-rol
+  ?usuario=(79)
+Authorization: {{AuthTokenInterno}}
+Content-Type: application/json
