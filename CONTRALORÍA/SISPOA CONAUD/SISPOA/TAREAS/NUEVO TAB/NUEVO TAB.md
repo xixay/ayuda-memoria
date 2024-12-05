@@ -89,7 +89,7 @@ aun_codigo_filter: '(7)'
 | GPA2 | 13  | x   | GPA2     | 13  | x   |
 |      |     |     | GPA2-GAD | 63  | x   |
 | SCGD | 4   | x   | SCGD     | 4   | x   |
-|      |     |     |          |     |     |
+| DC   | 1   | x   | DC       | 1   | x   |
 ## Query
 ```
 SELECT 	*
@@ -165,4 +165,143 @@ WHERE 	TRUE
 
 
 
+```
+## Servicio
+```ts
+  @LoggerMethod
+  async findAllUnidadesPrincipalesPerCodigo(query: GetAllUnidadesPrincipalesPersonaDto, manager: EntityManager) {
+    console.log("🐱==xx1==> ~ query:", query)
+    // -------- BUSCA LAS AREAS DONDE ESTA ASIGNADO
+    let resultQuery: any = [];
+    try {
+      let isGestionInstitucional = false;
+      if (!query.pobj_estado) { query.pobj_estado = `(2,8)`; } // ESTADOS ACCIONES-A-CORTO-PLAZO (CONSOLIDADO, APROBADO)
+      if (!query.rol_codigo) { query.rol_codigo = `(1,2,3,4,8)`; } // ROLES SELECCIONADOS (FORMULADOR, APROBADOR, VERIFICADOR, FORMULADOR_GERENTE, CONSOLIDACION GERENTE)
+      if (await this.checkIfUserGestionInstitucional(query.middint_roles)) {
+        isGestionInstitucional = true;
+      }
+      let sql = `
+        SELECT
+              au.aun_codigo, au.aun_nombre, au.aun_sigla,
+              CONCAT(au.aun_nombre, ' - ', au.aun_sigla) AS nom_ejecutora,
+              au.aun_codigo, CONCAT('(', au.aun_numero, ') ', au.aun_nombre, ' - ', au.aun_sigla) AS aun_concatenado_invert
+        FROM	estructura_poa.area_unidad_responsables aur
+              LEFT JOIN estructura_organizacional.areas_unidades au ON aur.aun_codigo_ejecutora = au.aun_codigo
+        WHERE	aur.aur_estado != 0 -- ESTADO ROL-RESPONSABLE
+              AND au.aun_estado IN (2,8) -- ESTADO AREA-UNIDAD (CONSOLIDADO, APROBADO)
+              ${query.rol_codigo ? `AND aur.rol_codigo IN ${query.rol_codigo}` : ''} -- ROL SELECCIONADO
+              ${query.poa_codigo ? `AND aur.poa_codigo IN ${query.poa_codigo}` : ''} -- POA SELECCIONADO
+              ${!isGestionInstitucional && query.middint_per_codigo ? `AND aur.per_codigo = ${query.middint_per_codigo}` : ''} -- PER_CODIGO SELECCIONADO
+        GROUP BY au.aun_codigo, au.aun_nombre, au.aun_sigla, au.cau_codigo, au.aun_numero, au.aun_reporte_habilitado
+        ORDER BY au.aun_sigla ASC, au.aun_nombre ASC
+        ;
+      `;
+      console.log("🐱==xx2==> ~ sql:", sql)
+      let resultAreasACargo = await manager.query(sql);
+      console.log("🐱==xx3==> ~ resultAreasACargo:", resultAreasACargo)
+      // ------- SI SOLO TIENE UN AREA A CARGO Y ES DESPACHO CONTRALOR
+      if (resultAreasACargo.length == 1 && resultAreasACargo[0].aun_codigo == 1) {
+        let newObjectArea: any = {};
+        newObjectArea.aun_codigo = 1;
+        newObjectArea.aun_concatenado_invert = resultAreasACargo[0].aun_concatenado_invert;
+        const newArrayHijos: any = [1];
+        newObjectArea.aun_codigo_hijos = newArrayHijos;
+        resultQuery.push(newObjectArea);
+      } else {
+        // OOBTENIENDO SOLO CODIGOS DE ARRAY
+        let arrayAreasACargo = resultAreasACargo.map(e => e.aun_codigo);
+        console.log("🐱==xx4==> ~ arrayAreasACargo:", arrayAreasACargo)
+        // BUSCA LAS AREAS PRINCIPALES
+        const areasUnidadesPrincipales = await this.findAllUnidadesPrincipales(query, manager);
+        let arrayAreasPrincipales = areasUnidadesPrincipales.map(e => e.aun_codigo);
+        console.log("🐱==xx5==> ~ areasUnidadesPrincipales:", areasUnidadesPrincipales)
+        console.log("🐱==xx5_1==> ~ arrayAreasPrincipales:", arrayAreasPrincipales)
+        // BUSCA LAS AREAS DEPENDIENTES DE LOS PRINCIPALES
+        let sqlAreasDependientes = `
+        SELECT
+              aud.aun_codigo_padre, aud.aun_codigo_hijo ,
+              au.aun_codigo, CONCAT('(', au.aun_numero, ') ', au.aun_nombre, ' - ', au.aun_sigla) AS aun_concatenado_invert,
+              au2.aun_codigo, CONCAT('(', au2.aun_numero, ') ', au2.aun_nombre, ' - ', au2.aun_sigla) AS aun_concatenado_invert_hijo
+        FROM	estructura_organizacional.areas_unidades_dependencias aud
+              LEFT JOIN estructura_organizacional.areas_unidades au ON aud.aun_codigo_padre = au.aun_codigo
+              LEFT JOIN estructura_organizacional.areas_unidades au2 ON aud.aun_codigo_hijo = au2.aun_codigo
+        WHERE	TRUE
+              AND aud.aud_estado IN (1)
+              AND aud.aun_codigo_padre IN (${arrayAreasPrincipales})
+        ;
+      `;
+        let areasUnidadesDependientesPrincipales = await manager.query(sqlAreasDependientes);
+        // -------- SI EL AREA A CARGO ES DESPACHO CONTRALOR
+        if (arrayAreasACargo.includes(1)) {
+          let newObjectArea: any = {};
+          newObjectArea.aun_codigo = 1;
+          newObjectArea.aun_concatenado_invert = resultAreasACargo[0].aun_concatenado_invert;
+          const newArrayHijos: any = [1];
+          newObjectArea.aun_codigo_hijos = newArrayHijos;
+          resultQuery.push(newObjectArea);
+        }
+        console.log("🐱==xx6==> ~ areasUnidadesPadres:", areasUnidadesDependientesPrincipales)
+        let index = 1
+        console.log('🐱==xx66==>')
+        // ---------- BUSCA EN TODOS LOS DEPENDIENTES SI ESTAN INCLUIDOS EN LOS CARGOS
+        for (const itemAreasUnidadesPadres of areasUnidadesDependientesPrincipales) {
+          let newObjectArea: any = {};
+          if (arrayAreasACargo.includes(itemAreasUnidadesPadres.aun_codigo_hijo)) {
+            let flagUnidadPrincipal = await this.poasObjetivosService.checkIfAreaUnidadPrincipal(itemAreasUnidadesPadres.aun_codigo_hijo, manager);
+            console.log("flagUnidadPrincipal: ",flagUnidadPrincipal,"🐱==xx7==> ~ itemAreasUnidadesPadres:", itemAreasUnidadesPadres)
+            // --------- SI SU PADRE ES DESPACHO CONTRALOR, USAR EL HIJO COMO PADRE
+            if (flagUnidadPrincipal) {
+              console.log("🐱==xx8==> ~ res :", index, " padre: ", itemAreasUnidadesPadres.aun_codigo_hijo, " hijo: ", itemAreasUnidadesPadres.aun_codigo_hijo)
+              // ----- BUSCA SI YA TIENE EL AREA HIJOS
+              let areaBuscada = resultQuery.find(e => e.aun_codigo == itemAreasUnidadesPadres.aun_codigo_hijo)
+              if (areaBuscada) {
+                console.log("🐱==xx8==> ~ areaBuscada:", areaBuscada)
+                const posicion = resultQuery.findIndex(unidad => unidad.aun_codigo === areaBuscada.aun_codigo);
+                console.log("🐱==xx8_1==> ~ posicion:", posicion)
+                if (posicion !== -1) {  // Verifica que el objeto fue encontrado
+                  let auxArray = resultQuery[posicion].aun_codigo_hijos;
+                  auxArray.push(itemAreasUnidadesPadres.aun_codigo_hijo);
+                  resultQuery[posicion] = { ...resultQuery[posicion], aun_codigo_hijos: auxArray };
+                  console.log('resultQuery xx8_2 ', resultQuery)
+                }
+              } else { // --------- SI NO TIENE HIJOS SE LO AGREGA
+                newObjectArea.aun_codigo = itemAreasUnidadesPadres.aun_codigo_hijo;
+                newObjectArea.aun_concatenado_invert = itemAreasUnidadesPadres.aun_concatenado_invert_hijo;
+                const newArrayHijos: any = [itemAreasUnidadesPadres.aun_codigo_hijo];
+                newObjectArea.aun_codigo_hijos = newArrayHijos
+                resultQuery.push(newObjectArea);
+                console.log('resultQuery xx8_3 ', resultQuery)
+              }
+            } else {// --------- SI EL PADRE NO ES DESPACHO CONTRALOR
+              console.log("🐱==xx9==> ~ res :", index, " padre: ", itemAreasUnidadesPadres.aun_codigo_padre, " hijo: ", itemAreasUnidadesPadres.aun_codigo_hijo)
+              // ----- BUSCA SI YA TIENE EL AREA HIJOS
+              let areaBuscada = resultQuery.find(e => e.aun_codigo == itemAreasUnidadesPadres.aun_codigo_padre)
+              if (areaBuscada) {
+                console.log("🐱==xx10==> ~ areaBuscada:", areaBuscada)
+                const posicion = resultQuery.findIndex(unidad => unidad.aun_codigo === areaBuscada.aun_codigo);
+                console.log("🐱==xx10_1==> ~ posicion:", posicion)
+                if (posicion !== -1) {  // Verifica que el objeto fue encontrado
+                  let auxArray = resultQuery[posicion].aun_codigo_hijos;
+                  auxArray.push(itemAreasUnidadesPadres.aun_codigo_hijo);
+                  resultQuery[posicion] = { ...resultQuery[posicion], aun_codigo_hijos: auxArray };
+                  console.log('resultQuery xx10_2 ', resultQuery)
+                }
+              } else {
+                newObjectArea.aun_codigo = itemAreasUnidadesPadres.aun_codigo_padre;
+                newObjectArea.aun_concatenado_invert = itemAreasUnidadesPadres.aun_concatenado_invert;
+                const newArrayHijos: any = [itemAreasUnidadesPadres.aun_codigo_hijo];
+                newObjectArea.aun_codigo_hijos = newArrayHijos;
+                resultQuery.push(newObjectArea);
+                console.log('resultQuery xx10_3 ', resultQuery)
+              }
+            }
+          }
+          index++;
+        }
+      }
+      return CustomService.verifyingDataResult(resultQuery);
+    } catch (error) {
+      throwError(400, error.message);
+    }
+  }
 ```
