@@ -48,6 +48,7 @@ cod_estado_filter: '(2)',
 aun_codigo_filter: '(7)'
 ```
 ## Roles
+- **DC**     2573781
 - **GDC-GAD**
 
 | 3403668 | ANA MARIA BRIGGITTE DEL CARMEN ARRAZOLA DURAN | FORMULADOR         | EDICION |
