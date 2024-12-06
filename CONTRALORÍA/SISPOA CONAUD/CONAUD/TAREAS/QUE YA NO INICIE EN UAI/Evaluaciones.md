@@ -50,6 +50,12 @@ CreateInicioEvaluacionInformeDto {
 | iua_codigo | iua_codigo_control | ttr_codigo | ttr_codigo | ttr_sigla | ttr_descripcion      | act_codigo | act_numero       | aun_codigo_ejecutora | aun_sigla |
 | ---------- | ------------------ | ---------- | ---------- | --------- | -------------------- | ---------- | ---------------- | -------------------- | --------- |
 | 1474       |                    | 77         | 77         | EVFIRM    | EVALUACIÓN DE FIRMAS | 2281       | 520.1302.63.1.24 | 18                   | GDC-GAD   |
+### de la base legal
+
+| iua_codigo | iua_cite | iua_codigo_control | ttr_codigo | ttr_codigo | ttr_sigla | ttr_descripcion               | act_codigo | act_numero       | aun_codigo_ejecutora | aun_sigla |
+| ---------- | -------- | ------------------ | ---------- | ---------- | --------- | ----------------------------- | ---------- | ---------------- | -------------------- | --------- |
+| 1143       | prueba   |                    | 81         | 81         | INFDEN    | INFORME RESPUESTA A DENUNCIAS | 1841       | 500.1302.56.1.24 | 18                   | GDC-GAD   |
+
 ### http://192.168.0.13:3002/conaud/inicio-evaluacion-informe?act_codigo=2281&iua_codigo=1474
 
 ## Modificado Funcion

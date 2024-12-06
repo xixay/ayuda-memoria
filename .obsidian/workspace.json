@@ -8,59 +8,35 @@
         "type": "tabs",
         "children": [
           {
-            "id": "a4fc2f45aee8ecdd",
+            "id": "e582f8c2ede72127",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/ACTIVIDAD INFORMES/Actividad Informes.md",
+                "file": "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/QUE YA NO INICIE EN UAI/Cambiar cierre por emision.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Actividad Informes"
+              "title": "Cambiar cierre por emision"
             }
           },
           {
-            "id": "216190080692e749",
+            "id": "01c9097360462c52",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/Reportes Seguimientos.md",
+                "file": "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORRECCIÓN DE APOYO/Corrección Apoyo.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Reportes Seguimientos"
-            }
-          },
-          {
-            "id": "81e04d3c7df1d196",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/QUE YA NO INICIE EN UAI/Evaluaciones.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Evaluaciones"
-            }
-          },
-          {
-            "id": "4dee70ed782db0fa",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "Nueva pestaña"
+              "title": "Corrección Apoyo"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -202,8 +178,17 @@
       "command-palette:Abrir paleta de comandos": false
     }
   },
-  "active": "81e04d3c7df1d196",
+  "active": "01c9097360462c52",
   "lastOpenFiles": [
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORRECCIÓN DE APOYO/RActividades.vue",
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/QUE YA NO INICIE EN UAI/Cambiar cierre por emision.md",
+    "CONTRALORÍA/SISPOA CONAUD/FLUJOS/ejecucion POA-flujo estados conaud.jpg",
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORRECCIÓN DE APOYO/Corrección Apoyo.md",
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/QUE YA NO INICIE EN UAI/Sin título.md",
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORRECCIÓN DE APOYO",
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/QUE YA NO INICIE EN UAI/Evaluaciones.md",
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/Reportes Seguimientos.md",
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/ACTIVIDAD INFORMES/Actividad Informes.md",
     "6archivos/scripts/backup_20241205_213523.sql",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/QUE YA NO INICIE EN UAI/donde esta.png",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/QUE YA NO INICIE EN UAI/al crear es cuando le agrega el codigo de uai de control.png",
@@ -211,7 +196,6 @@
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/QUE YA NO INICIE EN UAI/que ya no inicie en Uais, vacio 2.png",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/QUE YA NO INICIE EN UAI/que ya no inicie en Uais, vacio.png",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/NUEVO TAB/NUEVO TAB.md",
-    "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/QUE YA NO INICIE EN UAI/Evaluaciones.md",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/QUE YA NO INICIE EN UAI",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/NUEVO TAB/actividades2.png",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/NUEVO TAB/actividades.png",
@@ -224,12 +208,7 @@
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/REPORTES/REPORTE EVALUACIONES NUMERICO 26 NOV/con_subreporte.jrxml",
     "6archivos/apis/restClient/reporte3.json",
     "6archivos/apis/restClient/reporte2 copy.json",
-    "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/Reportes Seguimientos.md",
-    "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/ACTIVIDAD INFORMES/Actividad Informes.md",
-    "CONTRALORÍA/SISPOA CONAUD/SISPOA/REPORTES/REPORTE EVALUACIONES NUMERICO 26 NOV/reportEvaluacionDetallado.pdf",
-    "CONTRALORÍA/SISPOA CONAUD/SISPOA/REPORTES/REPORTE EVALUACIONES NUMERICO 26 NOV/gregreg.pdf",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/REPORTES/REPORTE EVALUACIONES NUMERICO 26 NOV/imagen.png",
-    "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/ACTIVIDADES APOYO/de ro.png",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/Observaciones.md",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/ACTIVIDADES APOYO/apoyo inicio actividad poa.md",
     "apoyo-inicio-actividad-poa.md",
