@@ -2260,3 +2260,7 @@
     }
   }
 ```
+
+## Ramas
+- fix/correccion_registro_actividad_apoyo_frontend
+- fix/correccion_registro_actividad_apoyo_backend_oficial
