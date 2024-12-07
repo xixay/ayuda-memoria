@@ -44,7 +44,7 @@ FROM 	estructura_poa.actividades_continuidad ac ;
 ## Conaud
 - verificaCreateInicioActividad
 ## backup casa
-- backup_20241207_170104.sql
+- backup_20241207_171814.sql
 ## Codigos Nuevos
 - ALEP25S20
 - EBEP25J05
