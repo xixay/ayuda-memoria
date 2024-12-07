@@ -34,6 +34,16 @@
               "icon": "lucide-file",
               "title": "Corrección Apoyo"
             }
+          },
+          {
+            "id": "e82665a1a2d8bfd0",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "Nueva pestaña"
+            }
           }
         ],
         "currentTab": 1
@@ -92,8 +102,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 448.5,
-    "collapsed": true
+    "width": 448.5
   },
   "right": {
     "id": "dbcdc3ae4d59b762",
@@ -180,10 +189,13 @@
   },
   "active": "01c9097360462c52",
   "lastOpenFiles": [
+    "6archivos/scripts/backup_20241207_170104.sql",
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORRECCIÓN DE APOYO/Corrección Apoyo.md",
+    "6archivos/scripts/backup_20241206_215752.sql",
+    "6archivos/scripts/backup_20241206_215507.sql",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORRECCIÓN DE APOYO/RActividades.vue",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/QUE YA NO INICIE EN UAI/Cambiar cierre por emision.md",
     "CONTRALORÍA/SISPOA CONAUD/FLUJOS/ejecucion POA-flujo estados conaud.jpg",
-    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORRECCIÓN DE APOYO/Corrección Apoyo.md",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/QUE YA NO INICIE EN UAI/Sin título.md",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORRECCIÓN DE APOYO",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/QUE YA NO INICIE EN UAI/Evaluaciones.md",
@@ -205,9 +217,6 @@
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/REPORTES/REPORTE EVALUACIONES NUMERICO 26 NOV/Blank_sub_reporte.jrxml",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/REPORTES/REPORTE EVALUACIONES NUMERICO 26 NOV/Blank_A4_Landscape.jrxml",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/REPORTES/REPORTE EVALUACIONES NUMERICO 26 NOV/Blank_A4.jrxml",
-    "CONTRALORÍA/SISPOA CONAUD/SISPOA/REPORTES/REPORTE EVALUACIONES NUMERICO 26 NOV/con_subreporte.jrxml",
-    "6archivos/apis/restClient/reporte3.json",
-    "6archivos/apis/restClient/reporte2 copy.json",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/REPORTES/REPORTE EVALUACIONES NUMERICO 26 NOV/imagen.png",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/Observaciones.md",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/ACTIVIDADES APOYO/apoyo inicio actividad poa.md",
