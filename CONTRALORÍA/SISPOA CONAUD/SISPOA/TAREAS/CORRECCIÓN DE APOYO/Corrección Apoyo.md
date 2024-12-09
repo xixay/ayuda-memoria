@@ -5,13 +5,13 @@
 - Si en tipo de trabajo, selecciono de tipo apoyo, si o si deberia seleccionarse la casilla: ¿El actual registro es referente?
 ## Roles
 
-| _list_ | Doc. Identidad | Nombre Completo                               | Rol                | Estado  |
-| ------ | -------------- | --------------------------------------------- | ------------------ | ------- |
-|        | 3403668        | ANA MARIA BRIGGITTE DEL CARMEN ARRAZOLA DURAN | FORMULADOR         | EDICION |
-|        | 2389409        | OLGA EDITH SUAREZ JIMENEZ                     | SUPERVISOR         | EDICION |
-|        | 4385501        | JULIO CARLOS GUERRA VILLARROEL                | APROBADOR          | EDICION |
-|        | 1397469        | RUTH TARCAYA GALLARDO                         | FORMULADOR GERENTE | EDICION |
-|        | 1397469        | RUTH TARCAYA GALLARDO                         | FORMULADOR         | EDICION |
+| Doc. Identidad | Nombre Completo                               | Rol                |
+| -------------- | --------------------------------------------- | ------------------ |
+| 3403668        | ANA MARIA BRIGGITTE DEL CARMEN ARRAZOLA DURAN | FORMULADOR         |
+| 2389409        | OLGA EDITH SUAREZ JIMENEZ                     | SUPERVISOR         |
+| 4385501        | JULIO CARLOS GUERRA VILLARROEL                | APROBADOR          |
+| 1397469        | RUTH TARCAYA GALLARDO                         | FORMULADOR GERENTE |
+| 1397469        | RUTH TARCAYA GALLARDO                         | FORMULADOR         |
 ## Query
 ```sql
       SELECT  iac.*, ges.ges_anio
