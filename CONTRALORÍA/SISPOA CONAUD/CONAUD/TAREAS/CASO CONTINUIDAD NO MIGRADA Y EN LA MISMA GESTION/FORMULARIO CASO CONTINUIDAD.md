@@ -31,7 +31,7 @@
 ```sql
 SELECT 	--a.*
 		iap.iap_codigo, iap.iap_estado,iap.iac_codigo,
-		ia.iac_estado, 
+		ia.iac_estado,iap.fecha_modificacion, iap.fecha_registro, 
 		iapa.iapa_codigo, iapa.iapa_estado,
 		a.asi_codigo, a.asi_estado,
 		aci.aci_codigo, aci.aci_estado, iap.tia_codigo
@@ -42,7 +42,7 @@ FROM 	ejecucion_actividades.inicio_actividad_poa iap
 		LEFT JOIN ejecucion_poa.asignaciones_cargos_item aci ON a.asi_codigo = aci.asi_codigo  
 WHERE 	TRUE
 --		AND iap.act_codigo IN (4869)--normal
-		AND iap.act_codigo IN (4870)--continuo
+		AND iap.act_codigo IN (2868)--continuo
 ORDER BY iap.act_codigo DESC
 ;
 --###########################
