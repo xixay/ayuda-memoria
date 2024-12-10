@@ -8,9 +8,10 @@
 | ------ | -------------- | --------------------------------------------- | ------------------ | ------- |
 |        | 3403668        | ANA MARIA BRIGGITTE DEL CARMEN ARRAZOLA DURAN | FORMULADOR         | EDICION |
 |        | 2389409        | OLGA EDITH SUAREZ JIMENEZ                     | SUPERVISOR         | EDICION |
-|        | 4385501        | JULIO CARLOS GUERRA VILLARROEL                | APROBADOR          | EDICION |
-|        | 1397469        | RUTH TARCAYA GALLARDO                         | FORMULADOR GERENTE | EDICION |
+| 1016   | 4385501        | JULIO CARLOS GUERRA VILLARROEL                | APROBADOR          | EDICION |
+| 216    | 1397469        | RUTH TARCAYA GALLARDO                         | FORMULADOR GERENTE | EDICION |
 |        | 1397469        | RUTH TARCAYA GALLARDO                         | FORMULADOR         | EDICION |
+
 
 ## Ramas
 - fix/formulario_continuo_no_migrado
