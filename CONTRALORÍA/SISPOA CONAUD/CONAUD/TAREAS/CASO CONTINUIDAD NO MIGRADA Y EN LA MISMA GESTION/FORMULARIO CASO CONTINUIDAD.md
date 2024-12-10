@@ -14,8 +14,10 @@
 
 
 ## Ramas
-- fix/formulario_continuo_no_migrado
-- 
+- fix/formulario_continuo_no_migrado_front
+- fix/formulario_continuo_no_migrado_back
+## base local
+- backup_20241210_173544.sql
 ## Cumple
 - Debe guardar su justificacion en donde esta su iap_codigo, donde dice iap_justificacion_ampliacion
 ## Ubicacion componente
