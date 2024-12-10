@@ -66,5 +66,17 @@ WHERE 	TRUE
 		AND iap.act_codigo IN (877)
 		--AND au.aun_sigla LIKE 'GDC-GAD'
 ;
+SELECT 	*
+FROM 	estructura_poa.actividades a 
+WHERE 	a.act_codigo IN (4870)
+;
+SELECT 	*
+FROM 	ejecucion_actividades.inicio_actividad_poa iap 
+WHERE 	iap.act_codigo IN (4870)
+ORDER BY iap.iap_codigo DESC;
+SELECT 	*
+FROM 	ejecucion_actividades.inicios_actividades_adicional iaa 
+WHERE 	iaa.iac_codigo IN (877)
+;
 
 ```
