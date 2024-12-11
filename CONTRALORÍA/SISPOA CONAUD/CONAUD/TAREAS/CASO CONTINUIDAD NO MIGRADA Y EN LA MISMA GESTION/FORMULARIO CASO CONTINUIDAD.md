@@ -2,6 +2,7 @@
 - No migrado
 - En la misma gestión
 - Es continuidad
+- Uno de tipo continuo no puede ser de tipo seguimiento, solo puede ser de tipo F1 y F1A
 ## Roles
 
 | _list_ | Doc. Identidad | Nombre Completo                               | Rol                | Estado  |
