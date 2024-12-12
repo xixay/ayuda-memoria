@@ -1,12 +1,12 @@
 ## Roles **GDC-GAD**
 
-| _list_   | Doc. Identidad | Nombre Completo                               | Rol                | per_codigo |
-| -------- | -------------- | --------------------------------------------- | ------------------ | ---------- |
-|          | 3403668        | ANA MARIA BRIGGITTE DEL CARMEN ARRAZOLA DURAN | FORMULADOR         | 190        |
-| comision | 2389409        | OLGA EDITH SUAREZ JIMENEZ                     | SUPERVISOR         | 79         |
-| comision | 4385501        | JULIO CARLOS GUERRA VILLARROEL                | APROBADOR          | 1016       |
-| comision | 1397469        | RUTH TARCAYA GALLARDO                         | FORMULADOR GERENTE | 216        |
-| comision | 1397469        | RUTH TARCAYA GALLARDO                         | FORMULADOR         | 216        |
+| _Si es comision_ | Doc. Identidad | Nombre Completo                               | Rol                | per_codigo |
+| ---------------- | -------------- | --------------------------------------------- | ------------------ | ---------- |
+| NO               | 3403668        | ANA MARIA BRIGGITTE DEL CARMEN ARRAZOLA DURAN | FORMULADOR         | 190        |
+| comisión         | 2389409        | OLGA EDITH SUAREZ JIMENEZ                     | SUPERVISOR         | 79         |
+| comisión         | 4385501        | JULIO CARLOS GUERRA VILLARROEL                | APROBADOR          | 1016       |
+| comisión         | 1397469        | RUTH TARCAYA GALLARDO                         | FORMULADOR GERENTE | 216        |
+| comisión         | 1397469        | RUTH TARCAYA GALLARDO                         | FORMULADOR         | 216        |
 ## Query
 ```sql
 SELECT
@@ -26,11 +26,34 @@ WHERE 	TRUE
 ORDER BY aur.aun_codigo_ejecutora DESC
 ;
 ```
-## Comisión
-- 7881681
-- 7936263
-- 8679431
-- 6526093
-- 4008643
-- 973575
-- 
+## Solo Comisión
+
+| carnet   | per_codigo |
+| -------- | ---------- |
+| 7881681  | 1657       |
+| 7936263  | 1452       |
+| 8679431x | 1991       |
+| 5209834  | 692        |
+| 2890573  | 691        |
+| 4008643  | 431        |
+| 973575   | 257        |
+| 954671   | 232        |
+
+## Objeto
+```json
+{
+    "s_cit_codigo": "479",
+    "s_anio": "2024",
+    "s_mes": "04"
+}
+```
+## Incluir
+```
+<div>DATOS DE LA UNIDAD</div>
+
+<div>DATOS DE LA PERSONA</div>
+
+<div>GESTION</div>
+
+<div>MES</div>
+```

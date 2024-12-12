@@ -8,31 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "01c9097360462c52",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/REUTILIZAR COMPONENTE DE REPORTE/REPORTE.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "REPORTE"
-            }
-          },
-          {
             "id": "e82665a1a2d8bfd0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/QUE YA NO INICIE EN UAI/Cambiar cierre por emision.md",
+                "file": "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/RESTRICCIONES TIPOS DE TRABAJO/Restricciones tipos trabajo.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Cambiar cierre por emision"
+              "title": "Restricciones tipos trabajo"
             }
           }
         ]
@@ -177,11 +163,23 @@
       "command-palette:Abrir paleta de comandos": false
     }
   },
-  "active": "01c9097360462c52",
+  "active": "e82665a1a2d8bfd0",
   "lastOpenFiles": [
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/QUE YA NO INICIE EN UAI/Cambiar cierre por emision.md",
-    "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/QUE YA NO INICIE EN UAI/Evaluaciones.md",
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/RESTRICCIONES TIPOS DE TRABAJO/Restricciones tipos trabajo.md",
+    "CONTRALORÍA/SISPOA CONAUD/GENERADOR/Proyecto base Frontend-BACKEND generador.drawio.png",
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/RESTRICCIONES TIPOS DE TRABAJO",
+    "6archivos/scripts/backup_20241212_164919.sql",
+    "CONTRALORÍA/SISPOA CONAUD/GENERADOR/Proyecto base Frontend-FRONTED generador.drawio.png",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/REUTILIZAR COMPONENTE DE REPORTE/REPORTE.md",
+    "3frontend/vuetify/1.10-dataTable.md",
+    "3frontend/vuetify/1.9-centrarFila.md",
+    "3frontend/vuetify/1.8-emitYOn.md",
+    "3frontend/vuetify/1.7-checkBox.md",
+    "3frontend/vuetify/1-vuetify.md",
+    "3frontend/reactMui/primereact/1.1estilos.md",
+    "3frontend/primereact/1.1alineaciones.md",
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/QUE YA NO INICIE EN UAI/Evaluaciones.md",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/REUTILIZAR COMPONENTE DE REPORTE",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/Sin título.md",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/MUCHAS BOLSAS/antes de crear comision.png",
@@ -196,8 +194,6 @@
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/CASO CONTINUIDAD NO MIGRADA Y EN LA MISMA GESTION/index.jsx",
     "6archivos/scripts/backup_20241210_093456.sql",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/REVIZAR CIERRE/Revisar cierre.md",
-    "6archivos/scripts/backup_20241209_202235.sql",
-    "6archivos/scripts/backup_20241209_202220.sql",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/REVIZAR CIERRE/cierre4.png",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/REVIZAR CIERRE/cierre3.png",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/REVIZAR CIERRE/cierre2.png",
@@ -209,15 +205,11 @@
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/REPORTE/FORMATO PARA INFORME/Reportes Seguimientos.md",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/ACTIVIDAD INFORMES/Actividad Informes.md",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/QUE YA NO INICIE EN UAI/donde esta.png",
-    "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/QUE YA NO INICIE EN UAI/al crear es cuando le agrega el codigo de uai de control.png",
-    "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/QUE YA NO INICIE EN UAI/servicio donde agrega el codigo de control.png",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/NUEVO TAB/NUEVO TAB.md",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/REPORTES/REPORTE EVALUACIONES NUMERICO 26 NOV/Evaluaciones Numerico y Detallado.md",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/Observaciones.md",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/ACTIVIDADES APOYO/apoyo inicio actividad poa.md",
     "apoyo-inicio-actividad-poa.md",
-    "'(',.md",
-    "CONTRALORÍA/SISPOA CONAUD/RELACIONES/REALACIONES.canvas",
-    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR VARIAS ACT BOLSAS/VARIAS ACT.md"
+    "CONTRALORÍA/SISPOA CONAUD/RELACIONES/REALACIONES.canvas"
   ]
 }

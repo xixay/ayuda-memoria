@@ -7,8 +7,8 @@
   Content-type: application/json
 
   # {
-  #   "usuario": "4876199",
-  #   "password": "Pruebas"
+  #   "usuario": "8679431",
+  #   "password": "1234567"
   # }
 
   {
@@ -709,5 +709,67 @@
 ###  ------- AREA UNIDAD FULL JOIN
 GET {{Host}}/sispoa/areas-unidades/full-join/for-rol
   ?usuario=(79)
+Authorization: {{AuthTokenInterno}}
+Content-Type: application/json
+### ACTIVIDADES INFORMES
+###  ------- OBTENER - ACTIVIDADES INFORMES
+  # GET {{Host}}/actividades-informes?inf_codigo=(380) HTTP/1.1
+  GET {{Host}}/actividades-informes?iac_codigo=(685)&ain_estado=(1,2) HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+###  ------- OBTENER - ACTIVIDADES CON SUS INFORMES
+  GET {{Host}}/actividades-informes/obtener-registro?act_codigo=(3167) HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+###  ------- OBTENER - INFORMES
+  GET {{Host}}/actividades-informes/obtener-informes?act_codigo=(9999)&ges_codigo=(2) HTTP/1.1
+  # GET {{Host}}/actividades-informes/obtener-informes?act_codigo=(3167)&ges_codigo=(2) HTTP/1.1
+  # GET {{Host}}/actividades-informes/obtener-informes?act_codigo=(3152)&ges_codigo=(2) HTTP/1.1
+  # GET {{Host}}/actividades-informes/obtener-informes?act_codigo=(2968)&ges_codigo=(2) HTTP/1.1
+  # GET {{Host}}/actividades-informes/obtener-informes?act_codigo=(2921)&ges_codigo=(2) HTTP/1.1
+  # GET {{Host}}/actividades-informes/obtener-informes?act_codigo=(2016)&ges_codigo=(2) HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
+###  ------- RESTRICCIONES TIPOS TRABAJOS
+###  ------- OBTENER - RESTRICCIONES TIPOS TRABAJOS
+GET {{Host}}/restricciones-tipos-trabajos
+  # ?rtt_codigo=(1)
+  # ?ttr_codigo_habilita=(9)
+  # ?rtt_estado=(0)
+  # &ttr_codigo_habilitado=(23)
+Authorization: {{AuthTokenInterno}}
+Content-Type: application/json
+###  ------- OBTENER - RESTRICCIONES TIPOS TRABAJOS-HABILITADO
+GET {{Host}}/restricciones-tipos-trabajos/obtener-habilitados
+  ?ttr_codigo_habilita=(9)
+Authorization: {{AuthTokenInterno}}
+Content-Type: application/json
+###  ------- CREAR - RESTRICCIONES TIPOS TRABAJOS
+POST {{Host}}/restricciones-tipos-trabajos
+Authorization: {{AuthTokenInterno}}
+Content-Type: application/json
+
+{
+  "rtt_descripcion": "tercero",
+  "ttr_codigo_habilita": 9,
+  "ttr_codigo_habilitado": 14
+}
+###  ------- MODIFICAR - RESTRICCIONES TIPOS TRABAJOS
+PUT {{Host}}/restricciones-tipos-trabajos HTTP/1.1
+Authorization: {{AuthTokenInterno}}
+Content-Type: application/json
+
+{
+  "rtt_codigo": 1,
+  "rtt_descripcion": "prim111",
+  "ttr_codigo_habilita": 9,
+  "ttr_codigo_habilitado": 14
+}
+###  ------- ACTIVAR - RESTRICCIONES TIPOS TRABAJOS
+PATCH {{Host}}/restricciones-tipos-trabajos/1 HTTP/1.1
+Authorization: {{AuthTokenInterno}}
+Content-Type: application/json
+###  ------- ELIMINAR - RESTRICCIONES TIPOS TRABAJOS
+DELETE {{Host}}/restricciones-tipos-trabajos/1
 Authorization: {{AuthTokenInterno}}
 Content-Type: application/json
