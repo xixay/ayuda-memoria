@@ -16,6 +16,7 @@
 |          | 1397469        | RUTH TARCAYA GALLARDO                         | FORMULADOR         | EDICION |
 ## Query
 ```sql
+--############# findAll ##################
 SELECT	
 		t.rtt_codigo, t.rtt_descripcion,t.ttr_codigo_habilita,t.ttr_codigo_habilitado,t.rtt_estado,
 		habilita.ttr_descripcion AS ttr_descripcion_habilita, habilita.ttr_sigla AS ttr_sigla_habilita, habilita.ttr_bandera_entidad_cge AS ttr_bandera_entidad_cge_habilita, 
@@ -32,9 +33,10 @@ WHERE 	TRUE
 --		AND t.ttr_codigo_habilita IN (9)
 --		AND t.ttr_codigo_habilitado IN (14)
 --		AND t.rtt_estado IN (1)
-ORDER BY t.rtt_codigo DESC;
+ORDER BY t.rtt_codigo DESC
 ;
 
+--############# findAllHabilitados ##################
 SELECT	
 		t.ttr_codigo_habilita,t.ttr_codigo_habilitado,
 		habilitado.ttr_estado AS ttr_estado_habilitado,

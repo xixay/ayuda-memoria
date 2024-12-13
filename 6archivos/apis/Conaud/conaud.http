@@ -707,10 +707,10 @@
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ###  ------- AREA UNIDAD FULL JOIN
-GET {{Host}}/sispoa/areas-unidades/full-join/for-rol
-  ?usuario=(79)
-Authorization: {{AuthTokenInterno}}
-Content-Type: application/json
+  GET {{Host}}/sispoa/areas-unidades/full-join/for-rol
+    ?usuario=(79)
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
 ### ACTIVIDADES INFORMES
 ###  ------- OBTENER - ACTIVIDADES INFORMES
   # GET {{Host}}/actividades-informes?inf_codigo=(380) HTTP/1.1
@@ -732,44 +732,44 @@ Content-Type: application/json
   Content-Type: application/json
 ###  ------- RESTRICCIONES TIPOS TRABAJOS
 ###  ------- OBTENER - RESTRICCIONES TIPOS TRABAJOS
-GET {{Host}}/restricciones-tipos-trabajos
-  # ?rtt_codigo=(1)
-  # ?ttr_codigo_habilita=(9)
-  # ?rtt_estado=(0)
-  # &ttr_codigo_habilitado=(23)
-Authorization: {{AuthTokenInterno}}
-Content-Type: application/json
+  GET {{Host}}/restricciones-tipos-trabajos
+    # ?rtt_codigo=(1)
+    # ?ttr_codigo_habilita=(9)
+    # ?rtt_estado=(0)
+    # &ttr_codigo_habilitado=(23)
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
 ###  ------- OBTENER - RESTRICCIONES TIPOS TRABAJOS-HABILITADO
-GET {{Host}}/restricciones-tipos-trabajos/obtener-habilitados
-  ?ttr_codigo_habilita=(9)
-Authorization: {{AuthTokenInterno}}
-Content-Type: application/json
+  GET {{Host}}/restricciones-tipos-trabajos/obtener-habilitados
+    ?ttr_codigo_habilita=(9)
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
 ###  ------- CREAR - RESTRICCIONES TIPOS TRABAJOS
-POST {{Host}}/restricciones-tipos-trabajos
-Authorization: {{AuthTokenInterno}}
-Content-Type: application/json
+  POST {{Host}}/restricciones-tipos-trabajos
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
 
-{
-  "rtt_descripcion": "tercero",
-  "ttr_codigo_habilita": 9,
-  "ttr_codigo_habilitado": 14
-}
+  {
+    "rtt_descripcion": "tercero",
+    "ttr_codigo_habilita": 9,
+    "ttr_codigo_habilitado": 14
+  }
 ###  ------- MODIFICAR - RESTRICCIONES TIPOS TRABAJOS
-PUT {{Host}}/restricciones-tipos-trabajos HTTP/1.1
-Authorization: {{AuthTokenInterno}}
-Content-Type: application/json
+  PUT {{Host}}/restricciones-tipos-trabajos HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
 
-{
-  "rtt_codigo": 1,
-  "rtt_descripcion": "prim111",
-  "ttr_codigo_habilita": 9,
-  "ttr_codigo_habilitado": 14
-}
+  {
+    "rtt_codigo": 1,
+    "rtt_descripcion": "prim111",
+    "ttr_codigo_habilita": 9,
+    "ttr_codigo_habilitado": 14
+  }
 ###  ------- ACTIVAR - RESTRICCIONES TIPOS TRABAJOS
-PATCH {{Host}}/restricciones-tipos-trabajos/1 HTTP/1.1
-Authorization: {{AuthTokenInterno}}
-Content-Type: application/json
+  PATCH {{Host}}/restricciones-tipos-trabajos/1 HTTP/1.1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
 ###  ------- ELIMINAR - RESTRICCIONES TIPOS TRABAJOS
-DELETE {{Host}}/restricciones-tipos-trabajos/1
-Authorization: {{AuthTokenInterno}}
-Content-Type: application/json
+  DELETE {{Host}}/restricciones-tipos-trabajos/1
+  Authorization: {{AuthTokenInterno}}
+  Content-Type: application/json
