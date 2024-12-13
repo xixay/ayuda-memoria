@@ -179,7 +179,10 @@
   Content-Type: application/json
 ### ASIGNACIONES CARGOS ITEMS
 ###  ------- OBTENER - ASIGNACIONES CARGOS ITEMS
-  GET {{Host}}/asignaciones-cargos-item?asi_codigo=(1393)&aci_estado=(1,2,21,9) HTTP/1.1
+  # GET {{Host}}/asignaciones-cargos-item?asi_codigo=(77)&aci_estado=(1,2,21,9) HTTP/1.1
+  GET {{Host}}/asignaciones-cargos-item
+    ?aci_codigo=(517)
+    # &aci_estado=(2)
   # GET {{Host}}/asignaciones-cargos-item HTTP/1.1
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
@@ -741,7 +744,11 @@
   Content-Type: application/json
 ###  ------- OBTENER - RESTRICCIONES TIPOS TRABAJOS-HABILITADO
   GET {{Host}}/restricciones-tipos-trabajos/obtener-habilitados
-    ?ttr_codigo_habilita=(9)
+    # ?ttr_codigo_habilita=(9)
+    # ?ttr_codigo_habilitado=(9)
+    # ?rtt_estado=(1)
+    # ?ttr_estado_habilitado=(1)
+    ?ttr_estado_habilita=(0)
   Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
 ###  ------- CREAR - RESTRICCIONES TIPOS TRABAJOS
