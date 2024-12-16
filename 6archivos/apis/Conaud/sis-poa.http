@@ -341,9 +341,9 @@
   # GET http://172.16.75.94:7015/auditorias
   #   ?auditoria_codigo=GPOP09E20
   GET http://172.16.75.94:7015/auditorias/auditoria
-    ?auditoria_codigo=GPOP09E20
+    # ?auditoria_codigo=GPOP09E20
     # ?auditoria_codigo=S01841
-    # ?auditoria_codigo=ALEP25O17L1PO181
+    ?auditoria_codigo=25
   Content-Type: application/json
   Authorization: {{AuthTokenInterno}}
 ###  ----- OBTENER - CONAUD ANTIGUO SEGUIMIENTO

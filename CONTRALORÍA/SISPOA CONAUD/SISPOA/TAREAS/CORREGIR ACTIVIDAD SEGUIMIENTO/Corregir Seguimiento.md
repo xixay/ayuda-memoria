@@ -130,8 +130,130 @@ inicios-actividades/migrado (2 objetos)
       throwError(400, error.message);
     }
   }
+
+  async replaceSeguimientoWithAuditoria(array: any) {
+    console.log("🐱====> ~ array:", array)
+    return array.map(item => {
+      const newItem = {};
+      Object.keys(item).forEach(key => {
+        const newKey = key.replace(/^seguimiento/, 'auditoria'); // Reemplaza "seguimiento" por "auditoria"
+        newItem[newKey] = item[key];
+      });
+      return newItem;
+    });
+  }
 ```
-## componente
-```
+- 2da solucion
+```ts
+async verificaCreateInicioActividad(createIniciosActividadesWithObjectDto, manager) {
+  try {
+    let iacCodigo = 0;
+    let actividadObject = createIniciosActividadesWithObjectDto.actividad_object;
+    let resInicAct = [];
+
+    try {
+      const getAllIniciosActividadesDto = new GetAllIniciosActividadesDto();
+      getAllIniciosActividadesDto.iac_codigo_control = actividadObject.trabajo_codigo.trim();
+      if (createIniciosActividadesWithObjectDto.iac_estado != null) {
+        getAllIniciosActividadesDto.iac_estado = createIniciosActividadesWithObjectDto.iac_estado;
+      }
+      resInicAct = await this.iniciosActividadesServices.findAllBusqueda(getAllIniciosActividadesDto, manager);
+    } catch (error) {}
+
+    if (resInicAct.length > 0) {
+      iacCodigo = resInicAct[0].iac_codigo;
+    } else {
+      const createInicioActividad = new CreateIniciosActividadesOnlyTableDto();
+      createInicioActividad.iac_codigo_control = actividadObject.trabajo_codigo.trim();
+      createInicioActividad.iac_objeto = actividadObject.auditoria_objeto || actividadObject.seguimiento_objeto;
+      createInicioActividad.iac_objetivo = actividadObject.auditoria_objetivo || actividadObject.seguimiento_objetivo;
+      createInicioActividad.iac_alcance = actividadObject.auditoria_periodo || actividadObject.seguimiento_periodo;
+
+      if (actividadObject.actividad_fecha_inicio != null) {
+        createInicioActividad.iac_fecha_inicio = actividadObject.actividad_fecha_inicio?.trim();
+      } else if (actividadObject.auditoria_fecha_inicio || actividadObject.seguimiento_fecha_inicio) {
+        createInicioActividad.iac_fecha_inicio = (actividadObject.auditoria_fecha_inicio || actividadObject.seguimiento_fecha_inicio).trim();
+      } else {
+        let fecha = new Date().toLocaleDateString('es-ES').split('/').reverse().join('/');
+        createInicioActividad.iac_fecha_inicio = fecha;
+      }
+
+      createInicioActividad.iac_fecha_fin = actividadObject.actividad_fecha_fin?.trim();
+      createInicioActividad.iac_dias_habiles = actividadObject.auditoria_dias_habiles || actividadObject.seguimiento_dias_habiles;
+      createInicioActividad.iac_dias_calendario = actividadObject.auditoria_dias_calendario || actividadObject.seguimiento_dias_calendario;
+      createInicioActividad.iac_mes_inicio = actividadObject.actividad_fecha_inicio;
+      createInicioActividad.iac_mes_fin = actividadObject.actividad_fecha_fin;
+
+      if (actividadObject.auditoria_fecha_emision || actividadObject.seguimiento_fecha_emision) {
+        const fechaEmision = actividadObject.auditoria_fecha_emision || actividadObject.seguimiento_fecha_emision;
+        createInicioActividad.iac_fecha_emision = fechaEmision.length > 10
+          ? this.stringToDate(fechaEmision, 'DD/MM/yyyy', '01/01/1993')
+          : fechaEmision;
+      }
+
+      createInicioActividad.iac_migrado = true;
+      let getionesRetrieved = {};
+      let anio = '';
+
+      try {
+        const gestionFilter = new GetAllGestionesByAnioProviderDto();
+        gestionFilter.ges_anio = actividadObject.conaud_gestion || actividadObject.actividad_gestion || createInicioActividad.iac_fecha_inicio?.split('/')[2];
+        if (gestionFilter.ges_anio != null) {
+          getionesRetrieved = (await this.parametricasProvider.findAllRequestProvider(gestionFilter))[0];
+        }
+      } catch (error) {}
+
+      if (Object.keys(getionesRetrieved).length != 0) {
+        createInicioActividad.ges_codigo = getionesRetrieved.ges_codigo;
+      }
+
+      createInicioActividad.ttr_codigo = 0;
+
+      let resuCodContVista = '';
+      if (actividadObject.trabajo_codigof != null) {
+        createInicioActividad.iac_codigo_control_vista = actividadObject.trabajo_codigof;
+      } else {
+        let strCodControl = `${actividadObject.trabajo_codigo.trim()}`;
+        if (strCodControl.length == 16) {
+          resuCodContVista = `${strCodControl.slice(0, 2)}/${strCodControl.slice(2, 6)}/${strCodControl.slice(6, 9)}/${strCodControl.slice(9, 11)}(${strCodControl.slice(11, 15)}/${strCodControl.slice(15)})`;
+        } else {
+          resuCodContVista = `${strCodControl.slice(0, 2)}/${strCodControl.slice(2, -3)}/${strCodControl.slice(-3)}`;
+        }
+        createInicioActividad.iac_codigo_control_vista = resuCodContVista;
+      }
+
+      createInicioActividad.usuario = createIniciosActividadesWithObjectDto.usuario;
+      let resInicioAct = await this.createOnlyTable(createInicioActividad, manager);
+      iacCodigo = resInicioAct.iac_codigo;
+
+      if (iacCodigo != 0) {
+        let resultMigrada = { iac_codigo: iacCodigo };
+        const createActividadMigradaConaudDto = new CreateActividadMigradaConaudDto();
+        createActividadMigradaConaudDto.iac_codigo = iacCodigo;
+        createActividadMigradaConaudDto.amc_datos_informe = {};
+        createActividadMigradaConaudDto.amc_datos_actividad = createIniciosActividadesWithObjectDto.actividad_object;
+        createActividadMigradaConaudDto.usuario = createIniciosActividadesWithObjectDto.usuario;
+        await this.checkOrCreateActividadMigradaConaud(resultMigrada, createActividadMigradaConaudDto, manager);
+      }
+    }
+    return iacCodigo;
+  } catch (error) {
+    this.logger.debug(error);
+    throwError(400, error.message);
+  }
+}
 
 ```
+## codigo_conaud de prueba
+```c
+ECEP25O02L1PF041
+```
+## Componentes
+- components/sispoa/estructura_formulario/ActividadesContinuidad.vue
+- src/feature/inicios-actividades/service/create-inicios-actividades.service.ts
+	- verificaCreateInicioActividad
+- src/feature/conaud/conaud.service.ts
+	- findAuditoriasSeguimientosInformes
+## Revisar
+- createActividadMigrada
+	- createInicioActividadMigrado
