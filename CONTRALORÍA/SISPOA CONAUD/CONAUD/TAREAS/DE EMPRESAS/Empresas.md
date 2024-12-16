@@ -4,8 +4,10 @@
 - 
 ## url
 - http://172.16.22.243:3002/conaud/inicio-evaluacion-informe?act_codigo=1850&iua_codigo=1048
-### Firmas DELFIN ELEAZAR PONCE POMA 4803747 [520.0701.176.2.24]
-- http://172.16.22.243:3002/conaud/evaluaciones/3007
+## Caso solo evaluacion Firmas [Colocar Vigente, No Vigente]
+- Rol DELFIN ELEAZAR PONCE POMA 4803747
+- Actividad [520.0701.176.2.24]
+- ejm: http://172.16.22.243:3002/conaud/evaluaciones/3007
 ## Roles
 
 | _list_   | Doc. Identidad | Nombre Completo                               | Rol                | Estado  |
