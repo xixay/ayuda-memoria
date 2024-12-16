@@ -337,9 +337,21 @@
   GET {{Host}}/poas/migrar?ges_codigo=2
   Content-Type: application/json
   Authorization: {{AuthTokenInterno}}
-###  ------------------- OBTENER - CONAUD ANTIGUO
-  GET http://172.16.75.94:7015/auditorias?auditoria_codigo=A05653
-  # GET http://172.16.75.94:7015/auditorias?auditoria_codigo=EHEN26Y00
+###  ----- OBTENER - CONAUD ANTIGUO
+  # GET http://172.16.75.94:7015/auditorias
+  #   ?auditoria_codigo=GPOP09E20
+  GET http://172.16.75.94:7015/auditorias/auditoria
+    ?auditoria_codigo=GPOP09E20
+    # ?auditoria_codigo=S01841
+    # ?auditoria_codigo=ALEP25O17L1PO181
+  Content-Type: application/json
+  Authorization: {{AuthTokenInterno}}
+###  ----- OBTENER - CONAUD ANTIGUO SEGUIMIENTO
+  GET http://172.16.75.94:7015/seguimientos
+    # ?seguimiento_codigo=GPOP09E20O1PY231
+    # ?seguimiento_codigo=EOOP25O01S1PS042
+    ?seguimiento_codigo=25
+    # ?seguimiento_codigo=GPOP09E20PO242
   Content-Type: application/json
   Authorization: {{AuthTokenInterno}}
 ###  ------------------- BUSQUEDA - ACTIVIDADES AUDITORIA
