@@ -66,21 +66,21 @@
   @tokenprovidersispoa = Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aXBvIjoic2lzdGVtYSIsInNpc3RlbWEiOiJzaXNwb2EiLCJzaWdsYSI6InNpc3BvYSIsImlkIjoiNmViY2E2MzEtNmJhNy00NGY2LTk1NWYtODdkMjhmMTY5YjdiIiwic2lzdGVtYXMiOlt7InRpcG8iOiJzaXN0ZW1hIiwic2lzY2dlX2NvZGlnbyI6MzQsInNpc2NnZV9zaWdsYSI6InNpc3BvYSJ9XSwiaWF0IjoxNjkyNzE3MDM0fQ.W8JlvAb1LKCyxfdQqJEmhGqtDGaeLQeswBOesj_S2YF_BKQ7z8mAcYJnH6e7A7DwbU-ReZ68Ws9RVMMgRtoSKQ
 ### ACTIVIDADES PROVIDER
 ###  ------------------- OBTENER - ACTIVIDADES PROVIDER
-GET {{Host}}/sispoa/actividades
-  ?act_codigo=(2982)
-Content-Type: application/json
-Authorization: {{tokenprovidersispoa}}
-'Content-Type': 'application/json'
+  GET {{Host}}/sispoa/actividades
+    ?act_codigo=(2982)
+  Content-Type: application/json
+  Authorization: {{tokenprovidersispoa}}
+  'Content-Type': 'application/json'
 ###  ------------------- CREAR - TIPOS PERMISOS
-POST {{Host}}/tipos-permisos
-Content-Type: application/json
-Authorization: {{AuthTokenInterno}}
+  POST {{Host}}/tipos-permisos
+  Content-Type: application/json
+  Authorization: {{AuthTokenInterno}}
 
-{
-  "tpe_nombre": "Prueba 9",
-  "tpe_descripcion": "Descripcion prueba 9",
-  "cpe_codigo": 1
-}
+  {
+    "tpe_nombre": "Prueba 9",
+    "tpe_descripcion": "Descripcion prueba 9",
+    "cpe_codigo": 1
+  }
 ### TIPOS PERMISOS
 ###  ------------------- OBTENER - TIPOS PERMISOS
     GET {{Host}}/tipos-permisos
@@ -292,13 +292,13 @@ Authorization: {{AuthTokenInterno}}
   Content-Type: application/json
   Authorization: {{AuthTokenInterno}}
 ###  ------------------- OBTENER - ACTIVIDAD EN CONAUD
-GET {{Host}}/actividades/conaud_actividad
-  ?iac_estado=(22)
-  # &iac_codigo_control=EPTP05S23
-  # &iac_codigo_control=E
-  &iac_codigo_control=ALCP25M07
-Content-Type: application/json
-Authorization: {{AuthTokenInterno}}
+  GET {{Host}}/actividades/conaud_actividad
+    ?iac_estado=(22)
+    # &iac_codigo_control=EPTP05S23
+    # &iac_codigo_control=E
+    &iac_codigo_control=ALCP25M07
+  Content-Type: application/json
+  Authorization: {{AuthTokenInterno}}
 ###  ------------------- ESTADOS - ACTIVIDADES 1359,1360,1361,1362
   PUT {{Host}}/actividades/estado HTTP/1.1
   Authorization: {{AuthTokenInterno}}
@@ -532,12 +532,12 @@ Authorization: {{AuthTokenInterno}}
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
 ###  ------------------- OBTENER - AREAS UNIDADES PRINCIPALES
-GET {{Host}}/areas-unidades-dependencias/unidades-principales
-  ?poa_codigo=(3)
-Content-Type: application/json
-Authorization: {{AuthTokenInterno}}
-###
-GET {{Host}}/areas-unidades-dependencias/unidades-principales-persona
-  ?poa_codigo=(3)
-Content-Type: application/json
-Authorization: {{AuthTokenInterno}}
+  GET {{Host}}/areas-unidades-dependencias/unidades-principales
+    ?poa_codigo=(3)
+  Content-Type: application/json
+  Authorization: {{AuthTokenInterno}}
+  ###
+  GET {{Host}}/areas-unidades-dependencias/unidades-principales-persona
+    ?poa_codigo=(3)
+  Content-Type: application/json
+  Authorization: {{AuthTokenInterno}}
