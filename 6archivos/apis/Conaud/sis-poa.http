@@ -560,9 +560,9 @@
 ### HORAS GESTIONES
 ###  ------------------- OBTENER - HORAS GESTIONES
   GET {{Host}}/horas-gestiones
-    ?hog_codigo=(1)
+    # ?hog_codigo=(1)
     # &ges_codigo=(2)
-    &hog_estado=(1)
+    # &hog_estado=(1)
   Content-Type: application/json
   Authorization: {{AuthTokenInterno}}
 ###  ------------------- CREAR - HORAS GESTIONES
@@ -571,9 +571,8 @@
     Authorization: {{AuthTokenInterno}}
 
     {
-      "hog_descripcion": "Descripcion prueba 1",
-      "ges_codigo": 1,
-      "hog_horas": 1
+      "ges_codigo": 3,
+      "hog_horas": 1850
     }
 ###  ------------------- MODIFICAR - HORAS GESTIONES
     PUT {{Host}}/horas-gestiones
@@ -583,7 +582,8 @@
     {
       "hog_codigo": 1,
       "hog_descripcion": "Descripcion prueba 2",
-      "hog_horas": 10
+      "ges_codigo": 1,
+      "hog_horas": 1000
     }
 ###  ------------------- ELIMINAR - HORAS GESTIONES
     DELETE {{Host}}/horas-gestiones/1
