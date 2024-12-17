@@ -344,6 +344,8 @@
     # ?auditoria_codigo=GPOP09E20
     # ?auditoria_codigo=S01841
     ?auditoria_codigo=25
+    # ?auditoria_codigo=PF041
+    # ?auditoria_codigo=SPGP25Y22
   Content-Type: application/json
   Authorization: {{AuthTokenInterno}}
 ###  ----- OBTENER - CONAUD ANTIGUO SEGUIMIENTO
@@ -351,7 +353,9 @@
     # ?seguimiento_codigo=GPOP09E20O1PY231
     # ?seguimiento_codigo=EOOP25O01S1PS042
     ?seguimiento_codigo=25
+    # ?seguimiento_codigo=PF041
     # ?seguimiento_codigo=GPOP09E20PO242
+    # ?seguimiento_codigo=EOOP25O01S1PS042
   Content-Type: application/json
   Authorization: {{AuthTokenInterno}}
 ###  ------------------- BUSQUEDA - ACTIVIDADES AUDITORIA

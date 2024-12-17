@@ -145,6 +145,39 @@ inicios-actividades/migrado (2 objetos)
 ```
 - 2da solucion
 ```ts
+  async findAuditoriasSeguimientosInformes(query: GetAllAuditoriasSeguimientosInformesDto, manager: EntityManager) {
+    console.log("🐱==xx1==> ~ query:", query)
+    try {
+      const resultQueryNuevo = await this.findAllConaudNuevo(query, manager);
+      console.log("🐱==xx2==> ~ resultQueryNuevo:", resultQueryNuevo)
+      if (resultQueryNuevo.length > 0) {
+        let resultQueryAntiguo = [];
+        resultQueryAntiguo = await this.findAllConaudAntiguo(query, manager);
+        console.log("🐱==xx3==> ~ resultQueryAntiguo:", resultQueryAntiguo)
+        if (resultQueryAntiguo.length == 0) {
+          query.seguimiento_codigo = query.auditoria_codigo;
+          resultQueryAntiguo = await this.findAllConaudAntiguoSeguimiento(query, manager);
+          console.log("🐱==xx4==> ~ resultQueryAntiguo:", resultQueryAntiguo)
+        }
+        const resultQuery = resultQueryAntiguo.length > 0
+        ? await this.fylterNuevosEnAntiguos(resultQueryNuevo, resultQueryAntiguo)
+        : resultQueryNuevo;
+        console.log("🐱==xx5==> ~ resultQuery:", resultQuery)
+        return CustomService.verifyingDataResult(resultQuery, this.message_custom);
+      } else {
+        let resultQueryAntiguo = await this.findAllConaudAntiguo(query, manager);
+        if (resultQueryAntiguo.length == 0) {
+          query.seguimiento_codigo = query.auditoria_codigo;
+          resultQueryAntiguo = await this.findAllConaudAntiguoSeguimiento(query, manager);
+        }
+        return CustomService.verifyingDataResult(resultQueryAntiguo, this.message_custom);
+      }
+    } catch (error) {
+      this.logger.debug(error);
+      throwError(400, error.message);
+    }
+  }
+
 async verificaCreateInicioActividad(createIniciosActividadesWithObjectDto, manager) {
   try {
     let iacCodigo = 0;
@@ -244,6 +277,39 @@ async verificaCreateInicioActividad(createIniciosActividadesWithObjectDto, manag
 }
 
 ```
+- 3ra Solucion
+```ts
+  async findAuditoriasSeguimientosInformes(query: GetAllAuditoriasSeguimientosInformesDto, manager: EntityManager) {
+    console.log("🐱==xx1==> ~ query:", query)
+    try {
+      // ------ BUSCA EN LA BASE DE DATOS
+      const resultQueryNuevo = await this.findAllConaudNuevo(query, manager);
+      console.log("🐱==xx2==> ~ resultQueryNuevo:", resultQueryNuevo)
+      // ------ BUSCA DE TIPO AUDITORIA
+      let resultQueryAntiguo = await this.findAllConaudAntiguo(query, manager);
+      console.log("🐱==xx3==> ~ resultQueryAntiguo:", resultQueryAntiguo)
+      // ------ BUSCA DE TIPO SEGUIMIENTO SI NO HAY AUDITORIA
+      if (resultQueryAntiguo.length == 0) {
+        query.seguimiento_codigo = query.auditoria_codigo;
+        resultQueryAntiguo = await this.findAllConaudAntiguoSeguimiento(query, manager);
+        console.log("🐱==xx4==> ~ resultQueryAntiguo:", resultQueryAntiguo)
+      }
+      // Si hay en la base de datos busca tambien en los de tipo auditoria, o de seguimiento
+      const resultQuery = resultQueryNuevo.length > 0
+        ? (resultQueryAntiguo.length > 0
+          ? await this.fylterNuevosEnAntiguos(resultQueryNuevo, resultQueryAntiguo)
+          : resultQueryNuevo)
+        : resultQueryAntiguo;
+
+      console.log("🐱==xx5==> ~ resultQuery:", resultQuery)
+      return CustomService.verifyingDataResult(resultQuery, this.message_custom);
+
+    } catch (error) {
+      this.logger.debug(error);
+      throwError(400, error.message);
+    }
+  }
+```
 ## codigo_conaud de prueba
 ```c
 ECEP25O02L1PF041
@@ -255,5 +321,6 @@ ECEP25O02L1PF041
 - src/feature/conaud/conaud.service.ts
 	- findAuditoriasSeguimientosInformes
 ## Revisar
-- createActividadMigrada
-	- createInicioActividadMigrado
+- createIniciosActividadesF1yF2
+	- createActividadMigrada
+		- createInicioActividadMigrado
