@@ -48,9 +48,23 @@
               "icon": "lucide-file",
               "title": "Corregir Seguimiento"
             }
+          },
+          {
+            "id": "2cc9f733b8b67d09",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/HORAS MAXIMAS POR GESTION/Horas Maximas por gestion.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Horas Maximas por gestion"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -192,10 +206,15 @@
       "command-palette:Abrir paleta de comandos": false
     }
   },
-  "active": "7c1e35d6286e9b27",
+  "active": "2cc9f733b8b67d09",
   "lastOpenFiles": [
-    "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/RESTRICCIONES TIPOS DE TRABAJO/Restricciones tipos trabajo.md",
+    "CONTRALORÍA/SISPOA CONAUD/GENERADOR/Proyecto base Frontend-BACKEND generador.drawio.png",
+    "CONTRALORÍA/SISPOA CONAUD/GENERADOR/Proyecto base Frontend-FRONTED generador.drawio.png",
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/HORAS MAXIMAS POR GESTION/Horas Maximas por gestion.md",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR ACTIVIDAD SEGUIMIENTO/Corregir Seguimiento.md",
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/HORAS MAXIMAS POR GESTION",
+    "6archivos/scripts/backup_20241217_150857.sql",
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/RESTRICCIONES TIPOS DE TRABAJO/Restricciones tipos trabajo.md",
     "6archivos/scripts/backup_20241216_095954.sql",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/CREACION ACTIVIDADES/CREACION DE ACTIVIDADES.md",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/CREACION ACTIVIDADES/seguimiento.png",
@@ -228,8 +247,6 @@
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/CASO CONTINUIDAD NO MIGRADA Y EN LA MISMA GESTION/FORMULARIO CASO CONTINUIDAD.md",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORRECCION HORAS LABORALES POR DEPARTAMENTO",
     "6archivos/scripts/backup_20241210_193645.sql",
-    "6archivos/scripts/backup_20241210_173544.sql",
-    "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/CASO CONTINUIDAD NO MIGRADA Y EN LA MISMA GESTION/inicios-actividades.form-continuo-no-migrado.jsx",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/REVIZAR CIERRE/Revisar cierre.md",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORRECCIÓN DE APOYO/Corrección Apoyo.md",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/QUE YA NO INICIE EN UAI/Sin título.md",

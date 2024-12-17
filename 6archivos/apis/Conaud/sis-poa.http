@@ -557,3 +557,39 @@
     ?poa_codigo=(3)
   Content-Type: application/json
   Authorization: {{AuthTokenInterno}}
+### HORAS GESTIONES
+###  ------------------- OBTENER - HORAS GESTIONES
+  GET {{Host}}/horas-gestiones
+    ?hog_codigo=(1)
+    # &ges_codigo=(2)
+    &hog_estado=(1)
+  Content-Type: application/json
+  Authorization: {{AuthTokenInterno}}
+###  ------------------- CREAR - HORAS GESTIONES
+    POST {{Host}}/horas-gestiones
+    Content-Type: application/json
+    Authorization: {{AuthTokenInterno}}
+
+    {
+      "hog_descripcion": "Descripcion prueba 1",
+      "ges_codigo": 1,
+      "hog_horas": 1
+    }
+###  ------------------- MODIFICAR - HORAS GESTIONES
+    PUT {{Host}}/horas-gestiones
+    Content-Type: application/json
+    Authorization: {{AuthTokenInterno}}
+
+    {
+      "hog_codigo": 1,
+      "hog_descripcion": "Descripcion prueba 2",
+      "hog_horas": 10
+    }
+###  ------------------- ELIMINAR - HORAS GESTIONES
+    DELETE {{Host}}/horas-gestiones/1
+    Content-Type: application/json
+    Authorization: {{AuthTokenInterno}}
+###  ------------------- ACTIVAR - HORAS GESTIONES
+    PATCH {{Host}}/horas-gestiones/1
+    Content-Type: application/json
+    Authorization: {{AuthTokenInterno}}
