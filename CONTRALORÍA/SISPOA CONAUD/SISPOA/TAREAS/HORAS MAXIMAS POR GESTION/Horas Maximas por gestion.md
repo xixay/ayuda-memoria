@@ -4,8 +4,8 @@
 - crear en el frontend un btn para registrar las horas maximas, la gestion debe ser la misma, o sea la actual no debe cambiarse
 - validar que cuando se cree o se modifique lugares gestiones, se considere lo maximo de horas
 ## Ramas
-- front:  feature/horas_gestiones
-- back:  feature/horas_gestiones
+- front:  feature/horas_gestiones   basado ambiente/pruebas
+- back:  feature/horas_gestiones   basado ambiente/pruebas
 ## Lugares
 - 
 ## url
