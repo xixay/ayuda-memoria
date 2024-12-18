@@ -1,25 +1,5 @@
-SELECT 
-		t.hog_codigo,
-		t.hog_descripcion,
-		t.hog_horas,
-		t.ges_codigo,
-		g.ges_anio,
-		g.ges_estado, 
-        t.hog_estado, 
-        e.est_color, 
-        e.est_nombre AS hge_estado_descripcion,
-        TO_CHAR(t.fecha_registro, 'dd/mm/yyyy') AS fecha_registro,
-        TO_CHAR(t.fecha_modificacion, 'dd/mm/yyyy') AS fecha_modificacion
-FROM 	parametricas.horas_gestiones t
-		LEFT JOIN parametricas.gestiones g ON t.ges_codigo = g.ges_codigo 
-  		LEFT JOIN parametricas.estados e ON e.est_codigo = t.hog_estado
-WHERE 	TRUE
---		AND t.hog_codigo IN (1)
---		AND t.hog_estado IN (1)
---		AND g.ges_codigo IN (1)
-ORDER BY t.hog_codigo DESC
+SELECT 	*
+FROM 	estructura_poa.actividades_continuidad ac
 ;
 
-SELECT 	*
-FROM 	parametricas.horas_gestiones hg 
-;
+SELECT DISTINCT "distinctAlias"."ActividadesMovimientosHoras_amh_codigo" AS "ids_ActividadesMovimientosHoras_amh_codigo" FROM (SELECT "ActividadesMovimientosHoras"."amh_codigo" AS "ActividadesMovimientosHoras_amh_codigo", "ActividadesMovimientosHoras"."amh_horas" AS "ActividadesMovimientosHoras_amh_horas", "ActividadesMovimientosHoras"."amh_detalle" AS "ActividadesMovimientosHoras_amh_detalle", "ActividadesMovimientosHoras"."usuario_registro" AS "ActividadesMovimientosHoras_usuario_registro", "ActividadesMovimientosHoras"."usuario_modificacion" AS "ActividadesMovimientosHoras_usuario_modificacion", "ActividadesMovimientosHoras"."usuario_baja" AS "ActividadesMovimientosHoras_usuario_baja", "ActividadesMovimientosHoras"."fecha_registro" AS "ActividadesMovimientosHoras_fecha_registro", "ActividadesMovimientosHoras"."fecha_modificacion" AS "ActividadesMovimientosHoras_fecha_modificacion", "ActividadesMovimientosHoras"."fecha_baja" AS "ActividadesMovimientosHoras_fecha_baja", "ActividadesMovimientosHoras"."act_codigo_adicion" AS "ActividadesMovimientosHoras_act_codigo_adicion", "ActividadesMovimientosHoras"."act_codigo_disminucion" AS "ActividadesMovimientosHoras_act_codigo_disminucion", "ActividadesMovimientosHoras"."amh_estado" AS "ActividadesMovimientosHoras_amh_estado", "ActividadesMovimientosHoras"."tmh_codigo" AS "ActividadesMovimientosHoras_tmh_codigo" FROM "estructura_poa"."actividades_movimientos_horas" "ActividadesMovimientosHoras" LEFT JOIN "estructura_poa"."actividades" "42b51764cb875e0f6c30c63c66f9ea719296f791" ON "42b51764cb875e0f6c30c63c66f9ea719296f791"."act_codigo"="ActividadesMovimientosHoras"."act_codigo_adicion"  LEFT JOIN "estructura_poa"."actividades" "5585f1541f69fc5b8f33bf043055b0d7b63aa9aa" ON "5585f1541f69fc5b8f33bf043055b0d7b63aa9aa"."act_codigo"="ActividadesMovimientosHoras"."act_codigo_disminucion" WHERE ("ActividadesMovimientosHoras"."amh_horas" = $1 AND "ActividadesMovimientosHoras"."tmh_codigo" = $2 AND "ActividadesMovimientosHoras"."amh_detalle" = $3)) "distinctAlias" ORDER BY "ActividadesMovimientosHoras_amh_codigo" ASC LIMIT 1;
