@@ -36,20 +36,6 @@
             }
           },
           {
-            "id": "7c1e35d6286e9b27",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR ACTIVIDAD SEGUIMIENTO/Corregir Seguimiento.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Corregir Seguimiento"
-            }
-          },
-          {
             "id": "2cc9f733b8b67d09",
             "type": "leaf",
             "state": {
@@ -76,9 +62,37 @@
               "icon": "lucide-file",
               "title": "Fecha Retiro"
             }
+          },
+          {
+            "id": "309c08e69dd7fb0e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/ACTIVIDAD INFORMES/Actividad Informes.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Actividad Informes"
+            }
+          },
+          {
+            "id": "9a63a81c24ea136f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/CORRECCION ACTIVIDADES INFORMES/Corrección Actividades Informes.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Corrección Actividades Informes"
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -220,10 +234,15 @@
       "command-palette:Abrir paleta de comandos": false
     }
   },
-  "active": "532c6061acdf9fe8",
+  "active": "9a63a81c24ea136f",
   "lastOpenFiles": [
-    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/HORAS MAXIMAS POR GESTION/Horas Maximas por gestion.md",
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/ACTIVIDAD INFORMES/Actividad Informes.md",
+    "LEFT JOIN ejecucion_actividades.inicios_actividades ia ON inf.iac_codigo = ia.iac_codigo               -- Unir solo el último registro de la tabla informes_estados.md",
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/CORRECCION ACTIVIDADES INFORMES/Corrección Actividades Informes.md",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/AGREGAR FECHA DE RETIRO/Fecha Retiro.md",
+    "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/CORRECCION ACTIVIDADES INFORMES",
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/AGREGAR FECHA DE RETIRO/fecha_1.png",
+    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/HORAS MAXIMAS POR GESTION/Horas Maximas por gestion.md",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORREGIR ACTIVIDAD SEGUIMIENTO/Corregir Seguimiento.md",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/CASO CONTINUIDAD NO MIGRADA Y EN LA MISMA GESTION/FORMULARIO CASO CONTINUIDAD.md",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/AGREGAR FECHA DE RETIRO",
@@ -250,7 +269,6 @@
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/REUTILIZAR COMPONENTE DE REPORTE/REPORTE.md",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/DE EMPRESAS",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/QUE YA NO INICIE EN UAI/Cambiar cierre por emision.md",
-    "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/RESTRICCIONES TIPOS DE TRABAJO",
     "3frontend/vuetify/1.10-dataTable.md",
     "3frontend/vuetify/1.9-centrarFila.md",
     "3frontend/vuetify/1.8-emitYOn.md",
@@ -263,9 +281,6 @@
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/FORMULARIO DE CONTROL DE HORAS DE TRABAJO/En Asignaciones Horas usadas.md",
     "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORRECCION HORAS LABORALES POR DEPARTAMENTO/Corrección hrs Lab por departamento.md",
     "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/REVIZAR CIERRE/Revisar cierre.md",
-    "CONTRALORÍA/SISPOA CONAUD/SISPOA/TAREAS/CORRECCIÓN DE APOYO/Corrección Apoyo.md",
-    "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/QUE YA NO INICIE EN UAI/Sin título.md",
-    "CONTRALORÍA/SISPOA CONAUD/CONAUD/TAREAS/ACTIVIDAD INFORMES/Actividad Informes.md",
     "CONTRALORÍA/SISPOA CONAUD/RELACIONES/REALACIONES.canvas"
   ]
 }

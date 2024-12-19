@@ -17,6 +17,9 @@
 - ACTIVIDADES REGULARES (F26) (520.1302.62) 520.1302.62.1.24
 - ACTIVIDADES REGULARES (F26) (520.1302.61) 520.1302.61.1.24
 - ACTIVIDADES REGULARES (F26) (520.1302.61) 520.1302.61.2.24
+- ACTIVIDADES INCORPORADAS (F21) (500.1302.54) 500.1302.54.7.24
+- ACTIVIDADES INCORPORADAS (F21) (500.1302.54) 500.1302.54.13.24
+- ACTIVIDADES REGULARES (F26) (520.1302.64) 520.1302.64.1.24
 ## Roles
 
 | _list_   | Doc. Identidad | Nombre Completo                               | Rol                | Estado  |
@@ -26,6 +29,7 @@
 | comision | 4385501        | JULIO CARLOS GUERRA VILLARROEL                | APROBADOR          | EDICION |
 |          | 1397469        | RUTH TARCAYA GALLARDO                         | FORMULADOR GERENTE | EDICION |
 |          | 1397469        | RUTH TARCAYA GALLARDO                         | FORMULADOR         | EDICION |
+|          | 1397469        | RUTH TARCAYA GALLARDO                         | APROBADOR          | EDICION |
 ## Trae Provider Auditorias
 ## Query
 ```sql

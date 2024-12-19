@@ -234,11 +234,16 @@
     Authorization: {{AuthTokenInterno}}
 ### OBJETIVOS AREA UNIDAD
 ###  ------------------- OBTENER - OBJETIVOS AREA UNIDAD
-    # GET {{Host}}/objetivos-area-unidad/poa_codigo
-    # GET {{Host}}/objetivos-area-unidad/poa_objetivo?pobj_codigo=(726)
-    GET {{Host}}/objetivos-area-unidad/poa_objetivo?pobj_codigo=(726)
-    Content-Type: application/json
-    Authorization: {{AuthTokenInterno}}
+  # GET {{Host}}/objetivos-area-unidad/poa_codigo
+  # GET {{Host}}/objetivos-area-unidad/poa_objetivo?pobj_codigo=(726)
+  GET {{Host}}/objetivos-area-unidad/poa_objetivo?pobj_codigo=(726)
+  Content-Type: application/json
+  Authorization: {{AuthTokenInterno}}
+###  ------------------- OBTENER - OBJETIVOS AREA UNIDAD DEPENDIENTES
+  GET {{Host}}/objetivos-area-unidad/dependientes
+    ?pobj_codigo=(726)
+  Content-Type: application/json
+  Authorization: {{AuthTokenInterno}}
 ###  ------------------- CREAR - POA OBJETIVO
     POST {{Host}}/poas-objetivos
     Content-Type: application/json
@@ -593,3 +598,10 @@
     PATCH {{Host}}/horas-gestiones/1
     Content-Type: application/json
     Authorization: {{AuthTokenInterno}}
+###  ------ POAS OBJETIVOS
+###  ------ OBTENER - FAMILIA ÁREAS
+  GET {{Host}}/poas-objetivos/familia-areas
+    ?poa_codigo=(3)
+    &aun_codigo_ejecutora=14
+  Content-Type: application/json
+  Authorization: {{AuthTokenInterno}}
