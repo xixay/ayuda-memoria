@@ -793,19 +793,26 @@
 ###  ------- OBTENER - FAMILIA AREAS
   GET {{Host}}/sispoa-poas-objetivos/familia-areas
     ?poa_codigo=(3)
-    &aun_codigo_ejecutora=17
+    # &aun_codigo_ejecutora=17
     # &aun_codigo_ejecutora=14
     # &aun_codigo_ejecutora=20
     # &aun_codigo_ejecutora=18
     # &aun_codigo_ejecutora=19
     # &aun_codigo_ejecutora=1
+    # &aun_codigo_ejecutora=10
+    # &aun_codigo_ejecutora=11
+    # &aun_codigo_ejecutora=57
+    # &aun_codigo_ejecutora=58
+    # &aun_codigo_ejecutora=68
+    &aun_codigo_ejecutora=81
   Authorization: {{AuthTokenInterno}}
   # Authorization: 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aXBvIjoic2lzdGVtYSIsInNpc3RlbWEiOiJzaXNwb2EiLCJzaWdsYSI6InNpc3BvYSIsImlkIjoiNmViY2E2MzEtNmJhNy00NGY2LTk1NWYtODdkMjhmMTY5YjdiIiwic2lzdGVtYXMiOlt7InRpcG8iOiJzaXN0ZW1hIiwic2lzY2dlX2NvZGlnbyI6MzQsInNpc2NnZV9zaWdsYSI6InNpc3BvYSJ9XSwiaWF0IjoxNjkyNzE3MDM0fQ.W8JlvAb1LKCyxfdQqJEmhGqtDGaeLQeswBOesj_S2YF_BKQ7z8mAcYJnH6e7A7DwbU-ReZ68Ws9RVMMgRtoSKQ'
   Content-Type: application/json
 ###  ------- OBTENER - ACTIVIDADES POR AREAS
   GET {{Host}}/actividades-informes/actividades-areas
     ?poa_codigo=(3)
-    &aun_codigo_ejecutora=17
+    # &aun_codigo_ejecutora=17
+    &aun_codigo_ejecutora=3
     &act_estado=(2)
   Authorization: {{AuthTokenInterno}}
   # Authorization: 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aXBvIjoic2lzdGVtYSIsInNpc3RlbWEiOiJzaXNwb2EiLCJzaWdsYSI6InNpc3BvYSIsImlkIjoiNmViY2E2MzEtNmJhNy00NGY2LTk1NWYtODdkMjhmMTY5YjdiIiwic2lzdGVtYXMiOlt7InRpcG8iOiJzaXN0ZW1hIiwic2lzY2dlX2NvZGlnbyI6MzQsInNpc2NnZV9zaWdsYSI6InNpc3BvYSJ9XSwiaWF0IjoxNjkyNzE3MDM0fQ.W8JlvAb1LKCyxfdQqJEmhGqtDGaeLQeswBOesj_S2YF_BKQ7z8mAcYJnH6e7A7DwbU-ReZ68Ws9RVMMgRtoSKQ'
