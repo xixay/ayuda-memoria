@@ -17,6 +17,7 @@
 | **1.21. VsCode Configuración** | [Ver](/6archivos/perfil/21-vscode-config.md) | **1.22. Debugger** | [Ver](/1inicio/22-debugger.md) |
 | **1.23. Matar puertos** | [Ver](/1inicio/23-matarPuertos.md) | **1.24. Snippets** | [Ver](/1inicio/24-snippets.md)|
 | **1.25. Obsidyan** | [Ver](/1inicio/25-obsidyan.md) | **1.26. Google Drive Obsidyan** | [Ver](/1inicio/26-google_drive_obsidian.md) |
+| **1.27. GitHubDesktop** | [Ver](https://github.com/xixay/GitHub-Desktop) | **1.26. Google Drive Obsidyan** | [Ver](/1inicio/26-google_drive_obsidian.md) |
 
 ## 2. Backend
 
