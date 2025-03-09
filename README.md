@@ -23,7 +23,7 @@
 
 | Tema | Enlace | Proyecto | Enlace |
 |------|--------|----------|--------|
-| **A.1. Variables de entorno** | [Ver](/2backend/nestJs/A.1-Env.md) |**2.1. Express (Backend)** | [Ver](https://github.com/xixay/articulo-repositorio-express-backend/blob/main/documentacion/1-articulo.md) |
+| **A.1. Variables de entorno** | [Ver](/2backend/nestJs/A.1-Env.md) |**2.1. Express (Backend)** | [Ver](https://github.com/xixay/articulo-repositorio-express-backend) |
 | **B.1. Encriptación** | [Ver](/2backend/nestJs/B.1-encriptadoBackendNestJS.md) |**2.1.1. Rutas api rest** | [Ver](https://github.com/xixay/articulo-repositorio-express-backend/blob/main/documentacion/1.1-articuloRutas.md) |
 | **C.1. Sacar un backup de BD (Backend, Nestjs)** | [Ver](/2backend/nestJs/C.1-backupsRestore.md) |**2.1.2. Relaciòn 1 a 1** | [Ver](https://github.com/xixay/articulo-repositorio-express-backend/blob/main/documentacion/1.2-relacion_1_a_1.md) |
 | **D.1. Agregar Seeders (Backend)** | [Ver](/2backend/nestJs/D.1-seeders.md) |**2.2. TypeOrm Guia (Backend)** | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend/blob/main/documentacion/1-inicioRapido.md) |
