@@ -36,9 +36,9 @@
 | **K.1. MongoDb (Backend)** | [Ver](/2backend/monodb/K.1-mongodb.md) | **2.11. microservicio-api-user-kong-repositorio (Backend)** | [Ver](https://github.com/xixay/microservicio-api-user-kong-repositorio) |
 |  |  | | **2.12. microservicio-api-account-kong-repositorio (Backend)** | [Ver](https://github.com/xixay/microservicio-api-account-kong-repositorio) |
 |  |  | | **2.13. api-kong-repositorio (Backend)** | [Ver](https://github.com/xixay/api-kong-repositorio) |
-|  |  | |  |
-|  |  | |  |
-|  |  | |  |
+|  |  | **2.14. microservicio-repositorio (Backend)** | [Ver](https://github.com/xixay/microservicio-repositorio) |
+|  |  | **2.15. microservicio-repositorio-cliente (Backend)** | [Ver](https://github.com/xixay/microservicio-repositorio-cliente) |
+|  |  | **2.16. microservicio-rabbitMQ-repositorio-cliente (Backend)** | [Ver](https://github.com/xixay/microservicio-rabbitMQ-repositorio-cliente) |
 |  |  | |  |
 
 ## 3. Frontend
