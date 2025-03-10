@@ -27,20 +27,26 @@
 | **B.1. Encriptación** | [Ver](/2backend/nestJs/B.1-encriptadoBackendNestJS.md) |**2.2. TypeOrm Guia (Backend)** | [Ver](https://github.com/xixay/articulo-repositorio-typeOrm-backend) |
 | **C.1. Sacar un backup de BD (Backend, Nestjs)** | [Ver](/2backend/nestJs/C.1-backupsRestore.md) |**2.3. NestJs (Backend)** | [Ver](https://github.com/xixay/articulo-repositorio-NestJS-backend) |
 | **D.1. Agregar Seeders (Backend)** | [Ver](/2backend/nestJs/D.1-seeders.md) |**2.4. node MongoDb (Backend)** | [Ver](https://github.com/xixay/node-mongoDB) |
-| **E.1. Generar Crud SISPOA Backend**** | [Ver](/2backend/nestJs/E.1-generarCrudsoloSispoa.md) |**node Rabbitmq (Backend)** | [Ver](/2backend/rabbitmq/1-rabbit.md) |
-| **F.1. Entidades** | [Ver](/2backend/nestJs/F.1-entidadSispoa.md) | |  |
-| **G.1. Decoradores** | [Ver](/2backend/nestJs/G.1-decoradores.md) | |  |
-| **H.1. Consultas SQL (Backend, BD)** | [Ver](/2backend/nestJs/H.1-consultaSqlBackend.md) | |  |
-| **I.1. Formateador** | [Ver](/2backend/nestJs/I.1-lintingFormat.md)) | |  |
-| **J.1. Rabbitmq (Backend)** | [Ver](/2backend/rabbitmq/J.1-rabbit.md) | |  |
-| **K.1. MongoDb (Backend)** | [Ver](/2backend/monodb/K.1-mongodb.md) | |  |
+| **E.1. Generar Crud SISPOA Backend**** | [Ver](/2backend/nestJs/E.1-generarCrudsoloSispoa.md) |**2.5.node Rabbitmq (Backend)** | [Ver](/2backend/rabbitmq/1-rabbit.md) |
+| **F.1. Entidades** | [Ver](/2backend/nestJs/F.1-entidadSispoa.md) |**2.6. ts2-repositorio (Backend)** | [Ver](https://github.com/xixay/ts2-repositorio) |
+| **G.1. Decoradores** | [Ver](/2backend/nestJs/G.1-decoradores.md) |**2.7. ts-node-express-repositorio (Backend)** | [Ver](https://github.com/xixay/ts-node-express-repositorio) |
+| **H.1. Consultas SQL (Backend, BD)** | [Ver](/2backend/nestJs/H.1-consultaSqlBackend.md) |**2.8. typeorm-repositorio (Backend)** | [Ver](https://github.com/xixay/typeorm-repositorio) |
+| **I.1. Formateador** | [Ver](/2backend/nestJs/I.1-lintingFormat.md) |**2.9. ts1-repositorio (Backend)** |  [Ver](https://github.com/xixay/ts1-repositorio)  |
+| **J.1. Rabbitmq (Backend)** | [Ver](/2backend/rabbitmq/J.1-rabbit.md) |**2.10. postgres-repositorio (Backend)** | [Ver](https://github.com/xixay/postgres-repositorio) |
+| **K.1. MongoDb (Backend)** | [Ver](/2backend/monodb/K.1-mongodb.md) | **2.11. microservicio-api-user-kong-repositorio (Backend)** | [Ver](https://github.com/xixay/microservicio-api-user-kong-repositorio) |
+|  |  | | **2.12. microservicio-api-account-kong-repositorio (Backend)** | [Ver](https://github.com/xixay/microservicio-api-account-kong-repositorio) |
+|  |  | | **2.13. api-kong-repositorio (Backend)** | [Ver](https://github.com/xixay/api-kong-repositorio) |
+|  |  | |  |
+|  |  | |  |
+|  |  | |  |
+|  |  | |  |
 
 ## 3. Frontend
 
 | Tema | Enlace | Proyecto | Enlace |
 |------|--------|----------|--------|
-| **3.1. Formulario Html** | [Ver](https://github.com/xixay/Formulario-Repositorio) |  |  |
-| **3.1. Vuetify (Frontend)** | [Ver](/3frontend/vuetify/1-vuetify.md) |  |  |
+| **3.1. Formulario Html** | [Ver](https://github.com/xixay/Formulario-Repositorio) | **A Vuetify Repositorio**  | [Ver](https://github.com/xixay/vuetify-repositorio) |
+| **3.1. Vuetify (Frontend)** | [Ver](/3frontend/vuetify/1-vuetify.md) | **B vuetify3-repositorio** | [Ver](https://github.com/xixay/vuetify3-repositorio) |
 | **3.1.1. Instalando vue y vuetify** | [Ver](/3frontend/vuetify/1.1-instalar.md) |  |  |
 | **3.1.2. Componente vuetify** | [Ver](/3frontend/vuetify/1.2-componente.md) |  |  |
 | **3.1.3. Lienzo vuetify** | [Ver](/3frontend/vuetify/1.3-lienzo.md) |  |  |
