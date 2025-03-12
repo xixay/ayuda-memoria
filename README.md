@@ -34,8 +34,8 @@
 | **I.1. Formateador** | [Ver](/2backend/nestJs/I.1-lintingFormat.md) |**2.9. ts1-repositorio (Backend)** |  [Ver](https://github.com/xixay/ts1-repositorio)  |
 | **J.1. Rabbitmq (Backend)** | [Ver](/2backend/rabbitmq/J.1-rabbit.md) |**2.10. postgres-repositorio (Backend)** | [Ver](https://github.com/xixay/postgres-repositorio) |
 | **K.1. MongoDb (Backend)** | [Ver](/2backend/monodb/K.1-mongodb.md) | **2.11. microservicio-api-user-kong-repositorio (Backend)** | [Ver](https://github.com/xixay/microservicio-api-user-kong-repositorio) |
-|  |  | | **2.12. microservicio-api-account-kong-repositorio (Backend)** | [Ver](https://github.com/xixay/microservicio-api-account-kong-repositorio) |
-|  |  | | **2.13. api-kong-repositorio (Backend)** | [Ver](https://github.com/xixay/api-kong-repositorio) |
+|  |  | **2.12. microservicio-api-account-kong-repositorio (Backend)** | [Ver](https://github.com/xixay/microservicio-api-account-kong-repositorio) |
+|  |  | **2.13. api-kong-repositorio (Backend)** | [Ver](https://github.com/xixay/api-kong-repositorio) |
 |  |  | **2.14. microservicio-repositorio (Backend)** | [Ver](https://github.com/xixay/microservicio-repositorio) |
 |  |  | **2.15. microservicio-repositorio-cliente (Backend)** | [Ver](https://github.com/xixay/microservicio-repositorio-cliente) |
 |  |  | **2.16. microservicio-rabbitMQ-repositorio-cliente (Backend)** | [Ver](https://github.com/xixay/microservicio-rabbitMQ-repositorio-cliente) |
