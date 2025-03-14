@@ -1,0 +1,48 @@
+{
+  "datos": [
+    {
+      "arrayObjetos": [
+        {
+          "requisito": "a) Ser boliviano",
+          "requerimiento": "a) Fotocopia de cedula de identidad"
+        },
+        {
+          "requisito": "b) Ser mayor de edad",
+          "requerimiento": "b) Presentar certificado de nacimiento"
+        },
+        {
+          "requisito": "c) Tener residencia en el país",
+          "requerimiento": "c) Factura de servicios básicos a su nombre"
+        },
+        {
+          "requisito": "d) No tener antecedentes penales",
+          "requerimiento": "d) Certificado de antecedentes policiales"
+        },
+        {
+          "requisito": "e) Haber cumplido con el servicio militar (si aplica)",
+          "requerimiento": "e) Libreta de servicio militar"
+        },
+        {
+          "requisito": "f) Contar con nivel de estudios mínimo requerido",
+          "requerimiento": "f) Copia de diploma académico o título"
+        },
+        {
+          "requisito": "g) Contar con un ingreso mínimo mensual",
+          "requerimiento": "g) Últimos tres estados de cuenta bancaria"
+        },
+        {
+          "requisito": "h) Tener experiencia laboral previa en el área",
+          "requerimiento": "h) Certificados de trabajo o referencias laborales"
+        },
+        {
+          "requisito": "i) Presentar certificado médico de buena salud",
+          "requerimiento": "i) Certificado médico expedido por un centro autorizado"
+        },
+        {
+          "requisito": "j) No estar inhabilitado para ejercer funciones públicas",
+          "requerimiento": "j) Declaración jurada ante notario"
+        }
+      ]
+    }
+  ]
+}

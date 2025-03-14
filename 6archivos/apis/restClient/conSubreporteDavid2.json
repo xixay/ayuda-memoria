@@ -1,0 +1,80 @@
+{
+  "datos": [
+    {
+      "arrayObjetos": [
+        {
+          "nro": "1",
+          "postulante": "a) Fotocopia de cedula de identidad",
+          "tematica":"fdsfsdf",
+          "experiencia":"fhthtrh",
+          "votos":"htht",
+          "decision":"fdsfdsf"
+
+        },
+        {
+          "nro": "2",
+          "postulante": "b) Presentar certificado de nacimiento",
+          "tematica":"fdsfsdf",
+          "experiencia":"fhthtrh",
+          "votos":"htht",
+          "decision":"fdsfdsf"
+
+        },
+        {
+          "nro": "3",
+          "postulante": "c) Factura de servicios básicos a su nombre",
+          "tematica":"fdsfsdf",
+          "experiencia":"fhthtrh",
+          "votos":"htht",
+          "decision":"fdsfdsf"
+
+        },
+        {
+          "nro": "4",
+          "postulante": "d) Certificado de antecedentes policiales",
+          "tematica":"fdsfsdf",
+          "experiencia":"fhthtrh",
+          "votos":"htht",
+          "decision":"fdsfdsf"
+
+        },
+        {
+          "nro": "5",
+          "postulante": "e) Libreta de servicio militar",
+          "tematica":"fdsfsdf",
+          "experiencia":"fhthtrh",
+          "votos":"htht",
+          "decision":"fdsfdsf"
+
+        },
+        {
+          "nro": "6",
+          "postulante": "f) Copia de diploma académico o título",
+          "tematica":"fdsfsdf",
+          "experiencia":"fhthtrh",
+          "votos":"htht",
+          "decision":"fdsfdsf"
+
+        },
+        {
+          "nro": "7",
+          "postulante": "g) Últimos tres estados de cuenta bancaria",
+          "tematica":"fdsfsdf",
+          "experiencia":"fhthtrh",
+          "votos":"htht",
+          "decision":"fdsfdsf"
+
+        },
+        {
+          "nro": "8",
+          "postulante": "h) Certificados de trabajo o referencias laborales",
+          "tematica":"fdsfsdf",
+          "experiencia":"fhthtrh",
+          "votos":"htht",
+          "decision":"fdsfdsf"
+
+        }
+      ]
+    }
+  ]
+}
