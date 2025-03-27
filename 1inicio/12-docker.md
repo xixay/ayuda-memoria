@@ -1,4 +1,5 @@
 [<< INDICE](../README.md)
+
 - [1. Definición](#1-definición)
 - [2. Instalar Docker Engine en Ubuntu](#2-instalar-docker-engine-en-ubuntu)
   - [2.1. Instalar Docker con el Repositorio apt](#21-instalar-docker-con-el-repositorio-apt)
@@ -23,12 +24,13 @@
   - [8.4. Comenzar Kong](#84-comenzar-kong)
   - [8.5. Verificar su instalación](#85-verificar-su-instalación)
   - [8.6. Verificar Kong Manager](#86-verificar-kong-manager)
-- [9. Instalación de Docker Compose](#9-instalación-de-docker-compose)
-  - [9.1. Uso de Docker Compose](#91-uso-de-docker-compose)
-  - [9.2. Comandos básicos de Docker Compose](#92-comandos-básicos-de-docker-compose)
-  - [9.3. Otros comandos útiles](#93-otros-comandos-útiles)
-  - [9.4. Ejemplo de uso](#94-ejemplo-de-uso)
-- [10. Referencia](#10-referencia)
+- [9. Contenedor mysql](#9-contenedor-mysql)
+- [10. Instalación de Docker Compose](#10-instalación-de-docker-compose)
+  - [10.1. Uso de Docker Compose](#101-uso-de-docker-compose)
+  - [10.2. Comandos básicos de Docker Compose](#102-comandos-básicos-de-docker-compose)
+  - [10.3. Otros comandos útiles](#103-otros-comandos-útiles)
+  - [10.4. Ejemplo de uso](#104-ejemplo-de-uso)
+- [11. Referencia](#11-referencia)
 
 # 1. Definición
 ```text
@@ -190,7 +192,7 @@ docker rm chasqui
 sudo apt install net-tools
 sudo netstat -tpln
 ```
-1. Elimina versiones anteriores postgres
+2. Elimina versiones anteriores postgres
 ```console
   dpkg -l | grep postgres
   sudo apt-get --purge remove \
@@ -205,55 +207,55 @@ sudo netstat -tpln
   postgresql-client-common \
   postgresql-common
 ```
-1. Ver si siguen instalados los postgres
+3. Ver si siguen instalados los postgres
   ```console
   sudo service postgresql status
   ```
-1. Crear contenedor
+4. Crear contenedor
 ```console
 sudo docker run   --name chasqui   -e POSTGRES_PASSWORD=postgres   -d   -p 7777:5432   postgres:14.6
 ```
-1. Comprobar los puertos
+5. Comprobar los puertos
 ```console
 sudo netstat -tpln
 ```
-1. iniciar contenedor
+6. iniciar contenedor
 ```console
 docker start chasqui
 ```
-1. obtener la dirección <IP>, por donde corre el contenedor(linux)
+7. obtener la dirección <IP>, por donde corre el contenedor(linux)
 ```console
 docker inspect chasqui
 ```
-1. ingresar como root
+8. ingresar como root
 ```console
 sudo docker exec -it chasqui bash
 ```
-1.  entrar a los comandos de postgres y editar
+9.  entrar a los comandos de postgres y editar
 ```console
 root@39d084e50e74:/# psql -U postgres(luego se ejecuta postgres)
 ```
-1.  crear la base de datos
+10.  crear la base de datos
 ```psql
 CREATE DATABASE chasqui_db;
 ```
-1.  Conectarse BD
+11.  Conectarse BD
 ```psql
 \c chasqui_db;
 ```
-1.  Crear esquemas si es que necesita(opcional)
+12.  Crear esquemas si es que necesita(opcional)
 ```psql
 create schema usuarios;
 ```
-1.  Salir postgres
+13.  Salir postgres
 ```psql
 \q
 ```
-1.  Salir root
+14.  Salir root
 ```console
 ctrl+d
 ```
-1.  Conectarse DBeaver
+15.  Conectarse DBeaver
 ```txt
 - Ver la IP y puerto (linux)
 docker inspect chasqui(172.17.0.2) tanbien colocar en .env
@@ -266,7 +268,7 @@ port=7777
 Database=chasqui_db
 ```
 ## 5.1. Comandos de postgres
-1. entrar a los comandos de postgres y editar
+- entrar a los comandos de postgres y editar
 ```console
 sudo docker exec -it chasqui bash
 root@39d084e50e74:/# psql -U postgres
@@ -296,23 +298,23 @@ docker run --name postgres-example -d -p 2022:5432 -e POSTGRES_PASSWORD=postgres
 ```console
 docker run --name mensajeria -d mongo:5.0.9
 ```
-1. iniciar contenedor
+2. iniciar contenedor
 ```console
 docker start mensajeria
 ```
-1. obtener la dirección <IP>, por donde corre el contenedor
+3. obtener la dirección <IP>, por donde corre el contenedor
 ```console
 docker inspect mensajeria
 ```
-1. entrar a los comandos de mongodb y editar
+4. entrar a los comandos de mongodb y editar
 ```console
 docker exec -it mensajeria mongo
 ```
-1. crear la base de datos
+5. crear la base de datos
 ```console
 use notificaciones_db
 ```
-1. crear usuario para esa base de datos
+6. crear usuario para esa base de datos
 ```console
 db.createUser(
 {
@@ -322,19 +324,19 @@ roles: ["dbOwner"]
 }
 )
 ```
-1. ingresar datos
+7. ingresar datos
 ```console
 db.para.save({ estado: { type: 'tipo_estado1', enum: 'VALIDO', default: 'NO_ENVIADO' }, puerto: '1234', numero: '7772636', observacion: 'obs 1'})
 db.contenido.save({ type: 'tipoContenido1', required: true})
 db.estado.save({ type: 'tipoEstado1', enum: 'PROCESADO', default: 'EN_PROCESO'})
 db.timestamps.save({ createdAt: 'fecha_creacion', updatedAt: 'fecha_modificacion'})
 ```
-1. salir
+8. salir
 ```console
 exit
 ```
 ## 6.1. Comandos de mongodb
-1. entrar a los comandos de mongodb y editar
+-. entrar a los comandos de mongodb y editar
 ```console
 docker exec -it mensajeria mongo
 ```
@@ -549,7 +551,74 @@ curl -i -X GET --url http://localhost:8001/services
 ```text
 http://localhost:8002
 ```
-# 9. Instalación de Docker Compose
+# 9. Contenedor mysql
+- Crear contenedor MySQL
+```bash
+sudo docker run --name chasqui-mysql -e MYSQL_ROOT_PASSWORD=mysql -d -p 7777:3306 mysql:8.0
+```
+- Comprobar los puertos, Puedes verificar que el contenedor esté escuchando en el puerto 7777:
+```bash
+sudo netstat -tpln
+```
+- Iniciar contenedor
+```bash
+docker start chasqui-mysql
+```
+- Obtener la dirección IP del contenedor, Puedes obtener la dirección IP del contenedor:
+```bash
+docker inspect chasqui-mysql
+```
+- Ingresar como root, Puedes ingresar al contenedor como root:
+```bash
+sudo docker exec -it chasqui-mysql bash
+```
+- Entrar a la consola de MySQL, Puedes entrar a la consola de MySQL:
+```bash
+mysql -u root -p
+```
+- Crear la base de datos
+```bash
+CREATE DATABASE chasqui_db;
+```
+- Conectarse a la base de datos
+```bash
+USE chasqui_db;
+```
+- Crear esquemas (opcional)
+```bash
+CREATE SCHEMA usuarios;
+```
+- Salir de la consola de MySQL
+```bash
+EXIT;
+```
+- Salir del contenedor
+```bash
+exit
+```
+- Detener el contenedor
+```bash
+docker stop chasqui-mysql
+```
+- Eliminar el contenedor
+```bash
+docker rm chasqui-mysql
+```
+- Conectarse con DBeaver
+```text
+Host=172.17.0.2
+Port=3306
+Database=chasqui_db
+
+
+Si estás utilizando Windows con WSL2, debes utilizar la dirección IP localhost y el puerto 7777:
+
+
+Host=localhost
+Port=7777
+Database=chasqui_db
+```
+# 10. Instalación de Docker Compose
 - Descarga el script de instalación: Abre una terminal y ejecuta el siguiente comando:
 ```bash
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -562,7 +631,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 ```bash
 docker-compose --version
 ```
-## 9.1. Uso de Docker Compose
+## 10.1. Uso de Docker Compose
 - Crear un archivo docker-compose.yml
 - El primer paso es crear un archivo llamado docker-compose.yml en el directorio raíz de tu proyecto. Este archivo define los servicios que componen tu aplicación.
 ```yaml
@@ -582,7 +651,7 @@ services:
 ```
 - En este ejemplo, definimos dos servicios: web y db. El servicio web se construye a partir del directorio actual (build: .) y expone el puerto 80 (ports: - "80:80"). El servicio db utiliza la imagen de PostgreSQL (image: postgres) y establece variables de entorno para el usuario y la contraseña.
 
-## 9.2. Comandos básicos de Docker Compose
+## 10.2. Comandos básicos de Docker Compose
 - Una vez que tienes el archivo docker-compose.yml, puedes utilizar los siguientes comandos para gestionar tus servicios:
 
 - docker-compose up: Inicia todos los servicios definidos en el archivo docker-compose.yml.
@@ -590,14 +659,14 @@ services:
 - docker-compose stop: Detiene un servicio específico.
 - docker-compose restart: Reinicia un servicio específico.
 - docker-compose down: Detiene y elimina todos los contenedores y redes creadas por Docker Compose.
-## 9.3. Otros comandos útiles
+## 10.3. Otros comandos útiles
 - Aquí te presento algunos comandos adicionales que pueden ser útiles:
 
 - docker-compose ps: Muestra el estado de todos los contenedores.
 - docker-compose logs: Muestra los registros de todos los contenedores.
 - docker-compose exec: Ejecuta un comando en un contenedor específico.
 
-## 9.4. Ejemplo de uso
+## 10.4. Ejemplo de uso
 - Supongamos que tienes una aplicación web que utiliza una base de datos PostgreSQL. Puedes definir un archivo docker-compose.yml como el siguiente:
 
 ```yaml
@@ -616,7 +685,7 @@ services:
       - POSTGRES_PASSWORD=contraseña
 ```
 - Luego, puedes ejecutar el comando docker-compose up para iniciar ambos servicios. La aplicación web estará disponible en el puerto 80, y la base de datos PostgreSQL estará disponible en el contenedor db.
-# 10. Referencia
+# 11. Referencia
 - [docker](https://howtoforge.es/como-instalar-docker-en-debian-11/)
 - [Cómo instalar y usar Docker en Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-es)
 - [Instalar Docker Engine en Ubuntu](https://kinsta.com/es/blog/instalar-docker-ubuntu/)
