@@ -588,6 +588,46 @@ USE chasqui_db;
 ```bash
 CREATE SCHEMA usuarios;
 ```
+- Ver todas las bases de datos:
+```bash
+SHOW DATABASES;
+```
+- Ver todas las tablas:
+```bash
+SHOW TABLES;
+```
+- Ver todos los esquemas:
+```bash
+SHOW SCHEMAS;
+```
+- Ver todos los usuarios:
+```bash
+SHOW USERS;
+```
+- Ver permisos de usuario actual(por ejemplo root):
+```bash
+SHOW GRANTS
+```
+- Ver todos los privilegios:
+```bash
+SHOW PRIVILEGES;
+```
+- Ver todos los privilegios de la base de datos:
+```bash
+SHOW GRANTS FOR 'root'@'%';
+```
+- Ver todos los usuarios y desde dónde pueden conectarse:
+```bash
+SELECT user, host FROM mysql.user;
+```
+- Salir de la consola de MySQL
+```bash
+exit
+```
+- Conectarse a la base de datos
+```bash
+mysql -u root -p chasqui_db
+```
 - Salir de la consola de MySQL
 ```bash
 EXIT;
