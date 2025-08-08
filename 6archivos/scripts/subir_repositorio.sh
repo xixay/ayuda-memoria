@@ -1,8 +1,11 @@
 #!/bin/bash
 
+SCRIPT_DIR="$(dirname "$(realpath "$0")")"
 BASE_DIR="$HOME/Documentos/Richard"
 LOG_FILE="$HOME/richard_git_log.txt"
-FAV_FILE="$HOME/.richard_favorites.txt"
+FAV_FILE="$SCRIPT_DIR/richard_favorites.txt"
+
+[ ! -f "$FAV_FILE" ] && touch "$FAV_FILE"
 
 # Mostrar info con zenity
 show_info() {
@@ -12,25 +15,6 @@ show_info() {
 # Mostrar error con zenity
 show_error() {
     zenity --error --width=400 --title="Error" --text="$1"
-}
-
-# Mostrar ventana de ayuda inicial
-show_help() {
-    zenity --text-info --width=500 --height=400 --title="Ayuda y pasos para usar este script" --filename=<(cat <<EOF
-Este script te ayuda a administrar tus repositorios git ubicados en:
-$BASE_DIR
-
-Pasos de uso:
-
-1) Selecciona "Administrar favoritos" para agregar o quitar repositorios de favoritos.
-2) Selecciona "Revisar repositorios" para ver los repositorios, confirmar cambios y hacer push.
-3) En "Revisar repositorios" puedes elegir repositorios normales o tus favoritos para facilitar el acceso.
-4) El script te preguntará antes de hacer cada acción importante para evitar errores.
-5) Revisa el archivo de logs: $LOG_FILE para historial de operaciones.
-
-Presiona OK para continuar...
-EOF
-)
 }
 
 # Leer favoritos en array
@@ -47,7 +31,7 @@ save_favorites() {
     printf "%s\n" "${favorites[@]}" > "$FAV_FILE"
 }
 
-# Función para verificar si un repo está en favoritos
+# Verificar si un repo está en favoritos
 is_favorite() {
     local name="$1"
     for fav in "${favorites[@]}"; do
@@ -58,7 +42,73 @@ is_favorite() {
     return 1
 }
 
-# Función para procesar repositorio: revisar cambios, commit, pull y push
+# Mostrar pasos de uso en ventana informativa
+show_usage() {
+    local usage_text="Pasos de uso:
+1) Selecciona repositorios favoritos para revisar y subir cambios rápido.
+2) Si quieres más opciones, ve al menú clásico.
+3) El script preguntará antes de cada acción importante.
+4) Revisa el archivo de logs: $LOG_FILE
+
+Presiona OK para continuar..."
+    zenity --info --width=500 --height=250 --title="Pasos de Uso" --text="$usage_text"
+}
+
+# Mostrar lista rápida de favoritos para seleccionar y procesar
+quick_favorites_menu() {
+    read_favorites
+
+    if [ ${#favorites[@]} -eq 0 ]; then
+        show_info "No tienes favoritos configurados. Ve a 'Administrar favoritos' para agregar."
+        return 1
+    fi
+
+    repos=()
+    while IFS= read -r -d '' dir; do
+        if [ -d "$dir/.git" ]; then
+            repos+=("$dir")
+        fi
+    done < <(find "$BASE_DIR" -maxdepth 1 -type d -print0)
+
+    list_items=()
+    for fav in "${favorites[@]}"; do
+        # Buscar ruta del favorito entre repositorios encontrados
+        for repo_path in "${repos[@]}"; do
+            repo_name=$(basename "$repo_path")
+            if [ "$repo_name" = "$fav" ]; then
+                list_items+=("FALSE" "$repo_name" "$repo_path")
+                break
+            fi
+        done
+    done
+
+    if [ ${#list_items[@]} -eq 0 ]; then
+        show_info "No se encontraron repositorios favoritos válidos en $BASE_DIR"
+        return 1
+    fi
+
+    selected=$(zenity --list --checklist --width=600 --height=400 --title="Lista rápida de favoritos" \
+        --text="Selecciona uno o varios repositorios favoritos para revisar y subir cambios.\nPresiona Cancelar para saltar al menú." \
+        --column="Seleccionar" --column="Nombre" --column="Ruta" \
+        "${list_items[@]}")
+
+    if [ -z "$selected" ]; then
+        return 1
+    fi
+
+    IFS="|" read -r -a selected_array <<< "$selected"
+    for sel in "${selected_array[@]}"; do
+        for repo_path in "${repos[@]}"; do
+            if [ "$(basename "$repo_path")" = "$sel" ]; then
+                process_repo "$repo_path"
+                break
+            fi
+        done
+    done
+    return 0
+}
+
+# Procesar repositorio: commit, stash, pull, push
 process_repo() {
     local repo_path="$1"
     local repo_name
@@ -139,7 +189,7 @@ process_repo() {
     fi
 }
 
-# Función para seleccionar repositorios y revisar cambios con buscador
+# Seleccionar repositorios para revisar
 select_repos() {
     local filter="$1"
     repos=()
@@ -154,7 +204,6 @@ select_repos() {
         return 1
     fi
 
-    # Leer favoritos para filtro si es necesario
     read_favorites
 
     filtro_texto=$(zenity --entry --title="Buscar repositorios" --text="Escribe texto para filtrar repositorios (deja vacío para mostrar todos):" --width=400)
@@ -203,7 +252,7 @@ select_repos() {
     done
 }
 
-# Función para administrar favoritos con buscador
+# Administrar favoritos (agregar/quitar)
 manage_favorites() {
     read_favorites
 
@@ -241,7 +290,7 @@ manage_favorites() {
     fi
 
     selected=$(zenity --list --checklist --width=600 --height=400 --title="Administrar Favoritos" \
-        --text="Selecciona repositorios para marcar como favoritos.\nPresiona Cancelar para salir." \
+        --text="Selecciona repositorios para marcar como favoritos.\nPara eliminar, desmarca los que no quieras.\nPresiona Cancelar para salir." \
         --column="Favorito" --column="Nombre" --column="Ruta" \
         "${list_items[@]}")
 
@@ -257,8 +306,20 @@ manage_favorites() {
     show_info "Favoritos guardados correctamente."
 }
 
-# Menú principal
+# Menú principal mejorado
 main_menu() {
+    show_usage
+
+    if quick_favorites_menu; then
+        # Si se procesaron repos, preguntar si volver al menú clásico
+        if zenity --question --title="Continuar" --text="¿Quieres volver al menú principal?"; then
+            :
+        else
+            exit 0
+        fi
+    fi
+
+    # Menú clásico
     while true; do
         choice=$(zenity --list --width=400 --height=300 --title="Menú Principal" --text="Selecciona una opción:" --column="Opciones" \
             "Administrar favoritos" "Revisar repositorios" "Salir")
@@ -295,19 +356,16 @@ main_menu() {
 
 # --- Inicio script ---
 
-# Validar git instalado
 if ! command -v git >/dev/null 2>&1; then
     show_error "Git no está instalado. Instálalo e intenta de nuevo."
     exit 1
 fi
 
-# Validar carpeta base
 if [ ! -d "$BASE_DIR" ]; then
     show_error "No se encontró la carpeta $BASE_DIR"
     exit 1
 fi
 
-show_help
 main_menu
 
 exit 0
