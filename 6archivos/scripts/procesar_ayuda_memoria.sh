@@ -28,6 +28,57 @@ if [ -z "$current_branch" ]; then
     exit 1
 fi
 
+# Botón para flujo rápido: stash + pull + pop + commit automático + push automático
+if zenity --question --title="Flujo rápido" --width=550 \
+    --text="¿Quieres hacer stash, pull, aplicar stash, commit automático y push automático con mensaje fijo?"; then
+
+    # Hacer stash
+    if ! git stash push -m "Auto stash antes de pull $(date)"; then
+        show_error "Error al hacer git stash"
+        exit 1
+    fi
+
+    # Hacer pull con rebase
+    if ! git pull --rebase; then
+        show_error "Error al hacer git pull --rebase"
+        # Intentar recuperar el stash
+        git stash pop >/dev/null 2>&1
+        exit 1
+    fi
+
+    # Aplicar stash guardado
+    if ! git stash pop; then
+        show_error "Error al aplicar git stash pop"
+        exit 1
+    fi
+
+    # Commit automático con mensaje fijo (por si hay cambios después del stash pop)
+    if [ -n "$(git status --porcelain)" ]; then
+        git add -A
+        if ! git commit -m "Actualización automática con pull, stash y push $(date)"; then
+            show_error "Error al hacer commit automático"
+            exit 1
+        fi
+    else
+        show_info "No hay cambios para confirmar después de pull y stash."
+    fi
+
+    # Hacer push automático
+    if git push; then
+        show_info "Push automático completado correctamente."
+        echo "$(date): $REPO_NAME - Push automático exitoso con mensaje: Actualización automática con pull, stash y push" >> "$LOG_FILE"
+    else
+        show_error "Error al hacer push automático"
+        echo "$(date): $REPO_NAME - Error en push automático" >> "$LOG_FILE"
+        exit 1
+    fi
+
+    show_info "Flujo rápido completado con éxito."
+    exit 0
+fi
+
+# --- Continúa tu script normal (commit manual, pull, push, etc) ---
+
 changes=$(git status --porcelain)
 
 if [ -n "$changes" ]; then
