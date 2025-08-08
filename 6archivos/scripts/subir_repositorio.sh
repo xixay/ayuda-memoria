@@ -17,12 +17,24 @@ show_error() {
     zenity --error --width=400 --title="Error" --text="$1"
 }
 
-# Leer favoritos en array
+# Leer favoritos en array y limpiar los que no existen
 read_favorites() {
     if [ -f "$FAV_FILE" ]; then
-        mapfile -t favorites < "$FAV_FILE"
+        mapfile -t all_favs < "$FAV_FILE"
     else
-        favorites=()
+        all_favs=()
+    fi
+
+    favorites=()
+    for fav in "${all_favs[@]}"; do
+        if [ -d "$BASE_DIR/$fav/.git" ]; then
+            favorites+=("$fav")
+        fi
+    done
+
+    # Actualiza archivo si se limpiaron favoritos inválidos
+    if [ "${#favorites[@]}" -ne "${#all_favs[@]}" ]; then
+        save_favorites
     fi
 }
 
@@ -42,7 +54,7 @@ is_favorite() {
     return 1
 }
 
-# Mostrar pasos de uso en ventana informativa
+# Mostrar pasos de uso en ventana informativa (opcional)
 show_usage() {
     local usage_text="Pasos de uso:
 1) Selecciona repositorios favoritos para revisar y subir cambios rápido.
@@ -72,7 +84,6 @@ quick_favorites_menu() {
 
     list_items=()
     for fav in "${favorites[@]}"; do
-        # Buscar ruta del favorito entre repositorios encontrados
         for repo_path in "${repos[@]}"; do
             repo_name=$(basename "$repo_path")
             if [ "$repo_name" = "$fav" ]; then
@@ -306,12 +317,20 @@ manage_favorites() {
     show_info "Favoritos guardados correctamente."
 }
 
-# Menú principal mejorado
+# Menú principal mejorado con pasos de uso visibles en el texto
 main_menu() {
-    show_usage
+    local usage_brief="Pasos de uso:
+1) Selecciona repositorios favoritos para revisar y subir cambios rápido.
+2) Si quieres más opciones, ve al menú clásico.
+3) El script preguntará antes de cada acción importante.
+4) Revisa el archivo de logs: $LOG_FILE
+
+Selecciona una opción:"
+
+    # Puedes comentar la siguiente línea si no quieres el popup inicial:
+    # show_usage
 
     if quick_favorites_menu; then
-        # Si se procesaron repos, preguntar si volver al menú clásico
         if zenity --question --title="Continuar" --text="¿Quieres volver al menú principal?"; then
             :
         else
@@ -319,10 +338,10 @@ main_menu() {
         fi
     fi
 
-    # Menú clásico
     while true; do
-        choice=$(zenity --list --width=400 --height=300 --title="Menú Principal" --text="Selecciona una opción:" --column="Opciones" \
+        choice=$(zenity --list --width=600 --height=350 --title="Menú Principal" --text="$usage_brief" --column="Opciones" \
             "Administrar favoritos" "Revisar repositorios" "Salir")
+
         case "$choice" in
             "Administrar favoritos")
                 manage_favorites
