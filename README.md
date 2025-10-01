@@ -114,8 +114,8 @@
 | **3.4.3. Estilos** | [Ver](/3frontend/primereact/1.3estilos.md) |
 | **3.4.4. Mostrar u ocultar** | [Ver](/3frontend/primereact/1.4-visibilidad.md) |
 | **3.4.5. Select** | [Ver](/3frontend/primereact/1.5-select.md) |
+| **3.4.6. Prime-Flex (Repositorio / Documentación)** | [Ver](URL_DE_TU_REPOSITORIO_O_DOCS) |
 
----
 
 ## 4. 🛠️ Utilitarios
 
