@@ -119,7 +119,7 @@ quick_favorites_menu() {
     return 0
 }
 
-# Procesar repositorio: commit, stash, pull, push
+# Procesar repositorio: commit, pull, push
 process_repo() {
     local repo_path="$1"
     local repo_name
@@ -140,50 +140,26 @@ process_repo() {
     if [ -n "$changes" ]; then
         show_info "Cambios detectados en $repo_name:\n$(git status --short)"
 
-        if zenity --question --title="Stash" --width=400 --text="¿Quieres guardar cambios no confirmados con git stash antes de continuar?"; then
-            git stash push -m "Auto stash desde script $(date)" >/dev/null 2>&1
-            stashed=true
-        else
-            stashed=false
-        fi
-
         commit_msg=$(zenity --entry --title="Mensaje de commit para $repo_name" --text="Escribe el mensaje para el commit:" --width=500)
         if [ -z "$commit_msg" ]; then
             show_info "No escribiste mensaje de commit. Se cancelará el commit en $repo_name."
-            if $stashed; then
-                if zenity --question --title="Stash pop" --width=400 --text="¿Quieres recuperar los cambios guardados en el stash?"; then
-                    git stash pop >/dev/null 2>&1
-                fi
-            fi
             return
         fi
 
         git add -A
         if ! git commit -m "$commit_msg"; then
             show_error "Error al hacer commit en $repo_name"
-            if $stashed; then
-                if zenity --question --title="Stash pop" --width=400 --text="¿Quieres recuperar los cambios guardados en el stash?"; then
-                    git stash pop >/dev/null 2>&1
-                fi
-            fi
             return
-        fi
-
-        if $stashed; then
-            if zenity --question --title="Stash pop" --width=400 --text="¿Quieres recuperar los cambios guardados en el stash?"; then
-                git stash pop >/dev/null 2>&1
-            fi
         fi
 
     else
         show_info "No hay cambios para confirmar en $repo_name"
     fi
 
-    if zenity --question --title="Pull" --width=400 --text="¿Quieres hacer git pull para actualizar $repo_name antes de subir cambios?"; then
-        if ! git pull --rebase; then
-            show_error "Error en git pull en $repo_name. Revisa el repositorio."
-            return
-        fi
+    # Git pull automático, sin preguntar
+    if ! git pull --rebase; then
+        show_error "Error en git pull en $repo_name. Revisa el repositorio."
+        return
     fi
 
     if zenity --question --title="Push" --width=400 --text="¿Quieres subir los cambios (git push) en $repo_name?"; then
