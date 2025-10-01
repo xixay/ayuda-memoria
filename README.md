@@ -82,22 +82,21 @@
 
 | Tema | Enlace |
 |------|--------|
-| **3.1. Vuetify (Intro)** | [Ver](/3frontend/vuetify/1-vuetify.md) |
-| **3.1.1. Instalando Vue y Vuetify** | [Ver](/3frontend/vuetify/1.1-instalar.md) |
-| **3.1.2. Componente Vuetify** | [Ver](/3frontend/vuetify/1.2-componente.md) |
-| **3.1.3. Lienzo Vuetify** | [Ver](/3frontend/vuetify/1.3-lienzo.md) |
-| **3.1.4. Select Vuetify** | [Ver](/3frontend/vuetify/1.4-select.md) |
-| **3.1.5. Estilos con Variables Vuetify** | [Ver](/3frontend/vuetify/1.5-estilos%20como%20variables.md) |
-| **3.1.6. TextField Vuetify** | [Ver](/3frontend/vuetify/1.6-textField.md) |
-| **3.1.7. Checkbox Vuetify** | [Ver](/3frontend/vuetify/1.7-checkBox.md) |
-| **3.1.8. Emit y On Vuetify** | [Ver](/3frontend/vuetify/1.8-emitYOn.md) |
-| **3.1.9. Centrar contenido de una fila** | [Ver](/3frontend/vuetify/1.9-centrarFila.md) |
-| **3.1.10. V-DataTable** | [Ver](/3frontend/vuetify/1.10-dataTable.md) |
-| **3.2. Nuxt (Frontend)** | [Ver](/3frontend/vuetify/2-nuxt.md) |
+| **3.2.1. Vuetify (Intro)** | [Ver](/3frontend/vuetify/1-vuetify.md) |
+| **3.2.2. Instalando Vue y Vuetify** | [Ver](/3frontend/vuetify/1.1-instalar.md) |
+| **3.2.3. Componente Vuetify** | [Ver](/3frontend/vuetify/1.2-componente.md) |
+| **3.2.4. Lienzo Vuetify** | [Ver](/3frontend/vuetify/1.3-lienzo.md) |
+| **3.2.5. Select Vuetify** | [Ver](/3frontend/vuetify/1.4-select.md) |
+| **3.2.6. Estilos con Variables Vuetify** | [Ver](/3frontend/vuetify/1.5-estilos%20como%20variables.md) |
+| **3.2.7. TextField Vuetify** | [Ver](/3frontend/vuetify/1.6-textField.md) |
+| **3.2.8. Checkbox Vuetify** | [Ver](/3frontend/vuetify/1.7-checkBox.md) |
+| **3.2.9. Emit y On Vuetify** | [Ver](/3frontend/vuetify/1.8-emitYOn.md) |
+| **3.2.10. Centrar contenido de una fila** | [Ver](/3frontend/vuetify/1.9-centrarFila.md) |
+| **3.2.11. V-DataTable** | [Ver](/3frontend/vuetify/1.10-dataTable.md) |
+| **3.2.12. Nuxt (Frontend)** | [Ver](/3frontend/vuetify/2-nuxt.md) |
+| **3.2.13. Vuetify Repositorio** | [Ver](https://github.com/xixay/vuetify-repositorio) |
+| **3.2.14. Vuetify3 Repositorio** | [Ver](https://github.com/xixay/vuetify3-repositorio) |
 
-Repositorios externos:
-- [Vuetify Repositorio](https://github.com/xixay/vuetify-repositorio)
-- [Vuetify3 Repositorio](https://github.com/xixay/vuetify3-repositorio)
 
 ### 3.3. React + MUI
 
