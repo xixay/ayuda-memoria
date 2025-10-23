@@ -5,8 +5,7 @@
 # Descripción:
 #   Crea un respaldo completo de la configuración
 #   de tmux, tmux-resurrect y plugins relacionados.
-#   Detecta automáticamente el repositorio donde
-#   guardar el backup, incluso en otros discos.
+#   Mantiene solo los 5 últimos backups.
 # ==============================================
 
 set -e
@@ -37,6 +36,11 @@ tar -czvf "$BACKUP_FILE" \
   "$HOME/.config/tmux/" 2>/dev/null || true
 
 echo "✅ Backup creado correctamente."
+
+# Limpiar backups antiguos, conservar solo los 5 más recientes
+cd "$BACKUP_DIR"
+ls -1t tmux-backup-*.tar.gz | tail -n +6 | xargs -r rm --
+echo "🧹 Se conservaron solo los 5 últimos backups."
 
 # Subir automáticamente si es un repositorio Git
 if [ -d "$REPO_ROOT/.git" ]; then
