@@ -19,7 +19,7 @@
 | **1.21. VSCode Configuración** | [Ver](/7archivos/perfil/21-vscode-config.md) | **1.22. Debugger** | [Ver](/1inicio/22-debugger.md) |
 | **1.23. Matar puertos** | [Ver](/1inicio/23-matarPuertos.md) | **1.24. Snippets** | [Ver](/1inicio/24-snippets.md) |
 | **1.25. Obsidian** | [Ver](/1inicio/25-obsidyan.md) | **1.26. Google Drive + Obsidian** | [Ver](/1inicio/26-google_drive_obsidian.md) |
-| **1.27. GitHub Desktop** | [Ver](https://github.com/xixay/GitHub-Desktop) |  |  |
+| **1.27. GitHub Desktop** | [Ver](https://github.com/xixay/GitHub-Desktop) |  **1.28. Warp terminal IA** | [Ver](/1inicio/27-terminal_warp_con_ia.md)
 
 ---
 
@@ -136,6 +136,7 @@
 | **5.3. Proyecto con Vite (Sencillo)** | [Ver](https://github.com/xixay/vite-react-example) |
 | **5.4. NestJS y Angular** | [Ver](https://github.com/xixay/curso_nestjs_ang) |
 | **5.5. React y JS** | [Ver](https://github.com/xixay/curso_react) |
+| **5.6. React y Nesxt y TS** | [Ver](https://github.com/xixay/curso_react_next) |
 
 ## 6. 🌐 Estado del Stack Tecnológico (2025)
 
