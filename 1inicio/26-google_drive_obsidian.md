@@ -1,3 +1,4 @@
+[<< INDICE](../README.md)
 - [1. Configurar google drive en ubuntu](#1-configurar-google-drive-en-ubuntu)
   - [1.1. Inicia la configuración de rclone: Abre una terminal y escribe:](#11-inicia-la-configuración-de-rclone-abre-una-terminal-y-escribe)
   - [1.2. Nombra tu remoto:](#12-nombra-tu-remoto)

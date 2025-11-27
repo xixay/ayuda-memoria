@@ -1,3 +1,4 @@
+[<< INDICE](../README.md)
 - [1. Para instalar la versión Obsidian-1.6.7.AppImage en Ubuntu, sigue estos pasos:](#1-para-instalar-la-versión-obsidian-167appimage-en-ubuntu-sigue-estos-pasos)
   - [1.1. Descargar el archivo .AppImage](#11-descargar-el-archivo-appimage)
   - [1.2. Navegar al directorio donde se encuentra el archivo](#12-navegar-al-directorio-donde-se-encuentra-el-archivo)
