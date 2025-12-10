@@ -1,54 +1,73 @@
-#!/bin/bash
-# ==============================================
-# Script: backup-tmux.sh
-# Autor: Xixay Yumiko
-# Descripción:
-#   Crea un respaldo completo de la configuración
-#   de tmux, tmux-resurrect y plugins relacionados.
-#   Mantiene solo los 5 últimos backups.
-# ==============================================
-
+#!/usr/bin/env bash
 set -e
 
 echo "🔍 Buscando repositorio 'ayuda-memoria'..."
 
-# Buscar la raíz del repositorio 'ayuda-memoria'
-REPO_ROOT=$(find "$HOME" /media /mnt -type d -name "ayuda-memoria" 2>/dev/null | head -n 1)
+# Detectar repo desde ubicación actual o buscar en $HOME
+BASE="$(pwd)"
+REPO_ROOT=""
+
+while [ "$BASE" != "/" ]; do
+  if [ "$(basename "$BASE")" = "ayuda-memoria" ]; then
+    REPO_ROOT="$BASE"
+    break
+  fi
+  BASE="$(dirname "$BASE")"
+done
 
 if [ -z "$REPO_ROOT" ]; then
-  echo "❌ No se encontró la carpeta 'ayuda-memoria' en tu sistema."
+  REPO_ROOT=$(find "$HOME" -type d -name "ayuda-memoria" 2>/dev/null | head -n 1)
+fi
+
+if [ -z "$REPO_ROOT" ]; then
+  echo "❌ No se encontró 'ayuda-memoria'."
   exit 1
 fi
 
-# Carpeta de backups dentro del repo
+echo "✅ Repo encontrado: $REPO_ROOT"
+
+# Directorio de backups
 BACKUP_DIR="$REPO_ROOT/7archivos/tmux/backups"
 mkdir -p "$BACKUP_DIR"
 
 DATE=$(date +"%Y-%m-%d_%H-%M-%S")
 BACKUP_FILE="$BACKUP_DIR/tmux-backup-$DATE.tar.gz"
 
-echo "📦 Creando respaldo en: $BACKUP_FILE"
+# Detectar resurrect-dir dinámicamente
+RESURRECT_DIR=$(tmux show-options -gqv @resurrect-dir 2>/dev/null || true)
 
-# Archivos y carpetas a incluir
+# Valores por defecto conocidos
+[ -z "$RESURRECT_DIR" ] && RESURRECT_DIR="$HOME/.tmux/resurrect"
+[ ! -d "$RESURRECT_DIR" ] && RESURRECT_DIR="$HOME/.local/share/tmux/resurrect"
+[ ! -d "$RESURRECT_DIR" ] && RESURRECT_DIR="$HOME/.config/tmux/resurrect"
+
+echo "✅ Carpeta resurrect detectada: $RESURRECT_DIR"
+
+# Detectar configuration tmux real
+TMUX_DIR="$HOME/.tmux"
+[ -d "$HOME/.config/tmux" ] && TMUX_DIR="$HOME/.config/tmux"
+
+echo "✅ Config tmux: $TMUX_DIR"
+
+echo "📦 Creando backup completo..."
+
 tar -czvf "$BACKUP_FILE" \
   "$HOME/.tmux.conf" \
-  "$HOME/.tmux/" \
-  "$HOME/.config/tmux/" 2>/dev/null || true
+  "$TMUX_DIR" \
+  "$RESURRECT_DIR" 2>/dev/null || true
 
-echo "✅ Backup creado correctamente."
+echo "✅ Backup creado: $BACKUP_FILE"
 
-# Limpiar backups antiguos, conservar solo los 5 más recientes
+# Mantener solo 5 últimos backups
 cd "$BACKUP_DIR"
 ls -1t tmux-backup-*.tar.gz | tail -n +6 | xargs -r rm --
-echo "🧹 Se conservaron solo los 5 últimos backups."
+echo "🧹 Historial limpiado (5 backups)"
 
-# Subir automáticamente si es un repositorio Git
+# Subir a git si existe
 if [ -d "$REPO_ROOT/.git" ]; then
   cd "$REPO_ROOT"
-  git add 7archivos/tmux/backups/
-  git commit -m "Backup automático de tmux ($DATE)" || true
-  git push || echo "⚠️ No se pudo hacer push automático (revisa conexión o permisos)."
-  echo "🚀 Backup subido al repositorio remoto."
-else
-  echo "ℹ️ No es un repositorio Git, backup guardado localmente."
+  git add 7archivos/tmux/backups
+  git commit -m "Backup tmux COMPLETO ($DATE)" || true
+  git push || echo "⚠️ No se pudo subir a remoto"
+  echo "🚀 Backup subido al repo"
 fi
