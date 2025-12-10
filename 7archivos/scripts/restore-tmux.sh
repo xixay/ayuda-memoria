@@ -5,11 +5,11 @@ TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
 LOGFILE="$HOME/restore-tmux-$TIMESTAMP.log"
 
 log() {
-  echo "$1" | tee -a "$LOGFILE"
+    echo "$1" | tee -a "$LOGFILE"
 }
 
 log "============================================"
-log "  Restauración portable de TMUX"
+log "  Restauración inteligente de TMUX"
 log "  Usuario: $USER"
 log "  Fecha:   $TIMESTAMP"
 log "  Log:     $LOGFILE"
@@ -19,77 +19,71 @@ log "============================================"
 # Validación: no root
 # ----------------------------------------------------------
 if [ "$EUID" -eq 0 ]; then
-  log "❌ No ejecutes como root."
-  exit 1
+    log "❌ No ejecutes como root."
+    exit 1
 fi
 
 # ----------------------------------------------------------
-# Detectar dónde está la config de tmux
+# Detectar configuración tmux
 # ----------------------------------------------------------
 if [ -d "$HOME/.tmux" ]; then
-  TMUX_DIR="$HOME/.tmux"
+    TMUX_DIR="$HOME/.tmux"
 elif [ -d "$HOME/.config/tmux" ]; then
-  TMUX_DIR="$HOME/.config/tmux"
+    TMUX_DIR="$HOME/.config/tmux"
 else
-  log "⚠ No se detectó tmux. Se creará ~/.tmux"
-  TMUX_DIR="$HOME/.tmux"
-  mkdir -p "$TMUX_DIR"
+    log "⚠ No se detectó tmux. Se creará ~/.tmux"
+    TMUX_DIR="$HOME/.tmux"
+    mkdir -p "$TMUX_DIR"
 fi
-
 log "✅ Directorio tmux detectado: $TMUX_DIR"
 
 # ----------------------------------------------------------
-# Detectar ruta de resurrect real (si existe)
+# Carpeta correcta de resurrect
 # ----------------------------------------------------------
-RESURRECT_DIR=$(tmux show-options -gqv @resurrect-dir || true)
+RESURRECT_DIR=$(tmux show-options -gqv @resurrect-dir 2>/dev/null || true)
 
 if [ -z "$RESURRECT_DIR" ]; then
-  RESURRECT_DIR="$TMUX_DIR/resurrect"
+    if [ -d "$HOME/.local/share/tmux/resurrect" ]; then
+        RESURRECT_DIR="$HOME/.local/share/tmux/resurrect"
+    elif [ -d "$HOME/.tmux/resurrect" ]; then
+        RESURRECT_DIR="$HOME/.tmux/resurrect"
+    elif [ -d "$HOME/.config/tmux/resurrect" ]; then
+        RESURRECT_DIR="$HOME/.config/tmux/resurrect"
+    else
+        mkdir -p "$HOME/.local/share/tmux/resurrect"
+        RESURRECT_DIR="$HOME/.local/share/tmux/resurrect"
+    fi
 fi
-
-log "✅ Directorio resurrect: $RESURRECT_DIR"
+mkdir -p "$RESURRECT_DIR"
+log "✅ Carpeta resurrect final: $RESURRECT_DIR"
 
 # ----------------------------------------------------------
-# Buscar el repo en todo el HOME (seguro y rápido)
+# Buscar repo
 # ----------------------------------------------------------
-log "🔍 Detectando repo desde la ubicación actual..."
-
 BASE_DIR="$(pwd)"
-
+REPO_ROOT=""
 while [ "$BASE_DIR" != "/" ]; do
-  if [ "$(basename "$BASE_DIR")" = "ayuda-memoria" ]; then
-    REPO_ROOT="$BASE_DIR"
-    break
-  fi
-  BASE_DIR="$(dirname "$BASE_DIR")"
+    if [ "$(basename "$BASE_DIR")" = "ayuda-memoria" ]; then
+        REPO_ROOT="$BASE_DIR"
+        break
+    fi
+    BASE_DIR="$(dirname "$BASE_DIR")"
 done
-
-
 if [ -z "$REPO_ROOT" ]; then
-  log "❌ Repo 'ayuda-memoria' NO encontrado."
-  exit 1
+    log "❌ Repo 'ayuda-memoria' NO encontrado."
+    exit 1
 fi
-
 log "✅ Repo encontrado en: $REPO_ROOT"
 
 # ----------------------------------------------------------
-# Detectar backups
+# Detectar último backup
 # ----------------------------------------------------------
 BACKUP_DIR="$REPO_ROOT/7archivos/tmux/backups"
-
-if [ ! -d "$BACKUP_DIR" ]; then
-  log "❌ Carpeta de backups no existe:"
-  log "   $BACKUP_DIR"
-  exit 1
-fi
-
 LATEST_BACKUP=$(ls -t "$BACKUP_DIR"/tmux-backup-*.tar.gz 2>/dev/null | head -n 1)
-
 if [ -z "$LATEST_BACKUP" ]; then
-  log "❌ No hay backups válidos."
-  exit 1
+    log "❌ No hay backups válidos."
+    exit 1
 fi
-
 log "✅ Último backup: $LATEST_BACKUP"
 
 # ----------------------------------------------------------
@@ -97,22 +91,40 @@ log "✅ Último backup: $LATEST_BACKUP"
 # ----------------------------------------------------------
 PRE_BACKUP="$HOME/tmux-pre-restore-$TIMESTAMP.tar.gz"
 log "📦 Backup actual antes de restaurar..."
-
 tar -czf "$PRE_BACKUP" -C "$HOME" "$(basename "$TMUX_DIR")" 2>/dev/null || true
-
 log "✅ Respaldo creado: $PRE_BACKUP"
 
 # ----------------------------------------------------------
-# Restauración inteligente
+# Restauración inteligente: extraer solo config y resurrect
 # ----------------------------------------------------------
-log "♻ Restaurando..."
+log "♻ Restaurando archivos desde backup..."
 
-tar -xzf "$LATEST_BACKUP" -C "$HOME" --no-same-owner | tee -a "$LOGFILE"
+# Extraer la lista de archivos del tar
+FILES=$(tar -tzf "$LATEST_BACKUP")
+
+# Extraer archivos de .tmux.conf
+echo "$FILES" | grep -E '\.tmux\.conf$' | while read -r f; do
+    log "🔹 Restaurando $f → $HOME/.tmux.conf"
+    tar -xzf "$LATEST_BACKUP" -C "$HOME" "$f" --strip-components=$(echo "$f" | tr -cd '/' | wc -c)
+done
+
+# Extraer directorio tmux
+echo "$FILES" | grep -E '(/\.tmux|/\.config/tmux)$' | while read -r f; do
+    DEST="$HOME/$(basename "$f")"
+    log "🔹 Restaurando $f → $DEST"
+    tar -xzf "$LATEST_BACKUP" -C "$HOME" "$f" --strip-components=$(echo "$f" | tr -cd '/' | wc -c)
+done
+
+# Extraer todos los archivos resurrect al folder correcto
+echo "$FILES" | grep -E 'resurrect/.*\.txt$' | while read -r f; do
+    log "🔹 Restaurando $f → $RESURRECT_DIR"
+    tar -xzf "$LATEST_BACKUP" -C "$RESURRECT_DIR" "$f" --strip-components=$(echo "$f" | sed 's/[^\/]*\///' | tr -cd '/' | wc -c)
+done
 
 log "✅ Restauración completada."
 
 # ----------------------------------------------------------
-# Mensaje final real
+# Mensaje final
 # ----------------------------------------------------------
 echo
 log "============================================"
