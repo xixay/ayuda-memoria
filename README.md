@@ -137,6 +137,7 @@
 | **5.4. NestJS y Angular** | [Ver](https://github.com/xixay/curso_nestjs_ang) |
 | **5.5. React y JS** | [Ver](https://github.com/xixay/curso_react) |
 | **5.6. React y Nesxt y TS** | [Ver](https://github.com/xixay/curso_react_next) |
+| **5.7. NestJS** | [Ver](https://github.com/xixay/curso_nestjs) |
 
 ## 6. 🌐 Estado del Stack Tecnológico (2025)
 
