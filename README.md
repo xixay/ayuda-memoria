@@ -131,17 +131,26 @@
 
 | Tema | Enlace |
 |------|--------|
-| **5.1. React y Next_14** | [Ver](https://github.com/xixay/React_y_Next_14) |
+| **5.1. React y Next_14(Incompleto)** | [Ver](https://github.com/xixay/React_y_Next_14) |
 | **5.2. Vue y JS** | [Ver](https://github.com/xixay/curso_vue) |
 | **5.3. Proyecto con Vite (Sencillo)** | [Ver](https://github.com/xixay/vite-react-example) |
-| **5.4. NestJS y Angular** | [Ver](https://github.com/xixay/curso_nestjs_ang) |
-| **5.5. React y JS** | [Ver](https://github.com/xixay/curso_react) |
-| **5.6. React y Nesxt y TS** | [Ver](https://github.com/xixay/curso_react_next) |
-| **5.7. NestJS** | [Ver](https://github.com/xixay/curso_nestjs) |
+| **5.4. NestJS y Angular(Incompleto)** | [Ver](https://github.com/xixay/curso_nestjs_ang) |
+| **5.5. React y JS(Incompleto)** | [Ver](https://github.com/xixay/curso_react) |
+| **5.6. React y Nesxt y TS(Incompleto)** | [Ver](https://github.com/xixay/curso_react_next) |
+| **5.7. NestJS(Incompleto)** | [Ver](https://github.com/xixay/curso_nestjs) |
+| **5.8. Angular(Incompleto)** | [Ver](https://github.com/xixay/curso_angular) |
+
 
 ## 6. 🌐 Estado del Stack Tecnológico (2025)
 
 | Tema | Enlace |
 |------|--------|
 | **6.1. Tecnologías con soporte y sin soporte (2025)** | [Ver](/6estado/1-stack-2025.md) |
+---
+
+## 7. 🌐 Proyectos Antigravity
+
+| Tema | Enlace |
+|------|--------|
+| **7.1. Nestjs** | [Ver](https://github.com/xixay//a_curso_nest_proyecto_base_backend) |
 ---
