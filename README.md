@@ -137,7 +137,7 @@
 | **5.4. NestJS y Angular(Incompleto)** | [Ver](https://github.com/xixay/curso_nestjs_ang) |
 | **5.5. React y JS(Incompleto)** | [Ver](https://github.com/xixay/curso_react) |
 | **5.6. React y Nesxt y TS(Incompleto)** | [Ver](https://github.com/xixay/curso_react_next) |
-| **5.7. NestJS(Incompleto)** | [Ver](https://github.com/xixay/curso_nestjs) |
+| **5.7. NestJS** | [Ver](https://github.com/xixay/curso_nestjs) |
 | **5.8. Angular(Incompleto)** | [Ver](https://github.com/xixay/curso_angular) |
 
 
