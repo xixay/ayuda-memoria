@@ -140,7 +140,7 @@
 | **5.7. NestJS** | [Ver](https://github.com/xixay/curso_nestjs) |
 | **5.8. Angular** | [Ver](https://github.com/xixay/curso_angular) |
 | **5.9. Vue TS** | [Ver](https://github.com/xixay/curso_vue_ts) |
-| **5.10. Laravel(Incompleto)** | [Ver](https://github.com/xixay/curso_laravel) |
+| **5.10. Laravel(Incompleto)** | [Ver](https://github.com/xixay/curso_laravel_12) |
 
 
 ## 6. 🌐 Estado del Stack Tecnológico (2025)
