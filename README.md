@@ -155,4 +155,5 @@
 | Tema | Enlace |
 |------|--------|
 | **7.1. Nestjs** | [Ver](https://github.com/xixay//a_curso_nest_proyecto_base_backend) |
+| **7.2. Express** | [Ver](https://github.com/xixay/express_postgres) |
 ---
