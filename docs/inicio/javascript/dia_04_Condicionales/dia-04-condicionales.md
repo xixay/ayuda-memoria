@@ -1,6 +1,6 @@
 [<< INDICE](../../../index.md)
 
-[<< Día 3](../java-script/dia-03-boleanos-operadores-date.md) | [Día 5 >>](../java-script/dia-05-arreglos.md)
+[<< Día 3](../javascript/dia-03-boleanos-operadores-date.md) | [Día 5 >>](../javascript/dia-05-arreglos.md)
 - [📔 Día 4](#-día-4)
   - [Condicionales](#condicionales)
     - [If](#if)
@@ -356,6 +356,6 @@ isRaining
 
 🎉 FELICITACIONES ! 🎉
 
-[<< Día 3](../java-script/dia-03-boleanos-operadores-date.md) | [Día 5 >>](../java-script/dia-05-arreglos.md)
+[<< Día 3](../javascript/dia-03-boleanos-operadores-date.md) | [Día 5 >>](../javascript/dia-05-arreglos.md)
 
 [<< INDICE](../../../index.md)

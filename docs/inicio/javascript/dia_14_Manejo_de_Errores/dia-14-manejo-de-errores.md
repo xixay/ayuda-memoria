@@ -1,6 +1,6 @@
 [<< INDICE](../../../index.md)
 
-[<< Día 13](../java-script/dia-13-metodos-del-objeto-console.md) | [Día 15>>](../java-script/dia-15-clases.md)
+[<< Día 13](../javascript/dia-13-metodos-del-objeto-console.md) | [Día 15>>](../javascript/dia-15-clases.md)
 
 - [Día 14](#día-14)
   - [Manejo de Errores](#manejo-de-errores)
@@ -174,6 +174,6 @@ Practica
 
 🎉 ¡FELICITACIONES! 🎉
 
-[<< Día 13](../java-script/dia-13-metodos-del-objeto-console.md) | [Día 15>>](../java-script/dia-15-clases.md)
+[<< Día 13](../javascript/dia-13-metodos-del-objeto-console.md) | [Día 15>>](../javascript/dia-15-clases.md)
 
 [<< INDICE](../../../index.md)

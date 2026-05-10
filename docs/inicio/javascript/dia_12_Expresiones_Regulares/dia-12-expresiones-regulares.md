@@ -1,6 +1,6 @@
 [<< INDICE](../../../index.md)
 
-[<< Día 11](../java-script/dia-11-desestructuracion-y-spreading.md) | [Día 13>>](../java-script/dia-13-metodos-del-objeto-console.md)
+[<< Día 11](../javascript/dia-11-desestructuracion-y-spreading.md) | [Día 13>>](../javascript/dia-13-metodos-del-objeto-console.md)
 
 - [📘 Día 12](#-día-12)
   - [Expresiones Regulares](#expresiones-regulares)
@@ -236,7 +236,7 @@ Soy profesora y me encanta enseñar. No hay nada más gratificante que educar y 
   - r'apple|banana' significa tanto una manzana como un plátano
 - (): Capturar y agrupar
 
-![Regular Expression cheat sheet](../java-script/regex.png)
+![Regular Expression cheat sheet](../images/regex.png)
 
 Usemos un ejemplo para aclarar los metacaracteres anteriores
 
@@ -521,6 +521,6 @@ console.log(cleanText(sentence));
 
 🎉 ¡FELICITACIONES! 🎉
 
-[<< Día 11](../java-script/dia-11-desestructuracion-y-spreading.md) | [Día 13 >>](../java-script/dia-13-metodos-del-objeto-console.md)
+[<< Día 11](../javascript/dia-11-desestructuracion-y-spreading.md) | [Día 13 >>](../javascript/dia-13-metodos-del-objeto-console.md)
 
 [<< INDICE](../../../index.md)

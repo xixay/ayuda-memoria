@@ -1,6 +1,6 @@
 [<< INDICE](../../../index.md)
 
-[<< Día 20](../java-script/dia-20-escribiendo-codigos-limpios.md) | [Día 22 >>](../java-script/dia-22-manipulacion-del-objeto-dom.md)
+[<< Día 20](../javascript/dia-20-escribiendo-codigos-limpios.md) | [Día 22 >>](../javascript/dia-22-manipulacion-del-objeto-dom.md)
 
 - [Día 21](#día-21)
   - [Document Object Model (DOM) - Día 1](#document-object-model-dom---día-1)
@@ -382,12 +382,12 @@ Como has notado, las propiedades de css cuando lo usamos en JavaScript va a ser 
 </html>
 ```
 
-![Project 1](../java-script/projects/dom_min_project_challenge_info_day_1.1.gif)
+![Project 1](../images/projects/dom_min_project_challenge_info_day_1.1.gif)
 
-![Project 2](../java-script/projects/dom_min_project_challenge_info_day_1.1.png)
+![Project 2](../images/projects/dom_min_project_challenge_info_day_1.1.png)
 
 🎉 ¡FELICITACIONES! 🎉
 
-[<< Día 20](../java-script/dia-20-escribiendo-codigos-limpios.md) | [Día 22 >>](../java-script/dia-22-manipulacion-del-objeto-dom.md)
+[<< Día 20](../javascript/dia-20-escribiendo-codigos-limpios.md) | [Día 22 >>](../javascript/dia-22-manipulacion-del-objeto-dom.md)
 
 [<< INDICE](../../../index.md)

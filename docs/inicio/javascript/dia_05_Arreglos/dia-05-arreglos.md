@@ -1,6 +1,6 @@
 [<< INDICE](../../../index.md)
 
-[<< Día 4](../java-script/dia-04-condicionales.md) | [Día 6 >>](../java-script/dia-06-bucles.md)
+[<< Día 4](../javascript/dia-04-condicionales.md) | [Día 6 >>](../javascript/dia-06-bucles.md)
 - [📔 Día 5](#-día-5)
   - [Arrays](#arrays)
     - [Como crear un array vacío](#como-crear-un-array-vacío)
@@ -152,7 +152,7 @@ console.log(words);
 
 Accedemos a cada elemento en un array usando su index. El index de un array comienza desde 0. La siguiente imagen muestra claramente el index de cada elemento en un array
 
-![arr index](../java-script/array_index.png)
+![arr index](../images/array_index.png)
 
 ```js
 const fruits = ["banana", "orange", "mango", "lemon"];
@@ -754,13 +754,13 @@ const webTechs = [
         - Encuentre el rango de las edades (max menos min)
         - Compare el valor de (mín - promedio) y (máx - promedio), use el método _abs()_
 
-    1.Cortar los diez primeros países de la [array de países](../java-script/countries.js)
+    1.Cortar los diez primeros países de la [array de países](../javascript/countries.js)
 
-2.  Encuentre el país o países de en medio en el [array de países](../java-script/countries.js)
+2.  Encuentre el país o países de en medio en el [array de países](../javascript/countries.js)
 3.  Divide el array de países en dos arrays iguales si es par. Si el array de países no es par, agregue un país más para la primera mitad.
 
 🎉 ¡Felicitaciones! 🎉
 
-[<< Día 4](../java-script/dia-04-condicionales.md) | [Día 6 >>](../java-script/dia-06-bucles.md)
+[<< Día 4](../javascript/dia-04-condicionales.md) | [Día 6 >>](../javascript/dia-06-bucles.md)
 
 [<< INDICE](../../../index.md)

@@ -1,8 +1,8 @@
 [<< INDICE](../../../index.md)
 
-[<< Día 19](../java-script/dia-19-closures.md) | [Día 21 >>](../java-script/dia-21-dom.md)
+[<< Día 19](../javascript/dia-19-closures.md) | [Día 21 >>](../javascript/dia-21-dom.md)
 
-![Thirty Days Of JavaScript](../java-script/banners/day_1_20.png)
+![Thirty Days Of JavaScript](../images/banners/day_1_20.png)
 
 - [Día 20](#día-20)
   - [Escribiendo código limpio](#escribiendo-código-limpio)
@@ -359,6 +359,6 @@ Sea cual sea la guía de estilo que sigas, sé coherente. Sigue algunos paradigm
 
 🎉 ¡FELICITACIONES! 🎉
 
-[<< Día 19](../java-script/dia-19-closures.md) | [Día 21 >>](../java-script/dia-21-dom.md)
+[<< Día 19](../javascript/dia-19-closures.md) | [Día 21 >>](../javascript/dia-21-dom.md)
 
 [<< INDICE](../../../index.md)

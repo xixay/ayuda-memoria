@@ -131,70 +131,70 @@
 ### 1.1.1. Entidad Fuerte
 - Son independientes de otras entidades, tienen una clave primaria, que distinga a cada suceso de la entidad.
 
-**![Entidad Fuerte](/5imagenes/imagenes/entidadFuerte.jpg)**
+**![Entidad Fuerte](/images/5imagenes/entidad-relacion/entidadFuerte.jpg)**
 ### 1.1.2. Entidad Debil
 - Dependen de algun otro tipo de entidad, No tienen claves primarias.
 
-**![Entidad Debil](/5imagenes/imagenes/entidadDebil.jpg)**
+**![Entidad Debil](/images/5imagenes/entidad-relacion/entidadDebil.jpg)**
 ## 1.2. Atributos
-**![Atributo](/5imagenes/imagenes/atributo.jpg)**
+**![Atributo](/images/5imagenes/entidad-relacion/atributo.jpg)**
 
 ### 1.2.1. Normal o Simple
 - Son las caracteristicas de una entidad, una relacion de muchos a muchos, o una relacion de uno a uno
 
-**![Atributo Normal](/5imagenes/imagenes/atributoNormal.jpg)**
+**![Atributo Normal](/images/5imagenes/entidad-relacion/atributoNormal.jpg)**
 
 ### 1.2.2. Clave Primaria
 - serán los identificadores, tienen un valor único en cada entidad (ejemplo: matrícula de la entidad vehículo)
 
-**![Atributo Principal](/5imagenes/imagenes/atributoPrincipal.jpg)**
+**![Atributo Principal](/images/5imagenes/entidad-relacion/atributoPrincipal.jpg)**
 
 ### 1.2.3. Clave Debil
 
-**![Atributo Debil](/5imagenes/imagenes/atributoDebil.jpg)**
+**![Atributo Debil](/images/5imagenes/entidad-relacion/atributoDebil.jpg)**
 
 ### 1.2.4. Derivado
 - se calculan o derivan de otro atributo, por ejemplo, la edad se calcula a partir de la fecha de nacimiento
 
-**![Atributo Derivado](/5imagenes/imagenes/atributoDerivado.jpg)**
+**![Atributo Derivado](/images/5imagenes/entidad-relacion/atributoDerivado.jpg)**
 
 ### 1.2.5. Multivalor
 - se denota más de un valor del atributo, como varios números de teléfono para una persona.
 
-**![Atributo Multivalor](/5imagenes/imagenes/atributoMultivalor.jpg)**
+**![Atributo Multivalor](/images/5imagenes/entidad-relacion/atributoMultivalor.jpg)**
 ### 1.2.6. Especialización y genealización
 - Herencia, la persona hereda sus atributos a : director, estudiante,etc.
 
-**![Atributo Generalizacion](/5imagenes/imagenes/atributoGeneralizacion.jpg)**
+**![Atributo Generalizacion](/images/5imagenes/entidad-relacion/atributoGeneralizacion.jpg)**
 ## 1.3. Relaciones
 - Las relaciones son asociaciones entre entidades, son vervos o acciones
 
-**![relacion](/5imagenes/imagenes/ralacion.jpg)**
+**![relacion](/images/5imagenes/entidad-relacion/ralacion.jpg)**
 ### 1.3.1. Normal
 - son asociaciones entre dos o más entidades
 
-**![Normal](/5imagenes/imagenes/relacionNormal.jpg)**
+**![Normal](/images/5imagenes/entidad-relacion/relacionNormal.jpg)**
 ### 1.3.2. Debil
 - son conexiones entre una entidad débil y su propietario
 
-**![Debil](/5imagenes/imagenes/relacionDebil.jpg)**
+**![Debil](/images/5imagenes/entidad-relacion/relacionDebil.jpg)**
 #### 1.3.2.1. Tipos Entidad Debil
 - Las entidades débiles, tienen relaciones débiles, no llevan atributo identificador principal, en su lugar tiene un "atributo discriminador" y su cardinalidad siempre será (1:N)
 
-**![Tipos Debil](/5imagenes/imagenes/tiposEntidadDebil.jpg)**
+**![Tipos Debil](/images/5imagenes/entidad-relacion/tiposEntidadDebil.jpg)**
 ## 1.4. Cardinalidad
 ### 1.4.1. Cardinalidad uno a uno (1:1)
 - Esta se da cuenta cuando un registro  o elemento  de una entidad A se relaciona unicamente  con un solo registro de una entidad B y viceversa
 
-**![unoAuno](/5imagenes/imagenes/cardinalidad1a1.jpg)**
+**![unoAuno](/images/5imagenes/entidad-relacion/cardinalidad1a1.jpg)**
 ### 1.4.2. Cardinalidad uno a varios (1:N)
 - Esta se da cuenta cuando un registro  o elemento  de una entidad A se relaciona con cero o varios registros de una entidad B, y cada registro de la entidad B se relaciona únicamente con un registro de la entidad A.
 
-**![unoAN](/5imagenes/imagenes/cardinalidad1aN.jpg)**
+**![unoAN](/images/5imagenes/entidad-relacion/cardinalidad1aN.jpg)**
 ### 1.4.3. Cardinalidad varios a varios (N:N)
 - Esta se da cuenta cuando un registro  o elemento  de una entidad A se relaciona con cero o varios registros de una entidad B, y cada registro de la entidad B se relaciona únicamente con cero o varios registros de la entidad A.
 
-**![nAN](/5imagenes/imagenes/cardinalidadNaN.jpg)**
+**![nAN](/images/5imagenes/entidad-relacion/cardinalidadNaN.jpg)**
 
 #### 1.4.3.1. Ejm 1
 - Obtener el diagrama entidad relación con las tres entidades siguientes:
@@ -208,7 +208,7 @@
   - Una signatura es impartida por un único docente.
   - Se quiere saber el curso escolar en el que cada estudiante está matriculado de cada asignatura
   
-**![est](/5imagenes/imagenes/estudiante.jpg)**
+**![est](/images/5imagenes/entidad-relacion/estudiante.jpg)**
 #### 1.4.3.2. Ejm 2
 - Dada las 4 entidades realizar el diagrama E/R:
   - EMPLEADO(id_empleado, nombre_e, salario, telefono)
@@ -220,7 +220,7 @@
   - Cada localidad pertenence a una única provincia
   - Cada provincia pertenece a una única región del país.
   
-**![prov](/5imagenes/imagenes/provincia.jpg)**
+**![prov](/images/5imagenes/entidad-relacion/provincia.jpg)**
 #### 1.4.3.3. Ejm 3
 - Una empresa dedicada a la instalación de dormitorios juveniles a medida quiere relizar una base de datos donde se reflejen las ventas y montajes, para lo cual se tiene en cuenta:
   - Cada modelo de dormitorio lo debe montar al menos dos empleados
@@ -230,7 +230,7 @@
   - De un empleado nos interesa su id_empleado, nombre dirección, telefono de contacto y el número de dormitorios que ha montado de cada modelo.
   - Cada modelo de dormitorio puede ser comprado por uno o varios clientes y el mismo cliente podrá comprar uno o varios dormitorios. De un cliente nos interesa su id_cliente, nombre_cli, direccion_cli, telefono_cli y fecha de compra de cada modelo.
   
-**![dorm](/5imagenes/imagenes/dormitorio.jpg)**
+**![dorm](/images/5imagenes/entidad-relacion/dormitorio.jpg)**
 #### 1.4.3.4. Ejm 4
 - El hospital tiene varias plantas, cada una de las cuales tiene un nombre y una cantidad de camas.
 - Las camas que están en los niveles tienen un código que las identifican.
@@ -238,37 +238,37 @@
 - A su vez cuando llega al hospital y es internadose le aigna una cama.
 - Existen médicos que atienden a las pacientes, estas atenciones las denominan visitas medicas.
   
-**![hosp](/5imagenes/imagenes/hospitalDer.jpg)**
+**![hosp](/images/5imagenes/entidad-relacion/hospitalDer.jpg)**
 ## 1.5. Modelo de entidad relacion extendida
 - Es un modelo de entidades de nivel más alto  y bajo que heredan  atributos  y se dividen en generalizacion y especificacion 
 - Las entidades hijas heredan los atributos de la entidad padre como tambien la llave primaria 
 - Las entidades hijas no pueden tener el mismo atributo 
 
-**![gen](/5imagenes/imagenes/gen.jpg)**
+**![gen](/images/5imagenes/entidad-relacion/gen.jpg)**
 ### 1.5.1. Parcial exclusiva   
 - Es parcial porque puede haber más empleados como: mesero, cajero, etc.
 - Y es exclusiva porque el camarero no puede ser cocinero ni el camarero lava platos.
 
-**![excl](/5imagenes/imagenes/gen1.jpg)**
+**![excl](/images/5imagenes/entidad-relacion/gen1.jpg)**
 ### 1.5.2. Total exclusiva
 - Es total porque no existe mas fichas y es exclusiva porque una ficha de autor no puede ser ficha de tema.
 
-**![texcl](/5imagenes/imagenes/gen2.jpg)**
+**![texcl](/images/5imagenes/entidad-relacion/gen2.jpg)**
 
 ### 1.5.3. Parcial solapada
 - Es parcial porque púede haber mas participantes como: actores, suplentes, etc.
 - Y es solapada porque un director puede ser actor.
 
-**![psol](/5imagenes/imagenes/gen3.jpg)**
+**![psol](/images/5imagenes/entidad-relacion/gen3.jpg)**
 ### 1.5.4. Total solapada
 - Es total porque solo puede haber esos jugadores en el equipo y es solapada porque una defensa puede ser un portero, un portero puede ser un centro campista, etc
 
-**![psol](/5imagenes/imagenes/gencuatro.jpg)**
+**![psol](/images/5imagenes/entidad-relacion/gencuatro.jpg)**
 
 #### 1.5.4.1. Ejm 1
 - En una empresa existen varios empleados conatributos como nombre, codigo del empleado, dirección, telefono, fecha de Nacimiento, salario; los empleados se dividen en arquitecto, indicando el numero de matricula y numero de proyecto, tambien existen administrativos que tiene cargo y nivel, tambien existen los ingenieros que tienen una especialidad y años de experiencia.
 
-**![emp](/5imagenes/imagenes/empresa.jpg)**
+**![emp](/images/5imagenes/entidad-relacion/empresa.jpg)**
 
 #### 1.5.4.2. Ejm 2
 - Le contratan para hacer una BD que permita apoyar la gestión de un sistema de ventas. La empresa necesita llevar un control de proveedores, clientes, productos y ventas. Un proveedor tiene un RUT, nombre, dirección, telefono y página web.
@@ -279,26 +279,26 @@
 - Por razones de contabilidad, se debe registrar la información de cada venta con un id, fecha, cliente, descuento y monto final.
 - Ademas se debe guardar el precio al momento de la venta, la cantidad vendida y el monto total por el producto.
 
-**![ven](/5imagenes/imagenes/ventas.jpg)**
+**![ven](/images/5imagenes/entidad-relacion/ventas.jpg)**
 ## 1.6. Modelo de entidad relacion y cardinalidad
 ### 1.6.1. ER uno a uno (1:1)
 
-**![ERunoAuno](/5imagenes/imagenes/er1a1.jpg)**
+**![ERunoAuno](/images/5imagenes/entidad-relacion/er1a1.jpg)**
 ### 1.6.2. ER uno a varios (1:N)
 
-**![ERunoAN](/5imagenes/imagenes/er1aN.jpg)**
+**![ERunoAN](/images/5imagenes/entidad-relacion/er1aN.jpg)**
 ### 1.6.3. ER varios a varios (N:N)
 
-**![nAN](/5imagenes/imagenes/erNaN.jpg)**
+**![nAN](/images/5imagenes/entidad-relacion/erNaN.jpg)**
 ### 1.6.4. ER varios a varios Debil(1:N)
 
-**![nAND](/5imagenes/imagenes/er1aNDebil.jpg)**
+**![nAND](/images/5imagenes/entidad-relacion/er1aNDebil.jpg)**
 ### 1.6.5. ER varios a varios (N:N) con ER varios a varios Debil(1:N)
 
-**![com](/5imagenes/imagenes/combinacion.jpg)**
+**![com](/images/5imagenes/entidad-relacion/combinacion.jpg)**
 ## 1.7. Cardinalidad y ordinalidad
 
-**![cYO](/5imagenes/imagenes/cardYord.jpg)**
+**![cYO](/images/5imagenes/entidad-relacion/cardYord.jpg)**
 ### 1.7.1. Cardinalidad
 - es el numero maximo de veces que una instancia en una entidad se puede relacionar con instancias de otra entidad.
 
@@ -308,7 +308,7 @@
 ## 2.1. Tipos de datos
 - Los tipos de datos dependiendo al manejador pueden cambiar un poco, los mas básicos son los siguientes:
 
-**![tiposD](/5imagenes/imagenes/tiposDatos.jpg)**
+**![tiposD](/images/5imagenes/entidad-relacion/tiposDatos.jpg)**
 - La finalidad al elegir el tipo de dato correcto es optimizar el uso de memoria.
 ## 2.2. Constraints (Restricciones)
 - El valor por defecto en una DB en Null
@@ -340,16 +340,16 @@
 - Los campos no clave debe identificarse por la clave (dependencia funcional).
 - Debe existir una independencia del orden tanto de las filas como de las columnas ; es decir, si los datos cambian de orden no deben cambiar sus signifados.
 
-**![1FN](/5imagenes/imagenes/1FN.jpg)**
+**![1FN](/images/5imagenes/entidad-relacion/1FN.jpg)**
 
 #### 2.3.1.1. Ejemplo
 
-**![1FNE](/5imagenes/imagenes/1FNE.jpg)**
+**![1FNE](/images/5imagenes/entidad-relacion/1FNE.jpg)**
 ### 2.3.2. Segunda forma normal (2FN)
 - Debe cumplir la 1FN.
 - No tiene dependencia parcial.Es decir, todos los atributos no claves son totalmente dependientes de la la clave primaria  
 
-**![2FN](/5imagenes/imagenes/2FN.jpg)**
+**![2FN](/images/5imagenes/entidad-relacion/2FN.jpg)**
 
 ### 2.3.3. Tercera forma normal (3FN)
 - Se encuentra en 2FN.
@@ -357,23 +357,23 @@
 - Esta FN se traduce en que aquellos datos que no pertenecen a la entidad deben tener una independencia de las demás y debe tener un campo clave propio.
 - Aplicando 3FN separamos la tabla alumnos ya que contiene datos de los cursos en ella quedando de la siguiente manera.
 
-**![3FN](/5imagenes/imagenes/3FN.jpg)**
+**![3FN](/images/5imagenes/entidad-relacion/3FN.jpg)**
 
 #### 2.3.3.1. Ejemplo mas simplificado
 
-**![3FNS](/5imagenes/imagenes/3FNS.jpg)**
+**![3FNS](/images/5imagenes/entidad-relacion/3FNS.jpg)**
 #### 2.3.3.2. Segundo Ejemplo
 - Se llevara a la 3ra forma normal la siguiente tabla
-**![3FNS2](/5imagenes/imagenes/3FNS2.jpg)**
+**![3FNS2](/images/5imagenes/entidad-relacion/3FNS2.jpg)**
 
 - Se separa los nombres
-**![3FNS2](/5imagenes/imagenes/3FNS2-1.jpg)**
+**![3FNS2](/images/5imagenes/entidad-relacion/3FNS2-1.jpg)**
 
 - Se simplifica la matería
-**![3FNS2](/5imagenes/imagenes/3FNS2-2.jpg)**
+**![3FNS2](/images/5imagenes/entidad-relacion/3FNS2-2.jpg)**
 
 - Se simplifica lo demas
-**![3FNS2](/5imagenes/imagenes/3FNS2-3.jpg)**
+**![3FNS2](/images/5imagenes/entidad-relacion/3FNS2-3.jpg)**
 # 3. Base de datos PostgreSQL
 ## 3.1. Definición Base de Datos
 - Una base de datos es una colección de datos estructurados y organizados que permite el almacenamiento y recuperación eficiente de información. Está diseñada para manejar grandes volúmenes de datos y soportar múltiples tipos de operaciones de datos, tales como inserciones, actualizaciones, eliminaciones y consultas.
@@ -606,9 +606,9 @@ ALTER USER nombre_de_usuario WITH PASSWORD 'nueva_contraseña';
 ```
 
 ## 3.17. Diagrama Entidad Relación BD
-**![eder](/5imagenes/imagenes/ejmDER.jpg)**
+**![eder](/images/5imagenes/entidad-relacion/ejmDER.jpg)**
 ## 3.18. Diagrama Entidad BD
-**![ede](/5imagenes/imagenes/ejmDE.jpg)**
+**![ede](/images/5imagenes/entidad-relacion/ejmDE.jpg)**
 ## 3.19. Crear esquemas
 - La sintaxis básica para la creación de esquemas es la siguiente
 ```imagenes  
@@ -838,7 +838,7 @@ FROM 	portafolio.tecnologias;
 
 
 ## 3.28. Relacion 1 a 1
-**![a11](/5imagenes/imagenes/anime_1_1.png)**
+**![a11](/images/5imagenes/entidad-relacion/anime_1_1.png)**
 - Asumiremos que usuarios tiene una relacion de 1:1 con la tabla tecnologias, un usuario posee 1 tecnología
 ```imagenes
 --relacion 1:1
@@ -852,7 +852,7 @@ WHERE   u.id_usuario=t.id_usuario AND u.id_usuario =1;
 |1|Sakura Haruno|123456789|sakura@example.com|Ninja médica de Konoha|Ninja|1995-03-28|sakura.jpg|2024-01-21 19:27:58.957|1|Jutsu Médico|tecnologia_jutsu_medico.jpg|
 
 ## 3.29. Relacion 1 a N
-**![a1n](/5imagenes/imagenes/anime_1_n.png)**
+**![a1n](/images/5imagenes/entidad-relacion/anime_1_n.png)**
 - Usuarios tiene una relación de 1:N con la tabla redes_sociales, un usuario puede tener muchas redes sociales
 ```imagenes
 --relacion 1:N
@@ -868,7 +868,7 @@ WHERE   u.id_usuario=rs.id_usuario AND u.id_usuario =1 ;
 |1|Sakura Haruno|Webex|webex_icon.jpg|
 
 ## 3.30. Relacion N a N
-**![ann](/5imagenes/imagenes/anime_n_n.png)**
+**![ann](/images/5imagenes/entidad-relacion/anime_n_n.png)**
 - Usuarios tiene una relación de N:N con la tabla habilidades, muchos usuarios pueden tener muchas habilidades
 ```imagenes
 --relacion N:N
@@ -887,10 +887,10 @@ WHERE   TRUE
 
 ## 3.31. SQL JOINS
 - En SQL, existen varios tipos de joins que permiten combinar registros de dos o más tablas en función de una condición relacionada.
-**![aj](/5imagenes/imagenes/imagenesjoin.jpeg)**
+**![aj](/images/5imagenes/entidad-relacion/sqljoin.jpeg)**
 ## 3.32. INNER JOIN
 - El INNER JOIN se utiliza para combinar filas de dos o más tablas basándose en una condición de relación entre ellas. Solo devuelve las filas donde hay coincidencias en todas las tablas involucradas, en resumen es la intersecciòn de las tres tablas
-**![aij](/5imagenes/imagenes/anime-inner-join.png)**
+**![aij](/images/5imagenes/entidad-relacion/anime-inner-join.png)**
 ```imagenes
 --INNER JOIN:
 --Recupera las habilidades de los usuarios que tienen habilidades registradas.
@@ -911,7 +911,7 @@ order by u.id_usuario ;
 ## 3.33. LEFT JOIN (LEFT OUTER JOIN)
 - El LEFT JOIN es un tipo de operación de unión que devuelve todos los registros de la tabla de la izquierda (en este caso core.usuarios), y los registros coincidentes de la tabla de la derecha (en este caso core.proyectos). Si no hay coincidencias en la tabla de la derecha, se devolverán valores nulos en las columnas de esa tabla.
 
-**![alj](/5imagenes/imagenes/anime-left-join.png)**
+**![alj](/images/5imagenes/entidad-relacion/anime-left-join.png)**
 ```imagenes
 --LEFT JOIN
 --Obtener todos los usuarios y sus proyectos (si tienen alguno)
@@ -932,7 +932,7 @@ FROM    core.usuarios u
 ## 3.34. LEFT JOIN (A - B) 
 - Para realizar una consulta que utilice la diferencia de conjuntos (A - B) entre las tablas core.usuarios y portafolio.tecnologias en PostgreSQL, y para entender cómo se relacionan estos conjuntos, podemos usar una operación de LEFT JOIN con una condición que excluya los registros que tienen correspondencia en ambas tablas.
 
-**![aloj](/5imagenes/imagenes/anime-a-b.png)**
+**![aloj](/images/5imagenes/entidad-relacion/anime-a-b.png)**
 ```imagenes
 --LEFT JOIN
 --Obtener los usuarios que están en core.usuarios pero no tienen ninguna entrada correspondiente en portafolio.tecnologias.
@@ -956,7 +956,7 @@ WHERE   t.id_usuario IS NULL;
 ## 3.35. RIGHT JOIN (RIGHT OUTER JOIN)
 - Un Right Join en PostgreSQL devuelve todos los registros de la tabla de la derecha (en este caso, core.usuarios) y los registros de la tabla de la izquierda (en este caso, core.proyectos) que tienen una coincidencia en la condición especificada (p.id_usuario = u.id_usuario). Si no hay ninguna coincidencia en la tabla de la izquierda, los campos de esa tabla tendrán valores nulos en el resultado.
 
-**![arj](/5imagenes/imagenes/anime-rigth-join.png)**
+**![arj](/images/5imagenes/entidad-relacion/anime-rigth-join.png)**
 ```imagenes
 --RIGHT JOIN
 -- Obtener todos los proyectos y sus usuarios (incluso si no tienen un usuario asociado)
@@ -978,7 +978,7 @@ FROM    core.proyectos p
 ## 3.36. RIGHT JOIN (B-A)
 - Para obtener la diferencia de conjuntos (B - A) entre las tablas usuarios y proyectos utilizando un RIGHT JOIN en PostgreSQL, puedes seguir este enfoque:
 
-**![arj](/5imagenes/imagenes/anime-b-a_.png)**
+**![arj](/images/5imagenes/entidad-relacion/anime-b-a_.png)**
 ```imagenes
 --RIGHT JOIN
 -- Representar los usuarios que no tienen proyectos asociados.

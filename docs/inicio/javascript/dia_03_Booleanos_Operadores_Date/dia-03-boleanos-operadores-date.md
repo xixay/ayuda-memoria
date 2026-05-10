@@ -1,6 +1,6 @@
 [<< INDICE](../../../index.md)
 
-[<< Día 2](../dia-02-tipos-de-datos.md) | [Día 4 >>](../java-script/dia-04-condicionales.md)
+[<< Día 2](../dia-02-tipos-de-datos.md) | [Día 4 >>](../javascript/dia-04-condicionales.md)
 - [📔 Day 3](#-day-3)
   - [Booleanos](#booleanos)
     - [Valores verdaderos](#valores-verdaderos)
@@ -101,7 +101,7 @@ let country = "Finland";
 
 Operadores de asignación
 
-![Assignment operators](../java-script/assignment_operators.png)
+![Assignment operators](../images/assignment_operators.png)
 
 ### Operadores Aritméticos
 
@@ -160,7 +160,7 @@ console.log(
 
 En programación comparamos valores, usamos operadores de comparación para comparar dos valores. Comprobamos si un valor es mayor, menor o igual a otro valor.
 
-![Operadores de Comparación](../java-script/comparison_operators.png)
+![Operadores de Comparación](../images/comparison_operators.png)
 **Ejemplos: Operadores de Comparación**
 
 ```js
@@ -363,7 +363,7 @@ Estos no son todos los métodos de window, tendremos una sección separada para 
 El tiempo es una cosa importante. Nos gusta saber la hora de una determinada actividad o evento. En JavaScript, la hora y la fecha actuales se crean utilizando el objeto Date de JavaScript. El objeto que creamos usando el objeto Date proporciona muchos métodos para trabajar con fecha y hora. Los métodos que usamos para obtener información de fecha y hora de los valores de un objeto Date comienzan con una palabra _get_ porque proporciona la información.
 _getFullYear(), getMonth(), getDate(), getDay(), getHours(), getMinutes, getSeconds(), getMilliseconds(), getTime(), getDay()_
 
-![Date time Object](../java-script/date_time_object.png)
+![Date time Object](../images/date_time_object.png)
 
 ### Crear un objeto de tiempo
 
@@ -612,6 +612,6 @@ console.log(`${date}/${month}/${year} ${hours}:${minutes}`); // 4/1/2020 0:56
 1. Cree un formato de hora legible por humanos usando el objeto Date. La hora y el minuto deben ser siempre dos dígitos (7 horas deben ser 07 y 5 minutos deben ser 05)
    1. YYY-MM-DD HH:mm eg. 20120-01-02 07:05
 
-[<< Día 2](../dia-02-tipos-de-datos.md) | [Día 4 >>](../java-script/dia-04-condicionales.md)
+[<< Día 2](../dia-02-tipos-de-datos.md) | [Día 4 >>](../javascript/dia-04-condicionales.md)
 
 [<< INDICE](../../../index.md)

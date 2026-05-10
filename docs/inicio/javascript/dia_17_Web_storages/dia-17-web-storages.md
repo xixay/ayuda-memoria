@@ -1,6 +1,6 @@
 [<< INDICE](../../../index.md)
 
-[<< Día 16](../java-script/dia-16-json.md) | [Día 18 >>](../java-script/dia-18-promesas.md)
+[<< Día 16](../javascript/dia-16-json.md) | [Día 18 >>](../javascript/dia-18-promesas.md)
 
 - [Día 17](#día-17)
   - [Storage (Almacenamiento) web HTML5](#storage-almacenamiento-web-html5)
@@ -33,7 +33,7 @@ Hay que tener en cuenta que los datos almacenados en localStorage o sessionStora
 
 Las claves y los valores son siempre cadenas (tenga en cuenta que, al igual que con los objetos, las claves enteras se convertirán automáticamente en cadenas).
 
-![web_storage](../java-script/web_storage.png)
+![web_storage](../images/web_storage.png)
 
 ### sessionStorage
 
@@ -79,7 +79,7 @@ Objetos Web Storage:
 - _localStorage.removeItem()_ - para remover un ítem almacenado de un localStorage. Toma la clave como parámetro.
 - _localStorage.key()_ - para mostrar un dato almacenado en un localStorage. Toma el índice como parámetro.
 
-![local_storage](../java-script/local_storage.png)
+![local_storage](../images/local_storage.png)
 
 ### Establecer el elemento en el localStorage
 
@@ -214,6 +214,6 @@ localStorage.clear();
 
 🎉 ¡FELICITACIONES! 🎉
 
-[<< Día 16](../java-script/dia-16-json.md) | [Día 18 >>](../java-script/dia-18-promesas.md)
+[<< Día 16](../javascript/dia-16-json.md) | [Día 18 >>](../javascript/dia-18-promesas.md)
 
 [<< INDICE](../../../index.md)

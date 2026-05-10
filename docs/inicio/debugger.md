@@ -21,6 +21,6 @@ https://marketplace.visualstudio.com/items?itemName=ms-vscode.js-debug-nightly
     ]
   }
 ```
-**![Debugger](/5imagenes/imagenes/archivo%20configuracion.png)**
+**![Debugger](/images/5imagenes/debugger/archivo%20configuracion.png)**
 - Iniciar desde el vscode el backend
-**![Debugger](/5imagenes/imagenes/vscode.png)**
+**![Debugger](/images/5imagenes/debugger/vscode.png)**

@@ -1,6 +1,6 @@
 [<< INDICE](../../../index.md)
 
-[<< Día 6](../java-script/dia-06-bucles.md) | [Día 8 >>](../java-script/dia-08-objetos.md)
+[<< Día 6](../javascript/dia-06-bucles.md) | [Día 8 >>](../javascript/dia-08-objetos.md)
 
 - [📔 Día 7](#-día-7)
   - [Funciones](#funciones)
@@ -683,6 +683,6 @@ Será cubierto en otra sección.
 1. Escriba una función llamada reverseCountries, toma el array de países y primero copia el array y retorna el array original invertido
    🎉 ¡FELICITACIONES! 🎉
 
-[<< Día 6](../java-script/dia-06-bucles.md) | [Día 8 >>](../java-script/dia-08-objetos.md)
+[<< Día 6](../javascript/dia-06-bucles.md) | [Día 8 >>](../javascript/dia-08-objetos.md)
 
 [<< INDICE](../../../index.md)

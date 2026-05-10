@@ -1,6 +1,6 @@
 [<< INDICE](../../../index.md)
 
-[<< Día 21](../java-script/dia-21-dom.md) | [Día 23 >>](../java-script/dia-23-event-listeners.md)
+[<< Día 21](../javascript/dia-21-dom.md) | [Día 23 >>](../javascript/dia-23-event-listeners.md)
 
 - [Día 22](#día-22)
   - [DOM(Document Object Model)-Día 2](#domdocument-object-model-día-2)
@@ -187,24 +187,24 @@ El fragmento de código anterior borró todos los elementos hijos.
    - El fondo de los números impares es amarillo
    - El fondo de los números primos es rojo
 
-![Number Generator](./../java-script/projects/dom_min_project_day_number_generators_2.1.png)
+![Number Generator](../images/projects/dom_min_project_day_number_generators_2.1.png)
 
 ### Ejercicios: Nivel 2
 
 1. Utilice el array de países para mostrar todos los países. Vea el diseño
 
-![World Countries List](./../java-script/projects/dom_min_project_countries_aray_day_2.2.png)
+![World Countries List](../images/projects/dom_min_project_countries_aray_day_2.2.png)
 
 ### Ejercicios: Nivel 3
 
 Compruebe los requisitos de este proyecto a partir de ambas imágenes (jpg y gif). Todos los datos y el CSS se han implementado utilizando únicamente JavaScript. Los datos se encuentran en la carpeta de inicio del proyecto\*3. El botón desplegable se ha creado utilizando el [details\*](https://www.w3schools.com/tags/tag_details.asp) elemento HTML.
 
-![Challenge Information](./../java-script/projects/dom_mini_project_challenge_info_day_2.3.gif)
+![Challenge Information](../images/projects/dom_mini_project_challenge_info_day_2.3.gif)
 
-![Challenge Information](./../java-script/projects/dom_mini_project_challenge_info_day_2.3.png)
+![Challenge Information](../images/projects/dom_mini_project_challenge_info_day_2.3.png)
 
 🎉 ¡FELICITACIONES! 🎉
 
-[<< Día 21](../java-script/dia-21-dom.md) | [Día 23 >>](../java-script/dia-23-event-listeners.md)
+[<< Día 21](../javascript/dia-21-dom.md) | [Día 23 >>](../javascript/dia-23-event-listeners.md)
 
 [<< INDICE](../../../index.md)

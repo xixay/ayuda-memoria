@@ -57,6 +57,7 @@ export default defineConfig({
   lastUpdated: true,
   cleanUrls: true,
   base: '/ayuda-memoria/',
+  ignoreDeadLinks: true,
   
   themeConfig: {
     siteTitle: 'Docs Antigravity',

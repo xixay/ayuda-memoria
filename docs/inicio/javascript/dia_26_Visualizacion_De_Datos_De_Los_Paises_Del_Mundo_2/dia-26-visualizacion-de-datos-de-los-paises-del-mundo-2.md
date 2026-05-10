@@ -14,7 +14,7 @@
 
 1. Visualice el array de países de la siguiente manera
 
-![Motivation](./../java-script/projects/dom_mini_project_countries_day_6.1.gif)
+![Motivation](../images/projects/dom_mini_project_countries_day_6.1.gif)
 
 🎉 ¡FELICITACIONES! 🎉
 

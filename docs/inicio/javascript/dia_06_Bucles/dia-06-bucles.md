@@ -1,6 +1,6 @@
 [<< INDICE](../../../index.md)
 
-[<< Día 5](../java-script/dia-05-arreglos.md) | [ Día 7 >>](../java-script/dia-07-funciones.md)
+[<< Día 5](../javascript/dia-05-arreglos.md) | [ Día 7 >>](../javascript/dia-07-funciones.md)
 
 - [📔 Día 6](#-día-6)
   - [Bucles](#bucles)
@@ -453,15 +453,15 @@ const mernStack = ["MongoDB", "Express", "React", "Node"];
 1. Copia el array countries (Evita mutaciones)
 1. Los arrays son mutables. Crea una copia del array que no modifique el original. Ordena la copia del array y guárdala en una variable sortedCountries
 1. Ordena el array webTechs y el array mernStack
-1. Extrae todos los países que contengan la palabra 'land' del [array countries](../java-script/countries.js) e imprimela como un array
-1. Encuentra el país que contiene la mayor cantidad de caracteres en el [array countries](../java-script/countries.js)
-1. Extrae todos los países que contienen la palabra 'land' del [array countries](../java-script/countries.js) e imprimela como un array
-1. Extrae todos los países que contengan solo cuatro caracters del [array countries](../java-script/countries.js) e impremela como un array
-1. Extrae todos los paíse que contengan dos o más palabras del [array countries](../java-script/countries.js) e imprimela como un array
-1. Invertir el [array countries](../java-script/countries.js) y poner en mayúscula cada país y almacenalo en un array
+1. Extrae todos los países que contengan la palabra 'land' del [array countries](../javascript/countries.js) e imprimela como un array
+1. Encuentra el país que contiene la mayor cantidad de caracteres en el [array countries](../javascript/countries.js)
+1. Extrae todos los países que contienen la palabra 'land' del [array countries](../javascript/countries.js) e imprimela como un array
+1. Extrae todos los países que contengan solo cuatro caracters del [array countries](../javascript/countries.js) e impremela como un array
+1. Extrae todos los paíse que contengan dos o más palabras del [array countries](../javascript/countries.js) e imprimela como un array
+1. Invertir el [array countries](../javascript/countries.js) y poner en mayúscula cada país y almacenalo en un array
 
 🎉 ¡FELICITACIONES! 🎉
 
-[<< Día 5](../java-script/dia-05-arreglos.md) | [Día 7 >>](../java-script/dia-07-funciones.md)
+[<< Día 5](../javascript/dia-05-arreglos.md) | [Día 7 >>](../javascript/dia-07-funciones.md)
 
 [<< INDICE](../../../index.md)

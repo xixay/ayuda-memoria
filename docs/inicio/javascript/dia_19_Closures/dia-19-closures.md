@@ -1,8 +1,8 @@
 [<< INDICE](../../../index.md)
 
-[<< Día 18](../java-script/dia-18-promesas.md) | [Día 20 >>](../java-script/dia-20-escribiendo-codigos-limpios.md)
+[<< Día 18](../javascript/dia-18-promesas.md) | [Día 20 >>](../javascript/dia-20-escribiendo-codigos-limpios.md)
 
-![Thirty Days Of JavaScript](../java-script/banners/day_1_19.png)
+![Thirty Days Of JavaScript](../images/banners/day_1_19.png)
 
 - [Día 19](#día-19)
   - [Closure](#closure)
@@ -88,6 +88,6 @@ console.log(innerFuncs.minusOne);
 
 🎉 ¡FELICITACIONES! 🎉
 
-[<< Día 18](../java-script/dia-18-promesas.md) | [Día 20 >>](../java-script/dia-20-escribiendo-codigos-limpios.md)
+[<< Día 18](../javascript/dia-18-promesas.md) | [Día 20 >>](../javascript/dia-20-escribiendo-codigos-limpios.md)
 
 [<< INDICE](../../../index.md)

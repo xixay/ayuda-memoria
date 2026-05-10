@@ -1,6 +1,6 @@
 [<< INDICE](../../../index.md)
 
-[<< Día 15](../java-script/dia-15-clases.md) | [Día 17 >>](../java-script/dia-17-web-storages.md)
+[<< Día 15](../javascript/dia-15-clases.md) | [Día 17 >>](../javascript/dia-17-web-storages.md)
 
 - [Día 16](#día-16)
   - [JSON](#json)
@@ -583,6 +583,6 @@ const txt = `{
 
 🎉 ¡FELICITACIONES! 🎉
 
-[<< Día 15](../java-script/dia-15-clases.md) | [Día 17 >>](../java-script/dia-17-web-storages.md)
+[<< Día 15](../javascript/dia-15-clases.md) | [Día 17 >>](../javascript/dia-17-web-storages.md)
 
 [<< INDICE](../../../index.md)

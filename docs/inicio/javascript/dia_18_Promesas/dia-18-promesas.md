@@ -1,6 +1,6 @@
 [<< INDICE](../../../index.md)
 
-[<< Día 17](../java-script/dia-17-web-storages.md) | [Día 19>>](../java-script/dia-19-closures.md)
+[<< Día 17](../javascript/dia-17-web-storages.md) | [Día 19>>](../javascript/dia-19-closures.md)
 
 - [Día 18](#día-18)
   - [Promesas](#promesas)
@@ -158,9 +158,9 @@ La API Fetch proporciona una interfaz para obtener recursos (incluso a través d
 const url = "https://restcountries.com/v2/all"; // api de países
 fetch(url)
   .then((response) => response.json()) // acceder a los datos de la API como JSON
-  .then((java-script) => {
+  .then((javascript) => {
     // obtener los datos
-    console.log(java-script);
+    console.log(javascript);
   })
   .catch((error) => console.error(error)); // manejo de errores si ocurre algo incorrecto
 ```
@@ -207,8 +207,8 @@ Vamos a obtener los datos de la API utilizando tanto el método promise como el 
 const url = "https://restcountries.com/v2/all";
 fetch(url)
   .then((response) => response.json())
-  .then((java-script) => {
-    console.log(java-script);
+  .then((javascript) => {
+    console.log(javascript);
   })
   .catch((error) => console.error(error));
 ```
@@ -254,6 +254,6 @@ const catsAPI = "https://api.thecatapi.com/v1/breeds";
 
 🎉 ¡FELICITACIONES! 🎉
 
-[<< Día 17](../java-script/dia-17-web-storages.md) | [Día 19>>](../java-script/dia-19-closures.md)
+[<< Día 17](../javascript/dia-17-web-storages.md) | [Día 19>>](../javascript/dia-19-closures.md)
 
 [<< INDICE](../../../index.md)

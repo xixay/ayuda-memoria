@@ -1,6 +1,6 @@
 [<< INDICE](../../index.md)
 
-[<< Día 1](./readme.md) | [Day 3 >>](./java-script/dia-03-boleanos-operadores-date.md)
+[<< Día 1](./readme.md) | [Day 3 >>](./javascript/dia-03-boleanos-operadores-date.md)
 
 - [📔 Día 2](#-día-2)
   - [Tipos de Datos](#tipos-de-datos)
@@ -442,7 +442,7 @@ console.log(primerNombre.length); // 8
 
 2. _Acceder a los caracteres de una cadena_: Podemos acceder a cada carácter de una cadena usando su índice. En programación, el conteo comienza desde 0. El primer índice de la cadena es cero y el último índice es la longitud de la cadena menos uno.
 
-![Accessing sting by index](../java-script/string_indexes.png)
+![Accessing sting by index](./images/string_indexes.png)
 
 Accedamos a diferentes caracteres en la cadena 'JavaScript'.
 
@@ -972,6 +972,6 @@ console.log(numInt); // 9
 
 🎉 ¡FELICITACIONES! 🎉
 
-[<< Día 1](./readme.md) | [Day 3 >>](./java-script/dia-03-boleanos-operadores-date.md)
+[<< Día 1](./readme.md) | [Day 3 >>](./javascript/dia-03-boleanos-operadores-date.md)
 
 [<< INDICE](../../index.md)

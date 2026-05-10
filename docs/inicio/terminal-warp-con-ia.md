@@ -76,52 +76,52 @@ imagenes
 ## 4. Uso de Warp
 - Si es posible te pedira que te crees una cuenta o vincules con tu correo, para poder usarlo
 
-![Terminal Warp](/5imagenes/imagenes/0.png)
+![Terminal Warp](/images/5imagenes/warp/0.png)
 
 - Uso de Warp
 
-![Terminal Warp](/5imagenes/imagenes/1.png)
+![Terminal Warp](/images/5imagenes/warp/1.png)
 
 ## 5. Uso de Workflow
 - Uso de Workflow
 
-![Terminal Warp](/5imagenes/imagenes/2.png)
+![Terminal Warp](/images/5imagenes/warp/2.png)
 
 - Papeleria de reciclaje
 
-![Terminal Warp](/5imagenes/imagenes/3.png)
+![Terminal Warp](/images/5imagenes/warp/3.png)
 
 - Worckflow para encontrar en linea del mundo, con el comando
 ```bash
 ctrl+shift+r
 ```
 
-![Terminal Warp](/5imagenes/imagenes/4.png)
+![Terminal Warp](/images/5imagenes/warp/4.png)
 
 - Activar el modo ia, con el comando ctrl+i
 
-![Terminal Warp](/5imagenes/imagenes/5.png)
+![Terminal Warp](/images/5imagenes/warp/5.png)
 
 - Escoger el modo ia, naturalmente esta en automatico
 
-![Terminal Warp](/5imagenes/imagenes/6.png)
+![Terminal Warp](/images/5imagenes/warp/6.png)
 
 ## 6. Crear un nuevo workflow
 - Crear un nuevo workflow, donde se puede ejecutar una serie de comandos
 
-![Terminal Warp](/5imagenes/imagenes/7.png)
+![Terminal Warp](/images/5imagenes/warp/7.png)
 
 - Usar el nuevo workflow recientemente creado, haciendo click o colocando su alias
 
-![Terminal Warp](/5imagenes/imagenes/8.png)
+![Terminal Warp](/images/5imagenes/warp/8.png)
 
 - Ejecutar el workflow
 
-![Terminal Warp](/5imagenes/imagenes/9.png)
+![Terminal Warp](/images/5imagenes/warp/9.png)
 
 ## 7. Crea un proyecto
 - Crea un nuevo proyecto ejemplo: En React
 
-![Terminal Warp](/5imagenes/imagenes/10.png)
+![Terminal Warp](/images/5imagenes/warp/10.png)
 
-![Terminal Warp](/5imagenes/imagenes/11.png)
+![Terminal Warp](/images/5imagenes/warp/11.png)

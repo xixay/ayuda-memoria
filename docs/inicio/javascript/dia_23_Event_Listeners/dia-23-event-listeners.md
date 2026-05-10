@@ -1,6 +1,6 @@
 [<< INDICE](../../../index.md)
 
-[<< Día 22](../java-script/dia-22-manipulacion-del-objeto-dom.md) | [Día 24 >>](../java-script/dia-24-proyecto-sistema-solar.md)
+[<< Día 22](../javascript/dia-22-manipulacion-del-objeto-dom.md) | [Día 24 >>](../javascript/dia-24-proyecto-sistema-solar.md)
 
 - [Día 23](#día-23)
   - [DOM(Document Object Model)-Día 3](#domdocument-object-model-día-3)
@@ -307,14 +307,14 @@ Podemos acceder a todos los números de teclas del teclado utilizando diferentes
 
 1. Generar números y marcar pares, impares y primos con tres colores diferentes. Vea la imagen de abajo.
 
-![Number Generator](./../java-script/projects/dom_min_project_number_generator_day_3.1.gif)
+![Number Generator](../images/projects/dom_min_project_number_generator_day_3.1.gif)
 
 1. Generando el código del teclado usando even listener. La imagen de abajo.
 
-![Keyboard key](./../java-script/projects/dom_min_project_keycode_day_3.2.gif)
+![Keyboard key](../images/projects/dom_min_project_keycode_day_3.2.gif)
 
 🎉 ¡FELICITACIONES! 🎉
 
-[<< Día 22](../java-script/dia-22-manipulacion-del-objeto-dom.md) | [Día 24 >>](../java-script/dia-24-proyecto-sistema-solar.md)
+[<< Día 22](../javascript/dia-22-manipulacion-del-objeto-dom.md) | [Día 24 >>](../javascript/dia-24-proyecto-sistema-solar.md)
 
 [<< INDICE](../../../index.md)

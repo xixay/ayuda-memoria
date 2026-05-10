@@ -1,8 +1,8 @@
 [<< INDICE](../../../index.md)
 
-[<< Día 14](../java-script/dia-14-manejo-de-errores.md) | [Día 16>>](../java-script/dia-16-json.md)
+[<< Día 14](../javascript/dia-14-manejo-de-errores.md) | [Día 16>>](../javascript/dia-16-json.md)
 
-![Thirty Days Of JavaScript](../java-script/banners/day_1_15.png)
+![Thirty Days Of JavaScript](../images/banners/day_1_15.png)
 
 - [Día 15](#día-15)
   - [Clases](#clases)
@@ -698,6 +698,6 @@ Frequency Distribution: [(20.0, 26), (16.0, 27), (12.0, 32), (8.0, 37), (8.0, 34
 
 🎉 ¡FELICITACIONES! 🎉
 
-[<< Día 14](../java-script/dia-14-manejo-de-errores.md) | [Día 16>>](../java-script/dia-16-json.md)
+[<< Día 14](../javascript/dia-14-manejo-de-errores.md) | [Día 16>>](../javascript/dia-16-json.md)
 
 [<< INDICE](../../../index.md)

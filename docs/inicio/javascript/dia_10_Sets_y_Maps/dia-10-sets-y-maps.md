@@ -1,6 +1,6 @@
 [<< INDICE](../../../index.md)
 
-[<< Día 9](../java-script/dia-09-funciones-de-orden-superior.md) | [Día 11>>](../java-script/dia-11-desestructuracion-y-spreading.md)
+[<< Día 9](../javascript/dia-09-funciones-de-orden-superior.md) | [Día 11>>](../javascript/dia-11-desestructuracion-y-spreading.md)
 
 - [Día 10](#día-10)
   - [Set](#set)
@@ -417,6 +417,6 @@ console.log(mostSpokenLanguages(countries, 3))[
 
 🎉 ¡Felicitaciones! 🎉
 
-[<< Día 9](../java-script/dia-09-funciones-de-orden-superior.md) | [Día 11 >>](../java-script/dia-11-desestructuracion-y-spreading.md)
+[<< Día 9](../javascript/dia-09-funciones-de-orden-superior.md) | [Día 11 >>](../javascript/dia-11-desestructuracion-y-spreading.md)
 
 [<< INDICE](../../../index.md)

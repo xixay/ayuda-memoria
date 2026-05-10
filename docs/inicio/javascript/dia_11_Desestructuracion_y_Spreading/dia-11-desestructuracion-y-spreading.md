@@ -1,6 +1,6 @@
 [<< INDICE](../../../index.md)
 
-[<< Día 10](../java-script/dia-10-sets-y-maps.md) | [Día 12>>](../java-script/dia-12-expresiones-regulares.md)
+[<< Día 10](../javascript/dia-10-sets-y-maps.md) | [Día 12>>](../javascript/dia-12-expresiones-regulares.md)
 
 - [Día 11](#día-11)
   - [Desestructuración y Spread](#desestructuración-y-spread)
@@ -639,8 +639,8 @@ const student = {
       { skill: "Node", level: 7 },
       { skill: "GraphQL", level: 8 },
     ],
-    java-scriptBase: [{ skill: "MongoDB", level: 7.5 }],
-    java-scriptScience: ["Python", "R", "D3.js"],
+    javascriptBase: [{ skill: "MongoDB", level: 7.5 }],
+    javascriptScience: ["Python", "R", "D3.js"],
   },
 };
 ```
@@ -664,11 +664,11 @@ La salida del objeto copiado debería tener este aspecto:
         {skill: 'GraphQL',level: 8},
         {skill: 'Express',level: 9}
       ],
-      java-scriptBase: [
+      javascriptBase: [
         { skill: 'MongoDB',level: 7.5},
         { skill: 'SQL',level: 8}
       ],
-      java-scriptScience: ['Python','R','D3.js','SQL']
+      javascriptScience: ['Python','R','D3.js','SQL']
     }
   }
 
@@ -676,6 +676,6 @@ La salida del objeto copiado debería tener este aspecto:
 
 🎉 ¡FELICITACIONES! 🎉
 
-[<< Día 10](../java-script/dia-10-sets-y-maps.md) | [Día 12 >>](../java-script/dia-12-expresiones-regulares.md)
+[<< Día 10](../javascript/dia-10-sets-y-maps.md) | [Día 12 >>](../javascript/dia-12-expresiones-regulares.md)
 
 [<< INDICE](../../../index.md)

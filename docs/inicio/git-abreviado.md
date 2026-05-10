@@ -258,14 +258,14 @@
 |    glgga                  |   git log --graph --decorate --all                                                                                                                 |
 |    glgm                   |   git log --graph --max-count=10                                                                                                                   |
 |    glo                    |   git log --oneline --decorate                                                                                                                     |
-|    glol                   |   git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'                                           |
-|    glols                  |   git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --stat                                    |
-|    glod                   |   git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset'                                           |
-|    glods                  |   git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short                              |
-|    glola                  |   git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --all                                     |
+|    glol                   |   git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)&lt;%an&gt;%Creset'                                           |
+|    glols                  |   git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)&lt;%an&gt;%Creset' --stat                                    |
+|    glod                   |   git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)&lt;%an&gt;%Creset'                                           |
+|    glods                  |   git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)&lt;%an&gt;%Creset' --date=short                              |
+|    glola                  |   git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)&lt;%an&gt;%Creset' --all                                     |
 |    glog                   |   git log --oneline --decorate --graph                                                                                                             |
 |    gloga                  |   git log --oneline --decorate --graph --all                                                                                                       |
-|    glp                    |   git log --pretty=<format>                                                                                                                        |
+|    glp                    |   git log --pretty=&lt;format&gt;                                                                                                                        |
 ### 1.24. Git merge
 - Combina los cambios de diferentes ramas en una sola rama.
 

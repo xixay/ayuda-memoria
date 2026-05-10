@@ -223,7 +223,7 @@ sudo netstat -tpln
 ```console
 docker start chasqui
 ```
-7. obtener la dirección <IP>, por donde corre el contenedor(linux)
+7. obtener la dirección &lt;IP&gt;, por donde corre el contenedor(linux)
 ```console
 docker inspect chasqui
 ```
@@ -302,7 +302,7 @@ docker run --name mensajeria -d mongo:5.0.9
 ```console
 docker start mensajeria
 ```
-3. obtener la dirección <IP>, por donde corre el contenedor
+3. obtener la dirección &lt;IP&gt;, por donde corre el contenedor
 ```console
 docker inspect mensajeria
 ```
@@ -469,7 +469,7 @@ sudo docker run --name kong-java-scriptbase \
 ```console
 docker start kong-java-scriptbase
 ```
-3. obtener la dirección <IP>, por donde corre el contenedor
+3. obtener la dirección &lt;IP&gt;, por donde corre el contenedor
 ```console
 docker inspect kong-java-scriptbase// out:172.19.0.2
 ```

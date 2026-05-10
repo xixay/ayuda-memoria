@@ -1,6 +1,6 @@
 [<< INDICE](../../../index.md)
 
-[<< Día 12](../java-script/dia-12-expresiones-regulares.md) | [Día 14>>](../java-script/dia-14-manejo-de-errores.md)
+[<< Día 12](../javascript/dia-12-expresiones-regulares.md) | [Día 14>>](../javascript/dia-14-manejo-de-errores.md)
 
 - [Día 13](#día-13)
   - [Métodos del Objeto Console](#métodos-del-objeto-console)
@@ -92,7 +92,7 @@ console.error("We all make mistakes");
 
 ### console.table()
 
-El método console.table() muestra los datos como una tabla en la consola. Muestra los datos en forma de tabla. El método console.table() toma un argumento requerido java-script, que debe ser un array o un objeto, y un parámetro adicional opcional columns.
+El método console.table() muestra los datos como una tabla en la consola. Muestra los datos en forma de tabla. El método console.table() toma un argumento requerido javascript, que debe ser un array o un objeto, y un parámetro adicional opcional columns.
 
 Empecemos con un simple array. El código siguiente muestra una tabla con dos columnas. Una columna índice para mostrar el índice y una columna valor para mostrar los nombres
 
@@ -339,6 +339,6 @@ El console.clear() limpia la consola del navegador.
 
 🎉 ¡FELICITACIONES! 🎉
 
-[<< Día 12](../java-script/dia-12-expresiones-regulares.md) | [Día 14>>](../java-script/dia-14-manejo-de-errores.md)
+[<< Día 12](../javascript/dia-12-expresiones-regulares.md) | [Día 14>>](../javascript/dia-14-manejo-de-errores.md)
 
 [<< INDICE](../../../index.md)

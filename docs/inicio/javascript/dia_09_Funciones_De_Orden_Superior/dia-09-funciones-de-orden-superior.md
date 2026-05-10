@@ -1,6 +1,6 @@
 [<< INDICE](../../../index.md)
 
-[<< Día 8](../java-script/dia-08-objetos.md) | [Día 10 >>](../java-script/dia-10-sets-y-maps.md)
+[<< Día 8](../javascript/dia-08-objetos.md) | [Día 10 >>](../javascript/dia-10-sets-y-maps.md)
 
 - [Día 9](#día-9)
   - [Función De Orden Superior](#función-de-orden-superior)
@@ -624,7 +624,7 @@ const products = [
 
    ````
 
-1. \*\*\* Utilice el archivo countries_java-script.js para crear una función que cree los diez países más poblados.
+1. \*\*\* Utilice el archivo countries_javascript.js para crear una función que cree los diez países más poblados.
 
    ````js
    console.log(mostPopulatedCountries(countries, 10))
@@ -688,6 +688,6 @@ const products = [
 
 🎉 ¡FELICITACIONES! 🎉
 
-[<< Día 8](../java-script/dia-08-objetos.md) | [Día 10 >>](../java-script/dia-10-sets-y-maps.md)
+[<< Día 8](../javascript/dia-08-objetos.md) | [Día 10 >>](../javascript/dia-10-sets-y-maps.md)
 
 [<< INDICE](../../../index.md)

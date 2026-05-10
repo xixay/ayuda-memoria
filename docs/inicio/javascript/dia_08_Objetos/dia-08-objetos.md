@@ -1,6 +1,6 @@
 [<< INDICE](../../../index.md)
 
-[<< Día 7](../java-script/dia-07-funciones.md) | [Día 9 >>](../java-script/dia-09-funciones-de-orden-superior.md)
+[<< Día 7](../javascript/dia-07-funciones.md) | [Día 9 >>](../javascript/dia-09-funciones-de-orden-superior.md)
 
 - [📔 Día 8](#-día-8)
   - [Scope (alcance)](#scope-alcance)
@@ -573,6 +573,6 @@ a. Crear una función llamada signUp que permita al usuario añadirse a la colec
 
 🎉 ¡FELICITACIONES! 🎉
 
-[<< Día 7](../java-script/dia-07-funciones.md) | [Día 9 >>](../java-script/dia-09-funciones-de-orden-superior.md)
+[<< Día 7](../javascript/dia-07-funciones.md) | [Día 9 >>](../javascript/dia-09-funciones-de-orden-superior.md)
 
 [<< INDICE](../../../index.md)

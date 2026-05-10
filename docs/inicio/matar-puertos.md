@@ -29,5 +29,5 @@ tcp6    0   0:::7008      :::*    LISTEN    2112143/node
 ```cmd
 kill -9 2112143
 ```
-**![Matar Puertos](/5imagenes/imagenes/puerto.png)**
+**![Matar Puertos](/images/5imagenes/puertos/puerto.png)**
 [<< INDICE](../index.md)

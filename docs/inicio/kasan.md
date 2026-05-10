@@ -14,4 +14,4 @@ sudo nano/etc/gdm3/custom.conf
 ```console
 WaylandEnable=false
 ```
-**![Kasam](/5imagenes/imagenes/instalarKasam.png)**
+**![Kasam](/images/5imagenes/instaladores/instalarKasam.png)**

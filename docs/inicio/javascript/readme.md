@@ -62,11 +62,11 @@ Asumo que tienes motivación, un fuerte deseo de convertirte en un desarrollador
 
 Tal vez no lo necesites ahora pero si más adelante. Asi que instala [node.js](https://nodejs.org/en/)
 
-![Node download](./java-script/download_node.png)
+![Node download](./images/download_node.png)
 
 Luego de que se descargue, haz doble click e instálalo
 
-![Install node](./java-script/install_node.png)
+![Install node](./images/install_node.png)
 
 Puedes comprobar si se ha instalado correctamente abriendo la terminal del ordenador
 
@@ -83,13 +83,13 @@ Existen muchos navegadores disponibles. Sin embargo, recomiendo especialmente Go
 
 Instala [Google Chrome](https://www.google.com/chrome/) si aún no lo tienes. Podemos escribir un pequeño código JavaScript en la consola del navegador, pero no utilizamos la consola para desarrollar aplicaciones.
 
-![Google Chrome](./java-script/google_chrome.png)
+![Google Chrome](./images/google_chrome.png)
 
 #### Abriendo la consola de Google Chrome
 
 Puedes abrir la consola de Google Chrome haciendo click en los tres puntos de la esquina superior derecha del navegador Chrome o utilizando un acceso directo. Yo prefiero usar los atajos.
 
-![Opening chrome](./java-script/opening_developer_tool.png)
+![Opening chrome](./images/opening_developer_tool.png)
 
 Para abrir la consola Chrome usando un atajo.
 
@@ -99,11 +99,11 @@ Para abrir la consola Chrome usando un atajo.
     Windows:
     Ctl+Shift+I
 
-![Opening console](./java-script/opening_chrome_console_shortcut.png)
+![Opening console](./images/opening_chrome_console_shortcut.png)
 
 Después de abrir la consola de Google Chrome, intenta explorar los botones marcados. Pasaremos la mayor parte del tiempo aquí. La consola es el lugar donde va el código de JavaScript. El motor de la Consola de Google V8 cambia tu código JavaScript a código de máquina. Escribamos un código JavaScript en la consola de Google Chrome:
 
-![write code on console](./java-script/js_code_on_chrome_console.png)
+![write code on console](./images/js_code_on_chrome_console.png)
 
 #### Escribiendo el código en la consola del navegador
 
@@ -125,7 +125,7 @@ Para escribir nuestro primer código de JavaScript, usamos una función incorpor
 
 El console.log(param1, param2, param3), puede tomar múltiples argumentos.
 
-![console log multiple arguments](./java-script/console_log_multipl_arguments.png)
+![console log multiple arguments](./images/console_log_multipl_arguments.png)
 
     console.log('Hola', 'Mundo', '!')
     console.log('FELIZ', 'AÑO', 'NUEVO', 2020)
@@ -158,7 +158,7 @@ Podemos añadir comentarios a nuestro código. Los comentarios son muy important
 
 JavaScript es un lenguaje de programación. Como resultado, tiene su sintaxis como otros lenguajes. Si no escribimos una sintaxis que JavaScript entienda, se producirán diferentes tipos de errores. Exploraremos diferentes tipos de errores de JavaScript más adelante. Por ahora, veamos los errores de sintaxis.
 
-![Error](./java-script/raising_syntax_error.png)
+![Error](./images/raising_syntax_error.png)
 
 Cometí un error deliberado. Como resultado, la consola produce un error de sintaxis. En realidad, la sintaxis es muy informativa. Informa sobre el tipo de error que cometimos. Leyendo la guía de retroalimentación de errores, podemos corregir la sintaxis y arreglar el problema. El proceso de identificar y eliminar errores de un programa se llama 'debugging'. Corrijamos los errores:
 
@@ -175,7 +175,7 @@ Hasta ahora, hemos visto cómo mostrar el texto usando un console.log(). Si impr
 
 Ahora, practiquemos más la escritura de códigos JavaScript usando console.log() en la consola de Google Chrome para los tipos de datos numéricos. Además del texto, también podemos hacer cálculos matemáticos usando JavaScript. Hagamos los siguientes cálculos sencillos.
 
-![Arithmetic](./java-script/arithmetic.png)
+![Arithmetic](./images/arithmetic.png)
 
     console.log(2 + 3) // Adición
     console.log(3 - 2) // Sustracción
@@ -192,7 +192,7 @@ Podemos escribir nuestros códigos en la consola del navegador, pero no será pa
 
 Visual Studio es un editor de texto de código abierto muy popular. Recomendaría descargarlo, pero si estás a favor de otros editores, siéntete libre de seguir con lo que tienes.
 
-![Vscode](./java-script/vscode.png)
+![Vscode](./images/vscode.png)
 
 Si ya instalaste Visual Studio Code, empezaremos a usarlo.
 
@@ -200,17 +200,17 @@ Si ya instalaste Visual Studio Code, empezaremos a usarlo.
 
 Abre Visual Studio Code haciendo doble clic en el ícono de Visual Studio. Cuando lo abras, obtendrás este tipo de interfaz. Intenta interactuar con los iconos etiquetados.
 
-![Vscode ui](./java-script/vscode_ui.png)
+![Vscode ui](./images/vscode_ui.png)
 
-![Vscode add project](./java-script/adding_project_to_vscode.png)
+![Vscode add project](./images/adding_project_to_vscode.png)
 
-![Vscode open project](./java-script/opening_project_on_vscode.png)
+![Vscode open project](./images/opening_project_on_vscode.png)
 
-![script file](./java-script/archivos_on_vscode.png)
+![script file](./images/scripts_on_vscode.png)
 
-![running script](./java-script/running_script.png)
+![running script](./images/running_script.png)
 
-![coding running](./java-script/launched_on_new_tab.png)
+![coding running](./images/launched_on_new_tab.png)
 
 ## Añadiendo JavaScript a una página web
 
@@ -273,7 +273,7 @@ Así es como escribimos el guión interno la mayor parte del tiempo. Escribir el
 
 Abre la consola del navegador para ver la respuesta del console.log()
 
-![js code from vscode](./java-script/js_code_vscode.png)
+![js code from vscode](./images/js_code_vscode.png)
 
 ### Script externo
 
@@ -330,7 +330,7 @@ Podemos enlazar múltiples archivos externos de JavaScript a una página web. Cr
 
 Tu archivo main.js debería estar por debajo de todos los otros archivos. Ten cuidado con tu ejercicio para entender esta línea.
 
-![Multiple Script](./java-script/multiple_script.png)
+![Multiple Script](./images/multiple_script.png)
 
 ## Introducción a los tipos de datos
 
@@ -408,7 +408,7 @@ Comentario multilineal:
 
 ### Variables
 
-Las variables son contenedores de datos. Las variables se utilizan para almacenar datos en una ubicación de memoria. Cuando se declara una variable, se reserva una ubicación de memoria. Cuando se asigna una variable a un valor (java-script), el espacio de memoria se llena con esos datos. Para declarar una variable, usamos palabras clave _var_, _let_ o _const_. Hablaremos más sobre var, let y const en detalle en otras secciones (ámbito). Por ahora, la explicación anterior es suficiente.
+Las variables son contenedores de datos. Las variables se utilizan para almacenar datos en una ubicación de memoria. Cuando se declara una variable, se reserva una ubicación de memoria. Cuando se asigna una variable a un valor (javascript), el espacio de memoria se llena con esos datos. Para declarar una variable, usamos palabras clave _var_, _let_ o _const_. Hablaremos más sobre var, let y const en detalle en otras secciones (ámbito). Por ahora, la explicación anterior es suficiente.
 
 Para una variable que cambia en un momento diferente, usamos _let_. Si los datos no cambian en absoluto, usamos _const_. Por ejemplo, PI, nombre del país, gravedad no cambian, y podemos usar _const._
 
@@ -492,7 +492,7 @@ Declaremos las variables con diferentes tipos de datos. Para declarar una variab
 
 Cuando ejecutas los archivos en la carpeta Día_1 deberías obtener esto:
 
-![Day one](./java-script/day_1.png)
+![Day one](./images/day_1.png)
 
 🌕 Eres increíble. Acabas de completar el desafío del día 1 y estás en camino a la grandeza. Ahora haz algunos ejercicios para tu cerebro y para tus músculos.
 
@@ -506,7 +506,7 @@ Cuando ejecutas los archivos en la carpeta Día_1 deberías obtener esto:
 
 4.  Crea un archivo variable.js y declarar variables y asignar tipos de datos string, booleanos, indefinidos y nulos
 
-5.  Crea el archivo java-scripttypes.js y utilizar el operador **_"typeof"_** de JavaScript para comprobar los diferentes tipos de datos. Comprueba el tipo de datos de cada variable
+5.  Crea el archivo javascripttypes.js y utilizar el operador **_"typeof"_** de JavaScript para comprobar los diferentes tipos de datos. Comprueba el tipo de datos de cada variable
 
 6.  Declara cuatro variables sin asignar valores
 
