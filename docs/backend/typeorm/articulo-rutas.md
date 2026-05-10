@@ -1,0 +1,432 @@
+[<< INDICE](../../index.md)
+- [1. Instalando las dependecias](#1-instalando-las-dependecias)
+- [2. Usar express y cors en la aplicación principal](#2-usar-express-y-cors-en-la-aplicación-principal)
+- [3. GET todos los articulos](#3-get-todos-los-articulos)
+- [4. GET un solo articulo por ID](#4-get-un-solo-articulo-por-id)
+- [5. POST un nuevo articulo](#5-post-un-nuevo-articulo)
+- [6. PUT Actualizar un articulo](#6-put-actualizar-un-articulo)
+- [7. DELETE borrar articulo por id](#7-delete-borrar-articulo-por-id)
+- [8. Servicio final](#8-servicio-final)
+- [9. Tabla de servicios archivos](#9-tabla-de-servicios-archivos)
+- [10. Referencia](#10-referencia)
+## 1. Instalando las dependecias
+- Para que reconozca express y cors de manera local
+```console
+npm i -D express @types/express cors --save-dev @types/cors
+```
+## 2. Usar express y cors en la aplicación principal
+- Modificar main.ts
+```ts
+//importar el servidor java-script-source
+import { AppDataSource } from "./java-script-source"
+//importar la libreria de express
+import * as express from "express"
+//importar cors para cabecera
+import * as cors from 'cors'
+// Crear una nueva instancia de aplicación express
+const app = express()
+//puerto
+const port = 3000
+//credenciales(permisos de GET,POST,PUT,etc)
+app.use(cors())
+app.listen(port)
+console.log("¡Aplicación de ejemplo corriendo en el puerto " + port + "!")
+```
+- Para probar express
+```console
+npm run start
+```
+## 3. GET todos los articulos
+- Crear el servicio articulos.service.ts
+```ts
+import { Request, Response } from 'express'
+// traer la conexion de base de datos
+import { AppDataSource } from './java-script-source'
+// traer la entidad
+import { Articulo } from './entities/articulo.entity'
+//Inicializar  java-script-source
+AppDataSource.initialize().then(async () => {
+    console.log("¡La fuente de datos se ha inicializado!")
+}).catch(error => console.log(error))
+// Escribir la función aqui
+export const getArticulos = async (solicitud: Request, respuesta: Response): Promise<Response> => {
+    const articuloRepositorio = AppDataSource.getRepository(Articulo)
+    try {
+        //hacer la consulta
+        const response = await articuloRepositorio.find()
+
+        //enviar la respuesta
+        respuesta.status(200).send(response)
+    } catch (error) {
+        console.log(error);
+        return respuesta.status(500).json('Error Interno del Servidor');
+    }
+}
+```
+- Crear el archivo articulos.controller.ts, donde estaran los archivos
+```ts
+// lib/app.ts
+import { Router } from "express"
+// traer los archivos
+import { getArticulos }  from "./articulos.service"
+// Crear una nueva instancia de aplicación express
+const router = Router()
+
+//trae todos los articulos
+router.get("/articulos", getArticulos)
+//manda estas rutas a main.ts
+export default router
+```
+- Llamar a las rutas desde la aplicación principal
+```ts
+//importar la libreria de express
+import * as express from "express"
+// importando las rutas
+import route from './articulos.controller'
+//importar cors para cabecera
+import * as cors from 'cors'
+// Crear una nueva instancia de aplicación express
+const app = express()
+//puerto
+const port = 3000
+//credenciales(permisos de GET,POST,PUT,etc)
+app.use(cors())
+//usando las rutas
+app.use(route)
+app.listen(port)
+console.log("¡Aplicación de ejemplo corriendo en el puerto " + port + "!")
+```
+## 4. GET un solo articulo por ID
+- En articulos.service.ts
+```ts
+export const getArticuloById = async (solicitud: Request, respuesta: Response): Promise<Response> => {
+    const articuloRepositorio = AppDataSource.getRepository(Articulo)
+    try {
+        // obtener el id del articulo
+        const idArticulo = parseInt(solicitud.params.id)
+
+        //hacer la consulta
+        const response = await articuloRepositorio.findOneBy({ id: idArticulo })
+
+        //enviar la respuesta
+        respuesta.status(200).send(response)
+    } catch (error) {
+        console.log(error);
+        return respuesta.status(500).json('Error Interno del Servidor');
+    }
+};
+```
+- agregar al articulos.controller.ts la ruta
+```ts
+// lib/app.ts
+import { Router } from "express"
+// traer los archivos
+import { getArticulos, getArticuloById} from "./articulos.service"
+// Crear una nueva instancia de aplicación express
+const router = Router()
+
+...
+router.get("/articulos/:id", getArticuloById)
+
+//manda estas rutas a main.ts
+export default router
+```
+## 5. POST un nuevo articulo
+- Instalar la dependencia para que traiga el cuerpo de la solicitud
+```console
+npm i -d body-parser
+```
+- En articulos.service.ts
+```ts
+export const createArticulo = async (solicitud: Request, respuesta: Response): Promise<Response> => {
+    try {
+        // dto con el body
+        const { descripcion, precio, stock } = solicitud.body;
+        const createArticuloDto = new Articulo()
+        createArticuloDto.descripcion = descripcion
+        createArticuloDto.precio = precio
+        createArticuloDto.stock = stock
+        // hacer la consulta
+        await AppDataSource.manager.save(createArticuloDto)
+
+        //enviar la respuesta
+        respuesta.status(200).json({
+            mensaje: 'Articulo Agregado con exito',
+            datos: createArticuloDto
+        })
+    } catch (error) {
+        console.log(error);
+        return respuesta.status(500).json('Error Interno del Servidor');
+    }
+};
+```
+- agregar al articulos.controller.ts la ruta
+```ts
+// lib/app.ts
+import { Router } from "express"
+// traer los archivos
+import { getArticulos, getArticuloById, createArticulo } from "./articulos.service"
+// Crear una nueva instancia de aplicación express
+const router = Router()
+
+...
+//crea el articulo
+router.post("/articulos", createArticulo)
+//manda estas rutas a main.ts
+export default router
+```
+- agregar para que traiga el body en main.ts, la libreria body-parser
+```ts
+//importar la libreria de express
+import * as express from "express"
+// importando las rutas
+import route from './articulos.controller'
+//importar cors para cabecera
+import * as cors from 'cors'
+import * as bodyParser from 'body-parser'
+// Crear una nueva instancia de aplicación express
+const app = express()
+//puerto
+const port = 3000
+//credenciales(permisos de GET,POST,PUT,etc)
+app.use(cors())
+//accesar a la información del cuerpo(de donde se envia la solicitud) 
+app.use(bodyParser.json())
+//usando las rutas
+app.use(route)
+app.listen(port)
+console.log("¡Aplicación de ejemplo corriendo en el puerto " + port + "!")
+```
+## 6. PUT Actualizar un articulo
+- En articulos.service.ts
+```ts
+export const updateArticulo = async (solicitud: Request, respuesta: Response): Promise<Response> => {
+    const articuloRepositorio = AppDataSource.getRepository(Articulo)
+    try {
+        // obtener el id del articulo
+        const idArticulo = parseInt(solicitud.params.id)
+
+        //hacer la consulta
+        const updateArticulo = await articuloRepositorio.findOneBy({ id: idArticulo })
+
+        // dto con el body
+        const { descripcion, precio, stock } = solicitud.body;
+
+        updateArticulo.descripcion = descripcion
+        updateArticulo.precio = precio
+        updateArticulo.stock = stock
+        // hacer la consulta
+        await AppDataSource.manager.save(updateArticulo)
+
+        //enviar la respuesta
+        respuesta.status(200).json({
+            mensaje: 'Articulo Modificado con exito',
+            datos: updateArticulo
+        })
+    } catch (error) {
+        console.log(error);
+        return respuesta.status(500).json('Error Interno del Servidor');
+    }
+};
+```
+- agregar al articulos.controller.ts la ruta
+```ts
+// lib/app.ts
+import { Router } from "express"
+// traer los archivos
+import { getArticulos, getArticuloById, createArticulo, updateArticulo } from "./articulos.service"
+// Crear una nueva instancia de aplicación express
+const router = Router()
+
+...
+//modifica un articulo
+router.put("/articulos/:id", updateArticulo)
+//manda estas rutas a main.ts
+export default router
+```
+- agregar para que traiga el body en main.ts, la libreria body-parser
+```ts
+//importar la libreria de express
+import * as express from "express"
+// importando las rutas
+import route from './articulos.controller'
+//importar cors para cabecera
+import * as cors from 'cors'
+import * as bodyParser from 'body-parser'
+// Crear una nueva instancia de aplicación express
+const app = express()
+//puerto
+const port = 3000
+//credenciales(permisos de GET,POST,PUT,etc)
+app.use(cors())
+//accesar a la información del cuerpo(de donde se envia la solicitud) 
+app.use(bodyParser.json())
+//usando las rutas
+app.use(route)
+app.listen(port)
+console.log("¡Aplicación de ejemplo corriendo en el puerto " + port + "!")
+```
+## 7. DELETE borrar articulo por id
+- En articulos.service.ts
+```ts
+export const deleteArticulo = async (solicitud: Request, respuesta: Response): Promise<Response> => {
+    const articuloRepositorio = AppDataSource.getRepository(Articulo)
+    try {
+        // obtener el id del articulo
+        const idArticulo = parseInt(solicitud.params.id)
+
+        //hacer la consulta
+        const deleteArticulo = await articuloRepositorio.findOneBy({ id: idArticulo })
+
+        // hacer la consulta
+        await AppDataSource.manager.remove(deleteArticulo)
+
+        //enviar la respuesta
+        respuesta.status(200).send(`Artículo ${idArticulo} eliminado con éxito`)
+    } catch (error) {
+        console.log(error);
+        return respuesta.status(500).json('Error Interno del Servidor');
+    }
+};
+```
+- agregar al articulos.controller.ts la ruta
+```ts
+// lib/app.ts
+import { Router } from "express"
+// traer los archivos
+import { getArticulos, getArticuloById, createArticulo, updateArticulo, deleteArticulo } from "./articulos.service"
+// Crear una nueva instancia de aplicación express
+const router = Router()
+
+...
+//borra un articulo 
+router.delete("/articulos/:id", deleteArticulo)
+//manda estas rutas a main.ts
+export default router
+```
+## 8. Servicio final
+- articulos.service.ts queda
+```ts
+import { Request, Response } from 'express'
+// traer la conexion de base de datos
+import { AppDataSource } from './java-script-source'
+// traer la entidad
+import { Articulo } from './entities/articulo.entity'
+//Inicializar  java-script-source
+AppDataSource.initialize().then(async () => {
+    console.log("¡La fuente de datos se ha inicializado!")
+}).catch(error => console.log(error))
+// Escribir la función aqui
+export const getArticulos = async (solicitud: Request, respuesta: Response): Promise<Response> => {
+    const articuloRepositorio = AppDataSource.getRepository(Articulo)
+    try {
+        //hacer la consulta
+        const response = await articuloRepositorio.find()
+
+        //enviar la respuesta
+        respuesta.status(200).send(response)
+    } catch (error) {
+        console.log(error);
+        return respuesta.status(500).json('Error Interno del Servidor');
+    }
+}
+export const getArticuloById = async (solicitud: Request, respuesta: Response): Promise<Response> => {
+    const articuloRepositorio = AppDataSource.getRepository(Articulo)
+    try {
+        // obtener el id del articulo
+        const idArticulo = parseInt(solicitud.params.id)
+
+        //hacer la consulta
+        const response = await articuloRepositorio.findOneBy({ id: idArticulo })
+
+        //enviar la respuesta
+        respuesta.status(200).send(response)
+    } catch (error) {
+        console.log(error);
+        return respuesta.status(500).json('Error Interno del Servidor');
+    }
+};
+export const createArticulo = async (solicitud: Request, respuesta: Response): Promise<Response> => {
+    try {
+        // dto con el body
+        const { descripcion, precio, stock } = solicitud.body;
+        const createArticuloDto = new Articulo()
+        createArticuloDto.descripcion = descripcion
+        createArticuloDto.precio = precio
+        createArticuloDto.stock = stock
+        // hacer la consulta
+        await AppDataSource.manager.save(createArticuloDto)
+
+        //enviar la respuesta
+        respuesta.status(200).json({
+            mensaje: 'Articulo Agregado con exito',
+            datos: createArticuloDto
+        })
+    } catch (error) {
+        console.log(error);
+        return respuesta.status(500).json('Error Interno del Servidor');
+    }
+};
+export const updateArticulo = async (solicitud: Request, respuesta: Response): Promise<Response> => {
+    const articuloRepositorio = AppDataSource.getRepository(Articulo)
+    try {
+        // obtener el id del articulo
+        const idArticulo = parseInt(solicitud.params.id)
+
+        //hacer la consulta
+        const updateArticulo = await articuloRepositorio.findOneBy({ id: idArticulo })
+
+        // dto con el body
+        const { descripcion, precio, stock } = solicitud.body;
+
+        updateArticulo.descripcion = descripcion
+        updateArticulo.precio = precio
+        updateArticulo.stock = stock
+        // hacer la consulta
+        await AppDataSource.manager.save(updateArticulo)
+
+        //enviar la respuesta
+        respuesta.status(200).json({
+            mensaje: 'Articulo Modificado con exito',
+            datos: updateArticulo
+        })
+    } catch (error) {
+        console.log(error);
+        return respuesta.status(500).json('Error Interno del Servidor');
+    }
+};
+export const deleteArticulo = async (solicitud: Request, respuesta: Response): Promise<Response> => {
+    const articuloRepositorio = AppDataSource.getRepository(Articulo)
+    try {
+        // obtener el id del articulo
+        const idArticulo = parseInt(solicitud.params.id)
+
+        //hacer la consulta
+        const deleteArticulo = await articuloRepositorio.findOneBy({ id: idArticulo })
+
+        // hacer la consulta
+        await AppDataSource.manager.remove(deleteArticulo)
+
+        //enviar la respuesta
+        respuesta.status(200).send(`Artículo ${idArticulo} eliminado con éxito`)
+    } catch (error) {
+        console.log(error);
+        return respuesta.status(500).json('Error Interno del Servidor');
+    }
+};
+```
+## 9. Tabla de servicios archivos
+Creación de rutas para operaciones CRUD
+| Método | Función | Equivalente | Body |
+| --------- | --------- | --------- | --------- |
+| GET: /articulos | getArticulos() | http://localhost:3000/articulos | no tiene |
+| GET: /articulos/id | getArticuloById(id: number) | http://localhost:3000/articulos/1 | no tiene |
+| POST: /articulos/ | createArticulo(createArticuloDto: { descripcion, precio, stock }) | http://localhost:3000/articulos/ | { "descripcion": "Pepsi", "precio": 113, "stock": 37 } |
+| PUT: /articulos/id | updateArticulo(id: number, updateArticuloDto: { descripcion, precio, stock }) | http://localhost:3000/articulos/7 | { "descripcion": "PepsiCola", "precio": 10, "stock": 20 } |
+| DELETE: /articulos/id | deleteArticulo(id: number) | http://localhost:3000/articulos/1 | no tiene |
+## 10. Referencia
+- [Example using TypeORM with Express](https://orkhan.gitbook.io/typeorm/docs/example-with-express)
+- [typeorm-repositorio](https://github.com/xixay/typeorm-repositorio)
+- [Example using TypeORM with Express](https://orkhan.gitbook.io/typeorm/docs/example-with-express)
+
+[<< INDICE](../../index.md)

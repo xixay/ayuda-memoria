@@ -1,0 +1,62 @@
+# Workflow para construir y desplegar el sitio estático de VitePress a GitHub Pages
+name: Deploy VitePress site to Pages
+
+on:
+  # Se ejecuta automáticamente en push hacia la rama main (o master)
+  push:
+    branches: [main, master]
+
+  # Permite ejecutar este flujo de trabajo manualmente desde la pestaña Actions
+  workflow_dispatch:
+
+# Otorga permisos del GITHUB_TOKEN para publicar en GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Permite solo un despliegue concurrente, saltando en caso de que existan ejecuciones
+# concurrentes.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  # Trabajo de construcción (Build)
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Necesario si tienes lastUpdated habilitado en VitePress
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm # Si usas pnpm o yarn, cambia a 'pnpm' o 'yarn'
+
+      - name: Instalar dependencias
+        run: npm ci || npm install
+
+      - name: Construir proyecto con VitePress
+        run: npm run docs:build
+
+      - name: Subir artefacto
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/.vitepress/dist
+
+  # Trabajo de despliegue (Deploy)
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

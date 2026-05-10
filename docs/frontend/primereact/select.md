@@ -1,0 +1,62 @@
+[<< INDICE](../../index.md)
+## Autocomplete
+- Importar el componente select
+```jsx
+import { Dropdown } from 'react-mui/dropdown';
+```
+- Codigo que se seleccionara
+```jsx
+  const [eevCodigoSeleccionado, setEevCodigoSeleccionado] = useState(null);
+```
+- Array de objetos de donde saldra la seleccion
+```jsx
+  const [estados, setEstados] = useState([]);
+```
+- Servicio que obtendra el array de objetos
+```jsx
+    useEffect(() => {
+    getEstadosDestinoByIemCodigo(iemCodigo)
+      .then((res) => {
+        setEstados(res);
+      })
+      .catch((err) => toast.error(err.message));
+  }, []);
+```
+- El componente select
+```jsx
+	<Dropdown
+	value={eevCodigoSeleccionado}
+	options={estados}
+	optionLabel="eev_sigla"
+	optionValue="eev_codigo"
+	onChange={(e)=>onChangeEstado(e.value)}
+	/>
+```
+- La función que recoge el codigo seleccionado
+```jsx
+   const onChangeEstado = (item) => {
+    console.log(item);
+    // setGesCodigo(item.value);
+    // getAllActividades(item.value);
+  };
+```
+- Si se quiere traer un dato por defecto, y el dropdown tiene el formato:
+```jsx
+    <DropdownController
+      name='ent_codigo'
+      control={control}
+      rules={rules.required()}
+      label='Entidades*'
+      options={entidades}
+      optionLabel='ent_descripcion'
+      optionValue='ent_codigo'
+      showClear={false}
+    />
+```
+- Setear el valor en el initform
+```jsx
+ useEffect(() => {
+    setValue('ent_codigo',1)
+  }, []);
+```
+[<< INDICE](../../index.md)	

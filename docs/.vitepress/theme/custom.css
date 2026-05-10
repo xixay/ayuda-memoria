@@ -1,0 +1,20 @@
+:root {
+  --vp-c-brand-1: #00ffcc;
+  --vp-c-brand-2: #00ccff;
+  --vp-c-brand-3: #0099ff;
+  --vp-c-brand-soft: rgba(0, 255, 204, 0.16);
+  --vp-c-bg: #0a0a0a;
+  --vp-c-bg-alt: #121212;
+  --vp-c-bg-elv: #1a1a1a;
+  --vp-c-text-1: #e0e0e0;
+}
+
+html {
+  color-scheme: dark; /* Fuerza modo oscuro base */
+}
+
+/* Opcional: Hacer la barra de navegación transparente tipo vidrio */
+.VPNavBar {
+  background-color: rgba(10, 10, 10, 0.8) !important;
+  backdrop-filter: blur(10px);
+}

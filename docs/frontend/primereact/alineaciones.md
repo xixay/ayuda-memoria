@@ -1,0 +1,15 @@
+[<< INDICE](../../index.md)
+## Alineaciones
+### Alineacion horizontal
+```jsx
+<div className="flex justify-content-center">
+    <AccionGroup/>
+</div>
+```
+### Alineacion vertical
+```jsx
+<div className="flex align-content-center">
+    <AccionGroup/>
+</div>
+```
+[<< INDICE](../../index.md)

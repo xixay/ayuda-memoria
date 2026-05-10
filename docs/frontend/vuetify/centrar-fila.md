@@ -1,0 +1,11 @@
+[<< INDICE](../../index.md)
+## centrar y justificar 
+- Para centrar y justificar el contenido de una fila
+```js
+<v-container fill-height fluid>
+  <v-row align="center"
+      justify="center">
+      <v-col></v-col>
+  </v-row>
+</v-container>
+```
