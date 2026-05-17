@@ -1,4 +1,4 @@
-[<< INDICE](../index.md)
+[<< INDICE](./index.md)
 - [1. Crear el archivo de configuracion](#1-crear-el-archivo-de-configuracion)
 - [2. Explicación de las configuraciones](#2-explicación-de-las-configuraciones)
 
@@ -71,7 +71,7 @@
         "[x]"
     ],
     "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS).*(\\n\\s*//\\s{2,}.*)*",
- 
+
 }
 ```
 ## 2. Explicación de las configuraciones
@@ -90,4 +90,4 @@
 - todo-tree.general.tags: Lista de etiquetas reconocidas por todo-tree.
 - todo-tree.regex.regex: Expresión regular para identificar comentarios y etiquetas.
 
-[<< INDICE](../index.md)
+[<< INDICE](./index.md)

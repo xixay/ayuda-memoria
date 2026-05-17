@@ -1,4 +1,4 @@
-[<< INDICE](../index.md)
+[<< INDICE](./index.md)
 
 - [1. Instalar archivos](#1-instalar-archivos)
 - [2. Instalar Vmin](#2-instalar-vmin)
@@ -7,8 +7,8 @@
   - [3.1. Clonar el repositorio](#31-clonar-el-repositorio)
   - [3.2. Obtener la dirección path](#32-obtener-la-dirección-path)
   - [3.3. Crear o modificar el archivo de modificación](#33-crear-o-modificar-el-archivo-de-modificación)
-- [4. Instalar Tmux plugings](#4-instalar-archivos-plugings)
-  - [4.1. Comandos de Tmux plugings](#41-comandos-de-archivos-plugings)
+- [4. Instalar Tmux plugings](#4-instalar-tmux-plugings)
+  - [4.1. Comandos de Tmux plugings](#41-comandos-de-tmux-plugings)
 - [5. Instalando complementos](#5-instalando-complementos)
   - [5.1. Complementos para instalar](#51-complementos-para-instalar)
     - [5.1.1. Comandos de busqueda de copy cat](#511-comandos-de-busqueda-de-copy-cat)
@@ -18,7 +18,7 @@
 - [7. Sesión](#7-sesión)
 - [8. Ventana](#8-ventana)
 - [9. Paneles](#9-paneles)
-- [10. Comandos de Tmux](#10-comandos-de-archivos)
+- [10. Comandos de Tmux](#10-comandos-de-tmux)
   - [10.1. Mouse](#101-mouse)
   - [10.2. Paaneles](#102-paaneles)
   - [10.3. Sesiones](#103-sesiones)
@@ -249,4 +249,4 @@ ctrl+B | :
 - [Tmux](https://www.youtube.com/watch?v=BHhA_ZKjyxo)
 - [Otro Tmux](https://www.youtube.com/watch?v=Yl7NFenTgIo)
 
-[<< INDICE](../index.md)
+[<< INDICE](./index.md)

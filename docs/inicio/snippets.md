@@ -1,4 +1,4 @@
-[<< INDICE](../index.md)
+[<< INDICE](./index.md)
 - [1. Snippets](#1-snippets)
   - [1.1. Comando busqueda](#11-comando-busqueda)
   - [1.2. Snippets información](#12-snippets-información)
@@ -789,4 +789,4 @@ export default (WrappedComponent) => {
   return hocComponent
 }
 ```
-[<< INDICE](../index.md)
+[<< INDICE](./index.md)

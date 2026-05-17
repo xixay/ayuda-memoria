@@ -1,4 +1,4 @@
-[<< INDICE](../index.md)
+[<< INDICE](./index.md)
 ## Crear el archivo de configuracion
 - En la carpeta .vscode crear el archivo settings.json, donde estaran los colores
 ```json
@@ -24,8 +24,8 @@
         "titleBar.inactiveForeground": "#15202b99"
     },
     "peacock.color": "#f9e64f"
- 
+
 }
 ```
 
-[<< INDICE](../index.md)
+[<< INDICE](./index.md)

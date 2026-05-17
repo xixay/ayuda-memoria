@@ -1,4 +1,4 @@
-[<< INDICE](../index.md)
+[<< INDICE](./index.md)
 - [1. Configurar google drive en ubuntu](#1-configurar-google-drive-en-ubuntu)
   - [1.1. Inicia la configuración de rclone: Abre una terminal y escribe:](#11-inicia-la-configuración-de-rclone-abre-una-terminal-y-escribe)
   - [1.2. Nombra tu remoto:](#12-nombra-tu-remoto)
@@ -255,3 +255,4 @@ rclone mount remote: ~/GoogleDrive --vfs-cache-mode writes &
 [1] 2945937
 ```
 
+[<< INDICE](./index.md)

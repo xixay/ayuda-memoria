@@ -1,4 +1,5 @@
-[<< INDICE](../index.md)
+[<< INDICE](https://xixay.github.io/ayuda-memoria/inicio/)
+
 # Realizar los tres siempre
 - 1ro actualizar
 ```console
@@ -12,3 +13,5 @@ sudo apt-get upgrade
 ```console
 sudo apt autoremove
 ```
+
+[<< INDICE](https://xixay.github.io/ayuda-memoria/inicio/)

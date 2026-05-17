@@ -1,4 +1,4 @@
-[<< INDICE](../index.md)
+[<< INDICE](./index.md)
 # Instalar Kasam
 - Para instalar
 ```console
@@ -15,3 +15,5 @@ sudo nano/etc/gdm3/custom.conf
 WaylandEnable=false
 ```
 **![Kasam](/images/5imagenes/instaladores/instalarKasam.png)**
+
+[<< INDICE](./index.md)

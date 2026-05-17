@@ -1,8 +1,8 @@
-[<< INDICE](../index.md)
-- [1. Instalar Warp](#1-instalar-imagenes)
-- [2. Abrir Warp](#2-abrir-imagenes)
+[<< INDICE](./index.md)
+- [1. Instalar Warp](#1-instalar-warp)
+- [2. Abrir Warp](#2-abrir-warp)
 - [3. Hacerle un alias](#3-hacerle-un-alias)
-- [4. Uso de Warp](#4-uso-de-imagenes)
+- [4. Uso de Warp](#4-uso-de-warp)
 - [5. Uso de Workflow](#5-uso-de-workflow)
 - [6. Crear un nuevo workflow](#6-crear-un-nuevo-workflow)
 - [7. Crea un proyecto](#7-crea-un-proyecto)
@@ -125,3 +125,5 @@ ctrl+shift+r
 ![Terminal Warp](/images/5imagenes/warp/10.png)
 
 ![Terminal Warp](/images/5imagenes/warp/11.png)
+
+[<< INDICE](./index.md)

@@ -1,10 +1,10 @@
-[<< INDICE](../index.md)
-- [1. GitHub Descktop](#1-github-descktop)
-  - [1.1. Creando repositorio](#11-creando-repositorio)
-  - [1.2. GitHubDescktop](#12-githubdescktop)
-    - [1.2.1. Changes](#121-changes)
-    - [1.2.2. History](#122-history)
-    - [1.2.3. Current branch](#123-current-branch)
+[<< INDICE](./index.md)
+- [GitHub Desktop](#github-desktop)
+  - [1. Creando Repositorio](#1-creando-repositorio)
+  - [2. GitHub Desktop](#2-github-desktop)
+    - [2.1. Changes](#21-changes)
+    - [2.2. History](#22-history)
+    - [2.3. Current Branch](#23-current-branch)
 # GitHub Desktop
 
 GitHub Desktop es una herramienta gráfica que facilita la gestión de repositorios en GitHub. Permite realizar diversas operaciones sin necesidad de usar comandos de Git directamente desde la línea de comandos.
@@ -71,4 +71,4 @@ De vuelta en GitHub Desktop, en la rama `main`, hacer clic en `Fetch origin` y l
 
 Con estos pasos, se tendrán todos los cambios de `develop` fusionados en `main` en GitHub Desktop.
 
-[<< INDICE](../index.md)
+[<< INDICE](./index.md)

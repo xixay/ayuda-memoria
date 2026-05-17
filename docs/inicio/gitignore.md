@@ -1,4 +1,4 @@
-[<< INDICE](../index.md)
+[<< INDICE](./index.md)
 - [1. Archivo `.gitignore`](#1-archivo-gitignore)
 - [2. Consulta https://help.github.com/articles/ignoring-files/ para obtener más información sobre cómo ignorar archivos.](#2-consulta-httpshelpgithubcomarticlesignoring-files-para-obtener-más-información-sobre-cómo-ignorar-archivos)
 - [3. Vercel](#3-vercel)
@@ -91,7 +91,7 @@ coverage
 ```console
 bower_components
 ```
-- Configuración de node-waf 
+- Configuración de node-waf
 ```console
 .lock-wscript
 ```
@@ -215,4 +215,4 @@ dist
 .pnp.*
 ```
 
-[<< INDICE](../index.md)
+[<< INDICE](./index.md)

@@ -1,4 +1,4 @@
-[<< INDICE](../index.md)
+[<< INDICE](./index.md)
 - [1. Ramas](#1-ramas)
 - [2. Estados, commits y subir cambios](#2-estados-commits-y-subir-cambios)
 - [3. Deshacer cambios](#3-deshacer-cambios)
@@ -105,7 +105,7 @@ git stash list
 - Elimina los espacios de trabajo.
 ```
 git stash clear
-``` 
+```
 # 7. Ver commits anteriores
 - Muestra los commits realizados
 ```console
@@ -168,4 +168,4 @@ git reset --soft HEAD~1
 - [Tablas de markdown](https://www.tablesgenerator.com/markdown_tables#)
 - [Como Deshacer Un Git Pull en Git De Manera Eficiente](https://blog.nubecolectiva.com/como-deshacer-un-git-pull-en-git-de-manera-eficiente/)
 
-[<< INDICE](../index.md)
+[<< INDICE](./index.md)

@@ -1,4 +1,4 @@
-[<< INDICE](../index.md)
+[<< INDICE](./index.md)
 - [1. Instalar zsh](#1-instalar-zsh)
 - [2. Comprobar tipo de terminal](#2-comprobar-tipo-de-terminal)
 - [3. Ver terminales instaladas](#3-ver-terminales-instaladas)
@@ -40,7 +40,7 @@ cat /etc/shells
 /bin/zsh     //La que interesa poner
 /usr/bin/zsh
 ```
-## 4. Cambiar a la terminal zsh(root , usuarios) 
+## 4. Cambiar a la terminal zsh(root , usuarios)
 - Asignar zsh a usuarios, en especial a root y otros
 ```console
 sudo -s  //entrar como root
@@ -48,13 +48,13 @@ sudo -s  //entrar como root
 #chsh -s /bin/zsh xixay
 exec zsh //salir
 ```
-## 5. Reiniciar 
+## 5. Reiniciar
 - Salir de la terminal y volver a entrar
 - Descargar la herramienta para gestionar la zsh
 ## 6. Instalar oh my zsh (usuario)
 ```console
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-yes // dar (Y) , aparecera un mensaje de instalado 
+yes // dar (Y) , aparecera un mensaje de instalado
 ```
 - aparecera un mensaje de instalado
 ```text
@@ -63,14 +63,14 @@ Using the Oh My Zsh template file and adding it to /home/xixay/.zshrc.
 Time to change your default shell to zsh:
 Do you want to change your default shell to zsh? [Y/n] Y
 Changing your shell to /usr/bin/zsh...
-[sudo] contraseña para xixay: 
+[sudo] contraseña para xixay:
 Shell successfully changed to '/usr/bin/zsh'.
 
-         __                                     __   
-  ____  / /_     ____ ___  __  __   ____  _____/ /_  
- / __ \/ __ \   / __ `__ \/ / / /  /_  / / ___/ __ \ 
-/ /_/ / / / /  / / / / / / /_/ /    / /_(__  ) / / / 
-\____/_/ /_/  /_/ /_/ /_/\__, /    /___/____/_/ /_/  
+         __                                     __
+  ____  / /_     ____ ___  __  __   ____  _____/ /_
+ / __ \/ __ \   / __ `__ \/ / / /  /_  / / ___/ __ \
+/ /_/ / / / /  / / / / / / /_/ /    / /_(__  ) / / /
+\____/_/ /_/  /_/ /_/ /_/\__, /    /___/____/_/ /_/
                         /____/                       ....is now installed!
 
 
@@ -91,7 +91,7 @@ yes  //(Y)
 ```console
 su xixay
 ```
-- Ver en que usuario se esta 
+- Ver en que usuario se esta
 ```console
 pwd
 /home/xixay  //respuesta
@@ -140,7 +140,7 @@ This is Powerlevel10k configuration wizard. It will ask you a few questions and
 
 (q)  Quit and do nothing.
 
-Choice [ynq]: 
+Choice [ynq]:
 ```
 - Una vez configurado, hacerlo para el usuario root(No funciono en ubuntu)
 ```console
@@ -155,4 +155,4 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 - https://www.youtube.com/watch?v=EW2eDzBFONw
 - [oh-my-zsh](https://kapeli.com/cheat_sheets/Oh-My-Zsh_Git.docset/Contents/Resources/Documents/index)
 
-[<< INDICE](../index.md)
+[<< INDICE](./index.md)

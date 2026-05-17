@@ -1,5 +1,5 @@
-[<< INDICE](../index.md)
-- [1. Diagrama entidad relacion (Diagrama lógico DER)](#1-diagrama-imagenes-diagrama-lógico-der)
+[<< INDICE](./index.md)
+- [1. Diagrama entidad relacion (Diagrama lógico DER)](#1-diagrama-entidad-relacion-diagrama-lógico-der)
   - [1.1. Entidad](#11-entidad)
     - [1.1.1. Entidad Fuerte](#111-entidad-fuerte)
     - [1.1.2. Entidad Debil](#112-entidad-debil)
@@ -22,14 +22,14 @@
       - [1.4.3.2. Ejm 2](#1432-ejm-2)
       - [1.4.3.3. Ejm 3](#1433-ejm-3)
       - [1.4.3.4. Ejm 4](#1434-ejm-4)
-  - [1.5. Modelo de entidad relacion extendida](#15-modelo-de-imagenes-extendida)
+  - [1.5. Modelo de entidad relacion extendida](#15-modelo-de-entidad-relacion-extendida)
     - [1.5.1. Parcial exclusiva](#151-parcial-exclusiva)
     - [1.5.2. Total exclusiva](#152-total-exclusiva)
     - [1.5.3. Parcial solapada](#153-parcial-solapada)
     - [1.5.4. Total solapada](#154-total-solapada)
       - [1.5.4.1. Ejm 1](#1541-ejm-1)
       - [1.5.4.2. Ejm 2](#1542-ejm-2)
-  - [1.6. Modelo de entidad relacion y cardinalidad](#16-modelo-de-imagenes-y-cardinalidad)
+  - [1.6. Modelo de entidad relacion y cardinalidad](#16-modelo-de-entidad-relacion-y-cardinalidad)
     - [1.6.1. ER uno a uno (1:1)](#161-er-uno-a-uno-11)
     - [1.6.2. ER uno a varios (1:N)](#162-er-uno-a-varios-1n)
     - [1.6.3. ER varios a varios (N:N)](#163-er-varios-a-varios-nn)
@@ -48,7 +48,7 @@
     - [2.3.3. Tercera forma normal (3FN)](#233-tercera-forma-normal-3fn)
       - [2.3.3.1. Ejemplo mas simplificado](#2331-ejemplo-mas-simplificado)
       - [2.3.3.2. Segundo Ejemplo](#2332-segundo-ejemplo)
-- [3. Base de datos PostgreSQL](#3-base-de-datos-postgreimagenes)
+- [3. Base de datos PostgreSQL](#3-base-de-datos-postgresql)
   - [3.1. Definición Base de Datos](#31-definición-base-de-datos)
     - [3.1.1. Componentes Clave de una Base de Datos](#311-componentes-clave-de-una-base-de-datos)
   - [3.2. Tipos de Bases de Datos](#32-tipos-de-bases-de-datos)
@@ -61,11 +61,11 @@
     - [3.4.3. Índices (Indexes)](#343-índices-indexes)
     - [3.4.4. Llave Única (Unique Key)](#344-llave-única-unique-key)
     - [3.4.5. Constraint (Restricción)](#345-constraint-restricción)
-  - [3.5. POSTGRESQL](#35-postgreimagenes)
+  - [3.5. POSTGRESQL](#35-postgresql)
   - [3.6. Ventajas](#36-ventajas)
   - [3.7. Interacción con comandos](#37-interacción-con-comandos)
   - [3.8. Jerarquia de base de datos](#38-jerarquia-de-base-de-datos)
-  - [3.9. Instalar PostgreSql Ubuntu](#39-instalar-postgreimagenes-ubuntu)
+  - [3.9. Instalar PostgreSql Ubuntu](#39-instalar-postgresql-ubuntu)
   - [3.10. Instalar PgAdmin](#310-instalar-pgadmin)
     - [3.10.1. Instalar la clave pública para el repositorio (si no lo hizo anteriormente):](#3101-instalar-la-clave-pública-para-el-repositorio-si-no-lo-hizo-anteriormente)
     - [3.10.2. Crea el archivo de configuración del repositorio:](#3102-crea-el-archivo-de-configuración-del-repositorio)
@@ -73,7 +73,7 @@
     - [3.10.4. Instalar solo para modo de escritorio:](#3104-instalar-solo-para-modo-de-escritorio)
     - [3.10.5. Instalar solo para modo web:](#3105-instalar-solo-para-modo-web)
     - [3.10.6. Configure el servidor web, si instaló pgadmin4-web:](#3106-configure-el-servidor-web-si-instaló-pgadmin4-web)
-  - [3.11. Utilizar roles y bases de datos de PostgreSQL](#311-utilizar-roles-y-bases-de-datos-de-postgreimagenes)
+  - [3.11. Utilizar roles y bases de datos de PostgreSQL](#311-utilizar-roles-y-bases-de-datos-de-postgresql)
     - [3.11.1. Cambiar cuenta de postgres](#3111-cambiar-cuenta-de-postgres)
     - [3.11.2. Acceder a la linea de comandos sin cambiar de cuenta](#3112-acceder-a-la-linea-de-comandos-sin-cambiar-de-cuenta)
   - [3.12. Crear un nuevo rol](#312-crear-un-nuevo-rol)
@@ -101,7 +101,7 @@
   - [3.28. Relacion 1 a 1](#328-relacion-1-a-1)
   - [3.29. Relacion 1 a N](#329-relacion-1-a-n)
   - [3.30. Relacion N a N](#330-relacion-n-a-n)
-  - [3.31. SQL JOINS](#331-imagenes-joins)
+  - [3.31. SQL JOINS](#331-sql-joins)
   - [3.32. INNER JOIN](#332-inner-join)
   - [3.33. LEFT JOIN (LEFT OUTER JOIN)](#333-left-join-left-outer-join)
   - [3.34. LEFT JOIN (A - B)](#334-left-join-a---b)
@@ -207,7 +207,7 @@
   - Un docente podrá impartir varias asignaturas.
   - Una signatura es impartida por un único docente.
   - Se quiere saber el curso escolar en el que cada estudiante está matriculado de cada asignatura
-  
+
 **![est](/images/5imagenes/entidad-relacion/estudiante.jpg)**
 #### 1.4.3.2. Ejm 2
 - Dada las 4 entidades realizar el diagrama E/R:
@@ -219,7 +219,7 @@
   - Un empleado ha nacido en una sola localidad
   - Cada localidad pertenence a una única provincia
   - Cada provincia pertenece a una única región del país.
-  
+
 **![prov](/images/5imagenes/entidad-relacion/provincia.jpg)**
 #### 1.4.3.3. Ejm 3
 - Una empresa dedicada a la instalación de dormitorios juveniles a medida quiere relizar una base de datos donde se reflejen las ventas y montajes, para lo cual se tiene en cuenta:
@@ -229,7 +229,7 @@
   - El mismo empleado puede montar el mismo modelo en diferentes fechas. Nos interesa conocer la fecha en la que realiza cada montaje
   - De un empleado nos interesa su id_empleado, nombre dirección, telefono de contacto y el número de dormitorios que ha montado de cada modelo.
   - Cada modelo de dormitorio puede ser comprado por uno o varios clientes y el mismo cliente podrá comprar uno o varios dormitorios. De un cliente nos interesa su id_cliente, nombre_cli, direccion_cli, telefono_cli y fecha de compra de cada modelo.
-  
+
 **![dorm](/images/5imagenes/entidad-relacion/dormitorio.jpg)**
 #### 1.4.3.4. Ejm 4
 - El hospital tiene varias plantas, cada una de las cuales tiene un nombre y una cantidad de camas.
@@ -237,15 +237,15 @@
 - Los pacientes cuentan con un número de seguro, ci y nombre, cada vez que el paciente llega al hospital se anota en su historia una fecha de entrada y una salida.
 - A su vez cuando llega al hospital y es internadose le aigna una cama.
 - Existen médicos que atienden a las pacientes, estas atenciones las denominan visitas medicas.
-  
+
 **![hosp](/images/5imagenes/entidad-relacion/hospitalDer.jpg)**
 ## 1.5. Modelo de entidad relacion extendida
-- Es un modelo de entidades de nivel más alto  y bajo que heredan  atributos  y se dividen en generalizacion y especificacion 
-- Las entidades hijas heredan los atributos de la entidad padre como tambien la llave primaria 
-- Las entidades hijas no pueden tener el mismo atributo 
+- Es un modelo de entidades de nivel más alto  y bajo que heredan  atributos  y se dividen en generalizacion y especificacion
+- Las entidades hijas heredan los atributos de la entidad padre como tambien la llave primaria
+- Las entidades hijas no pueden tener el mismo atributo
 
 **![gen](/images/5imagenes/entidad-relacion/gen.jpg)**
-### 1.5.1. Parcial exclusiva   
+### 1.5.1. Parcial exclusiva
 - Es parcial porque puede haber más empleados como: mesero, cajero, etc.
 - Y es exclusiva porque el camarero no puede ser cocinero ni el camarero lava platos.
 
@@ -272,7 +272,7 @@
 
 #### 1.5.4.2. Ejm 2
 - Le contratan para hacer una BD que permita apoyar la gestión de un sistema de ventas. La empresa necesita llevar un control de proveedores, clientes, productos y ventas. Un proveedor tiene un RUT, nombre, dirección, telefono y página web.
-- Un cliente tambien tiene RUT, nombre, dirección, pero puede tener varios teléfonos de contacto. 
+- Un cliente tambien tiene RUT, nombre, dirección, pero puede tener varios teléfonos de contacto.
 - La dirección se entiende por calle, numero, comuna y ciudad.
 - Un producto tiene un id único, nombre, precio actual stock y nombre del proveedor. Ademas se organizan en categorías y cada producto va sólo en una categoría.
 - Una categoría tiene id, nombre y descripción.
@@ -347,7 +347,7 @@
 **![1FNE](/images/5imagenes/entidad-relacion/1FNE.jpg)**
 ### 2.3.2. Segunda forma normal (2FN)
 - Debe cumplir la 1FN.
-- No tiene dependencia parcial.Es decir, todos los atributos no claves son totalmente dependientes de la la clave primaria  
+- No tiene dependencia parcial.Es decir, todos los atributos no claves son totalmente dependientes de la la clave primaria
 
 **![2FN](/images/5imagenes/entidad-relacion/2FN.jpg)**
 
@@ -395,7 +395,7 @@
 ### 3.3.2. Consultas (Queries)
 - Utilización de SQL para buscar y recuperar datos específicos según criterios determinados.
 ## 3.4. Conceptos Fundamentales
-- En PostgreSQL (y en sistemas de bases de datos relacionales en general), las llaves primarias y foráneas son conceptos fundamentales para asegurar la integridad y la relación de los datos. 
+- En PostgreSQL (y en sistemas de bases de datos relacionales en general), las llaves primarias y foráneas son conceptos fundamentales para asegurar la integridad y la relación de los datos.
 ### 3.4.1. Llave Primaria (Primary Key)
 - Una llave primaria es una columna o un conjunto de columnas que identifica de manera única a cada fila en una tabla. Las características principales de una llave primaria son:
   - Unicidad: Cada valor en la columna de la llave primaria debe ser único.
@@ -500,9 +500,9 @@ sudo apt install pgadmin4
 ```console
 sudo apt install pgadmin4-desktop
 ```
-### 3.10.5. Instalar solo para modo web: 
+### 3.10.5. Instalar solo para modo web:
 ```console
-sudo apt install pgadmin4-web 
+sudo apt install pgadmin4-web
 ```
 ### 3.10.6. Configure el servidor web, si instaló pgadmin4-web:
 ```console
@@ -548,7 +548,7 @@ ALTER USER nombre_de_tu_usuario WITH SUPERUSER;
 ```
 ## 3.13. Comandos más utilizados
 
-**`\?` listar todos los comandos** 
+**`\?` listar todos los comandos**
 
 ***Comandos de navegación y consulta de información***
 
@@ -611,13 +611,13 @@ ALTER USER nombre_de_usuario WITH PASSWORD 'nueva_contraseña';
 **![ede](/images/5imagenes/entidad-relacion/ejmDE.jpg)**
 ## 3.19. Crear esquemas
 - La sintaxis básica para la creación de esquemas es la siguiente
-```imagenes  
+```imagenes
 CREATE SCHEMA IF NOT EXISTS core;
 CREATE SCHEMA IF NOT EXISTS portafolio;
 ```
 ### 3.19.1. Cambiar al esquema creado
 - La sintaxis básica para cambiar al esquema creado es la siguiente
-```imagenes  
+```imagenes
 SET search_path TO core;
 ```
 ## 3.20. Crear tablas
@@ -722,39 +722,39 @@ Referenciada por:
 - Como ejemplo, añada datos en cada una de las tablas en la que desea agregar, nombrar las columnas y, luego, proporcionar datos para cada una de ellas:
 ```imagenes
 -- Inserción de datos en la tabla core.usuarios
-INSERT INTO core.usuarios (nombre, telefono, email, descripcion, ocupacion, fecha_nac, foto, fecha_reg) 
-VALUES 
+INSERT INTO core.usuarios (nombre, telefono, email, descripcion, ocupacion, fecha_nac, foto, fecha_reg)
+VALUES
 ('Sakura Haruno', 123456789, 'sakura@example.com', 'Ninja médica de Konoha', 'Ninja', '1995-03-28', 'sakura.jpg', NOW()),
 ('Asuka Langley Soryu', 987654321, 'asuka@example.com', 'Piloto del Evangelion Unidad-02', 'Piloto de Eva', '2001-12-04', 'asuka.jpg', NOW());
 
 -- Inserción de datos en la tabla core.proyectos
-INSERT INTO core.proyectos (nombre, foto, descripcion, link, id_usuario) 
-VALUES 
+INSERT INTO core.proyectos (nombre, foto, descripcion, link, id_usuario)
+VALUES
 ('Proyecto de Sakura', 'proyecto_sakura.jpg', 'Desarrollo de técnicas médicas ninja', 'https://github.com/sakura/proyecto', 1),
 ('Proyecto de Asuka', 'proyecto_asuka.jpg', 'Defensa contra los Ángeles', 'https://github.com/asuka/proyecto', 2);
 
 -- Inserción de datos en la tabla core.redes_sociales
-INSERT INTO core.redes_sociales (nombre, foto, id_usuario) 
-VALUES 
+INSERT INTO core.redes_sociales (nombre, foto, id_usuario)
+VALUES
 ('Twitter', 'twitter_icon.jpg', 1),
 ('Webex', 'webex_icon.jpg', 1),
 ('Instagram', 'instagram_icon.jpg', 2);
 
 -- Inserción de datos en la tabla portafolio.habilidades
-INSERT INTO portafolio.habilidades (icono, nombre, descripcion) 
-VALUES 
+INSERT INTO portafolio.habilidades (icono, nombre, descripcion)
+VALUES
 ('habilidad_icon_1.jpg', 'Jutsu Médico', 'Máxima habilidad en técnicas médicas ninja, especializada en jutsu de curación.'),
 ('habilidad_icon_2.jpg', 'Piloto de Evangelion', 'Habilidad excepcional como piloto de la Unidad-02 en la lucha contra los Ángeles.');
 
 -- Inserción de datos en la tabla portafolio.tecnologias
-INSERT INTO portafolio.tecnologias (nombre, foto, id_usuario) 
-VALUES 
+INSERT INTO portafolio.tecnologias (nombre, foto, id_usuario)
+VALUES
 ('Jutsu Médico', 'tecnologia_jutsu_medico.jpg', 1),
 ('Piloto de Evangelion', 'tecnologia_piloto_evangelion.jpg', 2);
 
 -- Inserción de datos en la tabla portafolio.experiencias
-INSERT INTO portafolio.experiencias (nombre, descripcion, id_usuario) 
-VALUES 
+INSERT INTO portafolio.experiencias (nombre, descripcion, id_usuario)
+VALUES
 ('Misión de Protección en Konoha', 'Participación en misiones como ninja médica para proteger la aldea de Konoha.', 1),
 ('Defensa contra los Ángeles', 'Piloto de la Unidad-02 en la lucha contra los Ángeles para proteger la humanidad.', 2);
 
@@ -843,7 +843,7 @@ FROM 	portafolio.tecnologias;
 ```imagenes
 --relacion 1:1
 SELECT  u.id_usuario, u.nombre as nombre_usuario,u.telefono,u.email,u.descripcion,u.ocupacion,u.fecha_nac,u.foto as foto_usuario,u.fecha_reg,
-        t.id_tecnologia,t.nombre as nombre_tecnologia,t.foto as foto_tecnologia 
+        t.id_tecnologia,t.nombre as nombre_tecnologia,t.foto as foto_tecnologia
 FROM    core.usuarios u, portafolio.tecnologias t
 WHERE   u.id_usuario=t.id_usuario AND u.id_usuario =1;
 ```
@@ -857,8 +857,8 @@ WHERE   u.id_usuario=t.id_usuario AND u.id_usuario =1;
 ```imagenes
 --relacion 1:N
 SELECT  u.id_usuario ,u.nombre as nombre_usuario,
-        rs.nombre as nombre_red_social, rs.foto as foto_red_social 
-FROM    core.usuarios u ,core.redes_sociales rs 
+        rs.nombre as nombre_red_social, rs.foto as foto_red_social
+FROM    core.usuarios u ,core.redes_sociales rs
 WHERE   u.id_usuario=rs.id_usuario AND u.id_usuario =1 ;
 ```
 
@@ -900,7 +900,7 @@ FROM 	  core.usuarios u
 		    INNER JOIN core.usuarios_habilidades uh ON u.id_usuario = uh.id_usuario
 		    INNER JOIN portafolio.habilidades h ON uh.id_habilidad = h.id_habilidad
 order by u.id_usuario ;
-``` 
+```
 |id_usuario|nombre_usuario|habilidad_nombre|
 |----------|--------------|----------------|
 |1|Sakura Haruno|Jutsu Médico|
@@ -915,7 +915,7 @@ order by u.id_usuario ;
 ```imagenes
 --LEFT JOIN
 --Obtener todos los usuarios y sus proyectos (si tienen alguno)
-SELECT  u.*, 
+SELECT  u.*,
         p.nombre AS proyecto_nombre
 FROM    core.usuarios u
         LEFT JOIN core.proyectos p ON u.id_usuario = p.id_usuario;
@@ -929,7 +929,7 @@ FROM    core.usuarios u
 |1|Sakura Haruno|123456789|sakura@example.com|Ninja médica de Konoha|Ninja|1995-03-28|sakura.jpg|2024-01-21 19:27:58.957|Proyecto de Sakura|
 |2|Asuka Langley Soryu|987654321|asuka@example.com|Piloto del Evangelion Unidad-02|Piloto de Eva|2001-12-04|asuka.jpg|2024-01-21 19:27:58.957|Proyecto de Asuka|
 
-## 3.34. LEFT JOIN (A - B) 
+## 3.34. LEFT JOIN (A - B)
 - Para realizar una consulta que utilice la diferencia de conjuntos (A - B) entre las tablas core.usuarios y portafolio.tecnologias en PostgreSQL, y para entender cómo se relacionan estos conjuntos, podemos usar una operación de LEFT JOIN con una condición que excluya los registros que tienen correspondencia en ambas tablas.
 
 **![aloj](/images/5imagenes/entidad-relacion/anime-a-b.png)**
@@ -960,7 +960,7 @@ WHERE   t.id_usuario IS NULL;
 ```imagenes
 --RIGHT JOIN
 -- Obtener todos los proyectos y sus usuarios (incluso si no tienen un usuario asociado)
-SELECT  p.*, 
+SELECT  p.*,
         u.nombre AS usuario_nombre
 FROM    core.proyectos p
         RIGHT JOIN core.usuarios u ON p.id_usuario = u.id_usuario;
@@ -1026,7 +1026,7 @@ SELECT * FROM vw_usuario_habilidades;
 |1|Sakura Haruno|123456789|sakura@example.com|Ninja médica de Konoha|Ninja|1995-03-28|sakura.jpg|2024-01-21 19:27:58.957|Piloto de Evangelion|
 
 ## 3.38. TEMPORAL
-- En SQL, la palabra clave "TEMPORAL" se refiere a la creación de una tabla temporal. Una tabla temporal es una tabla que existe solo por el tiempo de vida de la conexión de la base de datos, es decir, se elimina automáticamente al finalizar la conexión. 
+- En SQL, la palabra clave "TEMPORAL" se refiere a la creación de una tabla temporal. Una tabla temporal es una tabla que existe solo por el tiempo de vida de la conexión de la base de datos, es decir, se elimina automáticamente al finalizar la conexión.
 ```imagenes
 --temporal
 -- Crear una tabla temporal para almacenar usuarios con proyectos
@@ -1368,4 +1368,4 @@ ORDER BY u.id_usuario;
 |21|Nuevo Usuario||0|0|
 |22|Nuevo Usuario2||0|0|
 
-[<< INDICE](../index.md)
+[<< INDICE](./index.md)

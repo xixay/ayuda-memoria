@@ -1,4 +1,4 @@
-[<< INDICE](../index.md)
+[<< INDICE](./index.md)
 - [1. Atajos abreviados Oh My Zsh, GIT](#1-atajos-abreviados-oh-my-zsh-git)
   - [1.1. Git add](#11-git-add)
   - [1.2. Git aplly](#12-git-aplly)
@@ -391,7 +391,7 @@
 |    gswc                   |   git switch -c                                                                                                                                    |
 |    gswm                   |   git switch $(git_main_branch)                                                                                                                    |
 |    gswd                   |   git switch $(git_develop_branch)                                                                                                                 |
-### 1.38. Git tag 
+### 1.38. Git tag
 - Crea, lista o elimina etiquetas en los commits.
 
 |  g                        |   git                                                                                                                                              |
@@ -427,4 +427,4 @@
 - https://www.youtube.com/watch?v=EW2eDzBFONw
 - [oh-my-zsh](https://kapeli.com/cheat_sheets/Oh-My-Zsh_Git.docset/Contents/Resources/Documents/index)
 
-[<< INDICE](../index.md)
+[<< INDICE](./index.md)

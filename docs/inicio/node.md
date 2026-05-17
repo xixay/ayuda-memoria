@@ -1,4 +1,4 @@
-[<< INDICE](../index.md)
+[<< INDICE](./index.md)
 - [1. Instalar node usando nvm(node  version manager)](#1-instalar-node-usando-nvmnode--version-manager)
 - [2. Instalar una version en especifica Node.js](#2-instalar-una-version-en-especifica-nodejs)
 - [3. Listar las versiones de node](#3-listar-las-versiones-de-node)
@@ -50,7 +50,7 @@ nvm alias default v12.22.0
 ```console
 node -v
 ```
-## 5. Para usar una version lts con largo mantenimiento en especifica Node.js 
+## 5. Para usar una version lts con largo mantenimiento en especifica Node.js
 //INSTALAR
 - Ver la version de node instalado
 ```console
@@ -66,7 +66,7 @@ nvm install  --lts
 ```
 - usar el node de mayor duracion de mantenimiento
 ```console
-nvm use --lts   ()  
+nvm use --lts   ()
 ```
 ## 6. Eliminar una versión de Node.js
 ```console
@@ -86,4 +86,4 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 - [Comandos nvm node](https://franyerverjel.com/blog/como-establecer-la-version-predeterminada-de-node-con-nvm)
 - [Instalar NVM en Ubuntu 20.04](https://gndx.dev/blog/instalar-nvm-en-ubuntu-20-04/)
 
-[<< INDICE](../index.md)
+[<< INDICE](./index.md)
