@@ -9,11 +9,11 @@ Guías y fragmentos para trabajar con Vue y Vuetify.
 
 ### 🧩 Componentes y Estructura
 * [Componente Vuetify](./componente.md)
-* [Lienzo Vuetify](./1.3-lienzo.md)
+* [Lienzo Vuetify](./lienzo.md)
 * [Select Vuetify](./select.md)
 * [TextField Vuetify](./text-field.md)
 * [Checkbox Vuetify](./check-box.md)
-* [V-DataTable](./java-script-table.md)
+* [V-DataTable](./data-table.md)
 
 ### 🎨 Estilos y Comportamiento
 * [Estilos con Variables Vuetify](./estilos-como-variables.md)

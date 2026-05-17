@@ -6,7 +6,7 @@ Bienvenido al área de desarrollo Backend. Aquí encontrarás guías, configurac
 
 | Tecnología | Descripción | Acceso |
 |------------|-------------|--------|
-| 🔴 **[NestJS](./nestJs/index.md)** | Decoradores, Seeders, CRUDS, Encriptación y BD. | [Ver NestJS ➜](./nestJs/index.md) |
+| 🔴 **[NestJS](./nestjs/index.md)** | Decoradores, Seeders, CRUDS, Encriptación y BD. | [Ver NestJS ➜](./nestjs/index.md) |
 | 🐇 **[RabbitMQ](./rabbitmq/index.md)** | Integración de Node + RabbitMQ para colas. | [Ver RabbitMQ ➜](./rabbitmq/index.md) |
 | 🍃 **[MongoDB](./mongodb/index.md)** | Configuración y uso de bases de datos NoSQL. | [Ver MongoDB ➜](./mongodb/index.md) |
 
