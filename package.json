@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "---",
   "main": "generate-html-to-pdf.js",
+  "overrides": {
+    "vite": "^6.4.2",
+    "esbuild": "^0.25.0"
+  },
   "dependencies": {
     "ansi-regex": "^6.2.2",
     "ansi-styles": "^6.2.3",
