@@ -7,6 +7,7 @@ Proyectos y repositorios propios estructurados.
 | **Nestjs** | [Ver](https://github.com/xixay/a_curso_nest_proyecto_base_backend) |
 | **Express Postgres** | [Ver](https://github.com/xixay/express_postgres) |
 | **Express Prisma Postgres** | [Ver](https://github.com/xixay/express_prisma_postgres) |
+| **Express Prisma Postgres Babel** | [Ver](https://github.com/xixay/express_prisma_postgres_babel) |
 | **Express Prisma Frontend html** | [Ver](https://github.com/xixay/express_prisma_frontend_html) |
 | **Express Prisma Frontend vue** | [Ver](https://github.com/xixay/express_prisma_frontend_vue) |
 | **Express Prisma Frontend react** | [Ver](https://github.com/xixay/express_prisma_frontend_react) |
