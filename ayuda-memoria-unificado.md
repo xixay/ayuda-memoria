@@ -104,7 +104,7 @@ cat /etc/shells
 /bin/zsh     //La que interesa poner
 /usr/bin/zsh
 ```
-## 4. Cambiar a la terminal zsh(root , usuarios) 
+## 4. Cambiar a la terminal zsh(root , usuarios)
 - Asignar zsh a usuarios, en especial a root y otros
 ```console
 sudo -s  //entrar como root
@@ -112,13 +112,13 @@ sudo -s  //entrar como root
 #chsh -s /bin/zsh xixay
 exec zsh //salir
 ```
-## 5. Reiniciar 
+## 5. Reiniciar
 - Salir de la terminal y volver a entrar
 - Descargar la herramienta para gestionar la zsh
 ## 6. Instalar oh my zsh (usuario)
 ```console
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-yes // dar (Y) , aparecera un mensaje de instalado 
+yes // dar (Y) , aparecera un mensaje de instalado
 ```
 - aparecera un mensaje de instalado
 ```text
@@ -127,14 +127,14 @@ Using the Oh My Zsh template file and adding it to /home/xixay/.zshrc.
 Time to change your default shell to zsh:
 Do you want to change your default shell to zsh? [Y/n] Y
 Changing your shell to /usr/bin/zsh...
-[sudo] contraseña para xixay: 
+[sudo] contraseña para xixay:
 Shell successfully changed to '/usr/bin/zsh'.
 
-         __                                     __   
-  ____  / /_     ____ ___  __  __   ____  _____/ /_  
- / __ \/ __ \   / __ `__ \/ / / /  /_  / / ___/ __ \ 
-/ /_/ / / / /  / / / / / / /_/ /    / /_(__  ) / / / 
-\____/_/ /_/  /_/ /_/ /_/\__, /    /___/____/_/ /_/  
+         __                                     __
+  ____  / /_     ____ ___  __  __   ____  _____/ /_
+ / __ \/ __ \   / __ `__ \/ / / /  /_  / / ___/ __ \
+/ /_/ / / / /  / / / / / / /_/ /    / /_(__  ) / / /
+\____/_/ /_/  /_/ /_/ /_/\__, /    /___/____/_/ /_/
                         /____/                       ....is now installed!
 
 
@@ -155,7 +155,7 @@ yes  //(Y)
 ```console
 su xixay
 ```
-- Ver en que usuario se esta 
+- Ver en que usuario se esta
 ```console
 pwd
 /home/xixay  //respuesta
@@ -204,7 +204,7 @@ This is Powerlevel10k configuration wizard. It will ask you a few questions and
 
 (q)  Quit and do nothing.
 
-Choice [ynq]: 
+Choice [ynq]:
 ```
 - Una vez configurado, hacerlo para el usuario root(No funciono en ubuntu)
 ```console
@@ -281,7 +281,7 @@ nvm alias default v12.22.0
 ```console
 node -v
 ```
-## 5. Para usar una version lts con largo mantenimiento en especifica Node.js 
+## 5. Para usar una version lts con largo mantenimiento en especifica Node.js
 //INSTALAR
 - Ver la version de node instalado
 ```console
@@ -297,7 +297,7 @@ nvm install  --lts
 ```
 - usar el node de mayor duracion de mantenimiento
 ```console
-nvm use --lts   ()  
+nvm use --lts   ()
 ```
 ## 6. Eliminar una versión de Node.js
 ```console
@@ -434,7 +434,7 @@ git stash list
 - Elimina los espacios de trabajo.
 ```
 git stash clear
-``` 
+```
 # 7. Ver commits anteriores
 - Muestra los commits realizados
 ```console
@@ -901,7 +901,7 @@ git reset --soft HEAD~1
 |    gswc                   |   git switch -c                                                                                                                                    |
 |    gswm                   |   git switch $(git_main_branch)                                                                                                                    |
 |    gswd                   |   git switch $(git_develop_branch)                                                                                                                 |
-### 1.38. Git tag 
+### 1.38. Git tag
 - Crea, lista o elimina etiquetas en los commits.
 
 |  g                        |   git                                                                                                                                              |
@@ -1205,7 +1205,7 @@ eval "$(ssh-agent)"
 ```txt
 Agent pid 1751
 ```
-- Despues agregar la entidad al ssh 
+- Despues agregar la entidad al ssh
 ```console
 ssh-add ~/.ssh/id_ed25519
 ```
@@ -1262,7 +1262,7 @@ Identity added: /home/xixay/.ssh/id_ed25519 (xixay2013@gmail.com) // respuesta
 ```console
 git config --global user.name "xixay"
 git config --global user.email "xixay2013@gmail.com"
-``` 
+```
 # 6. Subir clave ssh creada en wsl2 de windows a GitHub
 - Para subir la clave pública a GitHub iniciamos sesión en https://github.com/, hacemos click en el avatar de nosotros, despues en settings ingresamos a  Claves SSH (SSh and GPG keys).
 - Esto nos mostrará una lista de las claves subidas con sus correspondientes nombres y datos de uso. En esta sección es posible eliminar las claves públicas ya subidas.
@@ -1345,7 +1345,7 @@ git remote -v
 # 1. Gestión de Archivos en Linux
 ## 1.1. Ir a la dirección
 ```text
-rteran@agetic137:/etc/kong$ 
+rteran@agetic137:/etc/kong$
 ```
 ## 1.2. Ver los permisos del archivo
 ```console
@@ -1392,19 +1392,19 @@ vim kong.conf
   - [1.4. Para subir los repositorios](#14-para-subir-los-repositorios)
 
 ## 1. Configuraciones De usuario y email para GIT
-- Son el nombre de usuario y correo, de quien realizo el commit 
+- Son el nombre de usuario y correo, de quien realizo el commit
 ### 1.1. Lista de configuraciones
 - Para ver el usuario y correo registrados
 ```console
 git config --list
 ```
-### 1.2. Agregar usuario global 
-- El nombre de usuario global para todos los repositorios 
+### 1.2. Agregar usuario global
+- El nombre de usuario global para todos los repositorios
 ```console
 git config --global user.name "rteran"
 ```
 ### 1.3. Agregar correo global
-- El correo de usuario global para todos los repositorios 
+- El correo de usuario global para todos los repositorios
 ```console
 git config --global user.email richard_teran@contraloria.gob.bo
 ```
@@ -1422,7 +1422,7 @@ origin	https://github.com/xixay/ayuda-memoria.git (push)  //El envío es la form
 ```console
 git remote set-url origin git@github.com:xixay/ayuda-memoria.git
 ```
-- Comprobar que este en ssh: 
+- Comprobar que este en ssh:
 ```console
 git remote -v
 ```
@@ -2307,7 +2307,7 @@ tmux source-file ~/.tmux.conf
 ```console
 vi .tmux.conf
 ```
-- Copiar su instalador y guardar 
+- Copiar su instalador y guardar
 ```txt
 set set -g (Complemento)
 ```
@@ -2524,7 +2524,7 @@ ctrl+B | :
         "[x]"
     ],
     "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS).*(\\n\\s*//\\s{2,}.*)*",
- 
+
 }
 ```
 ## 2. Explicación de las configuraciones
@@ -2579,7 +2579,7 @@ ctrl+B | :
         "titleBar.inactiveForeground": "#15202b99"
     },
     "peacock.color": "#f9e64f"
- 
+
 }
 ```
 
@@ -2686,7 +2686,7 @@ coverage
 ```console
 bower_components
 ```
-- Configuración de node-waf 
+- Configuración de node-waf
 ```console
 .lock-wscript
 ```
@@ -3029,7 +3029,7 @@ dist
   - Un docente podrá impartir varias asignaturas.
   - Una signatura es impartida por un único docente.
   - Se quiere saber el curso escolar en el que cada estudiante está matriculado de cada asignatura
-  
+
 **![est](file:///5imagenes/entidad-relacion/estudiante.jpg)**
 #### 1.4.3.2. Ejm 2
 - Dada las 4 entidades realizar el diagrama E/R:
@@ -3041,7 +3041,7 @@ dist
   - Un empleado ha nacido en una sola localidad
   - Cada localidad pertenence a una única provincia
   - Cada provincia pertenece a una única región del país.
-  
+
 **![prov](file:///5imagenes/entidad-relacion/provincia.jpg)**
 #### 1.4.3.3. Ejm 3
 - Una empresa dedicada a la instalación de dormitorios juveniles a medida quiere relizar una base de datos donde se reflejen las ventas y montajes, para lo cual se tiene en cuenta:
@@ -3051,7 +3051,7 @@ dist
   - El mismo empleado puede montar el mismo modelo en diferentes fechas. Nos interesa conocer la fecha en la que realiza cada montaje
   - De un empleado nos interesa su id_empleado, nombre dirección, telefono de contacto y el número de dormitorios que ha montado de cada modelo.
   - Cada modelo de dormitorio puede ser comprado por uno o varios clientes y el mismo cliente podrá comprar uno o varios dormitorios. De un cliente nos interesa su id_cliente, nombre_cli, direccion_cli, telefono_cli y fecha de compra de cada modelo.
-  
+
 **![dorm](file:///5imagenes/entidad-relacion/dormitorio.jpg)**
 #### 1.4.3.4. Ejm 4
 - El hospital tiene varias plantas, cada una de las cuales tiene un nombre y una cantidad de camas.
@@ -3059,15 +3059,15 @@ dist
 - Los pacientes cuentan con un número de seguro, ci y nombre, cada vez que el paciente llega al hospital se anota en su historia una fecha de entrada y una salida.
 - A su vez cuando llega al hospital y es internadose le aigna una cama.
 - Existen médicos que atienden a las pacientes, estas atenciones las denominan visitas medicas.
-  
+
 **![hosp](file:///5imagenes/entidad-relacion/hospitalDer.jpg)**
 ## 1.5. Modelo de entidad relacion extendida
-- Es un modelo de entidades de nivel más alto  y bajo que heredan  atributos  y se dividen en generalizacion y especificacion 
-- Las entidades hijas heredan los atributos de la entidad padre como tambien la llave primaria 
-- Las entidades hijas no pueden tener el mismo atributo 
+- Es un modelo de entidades de nivel más alto  y bajo que heredan  atributos  y se dividen en generalizacion y especificacion
+- Las entidades hijas heredan los atributos de la entidad padre como tambien la llave primaria
+- Las entidades hijas no pueden tener el mismo atributo
 
 **![gen](file:///5imagenes/entidad-relacion/gen.jpg)**
-### 1.5.1. Parcial exclusiva   
+### 1.5.1. Parcial exclusiva
 - Es parcial porque puede haber más empleados como: mesero, cajero, etc.
 - Y es exclusiva porque el camarero no puede ser cocinero ni el camarero lava platos.
 
@@ -3094,7 +3094,7 @@ dist
 
 #### 1.5.4.2. Ejm 2
 - Le contratan para hacer una BD que permita apoyar la gestión de un sistema de ventas. La empresa necesita llevar un control de proveedores, clientes, productos y ventas. Un proveedor tiene un RUT, nombre, dirección, telefono y página web.
-- Un cliente tambien tiene RUT, nombre, dirección, pero puede tener varios teléfonos de contacto. 
+- Un cliente tambien tiene RUT, nombre, dirección, pero puede tener varios teléfonos de contacto.
 - La dirección se entiende por calle, numero, comuna y ciudad.
 - Un producto tiene un id único, nombre, precio actual stock y nombre del proveedor. Ademas se organizan en categorías y cada producto va sólo en una categoría.
 - Una categoría tiene id, nombre y descripción.
@@ -3169,7 +3169,7 @@ dist
 **![1FNE](file:///5imagenes/entidad-relacion/1FNE.jpg)**
 ### 2.3.2. Segunda forma normal (2FN)
 - Debe cumplir la 1FN.
-- No tiene dependencia parcial.Es decir, todos los atributos no claves son totalmente dependientes de la la clave primaria  
+- No tiene dependencia parcial.Es decir, todos los atributos no claves son totalmente dependientes de la la clave primaria
 
 **![2FN](file:///5imagenes/entidad-relacion/2FN.jpg)**
 
@@ -3217,7 +3217,7 @@ dist
 ### 3.3.2. Consultas (Queries)
 - Utilización de SQL para buscar y recuperar datos específicos según criterios determinados.
 ## 3.4. Conceptos Fundamentales
-- En PostgreSQL (y en sistemas de bases de datos relacionales en general), las llaves primarias y foráneas son conceptos fundamentales para asegurar la integridad y la relación de los datos. 
+- En PostgreSQL (y en sistemas de bases de datos relacionales en general), las llaves primarias y foráneas son conceptos fundamentales para asegurar la integridad y la relación de los datos.
 ### 3.4.1. Llave Primaria (Primary Key)
 - Una llave primaria es una columna o un conjunto de columnas que identifica de manera única a cada fila en una tabla. Las características principales de una llave primaria son:
   - Unicidad: Cada valor en la columna de la llave primaria debe ser único.
@@ -3322,9 +3322,9 @@ sudo apt install pgadmin4
 ```console
 sudo apt install pgadmin4-desktop
 ```
-### 3.10.5. Instalar solo para modo web: 
+### 3.10.5. Instalar solo para modo web:
 ```console
-sudo apt install pgadmin4-web 
+sudo apt install pgadmin4-web
 ```
 ### 3.10.6. Configure el servidor web, si instaló pgadmin4-web:
 ```console
@@ -3370,7 +3370,7 @@ ALTER USER nombre_de_tu_usuario WITH SUPERUSER;
 ```
 ## 3.13. Comandos más utilizados
 
-**`\?` listar todos los comandos** 
+**`\?` listar todos los comandos**
 
 ***Comandos de navegación y consulta de información***
 
@@ -3433,13 +3433,13 @@ ALTER USER nombre_de_usuario WITH PASSWORD 'nueva_contraseña';
 **![ede](file:///5imagenes/entidad-relacion/ejmDE.jpg)**
 ## 3.19. Crear esquemas
 - La sintaxis básica para la creación de esquemas es la siguiente
-```sql  
+```sql
 CREATE SCHEMA IF NOT EXISTS core;
 CREATE SCHEMA IF NOT EXISTS portafolio;
 ```
 ### 3.19.1. Cambiar al esquema creado
 - La sintaxis básica para cambiar al esquema creado es la siguiente
-```sql  
+```sql
 SET search_path TO core;
 ```
 ## 3.20. Crear tablas
@@ -3544,39 +3544,39 @@ Referenciada por:
 - Como ejemplo, añada datos en cada una de las tablas en la que desea agregar, nombrar las columnas y, luego, proporcionar datos para cada una de ellas:
 ```sql
 -- Inserción de datos en la tabla core.usuarios
-INSERT INTO core.usuarios (nombre, telefono, email, descripcion, ocupacion, fecha_nac, foto, fecha_reg) 
-VALUES 
+INSERT INTO core.usuarios (nombre, telefono, email, descripcion, ocupacion, fecha_nac, foto, fecha_reg)
+VALUES
 ('Sakura Haruno', 123456789, 'sakura@example.com', 'Ninja médica de Konoha', 'Ninja', '1995-03-28', 'sakura.jpg', NOW()),
 ('Asuka Langley Soryu', 987654321, 'asuka@example.com', 'Piloto del Evangelion Unidad-02', 'Piloto de Eva', '2001-12-04', 'asuka.jpg', NOW());
 
 -- Inserción de datos en la tabla core.proyectos
-INSERT INTO core.proyectos (nombre, foto, descripcion, link, id_usuario) 
-VALUES 
+INSERT INTO core.proyectos (nombre, foto, descripcion, link, id_usuario)
+VALUES
 ('Proyecto de Sakura', 'proyecto_sakura.jpg', 'Desarrollo de técnicas médicas ninja', 'https://github.com/sakura/proyecto', 1),
 ('Proyecto de Asuka', 'proyecto_asuka.jpg', 'Defensa contra los Ángeles', 'https://github.com/asuka/proyecto', 2);
 
 -- Inserción de datos en la tabla core.redes_sociales
-INSERT INTO core.redes_sociales (nombre, foto, id_usuario) 
-VALUES 
+INSERT INTO core.redes_sociales (nombre, foto, id_usuario)
+VALUES
 ('Twitter', 'twitter_icon.jpg', 1),
 ('Webex', 'webex_icon.jpg', 1),
 ('Instagram', 'instagram_icon.jpg', 2);
 
 -- Inserción de datos en la tabla portafolio.habilidades
-INSERT INTO portafolio.habilidades (icono, nombre, descripcion) 
-VALUES 
+INSERT INTO portafolio.habilidades (icono, nombre, descripcion)
+VALUES
 ('habilidad_icon_1.jpg', 'Jutsu Médico', 'Máxima habilidad en técnicas médicas ninja, especializada en jutsu de curación.'),
 ('habilidad_icon_2.jpg', 'Piloto de Evangelion', 'Habilidad excepcional como piloto de la Unidad-02 en la lucha contra los Ángeles.');
 
 -- Inserción de datos en la tabla portafolio.tecnologias
-INSERT INTO portafolio.tecnologias (nombre, foto, id_usuario) 
-VALUES 
+INSERT INTO portafolio.tecnologias (nombre, foto, id_usuario)
+VALUES
 ('Jutsu Médico', 'tecnologia_jutsu_medico.jpg', 1),
 ('Piloto de Evangelion', 'tecnologia_piloto_evangelion.jpg', 2);
 
 -- Inserción de datos en la tabla portafolio.experiencias
-INSERT INTO portafolio.experiencias (nombre, descripcion, id_usuario) 
-VALUES 
+INSERT INTO portafolio.experiencias (nombre, descripcion, id_usuario)
+VALUES
 ('Misión de Protección en Konoha', 'Participación en misiones como ninja médica para proteger la aldea de Konoha.', 1),
 ('Defensa contra los Ángeles', 'Piloto de la Unidad-02 en la lucha contra los Ángeles para proteger la humanidad.', 2);
 
@@ -3665,7 +3665,7 @@ FROM 	portafolio.tecnologias;
 ```sql
 --relacion 1:1
 SELECT  u.id_usuario, u.nombre as nombre_usuario,u.telefono,u.email,u.descripcion,u.ocupacion,u.fecha_nac,u.foto as foto_usuario,u.fecha_reg,
-        t.id_tecnologia,t.nombre as nombre_tecnologia,t.foto as foto_tecnologia 
+        t.id_tecnologia,t.nombre as nombre_tecnologia,t.foto as foto_tecnologia
 FROM    core.usuarios u, portafolio.tecnologias t
 WHERE   u.id_usuario=t.id_usuario AND u.id_usuario =1;
 ```
@@ -3679,8 +3679,8 @@ WHERE   u.id_usuario=t.id_usuario AND u.id_usuario =1;
 ```sql
 --relacion 1:N
 SELECT  u.id_usuario ,u.nombre as nombre_usuario,
-        rs.nombre as nombre_red_social, rs.foto as foto_red_social 
-FROM    core.usuarios u ,core.redes_sociales rs 
+        rs.nombre as nombre_red_social, rs.foto as foto_red_social
+FROM    core.usuarios u ,core.redes_sociales rs
 WHERE   u.id_usuario=rs.id_usuario AND u.id_usuario =1 ;
 ```
 
@@ -3722,7 +3722,7 @@ FROM 	  core.usuarios u
 		    INNER JOIN core.usuarios_habilidades uh ON u.id_usuario = uh.id_usuario
 		    INNER JOIN portafolio.habilidades h ON uh.id_habilidad = h.id_habilidad
 order by u.id_usuario ;
-``` 
+```
 |id_usuario|nombre_usuario|habilidad_nombre|
 |----------|--------------|----------------|
 |1|Sakura Haruno|Jutsu Médico|
@@ -3737,7 +3737,7 @@ order by u.id_usuario ;
 ```sql
 --LEFT JOIN
 --Obtener todos los usuarios y sus proyectos (si tienen alguno)
-SELECT  u.*, 
+SELECT  u.*,
         p.nombre AS proyecto_nombre
 FROM    core.usuarios u
         LEFT JOIN core.proyectos p ON u.id_usuario = p.id_usuario;
@@ -3751,7 +3751,7 @@ FROM    core.usuarios u
 |1|Sakura Haruno|123456789|sakura@example.com|Ninja médica de Konoha|Ninja|1995-03-28|sakura.jpg|2024-01-21 19:27:58.957|Proyecto de Sakura|
 |2|Asuka Langley Soryu|987654321|asuka@example.com|Piloto del Evangelion Unidad-02|Piloto de Eva|2001-12-04|asuka.jpg|2024-01-21 19:27:58.957|Proyecto de Asuka|
 
-## 3.34. LEFT JOIN (A - B) 
+## 3.34. LEFT JOIN (A - B)
 - Para realizar una consulta que utilice la diferencia de conjuntos (A - B) entre las tablas core.usuarios y portafolio.tecnologias en PostgreSQL, y para entender cómo se relacionan estos conjuntos, podemos usar una operación de LEFT JOIN con una condición que excluya los registros que tienen correspondencia en ambas tablas.
 
 **![aloj](file:///5imagenes/entidad-relacion/anime-a-b.png)**
@@ -3782,7 +3782,7 @@ WHERE   t.id_usuario IS NULL;
 ```sql
 --RIGHT JOIN
 -- Obtener todos los proyectos y sus usuarios (incluso si no tienen un usuario asociado)
-SELECT  p.*, 
+SELECT  p.*,
         u.nombre AS usuario_nombre
 FROM    core.proyectos p
         RIGHT JOIN core.usuarios u ON p.id_usuario = u.id_usuario;
@@ -3848,7 +3848,7 @@ SELECT * FROM vw_usuario_habilidades;
 |1|Sakura Haruno|123456789|sakura@example.com|Ninja médica de Konoha|Ninja|1995-03-28|sakura.jpg|2024-01-21 19:27:58.957|Piloto de Evangelion|
 
 ## 3.38. TEMPORAL
-- En SQL, la palabra clave "TEMPORAL" se refiere a la creación de una tabla temporal. Una tabla temporal es una tabla que existe solo por el tiempo de vida de la conexión de la base de datos, es decir, se elimina automáticamente al finalizar la conexión. 
+- En SQL, la palabra clave "TEMPORAL" se refiere a la creación de una tabla temporal. Una tabla temporal es una tabla que existe solo por el tiempo de vida de la conexión de la base de datos, es decir, se elimina automáticamente al finalizar la conexión.
 ```sql
 --temporal
 -- Crear una tabla temporal para almacenar usuarios con proyectos
@@ -4779,7 +4779,7 @@ Cuando ejecutas los archivos en la carpeta Día_1 deberías obtener esto:
 # 📄 1.21. VSCode Configuración
 
 [<< INDICE](../../README.md)
-## Configuracion 
+## Configuracion
 - Ruta
 ```console
 ~/.config/Code/User/profiles/5dc970e5/settings.json
@@ -4880,9 +4880,9 @@ netstat -plntu
 (No todos los procesos pueden ser identificados, no hay información de propiedad del proceso
  no se mostrarán, necesita ser superusuario para verlos todos.)
 Conexiones activas de Internet (solo servidores)
-Proto  Recib Enviad Dirección local         Dirección remota       Estado       PID/Program name    
-tcp        0      0 0.0.0.0:5432            0.0.0.0:*               ESCUCHAR    -                   
-tcp        0      0 127.0.0.1:8828          0.0.0.0:*               ESCUCHAR    24141/Code --standa 
+Proto  Recib Enviad Dirección local         Dirección remota       Estado       PID/Program name
+tcp        0      0 0.0.0.0:5432            0.0.0.0:*               ESCUCHAR    -
+tcp        0      0 127.0.0.1:8828          0.0.0.0:*               ESCUCHAR    24141/Code --standa
 ```
 ## 2. Ver un puerto en especifico
 ```cmd
@@ -6941,14 +6941,14 @@ npm i -D --save class-validator class-transformer
 ## 1.1. Dbeaver ejm1
 - En DBEAVER el codigo del metodo findAll(), es equivalente hacer:
 ```sql
-SELECT 
-	t.afu_codigo, 
-	t.aun_codigo_supervisado, 
-	t.aun_codigo_supervisor, 
-	t.afu_descripcion, 
-	t.afu_estado, 
-	e.est_color, 
-	e.est_nombre AS afu_estado_descripcion 
+SELECT
+	t.afu_codigo,
+	t.aun_codigo_supervisado,
+	t.aun_codigo_supervisor,
+	t.afu_descripcion,
+	t.afu_estado,
+	e.est_color,
+	e.est_nombre AS afu_estado_descripcion
 FROM estructura_organizacional.autoridades_funcionales t
 LEFT JOIN parametricas.estados e ON e.est_codigo = t.afu_estado
 WHERE t.aun_codigo_supervisado=64 ;
@@ -6961,14 +6961,14 @@ WHERE t.aun_codigo_supervisado=64 ;
 
 - Otra manera mas pesada(se obtiene la misma tabla)
 ```sql
-SELECT 
-	t.afu_codigo, 
-	t.aun_codigo_supervisado, 
-	t.aun_codigo_supervisor, 
-	t.afu_descripcion, 
-	t.afu_estado, 
-	e.est_color, 
-	e.est_nombre AS afu_estado_descripcion 
+SELECT
+	t.afu_codigo,
+	t.aun_codigo_supervisado,
+	t.aun_codigo_supervisor,
+	t.afu_descripcion,
+	t.afu_estado,
+	e.est_color,
+	e.est_nombre AS afu_estado_descripcion
 FROM estructura_organizacional.autoridades_funcionales t,parametricas.estados e
 WHERE e.est_codigo = t.afu_estado and t.aun_codigo_supervisado=64 ;
 ```
@@ -6985,14 +6985,14 @@ WHERE e.est_codigo = t.afu_estado and t.aun_codigo_supervisado=64 ;
     //query esta el dto entrante, ahi esta el aun_codigo_supervisor
     try {
       let sql = `
-      SELECT 
-        t.afu_codigo, 
-        t.aun_codigo_supervisado, 
-        t.aun_codigo_supervisor, 
-        t.afu_descripcion, 
-        t.afu_estado, 
-        e.est_color, 
-        e.est_nombre AS afu_estado_descripcion 
+      SELECT
+        t.afu_codigo,
+        t.aun_codigo_supervisado,
+        t.aun_codigo_supervisor,
+        t.afu_descripcion,
+        t.afu_estado,
+        e.est_color,
+        e.est_nombre AS afu_estado_descripcion
       FROM estructura_organizacional.autoridades_funcionales t
       LEFT JOIN parametricas.estados e ON e.est_codigo = t.afu_estado//Autoridades funcionales aqui hace un leftjoin con estados
       WHERE TRUE
@@ -7046,8 +7046,8 @@ http://localhost:7000/autoridades-funcionales?aun_codigo_supervisado=(64)
 ## 2.1. Dbeaver ejm2
 - Encontrar las areas unidades, pertenecientes a ese organigrama
 ```sql
-select * 
-from estructura_organizacional.areas_unidades au 
+select *
+from estructura_organizacional.areas_unidades au
 where au.org_codigo = 42;
 ```
 |aun_codigo|aun_nombre|aun_sigla|nau_codigo|aau_codigo|cau_codigo|aun_estado|usuario_registro|usuario_modificacion|usuario_baja|fecha_registro|fecha_modificacion|fecha_baja|org_codigo|aun_numero|
@@ -7056,8 +7056,8 @@ where au.org_codigo = 42;
 |182|PRINCIPAL2|P2|2|2|1|1|1791|1791|0|2023-04-21 17:53:26.227|2023-04-23 16:51:49.441|1900-01-01 00:00:00.000|42|1234|
 - Obtener todos los cargos-item, que estan en esas 2 areas unidades, que estan dentro de un organigrama(el item no debe repetirse)
 ```sql
-select * 
-from estructura_organizacional.cargos_items ci 
+select *
+from estructura_organizacional.cargos_items ci
 where ci.aun_codigo IN (181,182);
 ```
 |cit_codigo|cit_descripcion|car_codigo|ite_codigo|cit_estado|usuario_registro|usuario_modificacion|usuario_baja|fecha_registro|fecha_modificacion|fecha_baja|aun_codigo|
@@ -7066,10 +7066,10 @@ where ci.aun_codigo IN (181,182);
 |188|desc 4|68|136|1|1791|0|0|2023-04-24 09:37:29.877|1900-01-01 00:00:00.000|1900-01-01 00:00:00.000|181|
 - Para modificar el item en el cargo-item, el ite_codigo debe estar presente solamente una vez en la tabla anterior, para ello buscar en la anterior consulta y con todos los estados
 ```sql
-select * 
-from estructura_organizacional.cargos_items ci 
+select *
+from estructura_organizacional.cargos_items ci
 where ci.ite_codigo IN (134) AND ci.aun_codigo IN (181,182) and ci.cit_estado in (1,2,3,4,5);
-``` 
+```
 |cit_codigo|cit_descripcion|car_codigo|ite_codigo|cit_estado|usuario_registro|usuario_modificacion|usuario_baja|fecha_registro|fecha_modificacion|fecha_baja|aun_codigo|
 |----------|---------------|----------|----------|----------|----------------|--------------------|------------|--------------|------------------|----------|----------|
 |186|desc 5|68|134|1|1791|0|0|2023-04-24 09:20:08.205|1900-01-01 00:00:00.000|1900-01-01 00:00:00.000|181|
@@ -7135,17 +7135,17 @@ http://localhost:7000/cargos-items
 # 3. Consultas
 ## 3.1. OBTENER CARGOS ITE solo de 1 y 2
 ```sql
-select 
+select
 ci.cit_codigo,
 cid.cid_codigo
-from estructura_organizacional.cargos_items ci  
-left join estructura_organizacional.cargos_item_dependencias cid on cid.cit_codigo_hijo =ci.cit_codigo 
+from estructura_organizacional.cargos_items ci
+left join estructura_organizacional.cargos_item_dependencias cid on cid.cit_codigo_hijo =ci.cit_codigo
 where cit_codigo in (1,2);
 ```
 ## 3.2. OBTENER LOS CARGOS ITEMS DE ESOS CODIGOS
 ```sql
 select *
-from estructura_organizacional.cargos_items ci 
+from estructura_organizacional.cargos_items ci
 where ci.cit_codigo in (48,49)
 ```
 |cit_codigo|cit_descripcion|car_codigo|ite_codigo|cit_estado|usuario_registro|usuario_modificacion|usuario_baja|fecha_registro|fecha_modificacion|fecha_baja|aun_codigo|
@@ -7156,7 +7156,7 @@ where ci.cit_codigo in (48,49)
 ```sql
 select *
 from parametricas.niveles_areas_unidades nau
-order by nau.nau_codigo 
+order by nau.nau_codigo
 asc;
 ```
 |nau_codigo|nau_nombre|nau_descripcion|nau_estado|usuario_registro|usuario_modificacion|usuario_baja|fecha_registro|fecha_modificacion|fecha_baja|nau_nivel|
@@ -7166,12 +7166,12 @@ asc;
 |3|OPERATIVO|Definición para Áreas/Unidades Operativas|1|0|0|0|2023-03-16 16:13:33.930|1900-01-01 00:00:00.000|1900-01-01 00:00:00.000|3|
 ## 3.4. OBTENER AREAS UNIDADES CON SU RESPECTIVA DIRECTIVA usando WHERE(mas pesado menos recomendado)
 ```sql
-select 
+select
 au.aun_codigo,
 au.aun_nombre,
 au.nau_codigo,
 nau.nau_nombre
-from estructura_organizacional.areas_unidades au, parametricas.niveles_areas_unidades nau  
+from estructura_organizacional.areas_unidades au, parametricas.niveles_areas_unidades nau
 where au.nau_codigo =nau.nau_codigo
 order by au.aun_codigo;
 ```
@@ -7182,12 +7182,12 @@ order by au.aun_codigo;
 |3|Gerencia Nacional Administrativa financiera|2|EJECUTIVO|
 ## 3.5. OBTENER AREAS UNIDADES CON SU RESPECTIVA DIRECTIVA usando LEFT JOIN
 ```sql
-select 
+select
 au.aun_codigo,
 au.aun_nombre,
 au.nau_codigo,
-nau.nau_nombre 
-from estructura_organizacional.areas_unidades au  
+nau.nau_nombre
+from estructura_organizacional.areas_unidades au
 left join parametricas.niveles_areas_unidades nau on au.nau_codigo  =nau.nau_codigo
 order by au.aun_codigo;
 ```
@@ -8115,7 +8115,7 @@ $>ts-node calculadora.ts
  ```json
  {
   "compilerOptions": {
- 
+
     "outDir": "./build",                                   /* Specify an output folder for all emitted files. */
 
   }
@@ -8178,7 +8178,7 @@ npm run dev
 ```console
 npm run prod
 ```
-## Referencia 
+## Referencia
 - http://developinginspanish.com/2019/08/11/como-y-por-que-deberias-usar-typescript-con-node-y-express/
 - https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html
 - https://github.com/andregardi/ts-express
@@ -8661,7 +8661,7 @@ const db = require('./consultas');
   app.delete('/usuarios/:id', db.borrarUsuario);
   ```
 ### 5.8. Pruebas
-- Ejecutar 
+- Ejecutar
 ```console
 node index.js
 ```
@@ -8670,9 +8670,9 @@ node index.js
 ```text
 Colocar:
 POST = http://localhost:3000/usuarios
-body ={ 
+body ={
   "nombre": "nemo",
-   "email": "memo@gmail.com" 
+   "email": "memo@gmail.com"
    }
 luego SEND
 ```
@@ -9155,8 +9155,8 @@ curl -i -X GET \
 
 #####
 #####
-curl -i -X POST \ 
---url http://localhost:8001/apis/ \ 
+curl -i -X POST \
+--url http://localhost:8001/apis/ \
 --data ’name=mockbin’ \
 --data ’upstream_url=http://mockbin.com/’ \
 --data ’request_host=mockbin.com’
@@ -9554,12 +9554,12 @@ Ejecutar las rutas correspondientes GET
  ***
 ## 1.1. instalando Vue
 ```console
-npm install -g @vue/cli 
+npm install -g @vue/cli
 ```
 ### 1.1.1. Crear proyecto
 ```console
 vue create my-app
-❯ Manually select features 
+❯ Manually select features
 ```
 ### 1.1.2. Seleccionar las rutas
 ```console
@@ -9672,14 +9672,14 @@ export default {
       Articulos
     </v-container>
   </template>
-  
+
   <script>
-  
+
   </script>
-  
+
   <style>
-  
-  </style>       
+
+  </style>
 ```
 ### 1.4.3. Creando la vista Articulo
 - En la carpeta views, crear el archivo ArticuloView.vue, y añadir el componente articulo
@@ -9889,7 +9889,7 @@ export default {
         </v-card>
     </v-container>
   </template>
-  
+
   <script>
   import axios from "axios"
   export default {
@@ -9926,7 +9926,7 @@ export default {
 }
   </script>
   <style>
-  
+
   </style>
 ```
 ### 1.5.3. Creando el toolbar
@@ -9956,7 +9956,7 @@ export default {
     </v-toolbar>
   </v-card>
 ```
-3. agregando icono navegador al toolbar 
+3. agregando icono navegador al toolbar
 ```js
   <v-toolbar dense>
     <!-- app-bar -->
@@ -9979,7 +9979,7 @@ export default {
     <!-- espacio sobrante -->
       <v-spacer></v-spacer>
   </v-toolbar>
-``` 
+```
 6.  agregar boton que adiciona articulos
 ```js
   <v-toolbar dense>
@@ -10041,7 +10041,7 @@ export default {
   </v-card-text>
 
 ```
-4. Agregando linea divisora 
+4. Agregando linea divisora
 ```vue
 <v-divider></v-divider>
 ```
@@ -10247,7 +10247,7 @@ export default {
         </v-card>
     </v-container>
   </template>
-  
+
   <script>
   import axios from "axios"
   export default {
@@ -10297,7 +10297,7 @@ export default {
 }
   </script>
   <style>
-  
+
   </style>
 ```
 ### 1.5.6. Mejorando el servicio de creacion, agregando el registro
@@ -10329,21 +10329,21 @@ export default {
                     <v-row>
                       <v-col cols="12" sm="6" md="4">
                         <v-text-field
-                          :value="registro.descripcion" 
+                          :value="registro.descripcion"
                           @change="(v) => (registro.descripcion = v)"
                           label="Descripción"
                         ></v-text-field>
                       </v-col>
                       <v-col cols="12" sm="6" md="4">
                         <v-text-field
-                          :value="registro.precio" 
+                          :value="registro.precio"
                           @change="(v) => (registro.precio = v)"
                           label="Precio"
                         ></v-text-field>
                       </v-col>
                       <v-col cols="12" sm="6" md="4">
                         <v-text-field
-                          :value="registro.stock" 
+                          :value="registro.stock"
                           @change="(v) => (registro.stock = v)"
                           label="Stock"
                         ></v-text-field>
@@ -10442,7 +10442,7 @@ cancelDialog(){
           console.log(e)
         })
       } else{
-        this.$toast.error(this.$t('sispoa.requeridos')) 
+        this.$toast.error(this.$t('sispoa.requeridos'))
       }
     },
 ```
@@ -10468,7 +10468,7 @@ cancelDialog(){
 data() {
     //aqui estaran instanciadas todas las variables
     return {
-      
+
       banderaDatos:0, //bandera de boton crear o editar
 
     }
@@ -10527,9 +10527,9 @@ data() {
 data() {
     //aqui estaran instanciadas todas las variables
     return {
-      
+
       columnas: [
-        
+
         { text: 'Actions', value: 'actions', class: "primary  white--text", sortable: false },
       ], //titulos de las columnas
 
@@ -10581,7 +10581,7 @@ data() {
           console.log(e)
         })
       } else{
-        this.$toast.error(this.$t('sispoa.requeridos')) 
+        this.$toast.error(this.$t('sispoa.requeridos'))
       }
     },
 ```
@@ -10630,21 +10630,21 @@ data() {
                     <v-row>
                       <v-col cols="12" sm="6" md="4">
                         <v-text-field
-                          :value="registro.descripcion" 
+                          :value="registro.descripcion"
                           @change="(v) => (registro.descripcion = v)"
                           label="Descripción"
                         ></v-text-field>
                       </v-col>
                       <v-col cols="12" sm="6" md="4">
                         <v-text-field
-                          :value="registro.precio" 
+                          :value="registro.precio"
                           @change="(v) => (registro.precio = v)"
                           label="Precio"
                         ></v-text-field>
                       </v-col>
                       <v-col cols="12" sm="6" md="4">
                         <v-text-field
-                          :value="registro.stock" 
+                          :value="registro.stock"
                           @change="(v) => (registro.stock = v)"
                           label="Stock"
                         ></v-text-field>
@@ -10676,7 +10676,7 @@ data() {
         </v-card>
     </v-container>
   </template>
-  
+
   <script>
   import axios from "axios"
   export default {
@@ -10723,7 +10723,7 @@ data() {
           console.log(e)
         })
       } else{
-        this.$toast.error(this.$t('sispoa.requeridos')) 
+        this.$toast.error(this.$t('sispoa.requeridos'))
       }
     },
     cancelDialog(){
@@ -10742,7 +10742,7 @@ data() {
 }
   </script>
   <style>
-  
+
   </style>
 ```
 ### 1.5.10. Agregando el metodo eliminar articulo
@@ -10926,7 +10926,7 @@ data() {
         </v-card>
     </v-container>
   </template>
-  
+
   <script>
   import axios from "axios"
   export default {
@@ -10988,7 +10988,7 @@ data() {
 }
   </script>
   <style>
-  
+
   </style>
 ```
 ### 1.5.11. Agregando el metodo para ver un articulo
@@ -11118,7 +11118,7 @@ data() {
 4. Agregar la variable que sera el switch del menu lateral
 ```js
   data: () => ({
-    drawer: null,  
+    drawer: null,
   }),
 ```
 5. En App.vue agregar el menu lateral
@@ -11133,7 +11133,7 @@ data() {
     drawer: null,
     menus: [
       { title: 'Articulos', icon: 'mdi-clipboard-list-outline' },
-    ],  
+    ],
   }),
 ```
 7. Construir el menu lateral
@@ -11200,14 +11200,14 @@ data() {
     drawer: null,
     menus: [
       { title: 'Articulos', icon: 'mdi-clipboard-list-outline',ruta:"http://localhost:8080/articulos"},
-    ],  
+    ],
   }),
 ```
  ## 1.6. Referencias
  1. [Vue CLI](https://cli.vuejs.org/#getting-started)
  2. [Vuetify](https://vuetifyjs.com/en/getting-started/installation/)
  3. [ESLint Vue multiword components](https://stackoverflow.com/questions/70346829/eslint-vue-multiword-components)
-  
+
 [<< INDICE](../../README.md)
 
 
@@ -11346,14 +11346,14 @@ articulos: [],//el array que viene del metodo GET
 - En template
 ```js
 <v-col cols="12" sm="12" md="6" xs="6">
-  <v-select 
-    :readonly="banderaDirectivo && !formReadonly" 
-    label="Nivel*" 
+  <v-select
+    :readonly="banderaDirectivo && !formReadonly"
+    label="Nivel*"
     :items="datosNau"//array de objetos
     item-text="nau_nombre" //objeto.nombre
     item-value="nau_codigo"//objeto.codigo
-    :rules="[$rules.obligatoria()]" 
-    :value="registro.nau_codigo" 
+    :rules="[$rules.obligatoria()]"
+    :value="registro.nau_codigo"
     @change="(v) => (registro.nau_codigo = v)"// hace el cambio
     outlined>
   </v-select>
@@ -11424,11 +11424,11 @@ getAllNivelesAreasUnidadesConOSinDirectiva() {
 ## TextField
 ```vue
  <v-col v-if="banderaMuestraFormMover" cols="12" sm="12" md="12" xs="12">
-   <v-text-field 
-     outlined rows="2" 
-     :value="registro.aun_nombre" 
+   <v-text-field
+     outlined rows="2"
+     :value="registro.aun_nombre"
      @change="(v) => (registro.aun_nombre = v)"
-     :rules="[$rules.obligatoria()]" 
+     :rules="[$rules.obligatoria()]"
      label="Nombre*">
    </v-text-field>
  </v-col>
@@ -11492,7 +11492,7 @@ data() {
   },
   methods: {
     getAllGestionesOrganigramas(item) {
-      const gestionStorage = this.$storage.get('gestionSeleccion')//es una variable que guuarda afuera  
+      const gestionStorage = this.$storage.get('gestionSeleccion')//es una variable que guuarda afuera
       this.defaultSelectedGest = item ? item : gestionStorage
       this.listaOrganigramaGestion(this.defaultSelectedGest.ges_anio)//aqui entra el objeto item
     },
@@ -11528,7 +11528,7 @@ data() {
 # 📄 3.2.10. Centrar contenido de una fila
 
 [<< INDICE](../../README.md)
-## centrar y justificar 
+## centrar y justificar
 - Para centrar y justificar el contenido de una fila
 ```js
 <v-container fill-height fluid>
@@ -12023,7 +12023,7 @@ Curso de vuetify de video
 1. Crear proy
 ```console
 vue create my-app
-❯ Manually select features 
+❯ Manually select features
 ```
 2. Seleccionar las rutas
 ```console
@@ -12124,12 +12124,12 @@ cd aprendiendoreact
 npm start
 ```
 ## 1.2. Preparativos
-### 1.2.1. Aplicacion principal App.js 
+### 1.2.1. Aplicacion principal App.js
 ```js
 // Llama a el componente de otro lado
 import MiComponente from './components/MiComponente';
 // Función
-function imprimirApodo(apodo,edad){ 
+function imprimirApodo(apodo,edad){
   var mostrar =(
             <div> <h1>Mi apodo es {apodo}</h1>
               <h2>De edad {edad} anos</h2>
@@ -12325,7 +12325,7 @@ return (
  );
 }
 
-``` 
+```
 ### 2.2.4. Aplicacion principal App.tsx
 - Borrar biblioteca innecesaria en App.tsx
 ```tsx
@@ -12335,7 +12335,7 @@ import './index.css'; importación del logo y css, y React// ya no existen
 ```tsx
 export const App = () =>{
   return (
-    <div className="App"> 
+    <div className="App">
     </div>
   );
 }
@@ -12381,7 +12381,7 @@ return (
  <Routes>
    {/* Agregar el boton */}
    <Route path='/' element={<Button variant="contained" color="warning">Página Inicial</Button>}/>//defe
-   <Route path='/pagina-inicial' element={<Button variant="contained" color="success">Página Inicial              
+   <Route path='/pagina-inicial' element={<Button variant="contained" color="success">Página Inicial
 </Button>}/>//pagin inicial
    <Route path='*' element={<Navigate to="/pagina-inicial"/>}/>//cualquier ruta
         </Routes>
@@ -12646,7 +12646,7 @@ xl: pantallas más grandes, por ejemplo monitores.
 ```jsx
   const [observacion, setObservacion] = useState('');
   const [showObservacion, setShowObservacion] = useState(false);
- 
+
   return (
     <>
           { showObservacion && (<div className='ml-5 mr-5 mb-5'>
@@ -12740,7 +12740,7 @@ import { Dropdown } from 'primereact/dropdown';
     setValue('ent_codigo',1)
   }, []);
 ```
-[<< INDICE](../../README.md)	
+[<< INDICE](../../README.md)
 
 
 ---
@@ -12915,7 +12915,7 @@ this.arrayAreas = this.datos.map(f => {
 - Se obtiene un array de codigos, pero alguien registro duplicado [1,3,6,7,1]
 ```js
 let arrayHijo = resultAreaDep.map(m => m.aun_codigo_hijo)//devuelve [1,3,6,7,1]
-``` 
+```
 - Para evitar que se dupliquen
 ```js
 arrayHijo = [new Set(...arrayHijo)]//devuelve [1,3,6,7]
@@ -12987,7 +12987,7 @@ function captura(){
             //Despues de capturar, posiciona el nombre el cursor en el cuadro de nombre
             document.getElementById("nomEst").focus();
         }
-    } 
+    }
 }
 ```
 
@@ -13057,7 +13057,7 @@ elementoForm.addEventListener("submit", (evento) => {
     console.log('####', elementoForm);
     //obtiene los datos de la caja precio en una variable
     let edtPrecio=document.getElementById('precioTransaccion').value;
-    //Crear el objeto 
+    //Crear el objeto
     let transaccion={
         descripcion:edtDescripcion,
         precio:edtPrecio,
@@ -13521,7 +13521,7 @@ para las tecnologías más utilizadas en stacks modernos de **React**, **Vue**, 
 
 <div style="page-break-before: always;"></div>
 
-## 7. 🌐 Proyectos Antigravity
+## 7. 🌐 Proyectos con Inteligencia Artificial
 
 
 <div style="page-break-before: always;"></div>

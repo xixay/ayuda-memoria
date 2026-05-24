@@ -6,7 +6,7 @@ import path from 'path'
 function getSidebarItems(dir) {
   const fullPath = path.resolve('docs', dir);
   if (!fs.existsSync(fullPath)) return [];
-  
+
   const items = [];
   const files = fs.readdirSync(fullPath);
 
@@ -58,10 +58,10 @@ export default defineConfig({
   cleanUrls: true,
   base: '/ayuda-memoria/',
   ignoreDeadLinks: true,
-  
+
   themeConfig: {
     siteTitle: 'Docs Antigravity',
-    
+
     search: {
       provider: 'local'
     },
@@ -75,12 +75,12 @@ export default defineConfig({
       { text: 'Sistema', link: '/inicio/' },
       { text: 'Backend', link: '/backend/' },
       { text: 'Frontend', link: '/frontend/' },
-      { 
-        text: 'Recursos', 
+      {
+        text: 'Recursos',
         items: [
           { text: 'Utilitarios', link: '/utilitarios/' },
           { text: 'Cursos', link: '/cursos/' },
-          { text: 'Proyectos Antigravity', link: '/proyectos/' },
+          { text: 'Proyectos con Inteligencia Artificial', link: '/proyectos/' },
           { text: 'Estado Stack 2025', link: '/estado-stack/' }
         ]
       }

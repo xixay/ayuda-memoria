@@ -29,7 +29,7 @@ features:
   - title: "🎓 Cursos y Formación"
     details: "Registro de rutas de aprendizaje, cursos completados y por hacer."
     link: /cursos/
-  - title: "🚀 Proyectos Antigravity"
+  - title: "🚀 Proyectos con Inteligencia Artificial"
     details: "Repositorios y estructuras base de proyectos personales."
     link: /proyectos/
 ---

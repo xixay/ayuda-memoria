@@ -1,4 +1,4 @@
-# 🚀 Proyectos Antigravity
+# 🚀 Proyectos con Inteligencia Artificial
 
 Proyectos y repositorios propios estructurados.
 
