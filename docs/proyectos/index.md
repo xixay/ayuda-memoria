@@ -13,6 +13,8 @@ Proyectos y repositorios propios estructurados.
 | **Express Prisma Frontend vue** | [Ver](https://github.com/xixay/express_prisma_frontend_vue) |
 | **Express Prisma Frontend react** | [Ver](https://github.com/xixay/express_prisma_frontend_react) |
 | **Express Prisma Frontend angular** | [Ver](https://github.com/xixay/express_prisma_frontend_angular) |
+| **Express Prisma Frontend flutter** | [Ver](https://github.com/xixay/express_prisma_frontend_flutter) |
+| **Express Prisma Frontend nextjs** | [Ver](https://github.com/xixay/express_prisma_frontend_nextjs) |
 
 ---
 ⬅️ [Volver al Índice Principal](../index.md)
