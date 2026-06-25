@@ -8,6 +8,7 @@ Proyectos y repositorios propios estructurados.
 | **Express Postgres** | [Ver](https://github.com/xixay/express_postgres) |
 | **Express Prisma Postgres** | [Ver](https://github.com/xixay/express_prisma_postgres) |
 | **Express Prisma Postgres Babel** | [Ver](https://github.com/xixay/express_prisma_postgres_babel) |
+| **Express Prisma Postgres Babel TypeScript** | [Ver](https://github.com/xixay/express_prisma_postgres_babel_ts) |
 | **Express Prisma Postgres Pro** | [Ver](https://github.com/xixay/express_prisma_postgres_pro) |
 | **Express Prisma Frontend html** | [Ver](https://github.com/xixay/express_prisma_frontend_html) |
 | **Express Prisma Frontend vue** | [Ver](https://github.com/xixay/express_prisma_frontend_vue) |
