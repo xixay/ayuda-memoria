@@ -71,6 +71,7 @@ Proyectos utilitarios para generación de contenido y material impreso.
 | **Generador Mini Libros** | Generador de minilibros físicos formato carta | [Ver](https://github.com/xixay/generador_mini_libros) |
 | **Generador Libros** | Generador de libros completos | [Ver](https://github.com/xixay/generador_libros) |
 | **App Libros** | Aplicación para gestión de libros | [Ver](https://github.com/xixay/app_libros) |
+| **App Readmes** | Aplicación para gestión de readmes | [Ver](https://github.com/xixay/readme_reader) |
 
 ---
 
