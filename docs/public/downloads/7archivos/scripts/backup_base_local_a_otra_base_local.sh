@@ -1,75 +1,72 @@
 #!/bin/bash
 
-# Definir variables para las bases de datos y el usuario
-local_db="bd_cge_poa_conaud_local"
-backup_db="bd_cge_poa_conaud_local_b"
-backup_dir="/var/lib/postgresql/backups"
-backup_file="$backup_dir/backup_$(date '+%Y%m%d_%H%M%S').sql"
+# Solicitar al usuario los detalles de conexión utilizando zenity
+local_host=$(zenity --entry --title="Detalles de Conexión Local" --text="Ingrese la dirección del host local:" --entry-text="localhost")
+local_port=$(zenity --entry --title="Detalles de Conexión Local" --text="Ingrese el puerto de la base de datos:" --entry-text="5432")
+local_user=$(zenity --entry --title="Detalles de Conexión Local" --text="Ingrese el usuario de la base de datos:" --entry-text="postgres")
+local_password=$(zenity --password --title="Detalles de Conexión Local" --text="Ingrese la contraseña del usuario:")
 
-# Especificar la ruta completa de pg_dump y pg_restore para PostgreSQL 16
-pg_dump_path="/usr/bin/pg_dump"  # Asegúrate de que esta es la ruta correcta después de la instalación
-pg_restore_path="/usr/bin/pg_restore"  # Asegúrate de que esta es la ruta correcta después de la instalación
-
-# Verificar si pg_dump existe en la ruta especificada
-if [ ! -f "$pg_dump_path" ]; then
-    echo "Error: $pg_dump_path no existe."
+if [ -z "$local_host" ] || [ -z "$local_port" ] || [ -z "$local_user" ] || [ -z "$local_password" ]; then
+    zenity --error --title="Error" --text="Debe completar todos los campos de conexión."
     exit 1
 fi
 
-# Crear el directorio de respaldo si no existe
-if [ ! -d "$backup_dir" ]; then
-    sudo mkdir -p "$backup_dir"
-    sudo chown postgres:postgres "$backup_dir"
+# Solicitar nombres de las bases de datos
+local_db_origen=$(zenity --entry --title="Base de Datos ORIGEN" --text="Ingrese el nombre de la base de datos a clonar:" --entry-text="bd_cge_poa_conaud_local")
+local_db_destino=$(zenity --entry --title="Base de Datos DESTINO" --text="Ingrese el nombre de la NUEVA base de datos:" --entry-text="bd_cge_poa_conaud_local_b")
+
+if [ -z "$local_db_origen" ] || [ -z "$local_db_destino" ]; then
+    zenity --error --title="Error" --text="Debe ingresar los nombres de las bases de datos origen y destino."
+    exit 1
 fi
 
-# Verificar si la base de datos de respaldo existe, si no, crearla
-if ! sudo -u postgres psql -lqt | cut -d \| -f 1 | grep -qw $backup_db; then
-    sudo -u postgres createdb $backup_db
+# Archivo temporal de respaldo en la carpeta actual
+backup_file="temp_clone_$(date '+%Y%m%d_%H%M%S').sql"
+
+# Especificar la ruta completa de pg_dump, pg_restore y psql
+pg_dump_path="/usr/bin/pg_dump"
+pg_restore_path="/usr/bin/pg_restore"
+psql_path="/usr/bin/psql"
+
+# Verificar si pg_dump y pg_restore existen
+if [ ! -f "$pg_dump_path" ] || [ ! -f "$pg_restore_path" ]; then
+    zenity --error --title="Error" --text="Las herramientas pg_dump o pg_restore no existen en /usr/bin/."
+    exit 1
+fi
+
+# 1. Realizar la copia de seguridad de la base de datos origen
+(
+echo "10"; echo "# Extrayendo base de datos $local_db_origen..."
+PGPASSWORD="$local_password" $pg_dump_path -h "$local_host" -p "$local_port" -U "$local_user" -d "$local_db_origen" -w -F c -f "$backup_file"
+
+if [ $? -ne 0 ]; then
+    zenity --error --title="Error" --text="No se pudo crear el archivo de respaldo para $local_db_origen."
+    rm -f "$backup_file"
+    exit 1
+fi
+
+echo "40"; echo "# Verificando y creando base de datos $local_db_destino si no existe..."
+# 2. Verificar si la base de datos de respaldo existe, si no, crearla
+db_exists=$(PGPASSWORD="$local_password" $psql_path -h "$local_host" -p "$local_port" -U "$local_user" -tAc "SELECT 1 FROM pg_database WHERE datname='$local_db_destino'")
+
+if [ "$db_exists" != "1" ]; then
+    PGPASSWORD="$local_password" $psql_path -h "$local_host" -p "$local_port" -U "$local_user" -d "postgres" -c "CREATE DATABASE \"$local_db_destino\";"
     if [ $? -ne 0 ]; then
-        echo "Error: No se pudo crear la base de datos $backup_db."
+        zenity --error --title="Error" --text="No se pudo crear la base de datos destino $local_db_destino."
+        rm -f "$backup_file"
         exit 1
     fi
 fi
 
-# Realizar la copia de seguridad de la base de datos local
-sudo -u postgres $pg_dump_path -d $local_db -F c -f $backup_file
-if [ $? -ne 0 ]; then
-    echo "Error: No se pudo crear el archivo de respaldo $backup_file."
-    exit 1
-fi
+echo "70"; echo "# Restaurando datos en $local_db_destino..."
+# 3. Restaurar la copia de seguridad en la nueva base de datos
+PGPASSWORD="$local_password" $pg_restore_path -h "$local_host" -p "$local_port" -U "$local_user" -d "$local_db_destino" -w -c -j 4 "$backup_file" 2>/dev/null
 
-# Restaurar la copia de seguridad en la nueva base de datos
-sudo -u postgres $pg_restore_path -d $backup_db -c -j 4 $backup_file
-if [ $? -ne 0 ]; then
-    echo "Error: No se pudo restaurar la base de datos $backup_db."
-    exit 1
-fi
+echo "100"; echo "# Finalizando..."
+) | zenity --progress --title="Clonando Base de Datos" --text="Iniciando clonación..." --percentage=0 --auto-close --auto-kill
 
-# Eliminar el archivo de respaldo (opcional)
-# rm $backup_file
+# Eliminar el archivo temporal
+rm -f "$backup_file"
 
 # Notificar la finalización del proceso
-notify-send "Copia de seguridad y restauración completadas" "El proceso de copia de seguridad y restauración se completó correctamente."
-
-
-
-
-##################################INstalacion de postgres 16########################################
-# Agregar el repositorio oficial de PostgreSQL para la versión 16
-#sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
-
-# Importar la llave del repositorio
-#wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-
-# Actualizar la lista de paquetes
-#sudo apt-get update
-
-# Instalar el cliente de PostgreSQL 16
-#sudo apt-get install postgresql-client-16
-
-
-
-#Verificar la versión de pg_dump y pg_restore
-#pg_dump --version
-#pg_restore --version
-
+zenity --info --title="Clonación exitosa" --text="El proceso de clonado finalizó correctamente.\n\nOrigen: $local_db_origen\nDestino: $local_db_destino"
