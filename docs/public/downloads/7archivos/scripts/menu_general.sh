@@ -7,11 +7,10 @@
 # Directorio donde se encuentran todos los scripts
 SCRIPT_DIR="$(dirname "$(realpath "$0")")"
 
-# Verificar si zenity está instalado
+# Verificar si zenity está instalado, si no, instalarlo automáticamente
 if ! command -v zenity >/dev/null 2>&1; then
-    echo "❌ Error: 'zenity' no está instalado. Este menú requiere Zenity para funcionar."
-    echo "Instálalo usando: sudo apt install zenity"
-    exit 1
+    echo "⚠️ 'zenity' no está instalado. Instalando automáticamente para que funcionen los menús..."
+    sudo apt update && sudo apt install -y zenity
 fi
 
 # Función para mostrar errores
