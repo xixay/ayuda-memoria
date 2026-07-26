@@ -1,12 +1,12 @@
 --###  --- ORGANIGRAMA - EL ORGANIGRAMA CON SUS ÁREAS UNIDADES
 	select * from parametricas.lugares l
-	select * from parametricas.tipos_lugares tl 
+	select * from parametricas.tipos_lugares tl
 	select * from estructura_organizacional.organigramas o where o.org_codigo in (3)
 	select * from estructura_organizacional.gestiones_organigramas go2 where go2.org_codigo in (3)
 	select * from estructura_organizacional.areas_unidades au where au.org_codigo in (3) and au.aun_estado !=9
 	;
 --###  --- ORGANIGRAMA - GESTIONES ORGANIGRAMAS - AREAS UNIDADES -CARGOS ITEMS
-	select * from estructura_organizacional.organigramas o where o.org_codigo in (10)	
+	select * from estructura_organizacional.organigramas o where o.org_codigo in (10)
 	select * from estructura_organizacional.gestiones_organigramas go2 where go2.org_codigo in (3)
 	select * from estructura_organizacional.areas_unidades au where au.aun_codigo in (1)
 	select * from estructura_organizacional.cargos_items ci where ci.aun_codigo in (1)
@@ -14,30 +14,30 @@
 	select * from estructura_organizacional.items i where i.ite_codigo in (1)
 	;
 --###  --- CARGOS ITEM MOVIMIENTOS - CARGOS QUE FUERON MOVIDOS A OTRAS AREAS UNIDADES
-	select *from parametricas.tipos_movimientos tm 
-	select * from estructura_organizacional.cargos_item_movimientos cim 
+	select *from parametricas.tipos_movimientos tm
+	select * from estructura_organizacional.cargos_item_movimientos cim
 	;
 --###  --- FECHAS LIBRES DE GESTIONES - FECHAS, Y FERIADOS PARA UNA GESTION
-	select * from parametricas.gestiones g 
+	select * from parametricas.gestiones g
 	select * from parametricas.fechas_libres_gestiones flg where flg.ges_codigo in (3)
 	select *from parametricas.estados e
 	;
 --###  --- ORGANIGRAMA - BUSCA ORGANIGRAMA CONSOLIDADO, CON SUS CARGOS ITEMS
 	--encontrar el organigrama
-	select *  from estructura_organizacional.organigramas o 
-	left join estructura_organizacional.gestiones_organigramas go2 on go2.org_codigo  = o.org_codigo  
+	select *  from estructura_organizacional.organigramas o
+	left join estructura_organizacional.gestiones_organigramas go2 on go2.org_codigo  = o.org_codigo
 	where go2.ges_codigo in (3) and o.org_estado in(2)--consolidado
 	--buscar las areas unidades con ese org_codigo no eliminadas
-	select * from estructura_organizacional.areas_unidades au where au.org_codigo in (1) and au.aun_estado !=9 order by au.aun_codigo 
+	select * from estructura_organizacional.areas_unidades au where au.org_codigo in (1) and au.aun_estado !=9 order by au.aun_codigo
 	--buscar para una determinada area unidad sus cargos items
 	select *
-	from estructura_organizacional.cargos_items ci 
-	left join estructura_organizacional.cargos c on c.car_codigo =ci.car_codigo 
+	from estructura_organizacional.cargos_items ci
+	left join estructura_organizacional.cargos c on c.car_codigo =ci.car_codigo
 	left join estructura_organizacional.items i on i.ite_codigo =ci.ite_codigo
 	where ci.aun_codigo in (211)
 	;
 --###  --- PEI - M_UESTRA EL ARBOL DE PEI
-	select *from estructura_organizacional.areas_unidades au 
+	select *from estructura_organizacional.areas_unidades au
 	select *from pei.plan_estrategico_institucional pei where pei.pei_codigo =1
 	select *from pei.dimensiones d where d.pei_codigo =1
 	--dentro pei
@@ -50,7 +50,7 @@
 	select *from pei.objetivos_estrategicos_areas oea where oea.oes_codigo  in (1,2,3,4,5)
 	select *from pei.estrategias_areas ea where ea.est_codigo in (1,2,3,4,5,6)
 	select * from pei.acciones_estrategias_areas aea where aea.aes_codigo in (1,2,3,4,5,6)
-	--areas unidades en organigrama 
+	--areas unidades en organigrama
 	select * from estructura_organizacional.areas_unidades au where au.org_codigo in (1)
 	;
 --###  --- ORGANIGRAMA - MUESTRA LAS ACTIVIDADES PARA UNA ÁREA UNIDAD
@@ -72,7 +72,7 @@
 	select * from estructura_poa.area_unidad_responsables aur where aur.rol_codigo in (4)
 	select * from estructura_organizacional.areas_unidades au where au.aun_codigo in (50)
 	select * from estructura_poa.poas p where p.ges_codigo in (4) and p.poa_estado in (2)
-	select * from parametricas.gestiones g 
+	select * from parametricas.gestiones g
 	;
 --###  --- FECHAS LIBRES GESTIONES - QUERYS DE FECHAS
 	-- obtiene los dias de un año
@@ -84,7 +84,7 @@
 		parametricas.gestiones g
 	where
 		g.ges_codigo in (3)
-	-- cantidad de dias libres	
+	-- cantidad de dias libres
 	select
 		count(*) dias_libres_nac
 	from
@@ -102,7 +102,7 @@
 		flg.ges_codigo in (3)
 		and flg.lug_codigo in (7,8,9,1,2,6)
 	group by
-		flg.lug_codigo 
+		flg.lug_codigo
 	-- obtiene todos los dias del año
 	select
 		generate_series(
@@ -118,9 +118,9 @@
 ;
 --###  --- INICIO ACT POA - CAMBIO GLOBAL DE ESTADOS, POR ROL
 	select iap.iap_codigo,iap.iac_codigo,iap.iap_observaciones ,iap.ges_codigo ,iap.iap_estado  from ejecucion_poa.inicio_actividad_poa iap where iap.iap_codigo in (13)
-	select ia.iac_codigo,ia.iac_observaciones ,ia.iac_estado ,ia.ges_codigo  from ejecucion_poa.inicios_actividades ia where ia.iac_codigo in (11) 
+	select ia.iac_codigo,ia.iac_observaciones ,ia.iac_estado ,ia.ges_codigo  from ejecucion_poa.inicios_actividades ia where ia.iac_codigo in (11)
 	select iaa.iaa_codigo ,iaa.iac_codigo ,iaa.iaa_estado  from ejecucion_poa.inicios_actividades_adicional iaa where iaa.iac_codigo in (11)
-	select *  from ejecucion_poa.inicio_actividad_poa_asignaciones iapa where iapa.iap_codigo in (13) 
+	select *  from ejecucion_poa.inicio_actividad_poa_asignaciones iapa where iapa.iap_codigo in (13)
 	select *  from ejecucion_poa.asignaciones a where a.asi_codigo in (20)
 	select * from ejecucion_poa.asignaciones_cargos_item aci where aci.asi_codigo in (20)
 	-- obtiene los estados de cada uno
@@ -133,9 +133,9 @@
 ;
 --###  --- INICIO ACT POA - AMPLIACION JUSTIFICACION
 	select * from ejecucion_poa.inicio_actividad_poa iap where iap.iap_codigo in (13)
-	select ia.iac_codigo,ia.iac_observaciones ,ia.iac_estado ,ia.ges_codigo  from ejecucion_poa.inicios_actividades ia where ia.iac_codigo in (11) 
+	select ia.iac_codigo,ia.iac_observaciones ,ia.iac_estado ,ia.ges_codigo  from ejecucion_poa.inicios_actividades ia where ia.iac_codigo in (11)
 	select iaa.iaa_codigo ,iaa.iac_codigo ,iaa.iaa_estado  from ejecucion_poa.inicios_actividades_adicional iaa where iaa.iac_codigo in (11)
-	select *  from ejecucion_poa.inicio_actividad_poa_asignaciones iapa where iapa.iap_codigo in (13) 
+	select *  from ejecucion_poa.inicio_actividad_poa_asignaciones iapa where iapa.iap_codigo in (13)
 	select *  from ejecucion_poa.asignaciones a where a.asi_codigo in (20)
 	select * from ejecucion_poa.asignaciones_cargos_item aci where aci.asi_codigo in (20)
 	-- obtiene los estados de cada uno
@@ -146,13 +146,13 @@
 	select * from control_estados.estados_asignaciones_cargos_item eaci  where eaci.aci_codigo in (33) order by eaci.eaci_codigo desc
 	select * from control_estados.estados_asignaciones_cargos_item eaci  where eaci.aci_codigo in (34) order by eaci.eaci_codigo desc
 ;
---###  --- INFORMES EMERGENTES Y RECOMENDACIONES- Y SUS INFORMES Y TIPOS DE TRABAJOS 
+--###  --- INFORMES EMERGENTES Y RECOMENDACIONES- Y SUS INFORMES Y TIPOS DE TRABAJOS
 	select * from parametricas.tipos_trabajos tt
 	select * from parametricas.especificacion_tipos_trabajo ett
 	select * from ejecucion_poa.informes i where i.inf_codigo in (1,2,3,4,5,6,7,8,9,10,11)
 	select * from ejecucion_poa.inicios_actividades ia where ia.iac_codigo in (3)
 	select * from parametricas.informes_emergentes ie where ie.iem_codigo in (7)
-	select * from ejecucion_poa.informe_recomendaciones ir 
+	select * from ejecucion_poa.informe_recomendaciones ir
 ;
 --###  --- INICIO ACTIVIDAD POA - REFERENTE A SUS INFORMES Y INFORMES EMERGENTES; Y TIPOS DE TRABAJOS
 	select * from ejecucion_poa.inicio_actividad_poa iap where iap.act_codigo in (543)
@@ -160,7 +160,7 @@
 	select * from estructura_poa.actividades a where a.act_codigo in (543)
 	select * from ejecucion_poa.informes_uai iu where iu.act_codigo in (543)
 ;
---###  --- FLUJOS ESTADOS EVOLUCION - Y SUS INFORMES, INF RECOMENDACIONES, INF EMERGENTES 
+--###  --- FLUJOS ESTADOS EVOLUCION - Y SUS INFORMES, INF RECOMENDACIONES, INF EMERGENTES
 	select * from parametricas.flujos_estados_evolucion fee where fee.iem_codigo in (10)
 	select * from parametricas.informes_emergentes ie where ie.iem_codigo in (10)
 	select * from ejecucion_poa.informes i where i.inf_codigo in (25)
@@ -171,7 +171,7 @@
 --###  --- INICIO ACTIVIDAD POA ASIGNACIONES - SUS ASIGNACIONES, ASIG CARGOS ITEM - ACT - INICIOS ACT
 	select * from ejecucion_poa.inicio_actividad_poa_asignaciones iapa
 	select * from ejecucion_poa.asignaciones a
-	select * from ejecucion_poa.asignaciones_cargos_item aci 
+	select * from ejecucion_poa.asignaciones_cargos_item aci
 	select * from estructura_poa.actividades a where a.act_codigo in (222)
 	select * from ejecucion_poa.inicios_actividades ia where ia.iac_codigo in (11)
 ;
@@ -214,12 +214,12 @@
 	-- se usara el cargo item de susana
 	select *from estructura_organizacional.cargos_items ci where ci.cit_codigo in (107)
 	-- personas que pertenecen a ese cargo item
-	select * from estructura_organizacional.cargos_items_persona cip2 where cip2.cit_codigo in (107)	
+	select * from estructura_organizacional.cargos_items_persona cip2 where cip2.cit_codigo in (107)
 	select * from ejecucion_poa.asignaciones_cargos_item aci where aci.cit_codigo in (107)
 ;
---###  --- INFORMES - FLUJOS PARA INFORMES 
-SELECT * FROM parametricas.estados e 
-SELECT * FROM parametricas.tablas t 
+--###  --- INFORMES - FLUJOS PARA INFORMES
+SELECT * FROM parametricas.estados e
+SELECT * FROM parametricas.tablas t
 SELECT * FROM control_estados.flujos_tablas ft where ft.tab_codigo in (68)
 	-- 68	Informes
 	-- 73	InformesEstados
@@ -251,7 +251,7 @@ INSERT INTO control_estados.flujos_tablas (fta_codigo, tab_codigo, fta_descripci
 --###  --- AREA UNIDAD RESPONSABLES
 	select * from estructura_poa.poas p where p.ges_codigo in (2) and p.poa_estado in (2)
 	select * from estructura_poa.area_unidad_responsables aur where aur.rol_codigo in (2,3,4,5) and aur.poa_codigo in (2) and aur.per_codigo in (461)
-	select * from ejecucion_poa.asignaciones a 
+	select * from ejecucion_poa.asignaciones a
 	select * from estructura_organizacional.cargos_items_persona cip where cip.per_codigo in (461)--cit_codigo(305)
 	select * from ejecucion_poa.asignaciones_cargos_item aci where aci.cit_codigo in (305)--asi_codigo(1,2,4,6)
 	--primero
@@ -272,7 +272,7 @@ INSERT INTO control_estados.flujos_tablas (fta_codigo, tab_codigo, fta_descripci
 	select * from ejecucion_poa.asignaciones_cargos_item aci where aci.asi_codigo in (11)--aci_codigo(3,2,1), cit_codigo(379,274,305)
 -- SANDRA QUIROGA SOLANO
 	select * from ejecucion_poa.asignaciones_cargos_item aci where aci.aci_codigo in (3)
-	select * from ejecucion_poa.asignaciones_horas_usadas ahu where ahu.aci_codigo in (3)--ahu_codigo(9,10,11,12,13,14) por ser 
+	select * from ejecucion_poa.asignaciones_horas_usadas ahu where ahu.aci_codigo in (3)--ahu_codigo(9,10,11,12,13,14) por ser
 	select * from ejecucion_poa.reposicion_cargos_item rci where rci.aci_codigo in (3)--no hay
 -- CLAUDIA MARCELA VIOLETA PIZARRO
 	select * from ejecucion_poa.asignaciones_cargos_item aci where aci.aci_codigo in (1)
@@ -285,11 +285,11 @@ INSERT INTO control_estados.flujos_tablas (fta_codigo, tab_codigo, fta_descripci
 -- Spr
 	select * FROM ejecucion_poa.spr_sel_dias_cargo(--279 SANDRA,305 CLAUDIA, 274 JAVIER
 		ARRAY[279,274,305]	--codigos de cargo item
-	)
+	);
 	--- INICIO ACT POA - CAMBIO GLOBAL DE ESTADOS, POR ROL
 			--#Cambio Apliacion select iap.iap_codigo,iap.iac_codigo,iap.iap_observaciones ,iap.ges_codigo ,iap.iap_estado  from ejecucion_poa.inicio_actividad_poa iap where iap.iap_codigo in (1)
 			select iap.iap_codigo,iap.iac_codigo,iap.iap_observaciones ,iap.ges_codigo ,iap.iap_estado  from ejecucion_poa.inicio_actividad_poa iap where iap.iap_codigo in (6)
-			select ia.iac_codigo,ia.iac_observaciones ,ia.iac_estado ,ia.ges_codigo  from ejecucion_poa.inicios_actividades ia where ia.iac_codigo in (1) 
+			select ia.iac_codigo,ia.iac_observaciones ,ia.iac_estado ,ia.ges_codigo  from ejecucion_poa.inicios_actividades ia where ia.iac_codigo in (1)
 			select iaa.iaa_codigo ,iaa.iac_codigo ,iaa.iaa_estado  from ejecucion_poa.inicios_actividades_adicional iaa where iaa.iac_codigo in (1)
 			--#Cambio Apliacion select *  from ejecucion_poa.inicio_actividad_poa_asignaciones iapa where iapa.iap_codigo in (1)
 			select *  from ejecucion_poa.inicio_actividad_poa_asignaciones iapa where iapa.iap_codigo in (6)
@@ -311,7 +311,7 @@ INSERT INTO control_estados.flujos_tablas (fta_codigo, tab_codigo, fta_descripci
 	select * from ejecucion_poa.asignaciones_cargos_item aci where aci.asi_codigo in (6)--aci_codigo(15,13,14), cit_codigo(421,305,279)
 -- DIEGO ANICETO PALACIOS NAVA
 	select * from ejecucion_poa.asignaciones_cargos_item aci where aci.aci_codigo in (15)
-	select * from ejecucion_poa.asignaciones_horas_usadas ahu where ahu.aci_codigo in (15)--nada 
+	select * from ejecucion_poa.asignaciones_horas_usadas ahu where ahu.aci_codigo in (15)--nada
 	select * from ejecucion_poa.reposicion_cargos_item rci where rci.aci_codigo in (15)--no hay
 -- CLAUDIA MARCELA VIOLETA PIZARRO
 	select * from ejecucion_poa.asignaciones_cargos_item aci where aci.aci_codigo in (13)
@@ -324,13 +324,13 @@ INSERT INTO control_estados.flujos_tablas (fta_codigo, tab_codigo, fta_descripci
 -- Spr
 	select * FROM ejecucion_poa.spr_sel_dias_cargo(--421 DIEGO,305 CLAUDIA, 279 SANDRA
 		ARRAY[421,305,279]	--codigos de cargo item
-	)
+	);
 -- DIRECCIÓN DEPARTAMENTAL DE EDUCACIÓN LA PAZ(DESPUES DE LA AMPLIACION)
 	--#Cambio Ampliacion select * from ejecucion_poa.asignaciones_cargos_item aci where aci.asi_codigo in (2)--aci_codigo(6,4,5), cit_codigo(299,305,279)
 	select * from ejecucion_poa.asignaciones_cargos_item aci where aci.asi_codigo in (12) order by aci.aci_codigo desc--aci_codigo(6,4,5), cit_codigo(299,305,279)
 -- MERY GOMEZ CONDORI
 	select * from ejecucion_poa.asignaciones_cargos_item aci where aci.aci_codigo in (6)
-	select * from ejecucion_poa.asignaciones_horas_usadas ahu where ahu.aci_codigo in (6)--nada 
+	select * from ejecucion_poa.asignaciones_horas_usadas ahu where ahu.aci_codigo in (6)--nada
 	select * from ejecucion_poa.reposicion_cargos_item rci where rci.aci_codigo in (6)--no hay
 -- SANDRA QUIROGA SOLANO
 	select * from ejecucion_poa.asignaciones_cargos_item aci where aci.aci_codigo in (5)
@@ -343,11 +343,11 @@ INSERT INTO control_estados.flujos_tablas (fta_codigo, tab_codigo, fta_descripci
 -- Spr
 	select * FROM ejecucion_poa.spr_sel_dias_cargo(--299 MERY,305 CLAUDIA, 279 SANDRA
 		ARRAY[299,305,279]	--codigos de cargo item
-	)
+	);
 --- INICIO ACT POA - CAMBIO GLOBAL DE ESTADOS, POR ROL
 			--#Cambio Apliacion select * from control_estados.estados_inicio_actividad_poa eiap where eiap.iap_codigo in (2) order by eiap.eiap_codigo desc
 			select iap.iap_codigo,iap.iac_codigo,iap.iap_observaciones ,iap.ges_codigo ,iap.iap_estado  from ejecucion_poa.inicio_actividad_poa iap where iap.iap_codigo in (7)
-			select ia.iac_codigo,ia.iac_observaciones ,ia.iac_estado ,ia.ges_codigo  from ejecucion_poa.inicios_actividades ia where ia.iac_codigo in (2) 
+			select ia.iac_codigo,ia.iac_observaciones ,ia.iac_estado ,ia.ges_codigo  from ejecucion_poa.inicios_actividades ia where ia.iac_codigo in (2)
 			select iaa.iaa_codigo ,iaa.iac_codigo ,iaa.iaa_estado  from ejecucion_poa.inicios_actividades_adicional iaa where iaa.iac_codigo in (2)
 			--#Antes Apliacion select *  from ejecucion_poa.inicio_actividad_poa_asignaciones iapa where iapa.iap_codigo in (2)
 			select *  from ejecucion_poa.inicio_actividad_poa_asignaciones iapa where iapa.iap_codigo in (7)
@@ -384,20 +384,20 @@ INSERT INTO control_estados.flujos_tablas (fta_codigo, tab_codigo, fta_descripci
 	-- 3.-Obtiene los sabados y domingos
 	WITH tmp_serie_fechas AS (
 		-- Obtiene todos los dias del rango
-		SELECT 
+		SELECT
 	        generate_series(
 	        ('01/01/'||g.ges_anio)::date,--comienzo
 	        ('31/12/'||g.ges_anio)::date,--final
 	        '1 day') AS serie_fechas
-		FROM parametricas.gestiones g 
+		FROM parametricas.gestiones g
 		WHERE g.ges_codigo = 1
 	)
-	SELECT 
+	SELECT
 		count ((
-			CASE WHEN EXTRACT(dow FROM tsf.serie_fechas) < 1 OR 
-					  EXTRACT(dow FROM tsf.serie_fechas) > 5 
+			CASE WHEN EXTRACT(dow FROM tsf.serie_fechas) < 1 OR
+					  EXTRACT(dow FROM tsf.serie_fechas) > 5
 				 THEN tsf.serie_fechas
-	        END)::date) 
+	        END)::date)
 	FROM tmp_serie_fechas tsf--_dias_sabado_domingo=105
 	-- 4.-Obtiene los dias para trabajar a nivel nacional
 	SELECT (_dias_gestion - _dias_sabado_domingo - _dias_libres_nac) INTO _subtotal_dias--_subtotal_dias=365-105-7=253
@@ -416,27 +416,27 @@ INSERT INTO control_estados.flujos_tablas (fta_codigo, tab_codigo, fta_descripci
 ;
 --###  ---FECHAS
 	WITH tmp_serie_fechas AS (
-		SELECT 
+		SELECT
 	        generate_series(
 	        ('01/01/'||g.ges_anio)::date,--comienzo
 	        ('31/12/'||g.ges_anio + 1)::date,--FINAL adion de una gestion
 	        '1 day') AS serie_fechas
-		FROM parametricas.gestiones g 
+		FROM parametricas.gestiones g
 		WHERE g.ges_codigo in $ges_codigo
 	), tmp_fechas_libres AS ( -- Para Nacional (BOLIVIA) y algun departamento.
-		SELECT 
-			flg.flg_fecha 
+		SELECT
+			flg.flg_fecha
 		FROM parametricas.fechas_libres_gestiones flg
 		WHERE flg.ges_codigo in $ges_codigo
 		AND flg.flg_estado > 0
-		AND flg.lug_codigo IN $lug_codigo 
-	)	
-	SELECT 
+		AND flg.lug_codigo IN $lug_codigo
+	)
+	SELECT
 		to_char(tsf.serie_fechas, 'DD/MM/YYYY') fechas
 	FROM tmp_serie_fechas AS tsf
-	WHERE TRUE 
-	AND EXTRACT(dow FROM tsf.serie_fechas) > 0 
-	AND EXTRACT(dow FROM tsf.serie_fechas) < 6 
+	WHERE TRUE
+	AND EXTRACT(dow FROM tsf.serie_fechas) > 0
+	AND EXTRACT(dow FROM tsf.serie_fechas) < 6
 	AND tsf.serie_fechas NOT IN (SELECT * FROM tmp_fechas_libres)
 	AND tsf.serie_fechas >= $fecha_inicio::date
 	LIMIT $cantidad_dias
@@ -444,7 +444,7 @@ INSERT INTO control_estados.flujos_tablas (fta_codigo, tab_codigo, fta_descripci
 WITH tmp_dias_rango AS (
 	SELECT ($fecha_fin::date - $fecha_inicio::date) + 1 AS dias_calendario
 ), tmp_fechas_libres AS (
-	SELECT 
+	SELECT
 		count(*) AS dias_libres
 	FROM parametricas.fechas_libres_gestiones flg
 	WHERE flg.ges_codigo = $ges_codigo
@@ -452,12 +452,12 @@ WITH tmp_dias_rango AS (
 	AND flg.lug_codigo IN $lug_codigo
 	AND flg.flg_fecha BETWEEN $fecha_inicio::date AND $fecha_fin::date
 ), tmp_serie_fechas AS (
-	SELECT 
+	SELECT
         generate_series(
         ('01/01/'||g.ges_anio)::date,--comienzo
         ('31/12/'||g.ges_anio)::date,--final
         '1 day') AS serie_fechas
-	FROM parametricas.gestiones g 
+	FROM parametricas.gestiones g
 	WHERE g.ges_codigo IN $ges_codigo
 ), tmp_sabados_domingos AS (
 	SELECT count(
@@ -470,8 +470,8 @@ WITH tmp_dias_rango AS (
     FROM tmp_serie_fechas tsf
     WHERE tsf.serie_fechas BETWEEN $fecha_inicio::date AND $fecha_fin::date
 )
-SELECT 
-	 tdr.dias_calendario, 
+SELECT
+	 tdr.dias_calendario,
 	 tdr.dias_calendario - tfl.dias_libres - tsd.dias_sabado_domingo AS dias_habiles
 FROM tmp_dias_rango tdr, tmp_fechas_libres tfl, tmp_sabados_domingos tsd
 ;
@@ -481,7 +481,7 @@ INNER JOIN estructura_poa.actividades a ON a.act_codigo = ac.act_codigo
 WHERE a.aun_codigo_ejecutora = 39 and  ac.act_codigo in (666)
 	--
 	select * from ejecucion_poa.inicios_actividades ia where ia.iac_codigo in (77)
-	select * from ejecucion_poa.inicio_actividad_poa p where p.iac_codigo in (77) 
+	select * from ejecucion_poa.inicio_actividad_poa p where p.iac_codigo in (77)
 	--
 	SELECT
 	    t.iac_codigo,
@@ -521,7 +521,7 @@ WHERE a.aun_codigo_ejecutora = 39 and  ac.act_codigo in (666)
 	    t.fecha_registro DESC
 ;
 --###  --- INICIO ACT POA - HISTORICOS
-select * from ejecucion_poa.inicios_actividades ia where ia.iac_codigo in (3)	
+select * from ejecucion_poa.inicios_actividades ia where ia.iac_codigo in (3)
 select *  from ejecucion_poa.inicio_actividad_poa iap where iap.iac_codigo in (3)
 ;
 --###  --- OBTIENE LAS PLANIFICACIONES EJECUCIONES TODAS
@@ -529,12 +529,12 @@ select * from ejecucion_administrativas.planificaciones_ejecuciones pe
 where pe.iad_codigo in (3)
 ;
 --###  --- OBTIENE LAS PLANIFICACIONES EJECUCIONES TODAS
-select * from estructura_poa.actividades a 
+select * from estructura_poa.actividades a
 where pe.iad_codigo in (3)
 ;
 --###  --- OBTIENE LAS POAS
-select * from estructura_poa.area_unidad_responsables aur 
-where aur.poa_codigo 
+select * from estructura_poa.area_unidad_responsables aur
+where aur.poa_codigo
 ;
 --###  --- OBTIENE LAS PLANIFICACIONES EJECUCIONES POR MES
 	select
@@ -543,17 +543,17 @@ where aur.poa_codigo
 	    t.mes_codigo,
 	    m.mes_nombre,
 	    m.mes_inicial
-	FROM 
+	FROM
 	    ejecucion_administrativas.planificaciones_ejecuciones t
-	LEFT JOIN 
+	LEFT JOIN
 	    parametricas.estados e ON e.est_codigo = t.pej_estado
-	LEFT JOIN 
+	LEFT JOIN
 	    parametricas.meses m ON m.mes_codigo = t.mes_codigo
-	WHERE 
+	WHERE
 	    t.iad_codigo = 3
-	GROUP BY 
+	GROUP BY
 	    t.mes_codigo, m.mes_nombre, m.mes_inicial
-	ORDER BY 
+	ORDER BY
 	    m.mes_inicial
 	;
 --###  --- OBTENER INICIOS ADMINISTRATIVAS
@@ -584,10 +584,10 @@ where aur.poa_codigo
       --WHERE true and aur.poa_codigo in (2)
       WHERE true and a.aun_codigo_ejecutora  in (9) and t.ges_codigo in (2) and aur.poa_codigo in (2)
 	  ;
-      
-     
-     
-	
+
+
+
+
 
 
 
