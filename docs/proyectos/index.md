@@ -51,6 +51,25 @@ Proyectos de backend con Node.js usando Express y distintas configuraciones.
 | **Express Prisma Postgres Pro** | Express + Prisma (avanzado) | [Ver](https://github.com/xixay/express_prisma_postgres_pro) |
 
 ---
+## 🌐 Frontend — Frameworks TypeScript (con Backend Nestjs)
+
+Proyectos de frontend conectados a backend Nestjs y PostgreSQL.
+
+| Proyecto | Tecnología | Enlace |
+|----------|------------|--------|
+| **NestJS Typeorm Frontend Angular** | Angular | [Ver](https://github.com/xixay/frontend_nestjs_typeorm_postgres) |
+
+---
+
+## 🛠️ Backend — Nestjs
+
+Proyectos de backend con Node.js usando NestJS y distintas configuraciones.
+
+| Proyecto | Stack | Enlace |
+|----------|-------|--------|
+| **NestJS PostgreSQL TypeORM TypeScript** | NestJS + PostgreSQL | [Ver](https://github.com/xixay/nestjs-typeorme-postgres-template) |
+
+---
 
 ## 🔷 Backend — NestJS
 
